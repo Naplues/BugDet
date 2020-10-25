@@ -3,7 +3,7 @@
 import os
 import re
 import logging
-from diff_helper import parse_diff, get_version_line
+from helper.file_helper import parse_diff, get_version_line
 
 global project, branch_name
 

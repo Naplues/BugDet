@@ -1,7 +1,7 @@
 # -*-coding:utf-8-*-
 # The script has been tested successfully.
 
-from helper import *
+from helper.file_helper import *
 from jira import JIRAError
 from jira.client import JIRA
 

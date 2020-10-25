@@ -2,10 +2,9 @@
 # The script has been tested successfully.
 
 import re
-import time
 import logging
-from helper import *
-from diff_helper import parse_diff
+from helper.file_helper import *
+from helper.file_helper import parse_diff
 
 global code_repository, root_path, result_root
 commit_dict_hashcode_index, commit_dict_index_hashcode = {}, {}
@@ -191,7 +190,7 @@ def resolve_diff_file():
     # Change current directory
     os.chdir(code_repository)
 
-    result_text = ''
+    result_text = 'bug_fixing_commit,src_files,bug_line_number_in_previous_commit,bug_inducing_commit\n'
     for commit_instance in get_commit_bug_files_map():
         bug_fixing_commit_id = commit_instance[0]  # bug fixing commit
 
