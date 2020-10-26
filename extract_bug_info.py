@@ -4,7 +4,7 @@
 import re
 import logging
 from helper.file_helper import *
-from helper.file_helper import parse_diff
+from helper.diff_helper import parse_diff
 
 global code_repository, root_path, result_root
 commit_dict_hashcode_index, commit_dict_index_hashcode = {}, {}
@@ -21,7 +21,7 @@ def output_commit_id():
     os.chdir(code_repository)
 
     # Output different commit log information
-    os.system(rf'git log --pretty=format:"%H %d" > {result_root}/commit_ref.txt')  # %H %ci | %H %s | %H %an %ae
+    os.system(rf'git log --pretty=format:"%H %s" > {result_root}/commit_ref.txt')  # %H %ci | %H %s | %H %an %ae
     print('Output commit hash code!')
 
 
@@ -228,7 +228,7 @@ if __name__ == '__main__':
         code_repository = root_path + "/Repository/" + proj
         result_root = root_path + "/Result/Bug/" + proj
 
-        # output_commit_log()
+        output_commit_id()
         # output_diff_info()
         get_commit_info()
 
@@ -236,4 +236,4 @@ if __name__ == '__main__':
         # Manually remove non-bugs commit TODO need review manually
 
         # output_bug_fixing_commit_diff()
-        resolve_diff_file()
+        # resolve_diff_file()
