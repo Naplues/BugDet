@@ -4,62 +4,16 @@
 import re
 import logging
 from helper.file_helper import *
+from helper.git_helper import *
 from helper.diff_helper import parse_diff
 
-global code_repository, root_path, result_root
-commit_dict_hashcode_index, commit_dict_index_hashcode = {}, {}
 
-
-def output_commit_id():
-    """
-    :return:None OK.
-    """
-    make_path(code_repository)
-    make_path(result_root)
-
-    # Change current directory
-    os.chdir(code_repository)
-
-    # Output different commit log information
-    os.system(rf'git log --pretty=format:"%H %s" > {result_root}/commit_ref.txt')  # %H %ci | %H %s | %H %an %ae
-    print('Output commit hash code!')
-
-
-def output_diff_info():
-    """
-    Tracking the information (including # add and delete lines) of all files that are modified by each commit. OK.
-    :return:None
-    """
-    # Change current directory
-    os.chdir(code_repository)
-    os.system("git config diff.renameLimit 3999")
-    # --diff-filter=M 意味着只抽取 Modified 的文件, 不考虑Added Deleted等情况
-    os.system(rf'git log --pretty=oneline --diff-filter=M --numstat > {result_root}/diff.txt')
-    os.system("git config --unset diff.renameLimit")
-    print('Output file change information!')
-
-
-def get_commit_info():
-    """
-    Get commit dict information. OK.
-    commit_dict_hashcode_index: Getting index from commit hash code
-    commit_dict_index_hashcode: Getting hash code from commit index
-    :return:
-    """
-    lines = read_data_from_file(rf'{result_root}/commit_ref.txt')
-
-    for index in range(len(lines)):
-        commit_id = lines[index].strip().split(' ')[0]
-        commit_dict_hashcode_index[commit_id] = index
-        commit_dict_index_hashcode[index] = commit_id
-
-
-def get_bug_id_list(proj):
+def get_bug_id_list(project):
     """
     Read Bug ID. GROOVY-3 OK.
     :return:
     """
-    bug_reports = read_data_from_file(rf'{root_path}/BugReport/statistics/{proj}.csv')
+    bug_reports = read_data_from_file(rf'{root_path}/BugReport/statistics/{project}.csv')
     bug_id_list = [bug.strip().split(',')[1] for bug in bug_reports[1:]]
     return bug_id_list
 
@@ -81,17 +35,17 @@ def check_bug_exist(commit_log, pattern):
             return False, ""
 
 
-def output_commit_bug_files_map(proj):
+def parse_diff_to_commit_bug_files_map(project):
     """
     # OK 获取commit 和 bug 对应表
     Match a bug id, its bug files, and its bug-fixing commit
     :return:
     """
-    lines = read_data_from_file(rf'{result_root}/diff.txt')
+    lines = read_data_from_file(rf'{analysis_file_paths[project]}/diff.txt')
     # [commit_id,  bug id, changed files, commit log]
     commit_bug_files_map, content_of_prev_commit, last_commit_is_bug = [], [], False
 
-    bug_id_list = get_bug_id_list(proj)  # 获取所有bug id作为待匹配模式
+    bug_id_list = get_bug_id_list(project)  # 获取所有bug id作为待匹配模式
 
     # 逐行解析处理diff.txt文件
     for line in lines:
@@ -117,53 +71,53 @@ def output_commit_bug_files_map(proj):
     # save the last commit info
     commit_bug_files_map.append(content_of_prev_commit) if last_commit_is_bug else None
     result = ''.join([f'{d[0]},{d[1]},{d[3]}' for d in commit_bug_files_map])
-    save_data_to_file(f'{result_root}/commit_id_bug_log.csv', result)
-    dump_pk_result(f'{result_root}/commit_id_bug_files.pk', commit_bug_files_map)
+    save_data_to_file(f'{analysis_file_paths[project]}/commit_bug_log.csv', result)
+    dump_pk_result(f'{analysis_file_paths[project]}/commit_bug_files.pk', commit_bug_files_map)
     print('Output and get commit bug files map!')
     return commit_bug_files_map
 
 
-def get_commit_bug_files_map():
-    commit_id_bug_files_path = f'{result_root}/commit_id_bug_files.pk'
-    pk_data = load_pk_result(commit_id_bug_files_path)
-    csv_data = read_data_from_file(f'{result_root}/commit_id_bug_log.csv')
-    # Select the commits id that have been identified by humans
+def get_commit_bug_files_map(project):
+    pk_data = load_pk_result(f'{analysis_file_paths[project]}/commit_bug_files.pk')
+    csv_data = read_data_from_file(f'{analysis_file_paths[project]}/commit_bug_log_manually_checked.csv')
+    # Select the commits id that have been identified by human beings
     commit_ids = [line.split(',')[0] for line in csv_data]
     pk_data = [c for c in pk_data if c[0] in commit_ids]
     return pk_data
 
 
-def output_bug_fixing_commit_diff():
+def output_bug_fixing_commit_diff_file(project):
     """
     Output bug-fixing commit diff file. OK.
     :return:
     """
     # Change current directory
-    os.chdir(code_repository)
+    os.chdir(code_repos_paths[project])
 
-    commit_bug_files_map = get_commit_bug_files_map()
-    make_path(f'{result_root}/diff/')
+    commit_bug_files_map = get_commit_bug_files_map(project)
+    make_path(f'{analysis_file_paths[project]}/diff/')
 
     for index in range(len(commit_bug_files_map)):
         commit_id = commit_bug_files_map[index][0]
         # --full-index TODO 是否需要忽略空白行-B
-        os.system(f'git log -p -n 1 --full-index {commit_id} > {result_root}/diff/{commit_id}.txt')
-        print(f'{index}/{len(commit_bug_files_map)}')
+        os.system(f'git log -p -n 1 --full-index {commit_id} > {analysis_file_paths[project]}/diff/{commit_id}.txt')
+        print(f'Outputting {index}/{len(commit_bug_files_map)} diff file.')
 
 
-def identify_bug_inducing_commit(src_file, del_lines):
+def identify_bug_inducing_commit(project, src_file, del_lines):
     """
     Leverage delete file lines in src file (i.e., buggy lines) to identifying bug-inducing commits
+    :param project:
     :param src_file:
     :param del_lines:
     :return:
     """
     # Change current directory
-    os.chdir(code_repository)
+    os.chdir(code_repos_paths[project])
 
-    make_path(f'{result_root}/blame/')
-    blame_file_path = f'{result_root}/blame/{src_file.replace("/", ".")}.txt'
-    os.system(f'git blame --abbrev=7 {src_file} > {blame_file_path}')
+    make_path(f'{analysis_file_paths[project]}/blame/')
+    blame_file_path = f'{analysis_file_paths[project]}/blame/{src_file.replace("/", ".")}.txt'
+    os.system(f'git blame --abbrev=39 {src_file} > {blame_file_path}')
     blame_file = read_data_from_file(blame_file_path)
     bug_inducing_commit = []
     for line in del_lines:
@@ -182,26 +136,27 @@ def identify_bug_inducing_commit(src_file, del_lines):
     return bug_inducing_commit
 
 
-def resolve_diff_file():
+def parse_diff_file_to_get_bug_inducing_commit(project):
     """
     Identifying defective file lines by tracking bug fixing commit. OK.
     :return:
     """
     # Change current directory
-    os.chdir(code_repository)
+    os.chdir(code_repos_paths[project])
 
     result_text = 'bug_fixing_commit,src_files,bug_line_number_in_previous_commit,bug_inducing_commit\n'
-    for commit_instance in get_commit_bug_files_map():
-        bug_fixing_commit_id = commit_instance[0]  # bug fixing commit
+    commit_bug_files_map = get_commit_bug_files_map(project)
+    for index in range(len(commit_bug_files_map)):
+        bug_fixing_commit = commit_bug_files_map[index][0]  # bug fixing commit
 
-        os.chdir(code_repository)
-        os.system(f'git reset --hard {bug_fixing_commit_id}~1')  # 定位到修复前一个commit(i.e., 包含bug的最后一个commit)
+        os.chdir(code_repos_paths[project])
+        os.system(f'git reset --hard {bug_fixing_commit}~1')  # 定位到BIC的前一个commit(i.e., 包含bug的最后一个commit)
 
-        diff = read_data_from_file(f'{result_root}/diff/{bug_fixing_commit_id}.txt')
+        diff_file = read_data_from_file(f'{analysis_file_paths[project]}/diff/{bug_fixing_commit}.txt')
         try:
-            bug_file_info = parse_diff(diff)
+            bug_file_info = parse_diff(diff_file)
         except:
-            logging.warning("Cannot analyze diff " + result_root + "diff/" + bug_fixing_commit_id + ".txt")
+            logging.warning("Cannot analyze " + analysis_file_paths[project] + "diff/" + bug_fixing_commit + ".txt")
             continue
 
         # Processing the deleted lines in each changed file
@@ -213,27 +168,10 @@ def resolve_diff_file():
                 continue
 
             # the bug lines are introduced in their corresponding commits
-            for instance in identify_bug_inducing_commit(src_file, bug_lines_delete):
+            for instance in identify_bug_inducing_commit(project, src_file, bug_lines_delete):
                 line_in_previous_commit = str(instance[0])
-                line_inducing_commit_id = instance[1]
-                result_text += f'{bug_fixing_commit_id},{src_file},{line_in_previous_commit},{line_inducing_commit_id}\n'
+                bug_inducing_commit = instance[1]
+                result_text += f'{bug_fixing_commit},{src_file},{line_in_previous_commit},{bug_inducing_commit}\n'
 
-    save_data_to_file(f'{result_root}/bug_commits_lines_info.csv', result_text)
+    save_data_to_file(f'{analysis_file_paths[project]}/bug_commits_lines_info.csv', result_text)
     os.system(f'git reset --hard {commit_dict_index_hashcode[0]}')
-
-
-if __name__ == '__main__':
-    # Processing each project
-    for proj in projects:
-        code_repository = root_path + "/Repository/" + proj
-        result_root = root_path + "/Result/Bug/" + proj
-
-        output_commit_id()
-        # output_diff_info()
-        get_commit_info()
-
-        # output_commit_bug_files_map(proj)
-        # Manually remove non-bugs commit TODO need review manually
-
-        # output_bug_fixing_commit_diff()
-        # resolve_diff_file()

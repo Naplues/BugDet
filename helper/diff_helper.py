@@ -8,8 +8,7 @@ from unidiff import PatchSet
 class Diff(object):
     def __init__(self, src_file, tar_file, hunk_infos):
         """
-        OK.
-        Initialize a diff instance
+        Initialize a diff instance OK.
         :param src_file: The file path in the previous code snapshot
         :param tar_file: The file path in the next code snapshot
         :param hunk_infos: The diff information, add lines number set and delete lines number set in tar_file
@@ -34,10 +33,7 @@ def dump_one_hunk(hunk):
     """
     src_st_lineno = hunk.source_start
     tar_st_lineno = hunk.target_start
-    d_cnt = 0
-    del_linenos = []
-    a_cnt = 0
-    add_linenos = []
+    d_cnt, a_cnt, del_linenos, add_linenos = 0, 0, [], []
 
     for line in hunk.source:
         if line.startswith('-'):
@@ -53,16 +49,12 @@ def dump_one_hunk(hunk):
             a_cnt += 1
     del_linenos = sorted(del_linenos)
     add_linenos = sorted(add_linenos)
-    return {
-        "d": del_linenos,
-        "a": add_linenos
-    }
+    return {"d": del_linenos, "a": add_linenos}
 
 
 def dump_one_patch(patch):
     """
-    OK.
-    Handling all changes in a patch (i.e., a changed file).
+    Handling all changes in a patch (i.e., a changed file).  OK.
     :param patch: The changed informations of a changed file.
     :return: A Diff instance.
     """
@@ -74,30 +66,31 @@ def dump_one_patch(patch):
         hunk_info = dump_one_hunk(hunk)
         del_linenos.extend(hunk_info["d"])
         add_linenos.extend(hunk_info["a"])
-    modify_info = {
-        "d": del_linenos,
-        "a": add_linenos
-    }
+    modify_info = {"d": del_linenos, "a": add_linenos}
     return Diff(src_file, tar_file, modify_info)
 
 
 def parse_diff(diff_file):
     """
-    OK.
-    Parse a diff file of one commit, and returen a Diff instance list.
+    Parse a diff file of one commit, and returen a Diff instance list.  OK.
     Patch: A diff file contains several patches, each of which describes the change informations of one changed file.
     Hunk：A Patch consists several hunks, all of which describe the different parts of change informations in the patch.
     :param diff_file: The file that contains diff information
     :return: A Diff instance list
     """
     patches = PatchSet(diff_file)
-    diff_list = []
-    for patch in patches:
-        diff_list.append(dump_one_patch(patch))
+    diff_list = [dump_one_patch(patch) for patch in patches]
     return diff_list
 
 
 def get_version_line(del_lines, add_lines, line):
+    """
+    calculate the line number in the target version
+    :param del_lines:
+    :param add_lines:
+    :param line:
+    :return:
+    """
     source = 1
     target = 1
     line_map = dict()
@@ -129,15 +122,3 @@ def get_version_line_2(del_lines, add_lines, line):
             t += 1
     # print(line, "->", t)
     return t
-
-
-if __name__ == '__main__':
-    test_file = r'C:\Users\gzq10\Desktop\code\Results\mnemonic\master\diff\3b000612c17f47a33d767fde40dc5ecca1fe52f6.txt'
-    diff = parse_diff(open(test_file, 'r', encoding='UTF-8'))
-    for d in diff:
-        print("src:", d.src_file)
-        print("tar:", d.tar_file)
-        print(d.hunk_infos['d'])
-        print(d.hunk_infos['a'])
-
-        get_version_line([3, 5], [7], 10)

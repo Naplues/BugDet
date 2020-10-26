@@ -4,14 +4,20 @@
 import os
 import pickle
 
+projects = ['groovy']
+
 root_path = r'D:/CLDP_data'
+dataset_paths = dict(zip(projects, [f'{root_path}/Dataset/{proj}' for proj in projects]))
+code_repos_paths = dict(zip(projects, [f'{root_path}/Repository/{proj}' for proj in projects]))
+analysis_file_paths = dict(zip(projects, [f'{root_path}/Analysis/{proj}' for proj in projects]))
+version_file_paths = dict(zip(projects, [f'{root_path}/Version/{proj}.csv' for proj in projects]))
+
 
 # ww:struts amq:activemq mvn:maven lang:commons-lang
 # "ambari", "amq", "avro", 'calcite', "camel", "curator", "flink", "flume", "geode", "groovy", "hudi", "ignite",
 # "kafka", "kylin", "lang", "mahout", "netbeans", "mng", "nifi", "nutch", "rocketmq", "shiro","storm", "tika", "ww",
 # "zeppelin", "zookeeper",
 # projects = ["mnemonic"]
-projects = ['groovy']
 
 
 def make_path(path):
@@ -39,7 +45,3 @@ def load_pk_result(path):
     with open(path, 'rb') as file:
         data = pickle.load(file)
     return data
-
-
-if __name__ == '__main__':
-    a = [1, 2, 3, 4, 5]
