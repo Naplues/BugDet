@@ -6,7 +6,7 @@ from jira import JIRAError
 from jira.client import JIRA
 
 
-def collect(proj):
+def collect_bugs(proj):
     """
     Collect Bug reports data from JIRA ITS
     """
@@ -74,4 +74,4 @@ def collect(proj):
 if __name__ == '__main__':
 
     for project in projects:
-        collect(project)
+        collect_bugs(project)

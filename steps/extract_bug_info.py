@@ -18,13 +18,14 @@ def get_bug_id_list(project):
     return bug_id_list
 
 
-def check_bug_exist(commit_log, pattern):
+def check_bug_exist(project, commit_log, pattern):
     """
+    :param project:
     :param commit_log: OK.
     :param pattern:
     :return:
     """
-    match = re.search(rf"{proj.upper()}-\d+", commit_log)
+    match = re.search(rf"{project.upper()}-\d+", commit_log)
     if not match:
         return False, ""
     else:
@@ -59,7 +60,7 @@ def parse_diff_to_commit_bug_files_map(project):
             # Processing the current commit
             commit_id, commit_log = line[:40], line[40:]
             # 检查该日志中是否含有bug修复信息
-            last_commit_is_bug, bug_id = check_bug_exist(commit_log, bug_id_list)
+            last_commit_is_bug, bug_id = check_bug_exist(project, commit_log, bug_id_list)
             if not last_commit_is_bug:
                 continue
             content_of_prev_commit = [commit_id, bug_id, [], commit_log]

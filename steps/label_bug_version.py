@@ -1,8 +1,6 @@
 # -*-coding:utf-8-*-
 
-import re
 import logging
-from helper.file_helper import *
 from helper.git_helper import *
 from helper.diff_helper import parse_diff, get_version_line
 
