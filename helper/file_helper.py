@@ -5,16 +5,11 @@ import os
 import pickle
 
 projects = [
-    # 'kafka',
-    'flink',  # OK
-    'hadoop',  # OK
-    'zookeeper',  # OK
-    'cassandra',
-    'storm',
-    'beam',
-    'groovy',
-    'hbase',
-    'ignite',
+    'kafka',
+    # 'flink',  # OK
+    # 'hadoop',  # OK
+    # 'zookeeper',  # OK
+    # 'cassandra', 'storm', 'beam', 'groovy', 'hbase', 'ignite',
 ]
 
 '''

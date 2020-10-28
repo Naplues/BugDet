@@ -49,7 +49,7 @@ def output_commit_info(project, branch_name):
     os.chdir(code_repos_paths[project])
     os.system(rf'git checkout -f {branch_name}')
     # Output different commit log information   # %H %ci | %H %s | %H %an %ae
-    os.system(rf'git log --pretty=format:"%H|%cd" > {analysis_file_path}/commit_ref.txt')
+    os.system(rf'git log --pretty=format:"%H|%cd|%s" > {analysis_file_path}/commit_ref.txt')
     print('Output commit hash code!')
 
 
@@ -88,5 +88,24 @@ def get_commit_info(project, branch_name):
         commit_dict_hashcode_time[commit_id] = datetime.datetime.strptime(commit_time, '%a %b %d %H:%M:%S %Y %z')
 
 
+def load_branch_dict(project):
+    branch_dict = {}
+    for branch in os.listdir(f'{analysis_file_paths[project]}'):
+        if branch == 'branch.txt':
+            continue
+        lines = read_data_from_file(rf'{analysis_file_paths[project]}/{branch}/commit_ref.txt')
+        for line in lines:
+            commit_id = line.strip().split('|')[0]
+            if commit_id not in branch_dict:
+                branch_dict[commit_id] = [branch]
+            else:
+                branch_dict[commit_id].append(branch)
+    return branch_dict
+
+
 def get_time(commit_id):
     return commit_dict_hashcode_time[commit_id]
+
+
+if __name__ == '__main__':
+    load_branch_dict('kafka')

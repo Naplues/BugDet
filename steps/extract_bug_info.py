@@ -3,7 +3,6 @@
 
 import re
 import logging
-from helper.file_helper import *
 from helper.git_helper import *
 from helper.diff_helper import parse_diff
 
@@ -82,7 +81,7 @@ def parse_diff_to_commit_bug_files_map(project, branch_name):
 def get_commit_bug_files_map(project, branch_name):
     analysis_file_path = f'{analysis_file_paths[project]}/{branch_name}'
     pk_data = load_pk_result(f'{analysis_file_path}/commit_bug_files.pk')
-    csv_data = read_data_from_file(f'{analysis_file_path}/commit_bug_log_manually_checked.csv')
+    csv_data = read_data_from_file(f'{analysis_file_path}/commit_bug_log.csv') # commit_bug_log_manually_checked.csv
     # Select the commits id that have been identified by human beings
     commit_ids = [line.split(',')[0] for line in csv_data]
     pk_data = [c for c in pk_data if c[0] in commit_ids]
@@ -181,3 +180,7 @@ def parse_diff_file_to_get_bug_inducing_commit(project, branch_name):
 
     save_data_to_file(f'{analysis_file_path}/bug_commits_lines_info.csv', result_text)
     os.system(f'git reset --hard {commit_dict_index_hashcode[0]}')
+
+
+def combine_bug_info_from_all_branch(project):
+    pass

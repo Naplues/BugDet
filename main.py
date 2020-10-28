@@ -10,16 +10,16 @@ def main(project, branch_name):
     # 2. Extracting the commit info (e.g., commit id, diff file)
     get_commit_info(project, branch_name)
     # 3. Mapping a bug report id to the bug_fixing_commit and the buggy files by parsing diff file of the repository
-    # parse_diff_to_commit_bug_files_map(project,branch_name)
+    parse_diff_to_commit_bug_files_map(project, branch_name)
     # 4. Manually remove non-bugs commit. commit_bug_log_manually_checked.csv TODO need review manually
 
     # 5. Outputting bug_fixing commit diff file
-    # output_bug_fixing_commit_diff_file(project,branch_name)
+    output_bug_fixing_commit_diff_file(project, branch_name)
     # 6. Parsing the diff file to get the changed lines of a file, and then blame file to track bug inducing commit
-    # parse_diff_file_to_get_bug_inducing_commit(project,branch_name)
+    parse_diff_file_to_get_bug_inducing_commit(project, branch_name)
     # 7. Assigning the bugs for each version
-    # assign_bugs_for_each_version(project,branch_name)
-    pass
+    assign_bugs_for_each_version(project, branch_name)
+    combine_bug_info_from_all_branch(project)
 
 
 if __name__ == '__main__':
@@ -28,5 +28,5 @@ if __name__ == '__main__':
         # 1. Collecting the bug information from JIRA
         # collect_bugs(proj)
         branch_names = output_branch_info(proj)
-        for branch_name in branch_names:
-            main(proj, branch_name)
+        for branch in branch_names:
+            main(proj, branch)
