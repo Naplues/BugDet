@@ -5,28 +5,30 @@ import os
 import pickle
 
 projects = [
-    'kafka',
-    # 'flink',
-    # 'hadoop',
-    # 'zookeeper',
-    # 'storm',
-    # 'beam',
-    # 'groovy',
-    # 'hbase',
-    # 'ignite',
-
-    # 'camel',
-    # 'hive',
-    # 'shiro',
-    # 'kylin',
-    # 'curator',
-    # 'nifi',
-    # 'mvn', # maven
-    # 'nutch',
-    # 'calcite',
-    # 'flume',
-
+    # 'kafka',
+    'flink',  # OK
+    'hadoop',  # OK
+    'zookeeper',  # OK
+    'cassandra',
+    'storm',
+    'beam',
+    'groovy',
+    'hbase',
+    'ignite',
 ]
+
+'''
+'camel',
+'hive',
+'shiro',
+'kylin',
+'curator',
+'nifi',
+'mvn',  # maven
+'nutch',
+'calcite',
+'flume',
+'''
 
 root_path = r'D:/CLDP_data'
 dataset_paths = dict(zip(projects, [f'{root_path}/Dataset/{proj}' for proj in projects]))

@@ -54,6 +54,7 @@ def assign_bugs_for_each_version(project):
                 continue
 
             if version_commit_id not in commit_dict_hashcode_index.keys():
+                print('version commit id is not in the branch')
                 continue
 
             # 当前版本的commit在 BIC commit和 BFC commit之间 after commitStart and before commit_id 之间的时期为bug生存期
