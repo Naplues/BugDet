@@ -29,9 +29,11 @@ def exclude_bugs_fixed_after_next_version(result, next_version_date):
     return exclude_result
 
 
-def assign_bugs_for_each_version(project, branch_name):
+def main_step_assign_bugs_for_each_version(project, branch_name):
     """
-    Algorithm 2
+    Assigning the bugs for each version. OK
+    :param project:
+    :param branch_name:
     :return:
     """
     branch_info = load_branch_dict(project)
@@ -61,10 +63,13 @@ def assign_bugs_for_each_version(project, branch_name):
                 print('version commit id is not in the branch')
                 continue
             if bug_inducing_commit not in branch_info:
+                print(f'bug-fixing commit {bug_inducing_commit} is not in branch {branch_info}')
                 continue
 
             if commit_version_branch[commit_version_id] not in branch_info[bug_inducing_commit]:
+                print('the current version and bug-inducing commit are not in the same branch')
                 continue
+
             # 当前版本的commit在 BIC commit和 BFC commit之间 after commitStart and before commit_id 之间的时期为bug生存期
             # && bug_fixing_commit should older than test release data
             if get_time(bug_inducing_commit) <= get_time(commit_version_id) < get_time(bug_fixing_commit):
@@ -78,8 +83,7 @@ def assign_bugs_for_each_version(project, branch_name):
                 if os.path.getsize(diff_temp_path):
                     try:
                         version_diff = parse_diff(diff)
-
-                        # 当解析前后的版本中文件路径发生变更时，暂不考虑
+                        # Ignoring the files whose paths change before and after the commit
                         if version_diff[0].tar_file == "/dev/null":
                             continue
                         del_lines = version_diff[0].hunk_infos['d']
@@ -107,4 +111,4 @@ if __name__ == '__main__':
 
     for proj in projects:
         get_commit_info(proj)
-        assign_bugs_for_each_version(proj)
+        main_step_assign_bugs_for_each_version(proj)

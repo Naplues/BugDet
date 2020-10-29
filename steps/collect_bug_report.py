@@ -12,7 +12,7 @@ def collect_bugs(proj):
     """
     jira = JIRA(server="https://issues.apache.org/jira/", auth=('naplues', '211314Ting'))
 
-    statistics_path = root_path + '/BugReport/statistics/'
+    statistics_path = root_path + '/BugReport/'
     reports_path = root_path + '/BugReport/reports/' + proj + '/'
     make_path(statistics_path)
     make_path(reports_path)
