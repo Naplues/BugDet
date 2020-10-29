@@ -6,7 +6,8 @@ import pickle
 
 projects = [
     # 'kafka', 'flink', 'hadoop', 'zookeeper',
-    'cassandra',  # 'storm', 'beam', 'groovy', 'hbase', 'ignite',
+    # 'cassandra',
+    'storm',  # 'beam', 'groovy', 'hbase', 'ignite',
 ]
 
 '''

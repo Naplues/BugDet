@@ -107,6 +107,31 @@ def main_step_assign_bugs_for_each_version(project, branch_name):
         save_data_to_file(f'{dataset_path}/{version_name}_tmp_defective_lines_dataset.csv', '\n'.join(result))
 
 
+def combine_bug_info_from_all_branch(project):
+    commit_version_name, commit_version_date, commit_version_next, commit_version_branch = get_version_info(project)
+    for version in commit_version_name.values():
+        result = ["buggy file,buggy_line_in_the_version"]
+        tmp_result = ["buggy file,buggy_line_in_the_version"]
+        for branch in os.listdir(f'{dataset_paths[project]}'):
+            if str(branch).endswith('.csv'):
+                continue
+            dataset_path = f'{dataset_paths[project]}/{branch}/{version}_defective_lines_dataset.csv'
+            lines = read_data_from_file(dataset_path)
+            for line in lines[1:]:
+                line = ','.join(line.split(',')[:2])
+                if line not in result:
+                    result.append(line)
+            tmp_dataset_path = f'{dataset_paths[project]}/{branch}/{version}_tmp_defective_lines_dataset.csv'
+            lines = read_data_from_file(tmp_dataset_path)
+            for line in lines[1:]:
+                line = ','.join(line.split(',')[:2])
+                if line not in tmp_result:
+                    tmp_result.append(line)
+        save_data_to_file(f'{dataset_paths[project]}/{version}_defective_lines_dataset.csv', '\n'.join(result))
+        save_data_to_file(f'{dataset_paths[project]}/{version}_tmp_defective_lines_dataset.csv', '\n'.join(tmp_result))
+    print(f'{project} combined finish!')
+
+
 if __name__ == '__main__':
 
     for proj in projects:

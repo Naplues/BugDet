@@ -188,7 +188,3 @@ def main_step_parse_diff_file_to_get_bug_inducing_commit(project, branch_name):
 
     save_data_to_file(f'{analysis_file_path}/bug_commits_lines_info.csv', result_text)
     os.system(f'git reset --hard {commit_dict_index_hashcode[0]}')
-
-
-def combine_bug_info_from_all_branch(project):
-    pass
