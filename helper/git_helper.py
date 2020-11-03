@@ -10,6 +10,7 @@ commit_dict_hashcode_index, commit_dict_index_hashcode, commit_dict_hashcode_tim
 
 def output_branch_info(project):
     """
+    需要修改,有些 branch 重复
     :return:None OK.
     """
     make_path(code_repos_paths[project])

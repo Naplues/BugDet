@@ -127,7 +127,7 @@ def identify_bug_inducing_commit(project, branch_name, src_file, del_lines):
 
     make_path(f'{analysis_file_path}/blame/')
     blame_file_path = f'{analysis_file_path}/blame/{src_file.replace("/", ".")}.txt'
-    os.system(f'git blame --abbrev=39 {src_file} > {blame_file_path}')
+    os.system(f'git blame --no-abbrev {src_file} > {blame_file_path}')
     blame_file = read_data_from_file(blame_file_path)
     bug_inducing_commit = []
     for line in del_lines:
