@@ -51,7 +51,7 @@ def main_step_parse_diff_to_get_commit_bug_files_map(project, branch_name):
     :return:
     """
     # result need to calculate [bug_fixing_commit_id,  bug id, changed files, commit log]
-    commit_bug_files_map, content_of_prev_commit, last_commit_is_bug = [], [], False
+    commit_bug_files_map, content_of_prev_commit, last_commit_is_bug, duplicated = [], [], False, False
 
     analysis_file_path = f'{analysis_file_paths[project]}/{branch_name}'
     # Obtaining all bug id as matched patterns
@@ -60,7 +60,7 @@ def main_step_parse_diff_to_get_commit_bug_files_map(project, branch_name):
     # Parsing diff.txt file line by line
     lines = read_data_from_file(rf'{analysis_file_path}/diff.txt')
     for line in lines:
-        tmp = line.split("\t", 2)
+        tmp = line.strip().split("\t", 2)
         if len(tmp) != 1 and len(tmp) != 3:
             continue
         # When processing a new commit id line
@@ -82,13 +82,21 @@ def main_step_parse_diff_to_get_commit_bug_files_map(project, branch_name):
     # save the last commit info
     commit_bug_files_map.append(content_of_prev_commit) if last_commit_is_bug else None
 
+    # Filter the duplicated commits
+    filtered_commit_bug_files_map = []
+    for instance in commit_bug_files_map:
+        commit_id = instance[0]
+        if commit_id not in all_bug_fixing_commit and len(instance[2]) > 0:
+            filtered_commit_bug_files_map.append(instance)
+            all_bug_fixing_commit.append(commit_id)
+
     # Output the result to file
     if not os.path.exists(f'{analysis_file_path}/BFC_commit_bug_files.pk'):
-        dump_pk_result(f'{analysis_file_path}/BFC_commit_bug_files.pk', commit_bug_files_map)
-        result = ''.join([f'{d[0]},{d[1]},{d[3]}' for d in commit_bug_files_map])
+        dump_pk_result(f'{analysis_file_path}/BFC_commit_bug_files.pk', filtered_commit_bug_files_map)
+        result = ''.join([f'{d[0]},{d[1]},{d[3]}' for d in filtered_commit_bug_files_map])
         save_data_to_file(f'{analysis_file_path}/BFC_commit_bug_log.csv', result)
     print('Output [bug-fixing commit, bug id, bug files, fix log] map file!')
-    return commit_bug_files_map
+    return filtered_commit_bug_files_map
 
 
 def get_commit_bug_files_map(project, branch_name):
@@ -118,7 +126,7 @@ def main_step_output_bug_fixing_commit_diff_file(project, branch_name):
         if not os.path.exists(f'{analysis_file_path}/diff/{commit_id}.txt'):
             # -p: show diff caused by bug fixing commit
             os.system(f'git log -p -n 1 --full-index {commit_id} > {analysis_file_path}/diff/{commit_id}.txt')
-        print(f'Outputting {index}/{len(commit_bug_files_map)} diff file.') if index % 10 == 0 else None
+        print(f'Outputting {index}/{len(commit_bug_files_map)} diff file.') if index % 100 == 0 else None
 
 
 def identify_bug_inducing_commit(project, branch_name, src_file, del_lines):
@@ -142,8 +150,10 @@ def identify_bug_inducing_commit(project, branch_name, src_file, del_lines):
         if line > len(blame_file):
             logging.warning(f'git blame line error! {src_file}:{line}:{len(blame_file)}')
             continue
-        # Skip if it is a blank line
-        if blame_file[line - 1].strip().endswith(")"):
+        # Skip if it is a blank line or a comment line
+        target_line = blame_file[line - 1].strip()
+        if target_line.endswith(')') or target_line.startswith('//') or target_line.startswith('/*') \
+                or target_line.startswith('*') or target_line.endswith('*/'):
             continue
         # Otherwise, processing the line that was deleted
         tmps = re.split("\s+", blame_file[line - 1].strip())
@@ -163,7 +173,8 @@ def main_step_parse_diff_file_to_get_bug_inducing_commit(project, branch_name):
     analysis_file_path = f'{analysis_file_paths[project]}/{branch_name}'
     # Change current directory
     os.chdir(code_repos_paths[project])
-
+    if os.path.exists(f'{analysis_file_path}/bug_commits_lines_info.pk'):
+        return
     result_text = 'bug_fixing_commit,src_files,bug_line_number_in_previous_commit,bug_inducing_commit\n'
     commit_bug_files_map = get_commit_bug_files_map(project, branch_name)
     for index in range(len(commit_bug_files_map)):
@@ -177,8 +188,9 @@ def main_step_parse_diff_file_to_get_bug_inducing_commit(project, branch_name):
         for bug_file in bug_file_info:
             bug_lines_delete = bug_file.hunk_infos['d']
             src_file = bug_file.src_file[2:]  # remove a/ to get the original file path
-            # Skip if it is not a java file or there is no deleted lines
-            if not src_file.endswith('.java') or len(bug_lines_delete) == 0:
+            # Skip if it is not a java file or there is no deleted lines or it is a test file
+            if not src_file.endswith('.java') or len(bug_lines_delete) == 0 \
+                    or '/test/' in src_file or '/tests/' in src_file or src_file.endswith('Test.java'):
                 continue
 
             # the bug lines are introduced in their corresponding commits

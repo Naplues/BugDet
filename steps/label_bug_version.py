@@ -43,6 +43,7 @@ def main_step_assign_bugs_for_each_version(project, branch_name):
     # 待测版本的commit id and version name
     lines = read_data_from_file(f'{analysis_file_path}/bug_commits_lines_info.csv')
     commit_version_name, commit_version_date, commit_version_next, commit_version_branch = get_version_info(project)
+
     for commit_version_id, version_name in commit_version_name.items():
 
         result = ["buggy file,buggy_line_in_the_version,bug_inducing_commit,bug_fixing_commit"]
@@ -75,24 +76,20 @@ def main_step_assign_bugs_for_each_version(project, branch_name):
             if get_time(bug_inducing_commit) <= get_time(commit_version_id) < get_time(bug_fixing_commit):
                 # Checking the diff between a bug commit and the specific version k
                 # the bug lines in Vm must can be founded in Vt
-                cmd = f'git diff {bug_fixing_commit}~1 {commit_version_id} -- {buggy_file} > {diff_temp_path}'
-                os.system(cmd)
+                os.system(f'git diff {bug_fixing_commit}~1 {commit_version_id} -- {buggy_file} > {diff_temp_path}')
 
                 diff = read_data_from_file(diff_temp_path)
                 # We need to relocate the target lines when temp diff file is not empty.
                 if os.path.getsize(diff_temp_path):
-                    try:
-                        version_diff = parse_diff(diff)
-                        # Ignoring the files whose paths change before and after the commit
-                        if version_diff[0].tar_file == "/dev/null":
-                            continue
-                        del_lines = version_diff[0].hunk_infos['d']
-                        add_lines = version_diff[0].hunk_infos['a']
-                        bug_line_in_version = get_version_line(del_lines, add_lines, int(bug_line_in_previous_commit))
 
-                    except:
-                        logging.warning("Cannot analyze diff")
+                    version_diff = parse_diff(diff)
+                    # Ignoring the files whose paths change before and after the commit
+                    if len(version_diff) == 0 or version_diff[0].tar_file == "/dev/null":
                         continue
+                    del_lines = version_diff[0].hunk_infos['d']
+                    add_lines = version_diff[0].hunk_infos['a']
+                    bug_line_in_version = get_version_line(del_lines, add_lines, int(bug_line_in_previous_commit))
+
                 # There is no change between the target version and the last bug-containing commmit
                 # when temp diff file is empty. Thus, directly assign.
                 else:

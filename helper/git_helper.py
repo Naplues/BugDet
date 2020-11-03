@@ -6,6 +6,7 @@ from helper.file_helper import *
 from pprint import pprint
 
 commit_all = []
+all_bug_fixing_commit = []
 commit_all_branch_dict = {}
 commit_dict_hashcode_index, commit_dict_index_hashcode, commit_dict_hashcode_time = {}, {}, {}
 
