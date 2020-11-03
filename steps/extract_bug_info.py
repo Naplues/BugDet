@@ -25,15 +25,22 @@ def match_bug_pattern(project, commit_log, pattern):
     :param pattern:
     :return:
     """
+    status, matched_pattern = False, ''
     match = re.search(rf"{project.upper()}-\d+", commit_log)
-    if not match:
-        return False, ""
-    else:
+
+    if match:
+        # Match the resolved bug id in recorded in JIRA
         matcher = match.group()
         if matcher in pattern:
-            return True, matcher
-        else:
-            return False, ""
+            status, matched_pattern = True, matcher
+    else:
+        # Match the number
+        for bug_id in re.findall(rf'\d+', commit_log):
+            if f'{project.upper()}-{bug_id}' in pattern and 'fix' in commit_log.lower():
+                status, matched_pattern = True, bug_id
+                break
+
+    return status, matched_pattern
 
 
 def main_step_parse_diff_to_get_commit_bug_files_map(project, branch_name):
@@ -69,27 +76,28 @@ def main_step_parse_diff_to_get_commit_bug_files_map(project, branch_name):
             content_of_prev_commit = [commit_id, bug_id, [], commit_log]
 
         # When processing file change lines, add changed files into list
-        if len(tmp) == 3 and last_commit_is_bug:
+        if len(tmp) == 3 and last_commit_is_bug and tmp[2].endswith('.java'):
             content_of_prev_commit[2].append(tmp[2])  # tmp[2]: java files
 
     # save the last commit info
     commit_bug_files_map.append(content_of_prev_commit) if last_commit_is_bug else None
 
     # Output the result to file
-    dump_pk_result(f'{analysis_file_path}/commit_bug_files.pk', commit_bug_files_map)
-    result = ''.join([f'{d[0]},{d[1]},{d[3]}' for d in commit_bug_files_map])
-    save_data_to_file(f'{analysis_file_path}/commit_bug_log.csv', result)
+    if not os.path.exists(f'{analysis_file_path}/BFC_commit_bug_files.pk'):
+        dump_pk_result(f'{analysis_file_path}/BFC_commit_bug_files.pk', commit_bug_files_map)
+        result = ''.join([f'{d[0]},{d[1]},{d[3]}' for d in commit_bug_files_map])
+        save_data_to_file(f'{analysis_file_path}/BFC_commit_bug_log.csv', result)
     print('Output [bug-fixing commit, bug id, bug files, fix log] map file!')
     return commit_bug_files_map
 
 
 def get_commit_bug_files_map(project, branch_name):
     analysis_file_path = f'{analysis_file_paths[project]}/{branch_name}'
-    pk_data = load_pk_result(f'{analysis_file_path}/commit_bug_files.pk')
-    csv_data = read_data_from_file(f'{analysis_file_path}/commit_bug_log.csv')  # commit_bug_log_manually_checked.csv
-    # Select the commits id that have been identified by human beings
-    commit_ids = [line.split(',')[0] for line in csv_data]
-    pk_data = [c for c in pk_data if c[0] in commit_ids]
+    pk_data = load_pk_result(f'{analysis_file_path}/BFC_commit_bug_files.pk')
+    # csv_data = read_data_from_file(f'{analysis_file_path}/commit_bug_log.csv')  # commit_bug_log_manually_checked.csv
+    # # Select the commits id that have been identified by human beings
+    # commit_ids = [line.split(',')[0] for line in csv_data]
+    # pk_data = [c for c in pk_data if c[0] in commit_ids]
     return pk_data
 
 
@@ -107,9 +115,10 @@ def main_step_output_bug_fixing_commit_diff_file(project, branch_name):
 
     for index in range(len(commit_bug_files_map)):
         commit_id = commit_bug_files_map[index][0]
-        # -p: show diff caused by bug fixing commit
-        os.system(f'git log -p -n 1 --full-index {commit_id} > {analysis_file_path}/diff/{commit_id}.txt')
-        print(f'Outputting {index}/{len(commit_bug_files_map)} diff file.')
+        if not os.path.exists(f'{analysis_file_path}/diff/{commit_id}.txt'):
+            # -p: show diff caused by bug fixing commit
+            os.system(f'git log -p -n 1 --full-index {commit_id} > {analysis_file_path}/diff/{commit_id}.txt')
+        print(f'Outputting {index}/{len(commit_bug_files_map)} diff file.') if index % 10 == 0 else None
 
 
 def identify_bug_inducing_commit(project, branch_name, src_file, del_lines):
@@ -122,8 +131,6 @@ def identify_bug_inducing_commit(project, branch_name, src_file, del_lines):
     :return:
     """
     analysis_file_path = f'{analysis_file_paths[project]}/{branch_name}'
-    # Change current directory
-    os.chdir(code_repos_paths[project])
 
     make_path(f'{analysis_file_path}/blame/')
     blame_file_path = f'{analysis_file_path}/blame/{src_file.replace("/", ".")}.txt'
@@ -165,13 +172,7 @@ def main_step_parse_diff_file_to_get_bug_inducing_commit(project, branch_name):
         os.chdir(code_repos_paths[project])
         os.system(f'git reset --hard {bug_fixing_commit}~1')  # 定位到BIC的前一个commit(i.e., 包含bug的最后一个commit)
 
-        diff_file = read_data_from_file(f'{analysis_file_path}/diff/{bug_fixing_commit}.txt')
-        try:
-            bug_file_info = parse_diff(diff_file)
-        except:
-            logging.warning("Cannot analyze " + analysis_file_path + "diff/" + bug_fixing_commit + ".txt")
-            continue
-
+        bug_file_info = parse_diff(read_data_from_file(f'{analysis_file_path}/diff/{bug_fixing_commit}.txt'))
         # Processing the deleted lines in each changed file
         for bug_file in bug_file_info:
             bug_lines_delete = bug_file.hunk_infos['d']

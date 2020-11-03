@@ -1,8 +1,8 @@
 # -*-coding:utf-8-*-
 # The script has been tested successfully.
+import logging
 
-
-from unidiff import PatchSet
+from unidiff import PatchSet, UnidiffParseError
 
 
 class Diff(object):
@@ -78,8 +78,12 @@ def parse_diff(diff_file):
     :param diff_file: The file that contains diff information
     :return: A Diff instance list
     """
-    patches = PatchSet(diff_file)
-    diff_list = [dump_one_patch(patch) for patch in patches]
+    diff_list = []
+    try:
+        patches = PatchSet(diff_file)
+        diff_list = [dump_one_patch(patch) for patch in patches]
+    except UnidiffParseError:
+        logging.warning(f"Cannot analyze {diff_file}")
     return diff_list
 
 

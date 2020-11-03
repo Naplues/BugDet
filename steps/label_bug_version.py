@@ -36,7 +36,7 @@ def main_step_assign_bugs_for_each_version(project, branch_name):
     :param branch_name:
     :return:
     """
-    branch_info = load_branch_dict(project)
+    branch_info = load_commit_branch_dict(project)
     os.chdir(code_repos_paths[project])
     analysis_file_path = f'{analysis_file_paths[project]}/{branch_name}'
     diff_temp_path = f'{analysis_file_path}/diff_temp.txt'
