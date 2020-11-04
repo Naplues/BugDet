@@ -4,7 +4,7 @@
 import re
 import logging
 from helper.git_helper import *
-from helper.diff_helper import parse_diff
+from helper.diff_helper import parse_diff, get_version_line
 
 
 def get_bug_id_list(project):
@@ -136,8 +136,7 @@ def identify_bug_inducing_commit(src_file, del_lines, analysis_file_path):
             continue
         # Skip if it is a blank line or a comment line
         target_line = blame_file[line - 1].strip()
-        if target_line.endswith(')') or target_line.startswith('//') or target_line.startswith('/*') \
-                or target_line.startswith('*') or target_line.endswith('*/'):
+        if is_comment_line(target_line):
             continue
         # Otherwise, processing the line that was deleted
         tmps = re.split("\s+", blame_file[line - 1].strip())
@@ -156,7 +155,7 @@ def main_step_parse_diff_file_to_get_bug_inducing_commit(analysis_file_path):
     if os.path.exists(f'{analysis_file_path}/bug_commits_lines_info.csv'):
         return
 
-    result_text = 'bug_fixing_commit,src_files,bug_line_number_in_previous_commit,bug_inducing_commit\n'
+    result_text = 'bug_fixing_commit,src_files,bug_line_in_last_commit,bug_inducing_commit\n'
     commit_bug_files_map = load_pk_result(f'{analysis_file_path}/BFC_commit_bug_files.pk')
     for index in range(len(commit_bug_files_map)):
         bug_fixing_commit = commit_bug_files_map[index][0]  # bug fixing commit
@@ -166,7 +165,7 @@ def main_step_parse_diff_file_to_get_bug_inducing_commit(analysis_file_path):
         bug_file_info = parse_diff(read_data_from_file(f'{analysis_file_path}/diff/{bug_fixing_commit}.txt'))
         # Processing the deleted lines in each changed file
         for bug_file in bug_file_info:
-            bug_lines_delete = bug_file.hunk_info['d']
+            bug_lines_delete = bug_file.hunk_info['d']  # the  line in the last commit
             src_file = bug_file.src_file[2:]  # remove a/ to get the original file path
             # Skip if it is not a java file or there is no deleted lines or it is a test file
             if not src_file.endswith('.java') or len(bug_lines_delete) == 0 or is_test_file(src_file):
@@ -174,8 +173,9 @@ def main_step_parse_diff_file_to_get_bug_inducing_commit(analysis_file_path):
 
             # the bug lines are introduced in their corresponding commits
             for instance in identify_bug_inducing_commit(src_file, bug_lines_delete, analysis_file_path):
-                line_in_previous_commit = str(instance[0])
+                line_in_previous_commit = instance[0]
                 bug_inducing_commit = instance[1]
+
                 result_text += f'{bug_fixing_commit},{src_file},{line_in_previous_commit},{bug_inducing_commit}\n'
 
     save_data_to_file(f'{analysis_file_path}/bug_commits_lines_info.csv', result_text)

@@ -58,7 +58,6 @@ def main_step_assign_bugs_for_each_version(project, branch_name, analysis_file_p
     :param analysis_file_path:
     :return:
     """
-    load_commit_branch_dict(project)
     branch_dict = load_pk_result(f'{analysis_file_paths[project]}/branch_dict.pk')
     diff_temp_path = f'{analysis_file_path}/diff_temp.txt'
     dataset_path = f'{dataset_paths[project]}/{branch_name}'
@@ -73,8 +72,8 @@ def main_step_assign_bugs_for_each_version(project, branch_name, analysis_file_p
             print(f'Processing {v_name}： {index}/{len(lines[1:])}') if index % 100 == 0 else None
             temp = lines[1:][index].strip().split(',')
             bfc_commit, bic_commit = temp[0], transform(temp[3])
-            buggy_file, bug_line_in_previous_commit = temp[1], temp[2]
-
+            buggy_file, bug_line_in_last_commit = temp[1], int(temp[2])
+            print(bfc_commit)
             bic_branch = []
             for b in c_to_branches[bic_commit]:
                 bic_branch += branch_dict[b]
@@ -91,6 +90,7 @@ def main_step_assign_bugs_for_each_version(project, branch_name, analysis_file_p
             if c_to_time[bic_commit] <= c_to_time[v_id] < c_to_time[bfc_commit]:
                 # Checking the diff between a bug commit and the specific version k
                 # the bug lines in Vm must can be founded in Vt
+
                 cmd = f'git diff {bfc_commit}~1 {v_id} -- {buggy_file} > {diff_temp_path}'
                 if cmd != last_cmd:
                     os.system(cmd)
@@ -105,12 +105,12 @@ def main_step_assign_bugs_for_each_version(project, branch_name, analysis_file_p
                         continue
                     del_lines = version_diff[0].hunk_info['d']
                     add_lines = version_diff[0].hunk_info['a']
-                    bug_line_in_version = get_version_line(del_lines, add_lines, int(bug_line_in_previous_commit))
+                    bug_line_in_version = get_version_line(del_lines, add_lines, bug_line_in_last_commit)
 
                 # There is no change between the target version and the last bug-containing commit
                 # when temp diff file is empty. Thus, directly assign.
                 else:
-                    bug_line_in_version = bug_line_in_previous_commit
+                    bug_line_in_version = bug_line_in_last_commit
 
                 if bug_line_in_version != -1:
                     result.append(f'{buggy_file},{bug_line_in_version},{bic_commit},{bfc_commit}')

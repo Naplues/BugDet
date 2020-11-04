@@ -65,3 +65,8 @@ def load_pk_result(path):
 
 def is_test_file(src_file):
     return 'test/' in src_file or 'tests/' in src_file or src_file.endswith('Test.java')
+
+
+def is_comment_line(target_line):
+    return target_line.endswith(')') or target_line.startswith('//') or target_line.startswith('/*') \
+           or target_line.startswith('*') or target_line.endswith('*/')

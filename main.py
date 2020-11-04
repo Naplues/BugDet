@@ -16,24 +16,26 @@ def main_steps_for_each_branch(project, branch_name, analysis_path):
     main_step_parse_diff_file_to_get_bug_inducing_commit(analysis_path)
     # 7. Assigning the bugs for each version
     main_step_assign_bugs_for_each_version(project, branch_name, analysis_path)
-    pass
 
 
 if __name__ == '__main__':
     # Processing each project
     for proj in projects:
-
         # 1. Collecting the bug information from JIRA
         # collect_bugs(proj)
         # Change current directory
         os.chdir(code_repos_paths[proj])
         # 2. branch information
+        for branch in selected_branches(proj):
+            analysis_file_path = f'{analysis_file_paths[proj]}/{branch}'
+            make_path(analysis_file_path)
+            output_commit_info(branch, analysis_file_path)
+        load_commit_branch_dict(proj)
 
+        # main steps
         for branch in selected_branches(proj):
             # the path of analysis data
             analysis_file_path = f'{analysis_file_paths[proj]}/{branch}'
-            make_path(analysis_file_path)
-
             main_steps_for_each_branch(proj, branch, analysis_file_path)
 
         # combine_bug_info_from_all_branch(proj)

@@ -38,15 +38,13 @@ def dump_one_hunk(hunk):
     for line in hunk.source:
         if line.startswith('-'):
             del_linenos.append(src_st_line + d_cnt)
-            d_cnt += 1
-        else:
-            d_cnt += 1
+        d_cnt += 1
+
     for line in hunk.target:
         if line.startswith('+'):
             add_linenos.append(tar_st_line + a_cnt)
-            a_cnt += 1
-        else:
-            a_cnt += 1
+        a_cnt += 1
+
     del_linenos = sorted(del_linenos)
     add_linenos = sorted(add_linenos)
     return {"d": del_linenos, "a": add_linenos}
@@ -88,15 +86,29 @@ def parse_diff(diff_file):
 
 
 def get_version_line(del_lines, add_lines, line):
+    """
+    Suppose A -> B, we get the line of A, how to calculate the line of B
+    :param del_lines:
+    :param add_lines:
+    :param line:
+    :return:
+    """
     # 目标版本删除了当前行,说明目标版本该行没有bug
+    # if line was deleted in B, then, we can not get the corresponding line in B
     if line in del_lines:
-        # print("would never be executed!")
         return -1
-    # 目标版本在当前行号之前被删除的行的数目
-    t = line - len([x for x in del_lines if x < line])
+    # how many lines were deleted before the target line in A
+    base = line - len([x for x in del_lines if x < line])
+    # how many lines were added before the target line in B
     for x in add_lines:
-        # 目标版本新加入的行在本行之前
-        if x <= t:
-            t += 1
-    # print(line, "->", t)
-    return t
+        if x <= base:
+            base += 1
+    return base
+
+
+if __name__ == '__main__':
+    d = [6]
+    a = [3, 4, 9]
+    ll = [1, 2, 3, 4, 5, 6, 7]
+    for l in ll:
+        print(get_version_line(d, a, l))

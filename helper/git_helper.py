@@ -95,7 +95,7 @@ def get_commit_info(branch_name, analysis_file_path):
     output_commit_info(branch_name, analysis_file_path)
     output_diff_info(analysis_file_path)
 
-    commit_all = []
+    commit_all.clear()
     lines = read_data_from_file(rf'{analysis_file_path}/commit_ref.txt')
     for index in range(len(lines)):
         commit_id = lines[index].strip().split('|')[0]
