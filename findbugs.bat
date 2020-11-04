@@ -1,1 +1,0 @@
-findbugs.bat -textui -low -xml -outputFile output.xml flink-core-1.10.1.jar

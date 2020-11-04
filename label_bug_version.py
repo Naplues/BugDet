@@ -2,12 +2,14 @@
 
 import logging
 from helper.git_helper import *
-from helper.diff_helper import parse_diff, get_version_line
+from helper.diff_helper import *
+
+tmp_dict = {}
 
 
 def get_version_info(project):
     """
-    OK.
+    Get version information. commit id, version name, version date, next date, branch. OK.
     :return:
     """
     commit_version_name, commit_version_date, commit_version_next, commit_version_branch = {}, {}, {}, {}
@@ -24,84 +26,99 @@ def get_version_info(project):
 
 
 def exclude_bugs_fixed_after_next_version(result, next_version_date):
+    """
+    Filter the bugs that fixed before next version. OK
+    :param result:
+    :param next_version_date:
+    :return:
+    """
     next_version_time = datetime.datetime.strptime(next_version_date, '%a %b %d %H:%M:%S %Y %z')
-    exclude_result = [result[0]] + [r for r in result[1:] if get_time(r.split(',')[3]) < next_version_time]
+    exclude_result = [result[0]] + [r for r in result[1:] if c_to_time[r.split(',')[3]] < next_version_time]
     return exclude_result
 
 
-def main_step_assign_bugs_for_each_version(project, branch_name):
+def transform(commit):
+    if commit.startswith('^'):
+        bic_commit = commit[1:]
+        if bic_commit in tmp_dict:
+            return tmp_dict[bic_commit]
+        for x in commit_all:
+            if x.startswith(bic_commit):
+                tmp_dict[bic_commit] = x
+                return x
+    else:
+        return commit
+
+
+def main_step_assign_bugs_for_each_version(project, branch_name, analysis_file_path):
     """
     Assigning the bugs for each version. OK
     :param project:
     :param branch_name:
+    :param analysis_file_path:
     :return:
     """
-    branch_info = load_commit_branch_dict(project)
-    os.chdir(code_repos_paths[project])
-    analysis_file_path = f'{analysis_file_paths[project]}/{branch_name}'
+    load_commit_branch_dict(project)
+    branch_dict = load_pk_result(f'{analysis_file_paths[project]}/branch_dict.pk')
     diff_temp_path = f'{analysis_file_path}/diff_temp.txt'
+    dataset_path = f'{dataset_paths[project]}/{branch_name}'
+    make_path(dataset_path)
+    last_cmd, diff = '', ''
     # 待测版本的commit id and version name
     lines = read_data_from_file(f'{analysis_file_path}/bug_commits_lines_info.csv')
-    commit_version_name, commit_version_date, commit_version_next, commit_version_branch = get_version_info(project)
-
-    for commit_version_id, version_name in commit_version_name.items():
-
+    version_name, v_date, v_next_date, v_to_branch = get_version_info(project)
+    for v_id, v_name in version_name.items():
         result = ["buggy file,buggy_line_in_the_version,bug_inducing_commit,bug_fixing_commit"]
-
         for index in range(len(lines[1:])):
-            print(f'Processing {version_name}： {index}/{len(lines[1:])}')
-            # [commit_id, bug_file, bug_line, inducing commit]
+            print(f'Processing {v_name}： {index}/{len(lines[1:])}') if index % 100 == 0 else None
             temp = lines[1:][index].strip().split(',')
-            bug_fixing_commit = temp[0]
-            buggy_file = temp[1]
-            bug_line_in_previous_commit = temp[2]
-            bug_inducing_commit = temp[3]
+            bfc_commit, bic_commit = temp[0], transform(temp[3])
+            buggy_file, bug_line_in_previous_commit = temp[1], temp[2]
 
-            if bug_inducing_commit.startswith('^'):
-                bug_inducing_commit = bug_inducing_commit[1:]
-
-            if commit_version_id not in commit_dict_hashcode_index.keys():
-                print('version commit id is not in the branch')
-                continue
-            if bug_inducing_commit not in branch_info:
-                print(f'bug-fixing commit {bug_inducing_commit} is not in branch {branch_info}')
+            bic_branch = []
+            for b in c_to_branches[bic_commit]:
+                bic_branch += branch_dict[b]
+            if v_to_branch[v_id] not in bic_branch:
+                # print(f' version and BIC are not in the same branch')
                 continue
 
-            if commit_version_branch[commit_version_id] not in branch_info[bug_inducing_commit]:
-                print('the current version and bug-inducing commit are not in the same branch')
+            if v_id not in commit_all:
+                # print(f' version commit is not in the current branch {branch_name}')
+                # 这种情况最好不应该跳过，而是应该另外处理 版本的时间在BIC和BFC之间,先找到BIC的行, 版本的行
                 continue
-
             # 当前版本的commit在 BIC commit和 BFC commit之间 after commitStart and before commit_id 之间的时期为bug生存期
             # && bug_fixing_commit should older than test release data
-            if get_time(bug_inducing_commit) <= get_time(commit_version_id) < get_time(bug_fixing_commit):
+            if c_to_time[bic_commit] <= c_to_time[v_id] < c_to_time[bfc_commit]:
                 # Checking the diff between a bug commit and the specific version k
                 # the bug lines in Vm must can be founded in Vt
-                os.system(f'git diff {bug_fixing_commit}~1 {commit_version_id} -- {buggy_file} > {diff_temp_path}')
+                cmd = f'git diff {bfc_commit}~1 {v_id} -- {buggy_file} > {diff_temp_path}'
+                if cmd != last_cmd:
+                    os.system(cmd)
+                    diff = read_data_from_file(diff_temp_path)
+                    last_cmd = cmd
 
-                diff = read_data_from_file(diff_temp_path)
                 # We need to relocate the target lines when temp diff file is not empty.
                 if os.path.getsize(diff_temp_path):
-
                     version_diff = parse_diff(diff)
                     # Ignoring the files whose paths change before and after the commit
                     if len(version_diff) == 0 or version_diff[0].tar_file == "/dev/null":
                         continue
-                    del_lines = version_diff[0].hunk_infos['d']
-                    add_lines = version_diff[0].hunk_infos['a']
+                    del_lines = version_diff[0].hunk_info['d']
+                    add_lines = version_diff[0].hunk_info['a']
                     bug_line_in_version = get_version_line(del_lines, add_lines, int(bug_line_in_previous_commit))
 
-                # There is no change between the target version and the last bug-containing commmit
+                # There is no change between the target version and the last bug-containing commit
                 # when temp diff file is empty. Thus, directly assign.
                 else:
                     bug_line_in_version = bug_line_in_previous_commit
 
-                result.append(f'{buggy_file},{bug_line_in_version},{bug_inducing_commit},{bug_fixing_commit}')
-        # save line level defect dataset
-        dataset_path = f'{dataset_paths[project]}/{branch_name}'
-        make_path(dataset_path)
-        save_data_to_file(f'{dataset_path}/{version_name}_defective_lines_dataset.csv', '\n'.join(result))
-        result = exclude_bugs_fixed_after_next_version(result, commit_version_next[commit_version_id])
-        save_data_to_file(f'{dataset_path}/{version_name}_tmp_defective_lines_dataset.csv', '\n'.join(result))
+                if bug_line_in_version != -1:
+                    result.append(f'{buggy_file},{bug_line_in_version},{bic_commit},{bfc_commit}')
+
+        # save line level defect dataset # make tmp dataset
+        save_data_to_file(f'{dataset_path}/{v_name}_defective_lines_dataset.csv', '\n'.join(result))
+        tmp_result = exclude_bugs_fixed_after_next_version(result, v_next_date[v_id])
+        save_data_to_file(f'{dataset_path}/{v_name}_tmp_defective_lines_dataset.csv', '\n'.join(tmp_result))
 
 
 def combine_bug_info_from_all_branch(project):
@@ -127,10 +144,3 @@ def combine_bug_info_from_all_branch(project):
         save_data_to_file(f'{dataset_paths[project]}/{version}_defective_lines_dataset.csv', '\n'.join(result))
         save_data_to_file(f'{dataset_paths[project]}/{version}_tmp_defective_lines_dataset.csv', '\n'.join(tmp_result))
     print(f'{project} combined finish!')
-
-
-if __name__ == '__main__':
-
-    for proj in projects:
-        get_commit_info(proj)
-        main_step_assign_bugs_for_each_version(proj)
