@@ -68,13 +68,20 @@ def main_step_assign_bugs_for_each_version(project, branch_name, analysis_file_p
     version_name, v_date, v_next_date, v_to_branch = get_version_info(project)
     for v_id, v_name in version_name.items():
         result = ["buggy file,buggy_line_in_the_version,bug_inducing_commit,bug_fixing_commit"]
+
+        result_path = f'{dataset_path}/{v_name}_defective_lines_dataset.csv'
+        tmp_result_path = f'{dataset_path}/{v_name}_tmp_defective_lines_dataset.csv'
+        if os.path.exists(result_path):
+            continue
+
         for index in range(len(lines[1:])):
-            print(f'Processing {v_name}： {index}/{len(lines[1:])}') if index % 100 == 0 else None
+            print(f'Processing {v_name}： {index}/{len(lines[1:])}') if index % 500 == 0 else None
             temp = lines[1:][index].strip().split(',')
             bfc_commit, bic_commit = temp[0], transform(temp[3])
             buggy_file, bug_line_in_last_commit = temp[1], int(temp[2])
-            print(bfc_commit)
             bic_branch = []
+            if bic_commit not in c_to_branches:
+                continue
             for b in c_to_branches[bic_commit]:
                 bic_branch += branch_dict[b]
             if v_to_branch[v_id] not in bic_branch:
@@ -116,9 +123,9 @@ def main_step_assign_bugs_for_each_version(project, branch_name, analysis_file_p
                     result.append(f'{buggy_file},{bug_line_in_version},{bic_commit},{bfc_commit}')
 
         # save line level defect dataset # make tmp dataset
-        save_data_to_file(f'{dataset_path}/{v_name}_defective_lines_dataset.csv', '\n'.join(result))
+        save_data_to_file(result_path, '\n'.join(result))
         tmp_result = exclude_bugs_fixed_after_next_version(result, v_next_date[v_id])
-        save_data_to_file(f'{dataset_path}/{v_name}_tmp_defective_lines_dataset.csv', '\n'.join(tmp_result))
+        save_data_to_file(tmp_result_path, '\n'.join(tmp_result))
 
 
 def combine_bug_info_from_all_branch(project):

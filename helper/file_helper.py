@@ -6,10 +6,10 @@ import pickle
 
 projects = [
     # 'kafka',  # 25 -> 23
-    # 'flink',  # 89 ->83
+    'flink',  # 89 ->83
     # 'zookeeper',  # 20-> 19
     # 'hadoop',  # 280 -> 214
-    'cassandra',  # 9 -> 3
+    # 'cassandra',  # 9 -> 3
     # 'storm',  # 38 ->34
     # 'beam',  # 68 -> 56
     # 'groovy',  # 57 -> 56

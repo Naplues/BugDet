@@ -26,16 +26,16 @@ if __name__ == '__main__':
         # Change current directory
         os.chdir(code_repos_paths[proj])
         # 2. branch information
-        for branch in selected_branches(proj):
-            analysis_file_path = f'{analysis_file_paths[proj]}/{branch}'
-            make_path(analysis_file_path)
-            output_commit_info(branch, analysis_file_path)
+        branches = selected_branches(proj)
+        analysis_file_path = dict(zip(branches, [f'{analysis_file_paths[proj]}/{branch}' for branch in branches]))
+        for branch in branches:
+            make_path(analysis_file_path[branch])
+            output_commit_info(branch, analysis_file_path[branch])
         load_commit_branch_dict(proj)
 
         # main steps
-        for branch in selected_branches(proj):
+        for branch in branches:
             # the path of analysis data
-            analysis_file_path = f'{analysis_file_paths[proj]}/{branch}'
-            main_steps_for_each_branch(proj, branch, analysis_file_path)
+            main_steps_for_each_branch(proj, branch, analysis_file_path[branch])
 
-        # combine_bug_info_from_all_branch(proj)
+        combine_bug_info_from_all_branch(proj)

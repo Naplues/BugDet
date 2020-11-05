@@ -18,6 +18,7 @@ def selected_branches(project):
     :param project:
     :return:
     """
+    make_path(analysis_file_paths[project])
     branch_file = f'{analysis_file_paths[project]}/branch.txt'
 
     # !!!!!!!!!!!!!!!!!!!!!!!!!!!!! run the below code only once !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
