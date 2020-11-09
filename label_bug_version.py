@@ -58,6 +58,7 @@ def main_step_assign_bugs_for_each_version(project, branch_name, analysis_file_p
     :param analysis_file_path:
     :return:
     """
+
     branch_dict = load_pk_result(f'{analysis_file_paths[project]}/branch_dict.pk')
     diff_temp_path = f'{analysis_file_path}/diff_temp.txt'
     dataset_path = f'{dataset_paths[project]}/{branch_name}'
@@ -68,9 +69,8 @@ def main_step_assign_bugs_for_each_version(project, branch_name, analysis_file_p
     version_name, v_date, v_next_date, v_to_branch = get_version_info(project)
     for v_id, v_name in version_name.items():
         result = ["buggy file,buggy_line_in_the_version,bug_inducing_commit,bug_fixing_commit"]
-
-        result_path = f'{dataset_path}/{v_name}_defective_lines_dataset.csv'
-        tmp_result_path = f'{dataset_path}/{v_name}_tmp_defective_lines_dataset.csv'
+        result_path = f'{dataset_path}/{v_name.replace("/", "-")}_defective_lines_dataset.csv'
+        tmp_result_path = f'{dataset_path}/{v_name.replace("/", "-")}_tmp_defective_lines_dataset.csv'
         if os.path.exists(result_path):
             continue
 
@@ -148,6 +148,7 @@ def combine_bug_info_from_all_branch(project):
                 line = ','.join(line.split(',')[:2])
                 if line not in tmp_result:
                     tmp_result.append(line)
-        save_data_to_file(f'{dataset_paths[project]}/{version}_defective_lines_dataset.csv', '\n'.join(result))
-        save_data_to_file(f'{dataset_paths[project]}/{version}_tmp_defective_lines_dataset.csv', '\n'.join(tmp_result))
+        file_path = f'{dataset_paths[project]}/{version.replace("/", "-")}'
+        save_data_to_file(f'{file_path}_defective_lines_dataset.csv', '\n'.join(result))
+        save_data_to_file(f'{file_path}_tmp_defective_lines_dataset.csv', '\n'.join(tmp_result))
     print(f'{project} combined finish!')

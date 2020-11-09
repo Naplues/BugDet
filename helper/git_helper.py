@@ -65,8 +65,8 @@ def output_commit_info(branch_name, analysis_file_path):
     :param analysis_file_path:
     :return:
     """
-    os.system(rf'git checkout -f {branch_name}')
     if not os.path.exists(f'{analysis_file_path}/commit_ref.txt'):
+        os.system(rf'git checkout -f {branch_name}')
         # Output different commit log information   # %H %ci | %H %s | %H %an %ae
         os.system(rf'git log --pretty=format:"%H|%cd|%s" > {analysis_file_path}/commit_ref.txt')
     print(f'Output commit hash code! {"=" * 50}')
@@ -93,7 +93,7 @@ def get_commit_info(branch_name, analysis_file_path):
     :param analysis_file_path:
     :return:
     """
-    output_commit_info(branch_name, analysis_file_path)
+    os.system(rf'git checkout -f {branch_name}')
     output_diff_info(analysis_file_path)
 
     commit_all.clear()

@@ -6,7 +6,7 @@ import pickle
 
 projects = [
     # 'kafka',  # 25 -> 23
-    'flink',  # 89 ->83
+    # 'flink',  # 89 ->83
     # 'zookeeper',  # 20-> 19
     # 'hadoop',  # 280 -> 214
     # 'cassandra',  # 9 -> 3
@@ -16,7 +16,7 @@ projects = [
     # 'hbase',  # 64 -> 57
     # 'ignite',  # 380 -> 334
 
-    # 'camel',
+    'camel',
     # 'hive',
     # 'shiro',
     # 'kylin',
