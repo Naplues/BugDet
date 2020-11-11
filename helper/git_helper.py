@@ -23,34 +23,39 @@ def selected_branches(project):
 
     # !!!!!!!!!!!!!!!!!!!!!!!!!!!!! run the below code only once !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
     # checkout remote branches
-    # os.system(rf'git branch -r > {branch_file}')
-    # file = read_data_from_file(branch_file)
-    # for branch in [line.split('origin/')[-1].strip() for line in file[1:]]:
-    #     print(f'Processing {project} {branch}')
-    #     os.system(rf'git checkout -f {branch}')
+    if not os.path.exists(branch_file):
+        os.system(rf'git branch -r > {branch_file}')
+        file = read_data_from_file(branch_file)
+        for branch in [line.split('origin/')[-1].strip() for line in file[1:]]:
+            print(f'Processing {project} {branch}')
+            os.system(rf'git checkout -f {branch}')
     # !!!!!!!!!!!!!!!!!!!!!!!!!!!!! run the above code only once !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 
-    if not os.path.exists(branch_file):
-        # filter the merged branches
-        os.system(rf'git branch > {branch_file}')
-        file = read_data_from_file(branch_file)
-        temp_file = f'{analysis_file_paths[project]}/temp.txt'
-        branch_name_list = [line.replace('*', '').strip() for line in file]
-        removed_branch_list = []
-        branch_dict = {}
-        for branch_name in branch_name_list:
-            os.system(rf'git branch --merged {branch_name} > {temp_file}')
-            branch_dict[branch_name] = [element.replace('*', '').strip() for element in read_data_from_file(temp_file)]
-            merged_branch = [element.replace('*', '').strip() for element in read_data_from_file(temp_file)]
+    # if not os.path.exists(branch_file):
+    # filter the merged branches
+    os.system(rf'git branch > {branch_file}')
+    file = read_data_from_file(branch_file)
+    temp_file = f'{analysis_file_paths[project]}/temp.txt'
+    branch_name_list = [line.replace('*', '').strip() for line in file]
+    print(branch_name_list)
+    removed_branch_list = []
+    branch_dict = {}
+    for branch_name in branch_name_list:
+        os.system(rf'git branch --merged {branch_name} > {temp_file}')
+        branch_dict[branch_name] = [element.replace('*', '').replace(',', '').strip() for element in
+                                    read_data_from_file(temp_file)]
+        merged_branch = [element.replace('*', '').replace(',', '').strip() for element in
+                         read_data_from_file(temp_file)]
+        if branch_name in merged_branch:
             merged_branch.remove(branch_name)
-            removed_branch_list += merged_branch
+        removed_branch_list += merged_branch
 
-        removed_branch_list = list(set(removed_branch_list))
-        remained_branch_list = [branch for branch in branch_name_list if branch not in removed_branch_list]
-        print(len(branch_name_list), branch_name_list)
-        os.remove(temp_file)
-        save_data_to_file(branch_file, '\n'.join(remained_branch_list))
-        dump_pk_result(f'{analysis_file_paths[project]}/branch_dict.pk', branch_dict)
+    removed_branch_list = list(set(removed_branch_list))
+    remained_branch_list = [branch for branch in branch_name_list if branch not in removed_branch_list]
+    print(len(branch_name_list), branch_name_list)
+    os.remove(temp_file)
+    save_data_to_file(branch_file, '\n'.join(remained_branch_list))
+    dump_pk_result(f'{analysis_file_paths[project]}/branch_dict.pk', branch_dict)
 
     # the branch that we need
     remained_branch_list = [line.strip() for line in read_data_from_file(branch_file)]

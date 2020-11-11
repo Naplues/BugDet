@@ -127,7 +127,10 @@ def identify_bug_inducing_commit(src_file, del_lines, analysis_file_path):
     make_path(f'{analysis_file_path}/blame/')
     blame_file_path = f'{analysis_file_path}/blame/{src_file.replace("/", ".")}.txt'
     os.system(f'git blame --no-abbrev {src_file} > {blame_file_path}')
-    blame_file = read_data_from_file(blame_file_path)
+    try:
+        blame_file = read_data_from_file(blame_file_path)
+    except FileNotFoundError:
+        return []
     bug_inducing_commit = []
     for line in del_lines:
         # Skip if the line number is greater than the size of the file

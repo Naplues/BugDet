@@ -5,28 +5,26 @@ import os
 import pickle
 
 projects = [
-    # 'kafka',  # 25 -> 23
-    # 'flink',  # 89 ->83
-    # 'zookeeper',  # 20-> 19
-    # 'hadoop',  # 280 -> 214
-    # 'cassandra',  # 9 -> 3
-    # 'storm',  # 38 ->34
-    # 'beam',  # 68 -> 56
-    # 'groovy',  # 57 -> 56
-    # 'hbase',  # 64 -> 57
-    # 'ignite',  # 380 -> 334
-
-    'camel',
-    # 'hive',
-    # 'shiro',
-    # 'kylin',
-    # 'curator',
+    # 'ambari', # ok
+    # 'amq', # ok activemq
+    # 'bookkeeper',
+    # 'calcite', # ok
+    # 'camel', # ok
+    # 'cassandra', # ok
+    # 'flink',
+    # 'groovy', # ok
+    # 'hbase',
+    # 'hive', # ok
+    # 'ignite', # ok
+    # 'log4j2', # logging-log4j2
+    # 'mahout', # ok
+    # 'mng',  # maven
     # 'nifi',
-    # 'mvn',  # maven
     # 'nutch',
-    # 'calcite',
-    # 'flume',
-
+    'storm',
+    # 'tika',
+    # 'ww', # struts
+    # 'zookeeper', # ok
 ]
 
 root_path = r'D:/CLDP_data'
@@ -70,3 +68,24 @@ def is_test_file(src_file):
 def is_comment_line(target_line):
     return target_line.endswith(')') or target_line.startswith('//') or target_line.startswith('/*') \
            or target_line.startswith('*') or target_line.endswith('*/')
+
+
+def is_comment_line2(target_line):
+    line = target_line.strip()
+    return line.endswith(')') or line.startswith('//') or line.startswith('/*') or line.startswith(
+        '*') or line.endswith('*/') or line == '' or line.startswith('{') or line.startswith('}')
+
+
+def export_all_files_in_project(path):
+    file_list = []
+    for root, dirs, files in os.walk(path):
+        for file in files:
+            file_path = (root.replace('\\', '/') + '/' + file).replace(path, '')
+            if not file_path.endswith('.java') or is_test_file(file_path):
+                continue
+            file_list.append(file_path)
+    return file_list
+
+
+if __name__ == '__main__':
+    export_all_files_in_project(f'{root_path}/Repository/camel/')

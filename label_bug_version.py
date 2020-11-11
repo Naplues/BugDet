@@ -61,7 +61,10 @@ def main_step_assign_bugs_for_each_version(project, branch_name, analysis_file_p
 
     branch_dict = load_pk_result(f'{analysis_file_paths[project]}/branch_dict.pk')
     diff_temp_path = f'{analysis_file_path}/diff_temp.txt'
+    branch_name = branch_name.replace("/", "-")
+    print(branch_name)
     dataset_path = f'{dataset_paths[project]}/{branch_name}'
+
     make_path(dataset_path)
     last_cmd, diff = '', ''
     # 待测版本的commit id and version name
@@ -69,8 +72,8 @@ def main_step_assign_bugs_for_each_version(project, branch_name, analysis_file_p
     version_name, v_date, v_next_date, v_to_branch = get_version_info(project)
     for v_id, v_name in version_name.items():
         result = ["buggy file,buggy_line_in_the_version,bug_inducing_commit,bug_fixing_commit"]
-        result_path = f'{dataset_path}/{v_name.replace("/", "-")}_defective_lines_dataset.csv'
-        tmp_result_path = f'{dataset_path}/{v_name.replace("/", "-")}_tmp_defective_lines_dataset.csv'
+        result_path = f'{dataset_path}/{v_name}_defective_lines_dataset.csv'
+        tmp_result_path = f'{dataset_path}/{v_name}_tmp_defective_lines_dataset.csv'
         if os.path.exists(result_path):
             continue
 
@@ -130,25 +133,59 @@ def main_step_assign_bugs_for_each_version(project, branch_name, analysis_file_p
 
 def combine_bug_info_from_all_branch(project):
     commit_version_name, commit_version_date, commit_version_next, commit_version_branch = get_version_info(project)
-    for version in commit_version_name.values():
-        result = ["buggy file,buggy_line_in_the_version"]
-        tmp_result = ["buggy file,buggy_line_in_the_version"]
+    for id, version in commit_version_name.items():
+        buggy_files = []
+        buggy_lines = []
         for branch in os.listdir(f'{dataset_paths[project]}'):
             if str(branch).endswith('.csv'):
                 continue
             dataset_path = f'{dataset_paths[project]}/{branch}/{version}_defective_lines_dataset.csv'
             lines = read_data_from_file(dataset_path)
             for line in lines[1:]:
-                line = ','.join(line.split(',')[:2])
-                if line not in result:
-                    result.append(line)
-            tmp_dataset_path = f'{dataset_paths[project]}/{branch}/{version}_tmp_defective_lines_dataset.csv'
-            lines = read_data_from_file(tmp_dataset_path)
-            for line in lines[1:]:
-                line = ','.join(line.split(',')[:2])
-                if line not in tmp_result:
-                    tmp_result.append(line)
-        file_path = f'{dataset_paths[project]}/{version.replace("/", "-")}'
-        save_data_to_file(f'{file_path}_defective_lines_dataset.csv', '\n'.join(result))
-        save_data_to_file(f'{file_path}_tmp_defective_lines_dataset.csv', '\n'.join(tmp_result))
+                buggy_file = line.split(',')[0]
+                buggy_line = buggy_file + ',' + line.split(',')[1]
+                # buggy_line = line
+                if buggy_file not in buggy_files:
+                    buggy_files.append(buggy_file)
+                if buggy_line not in buggy_lines:
+                    buggy_lines.append(buggy_line)
+
+        if len(buggy_files) == 0:
+            continue
+        branch_name = commit_version_branch[id]
+        os.system(rf'git checkout -f {branch_name}')
+        os.system(rf'git reset --hard {id}')
+        all_file_list = export_all_files_in_project(code_repos_paths[project] + '/')
+
+        folder_line_level = f'{root_path}/Data/Line-level/'
+        folder_file_level = f'{root_path}/Data/File-level/'
+        make_path(folder_line_level)
+        make_path(folder_file_level)
+
+        buggy_files = []
+        line_dataset_path = f'{folder_line_level}{version.replace("/", "-")}_defective_lines_dataset.csv'
+        line_dataset_text = 'File,Line_number,SRC\n'
+        for buggy_line in buggy_lines:
+            file_name, line_number = buggy_line.split(',')[0], int(buggy_line.split(',')[1])
+            if file_name not in all_file_list:
+                continue
+            file_content = read_data_from_file(f'{code_repos_paths[project]}/{file_name}')
+            if line_number > len(file_content):
+                continue
+            line_content = file_content[line_number - 1]
+            if is_comment_line2(line_content):
+                continue
+            if buggy_line.strip().split(',')[0] not in buggy_files:
+                buggy_files.append(buggy_line.strip().split(',')[0])
+            line_dataset_text += buggy_line.strip() + ',' + line_content.strip() + '\n'
+        save_data_to_file(line_dataset_path, line_dataset_text)
+
+        file_dataset_path = f'{folder_file_level}/{version.replace("/", "-")}_ground-truth-files_dataset.csv'
+        file_dataset_text = 'File,Bug,SRC\n'
+        for file_name in all_file_list:
+            file_label = 'true' if file_name in buggy_files else 'false'
+            file_content = read_data_from_file(f'{code_repos_paths[project]}/{file_name}')
+            file_dataset_text += file_name + ',' + file_label + ',"' + ''.join(file_content) + '"'
+        save_data_to_file(file_dataset_path, file_dataset_text)
+
     print(f'{project} combined finish!')
