@@ -28,7 +28,7 @@ projects = [
 ]
 
 root_path = r'D:/CLDP_data'
-dataset_paths = dict(zip(projects, [f'{root_path}/Dataset/{proj}' for proj in projects]))
+dataset_paths = dict(zip(projects, [f'{root_path}/Data/{proj}' for proj in projects]))
 code_repos_paths = dict(zip(projects, [f'{root_path}/Repository/{proj}' for proj in projects]))
 analysis_file_paths = dict(zip(projects, [f'{root_path}/Analysis/{proj}' for proj in projects]))
 version_file_paths = dict(zip(projects, [f'{root_path}/Version/{proj}.csv' for proj in projects]))

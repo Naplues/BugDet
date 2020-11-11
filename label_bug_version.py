@@ -157,8 +157,8 @@ def combine_bug_info_from_all_branch(project):
         os.system(rf'git reset --hard {id}')
         all_file_list = export_all_files_in_project(code_repos_paths[project] + '/')
 
-        folder_line_level = f'{root_path}/Data/Line-level/'
-        folder_file_level = f'{root_path}/Data/File-level/'
+        folder_line_level = f'{root_path}/Dataset/Line-level/'
+        folder_file_level = f'{root_path}/Dataset/File-level/'
         make_path(folder_line_level)
         make_path(folder_file_level)
 
