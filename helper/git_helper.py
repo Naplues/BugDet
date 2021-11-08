@@ -23,12 +23,12 @@ def selected_branches(project):
 
     # !!!!!!!!!!!!!!!!!!!!!!!!!!!!! run the below code only once !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
     # checkout remote branches
-    if not os.path.exists(branch_file):
-        os.system(rf'git branch -r > {branch_file}')
-        file = read_data_from_file(branch_file)
-        for branch in [line.split('origin/')[-1].strip() for line in file[1:]]:
-            print(f'Checking out the branch {project} {branch} from remote origin server.')
-            os.system(rf'git checkout -f {branch}')
+    # if not os.path.exists(branch_file):
+    #     os.system(rf'git branch -r > {branch_file}')
+    #     file = read_data_from_file(branch_file)
+    #     for branch in [line.split('origin/')[-1].strip() for line in file[1:]]:
+    #         print(f'Checking out the branch {project} {branch} from remote origin server.')
+    #         os.system(rf'git checkout -f {branch}')
     # !!!!!!!!!!!!!!!!!!!!!!!!!!!!! run the above code only once !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 
     if not os.path.exists(branch_file):
@@ -36,7 +36,6 @@ def selected_branches(project):
         os.system(rf'git branch > {branch_file}')
         temp_file = f'{analysis_file_paths[project]}/temp.txt'
         branch_name_list = [line.replace('*', '').strip() for line in read_data_from_file(branch_file)]
-        print(branch_name_list)
         removed_branch_list = []
         branch_dict = {}
         for branch_name in branch_name_list:

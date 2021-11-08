@@ -12,7 +12,7 @@ def get_bug_id_list(project):
     Read Bug ID list. [GROOVY-1, GROOVY-2] OK.
     :return:
     """
-    bug_reports = read_data_from_file(rf'{root_path}/BugReport/{project}.csv')
+    bug_reports = read_data_from_file(rf'{collector_path}/BugReport/{project}.csv')
     bug_id_list = [bug.strip().split(',')[1] for bug in bug_reports[1:]]
     return bug_id_list
 

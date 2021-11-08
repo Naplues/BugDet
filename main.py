@@ -48,5 +48,5 @@ if __name__ == '__main__':
         prepare_step(branches)
         # main steps to extract bug info
         main_steps_for_each_branch(proj, branches)
-        # combine all result
-        combine_bug_info_from_all_branch(proj)
+        # Link bug id and buggy files and buggy lines
+        link_bug_with_files_and_lines(proj)

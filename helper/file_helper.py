@@ -5,33 +5,35 @@ import os
 import pickle
 
 projects = [
-    # 'ambari', # ok
-    # 'amq', # ok activemq
-    # 'bookkeeper',
-    # 'calcite', # ok
-    # 'camel', # ok
-    # 'cassandra', # ok
-    # 'flink',
-    # 'groovy', # ok
-    # 'hbase',
-    # 'hive', # ok
-    # 'ignite', # ok
-    # 'log4j2', # logging-log4j2
-    # 'mahout', # ok
-    # 'mng',  # maven
-    # 'nifi',
-    # 'nutch',
+    'ambari', # ok
+    'amq',  # ok activemq
+    'bookkeeper',
+    'calcite', # ok
+    'camel', # ok
+    'cassandra', # ok
+    'flink',
+    'groovy',  # ok
+    'hbase',
+    'hive', # ok
+    'ignite', # ok
+    'log4j2', # logging-log4j2
+    'mahout', # ok
+    'mng',  # maven
+    'nifi',
+    'nutch',
     'storm',
-    # 'tika',
-    # 'ww', # struts
-    # 'zookeeper', # ok
+    'tika',
+    'ww', # struts
+    'zookeeper', # ok
 ]
 
 root_path = r'D:/CLDP_data'
-dataset_paths = dict(zip(projects, [f'{root_path}/Data/{proj}' for proj in projects]))
 code_repos_paths = dict(zip(projects, [f'{root_path}/Repository/{proj}' for proj in projects]))
-analysis_file_paths = dict(zip(projects, [f'{root_path}/Analysis/{proj}' for proj in projects]))
-version_file_paths = dict(zip(projects, [f'{root_path}/Version/{proj}.csv' for proj in projects]))
+
+collector_path = f'{root_path}/DataCollection'
+dataset_paths = dict(zip(projects, [f'{collector_path}/Data/{proj}' for proj in projects]))
+analysis_file_paths = dict(zip(projects, [f'{collector_path}/Analysis/{proj}' for proj in projects]))
+version_file_paths = dict(zip(projects, [f'{collector_path}/Version/{proj}.csv' for proj in projects]))
 
 
 def make_path(path):
@@ -48,6 +50,24 @@ def read_data_from_file(path):
     with open(path, 'r', encoding='utf-8', errors="ignore") as fr:
         lines = fr.readlines()
     return lines
+
+
+def save_dict_to_file(path, data: dict):
+    text = [f'{commit_id}:{bug_name}' for commit_id, bug_name in data.items()]
+    save_data_to_file(path, '\n'.join(text))
+
+
+def save_list_dict_to_file(path, data: dict):
+    text = [f'{key}:{"|".join(value)}' for key, value in data.items()]
+    save_data_to_file(path, '\n'.join(text))
+
+
+def read_dict_from_file(path):
+    dict_var = {}
+    for line in read_data_from_file(path):
+        ss = line.strip().split(':')
+        dict_var[ss[0]] = ss[1]
+    return dict_var
 
 
 def dump_pk_result(path, data):

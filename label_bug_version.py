@@ -7,6 +7,23 @@ from helper.diff_helper import *
 tmp_dict = {}
 
 
+class Version(object):
+
+    def __init__(self, project):
+        self.commit_version_name = {}
+        self.commit_version_date = {}
+        self.commit_version_next = {}
+        self.commit_version_branch = {}
+
+        for line in read_data_from_file(version_file_paths[project])[1:]:
+            spices = line.strip().split(",")
+            commit_id = spices[0]
+            self.commit_version_name[commit_id] = spices[1]
+            self.commit_version_date[commit_id] = spices[2]
+            self.commit_version_next[commit_id] = spices[3]
+            self.commit_version_branch[commit_id] = spices[4]
+
+
 def get_version_info(project):
     """
     Get version information. commit id, version name, version date, next date, branch. OK.
@@ -58,7 +75,6 @@ def main_step_assign_bugs_for_each_version(project, branch_name, analysis_file_p
     :param analysis_file_path:
     :return:
     """
-
     branch_dict = load_pk_result(f'{analysis_file_paths[project]}/branch_dict.pk')
     diff_temp_path = f'{analysis_file_path}/diff_temp.txt'
     branch_name = branch_name.replace("/", "-")
@@ -132,14 +148,13 @@ def main_step_assign_bugs_for_each_version(project, branch_name, analysis_file_p
 
 
 def combine_bug_info_from_all_branch(project):
-    commit_version_name, commit_version_date, commit_version_next, commit_version_branch = get_version_info(project)
-    for id, version in commit_version_name.items():
-        buggy_files = []
-        buggy_lines = []
+    version_info = Version(project)
+    for commit_id, version_name in version_info.commit_version_name.items():
+        buggy_files, buggy_lines = [], []
         for branch in os.listdir(f'{dataset_paths[project]}'):
             if str(branch).endswith('.csv'):
                 continue
-            dataset_path = f'{dataset_paths[project]}/{branch}/{version}_defective_lines_dataset.csv'
+            dataset_path = f'{dataset_paths[project]}/{branch}/{version_name}_defective_lines_dataset.csv'
             lines = read_data_from_file(dataset_path)
             for line in lines[1:]:
                 buggy_file = line.split(',')[0]
@@ -150,11 +165,12 @@ def combine_bug_info_from_all_branch(project):
                 if buggy_line not in buggy_lines:
                     buggy_lines.append(buggy_line)
 
+        # There is no buggy files in this branch.
         if len(buggy_files) == 0:
             continue
-        branch_name = commit_version_branch[id]
+        branch_name = version_info.commit_version_branch[commit_id]
         os.system(rf'git checkout -f {branch_name}')
-        os.system(rf'git reset --hard {id}')
+        os.system(rf'git reset --hard {commit_id}')
         all_file_list = export_all_files_in_project(code_repos_paths[project] + '/')
 
         folder_line_level = f'{root_path}/Dataset/Line-level/'
@@ -163,7 +179,7 @@ def combine_bug_info_from_all_branch(project):
         make_path(folder_file_level)
 
         buggy_files = []
-        line_dataset_path = f'{folder_line_level}{version.replace("/", "-")}_defective_lines_dataset.csv'
+        line_dataset_path = f'{folder_line_level}{version_name.replace("/", "-")}_defective_lines_dataset.csv'
         line_dataset_text = 'File,Line_number,SRC\n'
         for buggy_line in buggy_lines:
             file_name, line_number = buggy_line.split(',')[0], int(buggy_line.split(',')[1])
@@ -180,7 +196,7 @@ def combine_bug_info_from_all_branch(project):
             line_dataset_text += buggy_line.strip() + ',' + line_content.strip() + '\n'
         save_data_to_file(line_dataset_path, line_dataset_text)
 
-        file_dataset_path = f'{folder_file_level}/{version.replace("/", "-")}_ground-truth-files_dataset.csv'
+        file_dataset_path = f'{folder_file_level}/{version_name.replace("/", "-")}_ground-truth-files_dataset.csv'
         file_dataset_text = 'File,Bug,SRC\n'
         for file_name in all_file_list:
             file_label = 'true' if file_name in buggy_files else 'false'
@@ -189,3 +205,41 @@ def combine_bug_info_from_all_branch(project):
         save_data_to_file(file_dataset_path, file_dataset_text)
 
     print(f'{project} combined finish!')
+
+
+def link_bug_with_files_and_lines(project):
+    version_info = Version(project)
+    for version_commit_id, version_name in version_info.commit_version_name.items():
+        commit_bug_dict = {}
+        commit_bug_files_dict = {}
+        commit_bug_lines_dict = {}
+        for branch in os.listdir(f'{dataset_paths[project]}'):
+            if str(branch).endswith('.csv'):
+                continue
+            # The maps between commit id and bug name.
+            analysis_path = f'{analysis_file_paths[project]}/{branch}/BFC_commit_bug_log.csv'
+            if os.path.exists(analysis_path):
+                for line in read_data_from_file(analysis_path):
+                    ss = line.strip().split(',')
+                    commit_bug_dict[ss[0]] = ss[1] if ss[0] not in commit_bug_dict else None
+
+            # The maps between commit and buggy files and lines.
+            dataset_path = f'{dataset_paths[project]}/{branch}/{version_name}_defective_lines_dataset.csv'
+            for line in read_data_from_file(dataset_path)[1:]:
+                ss = line.strip().split(',')
+                commit_id, buggy_file, buggy_line = ss[3], ss[0], f'{ss[0]}:{ss[1]}'
+
+                existing_files = commit_bug_files_dict[commit_id] if commit_id in commit_bug_files_dict else []
+                existing_files.append(buggy_file) if buggy_file not in existing_files else None
+                commit_bug_files_dict[commit_id] = existing_files
+
+                existing_lines = commit_bug_lines_dict[commit_id] if commit_id in commit_bug_lines_dict else []
+                existing_lines.append(buggy_line) if buggy_line not in existing_lines else None
+                commit_bug_lines_dict[commit_id] = existing_lines
+
+        folder_file_level = f'{root_path}/Dataset/Bug-Info/{version_name.split("-")[0]}/'
+        make_path(folder_file_level)
+        prefix = f'{folder_file_level}/{version_name.replace("/", "-")}'
+        save_dict_to_file(f'{prefix}_commit_bug.csv', commit_bug_dict)
+        save_list_dict_to_file(f'{prefix}_commit_buggy_files.csv', commit_bug_files_dict)
+        save_list_dict_to_file(f'{prefix}_commit_buggy_lines.csv', commit_bug_lines_dict)
