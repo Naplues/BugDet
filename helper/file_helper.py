@@ -1,39 +1,12 @@
 # -*-coding:utf-8-*-
 # The script has been tested successfully.
-
+"""
+The script contains the functions for file operations.
+"""
 import os
 import pickle
 
-projects = [
-    'ambari', # ok
-    'amq',  # ok activemq
-    'bookkeeper',
-    'calcite', # ok
-    'camel', # ok
-    'cassandra', # ok
-    'flink',
-    'groovy',  # ok
-    'hbase',
-    'hive', # ok
-    'ignite', # ok
-    'log4j2', # logging-log4j2
-    'mahout', # ok
-    'mng',  # maven
-    'nifi',
-    'nutch',
-    'storm',
-    'tika',
-    'ww', # struts
-    'zookeeper', # ok
-]
-
-root_path = r'D:/CLDP_data'
-code_repos_paths = dict(zip(projects, [f'{root_path}/Repository/{proj}' for proj in projects]))
-
-collector_path = f'{root_path}/DataCollection'
-dataset_paths = dict(zip(projects, [f'{collector_path}/Data/{proj}' for proj in projects]))
-analysis_file_paths = dict(zip(projects, [f'{collector_path}/Analysis/{proj}' for proj in projects]))
-version_file_paths = dict(zip(projects, [f'{collector_path}/Version/{proj}.csv' for proj in projects]))
+from helper.config import root_path
 
 
 def make_path(path):
@@ -86,8 +59,11 @@ def is_test_file(src_file):
 
 
 def is_comment_line(target_line):
-    return target_line.endswith(')') or target_line.startswith('//') or target_line.startswith('/*') \
-           or target_line.startswith('*') or target_line.endswith('*/')
+    return target_line.endswith(')') \
+           or target_line.startswith('//') \
+           or target_line.startswith('/*') \
+           or target_line.startswith('*') \
+           or target_line.endswith('*/')
 
 
 def is_comment_line2(target_line):
@@ -105,7 +81,3 @@ def export_all_files_in_project(path):
                 continue
             file_list.append(file_path)
     return file_list
-
-
-if __name__ == '__main__':
-    export_all_files_in_project(f'{root_path}/Repository/camel/')

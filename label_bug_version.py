@@ -1,6 +1,5 @@
 # -*-coding:utf-8-*-
 
-import logging
 from helper.git_helper import *
 from helper.diff_helper import *
 
@@ -30,8 +29,7 @@ def get_version_info(project):
     :return:
     """
     commit_version_name, commit_version_date, commit_version_next, commit_version_branch = {}, {}, {}, {}
-    lines = read_data_from_file(version_file_paths[project])
-    for line in lines[1:]:
+    for line in read_data_from_file(version_file_paths[project])[1:]:
         spices = line.strip().split(",")
         commit_id = spices[0]
         commit_version_name[commit_id] = spices[1]
@@ -45,9 +43,6 @@ def get_version_info(project):
 def exclude_bugs_fixed_after_next_version(result, next_version_date):
     """
     Filter the bugs that fixed before next version. OK
-    :param result:
-    :param next_version_date:
-    :return:
     """
     next_version_time = datetime.datetime.strptime(next_version_date, '%a %b %d %H:%M:%S %Y %z')
     exclude_result = [result[0]] + [r for r in result[1:] if c_to_time[r.split(',')[3]] < next_version_time]
@@ -70,54 +65,56 @@ def transform(commit):
 def main_step_assign_bugs_for_each_version(project, branch_name, analysis_file_path):
     """
     Assigning the bugs for each version. OK
-    :param project:
-    :param branch_name:
-    :param analysis_file_path:
-    :return:
     """
-    branch_dict = load_pk_result(f'{analysis_file_paths[project]}/branch_dict.pk')
+    branch_dict = load_pk_result(f'{analysis_file_paths[project]}/branch_merge_dict.pk')
     diff_temp_path = f'{analysis_file_path}/diff_temp.txt'
     branch_name = branch_name.replace("/", "-")
-    print(branch_name)
     dataset_path = f'{dataset_paths[project]}/{branch_name}'
 
     make_path(dataset_path)
     last_cmd, diff = '', ''
     # 待测版本的commit id and version name
-    lines = read_data_from_file(f'{analysis_file_path}/bug_commits_lines_info.csv')
-    version_name, v_date, v_next_date, v_to_branch = get_version_info(project)
-    for v_id, v_name in version_name.items():
-        result = ["buggy file,buggy_line_in_the_version,bug_inducing_commit,bug_fixing_commit"]
+    lines = read_data_from_file(f'{analysis_file_path}/bug_commits_lines_info.csv')[1:]
+    version_name, v_date, v_next_date, version_to_branch = get_version_info(project)
+    # 处理每个版本的数据
+    for version_id, v_name in version_name.items():
+        result = ["buggy_file,buggy_line_in_the_version,bug_inducing_commit,bug_fixing_commit"]
         result_path = f'{dataset_path}/{v_name}_defective_lines_dataset.csv'
         tmp_result_path = f'{dataset_path}/{v_name}_tmp_defective_lines_dataset.csv'
         if os.path.exists(result_path):
             continue
 
-        for index in range(len(lines[1:])):
-            print(f'Processing {v_name}： {index}/{len(lines[1:])}') if index % 500 == 0 else None
-            temp = lines[1:][index].strip().split(',')
+        for index in range(len(lines)):
+            print(f'Processing {v_name}: {index}/{len(lines)}') if index % 2000 == 0 else None
+            temp = lines[index].strip().split(',')
             bfc_commit, bic_commit = temp[0], transform(temp[3])
             buggy_file, bug_line_in_last_commit = temp[1], int(temp[2])
-            bic_branch = []
+
             if bic_commit not in c_to_branches:
-                continue
-            for b in c_to_branches[bic_commit]:
-                bic_branch += branch_dict[b]
-            if v_to_branch[v_id] not in bic_branch:
-                # print(f' version and BIC are not in the same branch')
+                print('BIC commit not in c_to_branches, not recorded in previous code.')
                 continue
 
-            if v_id not in commit_all:
+            # BIC commit 所在的branch名称
+            bic_branch = []
+            for b in c_to_branches[bic_commit]:
+                bic_branch += branch_dict[b]
+            bic_branch = list(set(bic_branch))
+
+            # 要确保 BIC所在的分支等于(或者最终会合并到)当前版本所在的分支,这样,BIC引入的bug才有可能存在于该版本上
+            if version_to_branch[version_id] not in bic_branch:
+                # print(f' Version commit and BIC are not in the same branch')
+                continue
+
+            if version_id not in commit_all:
                 # print(f' version commit is not in the current branch {branch_name}')
-                # 这种情况最好不应该跳过，而是应该另外处理 版本的时间在BIC和BFC之间,先找到BIC的行, 版本的行
                 continue
             # 当前版本的commit在 BIC commit和 BFC commit之间 after commitStart and before commit_id 之间的时期为bug生存期
             # && bug_fixing_commit should older than test release data
-            if c_to_time[bic_commit] <= c_to_time[v_id] < c_to_time[bfc_commit]:
+            if c_to_time[bic_commit] <= c_to_time[version_id] < c_to_time[bfc_commit]:
                 # Checking the diff between a bug commit and the specific version k
                 # the bug lines in Vm must can be founded in Vt
 
-                cmd = f'git diff {bfc_commit}~1 {v_id} -- {buggy_file} > {diff_temp_path}'
+                cmd = f'git diff {bfc_commit}~1 {version_id} -- {buggy_file} > {diff_temp_path}'
                 if cmd != last_cmd:
                     os.system(cmd)
                     diff = read_data_from_file(diff_temp_path)
@@ -143,7 +140,8 @@ def main_step_assign_bugs_for_each_version(project, branch_name, analysis_file_p
 
         # save line level defect dataset # make tmp dataset
         save_data_to_file(result_path, '\n'.join(result))
-        tmp_result = exclude_bugs_fixed_after_next_version(result, v_next_date[v_id])
+        # 排除掉在下个版本中发布之后被修复的bug, 更符合实际的场景
+        tmp_result = exclude_bugs_fixed_after_next_version(result, v_next_date[version_id])
         save_data_to_file(tmp_result_path, '\n'.join(tmp_result))
 
 
@@ -152,18 +150,17 @@ def combine_bug_info_from_all_branch(project):
     for commit_id, version_name in version_info.commit_version_name.items():
         buggy_files, buggy_lines = [], []
         for branch in os.listdir(f'{dataset_paths[project]}'):
+            # 查看csv结尾的文件
             if str(branch).endswith('.csv'):
                 continue
             dataset_path = f'{dataset_paths[project]}/{branch}/{version_name}_defective_lines_dataset.csv'
-            lines = read_data_from_file(dataset_path)
-            for line in lines[1:]:
+
+            for line in read_data_from_file(dataset_path)[1:]:
                 buggy_file = line.split(',')[0]
                 buggy_line = buggy_file + ',' + line.split(',')[1]
                 # buggy_line = line
-                if buggy_file not in buggy_files:
-                    buggy_files.append(buggy_file)
-                if buggy_line not in buggy_lines:
-                    buggy_lines.append(buggy_line)
+                buggy_files.append(buggy_file) if buggy_file not in buggy_files else None
+                buggy_lines.append(buggy_line) if buggy_line not in buggy_lines else None
 
         # There is no buggy files in this branch.
         if len(buggy_files) == 0:
@@ -178,8 +175,12 @@ def combine_bug_info_from_all_branch(project):
         make_path(folder_line_level)
         make_path(folder_file_level)
 
+        # line level dataset
         buggy_files = []
         line_dataset_path = f'{folder_line_level}{version_name.replace("/", "-")}_defective_lines_dataset.csv'
+        if os.path.exists(line_dataset_path):
+            continue
+
         line_dataset_text = 'File,Line_number,SRC\n'
         for buggy_line in buggy_lines:
             file_name, line_number = buggy_line.split(',')[0], int(buggy_line.split(',')[1])
@@ -196,6 +197,7 @@ def combine_bug_info_from_all_branch(project):
             line_dataset_text += buggy_line.strip() + ',' + line_content.strip() + '\n'
         save_data_to_file(line_dataset_path, line_dataset_text)
 
+        # file level dataset
         file_dataset_path = f'{folder_file_level}/{version_name.replace("/", "-")}_ground-truth-files_dataset.csv'
         file_dataset_text = 'File,Bug,SRC\n'
         for file_name in all_file_list:
