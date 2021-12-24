@@ -1,7 +1,9 @@
 # -*-coding:utf-8-*-
+import xml
 
 from helper.git_helper import *
 from helper.diff_helper import *
+from xml.dom import minidom
 
 tmp_dict = {}
 
@@ -209,12 +211,13 @@ def combine_bug_info_from_all_branch(project):
     print(f'{project} combined finish!')
 
 
-def link_bug_with_files_and_lines(project):
+def link_bug_with_files_and_lines(project: str):
+    print('Exporting bug level dataset.')
     version_info = Version(project)
     for version_commit_id, version_name in version_info.commit_version_name.items():
-        commit_bug_dict = {}
-        commit_bug_files_dict = {}
-        commit_bug_lines_dict = {}
+        commit_bug_dict = {}  # commit id -> bug id
+        commit_bug_files_dict = {}  # commit id -> bug files
+        commit_bug_lines_dict = {}  # commit id -> bug lines
         for branch in os.listdir(f'{dataset_paths[project]}'):
             if str(branch).endswith('.csv'):
                 continue
@@ -245,3 +248,54 @@ def link_bug_with_files_and_lines(project):
         save_dict_to_file(f'{prefix}_commit_bug.csv', commit_bug_dict)
         save_list_dict_to_file(f'{prefix}_commit_buggy_files.csv', commit_bug_files_dict)
         save_list_dict_to_file(f'{prefix}_commit_buggy_lines.csv', commit_bug_lines_dict)
+
+        doc = xml.dom.minidom.Document()
+        root = doc.createElement('bugrepository')
+        root.setAttribute('name', version_name.split("-")[0])
+
+        # ############################
+        # bug localization dataset
+        for commit_id in commit_bug_files_dict:
+            if commit_id not in commit_bug_dict:
+                continue
+
+            bug_id = commit_bug_dict[commit_id]
+            bug_files = commit_bug_files_dict[commit_id]
+
+            if not os.path.exists(f'{bug_report_path}/{project}/{bug_id}.txt'):
+                continue
+            bug_report_text = read_data_from_file(f'{bug_report_path}/{project}/{bug_id}.txt')
+
+            node_bug = doc.createElement('bug')
+            node_bug.setAttribute('id', bug_id)
+
+            # bug information node
+            node_bug_info = doc.createElement('buginformation')
+
+            node_summary = doc.createElement('summary')
+            node_summary.appendChild(doc.createTextNode(bug_report_text[1].replace('\n', ' ')))
+
+            node_description = doc.createElement('description')
+            node_description.appendChild(doc.createTextNode(' '.join(bug_report_text[3:]).replace('\n', ' ')))
+
+            node_bug_info.appendChild(node_summary)
+            node_bug_info.appendChild(node_description)
+
+            # bug files node
+            node_bug_file = doc.createElement('fixedFiles')
+            for file in bug_files:
+                node_file = doc.createElement('file')
+                node_file.appendChild(doc.createTextNode(file[:-5].replace('/', '.') + '.java'))
+                node_bug_file.appendChild(node_file)
+
+            node_bug.appendChild(node_bug_info)
+            node_bug.appendChild(node_bug_file)
+
+            root.appendChild(node_bug)
+
+        doc.appendChild(root)
+
+        folder_file_level = f'{root_path}/Dataset/BL/{version_name.split("-")[0]}/'
+        make_path(folder_file_level)
+        with open(f'{folder_file_level}{version_name.replace("/", "-")}.xml', 'w', encoding="utf-8") as fp:
+            doc.writexml(fp, indent='\t', addindent='\t', newl='\n', encoding="utf-8")

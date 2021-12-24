@@ -25,7 +25,7 @@ projects = [
     # 'zookeeper',  # ok
 ]
 # 所有文件的根目录
-root_path = r'D:/CLDP_data1'
+root_path = r'D:/CLDP_data'
 # D:/Data_data1/Repository/ambari/
 code_repos_paths = dict(zip(projects, [f'{root_path}/Repository/{proj}' for proj in projects]))
 
@@ -36,6 +36,8 @@ dataset_paths = dict(zip(projects, [f'{data_collection_path}/Data/{proj}' for pr
 analysis_file_paths = dict(zip(projects, [f'{data_collection_path}/Analysis/{proj}' for proj in projects]))
 # Root/DataCollection/Version/ambari.csv
 version_file_paths = dict(zip(projects, [f'{data_collection_path}/Version/{proj}.csv' for proj in projects]))
+
+bug_report_path = f'{data_collection_path}/BugReport/reports'
 
 gl.init()
 gl.set_value('code_repos_paths', code_repos_paths)
