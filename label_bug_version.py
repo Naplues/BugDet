@@ -212,7 +212,7 @@ def combine_bug_info_from_all_branch(project):
 
 
 def link_bug_with_files_and_lines(project: str):
-    print('Exporting bug level dataset.')
+    print(f'Exporting bug level dataset for {project.upper()}.')
     version_info = Version(project)
     for version_commit_id, version_name in version_info.commit_version_name.items():
         commit_bug_dict = {}  # commit id -> bug id
@@ -268,6 +268,9 @@ def link_bug_with_files_and_lines(project: str):
 
             node_bug = doc.createElement('bug')
             node_bug.setAttribute('id', bug_id)
+            node_bug.setAttribute('opendate', '2000-01-01 00:00:00')
+            node_bug.setAttribute('fixdate', '2000-01-01 00:00:00')
+            node_bug.setAttribute('resolution', 'Fixed')
 
             # bug information node
             node_bug_info = doc.createElement('buginformation')
@@ -278,8 +281,20 @@ def link_bug_with_files_and_lines(project: str):
             node_description = doc.createElement('description')
             node_description.appendChild(doc.createTextNode(' '.join(bug_report_text[3:]).replace('\n', ' ')))
 
+            node_version = doc.createElement('version')
+            node_version.appendChild(doc.createTextNode(version_name.replace("/", "-")))
+
+            node_fix_version = doc.createElement('fixedVersion')
+            node_fix_version.appendChild(doc.createTextNode(version_name.replace("/", "-")))
+
+            node_type = doc.createElement('type')
+            node_type.appendChild(doc.createTextNode('Bug'))
+
             node_bug_info.appendChild(node_summary)
             node_bug_info.appendChild(node_description)
+            node_bug_info.appendChild(node_version)
+            node_bug_info.appendChild(node_fix_version)
+            node_bug_info.appendChild(node_type)
 
             # bug files node
             node_bug_file = doc.createElement('fixedFiles')
