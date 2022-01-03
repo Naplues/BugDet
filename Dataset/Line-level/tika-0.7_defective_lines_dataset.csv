@@ -1,0 +1,749 @@
+File,Line_number,SRC
+tika-parsers/src/main/java/org/apache/tika/parser/pdf/PDFParser.java,79,PDF2XHTML.process(pdfDocument, handler, metadata);
+tika-parsers/src/main/java/org/apache/tika/parser/video/FLVParser.java,107,input.skip(2); // time zone
+tika-parsers/src/main/java/org/apache/tika/parser/video/FLVParser.java,208,stream.skip(4); // timestamp
+tika-parsers/src/main/java/org/apache/tika/parser/video/FLVParser.java,209,stream.skip(3); // streamid
+tika-parsers/src/main/java/org/apache/tika/parser/video/FLVParser.java,245,for (int skiplen = 0; skiplen < datalen;) {
+tika-parsers/src/main/java/org/apache/tika/parser/video/FLVParser.java,246,long currentSkipLen = datainput.skip(datalen - skiplen);
+tika-parsers/src/main/java/org/apache/tika/parser/video/FLVParser.java,247,skiplen += currentSkipLen;
+tika-core/src/main/java/org/apache/tika/sax/WriteOutContentHandler.java,19,import java.io.IOException;
+tika-core/src/main/java/org/apache/tika/sax/WriteOutContentHandler.java,26,import org.xml.sax.helpers.DefaultHandler;
+tika-core/src/main/java/org/apache/tika/sax/WriteOutContentHandler.java,32,public class WriteOutContentHandler extends DefaultHandler {
+tika-core/src/main/java/org/apache/tika/sax/WriteOutContentHandler.java,37,private final Writer writer;
+tika-core/src/main/java/org/apache/tika/sax/WriteOutContentHandler.java,50,private WriteOutContentHandler(Writer writer, int writeLimit) {
+tika-core/src/main/java/org/apache/tika/sax/WriteOutContentHandler.java,51,this.writer = writer;
+tika-core/src/main/java/org/apache/tika/sax/WriteOutContentHandler.java,113,try {
+tika-core/src/main/java/org/apache/tika/sax/WriteOutContentHandler.java,114,if (writeLimit == -1 || writeCount + length <= writeLimit) {
+tika-core/src/main/java/org/apache/tika/sax/WriteOutContentHandler.java,115,writer.write(ch, start, length);
+tika-core/src/main/java/org/apache/tika/sax/WriteOutContentHandler.java,116,writeCount += length;
+tika-core/src/main/java/org/apache/tika/sax/WriteOutContentHandler.java,118,writer.write(ch, start, writeLimit - writeCount);
+tika-core/src/main/java/org/apache/tika/sax/WriteOutContentHandler.java,119,writeCount = writeLimit;
+tika-core/src/main/java/org/apache/tika/sax/WriteOutContentHandler.java,123,throw new SAXException("Error writing out character content", e);
+tika-core/src/main/java/org/apache/tika/sax/WriteOutContentHandler.java,133,throws SAXException {
+tika-core/src/main/java/org/apache/tika/sax/WriteOutContentHandler.java,134,characters(ch, start, length);
+tika-core/src/main/java/org/apache/tika/sax/WriteOutContentHandler.java,145,public void endDocument() throws SAXException {
+tika-core/src/main/java/org/apache/tika/sax/WriteOutContentHandler.java,146,try {
+tika-core/src/main/java/org/apache/tika/sax/WriteOutContentHandler.java,147,writer.flush();
+tika-core/src/main/java/org/apache/tika/sax/WriteOutContentHandler.java,149,throw new SAXException("Error flushing character output", e);
+tika-core/src/main/java/org/apache/tika/sax/WriteOutContentHandler.java,161,public String toString() {
+tika-core/src/main/java/org/apache/tika/sax/WriteOutContentHandler.java,162,return writer.toString();
+tika-core/src/main/java/org/apache/tika/sax/WriteOutContentHandler.java,176,return this == ((WriteLimitReachedException) t).getSource();
+tika-core/src/main/java/org/apache/tika/sax/WriteOutContentHandler.java,185,private class WriteLimitReachedException extends SAXException {
+tika-core/src/main/java/org/apache/tika/sax/WriteOutContentHandler.java,187,public WriteOutContentHandler getSource() {
+tika-core/src/main/java/org/apache/tika/sax/WriteOutContentHandler.java,188,return WriteOutContentHandler.this;
+tika-parsers/src/main/java/org/apache/tika/parser/txt/CharsetRecog_sbcs.java,184,(byte) 0x20, (byte) 0x20, (byte) 0x20, (byte) 0x20, (byte) 0x20, (byte) 0x20, (byte) 0x20, (byte) 0x20,
+tika-parsers/src/main/java/org/apache/tika/parser/txt/CharsetRecog_sbcs.java,185,(byte) 0x20, (byte) 0x20, (byte) 0x20, (byte) 0x20, (byte) 0x20, (byte) 0x20, (byte) 0x20, (byte) 0x20,
+tika-parsers/src/main/java/org/apache/tika/parser/txt/CharsetRecog_sbcs.java,186,(byte) 0x20, (byte) 0x20, (byte) 0x20, (byte) 0x20, (byte) 0x20, (byte) 0x20, (byte) 0x20, (byte) 0x20,
+tika-parsers/src/main/java/org/apache/tika/parser/txt/CharsetRecog_sbcs.java,187,(byte) 0x20, (byte) 0x20, (byte) 0x20, (byte) 0x20, (byte) 0x20, (byte) 0x20, (byte) 0x20, (byte) 0x20,
+tika-parsers/src/main/java/org/apache/tika/parser/txt/CharsetRecog_sbcs.java,188,(byte) 0x20, (byte) 0x20, (byte) 0x20, (byte) 0x20, (byte) 0x20, (byte) 0x20, (byte) 0x20, (byte) 0x00,
+tika-parsers/src/main/java/org/apache/tika/parser/txt/CharsetRecog_sbcs.java,189,(byte) 0x20, (byte) 0x20, (byte) 0x20, (byte) 0x20, (byte) 0x20, (byte) 0x20, (byte) 0x20, (byte) 0x20,
+tika-parsers/src/main/java/org/apache/tika/parser/txt/CharsetRecog_sbcs.java,190,(byte) 0x20, (byte) 0x20, (byte) 0x20, (byte) 0x20, (byte) 0x20, (byte) 0x20, (byte) 0x20, (byte) 0x20,
+tika-parsers/src/main/java/org/apache/tika/parser/txt/CharsetRecog_sbcs.java,191,(byte) 0x20, (byte) 0x20, (byte) 0x20, (byte) 0x20, (byte) 0x20, (byte) 0x20, (byte) 0x20, (byte) 0x20,
+tika-parsers/src/main/java/org/apache/tika/parser/txt/CharsetRecog_sbcs.java,192,(byte) 0x20, (byte) 0x61, (byte) 0x62, (byte) 0x63, (byte) 0x64, (byte) 0x65, (byte) 0x66, (byte) 0x67,
+tika-parsers/src/main/java/org/apache/tika/parser/txt/CharsetRecog_sbcs.java,193,(byte) 0x68, (byte) 0x69, (byte) 0x6A, (byte) 0x6B, (byte) 0x6C, (byte) 0x6D, (byte) 0x6E, (byte) 0x6F,
+tika-parsers/src/main/java/org/apache/tika/parser/txt/CharsetRecog_sbcs.java,194,(byte) 0x70, (byte) 0x71, (byte) 0x72, (byte) 0x73, (byte) 0x74, (byte) 0x75, (byte) 0x76, (byte) 0x77,
+tika-parsers/src/main/java/org/apache/tika/parser/txt/CharsetRecog_sbcs.java,195,(byte) 0x78, (byte) 0x79, (byte) 0x7A, (byte) 0x20, (byte) 0x20, (byte) 0x20, (byte) 0x20, (byte) 0x20,
+tika-parsers/src/main/java/org/apache/tika/parser/txt/CharsetRecog_sbcs.java,196,(byte) 0x20, (byte) 0x61, (byte) 0x62, (byte) 0x63, (byte) 0x64, (byte) 0x65, (byte) 0x66, (byte) 0x67,
+tika-parsers/src/main/java/org/apache/tika/parser/txt/CharsetRecog_sbcs.java,197,(byte) 0x68, (byte) 0x69, (byte) 0x6A, (byte) 0x6B, (byte) 0x6C, (byte) 0x6D, (byte) 0x6E, (byte) 0x6F,
+tika-parsers/src/main/java/org/apache/tika/parser/txt/CharsetRecog_sbcs.java,198,(byte) 0x70, (byte) 0x71, (byte) 0x72, (byte) 0x73, (byte) 0x74, (byte) 0x75, (byte) 0x76, (byte) 0x77,
+tika-parsers/src/main/java/org/apache/tika/parser/txt/CharsetRecog_sbcs.java,199,(byte) 0x78, (byte) 0x79, (byte) 0x7A, (byte) 0x20, (byte) 0x20, (byte) 0x20, (byte) 0x20, (byte) 0x20,
+tika-parsers/src/main/java/org/apache/tika/parser/txt/CharsetRecog_sbcs.java,200,(byte) 0x20, (byte) 0x20, (byte) 0x20, (byte) 0x20, (byte) 0x20, (byte) 0x20, (byte) 0x20, (byte) 0x20,
+tika-parsers/src/main/java/org/apache/tika/parser/txt/CharsetRecog_sbcs.java,201,(byte) 0x20, (byte) 0x20, (byte) 0x20, (byte) 0x20, (byte) 0x20, (byte) 0x20, (byte) 0x20, (byte) 0x20,
+tika-parsers/src/main/java/org/apache/tika/parser/txt/CharsetRecog_sbcs.java,202,(byte) 0x20, (byte) 0x20, (byte) 0x20, (byte) 0x20, (byte) 0x20, (byte) 0x20, (byte) 0x20, (byte) 0x20,
+tika-parsers/src/main/java/org/apache/tika/parser/txt/CharsetRecog_sbcs.java,203,(byte) 0x20, (byte) 0x20, (byte) 0x20, (byte) 0x20, (byte) 0x20, (byte) 0x20, (byte) 0x20, (byte) 0x20,
+tika-parsers/src/main/java/org/apache/tika/parser/txt/CharsetRecog_sbcs.java,204,(byte) 0x20, (byte) 0x20, (byte) 0x20, (byte) 0x20, (byte) 0x20, (byte) 0x20, (byte) 0x20, (byte) 0x20,
+tika-parsers/src/main/java/org/apache/tika/parser/txt/CharsetRecog_sbcs.java,205,(byte) 0x20, (byte) 0x20, (byte) 0xAA, (byte) 0x20, (byte) 0x20, (byte) 0x20, (byte) 0x20, (byte) 0x20,
+tika-parsers/src/main/java/org/apache/tika/parser/txt/CharsetRecog_sbcs.java,206,(byte) 0x20, (byte) 0x20, (byte) 0x20, (byte) 0x20, (byte) 0x20, (byte) 0xB5, (byte) 0x20, (byte) 0x20,
+tika-parsers/src/main/java/org/apache/tika/parser/txt/CharsetRecog_sbcs.java,207,(byte) 0x20, (byte) 0x20, (byte) 0xBA, (byte) 0x20, (byte) 0x20, (byte) 0x20, (byte) 0x20, (byte) 0x20,
+tika-parsers/src/main/java/org/apache/tika/parser/txt/CharsetRecog_sbcs.java,208,(byte) 0xE0, (byte) 0xE1, (byte) 0xE2, (byte) 0xE3, (byte) 0xE4, (byte) 0xE5, (byte) 0xE6, (byte) 0xE7,
+tika-parsers/src/main/java/org/apache/tika/parser/txt/CharsetRecog_sbcs.java,209,(byte) 0xE8, (byte) 0xE9, (byte) 0xEA, (byte) 0xEB, (byte) 0xEC, (byte) 0xED, (byte) 0xEE, (byte) 0xEF,
+tika-parsers/src/main/java/org/apache/tika/parser/txt/CharsetRecog_sbcs.java,210,(byte) 0xF0, (byte) 0xF1, (byte) 0xF2, (byte) 0xF3, (byte) 0xF4, (byte) 0xF5, (byte) 0xF6, (byte) 0x20,
+tika-parsers/src/main/java/org/apache/tika/parser/txt/CharsetRecog_sbcs.java,211,(byte) 0xF8, (byte) 0xF9, (byte) 0xFA, (byte) 0xFB, (byte) 0xFC, (byte) 0xFD, (byte) 0xFE, (byte) 0xDF,
+tika-parsers/src/main/java/org/apache/tika/parser/txt/CharsetRecog_sbcs.java,212,(byte) 0xE0, (byte) 0xE1, (byte) 0xE2, (byte) 0xE3, (byte) 0xE4, (byte) 0xE5, (byte) 0xE6, (byte) 0xE7,
+tika-parsers/src/main/java/org/apache/tika/parser/txt/CharsetRecog_sbcs.java,213,(byte) 0xE8, (byte) 0xE9, (byte) 0xEA, (byte) 0xEB, (byte) 0xEC, (byte) 0xED, (byte) 0xEE, (byte) 0xEF,
+tika-parsers/src/main/java/org/apache/tika/parser/txt/CharsetRecog_sbcs.java,214,(byte) 0xF0, (byte) 0xF1, (byte) 0xF2, (byte) 0xF3, (byte) 0xF4, (byte) 0xF5, (byte) 0xF6, (byte) 0x20,
+tika-parsers/src/main/java/org/apache/tika/parser/txt/CharsetRecog_sbcs.java,215,(byte) 0xF8, (byte) 0xF9, (byte) 0xFA, (byte) 0xFB, (byte) 0xFC, (byte) 0xFD, (byte) 0xFE, (byte) 0xFF,
+tika-app/src/main/java/org/apache/tika/cli/TikaCLI.java,184,out.println("    -?  or --help        Print this usage message");
+tika-app/src/main/java/org/apache/tika/cli/TikaCLI.java,185,out.println("    -v  or --verbose     Print debug level messages");
+tika-app/src/main/java/org/apache/tika/cli/TikaCLI.java,186,out.println("    -g  or --gui         Start the Apache Tika GUI");
+tika-app/src/main/java/org/apache/tika/cli/TikaCLI.java,188,out.println("    -x  or --xml         Output XHTML content (default)");
+tika-app/src/main/java/org/apache/tika/cli/TikaCLI.java,189,out.println("    -h  or --html        Output HTML content");
+tika-app/src/main/java/org/apache/tika/cli/TikaCLI.java,190,out.println("    -t  or --text        Output plain text content");
+tika-app/src/main/java/org/apache/tika/cli/TikaCLI.java,191,out.println("    -m  or --metadata    Output only metadata");
+tika-parsers/src/main/java/org/apache/tika/parser/rtf/RTFParser.java,66,throw new TikaException("Error parsing an RTF document", e);
+tika-parsers/src/main/java/org/apache/tika/parser/rtf/RTFParser.java,86,private static class CustomStyledDocument extends DefaultStyledDocument {
+tika-parsers/src/main/java/org/apache/tika/parser/rtf/RTFParser.java,88,public CustomStyledDocument() {
+tika-parsers/src/main/java/org/apache/tika/parser/rtf/RTFParser.java,89,super(new NoReclaimStyleContext());
+tika-parsers/src/main/java/org/apache/tika/parser/rtf/RTFParser.java,97,super.insertString(offs, " ", a);
+tika-parsers/src/main/java/org/apache/tika/parser/rtf/RTFParser.java,98,super.insertString(getLength(), str, a);
+tika-parsers/src/main/java/org/apache/tika/parser/rtf/RTFParser.java,100,super.insertString(offs, str, a);
+tika-parsers/src/main/java/org/apache/tika/parser/rtf/RTFParser.java,113,private static class NoReclaimStyleContext extends StyleContext {
+tika-parsers/src/main/java/org/apache/tika/parser/rtf/RTFParser.java,116,public void reclaim(AttributeSet a) {
+tika-parsers/src/main/java/org/apache/tika/parser/html/HtmlParser.java,36,import org.apache.tika.parser.Parser;
+tika-app/src/main/java/org/apache/tika/cli/TikaCLI.java,254,handler.getTransformer().setOutputProperty(OutputKeys.INDENT, "yes");
+tika-parsers/src/main/java/org/apache/tika/parser/microsoft/ExcelExtractor.java,312,addCell(record, new LinkedCell(cell, link.getAddress()));
+tika-parsers/src/main/java/org/apache/tika/parser/pkg/PackageExtractor.java,159,Metadata entrydata = new Metadata();
+tika-parsers/src/main/java/org/apache/tika/parser/pkg/PackageExtractor.java,161,if (name != null && name.length() > 0) {
+tika-parsers/src/main/java/org/apache/tika/parser/pkg/PackageExtractor.java,162,entrydata.set(Metadata.RESOURCE_NAME_KEY, name);
+tika-core/src/main/java/org/apache/tika/sax/SecureContentHandler.java,145,throw new SecureSAXException();
+tika-core/src/main/java/org/apache/tika/sax/SecureContentHandler.java,170,public SecureSAXException() {
+tika-core/src/main/java/org/apache/tika/parser/AutoDetectParser.java,19,import java.io.BufferedInputStream;
+tika-core/src/main/java/org/apache/tika/parser/AutoDetectParser.java,26,import org.apache.tika.io.CountingInputStream;
+tika-core/src/main/java/org/apache/tika/parser/AutoDetectParser.java,90,MediaType type = detector.detect(stream, metadata);
+tika-core/src/main/java/org/apache/tika/parser/AutoDetectParser.java,91,metadata.set(Metadata.CONTENT_TYPE, type.toString());
+tika-core/src/main/java/org/apache/tika/parser/AutoDetectParser.java,94,CountingInputStream count = new CountingInputStream(stream);
+tika-core/src/main/java/org/apache/tika/parser/AutoDetectParser.java,95,SecureContentHandler secure = new SecureContentHandler(handler, count);
+tika-core/src/main/java/org/apache/tika/parser/AutoDetectParser.java,99,super.parse(count, secure, metadata, context);
+tika-core/src/main/java/org/apache/tika/parser/AutoDetectParser.java,102,secure.throwIfCauseOf(e);
+tika-core/src/main/java/org/apache/tika/parser/AutoDetectParser.java,103,throw e;
+tika-core/src/main/java/org/apache/tika/sax/SecureContentHandler.java,20,import org.apache.tika.io.CountingInputStream;
+tika-core/src/main/java/org/apache/tika/sax/SecureContentHandler.java,41,private final CountingInputStream stream;
+tika-core/src/main/java/org/apache/tika/sax/SecureContentHandler.java,69,ContentHandler handler, CountingInputStream stream) {
+tika-core/src/main/java/org/apache/tika/sax/SecureContentHandler.java,144,&& characterCount > stream.getByteCount() * ratio) {
+tika-core/src/main/java/org/apache/tika/sax/SecureContentHandler.java,172,+ stream.getByteCount() + " input bytes produced "
+tika-core/src/main/java/org/apache/tika/parser/CompositeParser.java,28,import org.apache.tika.io.TaggedInputStream;
+tika-core/src/main/java/org/apache/tika/parser/CompositeParser.java,130,TaggedContentHandler taggedHandler = new TaggedContentHandler(handler);
+tika-core/src/main/java/org/apache/tika/parser/CompositeParser.java,132,parser.parse(taggedStream, taggedHandler, metadata, context);
+tika-core/src/main/java/org/apache/tika/parser/CompositeParser.java,134,throw new TikaException(
+tika-core/src/main/java/org/apache/tika/parser/CompositeParser.java,137,taggedStream.throwIfCauseOf(e);
+tika-core/src/main/java/org/apache/tika/parser/CompositeParser.java,138,throw new TikaException(
+tika-core/src/main/java/org/apache/tika/parser/CompositeParser.java,141,taggedHandler.throwIfCauseOf(e);
+tika-core/src/main/java/org/apache/tika/parser/CompositeParser.java,142,throw new TikaException(
+tika-parsers/src/main/java/org/apache/tika/parser/odf/OpenDocumentParser.java,104,InputStream stream, ContentHandler handler,
+tika-parsers/src/main/java/org/apache/tika/parser/microsoft/SummaryExtractor.java,128,private void set(String name, Date value) {
+tika-parsers/src/main/java/org/apache/tika/parser/microsoft/SummaryExtractor.java,129,if (value != null) {
+tika-parsers/src/main/java/org/apache/tika/parser/microsoft/SummaryExtractor.java,130,metadata.set(name, value.toString());
+tika-core/src/main/java/org/apache/tika/metadata/MSOffice.java,34,String LAST_PRINTED = "Last-Printed";
+tika-core/src/main/java/org/apache/tika/metadata/MSOffice.java,36,String LAST_SAVED = "Last-Save-Date";
+tika-parsers/src/main/java/org/apache/tika/parser/image/ImageParser.java,76,throw new TikaException(type + " parse error", e);
+tika-core/src/main/java/org/apache/tika/io/TaggedInputStream.java,66,public TaggedInputStream(InputStream proxy) {
+tika-core/src/main/java/org/apache/tika/parser/CompositeParser.java,129,TaggedInputStream taggedStream = new TaggedInputStream(stream);
+tika-parsers/src/main/java/org/apache/tika/parser/image/ImageParser.java,45,MediaType.image("bmp"),
+tika-app/src/main/java/org/apache/tika/gui/ParsingTransferHandler.java,24,import java.io.InputStream;
+tika-app/src/main/java/org/apache/tika/gui/ParsingTransferHandler.java,36,import org.apache.tika.metadata.MetadataHelper;
+tika-app/src/main/java/org/apache/tika/gui/ParsingTransferHandler.java,80,List<File> files = null;
+tika-app/src/main/java/org/apache/tika/gui/ParsingTransferHandler.java,82,files = (List<File>) transferable.getTransferData(
+tika-app/src/main/java/org/apache/tika/gui/ParsingTransferHandler.java,83,DataFlavor.javaFileListFlavor);
+tika-app/src/main/java/org/apache/tika/gui/ParsingTransferHandler.java,87,InputStream stream = MetadataHelper.getInputStream(
+tika-app/src/main/java/org/apache/tika/gui/ParsingTransferHandler.java,88,new URL(data.toString()), metadata);
+tika-app/src/main/java/org/apache/tika/gui/ParsingTransferHandler.java,91,files = uriToFileList(
+tika-app/src/main/java/org/apache/tika/gui/ParsingTransferHandler.java,92,transferable.getTransferData(uriListFlavor).toString());
+tika-app/src/main/java/org/apache/tika/gui/ParsingTransferHandler.java,95,for (File file : files) {
+tika-app/src/main/java/org/apache/tika/gui/ParsingTransferHandler.java,96,Metadata metadata = new Metadata();
+tika-app/src/main/java/org/apache/tika/gui/ParsingTransferHandler.java,97,InputStream stream = MetadataHelper.getInputStream(
+tika-app/src/main/java/org/apache/tika/gui/ParsingTransferHandler.java,98,file.toURI().toURL(), metadata);
+tika-app/src/main/java/org/apache/tika/gui/ParsingTransferHandler.java,99,tika.importStream(stream, metadata);
+tika-app/src/main/java/org/apache/tika/gui/ParsingTransferHandler.java,124,private static List<File> uriToFileList(String data) {
+tika-app/src/main/java/org/apache/tika/gui/ParsingTransferHandler.java,126,StringTokenizer st = new StringTokenizer(data, "\r\n");
+tika-core/src/main/java/org/apache/tika/utils/ParseUtils.java,20,import java.io.BufferedInputStream;
+tika-core/src/main/java/org/apache/tika/utils/ParseUtils.java,22,import java.io.FileInputStream;
+tika-core/src/main/java/org/apache/tika/utils/ParseUtils.java,32,import org.apache.tika.sax.BodyContentHandler;
+tika-core/src/main/java/org/apache/tika/utils/ParseUtils.java,33,import org.xml.sax.ContentHandler;
+tika-core/src/main/java/org/apache/tika/utils/ParseUtils.java,34,import org.xml.sax.SAXException;
+tika-core/src/main/java/org/apache/tika/utils/ParseUtils.java,108,try {
+tika-core/src/main/java/org/apache/tika/utils/ParseUtils.java,110,ContentHandler handler = new BodyContentHandler();
+tika-core/src/main/java/org/apache/tika/utils/ParseUtils.java,111,parser.parse(stream, handler, new Metadata());
+tika-core/src/main/java/org/apache/tika/utils/ParseUtils.java,112,return handler.toString();
+tika-core/src/main/java/org/apache/tika/utils/ParseUtils.java,114,throw new TikaException("Unexpected SAX error", e);
+tika-core/src/main/java/org/apache/tika/utils/ParseUtils.java,129,.getName();
+tika-core/src/main/java/org/apache/tika/utils/ParseUtils.java,130,return getStringContent(documentUrl, config, mime);
+tika-core/src/main/java/org/apache/tika/utils/ParseUtils.java,146,InputStream stream = documentUrl.openStream();
+tika-core/src/main/java/org/apache/tika/utils/ParseUtils.java,147,try {
+tika-core/src/main/java/org/apache/tika/utils/ParseUtils.java,148,return getStringContent(stream, config, mimeType);
+tika-core/src/main/java/org/apache/tika/utils/ParseUtils.java,150,stream.close();
+tika-core/src/main/java/org/apache/tika/utils/ParseUtils.java,167,InputStream stream = new BufferedInputStream(new FileInputStream(
+tika-core/src/main/java/org/apache/tika/utils/ParseUtils.java,168,documentFile));
+tika-core/src/main/java/org/apache/tika/utils/ParseUtils.java,169,try {
+tika-core/src/main/java/org/apache/tika/utils/ParseUtils.java,170,return getStringContent(stream, config, mimeType);
+tika-core/src/main/java/org/apache/tika/utils/ParseUtils.java,172,stream.close();
+tika-core/src/main/java/org/apache/tika/utils/ParseUtils.java,186,String mime =
+tika-core/src/main/java/org/apache/tika/utils/ParseUtils.java,187,config.getMimeRepository().getMimeType(documentFile).getName();
+tika-core/src/main/java/org/apache/tika/utils/ParseUtils.java,188,return getStringContent(documentFile, config, mime);
+tika-app/src/main/java/org/apache/tika/cli/TikaCLI.java,95,return new DefaultHandler() {
+tika-app/src/main/java/org/apache/tika/cli/TikaCLI.java,96,public void endDocument() {
+tika-app/src/main/java/org/apache/tika/cli/TikaCLI.java,97,String[] names = metadata.names();
+tika-app/src/main/java/org/apache/tika/cli/TikaCLI.java,98,Arrays.sort(names);
+tika-app/src/main/java/org/apache/tika/cli/TikaCLI.java,99,for (String name : names) {
+tika-app/src/main/java/org/apache/tika/cli/TikaCLI.java,100,writer.println(name + ": " + metadata.get(name));
+tika-parsers/src/main/java/org/apache/tika/parser/rtf/RTFParser.java,19,import java.io.IOException;
+tika-parsers/src/main/java/org/apache/tika/parser/rtf/RTFParser.java,20,import java.io.InputStream;
+tika-parsers/src/main/java/org/apache/tika/parser/rtf/RTFParser.java,21,import java.util.Collections;
+tika-parsers/src/main/java/org/apache/tika/parser/rtf/RTFParser.java,22,import java.util.Set;
+tika-parsers/src/main/java/org/apache/tika/parser/rtf/RTFParser.java,24,import javax.swing.text.AttributeSet;
+tika-parsers/src/main/java/org/apache/tika/parser/rtf/RTFParser.java,25,import javax.swing.text.BadLocationException;
+tika-parsers/src/main/java/org/apache/tika/parser/rtf/RTFParser.java,26,import javax.swing.text.DefaultStyledDocument;
+tika-parsers/src/main/java/org/apache/tika/parser/rtf/RTFParser.java,27,import javax.swing.text.Document;
+tika-parsers/src/main/java/org/apache/tika/parser/rtf/RTFParser.java,28,import javax.swing.text.StyleContext;
+tika-parsers/src/main/java/org/apache/tika/parser/rtf/RTFParser.java,29,import javax.swing.text.rtf.RTFEditorKit;
+tika-parsers/src/main/java/org/apache/tika/parser/rtf/RTFParser.java,45,private static final Set<MediaType> SUPPORTED_TYPES =
+tika-parsers/src/main/java/org/apache/tika/parser/rtf/RTFParser.java,46,Collections.singleton(MediaType.application("rtf"));
+tika-parsers/src/main/java/org/apache/tika/parser/rtf/RTFParser.java,52,public void parse(
+tika-parsers/src/main/java/org/apache/tika/parser/rtf/RTFParser.java,53,InputStream stream, ContentHandler handler,
+tika-parsers/src/main/java/org/apache/tika/parser/rtf/RTFParser.java,55,throws IOException, SAXException, TikaException {
+tika-parsers/src/main/java/org/apache/tika/parser/rtf/RTFParser.java,58,new RTFEditorKit().read(stream, sd, 0);
+tika-parsers/src/main/java/org/apache/tika/parser/rtf/RTFParser.java,60,XHTMLContentHandler xhtml =
+tika-parsers/src/main/java/org/apache/tika/parser/rtf/RTFParser.java,61,new XHTMLContentHandler(handler, metadata);
+tika-parsers/src/main/java/org/apache/tika/parser/rtf/RTFParser.java,73,public void parse(
+tika-parsers/src/main/java/org/apache/tika/parser/rtf/RTFParser.java,75,throws IOException, SAXException, TikaException {
+tika-parsers/src/main/java/org/apache/tika/parser/rtf/RTFParser.java,93,public void insertString(
+tika-parsers/src/main/java/org/apache/tika/parser/rtf/RTFParser.java,95,throws BadLocationException {
+tika-parsers/src/main/java/org/apache/tika/parser/rtf/RTFParser.java,96,if (offs > 0 && offs == getLength()) {
+tika-parsers/src/main/java/org/apache/tika/parser/xml/XMLParser.java,88,new OfflineContentHandler(
+tika-parsers/src/main/java/org/apache/tika/parser/xml/XMLParser.java,89,getContentHandler(handler, metadata)));
+tika-core/src/main/java/org/apache/tika/sax/xpath/MatchingContentHandler.java,75,matcher = matchers.removeFirst();
+tika-parsers/src/main/java/org/apache/tika/parser/audio/AudioParser.java,111,for (Entry<String, Object> entry : fileFormat.properties().entrySet()) {
+tika-parsers/src/main/java/org/apache/tika/parser/audio/AudioParser.java,112,metadata.set(entry.getKey(), entry.getValue().toString());
+tika-parsers/src/main/java/org/apache/tika/parser/audio/AudioParser.java,114,for (Entry<String, Object> entry : audioFormat.properties().entrySet()) {
+tika-parsers/src/main/java/org/apache/tika/parser/audio/AudioParser.java,115,metadata.set(entry.getKey(), entry.getValue().toString());
+tika-parsers/src/main/java/org/apache/tika/parser/microsoft/OutlookExtractor.java,72,if (value.length() > 0) {
+tika-parsers/src/main/java/org/apache/tika/parser/pdf/PDFParser.java,66,&& !pdfDocument.getCurrentAccessPermission().canExtractContent()) {
+tika-parsers/src/main/java/org/apache/tika/parser/pdf/PDF2XHTML.java,56,new PDF2XHTML(handler, metadata).getText(document);
+tika-core/src/main/java/org/apache/tika/detect/XmlRootExtractor.java,40,private final SAXParserFactory factory;
+tika-core/src/main/java/org/apache/tika/detect/XmlRootExtractor.java,42,public XmlRootExtractor() throws SAXException, ParserConfigurationException {
+tika-core/src/main/java/org/apache/tika/detect/XmlRootExtractor.java,43,factory = SAXParserFactory.newInstance();
+tika-core/src/main/java/org/apache/tika/detect/XmlRootExtractor.java,44,factory.setNamespaceAware(true);
+tika-core/src/main/java/org/apache/tika/detect/XmlRootExtractor.java,45,factory.setValidating(false);
+tika-core/src/main/java/org/apache/tika/detect/XmlRootExtractor.java,46,try {
+tika-core/src/main/java/org/apache/tika/detect/XmlRootExtractor.java,47,factory.setFeature(XMLConstants.FEATURE_SECURE_PROCESSING, true);
+tika-parsers/src/main/java/org/apache/tika/parser/txt/TXTParser.java,104,String language = match.getLanguage();
+tika-parsers/src/main/java/org/apache/tika/parser/txt/TXTParser.java,105,if (language != null) {
+tika-parsers/src/main/java/org/apache/tika/parser/txt/TXTParser.java,106,metadata.add(Metadata.CONTENT_LANGUAGE, language);
+tika-parsers/src/main/java/org/apache/tika/parser/txt/TXTParser.java,107,metadata.add(Metadata.LANGUAGE, language);
+tika-parsers/src/main/java/org/apache/tika/parser/html/HtmlHandler.java,137,name.toLowerCase())) {
+tika-parsers/src/main/java/org/apache/tika/parser/html/HtmlHandler.java,185,String lower = url.toLowerCase();
+tika-core/src/main/java/org/apache/tika/detect/TextDetector.java,99,return MediaType.TEXT_PLAIN;
+tika-parsers/src/main/java/org/apache/tika/parser/html/HtmlHandler.java,101,resolve(atts.getValue("href").trim()));
+tika-parsers/src/main/java/org/apache/tika/parser/html/HtmlHandler.java,110,String href = atts.getValue("href");
+tika-parsers/src/main/java/org/apache/tika/parser/html/HtmlHandler.java,111,if (href != null) {
+tika-parsers/src/main/java/org/apache/tika/parser/html/HtmlHandler.java,112,xhtml.startElement("a", "href", resolve(href.trim()));
+tika-parsers/src/main/java/org/apache/tika/parser/html/HtmlHandler.java,114,String anchor = atts.getValue("name");
+tika-parsers/src/main/java/org/apache/tika/parser/html/HtmlHandler.java,115,if (anchor != null) {
+tika-parsers/src/main/java/org/apache/tika/parser/html/HtmlHandler.java,116,xhtml.startElement("a", "name", anchor.trim());
+tika-parsers/src/main/java/org/apache/tika/parser/html/HtmlHandler.java,118,xhtml.startElement("a");
+tika-parsers/src/main/java/org/apache/tika/parser/html/HtmlHandler.java,135,xhtml.endElement("a");
+tika-core/src/main/java/org/apache/tika/sax/XHTMLContentHandler.java,55,unmodifiableSet("li", "dd", "dt", "td", "th");
+tika-parsers/src/main/java/org/apache/tika/parser/html/HtmlHandler.java,79,if ("BODY".equals(name) || bodyLevel > 0) {
+tika-core/src/main/java/org/apache/tika/sax/XHTMLContentHandler.java,134,endElement("body");
+tika-core/src/main/java/org/apache/tika/sax/XHTMLContentHandler.java,135,endElement("html");
+tika-core/src/main/java/org/apache/tika/sax/XHTMLContentHandler.java,79,private boolean started = false;
+tika-core/src/main/java/org/apache/tika/sax/XHTMLContentHandler.java,107,private void lazyStartDocument() throws SAXException {
+tika-core/src/main/java/org/apache/tika/sax/XHTMLContentHandler.java,108,if (!started) {
+tika-core/src/main/java/org/apache/tika/sax/XHTMLContentHandler.java,109,started = true;
+tika-core/src/main/java/org/apache/tika/sax/XHTMLContentHandler.java,110,startElement("html");
+tika-core/src/main/java/org/apache/tika/sax/XHTMLContentHandler.java,111,startElement("head");
+tika-core/src/main/java/org/apache/tika/sax/XHTMLContentHandler.java,112,startElement("title");
+tika-core/src/main/java/org/apache/tika/sax/XHTMLContentHandler.java,115,characters(title);
+tika-core/src/main/java/org/apache/tika/sax/XHTMLContentHandler.java,117,endElement("title");
+tika-core/src/main/java/org/apache/tika/sax/XHTMLContentHandler.java,118,endElement("head");
+tika-core/src/main/java/org/apache/tika/sax/XHTMLContentHandler.java,119,startElement("body");
+tika-core/src/main/java/org/apache/tika/sax/XHTMLContentHandler.java,133,lazyStartDocument();
+tika-core/src/main/java/org/apache/tika/sax/XHTMLContentHandler.java,148,lazyStartDocument();
+tika-core/src/main/java/org/apache/tika/sax/XHTMLContentHandler.java,149,if (XHTML.equals(uri) && INDENT.contains(local)) {
+tika-core/src/main/java/org/apache/tika/sax/XHTMLContentHandler.java,150,ignorableWhitespace(TAB, 0, TAB.length);
+tika-core/src/main/java/org/apache/tika/sax/XHTMLContentHandler.java,152,super.startElement(uri, local, name, attributes);
+tika-core/src/main/java/org/apache/tika/sax/XHTMLContentHandler.java,161,throws SAXException {
+tika-core/src/main/java/org/apache/tika/sax/XHTMLContentHandler.java,162,super.endElement(uri, local, name);
+tika-core/src/main/java/org/apache/tika/sax/XHTMLContentHandler.java,163,if (XHTML.equals(uri) && ENDLINE.contains(local)) {
+tika-core/src/main/java/org/apache/tika/sax/XHTMLContentHandler.java,164,newline();
+tika-core/src/main/java/org/apache/tika/sax/XHTMLContentHandler.java,173,throws SAXException {
+tika-core/src/main/java/org/apache/tika/sax/XHTMLContentHandler.java,174,lazyStartDocument();
+tika-core/src/main/java/org/apache/tika/sax/XHTMLContentHandler.java,181,startElement(XHTML, name, name, new AttributesImpl());
+tika-parsers/src/main/java/org/apache/tika/parser/html/HtmlHandler.java,93,if (atts.getValue("name") != null) {
+tika-parsers/src/main/java/org/apache/tika/parser/mbox/MboxParser.java,54,private static final String EMAIL_HEADER_METADATA_PREFIX = MboxParser.class.getSimpleName() + "-";
+tika-parsers/src/main/java/org/apache/tika/parser/microsoft/ExcelExtractor.java,257,currentSheetIndex++;
+tika-parsers/src/main/java/org/apache/tika/parser/microsoft/ExcelExtractor.java,258,currentSheet =
+tika-parsers/src/main/java/org/apache/tika/parser/microsoft/ExcelExtractor.java,259,new TreeMap<Point, Cell>(new PointComparator());
+tika-parsers/src/main/java/org/apache/tika/parser/microsoft/ExcelExtractor.java,342,handler.startElement("div", "class", "outside");
+tika-parsers/src/main/java/org/apache/tika/parser/microsoft/ExcelExtractor.java,343,cell.render(handler);
+tika-parsers/src/main/java/org/apache/tika/parser/microsoft/ExcelExtractor.java,344,handler.endElement("div");
+tika-core/src/main/java/org/apache/tika/mime/MimeTypesReader.java,184,for (Clause clause : readMatches(element)) {
+tika-core/src/main/java/org/apache/tika/mime/MimeTypesReader.java,192,private List<Clause> readMatches(Element element) throws MimeTypeException {
+tika-core/src/main/java/org/apache/tika/mime/MimeTypesReader.java,200,clauses.add(readMatch(nodeElement));
+tika-core/src/main/java/org/apache/tika/mime/MimeTypesReader.java,208,private Clause readMatch(Element element) throws MimeTypeException {
+tika-core/src/main/java/org/apache/tika/mime/MimeTypesReader.java,253,MediaType.TEXT_PLAIN, patternBytes, maskBytes, start, end);
+tika-core/src/main/java/org/apache/tika/mime/MimeTypesReader.java,256,List<Clause> subClauses = readMatches(element);
+tika-core/src/main/java/org/apache/tika/language/LanguageIdentifier.java,76,addProfile("ee");
+tika-parsers/src/main/java/org/apache/tika/parser/html/HtmlParser.java,98,String charset = keyValue[1];
+tika-parsers/src/main/java/org/apache/tika/parser/html/HtmlParser.java,99,if (Charset.isSupported(charset)) {
+tika-parsers/src/main/java/org/apache/tika/parser/html/HtmlParser.java,100,metadata.set(Metadata.CONTENT_ENCODING, charset);
+tika-parsers/src/main/java/org/apache/tika/parser/html/HtmlParser.java,101,return charset;
+tika-parsers/src/main/java/org/apache/tika/parser/microsoft/ExcelExtractor.java,119,TikaHSSFListener listener = new TikaHSSFListener(xhtml, locale);
+tika-parsers/src/main/java/org/apache/tika/parser/microsoft/ExcelExtractor.java,120,listener.processFile(filesystem, isListenForAllRecords());
+tika-parsers/src/main/java/org/apache/tika/parser/microsoft/ExcelExtractor.java,201,formatListener = new FormatTrackingHSSFListener(this);
+tika-parsers/src/main/java/org/apache/tika/parser/microsoft/ooxml/XSSFExcelExtractorDecorator.java,46,private final DataFormatter formatter = new DataFormatter();
+tika-parsers/src/main/java/org/apache/tika/parser/microsoft/ooxml/XSSFExcelExtractorDecorator.java,95,CellStyle style = cell.getCellStyle();
+tika-parsers/src/main/java/org/apache/tika/parser/microsoft/ooxml/XSSFExcelExtractorDecorator.java,96,xhtml.characters(
+tika-parsers/src/main/java/org/apache/tika/parser/microsoft/ooxml/XSSFExcelExtractorDecorator.java,97,formatter.formatRawCellContents(cell.getNumericCellValue(),
+tika-parsers/src/main/java/org/apache/tika/parser/microsoft/ooxml/XSSFExcelExtractorDecorator.java,98,style.getDataFormat(),
+tika-parsers/src/main/java/org/apache/tika/parser/microsoft/ooxml/XSSFExcelExtractorDecorator.java,99,style.getDataFormatString()));
+tika-core/src/main/java/org/apache/tika/config/TikaConfig.java,143,ParseContext context = new ParseContext();
+tika-core/src/main/java/org/apache/tika/config/TikaConfig.java,144,Iterator<Parser> iterator =
+tika-core/src/main/java/org/apache/tika/config/TikaConfig.java,146,while (iterator.hasNext()) {
+tika-core/src/main/java/org/apache/tika/config/TikaConfig.java,147,Parser parser = iterator.next();
+tika-core/src/main/java/org/apache/tika/config/TikaConfig.java,148,for (MediaType type : parser.getSupportedTypes(context)) {
+tika-core/src/main/java/org/apache/tika/mime/MimeTypesReader.java,102,void read(String filepath) throws IOException, MimeTypeException {
+tika-core/src/main/java/org/apache/tika/mime/MimeTypesReader.java,103,read(MimeTypesReader.class.getClassLoader().getResourceAsStream(filepath));
+tika-parsers/src/main/java/org/apache/tika/parser/html/DefaultHtmlMapper.java,17,package org.apache.tika.parser.html;
+tika-parsers/src/main/java/org/apache/tika/parser/html/DefaultHtmlMapper.java,24,public class DefaultHtmlMapper implements HtmlMapper {
+tika-parsers/src/main/java/org/apache/tika/parser/html/DefaultHtmlMapper.java,26,public String mapSafeElement(String name) {
+tika-parsers/src/main/java/org/apache/tika/parser/html/DefaultHtmlMapper.java,29,if ("H1".equals(name)) return "h1";
+tika-parsers/src/main/java/org/apache/tika/parser/html/DefaultHtmlMapper.java,30,if ("H2".equals(name)) return "h2";
+tika-parsers/src/main/java/org/apache/tika/parser/html/DefaultHtmlMapper.java,31,if ("H3".equals(name)) return "h3";
+tika-parsers/src/main/java/org/apache/tika/parser/html/DefaultHtmlMapper.java,32,if ("H4".equals(name)) return "h4";
+tika-parsers/src/main/java/org/apache/tika/parser/html/DefaultHtmlMapper.java,33,if ("H5".equals(name)) return "h5";
+tika-parsers/src/main/java/org/apache/tika/parser/html/DefaultHtmlMapper.java,34,if ("H6".equals(name)) return "h6";
+tika-parsers/src/main/java/org/apache/tika/parser/html/DefaultHtmlMapper.java,36,if ("P".equals(name)) return "p";
+tika-parsers/src/main/java/org/apache/tika/parser/html/DefaultHtmlMapper.java,37,if ("PRE".equals(name)) return "pre";
+tika-parsers/src/main/java/org/apache/tika/parser/html/DefaultHtmlMapper.java,38,if ("BLOCKQUOTE".equals(name)) return "blockquote";
+tika-parsers/src/main/java/org/apache/tika/parser/html/DefaultHtmlMapper.java,40,if ("UL".equals(name)) return "ul";
+tika-parsers/src/main/java/org/apache/tika/parser/html/DefaultHtmlMapper.java,41,if ("OL".equals(name)) return "ol";
+tika-parsers/src/main/java/org/apache/tika/parser/html/DefaultHtmlMapper.java,42,if ("MENU".equals(name)) return "ul";
+tika-parsers/src/main/java/org/apache/tika/parser/html/DefaultHtmlMapper.java,43,if ("LI".equals(name)) return "li";
+tika-parsers/src/main/java/org/apache/tika/parser/html/DefaultHtmlMapper.java,44,if ("DL".equals(name)) return "dl";
+tika-parsers/src/main/java/org/apache/tika/parser/html/DefaultHtmlMapper.java,45,if ("DT".equals(name)) return "dt";
+tika-parsers/src/main/java/org/apache/tika/parser/html/DefaultHtmlMapper.java,46,if ("DD".equals(name)) return "dd";
+tika-parsers/src/main/java/org/apache/tika/parser/html/DefaultHtmlMapper.java,48,if ("TABLE".equals(name)) return "table";
+tika-parsers/src/main/java/org/apache/tika/parser/html/DefaultHtmlMapper.java,49,if ("THEAD".equals(name)) return "thead";
+tika-parsers/src/main/java/org/apache/tika/parser/html/DefaultHtmlMapper.java,50,if ("TBODY".equals(name)) return "tbody";
+tika-parsers/src/main/java/org/apache/tika/parser/html/DefaultHtmlMapper.java,51,if ("TR".equals(name)) return "tr";
+tika-parsers/src/main/java/org/apache/tika/parser/html/DefaultHtmlMapper.java,52,if ("TH".equals(name)) return "th";
+tika-parsers/src/main/java/org/apache/tika/parser/html/DefaultHtmlMapper.java,53,if ("TD".equals(name)) return "td";
+tika-parsers/src/main/java/org/apache/tika/parser/html/DefaultHtmlMapper.java,55,if ("ADDRESS".equals(name)) return "address";
+tika-parsers/src/main/java/org/apache/tika/parser/html/DefaultHtmlMapper.java,57,return null;
+tika-parsers/src/main/java/org/apache/tika/parser/html/DefaultHtmlMapper.java,60,public boolean isDiscardElement(String name) {
+tika-parsers/src/main/java/org/apache/tika/parser/html/DefaultHtmlMapper.java,61,return "STYLE".equals(name) || "SCRIPT".equals(name);
+tika-parsers/src/main/java/org/apache/tika/parser/html/HtmlHandler.java,108,xhtml.startElement(safe);
+tika-parsers/src/main/java/org/apache/tika/parser/html/HtmlMapper.java,17,package org.apache.tika.parser.html;
+tika-parsers/src/main/java/org/apache/tika/parser/html/HtmlMapper.java,28,public interface HtmlMapper {
+tika-parsers/src/main/java/org/apache/tika/parser/html/HtmlMapper.java,42,String mapSafeElement(String name);
+tika-parsers/src/main/java/org/apache/tika/parser/html/HtmlMapper.java,52,boolean isDiscardElement(String name);
+tika-core/src/main/java/org/apache/tika/sax/XHTMLContentHandler.java,204,startElement(name);
+tika-core/src/main/java/org/apache/tika/sax/XHTMLContentHandler.java,205,characters(value);
+tika-core/src/main/java/org/apache/tika/sax/XHTMLContentHandler.java,206,endElement(name);
+tika-parsers/src/main/java/org/apache/tika/parser/html/XHTMLDowngradeHandler.java,44,String upper = localName.toUpperCase();
+tika-parsers/src/main/java/org/apache/tika/parser/html/XHTMLDowngradeHandler.java,54,atts.getURI(i), local, qname,
+tika-parsers/src/main/java/org/apache/tika/parser/html/XHTMLDowngradeHandler.java,55,atts.getType(i), atts.getValue(i));
+tika-parsers/src/main/java/org/apache/tika/parser/html/XHTMLDowngradeHandler.java,65,String upper = localName.toUpperCase();
+tika-core/src/main/java/org/apache/tika/mime/MediaType.java,141,entry.getKey().trim().toLowerCase(), entry.getValue());
+tika-parsers/src/main/java/org/apache/tika/parser/html/HtmlParser.java,60,private static final HtmlMapper mapper = new DefaultHtmlMapper();
+tika-parsers/src/main/java/org/apache/tika/parser/html/HtmlParser.java,222,return mapper.mapSafeElement(name);
+tika-parsers/src/main/java/org/apache/tika/parser/html/HtmlParser.java,238,return "STYLE".equals(name) || "SCRIPT".equals(name);
+tika-core/src/main/java/org/apache/tika/mime/MimeTypes.java,194,type = patterns.matches(name.toLowerCase());
+tika-core/src/main/java/org/apache/tika/mime/MimeTypes.java,400,name = name.toLowerCase();
+tika-core/src/main/java/org/apache/tika/mime/MediaType.java,136,this.type = type.trim().toLowerCase();
+tika-core/src/main/java/org/apache/tika/mime/MediaType.java,137,this.subtype = subtype.trim().toLowerCase();
+tika-core/src/main/java/org/apache/tika/sax/ElementMappingContentHandler.java,19,import java.util.Map;
+tika-core/src/main/java/org/apache/tika/sax/ElementMappingContentHandler.java,20,import java.util.Collections;
+tika-core/src/main/java/org/apache/tika/sax/ElementMappingContentHandler.java,23,import org.xml.sax.SAXException;
+tika-core/src/main/java/org/apache/tika/sax/ElementMappingContentHandler.java,24,import org.xml.sax.ContentHandler;
+tika-core/src/main/java/org/apache/tika/config/TikaConfig.java,61,this(getBuilder().parse(file));
+tika-parsers/src/main/java/org/apache/tika/parser/pdf/PDFParser.java,119,metadata.add(name, value);
+tika-core/src/main/java/org/apache/tika/sax/xpath/NodeMatcher.java,33,public boolean matchesAttribute(String namespace, String name) {
+tika-core/src/main/java/org/apache/tika/sax/xpath/NodeMatcher.java,34,return true;
+tika-core/src/main/java/org/apache/tika/sax/xpath/XPathParser.java,37,private final Map<String, String> prefixes = new HashMap<String, String>();
+tika-core/src/main/java/org/apache/tika/sax/xpath/XPathParser.java,39,public XPathParser() {
+tika-core/src/main/java/org/apache/tika/sax/xpath/XPathParser.java,42,public XPathParser(String prefix, String namespace) {
+tika-core/src/main/java/org/apache/tika/sax/xpath/XPathParser.java,43,addPrefix(prefix, namespace);
+tika-core/src/main/java/org/apache/tika/sax/xpath/XPathParser.java,46,public void addPrefix(String prefix, String namespace) {
+tika-core/src/main/java/org/apache/tika/sax/xpath/XPathParser.java,47,prefixes.put(prefix, namespace);
+tika-core/src/main/java/org/apache/tika/sax/xpath/XPathParser.java,58,public Matcher parse(String xpath) {
+tika-core/src/main/java/org/apache/tika/sax/xpath/XPathParser.java,59,if (xpath.equals("/text()")) {
+tika-core/src/main/java/org/apache/tika/sax/xpath/XPathParser.java,60,return TextMatcher.INSTANCE;
+tika-core/src/main/java/org/apache/tika/sax/xpath/XPathParser.java,62,return NodeMatcher.INSTANCE;
+tika-core/src/main/java/org/apache/tika/sax/xpath/XPathParser.java,64,return new CompositeMatcher(
+tika-core/src/main/java/org/apache/tika/sax/xpath/XPathParser.java,65,TextMatcher.INSTANCE,
+tika-core/src/main/java/org/apache/tika/sax/xpath/XPathParser.java,66,new ChildMatcher(new SubtreeMatcher(NodeMatcher.INSTANCE)));
+tika-core/src/main/java/org/apache/tika/sax/xpath/XPathParser.java,68,return AttributeMatcher.INSTANCE;
+tika-core/src/main/java/org/apache/tika/sax/xpath/XPathParser.java,70,return ElementMatcher.INSTANCE;
+tika-core/src/main/java/org/apache/tika/sax/xpath/XPathParser.java,72,String name = xpath.substring(2);
+tika-core/src/main/java/org/apache/tika/sax/xpath/XPathParser.java,73,String prefix = null;
+tika-core/src/main/java/org/apache/tika/sax/xpath/XPathParser.java,74,int colon = name.indexOf(':');
+tika-core/src/main/java/org/apache/tika/sax/xpath/XPathParser.java,75,if (colon != -1) {
+tika-core/src/main/java/org/apache/tika/sax/xpath/XPathParser.java,76,prefix = name.substring(0, colon);
+tika-core/src/main/java/org/apache/tika/sax/xpath/XPathParser.java,77,name = name.substring(colon + 1);
+tika-core/src/main/java/org/apache/tika/sax/xpath/XPathParser.java,79,if (prefixes.containsKey(prefix)) {
+tika-core/src/main/java/org/apache/tika/sax/xpath/XPathParser.java,80,return new NamedAttributeMatcher(prefixes.get(prefix), name);
+tika-core/src/main/java/org/apache/tika/sax/xpath/XPathParser.java,82,return Matcher.FAIL;
+tika-core/src/main/java/org/apache/tika/sax/xpath/XPathParser.java,85,return new ChildMatcher(parse(xpath.substring(2)));
+tika-core/src/main/java/org/apache/tika/sax/xpath/XPathParser.java,87,return Matcher.FAIL;
+tika-core/src/main/java/org/apache/tika/sax/xpath/XPathParser.java,89,return new SubtreeMatcher(parse(xpath.substring(1)));
+tika-core/src/main/java/org/apache/tika/sax/xpath/XPathParser.java,91,int slash = xpath.indexOf('/', 1);
+tika-core/src/main/java/org/apache/tika/sax/xpath/XPathParser.java,92,if (slash == -1) {
+tika-core/src/main/java/org/apache/tika/sax/xpath/XPathParser.java,93,slash = xpath.length();
+tika-core/src/main/java/org/apache/tika/sax/xpath/XPathParser.java,95,String name = xpath.substring(1, slash);
+tika-core/src/main/java/org/apache/tika/sax/xpath/XPathParser.java,96,String prefix = null;
+tika-core/src/main/java/org/apache/tika/sax/xpath/XPathParser.java,97,int colon = name.indexOf(':');
+tika-core/src/main/java/org/apache/tika/sax/xpath/XPathParser.java,98,if (colon != -1) {
+tika-core/src/main/java/org/apache/tika/sax/xpath/XPathParser.java,99,prefix = name.substring(0, colon);
+tika-core/src/main/java/org/apache/tika/sax/xpath/XPathParser.java,100,name = name.substring(colon + 1);
+tika-core/src/main/java/org/apache/tika/sax/xpath/XPathParser.java,102,if (prefixes.containsKey(prefix)) {
+tika-core/src/main/java/org/apache/tika/sax/xpath/XPathParser.java,103,return new NamedElementMatcher(
+tika-core/src/main/java/org/apache/tika/sax/xpath/XPathParser.java,104,prefixes.get(prefix), name,
+tika-core/src/main/java/org/apache/tika/sax/xpath/XPathParser.java,105,parse(xpath.substring(slash)));
+tika-core/src/main/java/org/apache/tika/sax/xpath/XPathParser.java,107,return Matcher.FAIL;
+tika-core/src/main/java/org/apache/tika/sax/xpath/XPathParser.java,110,return Matcher.FAIL;
+tika-parsers/src/main/java/org/apache/tika/parser/odf/OpenDocumentContentParser.java,19,import static org.apache.tika.sax.XHTMLContentHandler.XHTML;
+tika-parsers/src/main/java/org/apache/tika/parser/odf/OpenDocumentContentParser.java,29,import javax.xml.XMLConstants;
+tika-parsers/src/main/java/org/apache/tika/parser/odf/OpenDocumentContentParser.java,30,import javax.xml.namespace.QName;
+tika-parsers/src/main/java/org/apache/tika/parser/odf/OpenDocumentContentParser.java,31,import javax.xml.parsers.ParserConfigurationException;
+tika-parsers/src/main/java/org/apache/tika/parser/odf/OpenDocumentContentParser.java,32,import javax.xml.parsers.SAXParser;
+tika-parsers/src/main/java/org/apache/tika/parser/odf/OpenDocumentContentParser.java,33,import javax.xml.parsers.SAXParserFactory;
+tika-parsers/src/main/java/org/apache/tika/parser/odf/OpenDocumentContentParser.java,76,protected static final char[] TAB = new char[] { '\t' };
+tika-parsers/src/main/java/org/apache/tika/parser/odf/OpenDocumentContentParser.java,84,new HashMap<QName, TargetElement>();
+tika-parsers/src/main/java/org/apache/tika/parser/odf/OpenDocumentContentParser.java,126,final HashMap<QName,QName> aAttsMapping =
+tika-parsers/src/main/java/org/apache/tika/parser/odf/OpenDocumentContentParser.java,127,new HashMap<QName,QName>();
+tika-parsers/src/main/java/org/apache/tika/parser/odf/OpenDocumentContentParser.java,147,final HashMap<QName,QName> tableCellAttsMapping =
+tika-parsers/src/main/java/org/apache/tika/parser/odf/OpenDocumentContentParser.java,148,new HashMap<QName,QName>();
+tika-parsers/src/main/java/org/apache/tika/parser/odf/OpenDocumentMetaParser.java,57,matcher);
+tika-parsers/src/main/java/org/apache/tika/parser/odf/OpenDocumentParser.java,44,Collections.unmodifiableSet(new HashSet<MediaType>(Arrays.asList(
+tika-parsers/src/main/java/org/apache/tika/parser/odf/OpenDocumentParser.java,45,MediaType.application("vnd.sun.xml.writer"),
+tika-parsers/src/main/java/org/apache/tika/parser/odf/OpenDocumentParser.java,46,MediaType.application("vnd.oasis.opendocument.text"),
+tika-parsers/src/main/java/org/apache/tika/parser/odf/OpenDocumentParser.java,47,MediaType.application("vnd.oasis.opendocument.graphics"),
+tika-parsers/src/main/java/org/apache/tika/parser/odf/OpenDocumentParser.java,48,MediaType.application("vnd.oasis.opendocument.presentation"),
+tika-parsers/src/main/java/org/apache/tika/parser/odf/OpenDocumentParser.java,49,MediaType.application("vnd.oasis.opendocument.spreadsheet"),
+tika-parsers/src/main/java/org/apache/tika/parser/odf/OpenDocumentParser.java,50,MediaType.application("vnd.oasis.opendocument.chart"),
+tika-parsers/src/main/java/org/apache/tika/parser/odf/OpenDocumentParser.java,51,MediaType.application("vnd.oasis.opendocument.image"),
+tika-parsers/src/main/java/org/apache/tika/parser/odf/OpenDocumentParser.java,52,MediaType.application("vnd.oasis.opendocument.formula"),
+tika-parsers/src/main/java/org/apache/tika/parser/odf/OpenDocumentParser.java,53,MediaType.application("vnd.oasis.opendocument.text-master"),
+tika-parsers/src/main/java/org/apache/tika/parser/odf/OpenDocumentParser.java,54,MediaType.application("vnd.oasis.opendocument.text-web"),
+tika-parsers/src/main/java/org/apache/tika/parser/odf/OpenDocumentParser.java,55,MediaType.application("vnd.oasis.opendocument.text-template"),
+tika-parsers/src/main/java/org/apache/tika/parser/odf/OpenDocumentParser.java,56,MediaType.application("vnd.oasis.opendocument.graphics-template"),
+tika-parsers/src/main/java/org/apache/tika/parser/odf/OpenDocumentParser.java,57,MediaType.application("vnd.oasis.opendocument.presentation-template"),
+tika-parsers/src/main/java/org/apache/tika/parser/odf/OpenDocumentParser.java,58,MediaType.application("vnd.oasis.opendocument.spreadsheet-template"),
+tika-parsers/src/main/java/org/apache/tika/parser/odf/OpenDocumentParser.java,59,MediaType.application("vnd.oasis.opendocument.chart-template"),
+tika-parsers/src/main/java/org/apache/tika/parser/odf/OpenDocumentParser.java,60,MediaType.application("vnd.oasis.opendocument.image-template"),
+tika-parsers/src/main/java/org/apache/tika/parser/odf/OpenDocumentParser.java,61,MediaType.application("vnd.oasis.opendocument.formula-template"),
+tika-parsers/src/main/java/org/apache/tika/parser/odf/OpenDocumentParser.java,62,MediaType.application("x-vnd.oasis.opendocument.text"),
+tika-parsers/src/main/java/org/apache/tika/parser/odf/OpenDocumentParser.java,63,MediaType.application("x-vnd.oasis.opendocument.graphics"),
+tika-parsers/src/main/java/org/apache/tika/parser/odf/OpenDocumentParser.java,64,MediaType.application("x-vnd.oasis.opendocument.presentation"),
+tika-parsers/src/main/java/org/apache/tika/parser/odf/OpenDocumentParser.java,65,MediaType.application("x-vnd.oasis.opendocument.spreadsheet"),
+tika-parsers/src/main/java/org/apache/tika/parser/odf/OpenDocumentParser.java,66,MediaType.application("x-vnd.oasis.opendocument.chart"),
+tika-parsers/src/main/java/org/apache/tika/parser/odf/OpenDocumentParser.java,67,MediaType.application("x-vnd.oasis.opendocument.image"),
+tika-parsers/src/main/java/org/apache/tika/parser/odf/OpenDocumentParser.java,68,MediaType.application("x-vnd.oasis.opendocument.formula"),
+tika-parsers/src/main/java/org/apache/tika/parser/odf/OpenDocumentParser.java,69,MediaType.application("x-vnd.oasis.opendocument.text-master"),
+tika-parsers/src/main/java/org/apache/tika/parser/odf/OpenDocumentParser.java,70,MediaType.application("x-vnd.oasis.opendocument.text-web"),
+tika-parsers/src/main/java/org/apache/tika/parser/odf/OpenDocumentParser.java,71,MediaType.application("x-vnd.oasis.opendocument.text-template"),
+tika-parsers/src/main/java/org/apache/tika/parser/odf/OpenDocumentParser.java,72,MediaType.application("x-vnd.oasis.opendocument.graphics-template"),
+tika-parsers/src/main/java/org/apache/tika/parser/odf/OpenDocumentParser.java,73,MediaType.application("x-vnd.oasis.opendocument.presentation-template"),
+tika-parsers/src/main/java/org/apache/tika/parser/odf/OpenDocumentParser.java,74,MediaType.application("x-vnd.oasis.opendocument.spreadsheet-template"),
+tika-parsers/src/main/java/org/apache/tika/parser/odf/OpenDocumentParser.java,75,MediaType.application("x-vnd.oasis.opendocument.chart-template"),
+tika-parsers/src/main/java/org/apache/tika/parser/odf/OpenDocumentParser.java,76,MediaType.application("x-vnd.oasis.opendocument.image-template"),
+tika-parsers/src/main/java/org/apache/tika/parser/odf/OpenDocumentParser.java,77,MediaType.application("x-vnd.oasis.opendocument.formula-template"))));
+tika-parsers/src/main/java/org/apache/tika/parser/html/HtmlParser.java,53,MediaType.application("xhtml+xml"),
+tika-parsers/src/main/java/org/apache/tika/parser/html/HtmlParser.java,54,MediaType.application("vnd.wap.xhtml+xml"),
+tika-parsers/src/main/java/org/apache/tika/parser/html/HtmlParser.java,55,MediaType.application("x-asp"))));
+tika-parsers/src/main/java/org/apache/tika/parser/odf/OpenDocumentContentParser.java,95,MAPPINGS.put(
+tika-parsers/src/main/java/org/apache/tika/parser/odf/OpenDocumentContentParser.java,96,new QName(TEXT_NS, "list"),
+tika-parsers/src/main/java/org/apache/tika/parser/odf/OpenDocumentContentParser.java,97,new TargetElement(XHTML, "ul"));
+tika-parsers/src/main/java/org/apache/tika/parser/pdf/PDFParser.java,67,try {
+tika-parsers/src/main/java/org/apache/tika/parser/pdf/PDFParser.java,72,pdfDocument.decrypt(password);
+tika-parsers/src/main/java/org/apache/tika/parser/epub/EpubParser.java,77,String type = IOUtils.toString(zip, "UTF-8");
+tika-parsers/src/main/java/org/apache/tika/parser/html/HtmlHandler.java,19,import java.net.MalformedURLException;
+tika-parsers/src/main/java/org/apache/tika/parser/html/HtmlHandler.java,20,import java.net.URL;
+tika-parsers/src/main/java/org/apache/tika/parser/pdf/PDFParser.java,110,Calendar modified = info.getModificationDate();
+tika-parsers/src/main/java/org/apache/tika/parser/odf/OpenDocumentParser.java,107,ZipInputStream zip = new ZipInputStream(stream);
+tika-parsers/src/main/java/org/apache/tika/parser/odf/OpenDocumentParser.java,108,ZipEntry entry = zip.getNextEntry();
+tika-parsers/src/main/java/org/apache/tika/parser/odf/OpenDocumentParser.java,109,while (entry != null) {
+tika-parsers/src/main/java/org/apache/tika/parser/odf/OpenDocumentParser.java,110,if (entry.getName().equals("mimetype")) {
+tika-parsers/src/main/java/org/apache/tika/parser/odf/OpenDocumentParser.java,111,String type = IOUtils.toString(zip, "UTF-8");
+tika-parsers/src/main/java/org/apache/tika/parser/odf/OpenDocumentParser.java,112,metadata.set(Metadata.CONTENT_TYPE, type);
+tika-parsers/src/main/java/org/apache/tika/parser/odf/OpenDocumentParser.java,114,meta.parse(zip, new DefaultHandler(), metadata, context);
+tika-parsers/src/main/java/org/apache/tika/parser/odf/OpenDocumentParser.java,118,entry = zip.getNextEntry();
+tika-parsers/src/main/java/org/apache/tika/parser/html/HtmlHandler.java,147,if (titleLevel == 0) {
+tika-parsers/src/main/java/org/apache/tika/parser/xml/XMLParser.java,91,xhtml.endElement("p");
+tika-parsers/src/main/java/org/apache/tika/parser/xml/XMLParser.java,92,xhtml.endDocument();
+tika-core/src/main/java/org/apache/tika/mime/MimeTypes.java,219,MimeType result = null;
+tika-core/src/main/java/org/apache/tika/mime/MimeTypes.java,221,if (magic.eval(data)) {
+tika-core/src/main/java/org/apache/tika/mime/MimeTypes.java,222,result = magic.getType();
+tika-core/src/main/java/org/apache/tika/mime/MimeTypes.java,227,if (result != null) {
+tika-core/src/main/java/org/apache/tika/mime/MimeTypes.java,558,type = hint;
+tika-core/src/main/java/org/apache/tika/mime/MimeTypes.java,569,type = hint;
+tika-parsers/src/main/java/org/apache/tika/parser/xml/XMLParser.java,106,return new TextContentHandler(handler);
+tika-parsers/src/main/java/org/apache/tika/parser/mp3/AudioFrame.java,125,int chans = h4 & 0x03;
+tika-parsers/src/main/java/org/apache/tika/parser/pdf/PDF2XHTML.java,25,import org.apache.pdfbox.util.PDFTextStripper;
+tika-core/src/main/java/org/apache/tika/mime/MimeTypes.java,487,return 8 * 1024;
+tika-app/src/main/java/org/apache/tika/cli/TikaCLI.java,113,private Metadata metadata;
+tika-app/src/main/java/org/apache/tika/cli/TikaCLI.java,153,metadata = new Metadata();
+tika-parsers/src/main/java/org/apache/tika/parser/image/ImageParser.java,69,reader.setInput(ImageIO.createImageInputStream(
+tika-parsers/src/main/java/org/apache/tika/parser/image/ImageParser.java,70,new CloseShieldInputStream(stream)));
+tika-parsers/src/main/java/org/apache/tika/parser/image/ImageParser.java,71,metadata.set("height", Integer.toString(reader.getHeight(0)));
+tika-parsers/src/main/java/org/apache/tika/parser/image/ImageParser.java,72,metadata.set("width", Integer.toString(reader.getWidth(0)));
+tika-parsers/src/main/java/org/apache/tika/parser/image/ImageParser.java,73,reader.dispose();
+tika-core/src/main/java/org/apache/tika/sax/XHTMLContentHandler.java,196,characters(characters.toCharArray(), 0, characters.length());
+tika-parsers/src/main/java/org/apache/tika/parser/mp3/CompositeTagHandler.java,76,public String getComment() {
+tika-parsers/src/main/java/org/apache/tika/parser/mp3/CompositeTagHandler.java,78,if (tag.getComment() != null) {
+tika-parsers/src/main/java/org/apache/tika/parser/mp3/CompositeTagHandler.java,79,return tag.getComment();
+tika-parsers/src/main/java/org/apache/tika/parser/mp3/CompositeTagHandler.java,82,return null;
+tika-parsers/src/main/java/org/apache/tika/parser/mp3/ID3Tags.java,177,String getComment();
+tika-parsers/src/main/java/org/apache/tika/parser/mp3/ID3v1Handler.java,38,private String comment;
+tika-parsers/src/main/java/org/apache/tika/parser/mp3/ID3v1Handler.java,63,comment = getString(tagData, 97, 127);
+tika-parsers/src/main/java/org/apache/tika/parser/mp3/ID3v1Handler.java,99,public String getComment() {
+tika-parsers/src/main/java/org/apache/tika/parser/mp3/ID3v1Handler.java,100,return comment;
+tika-parsers/src/main/java/org/apache/tika/parser/mp3/ID3v22Handler.java,37,private String comment;
+tika-parsers/src/main/java/org/apache/tika/parser/mp3/ID3v22Handler.java,97,public String getComment() {
+tika-parsers/src/main/java/org/apache/tika/parser/mp3/ID3v22Handler.java,98,return comment;
+tika-parsers/src/main/java/org/apache/tika/parser/mp3/ID3v23Handler.java,37,private String comment;
+tika-parsers/src/main/java/org/apache/tika/parser/mp3/ID3v23Handler.java,97,public String getComment() {
+tika-parsers/src/main/java/org/apache/tika/parser/mp3/ID3v23Handler.java,98,return comment;
+tika-parsers/src/main/java/org/apache/tika/parser/mp3/ID3v24Handler.java,38,private String comment;
+tika-parsers/src/main/java/org/apache/tika/parser/mp3/ID3v24Handler.java,98,public String getComment() {
+tika-parsers/src/main/java/org/apache/tika/parser/mp3/ID3v24Handler.java,99,return comment;
+tika-parsers/src/main/java/org/apache/tika/parser/mp3/Mp3Parser.java,75,metadata.set(XMPDM.LOG_COMMENT, tag.getComment());
+tika-parsers/src/main/java/org/apache/tika/parser/mp3/Mp3Parser.java,88,xhtml.element("p", tag.getComment());
+tika-parsers/src/main/java/org/apache/tika/parser/mp3/ID3v22Handler.java,55,comment = getTagString(tag.data, 0, tag.data.length);
+tika-parsers/src/main/java/org/apache/tika/parser/mp3/ID3v23Handler.java,55,comment = getTagString(tag.data, 0, tag.data.length);
+tika-parsers/src/main/java/org/apache/tika/parser/mp3/ID3v24Handler.java,56,comment = getTagString(tag.data, 0, tag.data.length);
+tika-parsers/src/main/java/org/apache/tika/parser/mp3/ID3v2Frame.java,185,if (maybeEncodingFlag == 1) {
+tika-parsers/src/main/java/org/apache/tika/parser/mp3/ID3v2Frame.java,187,encoding = "UTF-16";
+tika-parsers/src/main/java/org/apache/tika/parser/mp3/ID3v2Frame.java,190,encoding = "UTF-16BE";
+tika-parsers/src/main/java/org/apache/tika/parser/mp3/ID3v2Frame.java,192,encoding = "UTF8";
+tika-parsers/src/main/java/org/apache/tika/parser/mp3/ID3v2Frame.java,197,return new String(data, offset, actualLength, encoding);
+tika-parsers/src/main/java/org/apache/tika/parser/mp3/ID3v2Frame.java,180,String encoding = "ISO-8859-1";
+tika-parsers/src/main/java/org/apache/tika/parser/mp3/ID3v2Frame.java,175,actualLength--;
+tika-core/src/main/java/org/apache/tika/io/TaggedInputStream.java,80,return this == tagged.getTag();
+tika-core/src/main/java/org/apache/tika/io/TaggedInputStream.java,99,if (this == tagged.getTag()) {
+tika-core/src/main/java/org/apache/tika/io/TaggedInputStream.java,113,throw new TaggedIOException(e, this);
+tika-parsers/src/main/java/org/apache/tika/parser/microsoft/ExcelExtractor.java,281,addCell(record, new NumberCell(formula.getValue(), format));
+tika-parsers/src/main/java/org/apache/tika/parser/pkg/PackageExtractor.java,153,throws IOException, SAXException {
+tika-parsers/src/main/java/org/apache/tika/parser/pdf/PDF2XHTML.java,154,handler.startElement("p");
+tika-parsers/src/main/java/org/apache/tika/parser/pdf/PDF2XHTML.java,163,handler.endElement("p");
+tika-parsers/src/main/java/org/apache/tika/parser/txt/CharsetDetector.java,97,private static final int kBufSize = 8000;
+tika-parsers/src/main/java/org/apache/tika/parser/txt/CharsetRecog_sbcs.java,1221,byte shapedLamAlef[] = {(byte)0xb2,(byte)0xb3,(byte)0xb4,(byte)0xb5,(byte)0xb7,(byte)0xb8 };
+tika-parsers/src/main/java/org/apache/tika/parser/txt/CharsetRecog_sbcs.java,1224,return true;
+tika-parsers/src/main/java/org/apache/tika/parser/txt/CharsetRecog_sbcs.java,1225,return false;
+tika-parsers/src/main/java/org/apache/tika/parser/odf/OpenDocumentContentParser.java,177,final XHTMLContentHandler xhtml =
+tika-parsers/src/main/java/org/apache/tika/parser/odf/OpenDocumentContentParser.java,178,new XHTMLContentHandler(handler,metadata);
+tika-parsers/src/main/java/org/apache/tika/parser/odf/OpenDocumentContentParser.java,179,DefaultHandler dh = new ElementMappingContentHandler(xhtml, MAPPINGS) {
+tika-parsers/src/main/java/org/apache/tika/parser/odf/OpenDocumentContentParser.java,234,if (TEXT_NS.equals(namespaceURI)) {
+tika-parsers/src/main/java/org/apache/tika/parser/odf/OpenDocumentContentParser.java,268,xhtml.startElement(headingStack.push(
+tika-parsers/src/main/java/org/apache/tika/parser/odf/OpenDocumentContentParser.java,269,getXHTMLHeaderTagName(atts)));
+tika-parsers/src/main/java/org/apache/tika/parser/odf/OpenDocumentContentParser.java,286,xhtml.endElement(headingStack.pop());
+tika-parsers/src/main/java/org/apache/tika/parser/odf/OpenDocumentParser.java,116,content.parse(zip, handler, metadata, context);
+tika-parsers/src/main/java/org/apache/tika/parser/odf/OpenDocumentContentParser.java,59,public static final String TABLE_NS =
+tika-parsers/src/main/java/org/apache/tika/parser/odf/OpenDocumentContentParser.java,62,public static final String OFFICE_NS =
+tika-parsers/src/main/java/org/apache/tika/parser/odf/OpenDocumentContentParser.java,65,public static final String SVG_NS =
+tika-parsers/src/main/java/org/apache/tika/parser/odf/OpenDocumentContentParser.java,68,public static final String PRESENTATION_NS =
+tika-parsers/src/main/java/org/apache/tika/parser/odf/OpenDocumentContentParser.java,71,public static final String DRAW_NS =
+tika-parsers/src/main/java/org/apache/tika/parser/odf/OpenDocumentContentParser.java,74,public static final String XLINK_NS = "http://www.w3.org/1999/xlink";
+tika-parsers/src/main/java/org/apache/tika/parser/odf/OpenDocumentContentParser.java,83,private static final HashMap<QName, TargetElement> MAPPINGS =
+tika-parsers/src/main/java/org/apache/tika/parser/odf/OpenDocumentContentParser.java,86,static {
+tika-parsers/src/main/java/org/apache/tika/parser/odf/OpenDocumentContentParser.java,88,MAPPINGS.put(
+tika-parsers/src/main/java/org/apache/tika/parser/odf/OpenDocumentContentParser.java,89,new QName(TEXT_NS, "p"),
+tika-parsers/src/main/java/org/apache/tika/parser/odf/OpenDocumentContentParser.java,90,new TargetElement(XHTML, "p"));
+tika-parsers/src/main/java/org/apache/tika/parser/odf/OpenDocumentContentParser.java,92,MAPPINGS.put(
+tika-parsers/src/main/java/org/apache/tika/parser/odf/OpenDocumentContentParser.java,93,new QName(TEXT_NS, "line-break"),
+tika-parsers/src/main/java/org/apache/tika/parser/odf/OpenDocumentContentParser.java,94,new TargetElement(XHTML, "br"));
+tika-parsers/src/main/java/org/apache/tika/parser/odf/OpenDocumentContentParser.java,98,MAPPINGS.put(
+tika-parsers/src/main/java/org/apache/tika/parser/odf/OpenDocumentContentParser.java,99,new QName(TEXT_NS, "list-item"),
+tika-parsers/src/main/java/org/apache/tika/parser/odf/OpenDocumentContentParser.java,100,new TargetElement(XHTML, "li"));
+tika-parsers/src/main/java/org/apache/tika/parser/odf/OpenDocumentContentParser.java,101,MAPPINGS.put(
+tika-parsers/src/main/java/org/apache/tika/parser/odf/OpenDocumentContentParser.java,102,new QName(TEXT_NS, "note"),
+tika-parsers/src/main/java/org/apache/tika/parser/odf/OpenDocumentContentParser.java,104,MAPPINGS.put(
+tika-parsers/src/main/java/org/apache/tika/parser/odf/OpenDocumentContentParser.java,105,new QName(OFFICE_NS, "annotation"),
+tika-parsers/src/main/java/org/apache/tika/parser/odf/OpenDocumentContentParser.java,107,MAPPINGS.put(
+tika-parsers/src/main/java/org/apache/tika/parser/odf/OpenDocumentContentParser.java,108,new QName(PRESENTATION_NS, "notes"),
+tika-parsers/src/main/java/org/apache/tika/parser/odf/OpenDocumentContentParser.java,110,MAPPINGS.put(
+tika-parsers/src/main/java/org/apache/tika/parser/odf/OpenDocumentContentParser.java,111,new QName(DRAW_NS, "object"),
+tika-parsers/src/main/java/org/apache/tika/parser/odf/OpenDocumentContentParser.java,112,new TargetElement(XHTML, "object"));
+tika-parsers/src/main/java/org/apache/tika/parser/odf/OpenDocumentContentParser.java,113,MAPPINGS.put(
+tika-parsers/src/main/java/org/apache/tika/parser/odf/OpenDocumentContentParser.java,114,new QName(DRAW_NS, "text-box"),
+tika-parsers/src/main/java/org/apache/tika/parser/odf/OpenDocumentContentParser.java,115,new TargetElement(XHTML, "div"));
+tika-parsers/src/main/java/org/apache/tika/parser/odf/OpenDocumentContentParser.java,116,MAPPINGS.put(
+tika-parsers/src/main/java/org/apache/tika/parser/odf/OpenDocumentContentParser.java,117,new QName(SVG_NS, "title"),
+tika-parsers/src/main/java/org/apache/tika/parser/odf/OpenDocumentContentParser.java,118,new TargetElement(XHTML, "span"));
+tika-parsers/src/main/java/org/apache/tika/parser/odf/OpenDocumentContentParser.java,119,MAPPINGS.put(
+tika-parsers/src/main/java/org/apache/tika/parser/odf/OpenDocumentContentParser.java,120,new QName(SVG_NS, "desc"),
+tika-parsers/src/main/java/org/apache/tika/parser/odf/OpenDocumentContentParser.java,121,new TargetElement(XHTML, "span"));
+tika-parsers/src/main/java/org/apache/tika/parser/odf/OpenDocumentContentParser.java,122,MAPPINGS.put(
+tika-parsers/src/main/java/org/apache/tika/parser/odf/OpenDocumentContentParser.java,123,new QName(TEXT_NS, "span"),
+tika-parsers/src/main/java/org/apache/tika/parser/odf/OpenDocumentContentParser.java,124,new TargetElement(XHTML, "span"));
+tika-parsers/src/main/java/org/apache/tika/parser/odf/OpenDocumentContentParser.java,128,aAttsMapping.put(
+tika-parsers/src/main/java/org/apache/tika/parser/odf/OpenDocumentContentParser.java,129,new QName(XLINK_NS, "href"),
+tika-parsers/src/main/java/org/apache/tika/parser/odf/OpenDocumentContentParser.java,130,new QName("href"));
+tika-parsers/src/main/java/org/apache/tika/parser/odf/OpenDocumentContentParser.java,131,aAttsMapping.put(
+tika-parsers/src/main/java/org/apache/tika/parser/odf/OpenDocumentContentParser.java,132,new QName(XLINK_NS, "title"),
+tika-parsers/src/main/java/org/apache/tika/parser/odf/OpenDocumentContentParser.java,133,new QName("title"));
+tika-parsers/src/main/java/org/apache/tika/parser/odf/OpenDocumentContentParser.java,134,MAPPINGS.put(
+tika-parsers/src/main/java/org/apache/tika/parser/odf/OpenDocumentContentParser.java,135,new QName(TEXT_NS, "a"),
+tika-parsers/src/main/java/org/apache/tika/parser/odf/OpenDocumentContentParser.java,136,new TargetElement(XHTML, "a", aAttsMapping));
+tika-parsers/src/main/java/org/apache/tika/parser/odf/OpenDocumentContentParser.java,139,MAPPINGS.put(
+tika-parsers/src/main/java/org/apache/tika/parser/odf/OpenDocumentContentParser.java,140,new QName(TABLE_NS, "table"),
+tika-parsers/src/main/java/org/apache/tika/parser/odf/OpenDocumentContentParser.java,141,new TargetElement(XHTML, "table"));
+tika-parsers/src/main/java/org/apache/tika/parser/odf/OpenDocumentContentParser.java,143,MAPPINGS.put(
+tika-parsers/src/main/java/org/apache/tika/parser/odf/OpenDocumentContentParser.java,144,new QName(TABLE_NS, "table-row"),
+tika-parsers/src/main/java/org/apache/tika/parser/odf/OpenDocumentContentParser.java,145,new TargetElement(XHTML, "tr"));
+tika-parsers/src/main/java/org/apache/tika/parser/odf/OpenDocumentContentParser.java,149,tableCellAttsMapping.put(
+tika-parsers/src/main/java/org/apache/tika/parser/odf/OpenDocumentContentParser.java,150,new QName(TABLE_NS, "number-columns-spanned"),
+tika-parsers/src/main/java/org/apache/tika/parser/odf/OpenDocumentContentParser.java,151,new QName("colspan"));
+tika-parsers/src/main/java/org/apache/tika/parser/odf/OpenDocumentContentParser.java,152,tableCellAttsMapping.put(
+tika-parsers/src/main/java/org/apache/tika/parser/odf/OpenDocumentContentParser.java,153,new QName(TABLE_NS, "number-rows-spanned"),
+tika-parsers/src/main/java/org/apache/tika/parser/odf/OpenDocumentContentParser.java,154,new QName("rowspan"));
+tika-parsers/src/main/java/org/apache/tika/parser/odf/OpenDocumentContentParser.java,161,tableCellAttsMapping.put(
+tika-parsers/src/main/java/org/apache/tika/parser/odf/OpenDocumentContentParser.java,162,new QName(TABLE_NS, "number-columns-repeated"),
+tika-parsers/src/main/java/org/apache/tika/parser/odf/OpenDocumentContentParser.java,163,new QName("colspan"));
+tika-parsers/src/main/java/org/apache/tika/parser/odf/OpenDocumentContentParser.java,164,MAPPINGS.put(
+tika-parsers/src/main/java/org/apache/tika/parser/odf/OpenDocumentContentParser.java,165,new QName(TABLE_NS, "table-cell"),
+tika-parsers/src/main/java/org/apache/tika/parser/odf/OpenDocumentContentParser.java,166,new TargetElement(XHTML, "td", tableCellAttsMapping));
+tika-parsers/src/main/java/org/apache/tika/parser/txt/CharsetMatch.java,96,while ((bytesRead = reader.read(buffer, 0, Math.min(max, 1024))) >= 0) {
+tika-core/src/main/java/org/apache/tika/parser/ParsingReader.java,268,if (throwable instanceof IOException) {
+tika-parsers/src/main/java/org/apache/tika/parser/mp3/Mp3Parser.java,61,xhtml.startDocument();
+tika-parsers/src/main/java/org/apache/tika/parser/mp3/Mp3Parser.java,67,CompositeTagHandler tag = new CompositeTagHandler(audioAndTags.tags);
+tika-parsers/src/main/java/org/apache/tika/parser/mp3/Mp3Parser.java,71,metadata.set(XMPDM.ARTIST, tag.getArtist());
+tika-parsers/src/main/java/org/apache/tika/parser/mp3/Mp3Parser.java,72,metadata.set(XMPDM.ALBUM, tag.getAlbum());
+tika-parsers/src/main/java/org/apache/tika/parser/mp3/Mp3Parser.java,73,metadata.set(XMPDM.RELEASE_DATE, tag.getYear());
+tika-parsers/src/main/java/org/apache/tika/parser/mp3/Mp3Parser.java,74,metadata.set(XMPDM.GENRE, tag.getGenre());
+tika-parsers/src/main/java/org/apache/tika/parser/mp3/Mp3Parser.java,77,xhtml.element("h1", tag.getTitle());
+tika-parsers/src/main/java/org/apache/tika/parser/mp3/Mp3Parser.java,78,xhtml.element("p", tag.getArtist());
+tika-parsers/src/main/java/org/apache/tika/parser/mp3/Mp3Parser.java,91,if (audioAndTags.audio != null) {
+tika-parsers/src/main/java/org/apache/tika/parser/mp3/Mp3Parser.java,92,metadata.set("samplerate", String.valueOf(audioAndTags.audio.getSampleRate()));
+tika-parsers/src/main/java/org/apache/tika/parser/mp3/Mp3Parser.java,93,metadata.set("channels", String.valueOf(audioAndTags.audio.getChannels()));
+tika-parsers/src/main/java/org/apache/tika/parser/mp3/Mp3Parser.java,94,metadata.set("version", audioAndTags.audio.getVersion());
+tika-parsers/src/main/java/org/apache/tika/parser/mp3/Mp3Parser.java,95,metadata.set(
+tika-parsers/src/main/java/org/apache/tika/parser/mp3/Mp3Parser.java,96,XMPDM.AUDIO_SAMPLE_RATE,
+tika-parsers/src/main/java/org/apache/tika/parser/mp3/Mp3Parser.java,97,Integer.toString(audioAndTags.audio.getSampleRate()));
+tika-parsers/src/main/java/org/apache/tika/parser/microsoft/ExcelExtractor.java,385,while (currentRow < entry.getKey().y) {
+tika-parsers/src/main/java/org/apache/tika/parser/microsoft/ExcelExtractor.java,386,handler.endElement("td");
+tika-parsers/src/main/java/org/apache/tika/parser/microsoft/ExcelExtractor.java,387,handler.endElement("tr");
+tika-parsers/src/main/java/org/apache/tika/parser/microsoft/ExcelExtractor.java,388,handler.startElement("tr");
+tika-parsers/src/main/java/org/apache/tika/parser/microsoft/ExcelExtractor.java,389,handler.startElement("td");
+tika-parsers/src/main/java/org/apache/tika/parser/microsoft/ExcelExtractor.java,390,currentRow++;
+tika-parsers/src/main/java/org/apache/tika/parser/txt/CharsetDetector.java,90,fRawLength = in.length;
+tika-parsers/src/main/java/org/apache/tika/parser/txt/CharsetDetector.java,124,int remainingLength = kBufSize;
+tika-parsers/src/main/java/org/apache/tika/parser/txt/CharsetDetector.java,128,if (bytesRead <= 0) {
+tika-parsers/src/main/java/org/apache/tika/parser/txt/CharsetDetector.java,132,remainingLength -= bytesRead;
+tika-parsers/src/main/java/org/apache/tika/parser/txt/CharsetDetector.java,134,fInputStream.reset();
+tika-parsers/src/main/java/org/apache/tika/parser/txt/CharsetDetector.java,120,fRawInput = new byte[kBufSize];   // Always make a new buffer because the
+tika-parsers/src/main/java/org/apache/tika/parser/txt/CharsetDetector.java,123,fRawLength = 0;
+tika-parsers/src/main/java/org/apache/tika/parser/txt/CharsetDetector.java,131,fRawLength += bytesRead;
+tika-parsers/src/main/java/org/apache/tika/parser/txt/CharsetDetector.java,136,MungeInput();                     // Strip html markup, collect byte stats.
+tika-parsers/src/main/java/org/apache/tika/parser/txt/CharsetDetector.java,137,return this;
+tika-parsers/src/main/java/org/apache/tika/parser/odf/OpenDocumentContentParser.java,103,new TargetElement(XHTML, "div"));
+tika-parsers/src/main/java/org/apache/tika/parser/odf/OpenDocumentContentParser.java,106,new TargetElement(XHTML, "div"));
+tika-parsers/src/main/java/org/apache/tika/parser/odf/OpenDocumentContentParser.java,109,new TargetElement(XHTML, "div"));
+tika-parsers/src/main/java/org/apache/tika/parser/audio/MidiParser.java,19,import java.io.BufferedInputStream;
+tika-parsers/src/main/java/org/apache/tika/parser/audio/MidiParser.java,20,import java.io.IOException;
+tika-parsers/src/main/java/org/apache/tika/parser/audio/MidiParser.java,21,import java.io.InputStream;
+tika-parsers/src/main/java/org/apache/tika/parser/audio/MidiParser.java,22,import java.util.Arrays;
+tika-parsers/src/main/java/org/apache/tika/parser/audio/MidiParser.java,23,import java.util.Collections;
+tika-parsers/src/main/java/org/apache/tika/parser/audio/MidiParser.java,24,import java.util.HashSet;
+tika-parsers/src/main/java/org/apache/tika/parser/audio/MidiParser.java,25,import java.util.Set;
+tika-parsers/src/main/java/org/apache/tika/parser/audio/MidiParser.java,65,InputStream buffered = new BufferedInputStream(stream);
+tika-parsers/src/main/java/org/apache/tika/parser/audio/MidiParser.java,67,Sequence sequence = MidiSystem.getSequence(buffered);
+tika-parsers/src/main/java/org/apache/tika/parser/epub/EpubContentParser.java,36,import org.apache.tika.sax.XHTMLContentHandler;
+tika-parsers/src/main/java/org/apache/tika/parser/epub/EpubContentParser.java,56,final XHTMLContentHandler xhtml =
+tika-parsers/src/main/java/org/apache/tika/parser/txt/CharsetDetector.java,12,import java.nio.charset.Charset;
+tika-parsers/src/main/java/org/apache/tika/parser/txt/CharsetDetector.java,75,setCanonicalDeclaredEncoding(encoding);
+tika-parsers/src/main/java/org/apache/tika/parser/txt/CharsetDetector.java,92,MungeInput();
+tika-parsers/src/main/java/org/apache/tika/parser/txt/CharsetDetector.java,190,CharsetRecognizer csr;
+tika-parsers/src/main/java/org/apache/tika/parser/txt/CharsetDetector.java,194,ArrayList<CharsetMatch> matches = new ArrayList<CharsetMatch>();
+tika-parsers/src/main/java/org/apache/tika/parser/txt/CharsetDetector.java,199,csr = fCSRecognizers.get(i);
+tika-parsers/src/main/java/org/apache/tika/parser/txt/CharsetDetector.java,200,detectResults = csr.match(this);
+tika-parsers/src/main/java/org/apache/tika/parser/txt/CharsetDetector.java,201,confidence = detectResults & 0x000000ff;
+tika-parsers/src/main/java/org/apache/tika/parser/txt/CharsetDetector.java,202,if (confidence > 0) {
+tika-parsers/src/main/java/org/apache/tika/parser/txt/CharsetDetector.java,204,confidence = Math.min(confidence, MAX_CONFIDENCE);
+tika-parsers/src/main/java/org/apache/tika/parser/txt/CharsetDetector.java,207,if ((fDeclaredEncoding != null) && (fDeclaredEncoding.equalsIgnoreCase(csr.getName()))) {
+tika-parsers/src/main/java/org/apache/tika/parser/txt/CharsetDetector.java,213,matches.add(m);
+tika-parsers/src/main/java/org/apache/tika/parser/txt/CharsetDetector.java,248,setCanonicalDeclaredEncoding(declaredEncoding);
+tika-parsers/src/main/java/org/apache/tika/parser/txt/CharsetDetector.java,282,setCanonicalDeclaredEncoding(declaredEncoding);
+tika-parsers/src/main/java/org/apache/tika/parser/txt/CharsetDetector.java,351,private void setCanonicalDeclaredEncoding(String encoding) {
+tika-parsers/src/main/java/org/apache/tika/parser/txt/CharsetDetector.java,352,Charset cs = Charset.forName(encoding);
+tika-parsers/src/main/java/org/apache/tika/parser/txt/CharsetDetector.java,353,if (cs != null) {
+tika-parsers/src/main/java/org/apache/tika/parser/txt/CharsetDetector.java,354,fDeclaredEncoding = cs.name();
+tika-parsers/src/main/java/org/apache/tika/parser/txt/CharsetMatch.java,90,StringBuffer sb = new StringBuffer();
+tika-parsers/src/main/java/org/apache/tika/parser/txt/CharsetMatch.java,173,public int getMatchType() {
+tika-parsers/src/main/java/org/apache/tika/parser/txt/CharsetMatch.java,175,return 0;
+tika-parsers/src/main/java/org/apache/tika/parser/txt/CharsetMatch.java,194,return fRecognizer.getName();
+tika-parsers/src/main/java/org/apache/tika/parser/txt/CharsetMatch.java,205,return fRecognizer.getLanguage();
+tika-parsers/src/main/java/org/apache/tika/parser/txt/CharsetRecog_2022.java,121,return match(det.fInputBytes, det.fInputLen, escapeSequences);
+tika-parsers/src/main/java/org/apache/tika/parser/txt/CharsetRecog_2022.java,135,return match(det.fInputBytes, det.fInputLen, escapeSequences);
+tika-parsers/src/main/java/org/apache/tika/parser/txt/CharsetRecog_2022.java,161,return match(det.fInputBytes, det.fInputLen, escapeSequences);
+tika-parsers/src/main/java/org/apache/tika/parser/txt/CharsetRecog_UTF8.java,23,int match(CharsetDetector det) {
+tika-parsers/src/main/java/org/apache/tika/parser/txt/CharsetRecog_UTF8.java,53,if (numInvalid > 5) {
+tika-parsers/src/main/java/org/apache/tika/parser/txt/CharsetRecog_UTF8.java,54,break;
+tika-parsers/src/main/java/org/apache/tika/parser/txt/CharsetRecog_UTF8.java,56,trailBytes = 0;
+tika-parsers/src/main/java/org/apache/tika/parser/txt/CharsetRecog_UTF8.java,96,return confidence;
+tika-parsers/src/main/java/org/apache/tika/parser/txt/CharsetRecog_Unicode.java,26,abstract int match(CharsetDetector det);
+tika-parsers/src/main/java/org/apache/tika/parser/txt/CharsetRecog_Unicode.java,40,return 100;
+tika-parsers/src/main/java/org/apache/tika/parser/txt/CharsetRecog_Unicode.java,44,return 0;
+tika-parsers/src/main/java/org/apache/tika/parser/txt/CharsetRecog_Unicode.java,70,return 0;
+tika-parsers/src/main/java/org/apache/tika/parser/txt/CharsetRecog_Unicode.java,90,return 0;
+tika-parsers/src/main/java/org/apache/tika/parser/txt/CharsetRecog_Unicode.java,122,return confidence;
+tika-parsers/src/main/java/org/apache/tika/parser/txt/CharsetRecog_sbcs.java,8,package org.apache.tika.parser.txt;
+tika-parsers/src/main/java/org/apache/tika/parser/txt/CharsetRecog_sbcs.java,10,import java.nio.ByteBuffer;
+tika-parsers/src/main/java/org/apache/tika/parser/txt/CharsetRecog_sbcs.java,28,abstract int match(CharsetDetector det);
+tika-parsers/src/main/java/org/apache/tika/parser/txt/CharsetRecog_sbcs.java,35,private int byteIndex = 0;
+tika-parsers/src/main/java/org/apache/tika/parser/txt/CharsetRecog_sbcs.java,39,private byte[] byteMap;
+tika-parsers/src/main/java/org/apache/tika/parser/txt/CharsetRecog_sbcs.java,44,private byte spaceChar;
+tika-parsers/src/main/java/org/apache/tika/parser/txt/CharsetRecog_sbcs.java,131,this.spaceChar = spaceCh;
+tika-parsers/src/main/java/org/apache/tika/parser/txt/CharsetRecog_sbcs.java,183,protected static byte[] byteMap = {
+tika-parsers/src/main/java/org/apache/tika/parser/txt/CharsetRecog_sbcs.java,226,private static int[] ngrams = {
+tika-parsers/src/main/java/org/apache/tika/parser/txt/CharsetRecog_sbcs.java,235,return "da";
+tika-parsers/src/main/java/org/apache/tika/parser/txt/CharsetRecog_sbcs.java,240,return match(det, ngrams, byteMap);
+tika-parsers/src/main/java/org/apache/tika/parser/txt/CharsetRecog_sbcs.java,246,private static int[] ngrams = {
+tika-parsers/src/main/java/org/apache/tika/parser/txt/CharsetRecog_sbcs.java,255,return "de";
+tika-parsers/src/main/java/org/apache/tika/parser/txt/CharsetRecog_sbcs.java,260,return match(det, ngrams, byteMap);
+tika-parsers/src/main/java/org/apache/tika/parser/txt/CharsetRecog_sbcs.java,266,private static int[] ngrams = {
+tika-parsers/src/main/java/org/apache/tika/parser/txt/CharsetRecog_sbcs.java,275,return "en";
+tika-parsers/src/main/java/org/apache/tika/parser/txt/CharsetRecog_sbcs.java,280,return match(det, ngrams, byteMap);
+tika-parsers/src/main/java/org/apache/tika/parser/txt/CharsetRecog_sbcs.java,286,private static int[] ngrams = {
+tika-parsers/src/main/java/org/apache/tika/parser/txt/CharsetRecog_sbcs.java,295,return "es";
+tika-parsers/src/main/java/org/apache/tika/parser/txt/CharsetRecog_sbcs.java,300,return match(det, ngrams, byteMap);
+tika-parsers/src/main/java/org/apache/tika/parser/txt/CharsetRecog_sbcs.java,306,private static int[] ngrams = {
+tika-parsers/src/main/java/org/apache/tika/parser/txt/CharsetRecog_sbcs.java,315,return "fr";
+tika-parsers/src/main/java/org/apache/tika/parser/txt/CharsetRecog_sbcs.java,320,return match(det, ngrams, byteMap);
+tika-parsers/src/main/java/org/apache/tika/parser/txt/CharsetRecog_sbcs.java,326,private static int[] ngrams = {
+tika-parsers/src/main/java/org/apache/tika/parser/txt/CharsetRecog_sbcs.java,335,return "it";
+tika-parsers/src/main/java/org/apache/tika/parser/txt/CharsetRecog_sbcs.java,340,return match(det, ngrams, byteMap);
+tika-parsers/src/main/java/org/apache/tika/parser/txt/CharsetRecog_sbcs.java,346,private static int[] ngrams = {
+tika-parsers/src/main/java/org/apache/tika/parser/txt/CharsetRecog_sbcs.java,355,return "nl";
+tika-parsers/src/main/java/org/apache/tika/parser/txt/CharsetRecog_sbcs.java,360,return match(det, ngrams, byteMap);
+tika-parsers/src/main/java/org/apache/tika/parser/txt/CharsetRecog_sbcs.java,366,private static int[] ngrams = {
+tika-parsers/src/main/java/org/apache/tika/parser/txt/CharsetRecog_sbcs.java,375,return "no";
+tika-parsers/src/main/java/org/apache/tika/parser/txt/CharsetRecog_sbcs.java,380,return match(det, ngrams, byteMap);
+tika-parsers/src/main/java/org/apache/tika/parser/txt/CharsetRecog_sbcs.java,386,private static int[] ngrams = {
+tika-parsers/src/main/java/org/apache/tika/parser/txt/CharsetRecog_sbcs.java,395,return "pt";
+tika-parsers/src/main/java/org/apache/tika/parser/txt/CharsetRecog_sbcs.java,400,return match(det, ngrams, byteMap);
+tika-parsers/src/main/java/org/apache/tika/parser/txt/CharsetRecog_sbcs.java,406,private static int[] ngrams = {
+tika-parsers/src/main/java/org/apache/tika/parser/txt/CharsetRecog_sbcs.java,415,return "sv";
+tika-parsers/src/main/java/org/apache/tika/parser/txt/CharsetRecog_sbcs.java,420,return match(det, ngrams, byteMap);
+tika-parsers/src/main/java/org/apache/tika/parser/txt/CharsetRecog_sbcs.java,469,private static int[] ngrams = {
+tika-parsers/src/main/java/org/apache/tika/parser/txt/CharsetRecog_sbcs.java,478,return "cs";
+tika-parsers/src/main/java/org/apache/tika/parser/txt/CharsetRecog_sbcs.java,483,return match(det, ngrams, byteMap);
+tika-parsers/src/main/java/org/apache/tika/parser/txt/CharsetRecog_sbcs.java,489,private static int[] ngrams = {
+tika-parsers/src/main/java/org/apache/tika/parser/txt/CharsetRecog_sbcs.java,498,return "hu";
+tika-parsers/src/main/java/org/apache/tika/parser/txt/CharsetRecog_sbcs.java,503,return match(det, ngrams, byteMap);
+tika-parsers/src/main/java/org/apache/tika/parser/txt/CharsetRecog_sbcs.java,509,private static int[] ngrams = {
+tika-parsers/src/main/java/org/apache/tika/parser/txt/CharsetRecog_sbcs.java,518,return "pl";
+tika-parsers/src/main/java/org/apache/tika/parser/txt/CharsetRecog_sbcs.java,523,return match(det, ngrams, byteMap);
+tika-parsers/src/main/java/org/apache/tika/parser/txt/CharsetRecog_sbcs.java,529,private static int[] ngrams = {
+tika-parsers/src/main/java/org/apache/tika/parser/txt/CharsetRecog_sbcs.java,538,return "ro";
+tika-parsers/src/main/java/org/apache/tika/parser/txt/CharsetRecog_sbcs.java,543,return match(det, ngrams, byteMap);
+tika-parsers/src/main/java/org/apache/tika/parser/txt/CharsetRecog_sbcs.java,606,return match(det, ngrams, byteMap);
+tika-parsers/src/main/java/org/apache/tika/parser/txt/CharsetRecog_sbcs.java,669,return match(det, ngrams, byteMap);
+tika-parsers/src/main/java/org/apache/tika/parser/txt/CharsetRecog_sbcs.java,732,return match(det, ngrams, byteMap);
+tika-parsers/src/main/java/org/apache/tika/parser/txt/CharsetRecog_sbcs.java,800,return match(det, ngrams, byteMap);
+tika-parsers/src/main/java/org/apache/tika/parser/txt/CharsetRecog_sbcs.java,820,return match(det, ngrams, byteMap);
+tika-parsers/src/main/java/org/apache/tika/parser/txt/CharsetRecog_sbcs.java,883,return match(det, ngrams, byteMap);
+tika-parsers/src/main/java/org/apache/tika/parser/txt/CharsetRecog_sbcs.java,1003,return match(det, ngrams, byteMap);
+tika-parsers/src/main/java/org/apache/tika/parser/txt/CharsetRecog_sbcs.java,1063,return match(det, ngrams, byteMap);
+tika-parsers/src/main/java/org/apache/tika/parser/txt/CharsetRecog_sbcs.java,1156,protected static byte[] unshapeMap = {
+tika-parsers/src/main/java/org/apache/tika/parser/txt/CharsetRecog_sbcs.java,1183,byte bb[] = unshape(det.fInputBytes);
+tika-parsers/src/main/java/org/apache/tika/parser/txt/CharsetRecog_sbcs.java,1184,det.setText(bb);
+tika-parsers/src/main/java/org/apache/tika/parser/txt/CharsetRecog_sbcs.java,1194,private byte[] unshape(byte[] inputBytes) {
+tika-parsers/src/main/java/org/apache/tika/parser/txt/CharsetRecog_sbcs.java,1195,byte resultByteArr[] = unshapeLamAlef(inputBytes);
+tika-parsers/src/main/java/org/apache/tika/parser/txt/CharsetRecog_sbcs.java,1200,return resultByteArr;
+tika-parsers/src/main/java/org/apache/tika/parser/txt/CharsetRecog_sbcs.java,1203,private byte[] unshapeLamAlef(byte[] inputBytes) {
+tika-parsers/src/main/java/org/apache/tika/parser/txt/CharsetRecog_sbcs.java,1205,ByteBuffer resultBuffer;
+tika-parsers/src/main/java/org/apache/tika/parser/txt/CharsetRecog_sbcs.java,1211,resultBigBuffer.put(unshapedLamAlef);
+tika-parsers/src/main/java/org/apache/tika/parser/txt/CharsetRecog_sbcs.java,1212,else
+tika-parsers/src/main/java/org/apache/tika/parser/txt/CharsetRecog_sbcs.java,1215,resultBuffer = ByteBuffer.allocate(resultBigBuffer.position());
+tika-parsers/src/main/java/org/apache/tika/parser/txt/CharsetRecog_sbcs.java,1217,return resultBuffer.array();
+tika-parsers/src/main/java/org/apache/tika/parser/txt/CharsetRecog_sbcs.java,1220,private boolean isLamAlef(byte b) {
+tika-parsers/src/main/java/org/apache/tika/parser/txt/CharsetRecog_sbcs.java,1228,protected void matchFinish(CharsetDetector det) {
+tika-parsers/src/main/java/org/apache/tika/parser/txt/CharsetRecog_sbcs.java,1230,det.setText(prev_fInputBytes);
+tika-parsers/src/main/java/org/apache/tika/parser/txt/CharsetRecog_sbcs.java,1249,matchInit(det);
+tika-parsers/src/main/java/org/apache/tika/parser/txt/CharsetRecog_sbcs.java,1251,matchFinish(det);
+tika-parsers/src/main/java/org/apache/tika/parser/txt/CharsetRecog_sbcs.java,1252,return result;
+tika-parsers/src/main/java/org/apache/tika/parser/txt/CharsetRecog_sbcs.java,1271,matchInit(det);
+tika-parsers/src/main/java/org/apache/tika/parser/txt/CharsetRecog_sbcs.java,1273,matchFinish(det);
+tika-parsers/src/main/java/org/apache/tika/parser/txt/CharsetRecog_sbcs.java,1274,return result;

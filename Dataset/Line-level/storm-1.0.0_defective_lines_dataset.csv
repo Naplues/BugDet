@@ -1,0 +1,1279 @@
+File,Line_number,SRC
+storm-core/src/jvm/org/apache/storm/localizer/Localizer.java,538,Utils.unpack(new File(downloadFile), new File(localFileWithVersion));
+storm-core/src/jvm/org/apache/storm/utils/Utils.java,788,throws IOException {
+storm-core/src/jvm/org/apache/storm/utils/Utils.java,789,JarFile jar = new JarFile(jarFile);
+storm-core/src/jvm/org/apache/storm/utils/Utils.java,790,try {
+storm-core/src/jvm/org/apache/storm/utils/Utils.java,791,Enumeration<JarEntry> entries = jar.entries();
+storm-core/src/jvm/org/apache/storm/utils/Utils.java,792,while (entries.hasMoreElements()) {
+storm-core/src/jvm/org/apache/storm/utils/Utils.java,793,final JarEntry entry = entries.nextElement();
+storm-core/src/jvm/org/apache/storm/utils/Utils.java,794,if (!entry.isDirectory()) {
+storm-core/src/jvm/org/apache/storm/utils/Utils.java,795,InputStream in = jar.getInputStream(entry);
+storm-core/src/jvm/org/apache/storm/utils/Utils.java,796,try {
+storm-core/src/jvm/org/apache/storm/utils/Utils.java,797,File file = new File(toDir, entry.getName());
+storm-core/src/jvm/org/apache/storm/utils/Utils.java,798,ensureDirectory(file.getParentFile());
+storm-core/src/jvm/org/apache/storm/utils/Utils.java,799,OutputStream out = new FileOutputStream(file);
+storm-core/src/jvm/org/apache/storm/utils/Utils.java,800,try {
+storm-core/src/jvm/org/apache/storm/utils/Utils.java,801,copyBytes(in, out, 8192);
+storm-core/src/jvm/org/apache/storm/utils/Utils.java,803,out.close();
+storm-core/src/jvm/org/apache/storm/utils/Utils.java,806,in.close();
+storm-core/src/jvm/org/apache/storm/utils/Utils.java,811,jar.close();
+storm-core/src/jvm/org/apache/storm/utils/Utils.java,823,throws IOException {
+storm-core/src/jvm/org/apache/storm/utils/Utils.java,824,PrintStream ps = out instanceof PrintStream ? (PrintStream)out : null;
+storm-core/src/jvm/org/apache/storm/utils/Utils.java,825,byte buf[] = new byte[buffSize];
+storm-core/src/jvm/org/apache/storm/utils/Utils.java,826,int bytesRead = in.read(buf);
+storm-core/src/jvm/org/apache/storm/utils/Utils.java,827,while (bytesRead >= 0) {
+storm-core/src/jvm/org/apache/storm/utils/Utils.java,828,out.write(buf, 0, bytesRead);
+storm-core/src/jvm/org/apache/storm/utils/Utils.java,829,if ((ps != null) && ps.checkError()) {
+storm-core/src/jvm/org/apache/storm/utils/Utils.java,830,throw new IOException("Unable to write to output stream.");
+storm-core/src/jvm/org/apache/storm/utils/Utils.java,832,bytesRead = in.read(buf);
+storm-core/src/jvm/org/apache/storm/utils/Utils.java,858,public static void unTar(File inFile, File untarDir) throws IOException {
+storm-core/src/jvm/org/apache/storm/utils/Utils.java,859,if (!untarDir.mkdirs()) {
+storm-core/src/jvm/org/apache/storm/utils/Utils.java,860,if (!untarDir.isDirectory()) {
+storm-core/src/jvm/org/apache/storm/utils/Utils.java,861,throw new IOException("Mkdirs failed to create " + untarDir);
+storm-core/src/jvm/org/apache/storm/utils/Utils.java,869,unTarUsingJava(inFile, untarDir, gzipped);
+storm-core/src/jvm/org/apache/storm/utils/Utils.java,906,boolean gzipped) throws IOException {
+storm-core/src/jvm/org/apache/storm/utils/Utils.java,946,TarArchiveEntry entry, File outputDir) throws IOException {
+storm-core/src/jvm/org/apache/storm/utils/Utils.java,948,File subDir = new File(outputDir, entry.getName());
+storm-core/src/jvm/org/apache/storm/utils/Utils.java,949,if (!subDir.mkdirs() && !subDir.isDirectory()) {
+storm-core/src/jvm/org/apache/storm/utils/Utils.java,950,throw new IOException("Mkdirs failed to create tar internal dir "
+storm-core/src/jvm/org/apache/storm/utils/Utils.java,951,+ outputDir);
+storm-core/src/jvm/org/apache/storm/utils/Utils.java,954,unpackEntries(tis, e, subDir);
+storm-core/src/jvm/org/apache/storm/utils/Utils.java,956,return;
+storm-core/src/jvm/org/apache/storm/utils/Utils.java,958,File outputFile = new File(outputDir, entry.getName());
+storm-core/src/jvm/org/apache/storm/utils/Utils.java,959,if (!outputFile.getParentFile().exists()) {
+storm-core/src/jvm/org/apache/storm/utils/Utils.java,960,if (!outputFile.getParentFile().mkdirs()) {
+storm-core/src/jvm/org/apache/storm/utils/Utils.java,961,throw new IOException("Mkdirs failed to create tar internal dir "
+storm-core/src/jvm/org/apache/storm/utils/Utils.java,965,int count;
+storm-core/src/jvm/org/apache/storm/utils/Utils.java,966,byte data[] = new byte[2048];
+storm-core/src/jvm/org/apache/storm/utils/Utils.java,967,BufferedOutputStream outputStream = new BufferedOutputStream(
+storm-core/src/jvm/org/apache/storm/utils/Utils.java,968,new FileOutputStream(outputFile));
+storm-core/src/jvm/org/apache/storm/utils/Utils.java,970,while ((count = tis.read(data)) != -1) {
+storm-core/src/jvm/org/apache/storm/utils/Utils.java,971,outputStream.write(data, 0, count);
+storm-core/src/jvm/org/apache/storm/utils/Utils.java,973,outputStream.flush();
+storm-core/src/jvm/org/apache/storm/utils/Utils.java,974,outputStream.close();
+storm-core/src/jvm/org/apache/storm/utils/Utils.java,984,public static void unpack(File localrsrc, File dst) throws IOException {
+storm-core/src/jvm/org/apache/storm/utils/Utils.java,986,if (lowerDst.endsWith(".jar")) {
+storm-core/src/jvm/org/apache/storm/utils/Utils.java,991,lowerDst.endsWith(".tgz") ||
+storm-core/src/jvm/org/apache/storm/utils/Utils.java,992,lowerDst.endsWith(".tar")) {
+storm-core/src/jvm/org/apache/storm/utils/Utils.java,993,unTar(localrsrc, dst);
+storm-core/src/jvm/org/apache/storm/utils/Utils.java,1268,public static void unZip(File inFile, File unzipDir) throws IOException {
+storm-core/src/jvm/org/apache/storm/utils/Utils.java,1269,Enumeration<? extends ZipEntry> entries;
+storm-core/src/jvm/org/apache/storm/utils/Utils.java,1270,ZipFile zipFile = new ZipFile(inFile);
+storm-core/src/jvm/org/apache/storm/utils/Utils.java,1272,try {
+storm-core/src/jvm/org/apache/storm/utils/Utils.java,1273,entries = zipFile.entries();
+storm-core/src/jvm/org/apache/storm/utils/Utils.java,1274,while (entries.hasMoreElements()) {
+storm-core/src/jvm/org/apache/storm/utils/Utils.java,1275,ZipEntry entry = entries.nextElement();
+storm-core/src/jvm/org/apache/storm/utils/Utils.java,1276,if (!entry.isDirectory()) {
+storm-core/src/jvm/org/apache/storm/utils/Utils.java,1277,InputStream in = zipFile.getInputStream(entry);
+storm-core/src/jvm/org/apache/storm/utils/Utils.java,1278,try {
+storm-core/src/jvm/org/apache/storm/utils/Utils.java,1279,File file = new File(unzipDir, entry.getName());
+storm-core/src/jvm/org/apache/storm/utils/Utils.java,1280,if (!file.getParentFile().mkdirs()) {
+storm-core/src/jvm/org/apache/storm/utils/Utils.java,1281,if (!file.getParentFile().isDirectory()) {
+storm-core/src/jvm/org/apache/storm/utils/Utils.java,1282,throw new IOException("Mkdirs failed to create " +
+storm-core/src/jvm/org/apache/storm/utils/Utils.java,1286,OutputStream out = new FileOutputStream(file);
+storm-core/src/jvm/org/apache/storm/utils/Utils.java,1287,try {
+storm-core/src/jvm/org/apache/storm/utils/Utils.java,1288,byte[] buffer = new byte[8192];
+storm-core/src/jvm/org/apache/storm/utils/Utils.java,1289,int i;
+storm-core/src/jvm/org/apache/storm/utils/Utils.java,1290,while ((i = in.read(buffer)) != -1) {
+storm-core/src/jvm/org/apache/storm/utils/Utils.java,1291,out.write(buffer, 0, i);
+storm-core/src/jvm/org/apache/storm/utils/Utils.java,1294,out.close();
+storm-core/src/jvm/org/apache/storm/utils/Utils.java,1297,in.close();
+storm-core/src/jvm/org/apache/storm/utils/Utils.java,1302,zipFile.close();
+storm-core/src/jvm/org/apache/storm/metric/FileBasedEventLogger.java,62,ScheduledExecutorService scheduler = Executors.newSingleThreadScheduledExecutor();
+storm-core/src/jvm/org/apache/storm/metric/FileBasedEventLogger.java,63,Runnable task = new Runnable() {
+storm-core/src/jvm/org/apache/storm/metric/FileBasedEventLogger.java,78,scheduler.scheduleAtFixedRate(task, FLUSH_INTERVAL_MILLIS, FLUSH_INTERVAL_MILLIS, TimeUnit.MILLISECONDS);
+external/storm-hdfs/src/main/java/org/apache/storm/hdfs/blobstore/HdfsBlobStore.java,27,import org.apache.storm.generated.KeyNotFoundException;
+external/storm-hdfs/src/main/java/org/apache/storm/hdfs/blobstore/HdfsBlobStore.java,33,import org.apache.hadoop.conf.Configuration;
+external/storm-hdfs/src/main/java/org/apache/storm/hdfs/blobstore/HdfsBlobStore.java,34,import org.apache.hadoop.fs.Path;
+external/storm-hdfs/src/main/java/org/apache/storm/hdfs/blobstore/HdfsBlobStore.java,35,import org.apache.hadoop.security.UserGroupInformation;
+external/storm-hdfs/src/main/java/org/apache/storm/hdfs/blobstore/HdfsBlobStore.java,39,import javax.security.auth.Subject;
+external/storm-hdfs/src/main/java/org/apache/storm/hdfs/blobstore/HdfsBlobStore.java,40,import java.io.ByteArrayOutputStream;
+external/storm-hdfs/src/main/java/org/apache/storm/hdfs/blobstore/HdfsBlobStore.java,41,import java.io.FileNotFoundException;
+external/storm-hdfs/src/main/java/org/apache/storm/hdfs/blobstore/HdfsBlobStore.java,42,import java.io.IOException;
+external/storm-hdfs/src/main/java/org/apache/storm/hdfs/blobstore/HdfsBlobStore.java,43,import java.io.InputStream;
+external/storm-hdfs/src/main/java/org/apache/storm/hdfs/blobstore/HdfsBlobStore.java,44,import java.security.AccessController;
+external/storm-hdfs/src/main/java/org/apache/storm/hdfs/blobstore/HdfsBlobStore.java,45,import java.security.PrivilegedAction;
+external/storm-hdfs/src/main/java/org/apache/storm/hdfs/blobstore/HdfsBlobStore.java,46,import java.util.Iterator;
+external/storm-hdfs/src/main/java/org/apache/storm/hdfs/blobstore/HdfsBlobStore.java,47,import java.util.Map;
+external/storm-hdfs/src/main/java/org/apache/storm/hdfs/blobstore/HdfsBlobStore.java,76,private BlobStoreAclHandler _aclHandler;
+external/storm-hdfs/src/main/java/org/apache/storm/hdfs/blobstore/HdfsBlobStore.java,77,private HdfsBlobStoreImpl _hbs;
+external/storm-hdfs/src/main/java/org/apache/storm/hdfs/blobstore/HdfsBlobStore.java,78,private Subject _localSubject;
+external/storm-hdfs/src/main/java/org/apache/storm/hdfs/blobstore/HdfsBlobStore.java,79,private Map conf;
+external/storm-hdfs/src/main/java/org/apache/storm/hdfs/blobstore/HdfsBlobStore.java,109,return _localSubject;
+external/storm-hdfs/src/main/java/org/apache/storm/hdfs/blobstore/HdfsBlobStore.java,140,UserGroupInformation.loginUserFromKeytab(principal, keyTab);
+external/storm-hdfs/src/main/java/org/apache/storm/hdfs/blobstore/HdfsBlobStore.java,157,_hbs = new HdfsBlobStoreImpl(baseDir, conf, hadoopConf);
+external/storm-hdfs/src/main/java/org/apache/storm/hdfs/blobstore/HdfsBlobStore.java,159,_hbs = new HdfsBlobStoreImpl(baseDir, conf);
+external/storm-hdfs/src/main/java/org/apache/storm/hdfs/blobstore/HdfsBlobStore.java,164,_localSubject = getHadoopUser();
+external/storm-hdfs/src/main/java/org/apache/storm/hdfs/blobstore/HdfsBlobStore.java,165,_aclHandler = new BlobStoreAclHandler(conf);
+external/storm-hdfs/src/main/java/org/apache/storm/hdfs/blobstore/HdfsBlobStore.java,176,_aclHandler.normalizeSettableBlobMeta(key, meta, who, READ | WRITE | ADMIN);
+external/storm-hdfs/src/main/java/org/apache/storm/hdfs/blobstore/HdfsBlobStore.java,178,_aclHandler.hasPermissions(meta.get_acl(), READ | WRITE | ADMIN, who, key);
+external/storm-hdfs/src/main/java/org/apache/storm/hdfs/blobstore/HdfsBlobStore.java,179,if (_hbs.exists(DATA_PREFIX+key)) {
+external/storm-hdfs/src/main/java/org/apache/storm/hdfs/blobstore/HdfsBlobStore.java,184,BlobStoreFile metaFile = _hbs.write(META_PREFIX + key, true);
+external/storm-hdfs/src/main/java/org/apache/storm/hdfs/blobstore/HdfsBlobStore.java,190,BlobStoreFile dataFile = _hbs.write(DATA_PREFIX + key, true);
+external/storm-hdfs/src/main/java/org/apache/storm/hdfs/blobstore/HdfsBlobStore.java,212,_aclHandler.hasPermissions(meta.get_acl(), WRITE, who, key);
+external/storm-hdfs/src/main/java/org/apache/storm/hdfs/blobstore/HdfsBlobStore.java,214,BlobStoreFile dataFile = _hbs.write(DATA_PREFIX + key, false);
+external/storm-hdfs/src/main/java/org/apache/storm/hdfs/blobstore/HdfsBlobStore.java,225,BlobStoreFile pf = _hbs.read(META_PREFIX + key);
+external/storm-hdfs/src/main/java/org/apache/storm/hdfs/blobstore/HdfsBlobStore.java,259,_aclHandler.validateUserCanReadMeta(meta.get_acl(), who, key);
+external/storm-hdfs/src/main/java/org/apache/storm/hdfs/blobstore/HdfsBlobStore.java,263,BlobStoreFile pf = _hbs.read(DATA_PREFIX + key);
+external/storm-hdfs/src/main/java/org/apache/storm/hdfs/blobstore/HdfsBlobStore.java,279,_aclHandler.normalizeSettableBlobMeta(key,  meta, who, ADMIN);
+external/storm-hdfs/src/main/java/org/apache/storm/hdfs/blobstore/HdfsBlobStore.java,282,_aclHandler.hasPermissions(orig.get_acl(), ADMIN, who, key);
+external/storm-hdfs/src/main/java/org/apache/storm/hdfs/blobstore/HdfsBlobStore.java,293,_aclHandler.hasPermissions(meta.get_acl(), WRITE, who, key);
+external/storm-hdfs/src/main/java/org/apache/storm/hdfs/blobstore/HdfsBlobStore.java,295,_hbs.deleteKey(DATA_PREFIX + key);
+external/storm-hdfs/src/main/java/org/apache/storm/hdfs/blobstore/HdfsBlobStore.java,296,_hbs.deleteKey(META_PREFIX + key);
+external/storm-hdfs/src/main/java/org/apache/storm/hdfs/blobstore/HdfsBlobStore.java,308,_aclHandler.hasPermissions(meta.get_acl(), READ, who, key);
+external/storm-hdfs/src/main/java/org/apache/storm/hdfs/blobstore/HdfsBlobStore.java,310,return new BlobStoreFileInputStream(_hbs.read(DATA_PREFIX + key));
+external/storm-hdfs/src/main/java/org/apache/storm/hdfs/blobstore/HdfsBlobStore.java,319,return new KeyTranslationIterator(_hbs.listKeys(), DATA_PREFIX);
+external/storm-hdfs/src/main/java/org/apache/storm/hdfs/blobstore/HdfsBlobStore.java,335,_aclHandler.hasAnyPermissions(meta.get_acl(), READ | WRITE | ADMIN, who, key);
+external/storm-hdfs/src/main/java/org/apache/storm/hdfs/blobstore/HdfsBlobStore.java,337,return _hbs.getBlobReplication(DATA_PREFIX + key);
+external/storm-hdfs/src/main/java/org/apache/storm/hdfs/blobstore/HdfsBlobStore.java,349,_aclHandler.hasAnyPermissions(meta.get_acl(), WRITE | ADMIN, who, key);
+external/storm-hdfs/src/main/java/org/apache/storm/hdfs/blobstore/HdfsBlobStore.java,352,return _hbs.updateBlobReplication(DATA_PREFIX + key, replication);
+external/storm-hdfs/src/main/java/org/apache/storm/hdfs/blobstore/HdfsBlobStore.java,362,BlobStoreFile hdfsFile = _hbs.write(META_PREFIX + key, false);
+external/storm-hdfs/src/main/java/org/apache/storm/hdfs/blobstore/HdfsBlobStore.java,382,_hbs.fullCleanup(age);
+storm-core/src/jvm/org/apache/storm/blobstore/LocalFsBlobStore.java,85,overrideBase = (String)conf.get(Config.BLOBSTORE_DIR);
+storm-core/src/jvm/org/apache/storm/blobstore/LocalFsBlobStore.java,86,if (overrideBase == null) {
+storm-core/src/jvm/org/apache/storm/blobstore/LocalFsBlobStore.java,87,overrideBase = (String) conf.get(Config.STORM_LOCAL_DIR);
+storm-core/src/jvm/org/apache/storm/drpc/DRPCSpout.java,173,boolean gotRequest = false;
+storm-core/src/jvm/org/apache/storm/drpc/DRPCSpout.java,196,gotRequest = true;
+storm-core/src/jvm/org/apache/storm/drpc/DRPCSpout.java,221,gotRequest = true;
+storm-core/src/jvm/org/apache/storm/drpc/DRPCSpout.java,231,if(!gotRequest) {
+storm-core/src/jvm/org/apache/storm/drpc/DRPCSpout.java,232,Utils.sleep(1);
+storm-core/src/jvm/org/apache/storm/blobstore/BlobStore.java,64,private static final Pattern KEY_PATTERN = Pattern.compile("^[\\w \\t\\.:_-]+$");
+storm-core/src/jvm/org/apache/storm/transactional/state/TransactionalState.java,86,protected static String forPath(PathAndBytesable<String> builder,
+storm-core/src/jvm/org/apache/storm/transactional/state/TransactionalState.java,90,: builder.forPath(path, data);
+storm-core/src/jvm/org/apache/storm/blobstore/LocalFsBlobStore.java,132,checkForBlobOrDownload(key);
+storm-core/src/jvm/org/apache/storm/blobstore/LocalFsBlobStore.java,133,SettableBlobMeta meta = getStoredBlobMeta(key);
+storm-core/src/jvm/org/apache/storm/blobstore/LocalFsBlobStore.java,134,_aclHandler.hasPermissions(meta.get_acl(), WRITE, who, key);
+storm-core/src/jvm/org/apache/storm/blobstore/LocalFsBlobStore.java,224,_aclHandler.hasPermissions(meta.get_acl(), WRITE, who, key);
+storm-core/src/jvm/org/apache/storm/blobstore/LocalFsBlobStore.java,226,fbs.deleteKey(DATA_PREFIX+key);
+storm-core/src/jvm/org/apache/storm/blobstore/LocalFsBlobStore.java,227,fbs.deleteKey(META_PREFIX+key);
+storm-core/src/jvm/org/apache/storm/blobstore/LocalFsBlobStore.java,229,throw new RuntimeException(e);
+external/storm-cassandra/src/main/java/org/apache/storm/cassandra/bolt/BaseCassandraBolt.java,53,public abstract class BaseCassandraBolt<T> extends BaseRichBolt {
+external/storm-cassandra/src/main/java/org/apache/storm/cassandra/bolt/BaseCassandraBolt.java,142,if (TupleUtils.isTick(input)) {
+external/storm-cassandra/src/main/java/org/apache/storm/cassandra/bolt/BaseCassandraBolt.java,143,onTickTuple();
+external/storm-cassandra/src/main/java/org/apache/storm/cassandra/bolt/BaseCassandraBolt.java,144,outputCollector.ack(input);
+external/storm-cassandra/src/main/java/org/apache/storm/cassandra/bolt/BaseCassandraBolt.java,146,process(input);
+external/storm-cassandra/src/main/java/org/apache/storm/cassandra/bolt/BaseCassandraBolt.java,155,abstract protected void process(Tuple input);
+external/storm-cassandra/src/main/java/org/apache/storm/cassandra/bolt/BaseCassandraBolt.java,160,abstract protected void onTickTuple();
+external/storm-cassandra/src/main/java/org/apache/storm/cassandra/bolt/BatchCassandraWriterBolt.java,109,protected void onTickTuple() {
+external/storm-cassandra/src/main/java/org/apache/storm/cassandra/bolt/CassandraWriterBolt.java,66,protected void onTickTuple() {
+external/storm-elasticsearch/src/main/java/org/apache/storm/elasticsearch/bolt/AbstractEsBolt.java,37,public abstract class AbstractEsBolt extends BaseRichBolt {
+external/storm-elasticsearch/src/main/java/org/apache/storm/elasticsearch/bolt/AbstractEsBolt.java,66,public abstract void execute(Tuple tuple);
+external/storm-elasticsearch/src/main/java/org/apache/storm/elasticsearch/bolt/EsIndexBolt.java,57,public void execute(Tuple tuple) {
+external/storm-elasticsearch/src/main/java/org/apache/storm/elasticsearch/bolt/EsLookupBolt.java,54,public void execute(Tuple tuple) {
+external/storm-elasticsearch/src/main/java/org/apache/storm/elasticsearch/bolt/EsPercolateBolt.java,64,public void execute(Tuple tuple) {
+external/storm-eventhubs/src/main/java/org/apache/storm/eventhubs/bolt/EventHubBolt.java,32,import org.apache.storm.topology.base.BaseRichBolt;
+external/storm-eventhubs/src/main/java/org/apache/storm/eventhubs/bolt/EventHubBolt.java,38,public class EventHubBolt extends BaseRichBolt {
+external/storm-jdbc/src/main/java/org/apache/storm/jdbc/bolt/AbstractJdbcBolt.java,32,public abstract class AbstractJdbcBolt extends BaseRichBolt {
+external/storm-jdbc/src/main/java/org/apache/storm/jdbc/bolt/JdbcInsertBolt.java,84,public void execute(Tuple tuple) {
+external/storm-jdbc/src/main/java/org/apache/storm/jdbc/bolt/JdbcLookupBolt.java,58,public void execute(Tuple tuple) {
+external/storm-kafka/src/jvm/org/apache/storm/kafka/bolt/KafkaBolt.java,55,public class KafkaBolt<K, V> extends BaseRichBolt {
+external/storm-kafka/src/jvm/org/apache/storm/kafka/bolt/KafkaBolt.java,109,public void execute(final Tuple input) {
+external/storm-kafka/src/jvm/org/apache/storm/kafka/bolt/KafkaBolt.java,110,if (TupleUtils.isTick(input)) {
+external/storm-kafka/src/jvm/org/apache/storm/kafka/bolt/KafkaBolt.java,111,collector.ack(input);
+external/storm-kafka/src/jvm/org/apache/storm/kafka/bolt/KafkaBolt.java,112,return; // Do not try to send ticks to Kafka
+external/storm-mqtt/core/src/main/java/org/apache/storm/mqtt/bolt/MqttBolt.java,39,public class MqttBolt extends BaseRichBolt {
+external/storm-mqtt/core/src/main/java/org/apache/storm/mqtt/bolt/MqttBolt.java,87,public void execute(Tuple input) {
+external/storm-mqtt/core/src/main/java/org/apache/storm/mqtt/bolt/MqttBolt.java,89,if(!TupleUtils.isTick(input)){
+external/storm-mqtt/core/src/main/java/org/apache/storm/mqtt/bolt/MqttBolt.java,90,MqttMessage message = this.mapper.toMessage(input);
+external/storm-mqtt/core/src/main/java/org/apache/storm/mqtt/bolt/MqttBolt.java,91,try {
+external/storm-mqtt/core/src/main/java/org/apache/storm/mqtt/bolt/MqttBolt.java,92,this.publisher.publish(message);
+external/storm-mqtt/core/src/main/java/org/apache/storm/mqtt/bolt/MqttBolt.java,93,this.collector.ack(input);
+external/storm-mqtt/core/src/main/java/org/apache/storm/mqtt/bolt/MqttBolt.java,95,LOG.warn("Error publishing MQTT message. Failing tuple.", e);
+external/storm-mqtt/core/src/main/java/org/apache/storm/mqtt/bolt/MqttBolt.java,97,collector.reportError(e);
+external/storm-mqtt/core/src/main/java/org/apache/storm/mqtt/bolt/MqttBolt.java,98,collector.fail(input);
+external/storm-redis/src/main/java/org/apache/storm/redis/bolt/AbstractRedisBolt.java,51,public abstract class AbstractRedisBolt extends BaseRichBolt {
+external/storm-redis/src/main/java/org/apache/storm/redis/bolt/RedisLookupBolt.java,75,public void execute(Tuple input) {
+external/storm-redis/src/main/java/org/apache/storm/redis/bolt/RedisStoreBolt.java,70,public void execute(Tuple input) {
+external/storm-solr/src/main/java/org/apache/storm/solr/bolt/SolrUpdateBolt.java,43,public class SolrUpdateBolt extends BaseRichBolt {
+external/storm-solr/src/main/java/org/apache/storm/solr/bolt/SolrUpdateBolt.java,88,public void execute(Tuple tuple) {
+external/storm-solr/src/main/java/org/apache/storm/solr/bolt/SolrUpdateBolt.java,90,if (!TupleUtils.isTick(tuple)) {    // Don't add tick tuples to the SolrRequest
+external/storm-solr/src/main/java/org/apache/storm/solr/bolt/SolrUpdateBolt.java,91,SolrRequest request = solrMapper.toSolrRequest(tuple);
+external/storm-solr/src/main/java/org/apache/storm/solr/bolt/SolrUpdateBolt.java,92,solrClient.request(request, solrMapper.getCollection());
+external/storm-kafka-client/src/main/java/org/apache/storm/kafka/spout/KafkaSpout.java,273,final List<Object> tuple = tuplesBuilder.buildTuple(record);
+external/storm-kafka-client/src/main/java/org/apache/storm/kafka/spout/KafkaSpout.java,274,kafkaSpoutStreams.emit(collector, tuple, msgId);
+external/storm-kafka-client/src/main/java/org/apache/storm/kafka/spout/KafkaSpout.java,275,emitted.add(msgId);
+external/storm-kafka-client/src/main/java/org/apache/storm/kafka/spout/KafkaSpout.java,276,numUncommittedOffsets++;
+external/storm-kafka-client/src/main/java/org/apache/storm/kafka/spout/KafkaSpout.java,277,if (retryService.isReady(msgId)) { // has failed. Is it ready for retry ?
+external/storm-kafka-client/src/main/java/org/apache/storm/kafka/spout/KafkaSpout.java,278,retryService.remove(msgId);  // re-emitted hence remove from failed
+external/storm-kafka-client/src/main/java/org/apache/storm/kafka/spout/KafkaSpout.java,280,LOG.trace("Emitted tuple [{}] for record [{}]", tuple, record);
+external/storm-kafka-client/src/main/java/org/apache/storm/kafka/spout/KafkaSpout.java,326,emitted.remove(msgId);
+external/storm-kafka-client/src/main/java/org/apache/storm/kafka/spout/KafkaSpout.java,344,kafkaConsumer = new KafkaConsumer<>(kafkaSpoutConfig.getKafkaProps(),
+external/storm-kafka-client/src/main/java/org/apache/storm/kafka/spout/KafkaSpout.java,345,kafkaSpoutConfig.getKeyDeserializer(), kafkaSpoutConfig.getValueDeserializer());
+external/storm-kafka-client/src/main/java/org/apache/storm/kafka/spout/KafkaSpoutConfig.java,107,private Deserializer<K> keyDeserializer;
+external/storm-kafka-client/src/main/java/org/apache/storm/kafka/spout/KafkaSpoutConfig.java,108,private Deserializer<V> valueDeserializer;
+external/storm-kafka-client/src/main/java/org/apache/storm/kafka/spout/KafkaSpoutConfig.java,166,public Builder<K,V> setKeyDeserializer(Deserializer<K> keyDeserializer) {
+external/storm-kafka-client/src/main/java/org/apache/storm/kafka/spout/KafkaSpoutConfig.java,174,public Builder<K,V> setValueDeserializer(Deserializer<V> valueDeserializer) {
+external/storm-hdfs/src/main/java/org/apache/storm/hdfs/common/ModifTimeComparator.java,30,return new Long(o1.getModificationTime()).compareTo( o1.getModificationTime() );
+storm-core/src/jvm/org/apache/storm/blobstore/BlobStoreUtils.java,241,for (NimbusInfo nimbusInfo:nimbusInfoList) {
+storm-core/src/jvm/org/apache/storm/blobstore/BlobSynchronizer.java,81,Set<NimbusInfo> nimbusInfoSet = BlobStoreUtils.getNimbodesWithLatestSequenceNumberOfBlob(zkClient, key);
+storm-core/src/jvm/org/apache/storm/blobstore/BlobSynchronizer.java,82,if(BlobStoreUtils.downloadMissingBlob(conf, blobStore, key, nimbusInfoSet)) {
+storm-core/src/jvm/org/apache/storm/blobstore/BlobSynchronizer.java,83,BlobStoreUtils.createStateInZookeeper(conf, key, nimbusInfo);
+storm-core/src/jvm/org/apache/storm/blobstore/KeySequenceNumber.java,133,public synchronized int getKeySequenceNumber(Map conf) {
+storm-core/src/jvm/org/apache/storm/blobstore/KeySequenceNumber.java,138,if(zkClient.checkExists().forPath(BLOBSTORE_SUBTREE + "/" + key) == null) {
+storm-core/src/jvm/org/apache/storm/blobstore/KeySequenceNumber.java,151,if(stateInfoList.isEmpty()) {
+storm-core/src/jvm/org/apache/storm/blobstore/KeySequenceNumber.java,159,for (String stateInfo:stateInfoList) {
+storm-core/src/jvm/org/apache/storm/blobstore/KeySequenceNumber.java,206,return sequenceNumbers.last();
+storm-core/src/jvm/org/apache/storm/blobstore/LocalFsBlobStore.java,284,public synchronized boolean checkForBlobOrDownload(String key) {
+storm-core/src/jvm/org/apache/storm/security/auth/ThriftClient.java,77,close();
+storm-core/src/jvm/org/apache/storm/security/auth/ThriftClient.java,79,TSocket socket = new TSocket(_host, _port);
+storm-core/src/jvm/org/apache/storm/utils/Utils.java,120,serializationDelegate = getSerializationDelegate(conf);
+storm-core/src/jvm/org/apache/storm/state/DefaultStateSerializer.java,32,private final Kryo kryo;
+storm-core/src/jvm/org/apache/storm/state/DefaultStateSerializer.java,33,private final Output output;
+storm-core/src/jvm/org/apache/storm/state/DefaultStateSerializer.java,42,kryo = new Kryo();
+storm-core/src/jvm/org/apache/storm/state/DefaultStateSerializer.java,43,output = new Output(2000, 2000000000);
+storm-core/src/jvm/org/apache/storm/state/DefaultStateSerializer.java,45,kryo.register(klazz);
+storm-core/src/jvm/org/apache/storm/state/DefaultStateSerializer.java,55,output.clear();
+storm-core/src/jvm/org/apache/storm/state/DefaultStateSerializer.java,56,kryo.writeClassAndObject(output, obj);
+storm-core/src/jvm/org/apache/storm/state/DefaultStateSerializer.java,57,return output.toBytes();
+storm-core/src/jvm/org/apache/storm/state/DefaultStateSerializer.java,63,return (T) kryo.readClassAndObject(input);
+storm-core/src/jvm/org/apache/storm/blobstore/FileBlobStoreImpl.java,20,import org.apache.storm.Config;
+storm-core/src/jvm/org/apache/storm/blobstore/FileBlobStoreImpl.java,21,import org.apache.storm.utils.Utils;
+storm-core/src/jvm/org/apache/storm/blobstore/FileBlobStoreImpl.java,22,import org.slf4j.Logger;
+storm-core/src/jvm/org/apache/storm/blobstore/FileBlobStoreImpl.java,23,import org.slf4j.LoggerFactory;
+storm-core/src/jvm/org/apache/storm/blobstore/FileBlobStoreImpl.java,239,Files.deleteIfExists(path.toPath());
+external/storm-hdfs/src/main/java/org/apache/storm/hdfs/trident/HdfsState.java,20,import org.apache.storm.Config;
+external/storm-hdfs/src/main/java/org/apache/storm/hdfs/trident/HdfsState.java,21,import org.apache.storm.task.IMetricsContext;
+external/storm-hdfs/src/main/java/org/apache/storm/hdfs/trident/HdfsState.java,22,import org.apache.storm.topology.FailedException;
+external/storm-hdfs/src/main/java/org/apache/storm/hdfs/trident/HdfsState.java,40,import org.slf4j.Logger;
+external/storm-hdfs/src/main/java/org/apache/storm/hdfs/trident/HdfsState.java,41,import org.slf4j.LoggerFactory;
+external/storm-hdfs/src/main/java/org/apache/storm/hdfs/trident/HdfsState.java,493,FSDataOutputStream out = null;
+external/storm-hdfs/src/main/java/org/apache/storm/hdfs/trident/HdfsState.java,495,try {
+external/storm-hdfs/src/main/java/org/apache/storm/hdfs/trident/HdfsState.java,496,Path tmpPath = tmpFilePath(indexFilePath.toString());
+external/storm-hdfs/src/main/java/org/apache/storm/hdfs/trident/HdfsState.java,497,out = this.options.fs.create(tmpPath, true);
+external/storm-hdfs/src/main/java/org/apache/storm/hdfs/trident/HdfsState.java,498,BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(out));
+external/storm-hdfs/src/main/java/org/apache/storm/hdfs/trident/HdfsState.java,515,if (out != null) {
+external/storm-hdfs/src/main/java/org/apache/storm/hdfs/trident/HdfsState.java,516,try {
+external/storm-hdfs/src/main/java/org/apache/storm/hdfs/trident/HdfsState.java,517,out.close();
+external/storm-hdfs/src/main/java/org/apache/storm/hdfs/trident/HdfsState.java,519,LOG.warn("Begin commit failed due to IOException. Failing batch", e);
+external/storm-hdfs/src/main/java/org/apache/storm/hdfs/trident/HdfsState.java,520,throw new FailedException(e);
+external/storm-kafka-client/src/main/java/org/apache/storm/kafka/spout/KafkaSpout.java,124,LOG.debug("Partitions revoked. [consumer-group={}, consumer={}, topic-partitions={}]",
+external/storm-kafka-client/src/main/java/org/apache/storm/kafka/spout/KafkaSpout.java,134,LOG.debug("Partitions reassignment. [consumer-group={}, consumer={}, topic-partitions={}]",
+external/storm-kafka-client/src/main/java/org/apache/storm/kafka/spout/KafkaSpout.java,153,LOG.debug("Initialization complete");
+external/storm-kafka-client/src/main/java/org/apache/storm/kafka/spout/KafkaSpout.java,218,return !waitingToEmit() && numUncommittedOffsets < kafkaSpoutConfig.getMaxUncommittedOffsets();
+external/storm-kafka-client/src/main/java/org/apache/storm/kafka/spout/KafkaSpout.java,231,LOG.trace("Records waiting to be emitted {}", waitingToEmitList);
+external/storm-kafka-client/src/main/java/org/apache/storm/kafka/spout/KafkaSpout.java,240,LOG.debug("Polled [{}] records from Kafka. NumUncommittedOffsets=[{}]", numPolledRecords, numUncommittedOffsets);
+external/storm-kafka-client/src/main/java/org/apache/storm/kafka/spout/KafkaSpout.java,316,LOG.trace("Acked message [{}]. Messages acked and pending commit [{}]", msgId, acked);
+external/storm-kafka-client/src/main/java/org/apache/storm/kafka/spout/KafkaSpout.java,381,return "{acked=" + acked + "} ";
+external/storm-kafka-client/src/main/java/org/apache/storm/kafka/spout/KafkaSpout.java,427,LOG.trace("Found offset to commit [{}]. {}", currOffset, this);
+external/storm-kafka-client/src/main/java/org/apache/storm/kafka/spout/KafkaSpout.java,429,LOG.debug("Non continuous offset found [{}]. It will be processed in a subsequent batch. {}", currOffset, this);
+external/storm-kafka-client/src/main/java/org/apache/storm/kafka/spout/KafkaSpout.java,432,LOG.debug("Unexpected offset found [{}]. {}", currOffset, this);
+external/storm-kafka-client/src/main/java/org/apache/storm/kafka/spout/KafkaSpout.java,440,LOG.debug("Offset to be committed next: [{}] {}", nextCommitOffsetAndMetadata.offset(), this);
+external/storm-kafka-client/src/main/java/org/apache/storm/kafka/spout/KafkaSpout.java,442,LOG.debug("No offsets ready to commit. {}", this);
+external/storm-kafka-client/src/main/java/org/apache/storm/kafka/spout/KafkaSpout.java,455,final long numCommittedOffsets = committedOffset.offset() - this.committedOffset;
+external/storm-kafka-client/src/main/java/org/apache/storm/kafka/spout/KafkaSpout.java,466,LOG.trace("Object state after update: {}, numUncommittedOffsets [{}]", this, numUncommittedOffsets);
+external/storm-kafka-client/src/main/java/org/apache/storm/kafka/spout/KafkaSpoutConfig.java,34,public static final long DEFAULT_POLL_TIMEOUT_MS = 2_000;            // 2s
+external/storm-kafka-client/src/main/java/org/apache/storm/kafka/spout/KafkaSpoutConfig.java,35,public static final long DEFAULT_OFFSET_COMMIT_PERIOD_MS = 15_000;   // 15s
+external/storm-kafka-client/src/main/java/org/apache/storm/kafka/spout/KafkaSpoutConfig.java,37,public static final int DEFAULT_MAX_UNCOMMITTED_OFFSETS = 10_000;    // 10,000 records
+external/storm-hdfs/src/main/java/org/apache/storm/hdfs/bolt/AbstractHdfsBolt.java,20,import org.apache.storm.Config;
+external/storm-hdfs/src/main/java/org/apache/storm/hdfs/bolt/AbstractHdfsBolt.java,27,import org.apache.storm.utils.Utils;
+external/storm-hdfs/src/main/java/org/apache/storm/hdfs/bolt/AbstractHdfsBolt.java,82,Path newFile = createOutputFile();
+external/storm-hdfs/src/main/java/org/apache/storm/hdfs/bolt/AbstractHdfsBolt.java,87,this.currentFile = newFile;
+storm-core/src/jvm/org/apache/storm/scheduler/resource/RAS_Node.java,501,throw new IllegalStateException("Attempting to consume more memory than available");
+storm-core/src/jvm/org/apache/storm/scheduler/resource/RAS_Node.java,257,LOG.warn("Freeing more CPU than there exists! CPU trying to free: {} Total CPU on Node: {}", (_availMemory + amount), getTotalCpuResources());
+external/storm-kafka-client/src/main/java/org/apache/storm/kafka/spout/KafkaSpout.java,364,kafkaConsumer.wakeup();
+storm-core/src/jvm/org/apache/storm/utils/DisruptorQueue.java,99,pending.remove(flusher);
+storm-core/src/jvm/org/apache/storm/utils/DisruptorQueue.java,100,if (pending.size() == 0) {
+storm-core/src/jvm/org/apache/storm/utils/DisruptorQueue.java,101,_pendingFlush.remove(flushInterval);
+storm-core/src/jvm/org/apache/storm/utils/DisruptorQueue.java,102,_tt.remove(flushInterval).cancel();
+storm-core/src/jvm/org/apache/storm/utils/ShellBoltMessageQueue.java,58,taskIdsQueue.add(taskIds);
+storm-core/src/jvm/org/apache/storm/topology/BaseConfigurationDeclarer.java,26,private Map conf = Utils.readStormConfig();
+storm-core/src/jvm/org/apache/storm/StormSubmitter.java,348,NimbusClient client = NimbusClient.getConfiguredClientAs(conf, asUser);
+storm-core/src/jvm/org/apache/storm/StormSubmitter.java,349,try {
+storm-core/src/jvm/org/apache/storm/StormSubmitter.java,361,client.close();
+storm-core/src/jvm/org/apache/storm/StormSubmitter.java,385,NimbusClient client = NimbusClient.getConfiguredClientAs(conf, asUser);
+storm-core/src/jvm/org/apache/storm/StormSubmitter.java,386,try {
+storm-core/src/jvm/org/apache/storm/StormSubmitter.java,418,client.close();
+storm-core/src/jvm/org/apache/storm/security/auth/ThriftClient.java,30,public class ThriftClient {
+storm-core/src/jvm/org/apache/storm/utils/NimbusClient.java,65,try {
+storm-core/src/jvm/org/apache/storm/utils/NimbusClient.java,66,NimbusClient client = new NimbusClient(conf, host, port, null, asUser);
+storm-core/src/jvm/org/apache/storm/utils/Utils.java,1375,NimbusClient client = NimbusClient.getConfiguredClientAs(stormConf, asUser);
+storm-core/src/jvm/org/apache/storm/utils/Utils.java,1377,try {
+storm-core/src/jvm/org/apache/storm/utils/Utils.java,1387,client.close();
+storm-core/src/jvm/org/apache/storm/messaging/netty/StormClientHandler.java,63,if (list.size() != 1) LOG.warn("Messages are not being delivered fast enough, got "+list.size()+" metrics messages at once("+client.getDstAddress()+")");
+storm-core/src/jvm/org/apache/storm/tuple/Fields.java,53,for(String s: selector) {
+storm-core/src/jvm/org/apache/storm/tuple/Fields.java,54,ret.add(tuple.get(_index.get(s)));
+storm-core/src/jvm/org/apache/storm/utils/DisruptorQueue.java,66,private Timer _timer = new Timer("disruptor-flush-trigger", true);
+storm-core/src/jvm/org/apache/storm/utils/DisruptorQueue.java,67,private ThreadPoolExecutor _exec = new ThreadPoolExecutor(1, 100, 10, TimeUnit.SECONDS, new ArrayBlockingQueue<Runnable>(1024), new ThreadPoolExecutor.DiscardPolicy());
+storm-core/src/jvm/org/apache/storm/task/ShellBolt.java,161,String processInfo = _process.getProcessInfoString() + _process.getProcessTerminationInfoString();
+storm-core/src/jvm/org/apache/storm/task/ShellBolt.java,162,throw new RuntimeException("Error during multilang processing " + processInfo, e);
+storm-core/src/jvm/org/apache/storm/task/ShellBolt.java,387,_process.writeTaskIds((List<Integer>)write);
+storm-core/src/jvm/org/apache/storm/task/ShellBolt.java,389,throw new RuntimeException("Unknown class type to write: " + write.getClass().getName());
+storm-core/src/jvm/org/apache/storm/spout/ShellSpout.java,250,private void die(Throwable exception) {
+storm-core/src/jvm/org/apache/storm/spout/ShellSpout.java,251,heartBeatExecutorService.shutdownNow();
+storm-core/src/jvm/org/apache/storm/spout/ShellSpout.java,253,LOG.error("Halting process: ShellSpout died.", exception);
+storm-core/src/jvm/org/apache/storm/spout/ShellSpout.java,255,_process.destroy();
+storm-core/src/jvm/org/apache/storm/spout/ShellSpout.java,256,System.exit(11);
+storm-core/src/jvm/org/apache/storm/spout/ShellSpout.java,268,long currentTimeMillis = System.currentTimeMillis();
+storm-core/src/jvm/org/apache/storm/spout/ShellSpout.java,271,LOG.debug("current time : {}, last heartbeat : {}, worker timeout (ms) : {}",
+storm-core/src/jvm/org/apache/storm/spout/ShellSpout.java,272,currentTimeMillis, lastHeartbeat, workerTimeoutMills);
+storm-core/src/jvm/org/apache/storm/spout/ShellSpout.java,274,if (currentTimeMillis - lastHeartbeat > workerTimeoutMills) {
+storm-core/src/jvm/org/apache/storm/trident/windowing/WindowTridentProcessor.java,169,for (Integer pendingTriggerId : pendingTriggerIds) {
+storm-core/src/jvm/org/apache/storm/trident/windowing/WindowTridentProcessor.java,170,triggerKeys.add(triggerKey(pendingTriggerId));
+storm-core/src/jvm/org/apache/storm/trident/windowing/WindowTridentProcessor.java,172,triggerValues = windowStore.get(triggerKeys);
+external/storm-redis/src/main/java/org/apache/storm/redis/state/RedisKeyValueState.java,164,pendingPrepare.putAll(pendingCommit);
+examples/storm-starter/src/jvm/org/apache/storm/starter/spout/TwitterSampleSpout.java,106,TwitterStream twitterStream = new TwitterStreamFactory(
+examples/storm-starter/src/jvm/org/apache/storm/starter/spout/TwitterSampleSpout.java,110,twitterStream.addListener(listener);
+examples/storm-starter/src/jvm/org/apache/storm/starter/spout/TwitterSampleSpout.java,111,twitterStream.setOAuthConsumer(consumerKey, consumerSecret);
+examples/storm-starter/src/jvm/org/apache/storm/starter/spout/TwitterSampleSpout.java,113,twitterStream.setOAuthAccessToken(token);
+examples/storm-starter/src/jvm/org/apache/storm/starter/spout/TwitterSampleSpout.java,117,twitterStream.sample();
+examples/storm-starter/src/jvm/org/apache/storm/starter/spout/TwitterSampleSpout.java,123,twitterStream.filter(query);
+external/storm-hive/src/main/java/org/apache/storm/hive/trident/HiveState.java,239,allWriters.remove(eldest).close();
+external/storm-hive/src/main/java/org/apache/storm/hive/trident/HiveState.java,268,allWriters.remove(ep).close();
+storm-core/src/jvm/org/apache/storm/StormSubmitter.java,228,NimbusClient client = NimbusClient.getConfiguredClientAs(conf, asUser);
+storm-core/src/jvm/org/apache/storm/StormSubmitter.java,233,try {
+storm-core/src/jvm/org/apache/storm/StormSubmitter.java,234,LOG.info("Submitting topology " +  name + " in distributed mode with conf " + serConf);
+storm-core/src/jvm/org/apache/storm/StormSubmitter.java,235,if(opts!=null) {
+storm-core/src/jvm/org/apache/storm/StormSubmitter.java,242,LOG.warn("Topology submission exception: "+e.get_msg());
+storm-core/src/jvm/org/apache/storm/StormSubmitter.java,248,client.close();
+storm-core/src/jvm/org/apache/storm/StormSubmitter.java,251,LOG.info("Finished submitting topology: " +  name);
+storm-core/src/jvm/org/apache/storm/StormSubmitter.java,262,ISubmitterHook submitterHook = (ISubmitterHook) Class.forName(stormConf.get(Config.STORM_TOPOLOGY_SUBMISSION_NOTIFIER_PLUGIN).toString()).newInstance();
+storm-core/src/jvm/org/apache/storm/StormSubmitter.java,267,throw new RuntimeException(e);
+storm-core/src/jvm/org/apache/storm/utils/Utils.java,116,private static ClassLoader cl = ClassLoader.getSystemClassLoader();
+storm-core/src/jvm/org/apache/storm/utils/Utils.java,174,ObjectInputStream ois = new ClassLoaderObjectInputStream(cl, bis);
+external/storm-kafka/src/jvm/org/apache/storm/kafka/Partition.java,24,public class Partition implements ISpoutPartition {
+external/storm-kafka/src/jvm/org/apache/storm/kafka/PartitionManager.java,322,static class KafkaMessageId {
+storm-core/src/jvm/org/apache/storm/generated/HBMessageData.java,142,new org.apache.thrift.meta_data.FieldValueMetaData(org.apache.thrift.protocol.TType.STRUCT        , "HBPulse")));
+storm-core/src/jvm/org/apache/storm/generated/HBMessageData.java,146,new org.apache.thrift.meta_data.FieldValueMetaData(org.apache.thrift.protocol.TType.STRUCT        , "HBRecords")));
+storm-core/src/jvm/org/apache/storm/generated/HBMessageData.java,148,new org.apache.thrift.meta_data.FieldValueMetaData(org.apache.thrift.protocol.TType.STRUCT        , "HBNodes")));
+external/storm-kafka/src/jvm/org/apache/storm/kafka/StringMultiSchemeWithTopic.java,23,import sun.reflect.generics.reflectiveObjects.NotImplementedException;
+external/storm-kafka/src/jvm/org/apache/storm/kafka/StringMultiSchemeWithTopic.java,37,throw new NotImplementedException();
+external/storm-hdfs/src/main/java/org/apache/storm/hdfs/common/security/HdfsSecurityUtil.java,50,LOG.info("Logging in using keytab as AutoHDFS is not specified for " + TOPOLOGY_AUTO_CREDENTIALS);
+external/storm-hdfs/src/main/java/org/apache/storm/hdfs/common/security/HdfsSecurityUtil.java,51,String keytab = (String) conf.get(STORM_KEYTAB_FILE_KEY);
+external/storm-hdfs/src/main/java/org/apache/storm/hdfs/common/security/HdfsSecurityUtil.java,52,if (keytab != null) {
+external/storm-hdfs/src/main/java/org/apache/storm/hdfs/common/security/HdfsSecurityUtil.java,53,hdfsConfig.set(STORM_KEYTAB_FILE_KEY, keytab);
+external/storm-hdfs/src/main/java/org/apache/storm/hdfs/common/security/HdfsSecurityUtil.java,55,String userName = (String) conf.get(STORM_USER_NAME_KEY);
+external/storm-hdfs/src/main/java/org/apache/storm/hdfs/common/security/HdfsSecurityUtil.java,56,if (userName != null) {
+external/storm-hdfs/src/main/java/org/apache/storm/hdfs/common/security/HdfsSecurityUtil.java,57,hdfsConfig.set(STORM_USER_NAME_KEY, userName);
+external/storm-hdfs/src/main/java/org/apache/storm/hdfs/common/security/HdfsSecurityUtil.java,59,SecurityUtil.login(hdfsConfig, STORM_KEYTAB_FILE_KEY, STORM_USER_NAME_KEY);
+external/storm-kafka-client/src/main/java/org/apache/storm/kafka/spout/KafkaSpoutRetryExponentialBackoff.java,165,final Set<TopicPartition> tps = new TreeSet<>();
+storm-core/src/jvm/org/apache/storm/topology/CheckpointTupleForwarder.java,48,public class CheckpointTupleForwarder implements IRichBolt {
+storm-core/src/jvm/org/apache/storm/topology/CheckpointTupleForwarder.java,51,private final Map<TransactionRequest, Integer> transactionRequestCount;
+storm-core/src/jvm/org/apache/storm/topology/CheckpointTupleForwarder.java,52,private int checkPointInputTaskCount;
+storm-core/src/jvm/org/apache/storm/topology/CheckpointTupleForwarder.java,53,private long lastTxid = Long.MIN_VALUE;
+storm-core/src/jvm/org/apache/storm/topology/CheckpointTupleForwarder.java,54,private AnchoringOutputCollector collector;
+storm-core/src/jvm/org/apache/storm/topology/CheckpointTupleForwarder.java,58,transactionRequestCount = new HashMap<>();
+storm-core/src/jvm/org/apache/storm/topology/CheckpointTupleForwarder.java,62,public void prepare(Map stormConf, TopologyContext context, OutputCollector collector) {
+storm-core/src/jvm/org/apache/storm/topology/CheckpointTupleForwarder.java,63,init(context, collector);
+storm-core/src/jvm/org/apache/storm/topology/CheckpointTupleForwarder.java,64,bolt.prepare(stormConf, context, this.collector);
+storm-core/src/jvm/org/apache/storm/topology/CheckpointTupleForwarder.java,67,protected void init(TopologyContext context, OutputCollector collector) {
+storm-core/src/jvm/org/apache/storm/topology/CheckpointTupleForwarder.java,68,this.collector = new AnchoringOutputCollector(collector);
+storm-core/src/jvm/org/apache/storm/topology/CheckpointTupleForwarder.java,69,this.checkPointInputTaskCount = getCheckpointInputTaskCount(context);
+storm-core/src/jvm/org/apache/storm/topology/CheckpointTupleForwarder.java,73,public void execute(Tuple input) {
+storm-core/src/jvm/org/apache/storm/topology/CheckpointTupleForwarder.java,74,if (CheckpointSpout.isCheckpoint(input)) {
+storm-core/src/jvm/org/apache/storm/topology/CheckpointTupleForwarder.java,75,processCheckpoint(input);
+storm-core/src/jvm/org/apache/storm/topology/CheckpointTupleForwarder.java,77,handleTuple(input);
+storm-core/src/jvm/org/apache/storm/topology/CheckpointTupleForwarder.java,89,declarer.declareStream(CHECKPOINT_STREAM_ID, new Fields(CHECKPOINT_FIELD_TXID, CHECKPOINT_FIELD_ACTION));
+storm-core/src/jvm/org/apache/storm/topology/CheckpointTupleForwarder.java,128,private void processCheckpoint(Tuple input) {
+storm-core/src/jvm/org/apache/storm/topology/CheckpointTupleForwarder.java,129,Action action = (Action) input.getValueByField(CHECKPOINT_FIELD_ACTION);
+storm-core/src/jvm/org/apache/storm/topology/CheckpointTupleForwarder.java,130,long txid = input.getLongByField(CHECKPOINT_FIELD_TXID);
+storm-core/src/jvm/org/apache/storm/topology/CheckpointTupleForwarder.java,131,if (shouldProcessTransaction(action, txid)) {
+storm-core/src/jvm/org/apache/storm/topology/CheckpointTupleForwarder.java,132,LOG.debug("Processing action {}, txid {}", action, txid);
+storm-core/src/jvm/org/apache/storm/topology/CheckpointTupleForwarder.java,133,try {
+storm-core/src/jvm/org/apache/storm/topology/CheckpointTupleForwarder.java,134,if (txid >= lastTxid) {
+storm-core/src/jvm/org/apache/storm/topology/CheckpointTupleForwarder.java,135,handleCheckpoint(input, action, txid);
+storm-core/src/jvm/org/apache/storm/topology/CheckpointTupleForwarder.java,136,if (action == ROLLBACK) {
+storm-core/src/jvm/org/apache/storm/topology/CheckpointTupleForwarder.java,137,lastTxid = txid - 1;
+storm-core/src/jvm/org/apache/storm/topology/CheckpointTupleForwarder.java,139,lastTxid = txid;
+storm-core/src/jvm/org/apache/storm/topology/CheckpointTupleForwarder.java,142,LOG.debug("Ignoring old transaction. Action {}, txid {}", action, txid);
+storm-core/src/jvm/org/apache/storm/topology/CheckpointTupleForwarder.java,143,collector.ack(input);
+storm-core/src/jvm/org/apache/storm/topology/CheckpointTupleForwarder.java,146,LOG.error("Got error while processing checkpoint tuple", th);
+storm-core/src/jvm/org/apache/storm/topology/CheckpointTupleForwarder.java,147,collector.fail(input);
+storm-core/src/jvm/org/apache/storm/topology/CheckpointTupleForwarder.java,148,collector.reportError(th);
+storm-core/src/jvm/org/apache/storm/topology/CheckpointTupleForwarder.java,151,LOG.debug("Waiting for action {}, txid {} from all input tasks. checkPointInputTaskCount {}, " +
+storm-core/src/jvm/org/apache/storm/topology/CheckpointTupleForwarder.java,153,collector.ack(input);
+storm-core/src/jvm/org/apache/storm/topology/CheckpointTupleForwarder.java,161,private int getCheckpointInputTaskCount(TopologyContext context) {
+storm-core/src/jvm/org/apache/storm/topology/CheckpointTupleForwarder.java,162,int count = 0;
+storm-core/src/jvm/org/apache/storm/topology/CheckpointTupleForwarder.java,163,for (GlobalStreamId inputStream : context.getThisSources().keySet()) {
+storm-core/src/jvm/org/apache/storm/topology/CheckpointTupleForwarder.java,164,if (CHECKPOINT_STREAM_ID.equals(inputStream.get_streamId())) {
+storm-core/src/jvm/org/apache/storm/topology/CheckpointTupleForwarder.java,165,count += context.getComponentTasks(inputStream.get_componentId()).size();
+storm-core/src/jvm/org/apache/storm/topology/CheckpointTupleForwarder.java,168,return count;
+storm-core/src/jvm/org/apache/storm/topology/CheckpointTupleForwarder.java,175,private boolean shouldProcessTransaction(Action action, long txid) {
+storm-core/src/jvm/org/apache/storm/topology/CheckpointTupleForwarder.java,176,TransactionRequest request = new TransactionRequest(action, txid);
+storm-core/src/jvm/org/apache/storm/topology/CheckpointTupleForwarder.java,177,Integer count;
+storm-core/src/jvm/org/apache/storm/topology/CheckpointTupleForwarder.java,178,if ((count = transactionRequestCount.get(request)) == null) {
+storm-core/src/jvm/org/apache/storm/topology/CheckpointTupleForwarder.java,179,transactionRequestCount.put(request, 1);
+storm-core/src/jvm/org/apache/storm/topology/CheckpointTupleForwarder.java,180,count = 1;
+storm-core/src/jvm/org/apache/storm/topology/CheckpointTupleForwarder.java,182,transactionRequestCount.put(request, ++count);
+storm-core/src/jvm/org/apache/storm/topology/CheckpointTupleForwarder.java,184,if (count == checkPointInputTaskCount) {
+storm-core/src/jvm/org/apache/storm/topology/CheckpointTupleForwarder.java,185,transactionRequestCount.remove(request);
+storm-core/src/jvm/org/apache/storm/topology/CheckpointTupleForwarder.java,186,return true;
+storm-core/src/jvm/org/apache/storm/topology/CheckpointTupleForwarder.java,188,return false;
+storm-core/src/jvm/org/apache/storm/topology/CheckpointTupleForwarder.java,191,private static class TransactionRequest {
+storm-core/src/jvm/org/apache/storm/topology/CheckpointTupleForwarder.java,192,private final Action action;
+storm-core/src/jvm/org/apache/storm/topology/CheckpointTupleForwarder.java,193,private final long txid;
+storm-core/src/jvm/org/apache/storm/topology/CheckpointTupleForwarder.java,195,TransactionRequest(Action action, long txid) {
+storm-core/src/jvm/org/apache/storm/topology/CheckpointTupleForwarder.java,196,this.action = action;
+storm-core/src/jvm/org/apache/storm/topology/CheckpointTupleForwarder.java,197,this.txid = txid;
+storm-core/src/jvm/org/apache/storm/topology/CheckpointTupleForwarder.java,201,public boolean equals(Object o) {
+storm-core/src/jvm/org/apache/storm/topology/CheckpointTupleForwarder.java,202,if (this == o) return true;
+storm-core/src/jvm/org/apache/storm/topology/CheckpointTupleForwarder.java,203,if (o == null || getClass() != o.getClass()) return false;
+storm-core/src/jvm/org/apache/storm/topology/CheckpointTupleForwarder.java,205,TransactionRequest that = (TransactionRequest) o;
+storm-core/src/jvm/org/apache/storm/topology/CheckpointTupleForwarder.java,207,if (txid != that.txid) return false;
+storm-core/src/jvm/org/apache/storm/topology/CheckpointTupleForwarder.java,208,return !(action != null ? !action.equals(that.action) : that.action != null);
+storm-core/src/jvm/org/apache/storm/topology/CheckpointTupleForwarder.java,213,public int hashCode() {
+storm-core/src/jvm/org/apache/storm/topology/CheckpointTupleForwarder.java,214,int result = action != null ? action.hashCode() : 0;
+storm-core/src/jvm/org/apache/storm/topology/CheckpointTupleForwarder.java,215,result = 31 * result + (int) (txid ^ (txid >>> 32));
+storm-core/src/jvm/org/apache/storm/topology/CheckpointTupleForwarder.java,216,return result;
+storm-core/src/jvm/org/apache/storm/topology/CheckpointTupleForwarder.java,220,public String toString() {
+storm-core/src/jvm/org/apache/storm/topology/CheckpointTupleForwarder.java,221,return "TransactionRequest{" +
+storm-core/src/jvm/org/apache/storm/topology/CheckpointTupleForwarder.java,229,protected static class AnchoringOutputCollector extends OutputCollector {
+storm-core/src/jvm/org/apache/storm/topology/CheckpointTupleForwarder.java,230,AnchoringOutputCollector(IOutputCollector delegate) {
+storm-core/src/jvm/org/apache/storm/topology/CheckpointTupleForwarder.java,231,super(delegate);
+storm-core/src/jvm/org/apache/storm/topology/CheckpointTupleForwarder.java,235,public List<Integer> emit(String streamId, List<Object> tuple) {
+storm-core/src/jvm/org/apache/storm/topology/CheckpointTupleForwarder.java,236,throw new UnsupportedOperationException("Bolts in a stateful topology must emit anchored tuples.");
+storm-core/src/jvm/org/apache/storm/topology/CheckpointTupleForwarder.java,240,public void emitDirect(int taskId, String streamId, List<Object> tuple) {
+storm-core/src/jvm/org/apache/storm/topology/CheckpointTupleForwarder.java,241,throw new UnsupportedOperationException("Bolts in a stateful topology must emit anchored tuples.");
+storm-core/src/jvm/org/apache/storm/topology/StatefulBoltExecutor.java,47,public class StatefulBoltExecutor<T extends State> extends CheckpointTupleForwarder {
+storm-core/src/jvm/org/apache/storm/topology/IStatefulBolt.java,30,public interface IStatefulBolt<T extends State> extends IStatefulComponent<T>, IRichBolt {
+storm-core/src/jvm/org/apache/storm/topology/StatefulBoltExecutor.java,31,import java.util.Collection;
+storm-core/src/jvm/org/apache/storm/topology/StatefulBoltExecutor.java,57,super(bolt);
+storm-core/src/jvm/org/apache/storm/scheduler/resource/strategies/scheduling/DefaultResourceAwareStrategy.java,319,HashMap<String, Component> visited = new HashMap<>();
+storm-core/src/jvm/org/apache/storm/scheduler/resource/strategies/scheduling/DefaultResourceAwareStrategy.java,323,if (!visited.containsKey(spout.id)) {
+storm-core/src/jvm/org/apache/storm/scheduler/resource/strategies/scheduling/DefaultResourceAwareStrategy.java,328,visited.put(comp.id, comp);
+storm-core/src/jvm/org/apache/storm/scheduler/resource/strategies/scheduling/DefaultResourceAwareStrategy.java,334,if (!visited.containsKey(nbID)) {
+storm-core/src/jvm/org/apache/storm/metric/internal/RateTracker.java,20,import java.util.Timer;
+storm-core/src/jvm/org/apache/storm/metric/internal/RateTracker.java,141,public static void main (String args[]) throws Exception {
+storm-core/src/jvm/org/apache/storm/metric/internal/RateTracker.java,142,final int number = (args.length >= 1) ? Integer.parseInt(args[0]) : 100000000;
+storm-core/src/jvm/org/apache/storm/metric/internal/RateTracker.java,143,for (int i = 0; i < 10; i++) {
+storm-core/src/jvm/org/apache/storm/metric/internal/RateTracker.java,144,testRate(number);
+storm-core/src/jvm/org/apache/storm/metric/internal/RateTracker.java,148,private static void testRate(int number) {
+storm-core/src/jvm/org/apache/storm/metric/internal/RateTracker.java,149,RateTracker rt = new RateTracker(10000, 10);
+storm-core/src/jvm/org/apache/storm/metric/internal/RateTracker.java,150,long start = System.currentTimeMillis();
+storm-core/src/jvm/org/apache/storm/metric/internal/RateTracker.java,151,for (int i = 0; i < number; i++) {
+storm-core/src/jvm/org/apache/storm/metric/internal/RateTracker.java,152,rt.notify(1);
+storm-core/src/jvm/org/apache/storm/metric/internal/RateTracker.java,153,if ((i % 1000000) == 0) {
+storm-core/src/jvm/org/apache/storm/metric/internal/RateTracker.java,157,Thread.yield();
+storm-core/src/jvm/org/apache/storm/metric/internal/RateTracker.java,160,long end = System.currentTimeMillis();
+storm-core/src/jvm/org/apache/storm/metric/internal/RateTracker.java,161,double rate = rt.reportRate();
+storm-core/src/jvm/org/apache/storm/metric/internal/RateTracker.java,162,rt.close();
+storm-core/src/jvm/org/apache/storm/metric/internal/RateTracker.java,163,System.out.printf("time %,8d count %,8d rate %,15.2f reported rate %,15.2f\n", end-start,number, ((number * 1000.0)/(end-start)), rate);
+storm-core/src/jvm/org/apache/storm/utils/DisruptorQueue.java,49,import org.slf4j.Logger;
+storm-core/src/jvm/org/apache/storm/utils/DisruptorQueue.java,50,import org.slf4j.LoggerFactory;
+storm-core/src/jvm/org/apache/storm/utils/DisruptorQueue.java,52,import org.apache.storm.metric.api.IStatefulObject;
+storm-core/src/jvm/org/apache/storm/utils/DisruptorQueue.java,53,import org.apache.storm.metric.internal.RateTracker;
+storm-core/src/jvm/org/apache/storm/utils/DisruptorQueue.java,149,_cb.highWaterMark();
+storm-core/src/jvm/org/apache/storm/utils/DisruptorQueue.java,203,_cb.highWaterMark();
+external/storm-kafka/src/jvm/org/apache/storm/kafka/ZkCoordinator.java,35,Map<Partition, PartitionManager> _managers = new HashMap();
+external/storm-kafka/src/jvm/org/apache/storm/kafka/ZkCoordinator.java,36,List<PartitionManager> _cachedList = new ArrayList<PartitionManager>();
+external/storm-kafka/src/jvm/org/apache/storm/kafka/ZkCoordinator.java,83,Set<Partition> newPartitions = new HashSet<Partition>(mine);
+external/storm-kafka/src/jvm/org/apache/storm/kafka/ZkCoordinator.java,86,Set<Partition> deletedPartitions = new HashSet<Partition>(curr);
+external/storm-kafka/src/jvm/org/apache/storm/kafka/ZkCoordinator.java,89,LOG.info(taskId(_taskIndex, _totalTasks) + "Deleted partition managers: " + deletedPartitions.toString());
+external/storm-kafka/src/jvm/org/apache/storm/kafka/ZkCoordinator.java,95,LOG.info(taskId(_taskIndex, _totalTasks) + "New partition managers: " + newPartitions.toString());
+external/storm-kafka/src/jvm/org/apache/storm/kafka/ZkCoordinator.java,105,_cachedList = new ArrayList<PartitionManager>(_managers.values());
+storm-core/src/jvm/org/apache/storm/trident/spout/OpaquePartitionedTridentSpoutExecutor.java,127,if(lastMeta==null) lastMeta = s.rotatingState.getLastState();
+storm-core/src/jvm/org/apache/storm/messaging/netty/Client.java,424,context.removeClient(dstAddress.getHostName(),dstAddress.getPort());
+storm-core/src/jvm/org/apache/storm/topology/WindowedBoltExecutor.java,185,evictionPolicy = getEvictionPolicy(windowLengthCount, windowLengthDuration,
+storm-core/src/jvm/org/apache/storm/topology/WindowedBoltExecutor.java,186,manager);
+storm-core/src/jvm/org/apache/storm/topology/WindowedBoltExecutor.java,237,private EvictionPolicy<Tuple> getEvictionPolicy(Count windowLengthCount, Duration windowLengthDuration,
+storm-core/src/jvm/org/apache/storm/topology/WindowedBoltExecutor.java,238,WindowManager<Tuple> manager) {
+storm-core/src/jvm/org/apache/storm/windowing/EvictionPolicy.java,30,enum Action {
+storm-core/src/jvm/org/apache/storm/windowing/TimeEvictionPolicy.java,45,public Action evict(Event<T> event) {
+storm-core/src/jvm/org/apache/storm/windowing/WatermarkTimeEvictionPolicy.java,61,long diff = referenceTime - event.getTimestamp();
+external/storm-hdfs/src/main/java/org/apache/storm/hdfs/blobstore/HdfsBlobStoreImpl.java,48,private static final Timer timer = new Timer("HdfsBlobStore cleanup thread", true);
+external/storm-hdfs/src/main/java/org/apache/storm/hdfs/blobstore/HdfsBlobStoreImpl.java,115,private TimerTask _cleanup = null;
+external/storm-hdfs/src/main/java/org/apache/storm/hdfs/blobstore/HdfsBlobStoreImpl.java,144,_cleanup = new TimerTask() {
+external/storm-hdfs/src/main/java/org/apache/storm/hdfs/blobstore/HdfsBlobStoreImpl.java,154,timer.scheduleAtFixedRate(_cleanup, 0, FULL_CLEANUP_FREQ);
+external/storm-hdfs/src/main/java/org/apache/storm/hdfs/blobstore/HdfsBlobStoreImpl.java,307,if (_cleanup != null) {
+external/storm-hdfs/src/main/java/org/apache/storm/hdfs/blobstore/HdfsBlobStoreImpl.java,308,_cleanup.cancel();
+external/storm-hdfs/src/main/java/org/apache/storm/hdfs/blobstore/HdfsBlobStoreImpl.java,309,_cleanup = null;
+external/storm-hdfs/src/main/java/org/apache/storm/hdfs/bolt/AbstractHdfsBolt.java,101,if (this.syncPolicy == null) throw new IllegalStateException("SyncPolicy must be specified.");
+external/storm-hdfs/src/main/java/org/apache/storm/hdfs/bolt/AbstractHdfsBolt.java,102,if (this.rotationPolicy == null) throw new IllegalStateException("RotationPolicy must be specified.");
+external/storm-hdfs/src/main/java/org/apache/storm/hdfs/spout/HdfsSpout.java,51,private String hdfsUri;            // required
+external/storm-hdfs/src/main/java/org/apache/storm/hdfs/spout/HdfsSpout.java,52,private String readerType;         // required
+external/storm-hdfs/src/main/java/org/apache/storm/hdfs/spout/HdfsSpout.java,53,private Fields outputFields;       // required
+external/storm-hdfs/src/main/java/org/apache/storm/hdfs/spout/HdfsSpout.java,54,private Path sourceDirPath;        // required
+external/storm-hdfs/src/main/java/org/apache/storm/hdfs/spout/HdfsSpout.java,55,private Path archiveDirPath;       // required
+external/storm-hdfs/src/main/java/org/apache/storm/hdfs/spout/HdfsSpout.java,56,private Path badFilesDirPath;      // required
+external/storm-hdfs/src/main/java/org/apache/storm/hdfs/spout/HdfsSpout.java,57,private Path lockDirPath;
+external/storm-hdfs/src/main/java/org/apache/storm/hdfs/spout/HdfsSpout.java,59,private int commitFrequencyCount = Configs.DEFAULT_COMMIT_FREQ_COUNT;
+external/storm-hdfs/src/main/java/org/apache/storm/hdfs/spout/HdfsSpout.java,60,private int commitFrequencySec = Configs.DEFAULT_COMMIT_FREQ_SEC;
+external/storm-hdfs/src/main/java/org/apache/storm/hdfs/spout/HdfsSpout.java,61,private int maxOutstanding = Configs.DEFAULT_MAX_OUTSTANDING;
+external/storm-hdfs/src/main/java/org/apache/storm/hdfs/spout/HdfsSpout.java,62,private int lockTimeoutSec = Configs.DEFAULT_LOCK_TIMEOUT;
+external/storm-hdfs/src/main/java/org/apache/storm/hdfs/spout/HdfsSpout.java,63,private boolean clocksInSync = true;
+external/storm-hdfs/src/main/java/org/apache/storm/hdfs/spout/HdfsSpout.java,66,private String ignoreSuffix = ".ignore";
+external/storm-hdfs/src/main/java/org/apache/storm/hdfs/spout/HdfsSpout.java,69,private static final Logger LOG = LoggerFactory.getLogger(HdfsSpout.class);
+external/storm-hdfs/src/main/java/org/apache/storm/hdfs/spout/HdfsSpout.java,71,private ProgressTracker tracker = null;
+external/storm-hdfs/src/main/java/org/apache/storm/hdfs/spout/HdfsSpout.java,73,private FileSystem hdfs;
+external/storm-hdfs/src/main/java/org/apache/storm/hdfs/spout/HdfsSpout.java,74,private FileReader reader;
+external/storm-hdfs/src/main/java/org/apache/storm/hdfs/spout/HdfsSpout.java,76,private SpoutOutputCollector collector;
+external/storm-hdfs/src/main/java/org/apache/storm/hdfs/spout/HdfsSpout.java,77,HashMap<MessageId, List<Object> > inflight = new HashMap<>();
+external/storm-hdfs/src/main/java/org/apache/storm/hdfs/spout/HdfsSpout.java,78,LinkedBlockingQueue<HdfsUtils.Pair<MessageId, List<Object>>> retryList = new LinkedBlockingQueue<>();
+external/storm-hdfs/src/main/java/org/apache/storm/hdfs/spout/HdfsSpout.java,80,private Configuration hdfsConfig;
+external/storm-hdfs/src/main/java/org/apache/storm/hdfs/spout/HdfsSpout.java,82,private Map conf = null;
+external/storm-hdfs/src/main/java/org/apache/storm/hdfs/spout/HdfsSpout.java,83,private FileLock lock;
+external/storm-hdfs/src/main/java/org/apache/storm/hdfs/spout/HdfsSpout.java,84,private String spoutId = null;
+external/storm-hdfs/src/main/java/org/apache/storm/hdfs/spout/HdfsSpout.java,86,HdfsUtils.Pair<Path,FileLock.LogEntry> lastExpiredLock = null;
+external/storm-hdfs/src/main/java/org/apache/storm/hdfs/spout/HdfsSpout.java,87,private long lastExpiredLockTime = 0;
+external/storm-hdfs/src/main/java/org/apache/storm/hdfs/spout/HdfsSpout.java,89,private long tupleCounter = 0;
+external/storm-hdfs/src/main/java/org/apache/storm/hdfs/spout/HdfsSpout.java,90,private boolean ackEnabled = false;
+external/storm-hdfs/src/main/java/org/apache/storm/hdfs/spout/HdfsSpout.java,91,private int acksSinceLastCommit = 0 ;
+external/storm-hdfs/src/main/java/org/apache/storm/hdfs/spout/HdfsSpout.java,92,private final AtomicBoolean commitTimeElapsed = new AtomicBoolean(false);
+external/storm-hdfs/src/main/java/org/apache/storm/hdfs/spout/HdfsSpout.java,93,private Timer commitTimer;
+external/storm-hdfs/src/main/java/org/apache/storm/hdfs/spout/HdfsSpout.java,94,private boolean fileReadCompletely = true;
+external/storm-hdfs/src/main/java/org/apache/storm/hdfs/spout/HdfsSpout.java,96,private String configKey = Configs.DEFAULT_HDFS_CONFIG_KEY; // key for hdfs Kerberos configs
+external/storm-hdfs/src/main/java/org/apache/storm/hdfs/spout/HdfsSpout.java,98,public HdfsSpout() {
+external/storm-hdfs/src/main/java/org/apache/storm/hdfs/spout/HdfsSpout.java,101,public HdfsSpout withOutputFields(String... fields) {
+external/storm-hdfs/src/main/java/org/apache/storm/hdfs/spout/HdfsSpout.java,102,outputFields = new Fields(fields);
+external/storm-hdfs/src/main/java/org/apache/storm/hdfs/spout/HdfsSpout.java,103,return this;
+external/storm-hdfs/src/main/java/org/apache/storm/hdfs/spout/HdfsSpout.java,108,public HdfsSpout withConfigKey(String configKey) {
+external/storm-hdfs/src/main/java/org/apache/storm/hdfs/spout/HdfsSpout.java,109,this.configKey = configKey;
+external/storm-hdfs/src/main/java/org/apache/storm/hdfs/spout/HdfsSpout.java,110,return this;
+external/storm-hdfs/src/main/java/org/apache/storm/hdfs/spout/HdfsSpout.java,113,public Path getLockDirPath() {
+external/storm-hdfs/src/main/java/org/apache/storm/hdfs/spout/HdfsSpout.java,114,return lockDirPath;
+external/storm-hdfs/src/main/java/org/apache/storm/hdfs/spout/HdfsSpout.java,117,public SpoutOutputCollector getCollector() {
+external/storm-hdfs/src/main/java/org/apache/storm/hdfs/spout/HdfsSpout.java,118,return collector;
+external/storm-hdfs/src/main/java/org/apache/storm/hdfs/spout/HdfsSpout.java,121,public void nextTuple() {
+external/storm-hdfs/src/main/java/org/apache/storm/hdfs/spout/HdfsSpout.java,122,LOG.trace("Next Tuple {}", spoutId);
+external/storm-hdfs/src/main/java/org/apache/storm/hdfs/spout/HdfsSpout.java,124,if (!retryList.isEmpty()) {
+external/storm-hdfs/src/main/java/org/apache/storm/hdfs/spout/HdfsSpout.java,125,LOG.debug("Sending tuple from retry list");
+external/storm-hdfs/src/main/java/org/apache/storm/hdfs/spout/HdfsSpout.java,126,HdfsUtils.Pair<MessageId, List<Object>> pair = retryList.remove();
+external/storm-hdfs/src/main/java/org/apache/storm/hdfs/spout/HdfsSpout.java,127,emitData(pair.getValue(), pair.getKey());
+external/storm-hdfs/src/main/java/org/apache/storm/hdfs/spout/HdfsSpout.java,128,return;
+external/storm-hdfs/src/main/java/org/apache/storm/hdfs/spout/HdfsSpout.java,132,LOG.warn("Waiting for more ACKs before generating new tuples. " +
+external/storm-hdfs/src/main/java/org/apache/storm/hdfs/spout/HdfsSpout.java,134,, maxOutstanding, spoutId);
+external/storm-hdfs/src/main/java/org/apache/storm/hdfs/spout/HdfsSpout.java,136,return;
+external/storm-hdfs/src/main/java/org/apache/storm/hdfs/spout/HdfsSpout.java,140,while (true) {
+external/storm-hdfs/src/main/java/org/apache/storm/hdfs/spout/HdfsSpout.java,141,try {
+external/storm-hdfs/src/main/java/org/apache/storm/hdfs/spout/HdfsSpout.java,143,if (reader == null) {
+external/storm-hdfs/src/main/java/org/apache/storm/hdfs/spout/HdfsSpout.java,144,reader = pickNextFile();
+external/storm-hdfs/src/main/java/org/apache/storm/hdfs/spout/HdfsSpout.java,145,if (reader == null) {
+external/storm-hdfs/src/main/java/org/apache/storm/hdfs/spout/HdfsSpout.java,146,LOG.debug("Currently no new files to process under : " + sourceDirPath);
+external/storm-hdfs/src/main/java/org/apache/storm/hdfs/spout/HdfsSpout.java,147,return;
+external/storm-hdfs/src/main/java/org/apache/storm/hdfs/spout/HdfsSpout.java,149,fileReadCompletely=false;
+external/storm-hdfs/src/main/java/org/apache/storm/hdfs/spout/HdfsSpout.java,153,return;
+external/storm-hdfs/src/main/java/org/apache/storm/hdfs/spout/HdfsSpout.java,156,List<Object> tuple = reader.next();
+external/storm-hdfs/src/main/java/org/apache/storm/hdfs/spout/HdfsSpout.java,157,if (tuple != null) {
+external/storm-hdfs/src/main/java/org/apache/storm/hdfs/spout/HdfsSpout.java,158,fileReadCompletely= false;
+external/storm-hdfs/src/main/java/org/apache/storm/hdfs/spout/HdfsSpout.java,159,++tupleCounter;
+external/storm-hdfs/src/main/java/org/apache/storm/hdfs/spout/HdfsSpout.java,160,MessageId msgId = new MessageId(tupleCounter, reader.getFilePath(), reader.getFileOffset());
+external/storm-hdfs/src/main/java/org/apache/storm/hdfs/spout/HdfsSpout.java,161,emitData(tuple, msgId);
+external/storm-hdfs/src/main/java/org/apache/storm/hdfs/spout/HdfsSpout.java,164,++acksSinceLastCommit; // assume message is immediately ACKed in non-ack mode
+external/storm-hdfs/src/main/java/org/apache/storm/hdfs/spout/HdfsSpout.java,165,commitProgress(reader.getFileOffset());
+external/storm-hdfs/src/main/java/org/apache/storm/hdfs/spout/HdfsSpout.java,167,commitProgress(tracker.getCommitPosition());
+external/storm-hdfs/src/main/java/org/apache/storm/hdfs/spout/HdfsSpout.java,169,return;
+external/storm-hdfs/src/main/java/org/apache/storm/hdfs/spout/HdfsSpout.java,171,fileReadCompletely = true;
+external/storm-hdfs/src/main/java/org/apache/storm/hdfs/spout/HdfsSpout.java,173,markFileAsDone(reader.getFilePath());
+external/storm-hdfs/src/main/java/org/apache/storm/hdfs/spout/HdfsSpout.java,177,LOG.error("I/O Error processing at file location " + getFileProgress(reader), e);
+external/storm-hdfs/src/main/java/org/apache/storm/hdfs/spout/HdfsSpout.java,179,return;
+external/storm-hdfs/src/main/java/org/apache/storm/hdfs/spout/HdfsSpout.java,181,LOG.error("Parsing error when processing at file location " + getFileProgress(reader) +
+external/storm-hdfs/src/main/java/org/apache/storm/hdfs/spout/HdfsSpout.java,183,markFileAsBad(reader.getFilePath());
+external/storm-hdfs/src/main/java/org/apache/storm/hdfs/spout/HdfsSpout.java,192,private void commitProgress(FileOffset position) {
+external/storm-hdfs/src/main/java/org/apache/storm/hdfs/spout/HdfsSpout.java,194,return;
+external/storm-hdfs/src/main/java/org/apache/storm/hdfs/spout/HdfsSpout.java,196,if ( lock!=null && canCommitNow() ) {
+external/storm-hdfs/src/main/java/org/apache/storm/hdfs/spout/HdfsSpout.java,197,try {
+external/storm-hdfs/src/main/java/org/apache/storm/hdfs/spout/HdfsSpout.java,198,String pos = position.toString();
+external/storm-hdfs/src/main/java/org/apache/storm/hdfs/spout/HdfsSpout.java,199,lock.heartbeat(pos);
+external/storm-hdfs/src/main/java/org/apache/storm/hdfs/spout/HdfsSpout.java,200,LOG.debug("{} Committed progress. {}", spoutId, pos);
+external/storm-hdfs/src/main/java/org/apache/storm/hdfs/spout/HdfsSpout.java,201,acksSinceLastCommit = 0;
+external/storm-hdfs/src/main/java/org/apache/storm/hdfs/spout/HdfsSpout.java,202,commitTimeElapsed.set(false);
+external/storm-hdfs/src/main/java/org/apache/storm/hdfs/spout/HdfsSpout.java,203,setupCommitElapseTimer();
+external/storm-hdfs/src/main/java/org/apache/storm/hdfs/spout/HdfsSpout.java,205,LOG.error("Unable to commit progress Will retry later. Spout ID = " + spoutId, e);
+external/storm-hdfs/src/main/java/org/apache/storm/hdfs/spout/HdfsSpout.java,210,private void setupCommitElapseTimer() {
+external/storm-hdfs/src/main/java/org/apache/storm/hdfs/spout/HdfsSpout.java,212,return;
+external/storm-hdfs/src/main/java/org/apache/storm/hdfs/spout/HdfsSpout.java,214,TimerTask timerTask = new TimerTask() {
+external/storm-hdfs/src/main/java/org/apache/storm/hdfs/spout/HdfsSpout.java,216,public void run() {
+external/storm-hdfs/src/main/java/org/apache/storm/hdfs/spout/HdfsSpout.java,217,commitTimeElapsed.set(true);
+external/storm-hdfs/src/main/java/org/apache/storm/hdfs/spout/HdfsSpout.java,220,commitTimer.schedule(timerTask, commitFrequencySec * 1000);
+external/storm-hdfs/src/main/java/org/apache/storm/hdfs/spout/HdfsSpout.java,223,private static String getFileProgress(FileReader reader) {
+external/storm-hdfs/src/main/java/org/apache/storm/hdfs/spout/HdfsSpout.java,224,return reader.getFilePath() + " " + reader.getFileOffset();
+external/storm-hdfs/src/main/java/org/apache/storm/hdfs/spout/HdfsSpout.java,227,private void markFileAsDone(Path filePath) {
+external/storm-hdfs/src/main/java/org/apache/storm/hdfs/spout/HdfsSpout.java,228,try {
+external/storm-hdfs/src/main/java/org/apache/storm/hdfs/spout/HdfsSpout.java,229,Path newFile = renameCompletedFile(reader.getFilePath());
+external/storm-hdfs/src/main/java/org/apache/storm/hdfs/spout/HdfsSpout.java,230,LOG.info("Completed processing {}. Spout Id = {}", newFile, spoutId);
+external/storm-hdfs/src/main/java/org/apache/storm/hdfs/spout/HdfsSpout.java,232,LOG.error("Unable to archive completed file" + filePath + " Spout ID " + spoutId, e);
+external/storm-hdfs/src/main/java/org/apache/storm/hdfs/spout/HdfsSpout.java,234,closeReaderAndResetTrackers();
+external/storm-hdfs/src/main/java/org/apache/storm/hdfs/spout/HdfsSpout.java,237,private void markFileAsBad(Path file) {
+external/storm-hdfs/src/main/java/org/apache/storm/hdfs/spout/HdfsSpout.java,238,String fileName = file.toString();
+external/storm-hdfs/src/main/java/org/apache/storm/hdfs/spout/HdfsSpout.java,239,String fileNameMinusSuffix = fileName.substring(0, fileName.indexOf(inprogress_suffix));
+external/storm-hdfs/src/main/java/org/apache/storm/hdfs/spout/HdfsSpout.java,240,String originalName = new Path(fileNameMinusSuffix).getName();
+external/storm-hdfs/src/main/java/org/apache/storm/hdfs/spout/HdfsSpout.java,241,Path  newFile = new Path( badFilesDirPath + Path.SEPARATOR + originalName);
+external/storm-hdfs/src/main/java/org/apache/storm/hdfs/spout/HdfsSpout.java,243,LOG.info("Moving bad file {} to {}. Processed it till offset {}. SpoutID= {}", originalName, newFile, tracker.getCommitPosition(), spoutId);
+external/storm-hdfs/src/main/java/org/apache/storm/hdfs/spout/HdfsSpout.java,244,try {
+external/storm-hdfs/src/main/java/org/apache/storm/hdfs/spout/HdfsSpout.java,245,if (!hdfs.rename(file, newFile) ) { // seems this can fail by returning false or throwing exception
+external/storm-hdfs/src/main/java/org/apache/storm/hdfs/spout/HdfsSpout.java,246,throw new IOException("Move failed for bad file: " + file); // convert false ret value to exception
+external/storm-hdfs/src/main/java/org/apache/storm/hdfs/spout/HdfsSpout.java,249,LOG.warn("Error moving bad file: " + file + " to destination " + newFile + " SpoutId =" + spoutId, e);
+external/storm-hdfs/src/main/java/org/apache/storm/hdfs/spout/HdfsSpout.java,251,closeReaderAndResetTrackers();
+external/storm-hdfs/src/main/java/org/apache/storm/hdfs/spout/HdfsSpout.java,254,private void closeReaderAndResetTrackers() {
+external/storm-hdfs/src/main/java/org/apache/storm/hdfs/spout/HdfsSpout.java,255,inflight.clear();
+external/storm-hdfs/src/main/java/org/apache/storm/hdfs/spout/HdfsSpout.java,256,tracker.offsets.clear();
+external/storm-hdfs/src/main/java/org/apache/storm/hdfs/spout/HdfsSpout.java,257,retryList.clear();
+external/storm-hdfs/src/main/java/org/apache/storm/hdfs/spout/HdfsSpout.java,259,reader.close();
+external/storm-hdfs/src/main/java/org/apache/storm/hdfs/spout/HdfsSpout.java,260,reader = null;
+external/storm-hdfs/src/main/java/org/apache/storm/hdfs/spout/HdfsSpout.java,261,releaseLockAndLog(lock, spoutId);
+external/storm-hdfs/src/main/java/org/apache/storm/hdfs/spout/HdfsSpout.java,262,lock = null;
+external/storm-hdfs/src/main/java/org/apache/storm/hdfs/spout/HdfsSpout.java,265,private static void releaseLockAndLog(FileLock fLock, String spoutId) {
+external/storm-hdfs/src/main/java/org/apache/storm/hdfs/spout/HdfsSpout.java,266,try {
+external/storm-hdfs/src/main/java/org/apache/storm/hdfs/spout/HdfsSpout.java,268,fLock.release();
+external/storm-hdfs/src/main/java/org/apache/storm/hdfs/spout/HdfsSpout.java,269,LOG.debug("Spout {} released FileLock. SpoutId = {}", fLock.getLockFile(), spoutId);
+external/storm-hdfs/src/main/java/org/apache/storm/hdfs/spout/HdfsSpout.java,272,LOG.error("Unable to delete lock file : " +fLock.getLockFile() + " SpoutId =" + spoutId, e);
+external/storm-hdfs/src/main/java/org/apache/storm/hdfs/spout/HdfsSpout.java,276,protected void emitData(List<Object> tuple, MessageId id) {
+external/storm-hdfs/src/main/java/org/apache/storm/hdfs/spout/HdfsSpout.java,277,LOG.trace("Emitting - {}", id);
+external/storm-hdfs/src/main/java/org/apache/storm/hdfs/spout/HdfsSpout.java,279,inflight.put(id, tuple);
+external/storm-hdfs/src/main/java/org/apache/storm/hdfs/spout/HdfsSpout.java,282,public void open(Map conf, TopologyContext context, SpoutOutputCollector collector) {
+external/storm-hdfs/src/main/java/org/apache/storm/hdfs/spout/HdfsSpout.java,283,LOG.info("Opening HDFS Spout");
+external/storm-hdfs/src/main/java/org/apache/storm/hdfs/spout/HdfsSpout.java,284,this.conf = conf;
+external/storm-hdfs/src/main/java/org/apache/storm/hdfs/spout/HdfsSpout.java,285,this.commitTimer = new Timer();
+external/storm-hdfs/src/main/java/org/apache/storm/hdfs/spout/HdfsSpout.java,286,this.tracker = new ProgressTracker();
+external/storm-hdfs/src/main/java/org/apache/storm/hdfs/spout/HdfsSpout.java,287,this.hdfsConfig = new Configuration();
+external/storm-hdfs/src/main/java/org/apache/storm/hdfs/spout/HdfsSpout.java,289,this.collector = collector;
+external/storm-hdfs/src/main/java/org/apache/storm/hdfs/spout/HdfsSpout.java,290,this.hdfsConfig = new Configuration();
+external/storm-hdfs/src/main/java/org/apache/storm/hdfs/spout/HdfsSpout.java,291,this.tupleCounter = 0;
+external/storm-hdfs/src/main/java/org/apache/storm/hdfs/spout/HdfsSpout.java,295,this.hdfsUri = conf.get(Configs.HDFS_URI).toString();
+external/storm-hdfs/src/main/java/org/apache/storm/hdfs/spout/HdfsSpout.java,300,try {
+external/storm-hdfs/src/main/java/org/apache/storm/hdfs/spout/HdfsSpout.java,301,this.hdfs = FileSystem.get(URI.create(hdfsUri), hdfsConfig);
+external/storm-hdfs/src/main/java/org/apache/storm/hdfs/spout/HdfsSpout.java,303,LOG.error("Unable to instantiate file system", e);
+external/storm-hdfs/src/main/java/org/apache/storm/hdfs/spout/HdfsSpout.java,304,throw new RuntimeException("Unable to instantiate file system", e);
+external/storm-hdfs/src/main/java/org/apache/storm/hdfs/spout/HdfsSpout.java,308,if ( conf.containsKey(configKey) ) {
+external/storm-hdfs/src/main/java/org/apache/storm/hdfs/spout/HdfsSpout.java,309,Map<String, Object> map = (Map<String, Object>)conf.get(configKey);
+external/storm-hdfs/src/main/java/org/apache/storm/hdfs/spout/HdfsSpout.java,311,for(String keyName : map.keySet()){
+external/storm-hdfs/src/main/java/org/apache/storm/hdfs/spout/HdfsSpout.java,312,LOG.info("HDFS Config override : {} = {} ", keyName, String.valueOf(map.get(keyName)));
+external/storm-hdfs/src/main/java/org/apache/storm/hdfs/spout/HdfsSpout.java,313,this.hdfsConfig.set(keyName, String.valueOf(map.get(keyName)));
+external/storm-hdfs/src/main/java/org/apache/storm/hdfs/spout/HdfsSpout.java,315,try {
+external/storm-hdfs/src/main/java/org/apache/storm/hdfs/spout/HdfsSpout.java,316,HdfsSecurityUtil.login(conf, hdfsConfig);
+external/storm-hdfs/src/main/java/org/apache/storm/hdfs/spout/HdfsSpout.java,318,LOG.error("HDFS Login failed ", e);
+external/storm-hdfs/src/main/java/org/apache/storm/hdfs/spout/HdfsSpout.java,319,throw new RuntimeException(e);
+external/storm-hdfs/src/main/java/org/apache/storm/hdfs/spout/HdfsSpout.java,326,readerType = conf.get(Configs.READER_TYPE).toString();
+external/storm-hdfs/src/main/java/org/apache/storm/hdfs/spout/HdfsSpout.java,332,LOG.error(Configs.SOURCE_DIR + " setting is required");
+external/storm-hdfs/src/main/java/org/apache/storm/hdfs/spout/HdfsSpout.java,333,throw new RuntimeException(Configs.SOURCE_DIR + " setting is required");
+external/storm-hdfs/src/main/java/org/apache/storm/hdfs/spout/HdfsSpout.java,339,LOG.error(Configs.ARCHIVE_DIR + " setting is required");
+external/storm-hdfs/src/main/java/org/apache/storm/hdfs/spout/HdfsSpout.java,340,throw new RuntimeException(Configs.ARCHIVE_DIR + " setting is required");
+external/storm-hdfs/src/main/java/org/apache/storm/hdfs/spout/HdfsSpout.java,343,validateOrMakeDir(hdfs, archiveDirPath, "Archive");
+external/storm-hdfs/src/main/java/org/apache/storm/hdfs/spout/HdfsSpout.java,347,LOG.error(Configs.BAD_DIR + " setting is required");
+external/storm-hdfs/src/main/java/org/apache/storm/hdfs/spout/HdfsSpout.java,348,throw new RuntimeException(Configs.BAD_DIR + " setting is required");
+external/storm-hdfs/src/main/java/org/apache/storm/hdfs/spout/HdfsSpout.java,352,validateOrMakeDir(hdfs, badFilesDirPath, "bad files");
+external/storm-hdfs/src/main/java/org/apache/storm/hdfs/spout/HdfsSpout.java,355,if ( conf.containsKey(Configs.IGNORE_SUFFIX) ) {
+external/storm-hdfs/src/main/java/org/apache/storm/hdfs/spout/HdfsSpout.java,356,this.ignoreSuffix = conf.get(Configs.IGNORE_SUFFIX).toString();
+external/storm-hdfs/src/main/java/org/apache/storm/hdfs/spout/HdfsSpout.java,361,this.lockDirPath = new Path(lockDir);
+external/storm-hdfs/src/main/java/org/apache/storm/hdfs/spout/HdfsSpout.java,366,this.lockTimeoutSec = Integer.parseInt(conf.get(Configs.LOCK_TIMEOUT).toString());
+external/storm-hdfs/src/main/java/org/apache/storm/hdfs/spout/HdfsSpout.java,370,Object ackers = conf.get(Config.TOPOLOGY_ACKER_EXECUTORS);
+external/storm-hdfs/src/main/java/org/apache/storm/hdfs/spout/HdfsSpout.java,372,int ackerCount = Integer.parseInt(ackers.toString());
+external/storm-hdfs/src/main/java/org/apache/storm/hdfs/spout/HdfsSpout.java,373,this.ackEnabled = (ackerCount>0);
+external/storm-hdfs/src/main/java/org/apache/storm/hdfs/spout/HdfsSpout.java,374,LOG.debug("ACKer count = {}", ackerCount);
+external/storm-hdfs/src/main/java/org/apache/storm/hdfs/spout/HdfsSpout.java,376,else { // ackers==null when ackerCount not explicitly set on the topology
+external/storm-hdfs/src/main/java/org/apache/storm/hdfs/spout/HdfsSpout.java,377,this.ackEnabled = true;
+external/storm-hdfs/src/main/java/org/apache/storm/hdfs/spout/HdfsSpout.java,378,LOG.debug("ACK count not explicitly set on topology.");
+external/storm-hdfs/src/main/java/org/apache/storm/hdfs/spout/HdfsSpout.java,381,LOG.info("ACK mode is {}", ackEnabled ? "enabled" : "disabled");
+external/storm-hdfs/src/main/java/org/apache/storm/hdfs/spout/HdfsSpout.java,385,commitFrequencyCount = Integer.parseInt(conf.get(Configs.COMMIT_FREQ_COUNT).toString());
+external/storm-hdfs/src/main/java/org/apache/storm/hdfs/spout/HdfsSpout.java,390,commitFrequencySec = Integer.parseInt(conf.get(Configs.COMMIT_FREQ_SEC).toString());
+external/storm-hdfs/src/main/java/org/apache/storm/hdfs/spout/HdfsSpout.java,392,throw new RuntimeException(Configs.COMMIT_FREQ_SEC + " setting must be greater than 0");
+external/storm-hdfs/src/main/java/org/apache/storm/hdfs/spout/HdfsSpout.java,398,maxOutstanding = Integer.parseInt(conf.get(Configs.MAX_OUTSTANDING).toString());
+external/storm-hdfs/src/main/java/org/apache/storm/hdfs/spout/HdfsSpout.java,403,clocksInSync = Boolean.parseBoolean(conf.get(Configs.CLOCKS_INSYNC).toString());
+external/storm-hdfs/src/main/java/org/apache/storm/hdfs/spout/HdfsSpout.java,407,spoutId = context.getThisComponentId();
+external/storm-hdfs/src/main/java/org/apache/storm/hdfs/spout/HdfsSpout.java,410,setupCommitElapseTimer();
+external/storm-hdfs/src/main/java/org/apache/storm/hdfs/spout/HdfsSpout.java,413,private static void validateOrMakeDir(FileSystem fs, Path dir, String dirDescription) {
+external/storm-hdfs/src/main/java/org/apache/storm/hdfs/spout/HdfsSpout.java,414,try {
+external/storm-hdfs/src/main/java/org/apache/storm/hdfs/spout/HdfsSpout.java,417,LOG.error(dirDescription + " directory is a file, not a dir. " + dir);
+external/storm-hdfs/src/main/java/org/apache/storm/hdfs/spout/HdfsSpout.java,418,throw new RuntimeException(dirDescription + " directory is a file, not a dir. " + dir);
+external/storm-hdfs/src/main/java/org/apache/storm/hdfs/spout/HdfsSpout.java,421,LOG.error("Unable to create " + dirDescription + " directory " + dir);
+external/storm-hdfs/src/main/java/org/apache/storm/hdfs/spout/HdfsSpout.java,422,throw new RuntimeException("Unable to create " + dirDescription + " directory " + dir);
+external/storm-hdfs/src/main/java/org/apache/storm/hdfs/spout/HdfsSpout.java,425,LOG.error("Unable to create " + dirDescription + " directory " + dir, e);
+external/storm-hdfs/src/main/java/org/apache/storm/hdfs/spout/HdfsSpout.java,426,throw new RuntimeException("Unable to create " + dirDescription + " directory " + dir, e);
+external/storm-hdfs/src/main/java/org/apache/storm/hdfs/spout/HdfsSpout.java,430,private String getDefaultLockDir(Path sourceDirPath) {
+external/storm-hdfs/src/main/java/org/apache/storm/hdfs/spout/HdfsSpout.java,431,return sourceDirPath.toString() + Path.SEPARATOR + Configs.DEFAULT_LOCK_DIR;
+external/storm-hdfs/src/main/java/org/apache/storm/hdfs/spout/HdfsSpout.java,434,private static void checkValidReader(String readerType) {
+external/storm-hdfs/src/main/java/org/apache/storm/hdfs/spout/HdfsSpout.java,436,return;
+external/storm-hdfs/src/main/java/org/apache/storm/hdfs/spout/HdfsSpout.java,437,try {
+external/storm-hdfs/src/main/java/org/apache/storm/hdfs/spout/HdfsSpout.java,438,Class<?> classType = Class.forName(readerType);
+external/storm-hdfs/src/main/java/org/apache/storm/hdfs/spout/HdfsSpout.java,439,classType.getConstructor(FileSystem.class, Path.class, Map.class);
+external/storm-hdfs/src/main/java/org/apache/storm/hdfs/spout/HdfsSpout.java,440,return;
+external/storm-hdfs/src/main/java/org/apache/storm/hdfs/spout/HdfsSpout.java,442,LOG.error(readerType + " not found in classpath.", e);
+external/storm-hdfs/src/main/java/org/apache/storm/hdfs/spout/HdfsSpout.java,443,throw new IllegalArgumentException(readerType + " not found in classpath.", e);
+external/storm-hdfs/src/main/java/org/apache/storm/hdfs/spout/HdfsSpout.java,445,LOG.error(readerType + " is missing the expected constructor for Readers.", e);
+external/storm-hdfs/src/main/java/org/apache/storm/hdfs/spout/HdfsSpout.java,446,throw new IllegalArgumentException(readerType + " is missing the expected constuctor for Readers.");
+external/storm-hdfs/src/main/java/org/apache/storm/hdfs/spout/HdfsSpout.java,451,public void ack(Object msgId) {
+external/storm-hdfs/src/main/java/org/apache/storm/hdfs/spout/HdfsSpout.java,452,LOG.trace("Ack received for msg {} on spout {}", msgId, spoutId);
+external/storm-hdfs/src/main/java/org/apache/storm/hdfs/spout/HdfsSpout.java,454,return;
+external/storm-hdfs/src/main/java/org/apache/storm/hdfs/spout/HdfsSpout.java,456,MessageId id = (MessageId) msgId;
+external/storm-hdfs/src/main/java/org/apache/storm/hdfs/spout/HdfsSpout.java,457,inflight.remove(id);
+external/storm-hdfs/src/main/java/org/apache/storm/hdfs/spout/HdfsSpout.java,458,++acksSinceLastCommit;
+external/storm-hdfs/src/main/java/org/apache/storm/hdfs/spout/HdfsSpout.java,459,tracker.recordAckedOffset(id.offset);
+external/storm-hdfs/src/main/java/org/apache/storm/hdfs/spout/HdfsSpout.java,460,commitProgress(tracker.getCommitPosition());
+external/storm-hdfs/src/main/java/org/apache/storm/hdfs/spout/HdfsSpout.java,462,markFileAsDone(reader.getFilePath());
+external/storm-hdfs/src/main/java/org/apache/storm/hdfs/spout/HdfsSpout.java,463,reader = null;
+external/storm-hdfs/src/main/java/org/apache/storm/hdfs/spout/HdfsSpout.java,465,super.ack(msgId);
+external/storm-hdfs/src/main/java/org/apache/storm/hdfs/spout/HdfsSpout.java,468,private boolean canCommitNow() {
+external/storm-hdfs/src/main/java/org/apache/storm/hdfs/spout/HdfsSpout.java,471,return true;
+external/storm-hdfs/src/main/java/org/apache/storm/hdfs/spout/HdfsSpout.java,473,return commitTimeElapsed.get();
+external/storm-hdfs/src/main/java/org/apache/storm/hdfs/spout/HdfsSpout.java,477,public void fail(Object msgId) {
+external/storm-hdfs/src/main/java/org/apache/storm/hdfs/spout/HdfsSpout.java,478,LOG.trace("Fail received for msg id {} on spout {}", msgId, spoutId);
+external/storm-hdfs/src/main/java/org/apache/storm/hdfs/spout/HdfsSpout.java,479,super.fail(msgId);
+external/storm-hdfs/src/main/java/org/apache/storm/hdfs/spout/HdfsSpout.java,481,HdfsUtils.Pair<MessageId, List<Object>> item = HdfsUtils.Pair.of(msgId, inflight.remove(msgId));
+external/storm-hdfs/src/main/java/org/apache/storm/hdfs/spout/HdfsSpout.java,482,retryList.add(item);
+external/storm-hdfs/src/main/java/org/apache/storm/hdfs/spout/HdfsSpout.java,486,private FileReader pickNextFile() {
+external/storm-hdfs/src/main/java/org/apache/storm/hdfs/spout/HdfsSpout.java,487,try {
+external/storm-hdfs/src/main/java/org/apache/storm/hdfs/spout/HdfsSpout.java,489,lock = getOldestExpiredLock();
+external/storm-hdfs/src/main/java/org/apache/storm/hdfs/spout/HdfsSpout.java,491,LOG.debug("Spout {} now took over ownership of abandoned FileLock {}", spoutId, lock.getLockFile());
+external/storm-hdfs/src/main/java/org/apache/storm/hdfs/spout/HdfsSpout.java,492,Path file = getFileForLockFile(lock.getLockFile(), sourceDirPath);
+external/storm-hdfs/src/main/java/org/apache/storm/hdfs/spout/HdfsSpout.java,493,String resumeFromOffset = lock.getLastLogEntry().fileOffset;
+external/storm-hdfs/src/main/java/org/apache/storm/hdfs/spout/HdfsSpout.java,494,LOG.info("Resuming processing of abandoned file : {}", file);
+external/storm-hdfs/src/main/java/org/apache/storm/hdfs/spout/HdfsSpout.java,495,return createFileReader(file, resumeFromOffset);
+external/storm-hdfs/src/main/java/org/apache/storm/hdfs/spout/HdfsSpout.java,499,Collection<Path> listing = HdfsUtils.listFilesByModificationTime(hdfs, sourceDirPath, 0);
+external/storm-hdfs/src/main/java/org/apache/storm/hdfs/spout/HdfsSpout.java,501,for (Path file : listing) {
+external/storm-hdfs/src/main/java/org/apache/storm/hdfs/spout/HdfsSpout.java,502,if (file.getName().endsWith(inprogress_suffix)) {
+external/storm-hdfs/src/main/java/org/apache/storm/hdfs/spout/HdfsSpout.java,503,continue;
+external/storm-hdfs/src/main/java/org/apache/storm/hdfs/spout/HdfsSpout.java,505,if (file.getName().endsWith(ignoreSuffix)) {
+external/storm-hdfs/src/main/java/org/apache/storm/hdfs/spout/HdfsSpout.java,506,continue;
+external/storm-hdfs/src/main/java/org/apache/storm/hdfs/spout/HdfsSpout.java,508,lock = FileLock.tryLock(hdfs, file, lockDirPath, spoutId);
+external/storm-hdfs/src/main/java/org/apache/storm/hdfs/spout/HdfsSpout.java,509,if (lock == null) {
+external/storm-hdfs/src/main/java/org/apache/storm/hdfs/spout/HdfsSpout.java,510,LOG.debug("Unable to get FileLock for {}, so skipping it.", file);
+external/storm-hdfs/src/main/java/org/apache/storm/hdfs/spout/HdfsSpout.java,511,continue; // could not lock, so try another file.
+external/storm-hdfs/src/main/java/org/apache/storm/hdfs/spout/HdfsSpout.java,514,Path newFile = renameToInProgressFile(file);
+external/storm-hdfs/src/main/java/org/apache/storm/hdfs/spout/HdfsSpout.java,515,FileReader result = createFileReader(newFile);
+external/storm-hdfs/src/main/java/org/apache/storm/hdfs/spout/HdfsSpout.java,516,LOG.info("Processing : {} ", file);
+external/storm-hdfs/src/main/java/org/apache/storm/hdfs/spout/HdfsSpout.java,517,return result;
+external/storm-hdfs/src/main/java/org/apache/storm/hdfs/spout/HdfsSpout.java,519,LOG.error("Skipping file " + file, e);
+external/storm-hdfs/src/main/java/org/apache/storm/hdfs/spout/HdfsSpout.java,520,releaseLockAndLog(lock, spoutId);
+external/storm-hdfs/src/main/java/org/apache/storm/hdfs/spout/HdfsSpout.java,521,continue;
+external/storm-hdfs/src/main/java/org/apache/storm/hdfs/spout/HdfsSpout.java,525,return null;
+external/storm-hdfs/src/main/java/org/apache/storm/hdfs/spout/HdfsSpout.java,527,LOG.error("Unable to select next file for consumption " + sourceDirPath, e);
+external/storm-hdfs/src/main/java/org/apache/storm/hdfs/spout/HdfsSpout.java,528,return null;
+external/storm-hdfs/src/main/java/org/apache/storm/hdfs/spout/HdfsSpout.java,538,private FileLock getOldestExpiredLock() throws IOException {
+external/storm-hdfs/src/main/java/org/apache/storm/hdfs/spout/HdfsSpout.java,540,DirLock dirlock = DirLock.tryLock(hdfs, lockDirPath);
+external/storm-hdfs/src/main/java/org/apache/storm/hdfs/spout/HdfsSpout.java,541,if (dirlock == null) {
+external/storm-hdfs/src/main/java/org/apache/storm/hdfs/spout/HdfsSpout.java,542,dirlock = DirLock.takeOwnershipIfStale(hdfs, lockDirPath, lockTimeoutSec);
+external/storm-hdfs/src/main/java/org/apache/storm/hdfs/spout/HdfsSpout.java,543,if (dirlock == null) {
+external/storm-hdfs/src/main/java/org/apache/storm/hdfs/spout/HdfsSpout.java,544,LOG.debug("Spout {} could not take over ownership of DirLock for {}", spoutId, lockDirPath);
+external/storm-hdfs/src/main/java/org/apache/storm/hdfs/spout/HdfsSpout.java,545,return null;
+external/storm-hdfs/src/main/java/org/apache/storm/hdfs/spout/HdfsSpout.java,547,LOG.debug("Spout {} now took over ownership of abandoned DirLock for {}", spoutId, lockDirPath);
+external/storm-hdfs/src/main/java/org/apache/storm/hdfs/spout/HdfsSpout.java,549,LOG.debug("Spout {} now owns DirLock for {}", spoutId, lockDirPath);
+external/storm-hdfs/src/main/java/org/apache/storm/hdfs/spout/HdfsSpout.java,552,try {
+external/storm-hdfs/src/main/java/org/apache/storm/hdfs/spout/HdfsSpout.java,554,if (clocksInSync) {
+external/storm-hdfs/src/main/java/org/apache/storm/hdfs/spout/HdfsSpout.java,555,return FileLock.acquireOldestExpiredLock(hdfs, lockDirPath, lockTimeoutSec, spoutId);
+external/storm-hdfs/src/main/java/org/apache/storm/hdfs/spout/HdfsSpout.java,561,lastExpiredLock = FileLock.locateOldestExpiredLock(hdfs, lockDirPath, lockTimeoutSec);
+external/storm-hdfs/src/main/java/org/apache/storm/hdfs/spout/HdfsSpout.java,562,lastExpiredLockTime = System.currentTimeMillis();
+external/storm-hdfs/src/main/java/org/apache/storm/hdfs/spout/HdfsSpout.java,563,return null;
+external/storm-hdfs/src/main/java/org/apache/storm/hdfs/spout/HdfsSpout.java,567,return null;
+external/storm-hdfs/src/main/java/org/apache/storm/hdfs/spout/HdfsSpout.java,571,FileLock.LogEntry lastEntry = FileLock.getLastEntry(hdfs, lastExpiredLock.getKey());
+external/storm-hdfs/src/main/java/org/apache/storm/hdfs/spout/HdfsSpout.java,573,FileLock result = FileLock.takeOwnership(hdfs, lastExpiredLock.getKey(), lastEntry, spoutId);
+external/storm-hdfs/src/main/java/org/apache/storm/hdfs/spout/HdfsSpout.java,574,lastExpiredLock = null;
+external/storm-hdfs/src/main/java/org/apache/storm/hdfs/spout/HdfsSpout.java,575,return  result;
+external/storm-hdfs/src/main/java/org/apache/storm/hdfs/spout/HdfsSpout.java,578,lastExpiredLock = null;
+external/storm-hdfs/src/main/java/org/apache/storm/hdfs/spout/HdfsSpout.java,582,dirlock.release();
+external/storm-hdfs/src/main/java/org/apache/storm/hdfs/spout/HdfsSpout.java,583,LOG.debug("Released DirLock {}, SpoutID {} ", dirlock.getLockFile(), spoutId);
+external/storm-hdfs/src/main/java/org/apache/storm/hdfs/spout/HdfsSpout.java,587,private boolean hasExpired(long lastModifyTime) {
+external/storm-hdfs/src/main/java/org/apache/storm/hdfs/spout/HdfsSpout.java,588,return (System.currentTimeMillis() - lastModifyTime ) < lockTimeoutSec*1000;
+external/storm-hdfs/src/main/java/org/apache/storm/hdfs/spout/HdfsSpout.java,598,throws IOException {
+external/storm-hdfs/src/main/java/org/apache/storm/hdfs/spout/HdfsSpout.java,600,return new SequenceFileReader(this.hdfs, file, conf);
+external/storm-hdfs/src/main/java/org/apache/storm/hdfs/spout/HdfsSpout.java,603,return new TextFileReader(this.hdfs, file, conf);
+external/storm-hdfs/src/main/java/org/apache/storm/hdfs/spout/HdfsSpout.java,605,try {
+external/storm-hdfs/src/main/java/org/apache/storm/hdfs/spout/HdfsSpout.java,606,Class<?> clsType = Class.forName(readerType);
+external/storm-hdfs/src/main/java/org/apache/storm/hdfs/spout/HdfsSpout.java,607,Constructor<?> constructor = clsType.getConstructor(FileSystem.class, Path.class, Map.class);
+external/storm-hdfs/src/main/java/org/apache/storm/hdfs/spout/HdfsSpout.java,608,return (FileReader) constructor.newInstance(this.hdfs, file, conf);
+external/storm-hdfs/src/main/java/org/apache/storm/hdfs/spout/HdfsSpout.java,610,LOG.error(e.getMessage(), e);
+external/storm-hdfs/src/main/java/org/apache/storm/hdfs/spout/HdfsSpout.java,611,throw new RuntimeException("Unable to instantiate " + readerType + " reader", e);
+external/storm-hdfs/src/main/java/org/apache/storm/hdfs/spout/HdfsSpout.java,624,throws IOException {
+external/storm-hdfs/src/main/java/org/apache/storm/hdfs/spout/HdfsSpout.java,626,return new SequenceFileReader(this.hdfs, file, conf, offset);
+external/storm-hdfs/src/main/java/org/apache/storm/hdfs/spout/HdfsSpout.java,629,return new TextFileReader(this.hdfs, file, conf, offset);
+external/storm-hdfs/src/main/java/org/apache/storm/hdfs/spout/HdfsSpout.java,632,try {
+external/storm-hdfs/src/main/java/org/apache/storm/hdfs/spout/HdfsSpout.java,633,Class<?> clsType = Class.forName(readerType);
+external/storm-hdfs/src/main/java/org/apache/storm/hdfs/spout/HdfsSpout.java,634,Constructor<?> constructor = clsType.getConstructor(FileSystem.class, Path.class, Map.class, String.class);
+external/storm-hdfs/src/main/java/org/apache/storm/hdfs/spout/HdfsSpout.java,635,return (FileReader) constructor.newInstance(this.hdfs, file, conf, offset);
+external/storm-hdfs/src/main/java/org/apache/storm/hdfs/spout/HdfsSpout.java,637,LOG.error(e.getMessage(), e);
+external/storm-hdfs/src/main/java/org/apache/storm/hdfs/spout/HdfsSpout.java,638,throw new RuntimeException("Unable to instantiate " + readerType, e);
+external/storm-hdfs/src/main/java/org/apache/storm/hdfs/spout/HdfsSpout.java,648,throws IOException {
+external/storm-hdfs/src/main/java/org/apache/storm/hdfs/spout/HdfsSpout.java,649,Path newFile =  new Path( file.toString() + inprogress_suffix );
+external/storm-hdfs/src/main/java/org/apache/storm/hdfs/spout/HdfsSpout.java,650,try {
+external/storm-hdfs/src/main/java/org/apache/storm/hdfs/spout/HdfsSpout.java,651,if (hdfs.rename(file, newFile)) {
+external/storm-hdfs/src/main/java/org/apache/storm/hdfs/spout/HdfsSpout.java,652,return newFile;
+external/storm-hdfs/src/main/java/org/apache/storm/hdfs/spout/HdfsSpout.java,654,throw new RenameException(file, newFile);
+external/storm-hdfs/src/main/java/org/apache/storm/hdfs/spout/HdfsSpout.java,656,throw new RenameException(file, newFile, e);
+external/storm-hdfs/src/main/java/org/apache/storm/hdfs/spout/HdfsSpout.java,664,throws IOException {
+external/storm-hdfs/src/main/java/org/apache/storm/hdfs/spout/HdfsSpout.java,665,String lockFileName = lockFile.getName();
+external/storm-hdfs/src/main/java/org/apache/storm/hdfs/spout/HdfsSpout.java,666,Path dataFile = new Path(sourceDirPath + Path.SEPARATOR + lockFileName + inprogress_suffix);
+external/storm-hdfs/src/main/java/org/apache/storm/hdfs/spout/HdfsSpout.java,668,return dataFile;
+external/storm-hdfs/src/main/java/org/apache/storm/hdfs/spout/HdfsSpout.java,670,dataFile = new Path(sourceDirPath + Path.SEPARATOR +  lockFileName);
+external/storm-hdfs/src/main/java/org/apache/storm/hdfs/spout/HdfsSpout.java,672,return dataFile;
+external/storm-hdfs/src/main/java/org/apache/storm/hdfs/spout/HdfsSpout.java,674,return null;
+external/storm-hdfs/src/main/java/org/apache/storm/hdfs/spout/HdfsSpout.java,679,private Path renameCompletedFile(Path file) throws IOException {
+external/storm-hdfs/src/main/java/org/apache/storm/hdfs/spout/HdfsSpout.java,680,String fileName = file.toString();
+external/storm-hdfs/src/main/java/org/apache/storm/hdfs/spout/HdfsSpout.java,681,String fileNameMinusSuffix = fileName.substring(0, fileName.indexOf(inprogress_suffix));
+external/storm-hdfs/src/main/java/org/apache/storm/hdfs/spout/HdfsSpout.java,682,String newName = new Path(fileNameMinusSuffix).getName();
+external/storm-hdfs/src/main/java/org/apache/storm/hdfs/spout/HdfsSpout.java,684,Path  newFile = new Path( archiveDirPath + Path.SEPARATOR + newName );
+external/storm-hdfs/src/main/java/org/apache/storm/hdfs/spout/HdfsSpout.java,685,LOG.info("Completed consuming file {}", fileNameMinusSuffix);
+external/storm-hdfs/src/main/java/org/apache/storm/hdfs/spout/HdfsSpout.java,687,throw new IOException("Rename failed for file: " + file);
+external/storm-hdfs/src/main/java/org/apache/storm/hdfs/spout/HdfsSpout.java,689,LOG.debug("Renamed file {} to {} ", file, newFile);
+external/storm-hdfs/src/main/java/org/apache/storm/hdfs/spout/HdfsSpout.java,690,return newFile;
+external/storm-hdfs/src/main/java/org/apache/storm/hdfs/spout/HdfsSpout.java,693,public void declareOutputFields(OutputFieldsDeclarer declarer) {
+external/storm-hdfs/src/main/java/org/apache/storm/hdfs/spout/HdfsSpout.java,697,static class MessageId implements  Comparable<MessageId> {
+external/storm-hdfs/src/main/java/org/apache/storm/hdfs/spout/HdfsSpout.java,698,public long msgNumber; // tracks order in which msg came in
+external/storm-hdfs/src/main/java/org/apache/storm/hdfs/spout/HdfsSpout.java,699,public String fullPath;
+external/storm-hdfs/src/main/java/org/apache/storm/hdfs/spout/HdfsSpout.java,700,public FileOffset offset;
+external/storm-hdfs/src/main/java/org/apache/storm/hdfs/spout/HdfsSpout.java,702,public MessageId(long msgNumber, Path fullPath, FileOffset offset) {
+external/storm-hdfs/src/main/java/org/apache/storm/hdfs/spout/HdfsSpout.java,703,this.msgNumber = msgNumber;
+external/storm-hdfs/src/main/java/org/apache/storm/hdfs/spout/HdfsSpout.java,704,this.fullPath = fullPath.toString();
+external/storm-hdfs/src/main/java/org/apache/storm/hdfs/spout/HdfsSpout.java,705,this.offset = offset;
+external/storm-hdfs/src/main/java/org/apache/storm/hdfs/spout/HdfsSpout.java,709,public String toString() {
+external/storm-hdfs/src/main/java/org/apache/storm/hdfs/spout/HdfsSpout.java,710,return "{'" +  fullPath + "':" + offset + "}";
+external/storm-hdfs/src/main/java/org/apache/storm/hdfs/spout/HdfsSpout.java,714,public int compareTo(MessageId rhs) {
+external/storm-hdfs/src/main/java/org/apache/storm/hdfs/spout/HdfsSpout.java,716,return -1;
+external/storm-hdfs/src/main/java/org/apache/storm/hdfs/spout/HdfsSpout.java,719,return 1;
+external/storm-hdfs/src/main/java/org/apache/storm/hdfs/spout/HdfsSpout.java,721,return 0;
+external/storm-hdfs/src/main/java/org/apache/storm/hdfs/spout/HdfsSpout.java,725,private static class RenameException extends IOException {
+external/storm-hdfs/src/main/java/org/apache/storm/hdfs/spout/HdfsSpout.java,726,public final Path oldFile;
+external/storm-hdfs/src/main/java/org/apache/storm/hdfs/spout/HdfsSpout.java,727,public final Path newFile;
+external/storm-hdfs/src/main/java/org/apache/storm/hdfs/spout/HdfsSpout.java,729,public RenameException(Path oldFile, Path newFile) {
+external/storm-hdfs/src/main/java/org/apache/storm/hdfs/spout/HdfsSpout.java,730,super("Rename of " + oldFile + " to " + newFile + " failed");
+external/storm-hdfs/src/main/java/org/apache/storm/hdfs/spout/HdfsSpout.java,731,this.oldFile = oldFile;
+external/storm-hdfs/src/main/java/org/apache/storm/hdfs/spout/HdfsSpout.java,732,this.newFile = newFile;
+external/storm-hdfs/src/main/java/org/apache/storm/hdfs/spout/HdfsSpout.java,735,public RenameException(Path oldFile, Path newFile, IOException cause) {
+external/storm-hdfs/src/main/java/org/apache/storm/hdfs/spout/HdfsSpout.java,736,super("Rename of " + oldFile + " to " + newFile + " failed", cause);
+external/storm-hdfs/src/main/java/org/apache/storm/hdfs/spout/HdfsSpout.java,737,this.oldFile = oldFile;
+external/storm-hdfs/src/main/java/org/apache/storm/hdfs/spout/HdfsSpout.java,738,this.newFile = newFile;
+external/storm-kafka-client/src/main/java/org/apache/storm/kafka/spout/KafkaSpout.java,145,retryService.retainAll(partitions);
+external/storm-kafka-client/src/main/java/org/apache/storm/kafka/spout/KafkaSpout.java,147,for (TopicPartition tp : partitions) {
+external/storm-kafka-client/src/main/java/org/apache/storm/kafka/spout/KafkaSpout.java,150,setAcked(tp, fetchOffset);
+external/storm-kafka-client/src/main/java/org/apache/storm/kafka/spout/KafkaSpout.java,160,long fetchOffset;
+external/storm-kafka-client/src/main/java/org/apache/storm/kafka/spout/KafkaSpout.java,164,fetchOffset = kafkaConsumer.position(tp);
+external/storm-kafka-client/src/main/java/org/apache/storm/kafka/spout/KafkaSpout.java,167,fetchOffset = kafkaConsumer.position(tp);
+external/storm-kafka-client/src/main/java/org/apache/storm/kafka/spout/KafkaSpout.java,170,fetchOffset = committedOffset.offset() + 1;
+external/storm-kafka-client/src/main/java/org/apache/storm/kafka/spout/KafkaSpout.java,171,kafkaConsumer.seek(tp, fetchOffset);
+external/storm-kafka-client/src/main/java/org/apache/storm/kafka/spout/KafkaSpout.java,179,fetchOffset = kafkaConsumer.position(tp);
+external/storm-kafka-client/src/main/java/org/apache/storm/kafka/spout/KafkaSpout.java,181,return fetchOffset;
+external/storm-kafka-client/src/main/java/org/apache/storm/kafka/spout/KafkaSpoutRetryExponentialBackoff.java,160,LOG.debug("Instantiated {}", this);
+external/storm-kafka-client/src/main/java/org/apache/storm/kafka/spout/KafkaSpoutRetryExponentialBackoff.java,182,if (toRetryMsgs.contains(msgId)) {
+external/storm-kafka-client/src/main/java/org/apache/storm/kafka/spout/KafkaSpoutRetryExponentialBackoff.java,207,if (toRetryMsgs.contains(msgId)) {
+external/storm-kafka-client/src/main/java/org/apache/storm/kafka/spout/KafkaSpoutRetryExponentialBackoff.java,212,toRetryMsgs.remove(msgId);
+external/storm-kafka-client/src/main/java/org/apache/storm/kafka/spout/KafkaSpoutRetryExponentialBackoff.java,214,break;
+external/storm-kafka-client/src/main/java/org/apache/storm/kafka/spout/KafkaSpoutRetryExponentialBackoff.java,246,if (toRetryMsgs.contains(msgId)) {
+external/storm-kafka-client/src/main/java/org/apache/storm/kafka/spout/KafkaSpoutRetryExponentialBackoff.java,247,for (Iterator<RetrySchedule> iterator = retrySchedules.iterator(); iterator.hasNext(); ) {
+external/storm-kafka-client/src/main/java/org/apache/storm/kafka/spout/KafkaSpoutRetryExponentialBackoff.java,248,final RetrySchedule retrySchedule = iterator.next();
+external/storm-kafka-client/src/main/java/org/apache/storm/kafka/spout/KafkaSpoutRetryExponentialBackoff.java,249,if (retrySchedule.msgId().equals(msgId)) {
+external/storm-kafka-client/src/main/java/org/apache/storm/kafka/spout/KafkaSpoutRetryExponentialBackoff.java,250,iterator.remove();
+external/storm-kafka-client/src/main/java/org/apache/storm/kafka/spout/KafkaSpoutRetryExponentialBackoff.java,251,toRetryMsgs.remove(msgId);
+storm-core/src/jvm/org/apache/storm/blobstore/BlobStoreUtils.java,150,LOG.error("Could not download blob with key" + key);
+storm-core/src/jvm/org/apache/storm/blobstore/BlobStoreUtils.java,197,LOG.error("Could not update the blob with key" + key);
+storm-core/src/jvm/org/apache/storm/windowing/TimeTriggerPolicy.java,49,this.executor = Executors.newSingleThreadScheduledExecutor();
+storm-core/src/jvm/org/apache/storm/windowing/WaterMarkEventGenerator.java,55,executorService = Executors.newSingleThreadScheduledExecutor();
+storm-core/src/jvm/org/apache/storm/utils/DisruptorQueue.java,328,final double sojournTime = (wp - rp) / Math.max(arrivalRateInSecs, 0.00001) * 1000.0;
+storm-core/src/jvm/org/apache/storm/utils/DisruptorQueue.java,491,_buffer.publish(begin, end);
+external/storm-kafka/src/jvm/org/apache/storm/kafka/PartitionManager.java,297,private String committedPath() {
+examples/storm-starter/src/jvm/org/apache/storm/starter/TransactionalWords.java,127,if (val == null || !val.txid.equals(_id)) {
+storm-core/src/jvm/org/apache/storm/trident/windowing/StoreBasedTridentWindowManager.java,124,if (lastSepIndex < 0) {
+storm-core/src/jvm/org/apache/storm/blobstore/FileBlobStoreImpl.java,181,private File getKeyDir(String key) {
+storm-core/src/jvm/org/apache/storm/StormSubmitter.java,78,String secretPayload = generateZookeeperDigestSecretPayload();
+storm-core/src/jvm/org/apache/storm/StormSubmitter.java,79,toRet.put(Config.STORM_ZOOKEEPER_TOPOLOGY_AUTH_PAYLOAD, secretPayload);
+storm-core/src/jvm/org/apache/storm/security/auth/kerberos/AutoTGT.java,192,try {
+storm-core/src/jvm/org/apache/storm/security/auth/kerberos/AutoTGT.java,193,Method login = ugi.getMethod("loginUserFromSubject", Subject.class);
+storm-core/src/jvm/org/apache/storm/security/auth/kerberos/AutoTGT.java,194,login.invoke(null, subject);
+storm-core/src/jvm/org/apache/storm/security/auth/kerberos/AutoTGT.java,204,String name = getTGT(subject).getClient().toString();
+storm-core/src/jvm/org/apache/storm/security/auth/kerberos/AutoTGT.java,206,LOG.warn("The Hadoop client does not have loginUserFromSubject, Trying to hack around it. This may not work...");
+storm-core/src/jvm/org/apache/storm/security/auth/kerberos/AutoTGT.java,207,Class<?> confClass = Class.forName("org.apache.hadoop.conf.Configuration");
+storm-core/src/jvm/org/apache/storm/security/auth/kerberos/AutoTGT.java,208,Constructor confCons = confClass.getConstructor();
+storm-core/src/jvm/org/apache/storm/security/auth/kerberos/AutoTGT.java,209,Object conf = confCons.newInstance();
+storm-core/src/jvm/org/apache/storm/security/auth/kerberos/AutoTGT.java,210,Class<?> hknClass = Class.forName("org.apache.hadoop.security.HadoopKerberosName");
+storm-core/src/jvm/org/apache/storm/security/auth/kerberos/AutoTGT.java,211,Method hknSetConf = hknClass.getMethod("setConfiguration",confClass);
+storm-core/src/jvm/org/apache/storm/security/auth/kerberos/AutoTGT.java,212,hknSetConf.invoke(null, conf);
+storm-core/src/jvm/org/apache/storm/security/auth/kerberos/AutoTGT.java,214,Class<?> authMethodClass = Class.forName("org.apache.hadoop.security.UserGroupInformation$AuthenticationMethod");
+storm-core/src/jvm/org/apache/storm/security/auth/kerberos/AutoTGT.java,215,Object kerbAuthMethod = null;
+storm-core/src/jvm/org/apache/storm/security/auth/kerberos/AutoTGT.java,216,for (Object authMethod : authMethodClass.getEnumConstants()) {
+storm-core/src/jvm/org/apache/storm/security/auth/kerberos/AutoTGT.java,217,if ("KERBEROS".equals(authMethod.toString())) {
+storm-core/src/jvm/org/apache/storm/security/auth/kerberos/AutoTGT.java,218,kerbAuthMethod = authMethod;
+storm-core/src/jvm/org/apache/storm/security/auth/kerberos/AutoTGT.java,219,break;
+storm-core/src/jvm/org/apache/storm/security/auth/kerberos/AutoTGT.java,223,Class<?> userClass = Class.forName("org.apache.hadoop.security.User");
+storm-core/src/jvm/org/apache/storm/security/auth/kerberos/AutoTGT.java,224,Constructor userCons = userClass.getConstructor(String.class, authMethodClass, LoginContext.class);
+storm-core/src/jvm/org/apache/storm/security/auth/kerberos/AutoTGT.java,225,userCons.setAccessible(true);
+storm-core/src/jvm/org/apache/storm/security/auth/kerberos/AutoTGT.java,226,Object user = userCons.newInstance(name, kerbAuthMethod, null);
+storm-core/src/jvm/org/apache/storm/security/auth/kerberos/AutoTGT.java,227,subject.getPrincipals().add((Principal)user);
+external/storm-kafka-client/src/main/java/org/apache/storm/kafka/spout/KafkaSpoutMessageId.java,24,public class KafkaSpoutMessageId {
+external/storm-kafka-client/src/main/java/org/apache/storm/kafka/spout/KafkaSpoutMessageId.java,27,private transient int numFails = 0;
+storm-core/src/jvm/org/apache/storm/security/serialization/BlowfishTupleSerializer.java,89,ex.printStackTrace();
+storm-core/src/jvm/org/apache/storm/utils/DisruptorQueue.java,472,_metrics.notifyArrivals(1);
+storm-core/src/jvm/org/apache/storm/utils/DisruptorQueue.java,492,_metrics.notifyArrivals(size);
+storm-core/src/jvm/org/apache/storm/windowing/WaterMarkEventGenerator.java,18,package org.apache.storm.windowing;
+storm-core/src/jvm/org/apache/storm/windowing/WaterMarkEventGenerator.java,20,import org.apache.storm.generated.GlobalStreamId;
+storm-core/src/jvm/org/apache/storm/windowing/WaterMarkEventGenerator.java,21,import org.apache.storm.topology.FailedException;
+storm-core/src/jvm/org/apache/storm/windowing/WaterMarkEventGenerator.java,22,import org.slf4j.Logger;
+storm-core/src/jvm/org/apache/storm/windowing/WaterMarkEventGenerator.java,23,import org.slf4j.LoggerFactory;
+storm-core/src/jvm/org/apache/storm/windowing/WaterMarkEventGenerator.java,49,private long lastWaterMarkTs = 0;
+storm-core/src/jvm/org/apache/storm/windowing/WaterMarkEventGenerator.java,51,public WaterMarkEventGenerator(WindowManager<T> windowManager, int interval,
+storm-core/src/jvm/org/apache/storm/windowing/WaterMarkEventGenerator.java,52,int eventTsLag, Set<GlobalStreamId> inputStreams) {
+storm-core/src/jvm/org/apache/storm/windowing/WaterMarkEventGenerator.java,56,this.interval = interval;
+storm-core/src/jvm/org/apache/storm/windowing/WaterMarkEventGenerator.java,57,this.eventTsLag = eventTsLag;
+storm-core/src/jvm/org/apache/storm/topology/WindowedBoltExecutor.java,261,LOG.debug("Initialized window manager {} ", this.windowManager);
+storm-core/src/jvm/org/apache/storm/windowing/TimeEvictionPolicy.java,48,if (diff >= windowLength) {
+external/storm-kafka-client/src/main/java/org/apache/storm/kafka/spout/KafkaSpout.java,266,final KafkaSpoutMessageId msgId = new KafkaSpoutMessageId(record);
+external/storm-kafka-client/src/main/java/org/apache/storm/kafka/spout/KafkaSpoutMessageId.java,25,private transient TopicPartition topicPart;
+external/storm-kafka-client/src/main/java/org/apache/storm/kafka/spout/KafkaSpoutMessageId.java,26,private transient long offset;
+external/storm-kafka-client/src/main/java/org/apache/storm/kafka/spout/KafkaSpoutRetryService.java,25,import java.util.Set;
+storm-core/src/jvm/org/apache/storm/blobstore/BlobStoreAclHandler.java,372,if (control.get_type() == AccessControlType.USER && control.get_name().equals(user)) {
+storm-core/src/jvm/org/apache/storm/blobstore/BlobStoreAclHandler.java,373,int currentAccess = control.get_access();
+storm-core/src/jvm/org/apache/storm/blobstore/BlobStoreAclHandler.java,374,if ((currentAccess & mask) != mask) {
+storm-core/src/jvm/org/apache/storm/blobstore/BlobStoreAclHandler.java,375,control.set_access(currentAccess | mask);
+storm-core/src/jvm/org/apache/storm/blobstore/BlobStoreAclHandler.java,377,foundUserACL = true;
+storm-core/src/jvm/org/apache/storm/blobstore/BlobStoreAclHandler.java,378,break;
+storm-core/src/jvm/org/apache/storm/blobstore/BlobStoreAclHandler.java,381,if (!foundUserACL) {
+external/storm-kafka-client/src/main/java/org/apache/storm/kafka/spout/KafkaSpout.java,112,acked = new HashMap<>();
+external/storm-kafka-client/src/main/java/org/apache/storm/kafka/spout/KafkaSpout.java,142,acked.keySet().retainAll(partitions);   // remove from acked all partitions that are no longer assigned to this spout
+external/storm-kafka-client/src/main/java/org/apache/storm/kafka/spout/KafkaSpout.java,187,if (!consumerAutoCommitMode && !acked.containsKey(tp)) {
+external/storm-kafka-client/src/main/java/org/apache/storm/kafka/spout/KafkaSpout.java,268,if (acked.containsKey(tp) && acked.get(tp).contains(msgId)) {   // has been acked
+external/storm-kafka/src/jvm/org/apache/storm/kafka/StringScheme.java,41,return new String(string.array(), base + string.position(), string.remaining());
+external/storm-kafka-client/src/main/java/org/apache/storm/kafka/spout/KafkaSpout.java,245,final Set<TopicPartition> retriableTopicPartitions = retryService.retriableTopicPartitions();
+external/storm-kafka-client/src/main/java/org/apache/storm/kafka/spout/KafkaSpout.java,247,for (TopicPartition rtp : retriableTopicPartitions) {
+external/storm-kafka-client/src/main/java/org/apache/storm/kafka/spout/KafkaSpout.java,248,final OffsetAndMetadata offsetAndMeta = acked.get(rtp).findNextCommitOffset();
+external/storm-kafka-client/src/main/java/org/apache/storm/kafka/spout/KafkaSpout.java,249,if (offsetAndMeta != null) {
+external/storm-kafka-client/src/main/java/org/apache/storm/kafka/spout/KafkaSpout.java,250,kafkaConsumer.seek(rtp, offsetAndMeta.offset() + 1);  // seek to the next offset that is ready to commit in next commit cycle
+external/storm-kafka-client/src/main/java/org/apache/storm/kafka/spout/KafkaSpoutRetryExponentialBackoff.java,56,return Long.valueOf(entry1.nextRetryTimeNanos()).compareTo(entry2.nextRetryTimeNanos());
+external/storm-kafka-client/src/main/java/org/apache/storm/kafka/spout/KafkaSpoutRetryExponentialBackoff.java,64,public RetrySchedule(KafkaSpoutMessageId msgId, long nextRetryTime) {
+external/storm-kafka-client/src/main/java/org/apache/storm/kafka/spout/KafkaSpoutRetryExponentialBackoff.java,66,this.nextRetryTimeNanos = nextRetryTime;
+external/storm-kafka-client/src/main/java/org/apache/storm/kafka/spout/KafkaSpoutRetryExponentialBackoff.java,70,public void setNextRetryTime() {
+external/storm-kafka-client/src/main/java/org/apache/storm/kafka/spout/KafkaSpoutRetryExponentialBackoff.java,106,this.length = length;
+external/storm-kafka-client/src/main/java/org/apache/storm/kafka/spout/KafkaSpoutRetryExponentialBackoff.java,107,this.timeUnit = timeUnit;
+external/storm-kafka-client/src/main/java/org/apache/storm/kafka/spout/KafkaSpoutRetryExponentialBackoff.java,127,public long length() {
+external/storm-kafka-client/src/main/java/org/apache/storm/kafka/spout/KafkaSpoutRetryExponentialBackoff.java,128,return length;
+external/storm-kafka-client/src/main/java/org/apache/storm/kafka/spout/KafkaSpoutRetryExponentialBackoff.java,164,public Set<TopicPartition> retriableTopicPartitions() {
+external/storm-kafka-client/src/main/java/org/apache/storm/kafka/spout/KafkaSpoutRetryExponentialBackoff.java,166,final long currentTimeNanos = System.nanoTime();
+external/storm-kafka-client/src/main/java/org/apache/storm/kafka/spout/KafkaSpoutRetryExponentialBackoff.java,170,tps.add(new TopicPartition(msgId.topic(), msgId.partition()));
+external/storm-kafka-client/src/main/java/org/apache/storm/kafka/spout/KafkaSpoutRetryExponentialBackoff.java,175,LOG.debug("Topic partitions with entries ready to be retried [{}] ", tps);
+external/storm-kafka-client/src/main/java/org/apache/storm/kafka/spout/KafkaSpoutRetryExponentialBackoff.java,176,return tps;
+external/storm-kafka-client/src/main/java/org/apache/storm/kafka/spout/KafkaSpoutRetryExponentialBackoff.java,183,final long currentTimeNanos = System.nanoTime();
+external/storm-kafka-client/src/main/java/org/apache/storm/kafka/spout/KafkaSpoutRetryExponentialBackoff.java,265,final long currentTimeNanos = System.nanoTime();
+external/storm-kafka-client/src/main/java/org/apache/storm/kafka/spout/KafkaSpoutRetryService.java,56,Set<TopicPartition> retriableTopicPartitions();
+external/storm-hive/src/main/java/org/apache/storm/hive/bolt/HiveBolt.java,323,ArrayList<HiveEndPoint> retirees = new ArrayList<HiveEndPoint>();
+external/storm-hive/src/main/java/org/apache/storm/hive/bolt/HiveBolt.java,329,retirees.add(entry.getKey());
+external/storm-hive/src/main/java/org/apache/storm/hive/bolt/HiveBolt.java,333,for(HiveEndPoint ep : retirees) {
+external/storm-hive/src/main/java/org/apache/storm/hive/bolt/HiveBolt.java,334,try {
+external/storm-hive/src/main/java/org/apache/storm/hive/bolt/HiveBolt.java,336,allWriters.remove(ep).flushAndClose();
+external/storm-hive/src/main/java/org/apache/storm/hive/bolt/HiveBolt.java,338,LOG.warn("Failed to close writer for end point: {}. Error: "+ ep, e);
+external/storm-hive/src/main/java/org/apache/storm/hive/bolt/HiveBolt.java,340,LOG.warn("Interrupted when attempting to close writer for end point: " + ep, e);
+external/storm-hive/src/main/java/org/apache/storm/hive/bolt/HiveBolt.java,341,Thread.currentThread().interrupt();
+external/storm-hive/src/main/java/org/apache/storm/hive/bolt/HiveBolt.java,343,LOG.warn("Interrupted when attempting to close writer for end point: " + ep, e);
+external/storm-hive/src/main/java/org/apache/storm/hive/bolt/HiveBolt.java,346,return count;
+external/storm-kafka-client/src/main/java/org/apache/storm/kafka/spout/KafkaSpout.java,314,if (!consumerAutoCommitMode) {  // Only need to keep track of acked tuples if commits are not done automatically
+external/storm-kafka-client/src/main/java/org/apache/storm/kafka/spout/KafkaSpout.java,315,acked.get(msgId.getTopicPartition()).add(msgId);
+external/storm-kafka-client/src/main/java/org/apache/storm/kafka/spout/KafkaSpout.java,318,emitted.remove(msgId);
+external/storm-kafka-client/src/main/java/org/apache/storm/kafka/spout/KafkaSpoutMessageId.java,30,this(new TopicPartition(consumerRecord.topic(), consumerRecord.partition()), consumerRecord.offset());
+external/storm-eventhubs/src/main/java/org/apache/storm/eventhubs/trident/OpaqueTridentEventHubEmitter.java,20,import java.util.List;
+external/storm-eventhubs/src/main/java/org/apache/storm/eventhubs/trident/OpaqueTridentEventHubEmitter.java,21,import java.util.Map;
+external/storm-kafka/src/jvm/org/apache/storm/kafka/trident/TridentKafkaEmitter.java,167,if(msgs != null) {
+storm-core/src/jvm/org/apache/storm/trident/spout/IOpaquePartitionedTridentSpout.java,54,void refreshPartitions(List<Partition> partitionResponsibilities);
+storm-core/src/jvm/org/apache/storm/trident/spout/IOpaquePartitionedTridentSpout.java,59,Emitter<Partitions, Partition, M> getEmitter(Map conf, TopologyContext context);
+storm-core/src/jvm/org/apache/storm/trident/spout/IOpaquePartitionedTridentSpout.java,60,Coordinator getCoordinator(Map conf, TopologyContext context);
+storm-core/src/jvm/org/apache/storm/trident/spout/OpaquePartitionedTridentSpoutExecutor.java,23,import java.util.ArrayList;
+storm-core/src/jvm/org/apache/storm/trident/spout/OpaquePartitionedTridentSpoutExecutor.java,98,List<ISpoutPartition> partitions = _emitter.getOrderedPartitions(coordinatorMeta);
+storm-core/src/jvm/org/apache/storm/trident/spout/OpaquePartitionedTridentSpoutExecutor.java,100,List<ISpoutPartition> myPartitions = new ArrayList<>();
+storm-core/src/jvm/org/apache/storm/trident/spout/OpaquePartitionedTridentSpoutExecutor.java,101,for(int i=_index; i < partitions.size(); i+=_numTasks) {
+storm-core/src/jvm/org/apache/storm/trident/spout/OpaquePartitionedTridentSpoutExecutor.java,102,ISpoutPartition p = partitions.get(i);
+storm-core/src/jvm/org/apache/storm/trident/spout/OpaquePartitionedTridentSpoutExecutor.java,103,String id = p.getId();
+storm-core/src/jvm/org/apache/storm/trident/spout/OpaquePartitionedTridentSpoutExecutor.java,104,myPartitions.add(p);
+storm-core/src/jvm/org/apache/storm/trident/spout/OpaquePartitionedTridentSpoutExecutor.java,105,_partitionStates.put(id, new EmitterPartitionState(new RotatingTransactionalState(_state, id), p));
+storm-core/src/jvm/org/apache/storm/trident/spout/OpaquePartitionedTridentSpoutExecutor.java,107,_emitter.refreshPartitions(myPartitions);
+storm-core/src/jvm/org/apache/storm/security/auth/TBackoffConnect.java,67,int sleeptime = waitGrabber.getSleepTimeMs(_completedRetries, 0);
+storm-core/src/jvm/org/apache/storm/security/auth/TBackoffConnect.java,69,LOG.debug("Failed to connect. Retrying... (" + Integer.toString( _completedRetries) + ") in " + Integer.toString(sleeptime) + "ms");
+storm-core/src/jvm/org/apache/storm/utils/StormBoundedExponentialBackoffRetry.java,64,public int getSleepTimeMs(int retryCount, long elapsedTimeMs) {
+storm-core/src/jvm/org/apache/storm/utils/StormBoundedExponentialBackoffRetry.java,68,int sleepTimeMs = super.getBaseSleepTimeMs() + exp + jitter;
+external/storm-eventhubs/src/main/java/org/apache/storm/eventhubs/bolt/EventHubBolt.java,39,private static final long serialVersionUID = 1L;
+external/storm-eventhubs/src/main/java/org/apache/storm/eventhubs/bolt/EventHubBolt.java,40,private static final Logger logger = LoggerFactory
+external/storm-eventhubs/src/main/java/org/apache/storm/eventhubs/bolt/EventHubBolt.java,41,.getLogger(EventHubBolt.class);
+external/storm-eventhubs/src/main/java/org/apache/storm/eventhubs/bolt/EventHubBolt.java,85,public void execute(Tuple tuple) {
+external/storm-kafka-client/src/main/java/org/apache/storm/kafka/spout/KafkaSpoutTuplesBuilder.java,21,import org.apache.kafka.clients.consumer.ConsumerRecord;
+external/storm-kafka-client/src/main/java/org/apache/storm/kafka/spout/KafkaSpoutTuplesBuilder.java,25,import java.io.Serializable;
+external/storm-kafka-client/src/main/java/org/apache/storm/kafka/spout/KafkaSpoutTuplesBuilder.java,28,import java.util.List;
+external/storm-kafka-client/src/main/java/org/apache/storm/kafka/spout/KafkaSpout.java,21,import org.apache.kafka.clients.consumer.ConsumerRebalanceListener;
+external/storm-kafka-client/src/main/java/org/apache/storm/kafka/spout/KafkaSpout.java,22,import org.apache.kafka.clients.consumer.ConsumerRecord;
+external/storm-kafka-client/src/main/java/org/apache/storm/kafka/spout/KafkaSpout.java,23,import org.apache.kafka.clients.consumer.ConsumerRecords;
+external/storm-kafka-client/src/main/java/org/apache/storm/kafka/spout/KafkaSpout.java,24,import org.apache.kafka.clients.consumer.KafkaConsumer;
+external/storm-kafka-client/src/main/java/org/apache/storm/kafka/spout/KafkaSpout.java,25,import org.apache.kafka.clients.consumer.OffsetAndMetadata;
+external/storm-kafka-client/src/main/java/org/apache/storm/kafka/spout/KafkaSpout.java,26,import org.apache.kafka.common.TopicPartition;
+external/storm-kafka-client/src/main/java/org/apache/storm/kafka/spout/KafkaSpout.java,27,import org.apache.storm.kafka.spout.KafkaSpoutConfig.FirstPollOffsetStrategy;
+external/storm-kafka-client/src/main/java/org/apache/storm/kafka/spout/KafkaSpout.java,28,import org.apache.storm.spout.SpoutOutputCollector;
+external/storm-kafka-client/src/main/java/org/apache/storm/kafka/spout/KafkaSpout.java,29,import org.apache.storm.task.TopologyContext;
+external/storm-kafka-client/src/main/java/org/apache/storm/kafka/spout/KafkaSpout.java,30,import org.apache.storm.topology.OutputFieldsDeclarer;
+external/storm-kafka-client/src/main/java/org/apache/storm/kafka/spout/KafkaSpout.java,31,import org.apache.storm.topology.base.BaseRichSpout;
+external/storm-kafka-client/src/main/java/org/apache/storm/kafka/spout/KafkaSpout.java,32,import org.slf4j.Logger;
+external/storm-kafka-client/src/main/java/org/apache/storm/kafka/spout/KafkaSpout.java,33,import org.slf4j.LoggerFactory;
+external/storm-kafka-client/src/main/java/org/apache/storm/kafka/spout/KafkaSpout.java,49,import static org.apache.storm.kafka.spout.KafkaSpoutConfig.FirstPollOffsetStrategy.EARLIEST;
+external/storm-kafka-client/src/main/java/org/apache/storm/kafka/spout/KafkaSpout.java,50,import static org.apache.storm.kafka.spout.KafkaSpoutConfig.FirstPollOffsetStrategy.LATEST;
+external/storm-kafka-client/src/main/java/org/apache/storm/kafka/spout/KafkaSpout.java,51,import static org.apache.storm.kafka.spout.KafkaSpoutConfig.FirstPollOffsetStrategy.UNCOMMITTED_EARLIEST;
+external/storm-kafka-client/src/main/java/org/apache/storm/kafka/spout/KafkaSpout.java,52,import static org.apache.storm.kafka.spout.KafkaSpoutConfig.FirstPollOffsetStrategy.UNCOMMITTED_LATEST;
+external/storm-kafka-client/src/main/java/org/apache/storm/kafka/spout/KafkaSpout.java,75,private KafkaSpoutStreams kafkaSpoutStreams;                        // Object that wraps all the logic to declare output fields and emit tuples
+external/storm-kafka-client/src/main/java/org/apache/storm/kafka/spout/KafkaSpout.java,76,private transient KafkaSpoutTuplesBuilder<K, V> tuplesBuilder;      // Object that contains the logic to build tuples for each ConsumerRecord
+external/storm-kafka-client/src/main/java/org/apache/storm/kafka/spout/KafkaSpout.java,86,this.kafkaSpoutStreams = kafkaSpoutConfig.getKafkaSpoutStreams();
+external/storm-kafka-client/src/main/java/org/apache/storm/kafka/spout/KafkaSpout.java,106,tuplesBuilder = kafkaSpoutConfig.getTuplesBuilder();
+external/storm-kafka-client/src/main/java/org/apache/storm/kafka/spout/KafkaSpout.java,376,kafkaSpoutStreams.declareOutputFields(declarer);
+external/storm-kafka-client/src/main/java/org/apache/storm/kafka/spout/KafkaSpout.java,473,public boolean contains(ConsumerRecord record) {
+external/storm-kafka-client/src/main/java/org/apache/storm/kafka/spout/KafkaSpoutConfig.java,21,import org.apache.kafka.clients.consumer.ConsumerRecord;
+external/storm-kafka-client/src/main/java/org/apache/storm/kafka/spout/KafkaSpoutConfig.java,22,import org.apache.kafka.common.serialization.Deserializer;
+external/storm-kafka-client/src/main/java/org/apache/storm/kafka/spout/KafkaSpoutConfig.java,23,import org.apache.storm.kafka.spout.KafkaSpoutRetryExponentialBackoff.TimeInterval;
+external/storm-kafka-client/src/main/java/org/apache/storm/kafka/spout/KafkaSpoutConfig.java,26,import java.util.ArrayList;
+external/storm-kafka-client/src/main/java/org/apache/storm/kafka/spout/KafkaSpoutConfig.java,40,public interface Consumer {
+external/storm-kafka-client/src/main/java/org/apache/storm/kafka/spout/KafkaSpoutConfig.java,41,String GROUP_ID = "group.id";
+external/storm-kafka-client/src/main/java/org/apache/storm/kafka/spout/KafkaSpoutConfig.java,42,String BOOTSTRAP_SERVERS = "bootstrap.servers";
+external/storm-kafka-client/src/main/java/org/apache/storm/kafka/spout/KafkaSpoutConfig.java,43,String ENABLE_AUTO_COMMIT = "enable.auto.commit";
+external/storm-kafka-client/src/main/java/org/apache/storm/kafka/spout/KafkaSpoutConfig.java,44,String AUTO_COMMIT_INTERVAL_MS = "auto.commit.interval.ms";
+external/storm-kafka-client/src/main/java/org/apache/storm/kafka/spout/KafkaSpoutConfig.java,45,String KEY_DESERIALIZER = "key.deserializer";
+external/storm-kafka-client/src/main/java/org/apache/storm/kafka/spout/KafkaSpoutConfig.java,46,String VALUE_DESERIALIZER = "value.deserializer";
+external/storm-kafka-client/src/main/java/org/apache/storm/kafka/spout/KafkaSpoutConfig.java,62,public enum FirstPollOffsetStrategy {
+external/storm-kafka-client/src/main/java/org/apache/storm/kafka/spout/KafkaSpoutConfig.java,69,private final Map<String, Object> kafkaProps;
+external/storm-kafka-client/src/main/java/org/apache/storm/kafka/spout/KafkaSpoutConfig.java,70,private final Deserializer<K> keyDeserializer;
+external/storm-kafka-client/src/main/java/org/apache/storm/kafka/spout/KafkaSpoutConfig.java,71,private final Deserializer<V> valueDeserializer;
+external/storm-kafka-client/src/main/java/org/apache/storm/kafka/spout/KafkaSpoutConfig.java,72,private final long pollTimeoutMs;
+external/storm-kafka-client/src/main/java/org/apache/storm/kafka/spout/KafkaSpoutConfig.java,75,private final long offsetCommitPeriodMs;
+external/storm-kafka-client/src/main/java/org/apache/storm/kafka/spout/KafkaSpoutConfig.java,76,private final int maxRetries;
+external/storm-kafka-client/src/main/java/org/apache/storm/kafka/spout/KafkaSpoutConfig.java,77,private final int maxUncommittedOffsets;
+external/storm-kafka-client/src/main/java/org/apache/storm/kafka/spout/KafkaSpoutConfig.java,78,private final FirstPollOffsetStrategy firstPollOffsetStrategy;
+external/storm-kafka-client/src/main/java/org/apache/storm/kafka/spout/KafkaSpoutConfig.java,79,private final KafkaSpoutStreams kafkaSpoutStreams;
+external/storm-kafka-client/src/main/java/org/apache/storm/kafka/spout/KafkaSpoutConfig.java,80,private final KafkaSpoutTuplesBuilder<K, V> tuplesBuilder;
+external/storm-kafka-client/src/main/java/org/apache/storm/kafka/spout/KafkaSpoutConfig.java,81,private final KafkaSpoutRetryService retryService;
+external/storm-kafka-client/src/main/java/org/apache/storm/kafka/spout/KafkaSpoutConfig.java,83,private KafkaSpoutConfig(Builder<K,V> builder) {
+external/storm-kafka-client/src/main/java/org/apache/storm/kafka/spout/KafkaSpoutConfig.java,84,this.kafkaProps = setDefaultsAndGetKafkaProps(builder.kafkaProps);
+external/storm-kafka-client/src/main/java/org/apache/storm/kafka/spout/KafkaSpoutConfig.java,85,this.keyDeserializer = builder.keyDeserializer;
+external/storm-kafka-client/src/main/java/org/apache/storm/kafka/spout/KafkaSpoutConfig.java,86,this.valueDeserializer = builder.valueDeserializer;
+external/storm-kafka-client/src/main/java/org/apache/storm/kafka/spout/KafkaSpoutConfig.java,87,this.pollTimeoutMs = builder.pollTimeoutMs;
+external/storm-kafka-client/src/main/java/org/apache/storm/kafka/spout/KafkaSpoutConfig.java,88,this.offsetCommitPeriodMs = builder.offsetCommitPeriodMs;
+external/storm-kafka-client/src/main/java/org/apache/storm/kafka/spout/KafkaSpoutConfig.java,89,this.maxRetries = builder.maxRetries;
+external/storm-kafka-client/src/main/java/org/apache/storm/kafka/spout/KafkaSpoutConfig.java,90,this.firstPollOffsetStrategy = builder.firstPollOffsetStrategy;
+external/storm-kafka-client/src/main/java/org/apache/storm/kafka/spout/KafkaSpoutConfig.java,91,this.kafkaSpoutStreams = builder.kafkaSpoutStreams;
+external/storm-kafka-client/src/main/java/org/apache/storm/kafka/spout/KafkaSpoutConfig.java,92,this.maxUncommittedOffsets = builder.maxUncommittedOffsets;
+external/storm-kafka-client/src/main/java/org/apache/storm/kafka/spout/KafkaSpoutConfig.java,93,this.tuplesBuilder = builder.tuplesBuilder;
+external/storm-kafka-client/src/main/java/org/apache/storm/kafka/spout/KafkaSpoutConfig.java,94,this.retryService = builder.retryService;
+external/storm-kafka-client/src/main/java/org/apache/storm/kafka/spout/KafkaSpoutConfig.java,97,private Map<String, Object> setDefaultsAndGetKafkaProps(Map<String, Object> kafkaProps) {
+external/storm-kafka-client/src/main/java/org/apache/storm/kafka/spout/KafkaSpoutConfig.java,99,if (!kafkaProps.containsKey(Consumer.ENABLE_AUTO_COMMIT)) {
+external/storm-kafka-client/src/main/java/org/apache/storm/kafka/spout/KafkaSpoutConfig.java,100,kafkaProps.put(Consumer.ENABLE_AUTO_COMMIT, "false");
+external/storm-kafka-client/src/main/java/org/apache/storm/kafka/spout/KafkaSpoutConfig.java,113,private final KafkaSpoutStreams kafkaSpoutStreams;
+external/storm-kafka-client/src/main/java/org/apache/storm/kafka/spout/KafkaSpoutConfig.java,115,private final KafkaSpoutTuplesBuilder<K, V> tuplesBuilder;
+external/storm-kafka-client/src/main/java/org/apache/storm/kafka/spout/KafkaSpoutConfig.java,116,private final KafkaSpoutRetryService retryService;
+external/storm-kafka-client/src/main/java/org/apache/storm/kafka/spout/KafkaSpoutConfig.java,124,public Builder(Map<String, Object> kafkaProps, KafkaSpoutStreams kafkaSpoutStreams,
+external/storm-kafka-client/src/main/java/org/apache/storm/kafka/spout/KafkaSpoutConfig.java,125,KafkaSpoutTuplesBuilder<K,V> tuplesBuilder) {
+external/storm-kafka-client/src/main/java/org/apache/storm/kafka/spout/KafkaSpoutConfig.java,126,this(kafkaProps, kafkaSpoutStreams, tuplesBuilder,
+external/storm-kafka-client/src/main/java/org/apache/storm/kafka/spout/KafkaSpoutConfig.java,127,new KafkaSpoutRetryExponentialBackoff(TimeInterval.seconds(0), TimeInterval.milliSeconds(2),
+external/storm-kafka-client/src/main/java/org/apache/storm/kafka/spout/KafkaSpoutConfig.java,128,DEFAULT_MAX_RETRIES, TimeInterval.seconds(10)));
+external/storm-kafka-client/src/main/java/org/apache/storm/kafka/spout/KafkaSpoutConfig.java,139,public Builder(Map<String, Object> kafkaProps, KafkaSpoutStreams kafkaSpoutStreams,
+external/storm-kafka-client/src/main/java/org/apache/storm/kafka/spout/KafkaSpoutConfig.java,140,KafkaSpoutTuplesBuilder<K,V> tuplesBuilder, KafkaSpoutRetryService retryService) {
+external/storm-kafka-client/src/main/java/org/apache/storm/kafka/spout/KafkaSpoutConfig.java,141,if (kafkaProps == null || kafkaProps.isEmpty()) {
+external/storm-kafka-client/src/main/java/org/apache/storm/kafka/spout/KafkaSpoutConfig.java,142,throw new IllegalArgumentException("Properties defining consumer connection to Kafka broker are required: " + kafkaProps);
+external/storm-kafka-client/src/main/java/org/apache/storm/kafka/spout/KafkaSpoutConfig.java,145,if (kafkaSpoutStreams == null)  {
+external/storm-kafka-client/src/main/java/org/apache/storm/kafka/spout/KafkaSpoutConfig.java,146,throw new IllegalArgumentException("Must specify stream associated with each topic. Multiple topics can emit to the same stream");
+external/storm-kafka-client/src/main/java/org/apache/storm/kafka/spout/KafkaSpoutConfig.java,149,if (tuplesBuilder == null) {
+external/storm-kafka-client/src/main/java/org/apache/storm/kafka/spout/KafkaSpoutConfig.java,150,throw new IllegalArgumentException("Must specify at last one tuple builder per topic declared in KafkaSpoutStreams");
+external/storm-kafka-client/src/main/java/org/apache/storm/kafka/spout/KafkaSpoutConfig.java,153,if (retryService == null) {
+external/storm-kafka-client/src/main/java/org/apache/storm/kafka/spout/KafkaSpoutConfig.java,154,throw new IllegalArgumentException("Must specify at implementation of retry service");
+external/storm-kafka-client/src/main/java/org/apache/storm/kafka/spout/KafkaSpoutConfig.java,157,this.kafkaProps = kafkaProps;
+external/storm-kafka-client/src/main/java/org/apache/storm/kafka/spout/KafkaSpoutConfig.java,158,this.kafkaSpoutStreams = kafkaSpoutStreams;
+external/storm-kafka-client/src/main/java/org/apache/storm/kafka/spout/KafkaSpoutConfig.java,159,this.tuplesBuilder = tuplesBuilder;
+external/storm-kafka-client/src/main/java/org/apache/storm/kafka/spout/KafkaSpoutConfig.java,160,this.retryService = retryService;
+external/storm-kafka-client/src/main/java/org/apache/storm/kafka/spout/KafkaSpoutConfig.java,167,this.keyDeserializer = keyDeserializer;
+external/storm-kafka-client/src/main/java/org/apache/storm/kafka/spout/KafkaSpoutConfig.java,175,this.valueDeserializer = valueDeserializer;
+external/storm-kafka-client/src/main/java/org/apache/storm/kafka/spout/KafkaSpoutConfig.java,241,return keyDeserializer;
+external/storm-kafka-client/src/main/java/org/apache/storm/kafka/spout/KafkaSpoutConfig.java,245,return valueDeserializer;
+external/storm-kafka-client/src/main/java/org/apache/storm/kafka/spout/KafkaSpoutConfig.java,257,return kafkaProps.get(Consumer.ENABLE_AUTO_COMMIT) == null     // default is true
+external/storm-kafka-client/src/main/java/org/apache/storm/kafka/spout/KafkaSpoutConfig.java,258,|| Boolean.valueOf((String)kafkaProps.get(Consumer.ENABLE_AUTO_COMMIT));
+external/storm-kafka-client/src/main/java/org/apache/storm/kafka/spout/KafkaSpoutConfig.java,262,return (String) kafkaProps.get(Consumer.GROUP_ID);
+external/storm-kafka-client/src/main/java/org/apache/storm/kafka/spout/KafkaSpoutConfig.java,268,public List<String> getSubscribedTopics() {
+external/storm-kafka-client/src/main/java/org/apache/storm/kafka/spout/KafkaSpoutConfig.java,280,public KafkaSpoutStreams getKafkaSpoutStreams() {
+external/storm-kafka-client/src/main/java/org/apache/storm/kafka/spout/KafkaSpoutConfig.java,281,return kafkaSpoutStreams;
+external/storm-kafka-client/src/main/java/org/apache/storm/kafka/spout/KafkaSpoutConfig.java,288,public KafkaSpoutTuplesBuilder<K, V> getTuplesBuilder() {
+external/storm-kafka-client/src/main/java/org/apache/storm/kafka/spout/KafkaSpoutConfig.java,289,return tuplesBuilder;
+external/storm-kafka-client/src/main/java/org/apache/storm/kafka/spout/KafkaSpoutMessageId.java,29,public KafkaSpoutMessageId(ConsumerRecord consumerRecord) {
+external/storm-kafka-client/src/main/java/org/apache/storm/kafka/spout/KafkaSpoutStream.java,19,package org.apache.storm.kafka.spout;
+external/storm-kafka-client/src/main/java/org/apache/storm/kafka/spout/KafkaSpoutStream.java,21,import org.apache.storm.tuple.Fields;
+external/storm-kafka-client/src/main/java/org/apache/storm/kafka/spout/KafkaSpoutStream.java,22,import org.apache.storm.utils.Utils;
+external/storm-kafka-client/src/main/java/org/apache/storm/kafka/spout/KafkaSpoutStream.java,24,import java.io.Serializable;
+external/storm-kafka-client/src/main/java/org/apache/storm/kafka/spout/KafkaSpoutStream.java,29,public class KafkaSpoutStream implements Serializable {
+external/storm-kafka-client/src/main/java/org/apache/storm/kafka/spout/KafkaSpoutStream.java,30,private final Fields outputFields;
+external/storm-kafka-client/src/main/java/org/apache/storm/kafka/spout/KafkaSpoutStream.java,31,private final String streamId;
+external/storm-kafka-client/src/main/java/org/apache/storm/kafka/spout/KafkaSpoutStream.java,32,private final String topic;
+external/storm-kafka-client/src/main/java/org/apache/storm/kafka/spout/KafkaSpoutStream.java,36,this(outputFields, Utils.DEFAULT_STREAM_ID, topic);
+external/storm-kafka-client/src/main/java/org/apache/storm/kafka/spout/KafkaSpoutStream.java,41,if (outputFields == null || streamId == null || topic == null) {
+external/storm-kafka-client/src/main/java/org/apache/storm/kafka/spout/KafkaSpoutStream.java,42,throw new IllegalArgumentException(String.format("Constructor parameters cannot be null. " +
+external/storm-kafka-client/src/main/java/org/apache/storm/kafka/spout/KafkaSpoutStream.java,45,this.outputFields = outputFields;
+external/storm-kafka-client/src/main/java/org/apache/storm/kafka/spout/KafkaSpoutStream.java,46,this.streamId = streamId;
+external/storm-kafka-client/src/main/java/org/apache/storm/kafka/spout/KafkaSpoutStream.java,47,this.topic = topic;
+external/storm-kafka-client/src/main/java/org/apache/storm/kafka/spout/KafkaSpoutStream.java,51,return outputFields;
+external/storm-kafka-client/src/main/java/org/apache/storm/kafka/spout/KafkaSpoutStream.java,55,return streamId;
+external/storm-kafka-client/src/main/java/org/apache/storm/kafka/spout/KafkaSpoutStream.java,59,return topic;
+external/storm-kafka-client/src/main/java/org/apache/storm/kafka/spout/KafkaSpoutStream.java,63,public String toString() {
+external/storm-kafka-client/src/main/java/org/apache/storm/kafka/spout/KafkaSpoutStream.java,64,return "KafkaSpoutStream{" +
+external/storm-kafka-client/src/main/java/org/apache/storm/kafka/spout/KafkaSpoutTupleBuilder.java,19,package org.apache.storm.kafka.spout;
+external/storm-kafka-client/src/main/java/org/apache/storm/kafka/spout/KafkaSpoutTupleBuilder.java,21,import org.apache.kafka.clients.consumer.ConsumerRecord;
+external/storm-kafka-client/src/main/java/org/apache/storm/kafka/spout/KafkaSpoutTupleBuilder.java,23,import java.io.Serializable;
+external/storm-kafka-client/src/main/java/org/apache/storm/kafka/spout/KafkaSpoutTupleBuilder.java,24,import java.util.Arrays;
+external/storm-kafka-client/src/main/java/org/apache/storm/kafka/spout/KafkaSpoutTupleBuilder.java,25,import java.util.Collections;
+external/storm-kafka-client/src/main/java/org/apache/storm/kafka/spout/KafkaSpoutTupleBuilder.java,26,import java.util.List;
+external/storm-kafka-client/src/main/java/org/apache/storm/kafka/spout/KafkaSpoutTupleBuilder.java,32,public abstract class KafkaSpoutTupleBuilder<K,V> implements Serializable {
+external/storm-kafka-client/src/main/java/org/apache/storm/kafka/spout/KafkaSpoutTupleBuilder.java,33,private List<String> topics;
+external/storm-kafka-client/src/main/java/org/apache/storm/kafka/spout/KafkaSpoutTupleBuilder.java,38,public KafkaSpoutTupleBuilder(String... topics) {
+external/storm-kafka-client/src/main/java/org/apache/storm/kafka/spout/KafkaSpoutTupleBuilder.java,39,if (topics == null || topics.length == 0) {
+external/storm-kafka-client/src/main/java/org/apache/storm/kafka/spout/KafkaSpoutTupleBuilder.java,40,throw new IllegalArgumentException("Must specify at least one topic. It cannot be null or empty");
+external/storm-kafka-client/src/main/java/org/apache/storm/kafka/spout/KafkaSpoutTupleBuilder.java,42,this.topics = Arrays.asList(topics);
+external/storm-kafka-client/src/main/java/org/apache/storm/kafka/spout/KafkaSpoutTupleBuilder.java,48,public List<String> getTopics() {
+external/storm-kafka-client/src/main/java/org/apache/storm/kafka/spout/KafkaSpoutTupleBuilder.java,49,return Collections.unmodifiableList(topics);
+external/storm-kafka-client/src/main/java/org/apache/storm/kafka/spout/KafkaSpoutTupleBuilder.java,57,public abstract List<Object> buildTuple(ConsumerRecord<K, V> consumerRecord);
+external/storm-kafka-client/src/main/java/org/apache/storm/kafka/spout/KafkaSpoutStreams.java,21,import org.apache.storm.spout.SpoutOutputCollector;
+external/storm-kafka-client/src/main/java/org/apache/storm/kafka/spout/KafkaSpoutStreams.java,22,import org.apache.storm.topology.OutputFieldsDeclarer;
+external/storm-kafka-client/src/main/java/org/apache/storm/kafka/spout/KafkaSpoutStreams.java,29,import java.io.Serializable;
+external/storm-kafka-client/src/main/java/org/apache/storm/kafka/spout/KafkaSpoutStreams.java,32,import java.util.List;
+external/storm-kafka/src/jvm/org/apache/storm/kafka/DynamicPartitionConnections.java,44,Map<Broker, ConnectionInfo> _connections = new HashMap();
+external/storm-kafka/src/jvm/org/apache/storm/kafka/KafkaSpout.java,63,Map stateConf = new HashMap(conf);
+external/storm-kafka/src/jvm/org/apache/storm/kafka/KafkaUtils.java,107,HashMap ret = new HashMap();
+external/storm-kafka/src/jvm/org/apache/storm/kafka/PartitionManager.java,126,Map ret = new HashMap();
+external/storm-kafka/src/jvm/org/apache/storm/kafka/StaticCoordinator.java,27,List<PartitionManager> _allManagers = new ArrayList();
+external/storm-kafka/src/jvm/org/apache/storm/kafka/StaticCoordinator.java,37,_allManagers = new ArrayList(_managers.values());
+external/sql/storm-sql-core/src/jvm/org/apache/storm/sql/StormSqlImpl.java,20,import org.apache.storm.StormSubmitter;
+external/sql/storm-sql-core/src/jvm/org/apache/storm/sql/StormSqlImpl.java,21,import org.apache.storm.generated.SubmitOptions;
+external/sql/storm-sql-core/src/jvm/org/apache/storm/sql/StormSqlImpl.java,22,import org.apache.calcite.adapter.java.JavaTypeFactory;
+external/sql/storm-sql-core/src/jvm/org/apache/storm/sql/StormSqlImpl.java,23,import org.apache.calcite.jdbc.JavaTypeFactoryImpl;
+external/sql/storm-sql-core/src/jvm/org/apache/storm/sql/StormSqlImpl.java,24,import org.apache.calcite.rel.RelNode;
+external/sql/storm-sql-core/src/jvm/org/apache/storm/sql/StormSqlImpl.java,25,import org.apache.calcite.rel.type.RelDataType;
+external/sql/storm-sql-core/src/jvm/org/apache/storm/sql/StormSqlImpl.java,26,import org.apache.calcite.rel.type.RelDataTypeSystem;
+external/sql/storm-sql-core/src/jvm/org/apache/storm/sql/StormSqlImpl.java,27,import org.apache.calcite.schema.SchemaPlus;
+external/sql/storm-sql-core/src/jvm/org/apache/storm/sql/StormSqlImpl.java,28,import org.apache.calcite.schema.Table;
+external/sql/storm-sql-core/src/jvm/org/apache/storm/sql/StormSqlImpl.java,29,import org.apache.calcite.sql.SqlNode;
+external/sql/storm-sql-core/src/jvm/org/apache/storm/sql/StormSqlImpl.java,61,private final JavaTypeFactory typeFactory = new JavaTypeFactoryImpl(
+storm-core/src/jvm/org/apache/storm/utils/NimbusClient.java,56,Config.NIMBUS_HOST, Config.NIMBUS_SEEDS);
+storm-core/src/jvm/org/apache/storm/utils/NimbusClient.java,70,+ ". will retry with a different seed host.", e);
+storm-core/src/jvm/org/apache/storm/StormSubmitter.java,126,NimbusClient client = NimbusClient.getConfiguredClient(conf);
+storm-core/src/jvm/org/apache/storm/StormSubmitter.java,127,try {
+storm-core/src/jvm/org/apache/storm/StormSubmitter.java,131,client.close();
+storm-core/src/jvm/org/apache/storm/blobstore/BlobStoreUtils.java,108,NimbusClient client;
+storm-core/src/jvm/org/apache/storm/blobstore/BlobStoreUtils.java,118,try {
+storm-core/src/jvm/org/apache/storm/blobstore/BlobStoreUtils.java,119,client = new NimbusClient(conf, nimbusInfo.getHost(), nimbusInfo.getPort(), null);
+storm-core/src/jvm/org/apache/storm/blobstore/BlobStoreUtils.java,158,NimbusClient client;
+storm-core/src/jvm/org/apache/storm/blobstore/BlobStoreUtils.java,168,try {
+storm-core/src/jvm/org/apache/storm/blobstore/BlobStoreUtils.java,169,client = new NimbusClient(conf, nimbusInfo.getHost(), nimbusInfo.getPort(), null);
+external/storm-kafka-client/src/main/java/org/apache/storm/kafka/spout/KafkaSpout.java,196,if (initialized) {
+external/storm-kafka-client/src/main/java/org/apache/storm/kafka/spout/KafkaSpout.java,197,if (commit()) {
+external/storm-kafka-client/src/main/java/org/apache/storm/kafka/spout/KafkaSpout.java,198,commitOffsetsForAckedTuples();
+external/storm-kafka-client/src/main/java/org/apache/storm/kafka/spout/KafkaSpout.java,201,if (poll()) {
+external/storm-kafka-client/src/main/java/org/apache/storm/kafka/spout/KafkaSpout.java,202,setWaitingToEmit(pollKafkaBroker());
+external/storm-kafka-client/src/main/java/org/apache/storm/kafka/spout/KafkaSpout.java,205,if (waitingToEmit()) {
+external/storm-kafka-client/src/main/java/org/apache/storm/kafka/spout/KafkaSpout.java,206,emit();
+external/storm-kafka-client/src/main/java/org/apache/storm/kafka/spout/KafkaSpout.java,209,LOG.debug("Spout not initialized. Not sending tuples until initialization completes");
+external/storm-kafka-client/src/main/java/org/apache/storm/kafka/spout/KafkaSpout.java,340,subscribeKafkaConsumer();
+external/storm-kafka-client/src/main/java/org/apache/storm/kafka/spout/KafkaSpout.java,354,shutdown();
+external/storm-kafka-client/src/main/java/org/apache/storm/kafka/spout/KafkaSpout.java,359,shutdown();
+external/storm-kafka-client/src/main/java/org/apache/storm/kafka/spout/KafkaSpout.java,78,private transient Map<TopicPartition, OffsetEntry> acked;           // Tuples that were successfully acked. These tuples will be committed periodically when the commit timer expires, after consumer rebalance, or on close/deactivate
+external/storm-kafka-client/src/main/java/org/apache/storm/kafka/spout/KafkaSpout.java,259,emitTupleIfNotEmitted(waitingToEmit.next());
+external/storm-kafka-client/src/main/java/org/apache/storm/kafka/spout/KafkaSpout.java,260,waitingToEmit.remove();
+external/storm-kafka-client/src/main/java/org/apache/storm/kafka/spout/KafkaSpout.java,264,private void emitTupleIfNotEmitted(ConsumerRecord<K, V> record) {
+external/storm-kafka-client/src/main/java/org/apache/storm/kafka/spout/KafkaSpout.java,395,private class OffsetEntry {
+external/storm-kafka-client/src/main/java/org/apache/storm/kafka/spout/KafkaSpout.java,423,if ((currOffset = currAckedMsg.offset()) == initialFetchOffset || currOffset == nextCommitOffset + 1) {            // found the next offset to commit
+external/storm-kafka-client/src/main/java/org/apache/storm/kafka/spout/KafkaSpout.java,433,break;
+examples/storm-starter/src/jvm/org/apache/storm/starter/WordCountTopology.java,93,StormSubmitter.submitTopologyWithProgressBar(args[0], conf, builder.createTopology());
+external/storm-redis/src/main/java/org/apache/storm/redis/state/RedisKeyValueState.java,29,import sun.misc.BASE64Decoder;
+external/storm-redis/src/main/java/org/apache/storm/redis/state/RedisKeyValueState.java,30,import sun.misc.BASE64Encoder;
+external/storm-redis/src/main/java/org/apache/storm/redis/state/RedisKeyValueState.java,32,import java.io.IOException;
+external/storm-redis/src/main/java/org/apache/storm/redis/state/RedisKeyValueState.java,46,private final BASE64Encoder base64Encoder;
+external/storm-redis/src/main/java/org/apache/storm/redis/state/RedisKeyValueState.java,47,private final BASE64Decoder base64Decoder;
+external/storm-redis/src/main/java/org/apache/storm/redis/state/RedisKeyValueState.java,72,base64Encoder = new BASE64Encoder();
+external/storm-redis/src/main/java/org/apache/storm/redis/state/RedisKeyValueState.java,73,base64Decoder = new BASE64Decoder();
+external/storm-redis/src/main/java/org/apache/storm/redis/state/RedisKeyValueState.java,296,return base64Encoder.encode(bytes);
+external/storm-redis/src/main/java/org/apache/storm/redis/state/RedisKeyValueState.java,300,try {
+external/storm-redis/src/main/java/org/apache/storm/redis/state/RedisKeyValueState.java,301,return base64Decoder.decodeBuffer(s);
+external/storm-redis/src/main/java/org/apache/storm/redis/state/RedisKeyValueState.java,303,throw new RuntimeException("Error while decoding string " + s);
+storm-core/src/jvm/org/apache/storm/grouping/ShuffleGrouping.java,24,import java.util.List;
+storm-core/src/jvm/org/apache/storm/grouping/ShuffleGrouping.java,25,import java.util.Random;
+storm-core/src/jvm/org/apache/storm/grouping/ShuffleGrouping.java,28,import org.apache.storm.generated.GlobalStreamId;
+storm-core/src/jvm/org/apache/storm/grouping/ShuffleGrouping.java,29,import org.apache.storm.task.WorkerTopologyContext;
+storm-core/src/jvm/org/apache/storm/grouping/ShuffleGrouping.java,58,Collections.shuffle(choices, random);
+storm-core/src/jvm/org/apache/storm/scheduler/multitenant/IsolatedPool.java,218,_cluster.setStatus(topId, "Node has partially crashed, if this situation persists rebalance the topology.");
+external/storm-redis/src/main/java/org/apache/storm/redis/common/container/JedisClusterContainer.java,23,import java.io.Closeable;
+external/storm-redis/src/main/java/org/apache/storm/redis/common/container/JedisClusterContainer.java,30,public class JedisClusterContainer implements JedisCommandsInstanceContainer, Closeable {
+external/storm-redis/src/main/java/org/apache/storm/redis/common/container/JedisCommandsInstanceContainer.java,25,public interface JedisCommandsInstanceContainer {
+external/storm-redis/src/main/java/org/apache/storm/redis/common/container/JedisContainer.java,22,import redis.clients.jedis.Jedis;
+external/storm-redis/src/main/java/org/apache/storm/redis/common/container/JedisContainer.java,32,public class JedisContainer implements JedisCommandsInstanceContainer, Closeable {
+storm-core/src/jvm/org/apache/storm/messaging/local/Context.java,31,import org.apache.storm.Config;
+storm-core/src/jvm/org/apache/storm/messaging/local/Context.java,42,IConnectionCallback _cb;
+storm-core/src/jvm/org/apache/storm/messaging/local/Context.java,97,if (_server._cb != null) {
+storm-core/src/jvm/org/apache/storm/messaging/local/Context.java,98,_server._cb.recv(Arrays.asList(new TaskMessage(taskId, payload)));
+storm-core/src/jvm/org/apache/storm/messaging/local/Context.java,104,if (_server._cb != null) {
+storm-core/src/jvm/org/apache/storm/messaging/local/Context.java,109,_server._cb.recv(ret);
+external/storm-kafka-client/src/main/java/org/apache/storm/kafka/spout/KafkaSpout.java,163,kafkaConsumer.seekToBeginning(tp);
+external/storm-kafka-client/src/main/java/org/apache/storm/kafka/spout/KafkaSpout.java,166,kafkaConsumer.seekToEnd(tp);
+external/storm-kafka-client/src/main/java/org/apache/storm/kafka/spout/KafkaSpout.java,175,kafkaConsumer.seekToBeginning(tp);
+external/storm-kafka-client/src/main/java/org/apache/storm/kafka/spout/KafkaSpout.java,177,kafkaConsumer.seekToEnd(tp);
+external/storm-kafka-client/src/main/java/org/apache/storm/kafka/spout/KafkaSpout.java,252,kafkaConsumer.seekToEnd(rtp);    // Seek to last committed offset
+examples/storm-starter/src/jvm/org/apache/storm/starter/trident/TridentWordCount.java,25,import org.apache.storm.tuple.Fields;
+examples/storm-starter/src/jvm/org/apache/storm/starter/trident/TridentWordCount.java,26,import org.apache.storm.tuple.Values;
+examples/storm-starter/src/jvm/org/apache/storm/starter/trident/TridentWordCount.java,34,import org.apache.storm.trident.operation.builtin.Sum;
+examples/storm-starter/src/jvm/org/apache/storm/starter/trident/TridentWordCount.java,62,topology.newDRPCStream("words", drpc).each(new Fields("args"), new Split(), new Fields("word")).groupBy(new Fields(
+examples/storm-starter/src/jvm/org/apache/storm/starter/trident/TridentWordCount.java,64,new FilterNull()).aggregate(new Fields("count"), new Sum(), new Fields("sum"));
+storm-core/src/jvm/org/apache/storm/trident/spout/PartitionedTridentSpoutExecutor.java,26,import org.apache.storm.trident.operation.TridentCollector;
+storm-core/src/jvm/org/apache/storm/trident/spout/PartitionedTridentSpoutExecutor.java,27,import org.apache.storm.trident.topology.TransactionAttempt;
+storm-core/src/jvm/org/apache/storm/trident/spout/PartitionedTridentSpoutExecutor.java,28,import org.apache.storm.trident.topology.state.RotatingTransactionalState;
+storm-core/src/jvm/org/apache/storm/trident/spout/PartitionedTridentSpoutExecutor.java,29,import org.apache.storm.trident.topology.state.TransactionalState;
+storm-core/src/jvm/org/apache/storm/trident/spout/PartitionedTridentSpoutExecutor.java,33,IPartitionedTridentSpout<Integer, ISpoutPartition, Object> _spout;
+storm-core/src/jvm/org/apache/storm/trident/spout/PartitionedTridentSpoutExecutor.java,35,public PartitionedTridentSpoutExecutor(IPartitionedTridentSpout<Integer, ISpoutPartition, Object> spout) {
+storm-core/src/jvm/org/apache/storm/trident/spout/PartitionedTridentSpoutExecutor.java,39,public IPartitionedTridentSpout<Integer, ISpoutPartition, Object> getPartitionedSpout() {
+storm-core/src/jvm/org/apache/storm/trident/spout/PartitionedTridentSpoutExecutor.java,44,private IPartitionedTridentSpout.Coordinator<Integer> _coordinator;
+external/storm-kafka-client/src/main/java/org/apache/storm/kafka/spout/KafkaSpout.java,343,private void subscribeKafkaConsumer() {
+external/flux/flux-core/src/main/java/org/apache/storm/flux/FluxBuilder.java,452,LOG.debug("found constructor with same number of args..");
+storm-core/src/jvm/org/apache/storm/messaging/netty/Client.java,133,private final Context context;
+storm-core/src/jvm/org/apache/storm/messaging/netty/Client.java,142,Client(Map stormConf, ChannelFactory factory, HashedWheelTimer scheduler, String host, int port, Context context) {
+storm-core/src/jvm/org/apache/storm/messaging/netty/Client.java,146,this.context = context;
+storm-core/src/jvm/org/apache/storm/messaging/netty/Context.java,24,import java.util.HashMap;
+storm-core/src/jvm/org/apache/storm/messaging/netty/Context.java,35,private Map<String, IConnection> connections;
+storm-core/src/jvm/org/apache/storm/messaging/netty/Context.java,46,connections = new HashMap<>();
+storm-core/src/jvm/org/apache/storm/messaging/netty/Context.java,67,IConnection server = new Server(storm_conf, port);
+storm-core/src/jvm/org/apache/storm/messaging/netty/Context.java,68,connections.put(key(storm_id, port), server);
+storm-core/src/jvm/org/apache/storm/messaging/netty/Context.java,75,public synchronized IConnection connect(String storm_id, String host, int port) {
+storm-core/src/jvm/org/apache/storm/messaging/netty/Context.java,76,IConnection connection = connections.get(key(host,port));
+storm-core/src/jvm/org/apache/storm/messaging/netty/Context.java,79,return connection;
+storm-core/src/jvm/org/apache/storm/messaging/netty/Context.java,81,IConnection client =  new Client(storm_conf, clientChannelFactory,
+storm-core/src/jvm/org/apache/storm/messaging/netty/Context.java,82,clientScheduleService, host, port, this);
+storm-core/src/jvm/org/apache/storm/messaging/netty/Context.java,83,connections.put(key(host, port), client);
+storm-core/src/jvm/org/apache/storm/messaging/netty/Context.java,84,return client;
+storm-core/src/jvm/org/apache/storm/messaging/netty/Context.java,87,synchronized void removeClient(String host, int port) {
+storm-core/src/jvm/org/apache/storm/messaging/netty/Context.java,88,if (connections != null) {
+storm-core/src/jvm/org/apache/storm/messaging/netty/Context.java,89,connections.remove(key(host, port));
+storm-core/src/jvm/org/apache/storm/messaging/netty/Context.java,99,for (IConnection conn : connections.values()) {
+storm-core/src/jvm/org/apache/storm/messaging/netty/Context.java,103,connections = null;
+storm-core/src/jvm/org/apache/storm/messaging/netty/Context.java,110,private String key(String host, int port) {
+storm-core/src/jvm/org/apache/storm/messaging/netty/Context.java,111,return String.format("%s:%d", host, port);
+external/storm-kafka-client/src/main/java/org/apache/storm/kafka/spout/KafkaSpout.java,114,waitingToEmit = Collections.emptyListIterator();
+external/storm-kafka-client/src/main/java/org/apache/storm/kafka/spout/KafkaSpout.java,222,return waitingToEmit != null && waitingToEmit.hasNext();
+external/storm-kafka-client/src/main/java/org/apache/storm/kafka/spout/KafkaSpout.java,228,waitingToEmitList.addAll(consumerRecords.records(tp));
+external/storm-kafka-client/src/main/java/org/apache/storm/kafka/spout/KafkaSpout.java,230,waitingToEmit = waitingToEmitList.iterator();
+external/storm-kafka-client/src/main/java/org/apache/storm/kafka/spout/KafkaSpout.java,148,final OffsetAndMetadata committedOffset = kafkaConsumer.committed(tp);
+external/storm-kafka-client/src/main/java/org/apache/storm/kafka/spout/KafkaSpout.java,149,final long fetchOffset = doSeek(tp, committedOffset);
+external/storm-kafka-client/src/main/java/org/apache/storm/kafka/spout/KafkaSpout.java,159,private long doSeek(TopicPartition tp, OffsetAndMetadata committedOffset) {
+external/storm-kafka-client/src/main/java/org/apache/storm/kafka/spout/KafkaSpout.java,161,if (committedOffset != null) {             // offset was committed for this TopicPartition
+external/storm-kafka-client/src/main/java/org/apache/storm/kafka/spout/KafkaSpout.java,162,if (firstPollOffsetStrategy.equals(EARLIEST)) {
+external/storm-kafka-client/src/main/java/org/apache/storm/kafka/spout/KafkaSpout.java,288,final OffsetAndMetadata nextCommitOffset = tpOffset.getValue().findNextCommitOffset();
+external/storm-kafka-client/src/main/java/org/apache/storm/kafka/spout/KafkaSpoutMessageId.java,62,public String getMetadata(Thread currThread) {
+external/storm-kafka-client/src/main/java/org/apache/storm/kafka/spout/KafkaSpoutMessageId.java,63,return "{" +
+external/storm-kafka-client/src/main/java/org/apache/storm/kafka/spout/KafkaSpoutMessageId.java,73,return "{" +
+external/flux/flux-core/src/main/java/org/apache/storm/flux/Flux.java,141,topologyDef = FluxParser.parseResource(filePath, dumpYaml, true, filterProps, envFilter);
+external/flux/flux-core/src/main/java/org/apache/storm/flux/Flux.java,143,printf("Parsing file: %s",
+external/flux/flux-core/src/main/java/org/apache/storm/flux/Flux.java,144,new File(filePath).getAbsolutePath());
+external/flux/flux-core/src/main/java/org/apache/storm/flux/Flux.java,145,topologyDef = FluxParser.parseFile(filePath, dumpYaml, true, filterProps, envFilter);
+external/flux/flux-core/src/main/java/org/apache/storm/flux/parser/FluxParser.java,49,TopologyDef topology = parseInputStream(in, dumpYaml, processIncludes, propertiesFile, envSub);
+external/flux/flux-core/src/main/java/org/apache/storm/flux/parser/FluxParser.java,59,TopologyDef topology = parseInputStream(in, dumpYaml, processIncludes, propertiesFile, envSub);
+external/flux/flux-core/src/main/java/org/apache/storm/flux/parser/FluxParser.java,88,private static TopologyDef loadYaml(Yaml yaml, InputStream in, String propsFile, boolean envSubstitution) throws IOException {
+external/flux/flux-core/src/main/java/org/apache/storm/flux/parser/FluxParser.java,101,InputStream propsIn = new FileInputStream(propsFile);
+external/flux/flux-core/src/main/java/org/apache/storm/flux/parser/FluxParser.java,102,Properties props = new Properties();
+external/flux/flux-core/src/main/java/org/apache/storm/flux/parser/FluxParser.java,103,props.load(propsIn);
+external/flux/flux-core/src/main/java/org/apache/storm/flux/parser/FluxParser.java,104,for(Object key : props.keySet()){
+external/flux/flux-core/src/main/java/org/apache/storm/flux/parser/FluxParser.java,105,str = str.replace("${" + key + "}", props.getProperty((String)key));
+external/flux/flux-core/src/main/java/org/apache/storm/flux/parser/FluxParser.java,148,throws IOException {
+external/flux/flux-core/src/main/java/org/apache/storm/flux/parser/FluxParser.java,155,includeTopologyDef = parseResource(include.getFile(), true, false, propsFile, envSub);
+external/flux/flux-core/src/main/java/org/apache/storm/flux/parser/FluxParser.java,158,includeTopologyDef = parseFile(include.getFile(), true, false, propsFile, envSub);
+external/storm-kafka-client/src/main/java/org/apache/storm/kafka/spout/KafkaSpout.java,91,initialized = false;
+external/storm-kafka-client/src/main/java/org/apache/storm/kafka/spout/KafkaSpout.java,128,commitOffsetsForAckedTuples();
+external/storm-kafka-client/src/main/java/org/apache/storm/kafka/spout/KafkaSpout.java,152,initialized = true;
+external/storm-kafka-client/src/main/java/org/apache/storm/kafka/spout/KafkaSpout.java,284,private void commitOffsetsForAckedTuples() {
+external/storm-kafka-client/src/main/java/org/apache/storm/kafka/spout/KafkaSpout.java,366,commitOffsetsForAckedTuples();
+external/storm-kafka-client/src/main/java/org/apache/storm/kafka/spout/KafkaSpout.java,213,private boolean commit() {
+external/storm-kafka-client/src/main/java/org/apache/storm/kafka/spout/KafkaSpout.java,221,private boolean waitingToEmit() {
+external/storm-kafka-client/src/main/java/org/apache/storm/kafka/spout/KafkaSpout.java,258,private void emit() {
+external/storm-hdfs/src/main/java/org/apache/storm/hdfs/bolt/AbstractHdfsBolt.java,99,public final void prepare(Map conf, TopologyContext topologyContext, OutputCollector collector){
+external/storm-hdfs/src/main/java/org/apache/storm/hdfs/bolt/AbstractHdfsBolt.java,110,Map<String, Object> map = (Map<String, Object>)conf.get(this.configKey);
+external/storm-hdfs/src/main/java/org/apache/storm/hdfs/bolt/AbstractHdfsBolt.java,111,if(map != null){
+external/storm-hdfs/src/main/java/org/apache/storm/hdfs/bolt/AbstractHdfsBolt.java,112,for(String key : map.keySet()){
+external/storm-hdfs/src/main/java/org/apache/storm/hdfs/bolt/AbstractHdfsBolt.java,117,try{
+external/storm-hdfs/src/main/java/org/apache/storm/hdfs/bolt/AbstractHdfsBolt.java,126,if(this.rotationPolicy instanceof TimedRotationPolicy){
+external/storm-kafka-client/src/main/java/org/apache/storm/kafka/spout/KafkaSpout.java,96,numUncommittedOffsets = 0;
+external/storm-kafka-client/src/main/java/org/apache/storm/kafka/spout/KafkaSpout.java,217,private boolean poll() {
+external/storm-kafka-client/src/main/java/org/apache/storm/kafka/spout/KafkaSpout.java,235,private ConsumerRecords<K, V> pollKafkaBroker() {
+external/storm-kafka-client/src/main/java/org/apache/storm/kafka/spout/KafkaSpout.java,236,doSeekRetriableTopicPartitions();
+external/storm-kafka-client/src/main/java/org/apache/storm/kafka/spout/KafkaSpout.java,239,final int numPolledRecords = consumerRecords.count();
+external/storm-kafka-client/src/main/java/org/apache/storm/kafka/spout/KafkaSpout.java,241,return consumerRecords;
+external/storm-kafka-client/src/main/java/org/apache/storm/kafka/spout/KafkaSpout.java,244,private void doSeekRetriableTopicPartitions() {
+external/storm-kafka-client/src/main/java/org/apache/storm/kafka/spout/KafkaSpout.java,127,initialized = false;
+storm-core/src/jvm/org/apache/storm/trident/topology/state/TransactionalState.java,152,if(_curator.checkExists().forPath(path)!=null) {
+external/storm-hbase/src/main/java/org/apache/storm/hbase/common/HBaseClient.java,30,import java.security.PrivilegedExceptionAction;
+external/storm-hbase/src/main/java/org/apache/storm/hbase/common/HBaseClient.java,42,this.table = provider.getCurrent().getUGI().doAs(new PrivilegedExceptionAction<HTable>() {
+external/storm-hbase/src/main/java/org/apache/storm/hbase/common/HBaseClient.java,44,public HTable run() throws IOException {
+external/storm-hbase/src/main/java/org/apache/storm/hbase/common/HBaseClient.java,45,return new HTable(configuration, tableName);
+external/storm-hbase/src/main/java/org/apache/storm/hbase/trident/state/HBaseMapState.java,84,this.table = provider.getCurrent().getUGI().doAs(new PrivilegedExceptionAction<HTable>() {
+external/storm-hbase/src/main/java/org/apache/storm/hbase/trident/state/HBaseMapState.java,86,public HTable run() throws IOException {
+external/storm-hbase/src/main/java/org/apache/storm/hbase/trident/state/HBaseMapState.java,87,return new HTable(hbConfig, options.tableName);

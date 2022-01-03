@@ -1,0 +1,146 @@
+File,Line_number,SRC
+storm-core/src/jvm/org/apache/storm/localizer/Localizer.java,546,Utils.unpack(new File(downloadFile), new File(localFileWithVersion));
+storm-core/src/jvm/org/apache/storm/utils/Utils.java,862,throws IOException {
+storm-core/src/jvm/org/apache/storm/utils/Utils.java,863,JarFile jar = new JarFile(jarFile);
+storm-core/src/jvm/org/apache/storm/utils/Utils.java,864,try {
+storm-core/src/jvm/org/apache/storm/utils/Utils.java,865,Enumeration<JarEntry> entries = jar.entries();
+storm-core/src/jvm/org/apache/storm/utils/Utils.java,866,while (entries.hasMoreElements()) {
+storm-core/src/jvm/org/apache/storm/utils/Utils.java,867,final JarEntry entry = entries.nextElement();
+storm-core/src/jvm/org/apache/storm/utils/Utils.java,868,if (!entry.isDirectory()) {
+storm-core/src/jvm/org/apache/storm/utils/Utils.java,869,InputStream in = jar.getInputStream(entry);
+storm-core/src/jvm/org/apache/storm/utils/Utils.java,870,try {
+storm-core/src/jvm/org/apache/storm/utils/Utils.java,871,File file = new File(toDir, entry.getName());
+storm-core/src/jvm/org/apache/storm/utils/Utils.java,872,ensureDirectory(file.getParentFile());
+storm-core/src/jvm/org/apache/storm/utils/Utils.java,873,OutputStream out = new FileOutputStream(file);
+storm-core/src/jvm/org/apache/storm/utils/Utils.java,874,try {
+storm-core/src/jvm/org/apache/storm/utils/Utils.java,875,copyBytes(in, out, 8192);
+storm-core/src/jvm/org/apache/storm/utils/Utils.java,877,out.close();
+storm-core/src/jvm/org/apache/storm/utils/Utils.java,880,in.close();
+storm-core/src/jvm/org/apache/storm/utils/Utils.java,885,jar.close();
+storm-core/src/jvm/org/apache/storm/utils/Utils.java,897,throws IOException {
+storm-core/src/jvm/org/apache/storm/utils/Utils.java,898,PrintStream ps = out instanceof PrintStream ? (PrintStream)out : null;
+storm-core/src/jvm/org/apache/storm/utils/Utils.java,899,byte buf[] = new byte[buffSize];
+storm-core/src/jvm/org/apache/storm/utils/Utils.java,900,int bytesRead = in.read(buf);
+storm-core/src/jvm/org/apache/storm/utils/Utils.java,901,while (bytesRead >= 0) {
+storm-core/src/jvm/org/apache/storm/utils/Utils.java,902,out.write(buf, 0, bytesRead);
+storm-core/src/jvm/org/apache/storm/utils/Utils.java,903,if ((ps != null) && ps.checkError()) {
+storm-core/src/jvm/org/apache/storm/utils/Utils.java,904,throw new IOException("Unable to write to output stream.");
+storm-core/src/jvm/org/apache/storm/utils/Utils.java,906,bytesRead = in.read(buf);
+storm-core/src/jvm/org/apache/storm/utils/Utils.java,932,public static void unTar(File inFile, File untarDir) throws IOException {
+storm-core/src/jvm/org/apache/storm/utils/Utils.java,933,if (!untarDir.mkdirs()) {
+storm-core/src/jvm/org/apache/storm/utils/Utils.java,934,if (!untarDir.isDirectory()) {
+storm-core/src/jvm/org/apache/storm/utils/Utils.java,935,throw new IOException("Mkdirs failed to create " + untarDir);
+storm-core/src/jvm/org/apache/storm/utils/Utils.java,940,if (isOnWindows()) {
+storm-core/src/jvm/org/apache/storm/utils/Utils.java,943,unTarUsingJava(inFile, untarDir, gzipped);
+storm-core/src/jvm/org/apache/storm/utils/Utils.java,980,boolean gzipped) throws IOException {
+storm-core/src/jvm/org/apache/storm/utils/Utils.java,991,unpackEntries(tis, entry, untarDir);
+storm-core/src/jvm/org/apache/storm/utils/Utils.java,1003,TarArchiveEntry entry, File outputDir) throws IOException {
+storm-core/src/jvm/org/apache/storm/utils/Utils.java,1005,File subDir = new File(outputDir, entry.getName());
+storm-core/src/jvm/org/apache/storm/utils/Utils.java,1006,if (!subDir.mkdirs() && !subDir.isDirectory()) {
+storm-core/src/jvm/org/apache/storm/utils/Utils.java,1007,throw new IOException("Mkdirs failed to create tar internal dir "
+storm-core/src/jvm/org/apache/storm/utils/Utils.java,1008,+ outputDir);
+storm-core/src/jvm/org/apache/storm/utils/Utils.java,1011,unpackEntries(tis, e, subDir);
+storm-core/src/jvm/org/apache/storm/utils/Utils.java,1013,return;
+storm-core/src/jvm/org/apache/storm/utils/Utils.java,1015,File outputFile = new File(outputDir, entry.getName());
+storm-core/src/jvm/org/apache/storm/utils/Utils.java,1016,if (!outputFile.getParentFile().exists()) {
+storm-core/src/jvm/org/apache/storm/utils/Utils.java,1017,if (!outputFile.getParentFile().mkdirs()) {
+storm-core/src/jvm/org/apache/storm/utils/Utils.java,1018,throw new IOException("Mkdirs failed to create tar internal dir "
+storm-core/src/jvm/org/apache/storm/utils/Utils.java,1019,+ outputDir);
+storm-core/src/jvm/org/apache/storm/utils/Utils.java,1022,int count;
+storm-core/src/jvm/org/apache/storm/utils/Utils.java,1023,byte data[] = new byte[2048];
+storm-core/src/jvm/org/apache/storm/utils/Utils.java,1024,BufferedOutputStream outputStream = new BufferedOutputStream(
+storm-core/src/jvm/org/apache/storm/utils/Utils.java,1025,new FileOutputStream(outputFile));
+storm-core/src/jvm/org/apache/storm/utils/Utils.java,1027,while ((count = tis.read(data)) != -1) {
+storm-core/src/jvm/org/apache/storm/utils/Utils.java,1028,outputStream.write(data, 0, count);
+storm-core/src/jvm/org/apache/storm/utils/Utils.java,1030,outputStream.flush();
+storm-core/src/jvm/org/apache/storm/utils/Utils.java,1031,outputStream.close();
+storm-core/src/jvm/org/apache/storm/utils/Utils.java,1045,public static void unpack(File localrsrc, File dst) throws IOException {
+storm-core/src/jvm/org/apache/storm/utils/Utils.java,1047,if (lowerDst.endsWith(".jar")) {
+storm-core/src/jvm/org/apache/storm/utils/Utils.java,1052,lowerDst.endsWith(".tgz") ||
+storm-core/src/jvm/org/apache/storm/utils/Utils.java,1053,lowerDst.endsWith(".tar")) {
+storm-core/src/jvm/org/apache/storm/utils/Utils.java,1054,unTar(localrsrc, dst);
+storm-core/src/jvm/org/apache/storm/utils/Utils.java,1349,public static void unZip(File inFile, File unzipDir) throws IOException {
+storm-core/src/jvm/org/apache/storm/utils/Utils.java,1350,Enumeration<? extends ZipEntry> entries;
+storm-core/src/jvm/org/apache/storm/utils/Utils.java,1351,ZipFile zipFile = new ZipFile(inFile);
+storm-core/src/jvm/org/apache/storm/utils/Utils.java,1353,try {
+storm-core/src/jvm/org/apache/storm/utils/Utils.java,1354,entries = zipFile.entries();
+storm-core/src/jvm/org/apache/storm/utils/Utils.java,1355,while (entries.hasMoreElements()) {
+storm-core/src/jvm/org/apache/storm/utils/Utils.java,1356,ZipEntry entry = entries.nextElement();
+storm-core/src/jvm/org/apache/storm/utils/Utils.java,1357,if (!entry.isDirectory()) {
+storm-core/src/jvm/org/apache/storm/utils/Utils.java,1358,InputStream in = zipFile.getInputStream(entry);
+storm-core/src/jvm/org/apache/storm/utils/Utils.java,1359,try {
+storm-core/src/jvm/org/apache/storm/utils/Utils.java,1360,File file = new File(unzipDir, entry.getName());
+storm-core/src/jvm/org/apache/storm/utils/Utils.java,1361,if (!file.getParentFile().mkdirs()) {
+storm-core/src/jvm/org/apache/storm/utils/Utils.java,1362,if (!file.getParentFile().isDirectory()) {
+storm-core/src/jvm/org/apache/storm/utils/Utils.java,1363,throw new IOException("Mkdirs failed to create " +
+storm-core/src/jvm/org/apache/storm/utils/Utils.java,1364,file.getParentFile().toString());
+storm-core/src/jvm/org/apache/storm/utils/Utils.java,1367,OutputStream out = new FileOutputStream(file);
+storm-core/src/jvm/org/apache/storm/utils/Utils.java,1368,try {
+storm-core/src/jvm/org/apache/storm/utils/Utils.java,1369,byte[] buffer = new byte[8192];
+storm-core/src/jvm/org/apache/storm/utils/Utils.java,1370,int i;
+storm-core/src/jvm/org/apache/storm/utils/Utils.java,1371,while ((i = in.read(buffer)) != -1) {
+storm-core/src/jvm/org/apache/storm/utils/Utils.java,1372,out.write(buffer, 0, i);
+storm-core/src/jvm/org/apache/storm/utils/Utils.java,1375,out.close();
+storm-core/src/jvm/org/apache/storm/utils/Utils.java,1378,in.close();
+storm-core/src/jvm/org/apache/storm/utils/Utils.java,1383,zipFile.close();
+storm-core/src/jvm/org/apache/storm/utils/Utils.java,1857,Enumeration<JarEntry> jarEnums = jarFile.entries();
+storm-core/src/jvm/org/apache/storm/utils/Utils.java,1858,while (jarEnums.hasMoreElements()) {
+storm-core/src/jvm/org/apache/storm/utils/Utils.java,1859,JarEntry entry = jarEnums.nextElement();
+storm-core/src/jvm/org/apache/storm/utils/Utils.java,1860,if (!entry.isDirectory() && entry.getName().startsWith(dir)) {
+storm-core/src/jvm/org/apache/storm/utils/Utils.java,1861,File aFile = new File(destdir, entry.getName());
+storm-core/src/jvm/org/apache/storm/utils/Utils.java,1862,aFile.getParentFile().mkdirs();
+storm-core/src/jvm/org/apache/storm/utils/Utils.java,1863,try (FileOutputStream out = new FileOutputStream(aFile);
+storm-core/src/jvm/org/apache/storm/utils/Utils.java,1864,InputStream in = jarFile.getInputStream(entry)) {
+storm-core/src/jvm/org/apache/storm/utils/Utils.java,1865,IOUtils.copy(in, out);
+storm-core/src/jvm/org/apache/storm/daemon/supervisor/Slot.java,641,container = containerLauncher.recoverContainer(port, currentAssignment, localState);
+storm-core/src/jvm/org/apache/storm/metric/FileBasedEventLogger.java,62,ScheduledExecutorService scheduler = Executors.newSingleThreadScheduledExecutor();
+storm-core/src/jvm/org/apache/storm/metric/FileBasedEventLogger.java,63,Runnable task = new Runnable() {
+storm-core/src/jvm/org/apache/storm/metric/FileBasedEventLogger.java,78,scheduler.scheduleAtFixedRate(task, FLUSH_INTERVAL_MILLIS, FLUSH_INTERVAL_MILLIS, TimeUnit.MILLISECONDS);
+storm-core/src/jvm/org/apache/storm/daemon/supervisor/Supervisor.java,248,private void launchDaemon() {
+external/storm-hdfs/src/main/java/org/apache/storm/hdfs/blobstore/HdfsBlobStore.java,27,import org.apache.storm.generated.KeyNotFoundException;
+external/storm-hdfs/src/main/java/org/apache/storm/hdfs/blobstore/HdfsBlobStore.java,33,import org.apache.hadoop.conf.Configuration;
+external/storm-hdfs/src/main/java/org/apache/storm/hdfs/blobstore/HdfsBlobStore.java,34,import org.apache.hadoop.fs.Path;
+external/storm-hdfs/src/main/java/org/apache/storm/hdfs/blobstore/HdfsBlobStore.java,35,import org.apache.hadoop.security.UserGroupInformation;
+external/storm-hdfs/src/main/java/org/apache/storm/hdfs/blobstore/HdfsBlobStore.java,39,import javax.security.auth.Subject;
+external/storm-hdfs/src/main/java/org/apache/storm/hdfs/blobstore/HdfsBlobStore.java,40,import java.io.ByteArrayOutputStream;
+external/storm-hdfs/src/main/java/org/apache/storm/hdfs/blobstore/HdfsBlobStore.java,41,import java.io.FileNotFoundException;
+external/storm-hdfs/src/main/java/org/apache/storm/hdfs/blobstore/HdfsBlobStore.java,42,import java.io.IOException;
+external/storm-hdfs/src/main/java/org/apache/storm/hdfs/blobstore/HdfsBlobStore.java,43,import java.io.InputStream;
+external/storm-hdfs/src/main/java/org/apache/storm/hdfs/blobstore/HdfsBlobStore.java,44,import java.security.AccessController;
+external/storm-hdfs/src/main/java/org/apache/storm/hdfs/blobstore/HdfsBlobStore.java,45,import java.security.PrivilegedAction;
+external/storm-hdfs/src/main/java/org/apache/storm/hdfs/blobstore/HdfsBlobStore.java,46,import java.util.Iterator;
+external/storm-hdfs/src/main/java/org/apache/storm/hdfs/blobstore/HdfsBlobStore.java,47,import java.util.Map;
+external/storm-hdfs/src/main/java/org/apache/storm/hdfs/blobstore/HdfsBlobStore.java,76,private BlobStoreAclHandler _aclHandler;
+external/storm-hdfs/src/main/java/org/apache/storm/hdfs/blobstore/HdfsBlobStore.java,77,private HdfsBlobStoreImpl _hbs;
+external/storm-hdfs/src/main/java/org/apache/storm/hdfs/blobstore/HdfsBlobStore.java,78,private Subject _localSubject;
+external/storm-hdfs/src/main/java/org/apache/storm/hdfs/blobstore/HdfsBlobStore.java,79,private Map conf;
+external/storm-hdfs/src/main/java/org/apache/storm/hdfs/blobstore/HdfsBlobStore.java,109,return _localSubject;
+external/storm-hdfs/src/main/java/org/apache/storm/hdfs/blobstore/HdfsBlobStore.java,140,UserGroupInformation.loginUserFromKeytab(principal, keyTab);
+external/storm-hdfs/src/main/java/org/apache/storm/hdfs/blobstore/HdfsBlobStore.java,157,_hbs = new HdfsBlobStoreImpl(baseDir, conf, hadoopConf);
+external/storm-hdfs/src/main/java/org/apache/storm/hdfs/blobstore/HdfsBlobStore.java,159,_hbs = new HdfsBlobStoreImpl(baseDir, conf);
+external/storm-hdfs/src/main/java/org/apache/storm/hdfs/blobstore/HdfsBlobStore.java,164,_localSubject = getHadoopUser();
+external/storm-hdfs/src/main/java/org/apache/storm/hdfs/blobstore/HdfsBlobStore.java,165,_aclHandler = new BlobStoreAclHandler(conf);
+external/storm-hdfs/src/main/java/org/apache/storm/hdfs/blobstore/HdfsBlobStore.java,176,_aclHandler.normalizeSettableBlobMeta(key, meta, who, READ | WRITE | ADMIN);
+external/storm-hdfs/src/main/java/org/apache/storm/hdfs/blobstore/HdfsBlobStore.java,178,_aclHandler.hasPermissions(meta.get_acl(), READ | WRITE | ADMIN, who, key);
+external/storm-hdfs/src/main/java/org/apache/storm/hdfs/blobstore/HdfsBlobStore.java,179,if (_hbs.exists(DATA_PREFIX+key)) {
+external/storm-hdfs/src/main/java/org/apache/storm/hdfs/blobstore/HdfsBlobStore.java,184,BlobStoreFile metaFile = _hbs.write(META_PREFIX + key, true);
+external/storm-hdfs/src/main/java/org/apache/storm/hdfs/blobstore/HdfsBlobStore.java,190,BlobStoreFile dataFile = _hbs.write(DATA_PREFIX + key, true);
+external/storm-hdfs/src/main/java/org/apache/storm/hdfs/blobstore/HdfsBlobStore.java,212,_aclHandler.hasPermissions(meta.get_acl(), WRITE, who, key);
+external/storm-hdfs/src/main/java/org/apache/storm/hdfs/blobstore/HdfsBlobStore.java,214,BlobStoreFile dataFile = _hbs.write(DATA_PREFIX + key, false);
+external/storm-hdfs/src/main/java/org/apache/storm/hdfs/blobstore/HdfsBlobStore.java,225,BlobStoreFile pf = _hbs.read(META_PREFIX + key);
+external/storm-hdfs/src/main/java/org/apache/storm/hdfs/blobstore/HdfsBlobStore.java,259,_aclHandler.validateUserCanReadMeta(meta.get_acl(), who, key);
+external/storm-hdfs/src/main/java/org/apache/storm/hdfs/blobstore/HdfsBlobStore.java,263,BlobStoreFile pf = _hbs.read(DATA_PREFIX + key);
+external/storm-hdfs/src/main/java/org/apache/storm/hdfs/blobstore/HdfsBlobStore.java,279,_aclHandler.normalizeSettableBlobMeta(key,  meta, who, ADMIN);
+external/storm-hdfs/src/main/java/org/apache/storm/hdfs/blobstore/HdfsBlobStore.java,282,_aclHandler.hasPermissions(orig.get_acl(), ADMIN, who, key);
+external/storm-hdfs/src/main/java/org/apache/storm/hdfs/blobstore/HdfsBlobStore.java,293,_aclHandler.hasPermissions(meta.get_acl(), WRITE, who, key);
+external/storm-hdfs/src/main/java/org/apache/storm/hdfs/blobstore/HdfsBlobStore.java,295,_hbs.deleteKey(DATA_PREFIX + key);
+external/storm-hdfs/src/main/java/org/apache/storm/hdfs/blobstore/HdfsBlobStore.java,296,_hbs.deleteKey(META_PREFIX + key);
+external/storm-hdfs/src/main/java/org/apache/storm/hdfs/blobstore/HdfsBlobStore.java,308,_aclHandler.hasPermissions(meta.get_acl(), READ, who, key);
+external/storm-hdfs/src/main/java/org/apache/storm/hdfs/blobstore/HdfsBlobStore.java,310,return new BlobStoreFileInputStream(_hbs.read(DATA_PREFIX + key));
+external/storm-hdfs/src/main/java/org/apache/storm/hdfs/blobstore/HdfsBlobStore.java,319,return new KeyTranslationIterator(_hbs.listKeys(), DATA_PREFIX);
+external/storm-hdfs/src/main/java/org/apache/storm/hdfs/blobstore/HdfsBlobStore.java,335,_aclHandler.hasAnyPermissions(meta.get_acl(), READ | WRITE | ADMIN, who, key);
+external/storm-hdfs/src/main/java/org/apache/storm/hdfs/blobstore/HdfsBlobStore.java,337,return _hbs.getBlobReplication(DATA_PREFIX + key);
+external/storm-hdfs/src/main/java/org/apache/storm/hdfs/blobstore/HdfsBlobStore.java,349,_aclHandler.hasAnyPermissions(meta.get_acl(), WRITE | ADMIN, who, key);
+external/storm-hdfs/src/main/java/org/apache/storm/hdfs/blobstore/HdfsBlobStore.java,352,return _hbs.updateBlobReplication(DATA_PREFIX + key, replication);
+external/storm-hdfs/src/main/java/org/apache/storm/hdfs/blobstore/HdfsBlobStore.java,362,BlobStoreFile hdfsFile = _hbs.write(META_PREFIX + key, false);
+external/storm-hdfs/src/main/java/org/apache/storm/hdfs/blobstore/HdfsBlobStore.java,382,_hbs.fullCleanup(age);

@@ -1,0 +1,1306 @@
+File,Line_number,SRC
+src/java/main/org/apache/zookeeper/server/DataTree.java,948,ProcessTxnResult subRc = processTxn(subHdr, record);
+src/java/main/org/apache/zookeeper/server/DataTree.java,980,if (rc.zxid > lastProcessedZxid) {
+src/java/main/org/apache/zookeeper/server/DataTree.java,981,lastProcessedZxid = rc.zxid;
+src/java/main/org/apache/zookeeper/server/ZKDatabase.java,98,dataTree = new DataTree();
+src/java/main/org/apache/zookeeper/server/ZKDatabase.java,124,dataTree = new DataTree();
+src/java/main/org/apache/zookeeper/server/admin/Commands.java,177,response.put("connections", zkServer.getServerCnxnFactory().getAllConnectionInfo(false));
+src/java/main/org/apache/zookeeper/ClientCnxn.java,830,private Random r = new Random(System.nanoTime());
+src/java/main/org/apache/zookeeper/server/SyncRequestProcessor.java,64,private final Random r = new Random(System.nanoTime());
+src/java/main/org/apache/zookeeper/ClientCnxn.java,702,private void finishPacket(Packet p) {
+src/java/main/org/apache/zookeeper/ClientCnxn.java,1267,cleanup();
+src/java/main/org/apache/zookeeper/ClientCnxn.java,1268,if (state.isAlive()) {
+src/java/main/org/apache/zookeeper/ClientCnxn.java,1269,eventThread.queueEvent(new WatchedEvent(
+src/java/main/org/apache/zookeeper/ClientCnxn.java,1270,Event.EventType.None,
+src/java/main/org/apache/zookeeper/ClientCnxn.java,1271,Event.KeeperState.Disconnected,
+src/java/main/org/apache/zookeeper/ClientCnxn.java,1272,null));
+src/java/main/org/apache/zookeeper/ClientCnxn.java,1274,clientCnxnSocket.updateNow();
+src/java/main/org/apache/zookeeper/ClientCnxn.java,1275,clientCnxnSocket.updateLastSendAndHeard();
+src/java/main/org/apache/zookeeper/ClientCnxn.java,1514,while (!packet.finished) {
+src/java/main/org/apache/zookeeper/ClientCnxn.java,1515,packet.wait();
+src/java/main/org/apache/zookeeper/ZooKeeper.java,726,cnxn = new ClientCnxn(connectStringParser.getChrootPath(),
+src/java/main/org/apache/zookeeper/client/StaticHostProvider.java,74,sourceOfRandomness = new Random(System.currentTimeMillis() ^ this.hashCode());
+src/java/main/org/apache/zookeeper/client/StaticHostProvider.java,76,this.serverAddresses = resolveAndShuffle(serverAddresses);
+src/java/main/org/apache/zookeeper/client/StaticHostProvider.java,77,if (this.serverAddresses.isEmpty()) {
+src/java/main/org/apache/zookeeper/client/StaticHostProvider.java,78,throw new IllegalArgumentException(
+src/java/main/org/apache/zookeeper/client/StaticHostProvider.java,81,currentIndex = -1;
+src/java/main/org/apache/zookeeper/client/StaticHostProvider.java,82,lastIndex = -1;
+src/java/main/org/apache/zookeeper/client/StaticHostProvider.java,97,sourceOfRandomness = new Random(randomnessSeed);
+src/java/main/org/apache/zookeeper/client/StaticHostProvider.java,99,this.serverAddresses = resolveAndShuffle(serverAddresses);
+src/java/main/org/apache/zookeeper/client/StaticHostProvider.java,100,if (this.serverAddresses.isEmpty()) {
+src/java/main/org/apache/zookeeper/client/StaticHostProvider.java,105,lastIndex = -1;
+src/java/main/org/apache/zookeeper/client/StaticHostProvider.java,108,private List<InetSocketAddress> resolveAndShuffle(Collection<InetSocketAddress> serverAddresses) {
+src/java/main/org/apache/zookeeper/client/StaticHostProvider.java,109,List<InetSocketAddress> tmpList = new ArrayList<InetSocketAddress>(serverAddresses.size());
+src/java/main/org/apache/zookeeper/client/StaticHostProvider.java,110,for (InetSocketAddress address : serverAddresses) {
+src/java/main/org/apache/zookeeper/client/StaticHostProvider.java,111,try {
+src/java/main/org/apache/zookeeper/client/StaticHostProvider.java,112,InetAddress ia = address.getAddress();
+src/java/main/org/apache/zookeeper/client/StaticHostProvider.java,113,String addr = (ia != null) ? ia.getHostAddress() : address.getHostString();
+src/java/main/org/apache/zookeeper/client/StaticHostProvider.java,114,InetAddress resolvedAddresses[] = InetAddress.getAllByName(addr);
+src/java/main/org/apache/zookeeper/client/StaticHostProvider.java,115,for (InetAddress resolvedAddress : resolvedAddresses) {
+src/java/main/org/apache/zookeeper/client/StaticHostProvider.java,116,InetAddress taddr = InetAddress.getByAddress(address.getHostString(), resolvedAddress.getAddress());
+src/java/main/org/apache/zookeeper/client/StaticHostProvider.java,117,tmpList.add(new InetSocketAddress(taddr, address.getPort()));
+src/java/main/org/apache/zookeeper/client/StaticHostProvider.java,120,LOG.warn("No IP address found for server: {}", address, ex);
+src/java/main/org/apache/zookeeper/client/StaticHostProvider.java,155,List<InetSocketAddress> resolvedList = resolveAndShuffle(serverAddresses);
+src/java/main/org/apache/zookeeper/client/StaticHostProvider.java,156,if (resolvedList.isEmpty()) {
+src/java/main/org/apache/zookeeper/client/StaticHostProvider.java,182,for (InetSocketAddress addr : resolvedList) {
+src/java/main/org/apache/zookeeper/client/StaticHostProvider.java,199,for (InetSocketAddress resolvedAddress : resolvedList) {
+src/java/main/org/apache/zookeeper/client/StaticHostProvider.java,200,if (this.serverAddresses.contains(resolvedAddress)) {
+src/java/main/org/apache/zookeeper/client/StaticHostProvider.java,201,oldServers.add(resolvedAddress);
+src/java/main/org/apache/zookeeper/client/StaticHostProvider.java,203,newServers.add(resolvedAddress);
+src/java/main/org/apache/zookeeper/client/StaticHostProvider.java,244,currentIndex = resolvedList.indexOf(getServerAtCurrentIndex());
+src/java/main/org/apache/zookeeper/client/StaticHostProvider.java,248,this.serverAddresses = resolvedList;
+src/java/main/org/apache/zookeeper/client/StaticHostProvider.java,313,return addr;
+src/java/main/org/apache/zookeeper/client/StaticHostProvider.java,338,return addr;
+src/java/main/org/apache/zookeeper/ClientCnxn.java,856,Watcher.Event.KeeperState.AuthFailed, null) );
+src/java/main/org/apache/zookeeper/server/NIOServerCnxnFactory.java,807,private void addCnxn(NIOServerCnxn cnxn) {
+src/java/main/org/apache/zookeeper/server/admin/JsonOutputter.java,21,import java.io.IOException;
+src/java/main/org/apache/zookeeper/server/admin/JsonOutputter.java,22,import java.io.PrintWriter;
+src/java/main/org/apache/zookeeper/server/admin/JsonOutputter.java,23,import java.util.Map;
+src/java/main/org/apache/zookeeper/server/admin/JsonOutputter.java,25,import org.codehaus.jackson.JsonGenerationException;
+src/java/main/org/apache/zookeeper/server/admin/JsonOutputter.java,26,import org.codehaus.jackson.map.JsonMappingException;
+src/java/main/org/apache/zookeeper/server/admin/JsonOutputter.java,27,import org.codehaus.jackson.map.ObjectMapper;
+src/java/main/org/apache/zookeeper/server/admin/JsonOutputter.java,28,import org.codehaus.jackson.map.PropertyNamingStrategy;
+src/java/main/org/apache/zookeeper/server/admin/JsonOutputter.java,29,import org.codehaus.jackson.map.SerializationConfig;
+src/java/main/org/apache/zookeeper/server/admin/JsonOutputter.java,42,mapper.configure(SerializationConfig.Feature.WRITE_ENUMS_USING_TO_STRING, true);
+src/java/main/org/apache/zookeeper/server/admin/JsonOutputter.java,43,mapper.configure(SerializationConfig.Feature.INDENT_OUTPUT, true);
+src/java/main/org/apache/zookeeper/server/admin/JsonOutputter.java,44,mapper.setPropertyNamingStrategy(PropertyNamingStrategy.CAMEL_CASE_TO_LOWER_CASE_WITH_UNDERSCORES);
+src/java/main/org/apache/zookeeper/common/PathUtils.java,93,reason = "invalid charater @" + i;
+src/java/main/org/apache/zookeeper/server/quorum/Leader.java,95,private boolean quorumFormed = false;
+src/java/main/org/apache/zookeeper/server/quorum/Leader.java,349,private final Proposal newLeaderProposal = new Proposal();
+src/java/main/org/apache/zookeeper/server/quorum/Leader.java,491,waitForNewLeaderAck(self.getId(), zk.getZxid(), LearnerType.PARTICIPANT);
+src/java/main/org/apache/zookeeper/server/quorum/Leader.java,1155,private final HashSet<Long> connectingFollowers = new HashSet<Long>();
+src/java/main/org/apache/zookeeper/server/quorum/Leader.java,1164,connectingFollowers.add(sid);
+src/java/main/org/apache/zookeeper/server/quorum/Leader.java,1187,private final HashSet<Long> electingFollowers = new HashSet<Long>();
+src/java/main/org/apache/zookeeper/server/quorum/Leader.java,1188,private boolean electionFinished = false;
+src/java/main/org/apache/zookeeper/server/quorum/Leader.java,1202,electingFollowers.add(id);
+src/java/main/org/apache/zookeeper/server/quorum/LearnerHandler.java,491,leader.waitForNewLeaderAck(getSid(), qp.getZxid(), getLearnerType());
+src/java/main/org/apache/zookeeper/server/ZooKeeperServer.java,482,tickTime, 1, getZooKeeperServerListener());
+src/java/main/org/apache/zookeeper/server/quorum/FastLeaderElection.java,25,import java.util.HashSet;
+src/java/main/org/apache/zookeeper/server/quorum/FastLeaderElection.java,325,if(!self.getCurrentAndNextConfigVoters().contains(response.sid)) {
+src/java/main/org/apache/zookeeper/server/quorum/FastLeaderElection.java,930,else if (self.getCurrentAndNextConfigVoters().contains(n.sid)) {
+src/java/main/org/apache/zookeeper/server/quorum/FastLeaderElection.java,1059,LOG.warn("Ignoring notification from non-cluster member " + n.sid);
+src/java/main/org/apache/zookeeper/server/ZKDatabase.java,279,snapSize = snapLog.findMostRecentSnapshot().length();
+src/java/main/org/apache/zookeeper/server/ContainerManager.java,118,LOG.info("Attempting to delete candidate container: %s",
+src/java/main/org/apache/zookeeper/server/ContainerManager.java,122,LOG.error(String.format("Could not delete container: %s" ,
+src/java/main/org/apache/zookeeper/server/ContainerManager.java,123,containerPath), e);
+src/java/main/org/apache/zookeeper/server/ZKDatabase.java,218,PlayBackListener listener=new PlayBackListener(){
+src/java/main/org/apache/zookeeper/server/ZKDatabase.java,219,public void onTxnLoaded(TxnHeader hdr,Record txn){
+src/java/main/org/apache/zookeeper/server/ZKDatabase.java,220,Request r = new Request(0, hdr.getCxid(),hdr.getType(), hdr, txn, hdr.getZxid());
+src/java/main/org/apache/zookeeper/server/ZKDatabase.java,221,addCommittedProposal(r);
+src/java/main/org/apache/zookeeper/server/ZKDatabase.java,225,long zxid = snapLog.restore(dataTree,sessionsWithTimeouts,listener);
+src/java/main/org/apache/zookeeper/server/ZooKeeperServer.java,512,zkDb.clear();
+src/java/main/org/apache/zookeeper/ZooKeeper.java,486,addTo(existWatches.remove(clientPath), result);
+src/java/main/org/apache/zookeeper/ClientCnxnSocketNetty.java,108,bootstrap.setPipelineFactory(new ZKClientPipelineFactory());
+src/java/main/org/apache/zookeeper/ClientCnxnSocketNetty.java,359,sslEngine = sslContext.createSSLEngine();
+src/java/main/org/apache/zookeeper/server/quorum/QuorumPeer.java,431,volatile boolean running = true;
+src/java/main/org/apache/zookeeper/server/quorum/QuorumPeer.java,1603,public void setRunning(boolean running) {
+src/java/main/org/apache/zookeeper/server/quorum/QuorumPeer.java,1604,this.running = running;
+src/java/main/org/apache/zookeeper/server/ZooKeeperServer.java,183,pwriter.println(zkDb.snapLog.getDataDir().getAbsolutePath());
+src/java/main/org/apache/zookeeper/server/ZooKeeperServer.java,187,pwriter.println(zkDb.snapLog.getSnapDir().getAbsolutePath());
+src/java/main/org/apache/zookeeper/server/persistence/FileTxnLog.java,237,private void padFile(FileOutputStream out) throws IOException {
+src/java/main/org/apache/zookeeper/server/persistence/FileTxnLog.java,238,currentSize = Util.padLogFile(out, currentSize, preAllocSize);
+src/java/main/org/apache/zookeeper/server/persistence/Util.java,24,import java.io.FileOutputStream;
+src/java/main/org/apache/zookeeper/server/persistence/Util.java,54,private static final ByteBuffer fill = ByteBuffer.allocateDirect(1);
+src/java/main/org/apache/zookeeper/server/persistence/Util.java,213,public static long padLogFile(FileOutputStream f,long currentSize,
+src/java/main/org/apache/zookeeper/server/persistence/Util.java,214,long preAllocSize) throws IOException{
+src/java/main/org/apache/zookeeper/server/persistence/Util.java,215,long position = f.getChannel().position();
+src/java/main/org/apache/zookeeper/server/persistence/Util.java,216,if (position + 4096 >= currentSize) {
+src/java/main/org/apache/zookeeper/server/persistence/Util.java,217,currentSize = currentSize + preAllocSize;
+src/java/main/org/apache/zookeeper/server/persistence/Util.java,218,fill.position(0);
+src/java/main/org/apache/zookeeper/server/persistence/Util.java,219,f.getChannel().write(fill, currentSize-fill.remaining());
+src/java/main/org/apache/zookeeper/server/persistence/Util.java,221,return currentSize;
+src/java/main/org/apache/zookeeper/ClientCnxn.java,1088,private void startConnect() throws IOException {
+src/java/main/org/apache/zookeeper/ClientCnxn.java,1098,InetSocketAddress addr;
+src/java/main/org/apache/zookeeper/ClientCnxn.java,1099,if (rwServerAddress != null) {
+src/java/main/org/apache/zookeeper/ClientCnxn.java,1100,addr = rwServerAddress;
+src/java/main/org/apache/zookeeper/ClientCnxn.java,1101,rwServerAddress = null;
+src/java/main/org/apache/zookeeper/ClientCnxn.java,1103,addr = hostProvider.next(1000);
+src/java/main/org/apache/zookeeper/ClientCnxn.java,1158,startConnect();
+src/java/main/org/apache/zookeeper/ClientCnxn.java,1257,LOG.warn(
+src/java/main/org/apache/zookeeper/ClientCnxn.java,1260,+ " for server "
+src/java/main/org/apache/zookeeper/ClientCnxn.java,1262,+ ", unexpected error"
+src/java/main/org/apache/zookeeper/ClientCnxn.java,1263,+ RETRY_CONN_MSG, e);
+src/recipes/lock/src/java/org/apache/zookeeper/recipes/lock/ZNodeName.java,78,int answer = this.prefix.compareTo(that.prefix);
+src/recipes/lock/src/java/org/apache/zookeeper/recipes/lock/ZNodeName.java,80,int s1 = this.sequence;
+src/recipes/lock/src/java/org/apache/zookeeper/recipes/lock/ZNodeName.java,81,int s2 = that.sequence;
+src/recipes/lock/src/java/org/apache/zookeeper/recipes/lock/ZNodeName.java,82,if (s1 == -1 && s2 == -1) {
+src/recipes/lock/src/java/org/apache/zookeeper/recipes/lock/ZNodeName.java,83,return this.name.compareTo(that.name);
+src/recipes/lock/src/java/org/apache/zookeeper/recipes/lock/ZNodeName.java,85,answer = s1 == -1 ? 1 : s2 == -1 ? -1 : s1 - s2;
+src/java/main/org/apache/zookeeper/server/NIOServerCnxn.java,254,directBuffer.remaining());
+src/java/main/org/apache/zookeeper/server/auth/ProviderRegistry.java,54,AuthenticationProvider ap = (AuthenticationProvider) c
+src/java/main/org/apache/zookeeper/server/auth/X509AuthenticationProvider.java,66,public X509AuthenticationProvider() {
+src/java/main/org/apache/zookeeper/server/auth/X509AuthenticationProvider.java,74,try {
+src/java/main/org/apache/zookeeper/server/auth/X509AuthenticationProvider.java,75,km = X509Util.createKeyManager(
+src/java/main/org/apache/zookeeper/server/auth/X509AuthenticationProvider.java,76,keyStoreLocationProp, keyStorePasswordProp);
+src/java/main/org/apache/zookeeper/server/auth/X509AuthenticationProvider.java,78,LOG.error("Failed to create key manager", e);
+src/java/main/org/apache/zookeeper/server/auth/X509AuthenticationProvider.java,86,try {
+src/java/main/org/apache/zookeeper/server/auth/X509AuthenticationProvider.java,87,tm = X509Util.createTrustManager(
+src/java/main/org/apache/zookeeper/server/auth/X509AuthenticationProvider.java,88,trustStoreLocationProp, trustStorePasswordProp);
+src/java/main/org/apache/zookeeper/server/auth/X509AuthenticationProvider.java,90,LOG.error("Failed to create trust manager", e);
+src/java/main/org/apache/zookeeper/server/NettyServerCnxn.java,111,channel.close();
+src/java/main/org/apache/zookeeper/server/NettyServerCnxn.java,168,if (!channel.isOpen()) {
+src/java/main/org/apache/zookeeper/server/persistence/FileTxnLog.java,192,if (hdr != null) {
+src/java/main/org/apache/zookeeper/server/persistence/FileTxnLog.java,193,if (hdr.getZxid() <= lastZxidSeen) {
+src/java/main/org/apache/zookeeper/server/persistence/FileTxnLog.java,195,+ " is <= " + lastZxidSeen + " for "
+src/java/main/org/apache/zookeeper/server/persistence/FileTxnLog.java,196,+ hdr.getType());
+src/java/main/org/apache/zookeeper/server/persistence/FileTxnLog.java,198,if (logStream==null) {
+src/java/main/org/apache/zookeeper/server/persistence/FileTxnLog.java,199,if(LOG.isInfoEnabled()){
+src/java/main/org/apache/zookeeper/server/persistence/FileTxnLog.java,200,LOG.info("Creating new log file: log." +
+src/java/main/org/apache/zookeeper/server/persistence/FileTxnLog.java,201,Long.toHexString(hdr.getZxid()));
+src/java/main/org/apache/zookeeper/server/persistence/FileTxnLog.java,204,logFileWrite = new File(logDir, ("log." +
+src/java/main/org/apache/zookeeper/server/persistence/FileTxnLog.java,205,Long.toHexString(hdr.getZxid())));
+src/java/main/org/apache/zookeeper/server/persistence/FileTxnLog.java,206,fos = new FileOutputStream(logFileWrite);
+src/java/main/org/apache/zookeeper/server/persistence/FileTxnLog.java,207,logStream=new BufferedOutputStream(fos);
+src/java/main/org/apache/zookeeper/server/persistence/FileTxnLog.java,208,oa = BinaryOutputArchive.getArchive(logStream);
+src/java/main/org/apache/zookeeper/server/persistence/FileTxnLog.java,209,FileHeader fhdr = new FileHeader(TXNLOG_MAGIC,VERSION, dbId);
+src/java/main/org/apache/zookeeper/server/persistence/FileTxnLog.java,210,fhdr.serialize(oa, "fileheader");
+src/java/main/org/apache/zookeeper/server/persistence/FileTxnLog.java,212,logStream.flush();
+src/java/main/org/apache/zookeeper/server/persistence/FileTxnLog.java,213,currentSize = fos.getChannel().position();
+src/java/main/org/apache/zookeeper/server/persistence/FileTxnLog.java,214,streamsToFlush.add(fos);
+src/java/main/org/apache/zookeeper/server/persistence/FileTxnLog.java,216,padFile(fos);
+src/java/main/org/apache/zookeeper/server/persistence/FileTxnLog.java,217,byte[] buf = Util.marshallTxnEntry(hdr, txn);
+src/java/main/org/apache/zookeeper/server/persistence/FileTxnLog.java,218,if (buf == null || buf.length == 0) {
+src/java/main/org/apache/zookeeper/server/persistence/FileTxnLog.java,219,throw new IOException("Faulty serialization for header " +
+src/java/main/org/apache/zookeeper/server/persistence/FileTxnLog.java,222,Checksum crc = makeChecksumAlgorithm();
+src/java/main/org/apache/zookeeper/server/persistence/FileTxnLog.java,223,crc.update(buf, 0, buf.length);
+src/java/main/org/apache/zookeeper/server/persistence/FileTxnLog.java,224,oa.writeLong(crc.getValue(), "txnEntryCRC");
+src/java/main/org/apache/zookeeper/server/persistence/FileTxnLog.java,225,Util.writeTxnBytes(oa, buf);
+src/java/main/org/apache/zookeeper/server/persistence/FileTxnLog.java,227,return true;
+src/java/main/org/apache/zookeeper/server/persistence/FileTxnLog.java,229,return false;
+src/java/main/org/apache/zookeeper/server/persistence/FileTxnLog.java,474,return rc;
+src/java/main/org/apache/zookeeper/server/persistence/FileTxnLog.java,626,throw new IOException("Transaction log: " + this.logFile + " has invalid magic number "
+src/java/main/org/apache/zookeeper/server/ZKDatabase.java,83,private double snapshotSizeFactor = 0.33;
+src/java/main/org/apache/zookeeper/server/ZKDatabase.java,272,public double getSnapshotSizeFactor() {
+src/java/main/org/apache/zookeeper/server/ZKDatabase.java,273,return snapshotSizeFactor;
+src/java/main/org/apache/zookeeper/server/quorum/LearnerHandler.java,674,boolean txnLogSyncEnabled = (db.getSnapshotSizeFactor() >= 0);
+src/java/main/org/apache/zookeeper/server/quorum/QuorumPeerConfig.java,349,if (isDistributed()) {
+src/contrib/zooinspector/src/java/org/apache/zookeeper/retry/ZooKeeperRetry.java,225,return super.setACL(path, acl, version);
+src/java/main/org/apache/zookeeper/ZooKeeper.java,2178,request.setVersion(version);
+src/java/main/org/apache/zookeeper/server/quorum/Learner.java,369,LOG.info("Getting a snapshot from leader");
+src/java/main/org/apache/zookeeper/server/quorum/Learner.java,398,zk.getZKDatabase().setlastProcessedZxid(qp.getZxid());
+src/java/main/org/apache/zookeeper/server/auth/SASLAuthenticationProvider.java,41,if (System.getProperty("zookeeper.superUser") != null) {
+src/java/main/org/apache/zookeeper/server/auth/SASLAuthenticationProvider.java,42,if (id.equals(System.getProperty("zookeeper.superUser")) || id.equals(aclExpr)) {
+src/java/main/org/apache/zookeeper/server/auth/SASLAuthenticationProvider.java,43,return true;
+src/java/main/org/apache/zookeeper/server/DataTree.java,287,private DataNode configDataNode = new DataNode(new byte[0], -1L, new StatPersisted());
+src/java/main/org/apache/zookeeper/server/DataTree.java,1390,watcher.process(new WatchedEvent(EventType.NodeDeleted,
+src/java/main/org/apache/zookeeper/server/DataTree.java,1393,watcher.process(new WatchedEvent(EventType.NodeDataChanged,
+src/java/main/org/apache/zookeeper/server/DataTree.java,1402,watcher.process(new WatchedEvent(EventType.NodeCreated,
+src/java/main/org/apache/zookeeper/server/DataTree.java,1411,watcher.process(new WatchedEvent(EventType.NodeDeleted,
+src/java/main/org/apache/zookeeper/server/DataTree.java,1414,watcher.process(new WatchedEvent(EventType.NodeChildrenChanged,
+src/java/main/org/apache/zookeeper/server/ZKDatabase.java,579,LOG.warn("configuration znode missing (hould only happen during upgrade), creating the node");
+src/java/main/org/apache/zookeeper/cli/DelQuotaCommand.java,91,throws KeeperException, IOException, InterruptedException {
+src/java/main/org/apache/zookeeper/cli/DeleteCommand.java,82,zk.delete(path, version);
+src/java/main/org/apache/zookeeper/cli/SetQuotaCommand.java,83,throws KeeperException, IOException, InterruptedException {
+src/java/main/org/apache/zookeeper/cli/SetQuotaCommand.java,87,Stat initStat = zk.exists(path, false);
+src/java/main/org/apache/zookeeper/cli/SyncCommand.java,55,zk.sync(path, new AsyncCallback.VoidCallback() {
+src/java/main/org/apache/zookeeper/cli/SyncCommand.java,57,public void processResult(int rc, String path, Object ctx) {
+src/java/main/org/apache/zookeeper/cli/SyncCommand.java,58,out.println("Sync returned " + rc);
+src/java/main/org/apache/zookeeper/server/quorum/QuorumZooKeeperServer.java,65,if (request.type != OpCode.create ||
+src/java/main/org/apache/zookeeper/server/quorum/QuorumZooKeeperServer.java,69,CreateRequest createRequest = new CreateRequest();
+src/java/main/org/apache/zookeeper/server/quorum/QuorumZooKeeperServer.java,70,request.request.rewind();
+src/java/main/org/apache/zookeeper/server/quorum/QuorumZooKeeperServer.java,71,ByteBufferInputStream.byteBuffer2Record(request.request, createRequest);
+src/java/main/org/apache/zookeeper/server/quorum/QuorumZooKeeperServer.java,72,request.request.rewind();
+src/java/main/org/apache/zookeeper/server/quorum/QuorumZooKeeperServer.java,73,CreateMode createMode = CreateMode.fromFlag(createRequest.getFlags());
+src/java/main/org/apache/zookeeper/server/quorum/QuorumZooKeeperServer.java,74,if (!createMode.isEphemeral()) {
+src/java/main/org/apache/zookeeper/server/quorum/QuorumZooKeeperServer.java,75,return null;
+src/java/main/org/apache/zookeeper/server/NettyServerCnxn.java,113,factory.unregisterConnection(this);
+src/java/main/org/apache/zookeeper/server/NettyServerCnxnFactory.java,146,cnxn.close();
+src/java/main/org/apache/zookeeper/server/NIOServerCnxn.java,482,if (cmd == null) {
+src/java/main/org/apache/zookeeper/server/NIOServerCnxn.java,485,LOG.info("Processing " + cmd + " command from "
+src/java/main/org/apache/zookeeper/server/NIOServerCnxn.java,486,+ sock.socket().getRemoteSocketAddress());
+src/java/main/org/apache/zookeeper/server/NettyServerCnxn.java,271,if (cmd == null) {
+src/java/main/org/apache/zookeeper/server/NettyServerCnxn.java,275,LOG.info("Processing " + cmd + " command from "
+src/java/main/org/apache/zookeeper/server/NettyServerCnxn.java,276,+ channel.getRemoteAddress());
+src/java/main/org/apache/zookeeper/server/command/FourLetterCommands.java,155,new HashMap<Integer, String>();
+src/java/main/org/apache/zookeeper/server/ZooKeeperServer.java,493,public synchronized void shutdown() {
+src/java/main/org/apache/zookeeper/server/ZooKeeperServer.java,511,if (zkDb != null) {
+src/java/main/org/apache/zookeeper/server/ZooKeeperServerMain.java,157,zkServer.shutdown();
+src/java/main/org/apache/zookeeper/server/quorum/Learner.java,361,readPacket(qp);
+src/java/main/org/apache/zookeeper/server/quorum/Learner.java,366,LOG.info("Getting a diff from the leader 0x" + Long.toHexString(qp.getZxid()));
+src/java/main/org/apache/zookeeper/server/quorum/Learner.java,406,boolean snapshotTaken = false;
+src/java/main/org/apache/zookeeper/server/quorum/Learner.java,434,if (!snapshotTaken) {
+src/java/main/org/apache/zookeeper/server/quorum/Learner.java,483,if (!snapshotTaken) {
+src/java/main/org/apache/zookeeper/server/quorum/Learner.java,501,if (!snapshotTaken) { // true for the pre v1.0 case
+src/java/main/org/apache/zookeeper/server/quorum/Learner.java,502,zk.takeSnapshot();
+src/java/main/org/apache/zookeeper/server/quorum/Learner.java,508,case Leader.NEWLEADER: // it will be NEWLEADER in v1.0
+src/java/main/org/apache/zookeeper/server/quorum/Learner.java,520,zk.takeSnapshot();
+src/java/main/org/apache/zookeeper/server/quorum/Learner.java,522,snapshotTaken = true;
+src/java/main/org/apache/zookeeper/server/DatadirCleanupManager.java,142,LOG.error("Error occured while purging.", e);
+src/java/main/org/apache/zookeeper/server/ZooKeeperThread.java,55,LOG.warn("Exception occured from thread {}", thName, e);
+src/java/main/org/apache/zookeeper/server/quorum/QuorumPeerMain.java,155,quorumPeer = new QuorumPeer();
+src/java/main/org/apache/zookeeper/server/DataNode.java,129,return children;
+src/java/main/org/apache/zookeeper/server/DataTree.java,510,if (children != null && children.contains(childName)) {
+src/java/main/org/apache/zookeeper/server/DataTree.java,720,ArrayList<String> children;
+src/java/main/org/apache/zookeeper/server/DataTree.java,721,Set<String> childs = n.getChildren();
+src/java/main/org/apache/zookeeper/server/DataTree.java,722,if (childs == null) {
+src/java/main/org/apache/zookeeper/server/DataTree.java,723,children = new ArrayList<String>(0);
+src/java/main/org/apache/zookeeper/server/DataTree.java,725,children = new ArrayList<String>(childs);
+src/java/main/org/apache/zookeeper/server/DataTree.java,1072,if (childs != null) {
+src/java/main/org/apache/zookeeper/server/DataTree.java,1073,children = childs.toArray(new String[childs.size()]);
+src/java/main/org/apache/zookeeper/server/DataTree.java,1080,if (children == null || children.length == 0) {
+src/java/main/org/apache/zookeeper/server/DataTree.java,1081,return;
+src/java/main/org/apache/zookeeper/server/DataTree.java,1122,if (childs != null) {
+src/java/main/org/apache/zookeeper/server/DataTree.java,1123,children = childs.toArray(new String[childs.size()]);
+src/java/main/org/apache/zookeeper/server/DataTree.java,1126,if (children == null || children.length == 0) {
+src/java/main/org/apache/zookeeper/server/DataTree.java,1185,if (childs != null) {
+src/java/main/org/apache/zookeeper/server/DataTree.java,1186,children = childs.toArray(new String[childs.size()]);
+src/java/main/org/apache/zookeeper/server/DataTree.java,1193,if (children != null) {
+src/java/main/org/apache/zookeeper/server/DataTree.java,1194,for (String child : children) {
+src/java/main/org/apache/zookeeper/server/DataTree.java,1198,path.delete(off, Integer.MAX_VALUE);
+src/java/main/org/apache/zookeeper/server/DataTree.java,1199,path.append(child);
+src/java/main/org/apache/zookeeper/server/DataTree.java,1200,serializeNode(oa, path);
+src/java/main/org/apache/zookeeper/server/PrepRequestProcessor.java,170,lastChange = new ChangeRecord(-1, path, n.stat,
+src/java/main/org/apache/zookeeper/server/PrepRequestProcessor.java,171,children != null ? children.size() : 0,
+src/java/main/org/apache/zookeeper/server/SnapshotFormatter.java,97,if (children != null) {
+src/java/main/org/apache/zookeeper/server/SnapshotFormatter.java,98,for (String child : children) {
+src/java/main/org/apache/zookeeper/server/SnapshotFormatter.java,99,printZnode(dataTree, name + (name.equals("/") ? "" : "/") + child);
+src/java/main/org/apache/zookeeper/server/ZooTrace.java,78,return;
+src/java/main/org/apache/zookeeper/Version.java,37,return getVersion() + "-" + getRevision();
+src/java/main/org/apache/zookeeper/version/util/VerGen.java,79,w.write("    public static final int MAJOR=" + version.maj + ";\n");
+src/java/main/org/apache/zookeeper/version/util/VerGen.java,80,w.write("    public static final int MINOR=" + version.min + ";\n");
+src/java/main/org/apache/zookeeper/version/util/VerGen.java,81,w.write("    public static final int MICRO=" + version.micro + ";\n");
+src/java/main/org/apache/zookeeper/version/util/VerGen.java,82,w.write("    public static final String QUALIFIER="
+src/java/main/org/apache/zookeeper/version/util/VerGen.java,86,if (rev < 0) {
+src/java/main/org/apache/zookeeper/version/util/VerGen.java,89,w.write("    public static final int REVISION=" + rev + ";\n");
+src/java/main/org/apache/zookeeper/version/util/VerGen.java,90,w.write("    public static final String BUILD_DATE=\"" + buildDate
+src/java/main/org/apache/zookeeper/version/util/VerGen.java,163,int rev;
+src/java/main/org/apache/zookeeper/version/util/VerGen.java,164,try {
+src/java/main/org/apache/zookeeper/version/util/VerGen.java,165,rev = Integer.parseInt(args[1]);
+src/java/main/org/apache/zookeeper/version/util/VerGen.java,167,rev = -1;
+src/java/main/org/apache/zookeeper/server/PurgeTxnLog.java,71,retainNRecentSnapshots(txnLog, snaps);
+src/java/main/org/apache/zookeeper/server/PurgeTxnLog.java,75,static void retainNRecentSnapshots(FileTxnSnapLog txnLog, List<File> snaps) {
+src/java/main/org/apache/zookeeper/server/PurgeTxnLog.java,78,return;
+src/java/main/org/apache/zookeeper/server/PurgeTxnLog.java,79,File snapShot = snaps.get(snaps.size() -1);
+src/java/main/org/apache/zookeeper/server/PurgeTxnLog.java,107,System.out.println("Removing file: "+
+src/java/main/org/apache/zookeeper/server/persistence/FileSnap.java,186,int i = 0;
+src/java/main/org/apache/zookeeper/server/persistence/FileSnap.java,191,i++;
+src/java/main/org/apache/zookeeper/server/persistence/FileSnap.java,192,list.add(f);
+src/java/main/org/apache/zookeeper/server/persistence/FileTxnSnapLog.java,160,snapLog.deserialize(dt, sessions);
+src/java/main/org/apache/zookeeper/server/NIOServerCnxn.java,429,if (zkServer == null) {
+src/java/main/org/apache/zookeeper/server/NIOServerCnxn.java,541,if (zkServer == null) {
+src/java/main/org/apache/zookeeper/server/NettyServerCnxn.java,336,if (zks == null) {
+src/java/main/org/apache/zookeeper/server/admin/Commands.java,89,if (zkServer == null) {
+src/java/main/org/apache/zookeeper/server/command/CnxnStatResetCommand.java,32,if (zkServer == null) {
+src/java/main/org/apache/zookeeper/server/command/ConfCommand.java,32,if (zkServer == null) {
+src/java/main/org/apache/zookeeper/server/command/ConsCommand.java,32,if (zkServer == null) {
+src/java/main/org/apache/zookeeper/server/command/DirsCommand.java,34,if (zkServer == null) {
+src/java/main/org/apache/zookeeper/server/command/DumpCommand.java,33,if (zkServer == null) {
+src/java/main/org/apache/zookeeper/server/command/IsroCommand.java,34,if (zkServer == null) {
+src/java/main/org/apache/zookeeper/server/command/MonitorCommand.java,39,if (zkServer == null) {
+src/java/main/org/apache/zookeeper/server/command/StatCommand.java,40,if (zkServer == null) {
+src/java/main/org/apache/zookeeper/server/command/StatResetCommand.java,32,if (zkServer == null) {
+src/java/main/org/apache/zookeeper/server/command/WatchCommand.java,35,if (zkServer == null) {
+src/java/main/org/apache/zookeeper/server/ServerConfig.java,58,throw new IllegalArgumentException("Invalid args:"
+src/java/main/org/apache/zookeeper/server/ServerConfig.java,59,+ Arrays.toString(args));
+src/java/main/org/apache/zookeeper/server/ServerConfig.java,65,if (args.length == 3) {
+src/java/main/org/apache/jute/compiler/CGenerator.java,64,FileWriter c = new FileWriter(new File(outputDirectory, mName+".c"));
+src/java/main/org/apache/jute/compiler/CGenerator.java,65,FileWriter h = new FileWriter(new File(outputDirectory, mName+".h"));
+src/java/main/org/apache/jute/compiler/CGenerator.java,67,h.write("/**\n");
+src/java/main/org/apache/jute/compiler/CGenerator.java,68,h.write("* Licensed to the Apache Software Foundation (ASF) under one\n");
+src/java/main/org/apache/jute/compiler/CGenerator.java,69,h.write("* or more contributor license agreements.  See the NOTICE file\n");
+src/java/main/org/apache/jute/compiler/CGenerator.java,70,h.write("* distributed with this work for additional information\n");
+src/java/main/org/apache/jute/compiler/CGenerator.java,71,h.write("* regarding copyright ownership.  The ASF licenses this file\n");
+src/java/main/org/apache/jute/compiler/CGenerator.java,72,h.write("* to you under the Apache License, Version 2.0 (the\n");
+src/java/main/org/apache/jute/compiler/CGenerator.java,73,h.write("* \"License\"); you may not use this file except in compliance\n");
+src/java/main/org/apache/jute/compiler/CGenerator.java,74,h.write("* with the License.  You may obtain a copy of the License at\n");
+src/java/main/org/apache/jute/compiler/CGenerator.java,75,h.write("*\n");
+src/java/main/org/apache/jute/compiler/CGenerator.java,76,h.write("*     http://www.apache.org/licenses/LICENSE-2.0\n");
+src/java/main/org/apache/jute/compiler/CGenerator.java,77,h.write("*\n");
+src/java/main/org/apache/jute/compiler/CGenerator.java,78,h.write("* Unless required by applicable law or agreed to in writing, software\n");
+src/java/main/org/apache/jute/compiler/CGenerator.java,79,h.write("* distributed under the License is distributed on an \"AS IS\" BASIS,\n");
+src/java/main/org/apache/jute/compiler/CGenerator.java,80,h.write("* WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.\n");
+src/java/main/org/apache/jute/compiler/CGenerator.java,81,h.write("* See the License for the specific language governing permissions and\n");
+src/java/main/org/apache/jute/compiler/CGenerator.java,82,h.write("* limitations under the License.\n");
+src/java/main/org/apache/jute/compiler/CGenerator.java,83,h.write("*/\n");
+src/java/main/org/apache/jute/compiler/CGenerator.java,84,h.write("\n");
+src/java/main/org/apache/jute/compiler/CGenerator.java,86,c.write("/**\n");
+src/java/main/org/apache/jute/compiler/CGenerator.java,87,c.write("* Licensed to the Apache Software Foundation (ASF) under one\n");
+src/java/main/org/apache/jute/compiler/CGenerator.java,88,c.write("* or more contributor license agreements.  See the NOTICE file\n");
+src/java/main/org/apache/jute/compiler/CGenerator.java,89,c.write("* distributed with this work for additional information\n");
+src/java/main/org/apache/jute/compiler/CGenerator.java,90,c.write("* regarding copyright ownership.  The ASF licenses this file\n");
+src/java/main/org/apache/jute/compiler/CGenerator.java,91,c.write("* to you under the Apache License, Version 2.0 (the\n");
+src/java/main/org/apache/jute/compiler/CGenerator.java,92,c.write("* \"License\"); you may not use this file except in compliance\n");
+src/java/main/org/apache/jute/compiler/CGenerator.java,93,c.write("* with the License.  You may obtain a copy of the License at\n");
+src/java/main/org/apache/jute/compiler/CGenerator.java,94,c.write("*\n");
+src/java/main/org/apache/jute/compiler/CGenerator.java,95,c.write("*     http://www.apache.org/licenses/LICENSE-2.0\n");
+src/java/main/org/apache/jute/compiler/CGenerator.java,96,c.write("*\n");
+src/java/main/org/apache/jute/compiler/CGenerator.java,97,c.write("* Unless required by applicable law or agreed to in writing, software\n");
+src/java/main/org/apache/jute/compiler/CGenerator.java,98,c.write("* distributed under the License is distributed on an \"AS IS\" BASIS,\n");
+src/java/main/org/apache/jute/compiler/CGenerator.java,99,c.write("* WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.\n");
+src/java/main/org/apache/jute/compiler/CGenerator.java,100,c.write("* See the License for the specific language governing permissions and\n");
+src/java/main/org/apache/jute/compiler/CGenerator.java,101,c.write("* limitations under the License.\n");
+src/java/main/org/apache/jute/compiler/CGenerator.java,102,c.write("*/\n");
+src/java/main/org/apache/jute/compiler/CGenerator.java,103,c.write("\n");
+src/java/main/org/apache/jute/compiler/CGenerator.java,105,h.write("#ifndef __"+mName.toUpperCase().replace('.','_')+"__\n");
+src/java/main/org/apache/jute/compiler/CGenerator.java,106,h.write("#define __"+mName.toUpperCase().replace('.','_')+"__\n");
+src/java/main/org/apache/jute/compiler/CGenerator.java,108,h.write("#include \"recordio.h\"\n");
+src/java/main/org/apache/jute/compiler/CGenerator.java,109,for (Iterator<JFile> i = mInclFiles.iterator(); i.hasNext();) {
+src/java/main/org/apache/jute/compiler/CGenerator.java,110,JFile f = i.next();
+src/java/main/org/apache/jute/compiler/CGenerator.java,111,h.write("#include \""+f.getName()+".h\"\n");
+src/java/main/org/apache/jute/compiler/CGenerator.java,114,h.write("\n#ifdef __cplusplus\nextern \"C\" {\n#endif\n\n");
+src/java/main/org/apache/jute/compiler/CGenerator.java,117,c.write("#include \""+mName+".h\"\n\n");
+src/java/main/org/apache/jute/compiler/CGenerator.java,119,for (Iterator<JRecord> i = mRecList.iterator(); i.hasNext();) {
+src/java/main/org/apache/jute/compiler/CGenerator.java,120,JRecord jr = i.next();
+src/java/main/org/apache/jute/compiler/CGenerator.java,121,jr.genCCode(h, c);
+src/java/main/org/apache/jute/compiler/CGenerator.java,124,h.write("\n#ifdef __cplusplus\n}\n#endif\n\n");
+src/java/main/org/apache/jute/compiler/CGenerator.java,125,h.write("#endif //"+mName.toUpperCase().replace('.','_')+"__\n");
+src/java/main/org/apache/jute/compiler/CGenerator.java,127,h.close();
+src/java/main/org/apache/jute/compiler/CGenerator.java,128,c.close();
+src/java/main/org/apache/jute/compiler/CppGenerator.java,64,FileWriter cc = new FileWriter(new File(outputDirectory, mName+".cc"));
+src/java/main/org/apache/jute/compiler/CppGenerator.java,65,FileWriter hh = new FileWriter(new File(outputDirectory, mName+".hh"));
+src/java/main/org/apache/jute/compiler/CppGenerator.java,67,hh.write("/**\n");
+src/java/main/org/apache/jute/compiler/CppGenerator.java,68,hh.write("* Licensed to the Apache Software Foundation (ASF) under one\n");
+src/java/main/org/apache/jute/compiler/CppGenerator.java,69,hh.write("* or more contributor license agreements.  See the NOTICE file\n");
+src/java/main/org/apache/jute/compiler/CppGenerator.java,70,hh.write("* distributed with this work for additional information\n");
+src/java/main/org/apache/jute/compiler/CppGenerator.java,71,hh.write("* regarding copyright ownership.  The ASF licenses this file\n");
+src/java/main/org/apache/jute/compiler/CppGenerator.java,72,hh.write("* to you under the Apache License, Version 2.0 (the\n");
+src/java/main/org/apache/jute/compiler/CppGenerator.java,73,hh.write("* \"License\"); you may not use this file except in compliance\n");
+src/java/main/org/apache/jute/compiler/CppGenerator.java,74,hh.write("* with the License.  You may obtain a copy of the License at\n");
+src/java/main/org/apache/jute/compiler/CppGenerator.java,75,hh.write("*\n");
+src/java/main/org/apache/jute/compiler/CppGenerator.java,76,hh.write("*     http://www.apache.org/licenses/LICENSE-2.0\n");
+src/java/main/org/apache/jute/compiler/CppGenerator.java,77,hh.write("*\n");
+src/java/main/org/apache/jute/compiler/CppGenerator.java,78,hh.write("* Unless required by applicable law or agreed to in writing, software\n");
+src/java/main/org/apache/jute/compiler/CppGenerator.java,79,hh.write("* distributed under the License is distributed on an \"AS IS\" BASIS,\n");
+src/java/main/org/apache/jute/compiler/CppGenerator.java,80,hh.write("* WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.\n");
+src/java/main/org/apache/jute/compiler/CppGenerator.java,81,hh.write("* See the License for the specific language governing permissions and\n");
+src/java/main/org/apache/jute/compiler/CppGenerator.java,82,hh.write("* limitations under the License.\n");
+src/java/main/org/apache/jute/compiler/CppGenerator.java,83,hh.write("*/\n");
+src/java/main/org/apache/jute/compiler/CppGenerator.java,84,hh.write("\n");
+src/java/main/org/apache/jute/compiler/CppGenerator.java,86,cc.write("/**\n");
+src/java/main/org/apache/jute/compiler/CppGenerator.java,87,cc.write("* Licensed to the Apache Software Foundation (ASF) under one\n");
+src/java/main/org/apache/jute/compiler/CppGenerator.java,88,cc.write("* or more contributor license agreements.  See the NOTICE file\n");
+src/java/main/org/apache/jute/compiler/CppGenerator.java,89,cc.write("* distributed with this work for additional information\n");
+src/java/main/org/apache/jute/compiler/CppGenerator.java,90,cc.write("* regarding copyright ownership.  The ASF licenses this file\n");
+src/java/main/org/apache/jute/compiler/CppGenerator.java,91,cc.write("* to you under the Apache License, Version 2.0 (the\n");
+src/java/main/org/apache/jute/compiler/CppGenerator.java,92,cc.write("* \"License\"); you may not use this file except in compliance\n");
+src/java/main/org/apache/jute/compiler/CppGenerator.java,93,cc.write("* with the License.  You may obtain a copy of the License at\n");
+src/java/main/org/apache/jute/compiler/CppGenerator.java,94,cc.write("*\n");
+src/java/main/org/apache/jute/compiler/CppGenerator.java,95,cc.write("*     http://www.apache.org/licenses/LICENSE-2.0\n");
+src/java/main/org/apache/jute/compiler/CppGenerator.java,96,cc.write("*\n");
+src/java/main/org/apache/jute/compiler/CppGenerator.java,97,cc.write("* Unless required by applicable law or agreed to in writing, software\n");
+src/java/main/org/apache/jute/compiler/CppGenerator.java,98,cc.write("* distributed under the License is distributed on an \"AS IS\" BASIS,\n");
+src/java/main/org/apache/jute/compiler/CppGenerator.java,99,cc.write("* WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.\n");
+src/java/main/org/apache/jute/compiler/CppGenerator.java,100,cc.write("* See the License for the specific language governing permissions and\n");
+src/java/main/org/apache/jute/compiler/CppGenerator.java,101,cc.write("* limitations under the License.\n");
+src/java/main/org/apache/jute/compiler/CppGenerator.java,102,cc.write("*/\n");
+src/java/main/org/apache/jute/compiler/CppGenerator.java,103,cc.write("\n");
+src/java/main/org/apache/jute/compiler/CppGenerator.java,105,hh.write("#ifndef __"+mName.toUpperCase().replace('.','_')+"__\n");
+src/java/main/org/apache/jute/compiler/CppGenerator.java,106,hh.write("#define __"+mName.toUpperCase().replace('.','_')+"__\n");
+src/java/main/org/apache/jute/compiler/CppGenerator.java,108,hh.write("#include \"recordio.hh\"\n");
+src/java/main/org/apache/jute/compiler/CppGenerator.java,109,for (Iterator<JFile> i = mInclFiles.iterator(); i.hasNext();) {
+src/java/main/org/apache/jute/compiler/CppGenerator.java,110,JFile f = i.next();
+src/java/main/org/apache/jute/compiler/CppGenerator.java,111,hh.write("#include \""+f.getName()+".hh\"\n");
+src/java/main/org/apache/jute/compiler/CppGenerator.java,113,cc.write("#include \""+mName+".hh\"\n");
+src/java/main/org/apache/jute/compiler/CppGenerator.java,115,for (Iterator<JRecord> i = mRecList.iterator(); i.hasNext();) {
+src/java/main/org/apache/jute/compiler/CppGenerator.java,116,JRecord jr = i.next();
+src/java/main/org/apache/jute/compiler/CppGenerator.java,117,jr.genCppCode(hh, cc);
+src/java/main/org/apache/jute/compiler/CppGenerator.java,120,hh.write("#endif //"+mName.toUpperCase().replace('.','_')+"__\n");
+src/java/main/org/apache/jute/compiler/CppGenerator.java,122,hh.close();
+src/java/main/org/apache/jute/compiler/CppGenerator.java,123,cc.close();
+src/java/main/org/apache/jute/compiler/JRecord.java,144,for (JField f : mFields) {
+src/java/main/org/apache/jute/compiler/JRecord.java,145,if (f.getType() instanceof JVector) {
+src/java/main/org/apache/jute/compiler/JRecord.java,146,JVector jv = (JVector)f.getType();
+src/java/main/org/apache/jute/compiler/JRecord.java,147,JType jvType = jv.getElementType();
+src/java/main/org/apache/jute/compiler/JRecord.java,148,String struct_name = JVector.extractVectorName(jvType);
+src/java/main/org/apache/jute/compiler/JRecord.java,149,if (vectorStructs.get(struct_name) == null) {
+src/java/main/org/apache/jute/compiler/JRecord.java,150,vectorStructs.put(struct_name, struct_name);
+src/java/main/org/apache/jute/compiler/JRecord.java,151,h.write("struct " + struct_name + " {\n    int32_t count;\n" + jv.getElementType().genCDecl("*data") + "\n};\n");
+src/java/main/org/apache/jute/compiler/JRecord.java,152,h.write("int serialize_" + struct_name + "(struct oarchive *out, const char *tag, struct " + struct_name + " *v);\n");
+src/java/main/org/apache/jute/compiler/JRecord.java,153,h.write("int deserialize_" + struct_name + "(struct iarchive *in, const char *tag, struct " + struct_name + " *v);\n");
+src/java/main/org/apache/jute/compiler/JRecord.java,154,h.write("int allocate_" + struct_name + "(struct " + struct_name + " *v, int32_t len);\n");
+src/java/main/org/apache/jute/compiler/JRecord.java,155,h.write("int deallocate_" + struct_name + "(struct " + struct_name + " *v);\n");
+src/java/main/org/apache/jute/compiler/JRecord.java,156,c.write("int allocate_" + struct_name + "(struct " + struct_name + " *v, int32_t len) {\n");
+src/java/main/org/apache/jute/compiler/JRecord.java,157,c.write("    if (!len) {\n");
+src/java/main/org/apache/jute/compiler/JRecord.java,158,c.write("        v->count = 0;\n");
+src/java/main/org/apache/jute/compiler/JRecord.java,159,c.write("        v->data = 0;\n");
+src/java/main/org/apache/jute/compiler/JRecord.java,160,c.write("    } else {\n");
+src/java/main/org/apache/jute/compiler/JRecord.java,161,c.write("        v->count = len;\n");
+src/java/main/org/apache/jute/compiler/JRecord.java,162,c.write("        v->data = calloc(sizeof(*v->data), len);\n");
+src/java/main/org/apache/jute/compiler/JRecord.java,163,c.write("    }\n");
+src/java/main/org/apache/jute/compiler/JRecord.java,164,c.write("    return 0;\n");
+src/java/main/org/apache/jute/compiler/JRecord.java,165,c.write("}\n");
+src/java/main/org/apache/jute/compiler/JRecord.java,166,c.write("int deallocate_" + struct_name + "(struct " + struct_name + " *v) {\n");
+src/java/main/org/apache/jute/compiler/JRecord.java,167,c.write("    if (v->data) {\n");
+src/java/main/org/apache/jute/compiler/JRecord.java,168,c.write("        int32_t i;\n");
+src/java/main/org/apache/jute/compiler/JRecord.java,169,c.write("        for(i=0;i<v->count; i++) {\n");
+src/java/main/org/apache/jute/compiler/JRecord.java,170,c.write("            deallocate_"+JRecord.extractMethodSuffix(jvType)+"(&v->data[i]);\n");
+src/java/main/org/apache/jute/compiler/JRecord.java,171,c.write("        }\n");
+src/java/main/org/apache/jute/compiler/JRecord.java,172,c.write("        free(v->data);\n");
+src/java/main/org/apache/jute/compiler/JRecord.java,173,c.write("        v->data = 0;\n");
+src/java/main/org/apache/jute/compiler/JRecord.java,174,c.write("    }\n");
+src/java/main/org/apache/jute/compiler/JRecord.java,175,c.write("    return 0;\n");
+src/java/main/org/apache/jute/compiler/JRecord.java,176,c.write("}\n");
+src/java/main/org/apache/jute/compiler/JRecord.java,177,c.write("int serialize_" + struct_name + "(struct oarchive *out, const char *tag, struct " + struct_name + " *v)\n");
+src/java/main/org/apache/jute/compiler/JRecord.java,178,c.write("{\n");
+src/java/main/org/apache/jute/compiler/JRecord.java,179,c.write("    int32_t count = v->count;\n");
+src/java/main/org/apache/jute/compiler/JRecord.java,180,c.write("    int rc = 0;\n");
+src/java/main/org/apache/jute/compiler/JRecord.java,181,c.write("    int32_t i;\n");
+src/java/main/org/apache/jute/compiler/JRecord.java,182,c.write("    rc = out->start_vector(out, tag, &count);\n");
+src/java/main/org/apache/jute/compiler/JRecord.java,183,c.write("    for(i=0;i<v->count;i++) {\n");
+src/java/main/org/apache/jute/compiler/JRecord.java,184,genSerialize(c, jvType, "data", "data[i]");
+src/java/main/org/apache/jute/compiler/JRecord.java,185,c.write("    }\n");
+src/java/main/org/apache/jute/compiler/JRecord.java,186,c.write("    rc = rc ? rc : out->end_vector(out, tag);\n");
+src/java/main/org/apache/jute/compiler/JRecord.java,187,c.write("    return rc;\n");
+src/java/main/org/apache/jute/compiler/JRecord.java,188,c.write("}\n");
+src/java/main/org/apache/jute/compiler/JRecord.java,189,c.write("int deserialize_" + struct_name + "(struct iarchive *in, const char *tag, struct " + struct_name + " *v)\n");
+src/java/main/org/apache/jute/compiler/JRecord.java,190,c.write("{\n");
+src/java/main/org/apache/jute/compiler/JRecord.java,191,c.write("    int rc = 0;\n");
+src/java/main/org/apache/jute/compiler/JRecord.java,192,c.write("    int32_t i;\n");
+src/java/main/org/apache/jute/compiler/JRecord.java,193,c.write("    rc = in->start_vector(in, tag, &v->count);\n");
+src/java/main/org/apache/jute/compiler/JRecord.java,194,c.write("    v->data = calloc(v->count, sizeof(*v->data));\n");
+src/java/main/org/apache/jute/compiler/JRecord.java,195,c.write("    for(i=0;i<v->count;i++) {\n");
+src/java/main/org/apache/jute/compiler/JRecord.java,196,genDeserialize(c, jvType, "value", "data[i]");
+src/java/main/org/apache/jute/compiler/JRecord.java,197,c.write("    }\n");
+src/java/main/org/apache/jute/compiler/JRecord.java,198,c.write("    rc = in->end_vector(in, tag);\n");
+src/java/main/org/apache/jute/compiler/JRecord.java,199,c.write("    return rc;\n");
+src/java/main/org/apache/jute/compiler/JRecord.java,200,c.write("}\n");
+src/java/main/org/apache/jute/compiler/JRecord.java,205,String rec_name = getName();
+src/java/main/org/apache/jute/compiler/JRecord.java,206,h.write("struct " + rec_name + " {\n");
+src/java/main/org/apache/jute/compiler/JRecord.java,207,for (JField f : mFields) {
+src/java/main/org/apache/jute/compiler/JRecord.java,208,h.write(f.genCDecl());
+src/java/main/org/apache/jute/compiler/JRecord.java,210,h.write("};\n");
+src/java/main/org/apache/jute/compiler/JRecord.java,211,h.write("int serialize_" + rec_name + "(struct oarchive *out, const char *tag, struct " + rec_name + " *v);\n");
+src/java/main/org/apache/jute/compiler/JRecord.java,212,h.write("int deserialize_" + rec_name + "(struct iarchive *in, const char *tag, struct " + rec_name + "*v);\n");
+src/java/main/org/apache/jute/compiler/JRecord.java,213,h.write("void deallocate_" + rec_name + "(struct " + rec_name + "*);\n");
+src/java/main/org/apache/jute/compiler/JRecord.java,214,c.write("int serialize_" + rec_name + "(struct oarchive *out, const char *tag, struct " + rec_name + " *v)");
+src/java/main/org/apache/jute/compiler/JRecord.java,215,c.write("{\n");
+src/java/main/org/apache/jute/compiler/JRecord.java,216,c.write("    int rc;\n");
+src/java/main/org/apache/jute/compiler/JRecord.java,217,c.write("    rc = out->start_record(out, tag);\n");
+src/java/main/org/apache/jute/compiler/JRecord.java,218,for(JField f : mFields) {
+src/java/main/org/apache/jute/compiler/JRecord.java,219,genSerialize(c, f.getType(), f.getTag(), f.getName());
+src/java/main/org/apache/jute/compiler/JRecord.java,221,c.write("    rc = rc ? rc : out->end_record(out, tag);\n");
+src/java/main/org/apache/jute/compiler/JRecord.java,222,c.write("    return rc;\n");
+src/java/main/org/apache/jute/compiler/JRecord.java,223,c.write("}\n");
+src/java/main/org/apache/jute/compiler/JRecord.java,224,c.write("int deserialize_" + rec_name + "(struct iarchive *in, const char *tag, struct " + rec_name + "*v)");
+src/java/main/org/apache/jute/compiler/JRecord.java,225,c.write("{\n");
+src/java/main/org/apache/jute/compiler/JRecord.java,226,c.write("    int rc;\n");
+src/java/main/org/apache/jute/compiler/JRecord.java,227,c.write("    rc = in->start_record(in, tag);\n");
+src/java/main/org/apache/jute/compiler/JRecord.java,228,for(JField f : mFields) {
+src/java/main/org/apache/jute/compiler/JRecord.java,229,genDeserialize(c, f.getType(), f.getTag(), f.getName());
+src/java/main/org/apache/jute/compiler/JRecord.java,231,c.write("    rc = rc ? rc : in->end_record(in, tag);\n");
+src/java/main/org/apache/jute/compiler/JRecord.java,232,c.write("    return rc;\n");
+src/java/main/org/apache/jute/compiler/JRecord.java,233,c.write("}\n");
+src/java/main/org/apache/jute/compiler/JRecord.java,234,c.write("void deallocate_" + rec_name + "(struct " + rec_name + "*v)");
+src/java/main/org/apache/jute/compiler/JRecord.java,235,c.write("{\n");
+src/java/main/org/apache/jute/compiler/JRecord.java,236,for(JField f : mFields) {
+src/java/main/org/apache/jute/compiler/JRecord.java,237,if (f.getType() instanceof JRecord) {
+src/java/main/org/apache/jute/compiler/JRecord.java,238,c.write("    deallocate_" + extractStructName(f.getType()) + "(&v->" + f.getName() + ");\n");
+src/java/main/org/apache/jute/compiler/JRecord.java,240,JVector vt = (JVector)f.getType();
+src/java/main/org/apache/jute/compiler/JRecord.java,241,c.write("    deallocate_" + JVector.extractVectorName(vt.getElementType())+ "(&v->"+f.getName()+");\n");
+src/java/main/org/apache/jute/compiler/JRecord.java,243,c.write("    deallocate_" + extractMethodSuffix(f.getType()) + "(&v->"+f.getName()+");\n");
+src/java/main/org/apache/jute/compiler/JRecord.java,246,c.write("}\n");
+src/java/main/org/apache/jute/compiler/JRecord.java,406,File jfile = new File(pkgdir, getName()+".java");
+src/java/main/org/apache/jute/compiler/JRecord.java,407,FileWriter jj = new FileWriter(jfile);
+src/java/main/org/apache/jute/compiler/JRecord.java,408,jj.write("// File generated by hadoop record compiler. Do not edit.\n");
+src/java/main/org/apache/jute/compiler/JRecord.java,409,jj.write("/**\n");
+src/java/main/org/apache/jute/compiler/JRecord.java,410,jj.write("* Licensed to the Apache Software Foundation (ASF) under one\n");
+src/java/main/org/apache/jute/compiler/JRecord.java,411,jj.write("* or more contributor license agreements.  See the NOTICE file\n");
+src/java/main/org/apache/jute/compiler/JRecord.java,412,jj.write("* distributed with this work for additional information\n");
+src/java/main/org/apache/jute/compiler/JRecord.java,413,jj.write("* regarding copyright ownership.  The ASF licenses this file\n");
+src/java/main/org/apache/jute/compiler/JRecord.java,414,jj.write("* to you under the Apache License, Version 2.0 (the\n");
+src/java/main/org/apache/jute/compiler/JRecord.java,415,jj.write("* \"License\"); you may not use this file except in compliance\n");
+src/java/main/org/apache/jute/compiler/JRecord.java,416,jj.write("* with the License.  You may obtain a copy of the License at\n");
+src/java/main/org/apache/jute/compiler/JRecord.java,417,jj.write("*\n");
+src/java/main/org/apache/jute/compiler/JRecord.java,418,jj.write("*     http://www.apache.org/licenses/LICENSE-2.0\n");
+src/java/main/org/apache/jute/compiler/JRecord.java,419,jj.write("*\n");
+src/java/main/org/apache/jute/compiler/JRecord.java,420,jj.write("* Unless required by applicable law or agreed to in writing, software\n");
+src/java/main/org/apache/jute/compiler/JRecord.java,421,jj.write("* distributed under the License is distributed on an \"AS IS\" BASIS,\n");
+src/java/main/org/apache/jute/compiler/JRecord.java,422,jj.write("* WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.\n");
+src/java/main/org/apache/jute/compiler/JRecord.java,423,jj.write("* See the License for the specific language governing permissions and\n");
+src/java/main/org/apache/jute/compiler/JRecord.java,424,jj.write("* limitations under the License.\n");
+src/java/main/org/apache/jute/compiler/JRecord.java,425,jj.write("*/\n");
+src/java/main/org/apache/jute/compiler/JRecord.java,426,jj.write("\n");
+src/java/main/org/apache/jute/compiler/JRecord.java,427,jj.write("package "+getJavaPackage()+";\n\n");
+src/java/main/org/apache/jute/compiler/JRecord.java,428,jj.write("import org.apache.jute.*;\n");
+src/java/main/org/apache/jute/compiler/JRecord.java,429,jj.write("public class "+getName()+" implements Record {\n");
+src/java/main/org/apache/jute/compiler/JRecord.java,430,for (Iterator<JField> i = mFields.iterator(); i.hasNext();) {
+src/java/main/org/apache/jute/compiler/JRecord.java,431,JField jf = i.next();
+src/java/main/org/apache/jute/compiler/JRecord.java,432,jj.write(jf.genJavaDecl());
+src/java/main/org/apache/jute/compiler/JRecord.java,434,jj.write("  public "+getName()+"() {\n");
+src/java/main/org/apache/jute/compiler/JRecord.java,435,jj.write("  }\n");
+src/java/main/org/apache/jute/compiler/JRecord.java,437,jj.write("  public "+getName()+"(\n");
+src/java/main/org/apache/jute/compiler/JRecord.java,438,int fIdx = 0;
+src/java/main/org/apache/jute/compiler/JRecord.java,439,int fLen = mFields.size();
+src/java/main/org/apache/jute/compiler/JRecord.java,440,for (Iterator<JField> i = mFields.iterator(); i.hasNext(); fIdx++) {
+src/java/main/org/apache/jute/compiler/JRecord.java,441,JField jf = i.next();
+src/java/main/org/apache/jute/compiler/JRecord.java,442,jj.write(jf.genJavaConstructorParam(jf.getName()));
+src/java/main/org/apache/jute/compiler/JRecord.java,443,jj.write((fLen-1 == fIdx)?"":",\n");
+src/java/main/org/apache/jute/compiler/JRecord.java,445,jj.write(") {\n");
+src/java/main/org/apache/jute/compiler/JRecord.java,446,fIdx = 0;
+src/java/main/org/apache/jute/compiler/JRecord.java,447,for (Iterator<JField> i = mFields.iterator(); i.hasNext(); fIdx++) {
+src/java/main/org/apache/jute/compiler/JRecord.java,448,JField jf = i.next();
+src/java/main/org/apache/jute/compiler/JRecord.java,449,jj.write(jf.genJavaConstructorSet(jf.getName()));
+src/java/main/org/apache/jute/compiler/JRecord.java,451,jj.write("  }\n");
+src/java/main/org/apache/jute/compiler/JRecord.java,452,fIdx = 0;
+src/java/main/org/apache/jute/compiler/JRecord.java,453,for (Iterator<JField> i = mFields.iterator(); i.hasNext(); fIdx++) {
+src/java/main/org/apache/jute/compiler/JRecord.java,454,JField jf = i.next();
+src/java/main/org/apache/jute/compiler/JRecord.java,455,jj.write(jf.genJavaGetSet(fIdx));
+src/java/main/org/apache/jute/compiler/JRecord.java,457,jj.write("  public void serialize(OutputArchive a_, String tag) throws java.io.IOException {\n");
+src/java/main/org/apache/jute/compiler/JRecord.java,458,jj.write("    a_.startRecord(this,tag);\n");
+src/java/main/org/apache/jute/compiler/JRecord.java,459,fIdx = 0;
+src/java/main/org/apache/jute/compiler/JRecord.java,460,for (Iterator<JField> i = mFields.iterator(); i.hasNext(); fIdx++) {
+src/java/main/org/apache/jute/compiler/JRecord.java,461,JField jf = i.next();
+src/java/main/org/apache/jute/compiler/JRecord.java,462,jj.write(jf.genJavaWriteMethodName());
+src/java/main/org/apache/jute/compiler/JRecord.java,464,jj.write("    a_.endRecord(this,tag);\n");
+src/java/main/org/apache/jute/compiler/JRecord.java,465,jj.write("  }\n");
+src/java/main/org/apache/jute/compiler/JRecord.java,467,jj.write("  public void deserialize(InputArchive a_, String tag) throws java.io.IOException {\n");
+src/java/main/org/apache/jute/compiler/JRecord.java,468,jj.write("    a_.startRecord(tag);\n");
+src/java/main/org/apache/jute/compiler/JRecord.java,469,fIdx = 0;
+src/java/main/org/apache/jute/compiler/JRecord.java,470,for (Iterator<JField> i = mFields.iterator(); i.hasNext(); fIdx++) {
+src/java/main/org/apache/jute/compiler/JRecord.java,471,JField jf = i.next();
+src/java/main/org/apache/jute/compiler/JRecord.java,472,jj.write(jf.genJavaReadMethodName());
+src/java/main/org/apache/jute/compiler/JRecord.java,474,jj.write("    a_.endRecord(tag);\n");
+src/java/main/org/apache/jute/compiler/JRecord.java,475,jj.write("}\n");
+src/java/main/org/apache/jute/compiler/JRecord.java,477,jj.write("  public String toString() {\n");
+src/java/main/org/apache/jute/compiler/JRecord.java,478,jj.write("    try {\n");
+src/java/main/org/apache/jute/compiler/JRecord.java,479,jj.write("      java.io.ByteArrayOutputStream s =\n");
+src/java/main/org/apache/jute/compiler/JRecord.java,480,jj.write("        new java.io.ByteArrayOutputStream();\n");
+src/java/main/org/apache/jute/compiler/JRecord.java,481,jj.write("      CsvOutputArchive a_ = \n");
+src/java/main/org/apache/jute/compiler/JRecord.java,482,jj.write("        new CsvOutputArchive(s);\n");
+src/java/main/org/apache/jute/compiler/JRecord.java,483,jj.write("      a_.startRecord(this,\"\");\n");
+src/java/main/org/apache/jute/compiler/JRecord.java,484,fIdx = 0;
+src/java/main/org/apache/jute/compiler/JRecord.java,485,for (Iterator<JField> i = mFields.iterator(); i.hasNext(); fIdx++) {
+src/java/main/org/apache/jute/compiler/JRecord.java,486,JField jf = i.next();
+src/java/main/org/apache/jute/compiler/JRecord.java,487,jj.write(jf.genJavaWriteMethodName());
+src/java/main/org/apache/jute/compiler/JRecord.java,489,jj.write("      a_.endRecord(this,\"\");\n");
+src/java/main/org/apache/jute/compiler/JRecord.java,490,jj.write("      return new String(s.toByteArray(), \"UTF-8\");\n");
+src/java/main/org/apache/jute/compiler/JRecord.java,491,jj.write("    } catch (Throwable ex) {\n");
+src/java/main/org/apache/jute/compiler/JRecord.java,492,jj.write("      ex.printStackTrace();\n");
+src/java/main/org/apache/jute/compiler/JRecord.java,493,jj.write("    }\n");
+src/java/main/org/apache/jute/compiler/JRecord.java,494,jj.write("    return \"ERROR\";\n");
+src/java/main/org/apache/jute/compiler/JRecord.java,495,jj.write("  }\n");
+src/java/main/org/apache/jute/compiler/JRecord.java,497,jj.write("  public void write(java.io.DataOutput out) throws java.io.IOException {\n");
+src/java/main/org/apache/jute/compiler/JRecord.java,498,jj.write("    BinaryOutputArchive archive = new BinaryOutputArchive(out);\n");
+src/java/main/org/apache/jute/compiler/JRecord.java,499,jj.write("    serialize(archive, \"\");\n");
+src/java/main/org/apache/jute/compiler/JRecord.java,500,jj.write("  }\n");
+src/java/main/org/apache/jute/compiler/JRecord.java,502,jj.write("  public void readFields(java.io.DataInput in) throws java.io.IOException {\n");
+src/java/main/org/apache/jute/compiler/JRecord.java,503,jj.write("    BinaryInputArchive archive = new BinaryInputArchive(in);\n");
+src/java/main/org/apache/jute/compiler/JRecord.java,504,jj.write("    deserialize(archive, \"\");\n");
+src/java/main/org/apache/jute/compiler/JRecord.java,505,jj.write("  }\n");
+src/java/main/org/apache/jute/compiler/JRecord.java,507,jj.write("  public int compareTo (Object peer_) throws ClassCastException {\n");
+src/java/main/org/apache/jute/compiler/JRecord.java,508,boolean unimplemented = false;
+src/java/main/org/apache/jute/compiler/JRecord.java,509,for (JField f : mFields) {
+src/java/main/org/apache/jute/compiler/JRecord.java,513,unimplemented = true;
+src/java/main/org/apache/jute/compiler/JRecord.java,516,if (unimplemented) {
+src/java/main/org/apache/jute/compiler/JRecord.java,517,jj.write("    throw new UnsupportedOperationException(\"comparing "
+src/java/main/org/apache/jute/compiler/JRecord.java,518,+ getName() + " is unimplemented\");\n");
+src/java/main/org/apache/jute/compiler/JRecord.java,520,jj.write("    if (!(peer_ instanceof "+getName()+")) {\n");
+src/java/main/org/apache/jute/compiler/JRecord.java,521,jj.write("      throw new ClassCastException(\"Comparing different types of records.\");\n");
+src/java/main/org/apache/jute/compiler/JRecord.java,523,jj.write("    "+getName()+" peer = ("+getName()+") peer_;\n");
+src/java/main/org/apache/jute/compiler/JRecord.java,524,jj.write("    int ret = 0;\n");
+src/java/main/org/apache/jute/compiler/JRecord.java,527,jj.write(jf.genJavaCompareTo());
+src/java/main/org/apache/jute/compiler/JRecord.java,528,jj.write("    if (ret != 0) return ret;\n");
+src/java/main/org/apache/jute/compiler/JRecord.java,532,jj.write("  }\n");
+src/java/main/org/apache/jute/compiler/JRecord.java,534,jj.write("  public boolean equals(Object peer_) {\n");
+src/java/main/org/apache/jute/compiler/JRecord.java,535,jj.write("    if (!(peer_ instanceof "+getName()+")) {\n");
+src/java/main/org/apache/jute/compiler/JRecord.java,536,jj.write("      return false;\n");
+src/java/main/org/apache/jute/compiler/JRecord.java,537,jj.write("    }\n");
+src/java/main/org/apache/jute/compiler/JRecord.java,538,jj.write("    if (peer_ == this) {\n");
+src/java/main/org/apache/jute/compiler/JRecord.java,539,jj.write("      return true;\n");
+src/java/main/org/apache/jute/compiler/JRecord.java,540,jj.write("    }\n");
+src/java/main/org/apache/jute/compiler/JRecord.java,541,jj.write("    "+getName()+" peer = ("+getName()+") peer_;\n");
+src/java/main/org/apache/jute/compiler/JRecord.java,542,jj.write("    boolean ret = false;\n");
+src/java/main/org/apache/jute/compiler/JRecord.java,543,for (Iterator<JField> i = mFields.iterator(); i.hasNext(); fIdx++) {
+src/java/main/org/apache/jute/compiler/JRecord.java,544,JField jf = i.next();
+src/java/main/org/apache/jute/compiler/JRecord.java,545,jj.write(jf.genJavaEquals());
+src/java/main/org/apache/jute/compiler/JRecord.java,546,jj.write("    if (!ret) return ret;\n");
+src/java/main/org/apache/jute/compiler/JRecord.java,548,jj.write("     return ret;\n");
+src/java/main/org/apache/jute/compiler/JRecord.java,549,jj.write("  }\n");
+src/java/main/org/apache/jute/compiler/JRecord.java,551,jj.write("  public int hashCode() {\n");
+src/java/main/org/apache/jute/compiler/JRecord.java,552,jj.write("    int result = 17;\n");
+src/java/main/org/apache/jute/compiler/JRecord.java,553,jj.write("    int ret;\n");
+src/java/main/org/apache/jute/compiler/JRecord.java,554,for (Iterator<JField> i = mFields.iterator(); i.hasNext(); fIdx++) {
+src/java/main/org/apache/jute/compiler/JRecord.java,555,JField jf = i.next();
+src/java/main/org/apache/jute/compiler/JRecord.java,556,jj.write(jf.genJavaHashCode());
+src/java/main/org/apache/jute/compiler/JRecord.java,557,jj.write("    result = 37*result + ret;\n");
+src/java/main/org/apache/jute/compiler/JRecord.java,559,jj.write("    return result;\n");
+src/java/main/org/apache/jute/compiler/JRecord.java,560,jj.write("  }\n");
+src/java/main/org/apache/jute/compiler/JRecord.java,561,jj.write("  public static String signature() {\n");
+src/java/main/org/apache/jute/compiler/JRecord.java,562,jj.write("    return \""+getSignature()+"\";\n");
+src/java/main/org/apache/jute/compiler/JRecord.java,563,jj.write("  }\n");
+src/java/main/org/apache/jute/compiler/JRecord.java,565,jj.write("}\n");
+src/java/main/org/apache/jute/compiler/JRecord.java,567,jj.close();
+src/java/main/org/apache/jute/compiler/JRecord.java,579,File csharpFile = new File(outputDirectory, getName()+".cs");
+src/java/main/org/apache/jute/compiler/JRecord.java,580,FileWriter cs = new FileWriter(csharpFile);
+src/java/main/org/apache/jute/compiler/JRecord.java,581,cs.write("// File generated by hadoop record compiler. Do not edit.\n");
+src/java/main/org/apache/jute/compiler/JRecord.java,582,cs.write("/**\n");
+src/java/main/org/apache/jute/compiler/JRecord.java,583,cs.write("* Licensed to the Apache Software Foundation (ASF) under one\n");
+src/java/main/org/apache/jute/compiler/JRecord.java,584,cs.write("* or more contributor license agreements.  See the NOTICE file\n");
+src/java/main/org/apache/jute/compiler/JRecord.java,585,cs.write("* distributed with this work for additional information\n");
+src/java/main/org/apache/jute/compiler/JRecord.java,586,cs.write("* regarding copyright ownership.  The ASF licenses this file\n");
+src/java/main/org/apache/jute/compiler/JRecord.java,587,cs.write("* to you under the Apache License, Version 2.0 (the\n");
+src/java/main/org/apache/jute/compiler/JRecord.java,588,cs.write("* \"License\"); you may not use this file except in compliance\n");
+src/java/main/org/apache/jute/compiler/JRecord.java,589,cs.write("* with the License.  You may obtain a copy of the License at\n");
+src/java/main/org/apache/jute/compiler/JRecord.java,590,cs.write("*\n");
+src/java/main/org/apache/jute/compiler/JRecord.java,591,cs.write("*     http://www.apache.org/licenses/LICENSE-2.0\n");
+src/java/main/org/apache/jute/compiler/JRecord.java,592,cs.write("*\n");
+src/java/main/org/apache/jute/compiler/JRecord.java,593,cs.write("* Unless required by applicable law or agreed to in writing, software\n");
+src/java/main/org/apache/jute/compiler/JRecord.java,594,cs.write("* distributed under the License is distributed on an \"AS IS\" BASIS,\n");
+src/java/main/org/apache/jute/compiler/JRecord.java,595,cs.write("* WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.\n");
+src/java/main/org/apache/jute/compiler/JRecord.java,596,cs.write("* See the License for the specific language governing permissions and\n");
+src/java/main/org/apache/jute/compiler/JRecord.java,597,cs.write("* limitations under the License.\n");
+src/java/main/org/apache/jute/compiler/JRecord.java,598,cs.write("*/\n");
+src/java/main/org/apache/jute/compiler/JRecord.java,599,cs.write("\n");
+src/java/main/org/apache/jute/compiler/JRecord.java,600,cs.write("using System;\n");
+src/java/main/org/apache/jute/compiler/JRecord.java,601,cs.write("using Org.Apache.Jute;\n");
+src/java/main/org/apache/jute/compiler/JRecord.java,602,cs.write("\n");
+src/java/main/org/apache/jute/compiler/JRecord.java,603,cs.write("namespace "+getCsharpNameSpace()+"\n");
+src/java/main/org/apache/jute/compiler/JRecord.java,604,cs.write("{\n");
+src/java/main/org/apache/jute/compiler/JRecord.java,606,String className = getCsharpName();
+src/java/main/org/apache/jute/compiler/JRecord.java,607,cs.write("public class "+className+" : IRecord, IComparable \n");
+src/java/main/org/apache/jute/compiler/JRecord.java,608,cs.write("{\n");
+src/java/main/org/apache/jute/compiler/JRecord.java,609,cs.write("  public "+ className +"() {\n");
+src/java/main/org/apache/jute/compiler/JRecord.java,610,cs.write("  }\n");
+src/java/main/org/apache/jute/compiler/JRecord.java,612,cs.write("  public "+className+"(\n");
+src/java/main/org/apache/jute/compiler/JRecord.java,613,int fIdx = 0;
+src/java/main/org/apache/jute/compiler/JRecord.java,614,int fLen = mFields.size();
+src/java/main/org/apache/jute/compiler/JRecord.java,615,for (Iterator<JField> i = mFields.iterator(); i.hasNext(); fIdx++) {
+src/java/main/org/apache/jute/compiler/JRecord.java,616,JField jf = i.next();
+src/java/main/org/apache/jute/compiler/JRecord.java,617,cs.write(jf.genCsharpConstructorParam(jf.getCsharpName()));
+src/java/main/org/apache/jute/compiler/JRecord.java,618,cs.write((fLen-1 == fIdx)?"":",\n");
+src/java/main/org/apache/jute/compiler/JRecord.java,620,cs.write(") {\n");
+src/java/main/org/apache/jute/compiler/JRecord.java,621,fIdx = 0;
+src/java/main/org/apache/jute/compiler/JRecord.java,622,for (Iterator<JField> i = mFields.iterator(); i.hasNext(); fIdx++) {
+src/java/main/org/apache/jute/compiler/JRecord.java,623,JField jf = i.next();
+src/java/main/org/apache/jute/compiler/JRecord.java,624,cs.write(jf.genCsharpConstructorSet(jf.getCsharpName()));
+src/java/main/org/apache/jute/compiler/JRecord.java,626,cs.write("  }\n");
+src/java/main/org/apache/jute/compiler/JRecord.java,627,fIdx = 0;
+src/java/main/org/apache/jute/compiler/JRecord.java,628,for (Iterator<JField> i = mFields.iterator(); i.hasNext(); fIdx++) {
+src/java/main/org/apache/jute/compiler/JRecord.java,629,JField jf = i.next();
+src/java/main/org/apache/jute/compiler/JRecord.java,630,cs.write(jf.genCsharpGetSet(fIdx));
+src/java/main/org/apache/jute/compiler/JRecord.java,633,cs.write("  public void Serialize(IOutputArchive a_, String tag) {\n");
+src/java/main/org/apache/jute/compiler/JRecord.java,634,cs.write("    a_.StartRecord(this,tag);\n");
+src/java/main/org/apache/jute/compiler/JRecord.java,635,fIdx = 0;
+src/java/main/org/apache/jute/compiler/JRecord.java,636,for (Iterator<JField> i = mFields.iterator(); i.hasNext(); fIdx++) {
+src/java/main/org/apache/jute/compiler/JRecord.java,637,JField jf = i.next();
+src/java/main/org/apache/jute/compiler/JRecord.java,638,cs.write(jf.genCsharpWriteMethodName());
+src/java/main/org/apache/jute/compiler/JRecord.java,640,cs.write("    a_.EndRecord(this,tag);\n");
+src/java/main/org/apache/jute/compiler/JRecord.java,641,cs.write("  }\n");
+src/java/main/org/apache/jute/compiler/JRecord.java,643,cs.write("  public void Deserialize(IInputArchive a_, String tag) {\n");
+src/java/main/org/apache/jute/compiler/JRecord.java,644,cs.write("    a_.StartRecord(tag);\n");
+src/java/main/org/apache/jute/compiler/JRecord.java,645,fIdx = 0;
+src/java/main/org/apache/jute/compiler/JRecord.java,646,for (Iterator<JField> i = mFields.iterator(); i.hasNext(); fIdx++) {
+src/java/main/org/apache/jute/compiler/JRecord.java,647,JField jf = i.next();
+src/java/main/org/apache/jute/compiler/JRecord.java,648,cs.write(jf.genCsharpReadMethodName());
+src/java/main/org/apache/jute/compiler/JRecord.java,650,cs.write("    a_.EndRecord(tag);\n");
+src/java/main/org/apache/jute/compiler/JRecord.java,651,cs.write("}\n");
+src/java/main/org/apache/jute/compiler/JRecord.java,653,cs.write("  public override String ToString() {\n");
+src/java/main/org/apache/jute/compiler/JRecord.java,654,cs.write("    try {\n");
+src/java/main/org/apache/jute/compiler/JRecord.java,655,cs.write("      System.IO.MemoryStream ms = new System.IO.MemoryStream();\n");
+src/java/main/org/apache/jute/compiler/JRecord.java,656,cs.write("      MiscUtil.IO.EndianBinaryWriter writer =\n");
+src/java/main/org/apache/jute/compiler/JRecord.java,657,cs.write("        new MiscUtil.IO.EndianBinaryWriter(MiscUtil.Conversion.EndianBitConverter.Big, ms, System.Text.Encoding.UTF8);\n");
+src/java/main/org/apache/jute/compiler/JRecord.java,658,cs.write("      BinaryOutputArchive a_ = \n");
+src/java/main/org/apache/jute/compiler/JRecord.java,659,cs.write("        new BinaryOutputArchive(writer);\n");
+src/java/main/org/apache/jute/compiler/JRecord.java,660,cs.write("      a_.StartRecord(this,\"\");\n");
+src/java/main/org/apache/jute/compiler/JRecord.java,661,fIdx = 0;
+src/java/main/org/apache/jute/compiler/JRecord.java,662,for (Iterator<JField> i = mFields.iterator(); i.hasNext(); fIdx++) {
+src/java/main/org/apache/jute/compiler/JRecord.java,663,JField jf = i.next();
+src/java/main/org/apache/jute/compiler/JRecord.java,664,cs.write(jf.genCsharpWriteMethodName());
+src/java/main/org/apache/jute/compiler/JRecord.java,666,cs.write("      a_.EndRecord(this,\"\");\n");
+src/java/main/org/apache/jute/compiler/JRecord.java,667,cs.write("      ms.Position = 0;\n");
+src/java/main/org/apache/jute/compiler/JRecord.java,668,cs.write("      return System.Text.Encoding.UTF8.GetString(ms.ToArray());\n");
+src/java/main/org/apache/jute/compiler/JRecord.java,669,cs.write("    } catch (Exception ex) {\n");
+src/java/main/org/apache/jute/compiler/JRecord.java,670,cs.write("      Console.WriteLine(ex.StackTrace);\n");
+src/java/main/org/apache/jute/compiler/JRecord.java,671,cs.write("    }\n");
+src/java/main/org/apache/jute/compiler/JRecord.java,672,cs.write("    return \"ERROR\";\n");
+src/java/main/org/apache/jute/compiler/JRecord.java,673,cs.write("  }\n");
+src/java/main/org/apache/jute/compiler/JRecord.java,675,cs.write("  public void Write(MiscUtil.IO.EndianBinaryWriter writer) {\n");
+src/java/main/org/apache/jute/compiler/JRecord.java,676,cs.write("    BinaryOutputArchive archive = new BinaryOutputArchive(writer);\n");
+src/java/main/org/apache/jute/compiler/JRecord.java,677,cs.write("    Serialize(archive, \"\");\n");
+src/java/main/org/apache/jute/compiler/JRecord.java,678,cs.write("  }\n");
+src/java/main/org/apache/jute/compiler/JRecord.java,680,cs.write("  public void ReadFields(MiscUtil.IO.EndianBinaryReader reader) {\n");
+src/java/main/org/apache/jute/compiler/JRecord.java,681,cs.write("    BinaryInputArchive archive = new BinaryInputArchive(reader);\n");
+src/java/main/org/apache/jute/compiler/JRecord.java,682,cs.write("    Deserialize(archive, \"\");\n");
+src/java/main/org/apache/jute/compiler/JRecord.java,683,cs.write("  }\n");
+src/java/main/org/apache/jute/compiler/JRecord.java,685,cs.write("  public int CompareTo (object peer_) {\n");
+src/java/main/org/apache/jute/compiler/JRecord.java,686,boolean unimplemented = false;
+src/java/main/org/apache/jute/compiler/JRecord.java,687,for (JField f : mFields) {
+src/java/main/org/apache/jute/compiler/JRecord.java,691,unimplemented = true;
+src/java/main/org/apache/jute/compiler/JRecord.java,694,if (unimplemented) {
+src/java/main/org/apache/jute/compiler/JRecord.java,695,cs.write("    throw new InvalidOperationException(\"comparing "
+src/java/main/org/apache/jute/compiler/JRecord.java,696,+ getCsharpName() + " is unimplemented\");\n");
+src/java/main/org/apache/jute/compiler/JRecord.java,698,cs.write("    if (!(peer_ is "+getCsharpName()+")) {\n");
+src/java/main/org/apache/jute/compiler/JRecord.java,699,cs.write("      throw new InvalidOperationException(\"Comparing different types of records.\");\n");
+src/java/main/org/apache/jute/compiler/JRecord.java,701,cs.write("    "+getCsharpName()+" peer = ("+getCsharpName()+") peer_;\n");
+src/java/main/org/apache/jute/compiler/JRecord.java,702,cs.write("    int ret = 0;\n");
+src/java/main/org/apache/jute/compiler/JRecord.java,705,cs.write(jf.genCsharpCompareTo());
+src/java/main/org/apache/jute/compiler/JRecord.java,706,cs.write("    if (ret != 0) return ret;\n");
+src/java/main/org/apache/jute/compiler/JRecord.java,710,cs.write("  }\n");
+src/java/main/org/apache/jute/compiler/JRecord.java,712,cs.write("  public override bool Equals(object peer_) {\n");
+src/java/main/org/apache/jute/compiler/JRecord.java,713,cs.write("    if (!(peer_ is "+getCsharpName()+")) {\n");
+src/java/main/org/apache/jute/compiler/JRecord.java,714,cs.write("      return false;\n");
+src/java/main/org/apache/jute/compiler/JRecord.java,715,cs.write("    }\n");
+src/java/main/org/apache/jute/compiler/JRecord.java,716,cs.write("    if (peer_ == this) {\n");
+src/java/main/org/apache/jute/compiler/JRecord.java,717,cs.write("      return true;\n");
+src/java/main/org/apache/jute/compiler/JRecord.java,718,cs.write("    }\n");
+src/java/main/org/apache/jute/compiler/JRecord.java,719,cs.write("    bool ret = false;\n");
+src/java/main/org/apache/jute/compiler/JRecord.java,720,cs.write("    " + getCsharpName() + " peer = (" + getCsharpName() + ")peer_;\n");
+src/java/main/org/apache/jute/compiler/JRecord.java,721,for (Iterator<JField> i = mFields.iterator(); i.hasNext(); fIdx++) {
+src/java/main/org/apache/jute/compiler/JRecord.java,722,JField jf = i.next();
+src/java/main/org/apache/jute/compiler/JRecord.java,723,cs.write(jf.genCsharpEquals());
+src/java/main/org/apache/jute/compiler/JRecord.java,724,cs.write("    if (!ret) return ret;\n");
+src/java/main/org/apache/jute/compiler/JRecord.java,726,cs.write("     return ret;\n");
+src/java/main/org/apache/jute/compiler/JRecord.java,727,cs.write("  }\n");
+src/java/main/org/apache/jute/compiler/JRecord.java,729,cs.write("  public override int GetHashCode() {\n");
+src/java/main/org/apache/jute/compiler/JRecord.java,730,cs.write("    int result = 17;\n");
+src/java/main/org/apache/jute/compiler/JRecord.java,731,cs.write("    int ret;\n");
+src/java/main/org/apache/jute/compiler/JRecord.java,732,for (Iterator<JField> i = mFields.iterator(); i.hasNext(); fIdx++) {
+src/java/main/org/apache/jute/compiler/JRecord.java,733,JField jf = i.next();
+src/java/main/org/apache/jute/compiler/JRecord.java,734,cs.write(jf.genCsharpHashCode());
+src/java/main/org/apache/jute/compiler/JRecord.java,735,cs.write("    result = 37*result + ret;\n");
+src/java/main/org/apache/jute/compiler/JRecord.java,737,cs.write("    return result;\n");
+src/java/main/org/apache/jute/compiler/JRecord.java,738,cs.write("  }\n");
+src/java/main/org/apache/jute/compiler/JRecord.java,739,cs.write("  public static string Signature() {\n");
+src/java/main/org/apache/jute/compiler/JRecord.java,740,cs.write("    return \""+getSignature()+"\";\n");
+src/java/main/org/apache/jute/compiler/JRecord.java,741,cs.write("  }\n");
+src/java/main/org/apache/jute/compiler/JRecord.java,743,cs.write("}\n");
+src/java/main/org/apache/jute/compiler/JRecord.java,744,cs.write("}\n");
+src/java/main/org/apache/jute/compiler/JRecord.java,746,cs.close();
+src/java/main/org/apache/zookeeper/ZooKeeperMain.java,70,protected static final Map<String,String> commandMap = new HashMap<String,String>( );
+src/java/main/org/apache/zookeeper/ZooKeeperMain.java,71,protected static final Map<String,CliCommand> commandMapCli =
+src/java/main/org/apache/zookeeper/cli/DeleteCommand.java,58,String [] newCmd = new String[4];
+src/java/main/org/apache/zookeeper/cli/DeleteCommand.java,59,newCmd[0] = cmdArgs[0];
+src/java/main/org/apache/zookeeper/cli/DeleteCommand.java,60,newCmd[1] = "-v";
+src/java/main/org/apache/zookeeper/cli/DeleteCommand.java,61,newCmd[2] = cmdArgs[2]; // version
+src/java/main/org/apache/zookeeper/cli/DeleteCommand.java,62,newCmd[3] = cmdArgs[1]; // path
+src/java/main/org/apache/zookeeper/server/DataTree.java,1346,Set<Long> keys = ephemerals.keySet();
+src/java/main/org/apache/zookeeper/server/DataTree.java,1348,+ keys.size() + "):");
+src/java/main/org/apache/zookeeper/server/DataTree.java,1349,for (long k : keys) {
+src/java/main/org/apache/zookeeper/server/DataTree.java,1350,pwriter.print("0x" + Long.toHexString(k));
+src/java/main/org/apache/zookeeper/server/DataTree.java,1352,HashSet<String> tmp = ephemerals.get(k);
+src/java/main/org/apache/zookeeper/server/NIOServerCnxn.java,481,String cmd = FourLetterCommands.cmd2String.get(len);
+src/java/main/org/apache/zookeeper/server/NettyServerCnxn.java,270,String cmd = FourLetterCommands.cmd2String.get(len);
+src/java/main/org/apache/zookeeper/server/PurgeTxnLog.java,99,List<File> files = new ArrayList<File>(Arrays.asList(txnLog
+src/java/main/org/apache/zookeeper/server/PurgeTxnLog.java,100,.getDataDir().listFiles(new MyFileFilter(PREFIX_LOG))));
+src/java/main/org/apache/zookeeper/server/PurgeTxnLog.java,102,files.addAll(Arrays.asList(txnLog.getSnapDir().listFiles(
+src/java/main/org/apache/zookeeper/server/PurgeTxnLog.java,103,new MyFileFilter(PREFIX_SNAPSHOT))));
+src/java/main/org/apache/zookeeper/server/ZooKeeperServer.java,331,for (File f: file.listFiles()) {
+src/java/main/org/apache/zookeeper/server/ZooKeeperServer.java,332,size += getDirSize(f);
+src/java/main/org/apache/zookeeper/server/command/FourLetterCommands.java,154,public final static HashMap<Integer, String> cmd2String =
+src/java/main/org/apache/zookeeper/server/quorum/flexible/QuorumHierarchical.java,105,for (Long sid: serverWeight.keySet()){
+src/java/main/org/apache/zookeeper/server/quorum/flexible/QuorumHierarchical.java,109,for (Long sid: groupWeight.keySet()){
+src/java/main/org/apache/zookeeper/server/quorum/flexible/QuorumHierarchical.java,113,for (Long sid: serverGroup.keySet()){
+src/java/main/org/apache/zookeeper/server/quorum/flexible/QuorumHierarchical.java,298,for(long sid : serverGroup.keySet()){
+src/java/main/org/apache/zookeeper/server/quorum/flexible/QuorumHierarchical.java,299,Long gid = serverGroup.get(sid);
+src/java/main/org/apache/zookeeper/server/quorum/flexible/QuorumHierarchical.java,347,for(long gid : expansion.keySet()) {
+src/java/main/org/apache/zookeeper/server/quorum/flexible/QuorumHierarchical.java,348,LOG.debug("Group info: " + expansion.get(gid) + ", " + gid + ", " + groupWeight.get(gid));
+src/java/main/org/apache/zookeeper/server/quorum/flexible/QuorumHierarchical.java,353,LOG.debug("Majority group counter: " + majGroupCounter + ", " + numGroups);
+src/java/main/org/apache/zookeeper/server/quorum/flexible/QuorumHierarchical.java,354,if((majGroupCounter > (numGroups / 2))){
+src/java/main/org/apache/zookeeper/server/quorum/flexible/QuorumHierarchical.java,355,LOG.debug("Positive set size: " + set.size());
+src/java/main/org/apache/zookeeper/server/quorum/flexible/QuorumHierarchical.java,358,else {
+src/java/main/org/apache/zookeeper/server/quorum/flexible/QuorumHierarchical.java,359,LOG.debug("Negative set size: " + set.size());
+src/java/main/org/apache/zookeeper/server/quorum/flexible/QuorumHierarchical.java,363,public Map<Long, QuorumServer> getVotingMembers() {
+src/java/main/org/apache/zookeeper/server/quorum/flexible/QuorumHierarchical.java,367,public Map<Long, QuorumServer> getObservingMembers() {
+src/java/main/org/apache/zookeeper/version/util/VerGen.java,53,File file = new File(pkgdir, TYPE_NAME + ".java");
+src/java/main/org/apache/zookeeper/version/util/VerGen.java,54,FileWriter w = null;
+src/java/main/org/apache/zookeeper/version/util/VerGen.java,55,try {
+src/java/main/org/apache/zookeeper/version/util/VerGen.java,56,w = new FileWriter(file);
+src/java/main/org/apache/zookeeper/version/util/VerGen.java,98,if (w != null) {
+src/java/main/org/apache/zookeeper/version/util/VerGen.java,99,try {
+src/java/main/org/apache/zookeeper/version/util/VerGen.java,100,w.close();
+src/java/main/org/apache/zookeeper/version/util/VerGen.java,102,System.out.println("Unable to close file writer"
+src/java/main/org/apache/zookeeper/version/util/VerGen.java,103,+ e.getMessage());
+src/java/main/org/apache/zookeeper/ClientCnxn.java,1542,Packet queuePacket(RequestHeader h, ReplyHeader r, Record request,
+src/java/main/org/apache/zookeeper/ClientCnxn.java,1549,Packet queuePacket(RequestHeader h, ReplyHeader r, Record request,
+src/java/main/org/apache/zookeeper/KeeperException.java,387,NOWATCHER (-121);
+src/java/main/org/apache/zookeeper/KeeperException.java,518,if (path == null) {
+src/java/main/org/apache/zookeeper/ZooKeeper.java,52,import org.apache.zookeeper.common.StringUtils;
+src/java/main/org/apache/zookeeper/ZooKeeper.java,69,import org.apache.zookeeper.proto.ReconfigRequest;
+src/java/main/org/apache/zookeeper/ZooKeeper.java,144,private final HostProvider hostProvider;
+src/java/main/org/apache/zookeeper/ZooKeeper.java,203,private final ZKWatchManager watchManager;
+src/java/main/org/apache/zookeeper/ZooKeeper.java,205,List<String> getDataWatches() {
+src/java/main/org/apache/zookeeper/ZooKeeper.java,211,List<String> getExistWatches() {
+src/java/main/org/apache/zookeeper/ZooKeeper.java,217,List<String> getChildWatches() {
+src/java/main/org/apache/zookeeper/ZooKeeper.java,239,private volatile Watcher defaultWatcher;
+src/java/main/org/apache/zookeeper/ZooKeeper.java,508,abstract class WatchRegistration {
+src/java/main/org/apache/zookeeper/ZooKeeper.java,1942,public byte[] reconfig(String joiningServers, String leavingServers, String newMembers, long fromConfig, Stat stat) throws KeeperException, InterruptedException
+src/java/main/org/apache/zookeeper/ZooKeeper.java,1944,RequestHeader h = new RequestHeader();
+src/java/main/org/apache/zookeeper/ZooKeeper.java,1945,h.setType(ZooDefs.OpCode.reconfig);
+src/java/main/org/apache/zookeeper/ZooKeeper.java,1946,ReconfigRequest request = new ReconfigRequest(joiningServers, leavingServers, newMembers, fromConfig);
+src/java/main/org/apache/zookeeper/ZooKeeper.java,1947,GetDataResponse response = new GetDataResponse();
+src/java/main/org/apache/zookeeper/ZooKeeper.java,1948,ReplyHeader r = cnxn.submitRequest(h, request, response, null);
+src/java/main/org/apache/zookeeper/ZooKeeper.java,1949,if (r.getErr() != 0) {
+src/java/main/org/apache/zookeeper/ZooKeeper.java,1950,throw KeeperException.create(KeeperException.Code.get(r.getErr()), "");
+src/java/main/org/apache/zookeeper/ZooKeeper.java,1952,if (stat != null) {
+src/java/main/org/apache/zookeeper/ZooKeeper.java,1953,DataTree.copyStat(response.getStat(), stat);
+src/java/main/org/apache/zookeeper/ZooKeeper.java,1955,return response.getData();
+src/java/main/org/apache/zookeeper/ZooKeeper.java,1964,public byte[] reconfig(List<String> joiningServers, List<String> leavingServers, List<String> newMembers, long fromConfig, Stat stat) throws KeeperException, InterruptedException
+src/java/main/org/apache/zookeeper/ZooKeeper.java,1966,return reconfig(StringUtils.joinStrings(joiningServers, ","),
+src/java/main/org/apache/zookeeper/ZooKeeper.java,1967,StringUtils.joinStrings(leavingServers, ","),
+src/java/main/org/apache/zookeeper/ZooKeeper.java,1968,StringUtils.joinStrings(newMembers, ","),
+src/java/main/org/apache/zookeeper/ZooKeeper.java,1969,fromConfig, stat);
+src/java/main/org/apache/zookeeper/ZooKeeper.java,1978,public void reconfig(String joiningServers, String leavingServers,
+src/java/main/org/apache/zookeeper/ZooKeeper.java,1981,RequestHeader h = new RequestHeader();
+src/java/main/org/apache/zookeeper/ZooKeeper.java,1982,h.setType(ZooDefs.OpCode.reconfig);
+src/java/main/org/apache/zookeeper/ZooKeeper.java,1983,ReconfigRequest request = new ReconfigRequest(joiningServers, leavingServers, newMembers, fromConfig);
+src/java/main/org/apache/zookeeper/ZooKeeper.java,1984,GetDataResponse response = new GetDataResponse();
+src/java/main/org/apache/zookeeper/ZooKeeper.java,1985,cnxn.queuePacket(h, new ReplyHeader(), request, response, cb,
+src/java/main/org/apache/zookeeper/ZooKeeper.java,1986,ZooDefs.CONFIG_NODE, ZooDefs.CONFIG_NODE, ctx, null);
+src/java/main/org/apache/zookeeper/ZooKeeper.java,1995,public void reconfig(List<String> joiningServers,
+src/java/main/org/apache/zookeeper/ZooKeeper.java,1996,List<String> leavingServers, List<String> newMembers, long fromConfig,
+src/java/main/org/apache/zookeeper/ZooKeeper.java,1999,reconfig(StringUtils.joinStrings(joiningServers, ","),
+src/java/main/org/apache/zookeeper/ZooKeeper.java,2000,StringUtils.joinStrings(leavingServers, ","),
+src/java/main/org/apache/zookeeper/ZooKeeper.java,2001,StringUtils.joinStrings(newMembers, ","),
+src/java/main/org/apache/zookeeper/ZooKeeper.java,2002,fromConfig, cb, ctx);
+src/java/main/org/apache/zookeeper/ZooKeeperMain.java,271,zk = new ZooKeeper(host,
+src/java/main/org/apache/zookeeper/ZooKeeperMain.java,272,Integer.parseInt(cl.getOption("timeout")),
+src/java/main/org/apache/zookeeper/ZooKeeperMain.java,273,new MyWatcher(), readOnly);
+src/java/main/org/apache/zookeeper/cli/ReconfigCommand.java,21,import java.util.ArrayList;
+src/java/main/org/apache/zookeeper/cli/ReconfigCommand.java,22,import java.util.List;
+src/java/main/org/apache/zookeeper/cli/ReconfigCommand.java,145,byte[] curConfig = zk.reconfig(joining,
+src/java/main/org/apache/zookeeper/server/DataTree.java,305,public void addConfigNode() {
+src/java/main/org/apache/zookeeper/server/DataTree.java,306,DataNode zookeeperZnode = nodes.get(procZookeeper);
+src/java/main/org/apache/zookeeper/server/DataTree.java,307,if (zookeeperZnode!=null) { // should always be the case
+src/java/main/org/apache/zookeeper/server/DataTree.java,308,zookeeperZnode.addChild(configChildZookeeper);
+src/java/main/org/apache/zookeeper/server/DataTree.java,310,LOG.error("There's no /zookeeper znode - this should never happen");
+src/java/main/org/apache/zookeeper/server/DataTree.java,312,nodes.put(configZookeeper, configDataNode);
+src/java/main/org/apache/zookeeper/server/ZooKeeperServer.java,169,public ZooKeeperServer(FileTxnSnapLog txnLogFactory, int tickTime) throws IOException {
+src/java/main/org/apache/zookeeper/server/ZooKeeperServerMain.java,112,public void runFromConfig(ServerConfig config) throws IOException, AdminServerException {
+src/java/main/org/apache/zookeeper/server/quorum/QuorumPeerConfig.java,280,throw new ConfigException("Invalid option for standalone mode. Choose 'true' or 'false.'");
+src/java/main/org/apache/zookeeper/server/quorum/QuorumPeerConfig.java,708,standaloneEnabled = enabled;
+src/java/main/org/apache/zookeeper/server/quorum/QuorumPeerMain.java,129,public void runFromConfig(QuorumPeerConfig config) throws IOException, AdminServerException {
+src/java/main/org/apache/zookeeper/server/quorum/QuorumCnxManager.java,240,if (LOG.isDebugEnabled()) {
+src/java/main/org/apache/zookeeper/server/quorum/QuorumCnxManager.java,241,LOG.debug("Opening channel to server " + sid);
+src/java/main/org/apache/zookeeper/server/quorum/QuorumCnxManager.java,437,try {
+src/java/main/org/apache/zookeeper/server/quorum/QuorumCnxManager.java,439,if (LOG.isDebugEnabled()) {
+src/java/main/org/apache/zookeeper/server/quorum/QuorumCnxManager.java,440,LOG.debug("Opening channel to server " + sid);
+src/java/main/org/apache/zookeeper/server/quorum/QuorumCnxManager.java,442,Socket sock = new Socket();
+src/java/main/org/apache/zookeeper/server/quorum/QuorumCnxManager.java,445,if (LOG.isDebugEnabled()) {
+src/java/main/org/apache/zookeeper/server/quorum/QuorumCnxManager.java,446,LOG.debug("Connected to server " + sid);
+src/java/main/org/apache/zookeeper/server/quorum/QuorumCnxManager.java,635,Socket client = ss.accept();
+src/java/main/org/apache/zookeeper/server/quorum/QuorumCnxManager.java,742,if (LOG.isDebugEnabled()) {
+src/java/main/org/apache/zookeeper/server/quorum/QuorumCnxManager.java,743,LOG.debug("Calling finish for " + sid);
+src/java/main/org/apache/zookeeper/server/quorum/QuorumCnxManager.java,762,if (LOG.isDebugEnabled()) {
+src/java/main/org/apache/zookeeper/server/quorum/QuorumCnxManager.java,763,LOG.debug("Removing entry from senderWorkerMap sid=" + sid);
+src/java/main/org/apache/zookeeper/server/quorum/QuorumCnxManager.java,922,if (sock != null) {
+src/java/main/org/apache/zookeeper/server/quorum/QuorumCnxManager.java,923,closeSocket(sock);
+src/java/main/org/apache/zookeeper/server/auth/SaslServerCallbackHandler.java,137,LOG.error("Failed to set name based on Kerberos authentication rules.");
+src/java/main/org/apache/zookeeper/server/quorum/Learner.java,435,pif = packetsNotCommitted.peekFirst();
+src/java/main/org/apache/zookeeper/server/quorum/Learner.java,439,if (qp.getType() == Leader.COMMITANDACTIVATE) {
+src/java/main/org/apache/zookeeper/server/quorum/Learner.java,440,QuorumVerifier qv = self.configFromString(new String(((SetDataTxn)pif.rec).getData()));
+src/java/main/org/apache/zookeeper/server/quorum/Learner.java,441,boolean majorChange =
+src/java/main/org/apache/zookeeper/server/quorum/Learner.java,442,self.processReconfig(qv, ByteBuffer.wrap(qp.getData()).getLong(), qp.getZxid(), true);
+src/java/main/org/apache/zookeeper/server/quorum/Learner.java,443,if (majorChange) {
+src/java/main/org/apache/zookeeper/server/quorum/Learner.java,444,throw new Exception("changes proposed in reconfig");
+src/java/main/org/apache/zookeeper/server/util/ConfigUtils.java,31,static public String getClientConfigStr(String configData) {
+src/java/main/org/apache/zookeeper/server/util/ConfigUtils.java,32,Properties props = new Properties();
+src/java/main/org/apache/zookeeper/server/util/ConfigUtils.java,46,if (!key.startsWith("server.")) continue;
+src/java/main/org/apache/zookeeper/server/util/ConfigUtils.java,56,sb.append(qs.clientAddr.getHostString() + ":" + qs.clientAddr.getPort());
+src/java/main/org/apache/zookeeper/server/ZooKeeperServer.java,105,enum State {
+src/java/main/org/apache/zookeeper/server/ZooKeeperServer.java,106,INITIAL, RUNNING, SHUTDOWN;
+src/java/main/org/apache/zookeeper/server/ZooKeeperServer.java,125,private final ZooKeeperServerListener listener = new ZooKeeperServerListenerImpl();
+src/java/main/org/apache/zookeeper/server/ZooKeeperServer.java,449,state = State.RUNNING;
+src/java/main/org/apache/zookeeper/server/ZooKeeperServer.java,470,private class ZooKeeperServerListenerImpl implements
+src/java/main/org/apache/zookeeper/server/ZooKeeperServer.java,471,ZooKeeperServerListener {
+src/java/main/org/apache/zookeeper/server/ZooKeeperServer.java,474,public void notifyStopping(String threadName, int exitCode) {
+src/java/main/org/apache/zookeeper/server/ZooKeeperServer.java,475,LOG.info("Thread {} exits, error code {}", threadName, exitCode);
+src/java/main/org/apache/zookeeper/server/ZooKeeperServer.java,476,shutdown();
+src/java/main/org/apache/zookeeper/server/ZooKeeperServer.java,494,if (!isRunning()) {
+src/java/main/org/apache/zookeeper/server/ZooKeeperServer.java,501,state = State.SHUTDOWN;
+src/java/main/org/apache/zookeeper/server/ZooKeeperServerMain.java,121,ZooKeeperServer zkServer = new ZooKeeperServer( txnLog,
+src/java/main/org/apache/zookeeper/server/ZooKeeperServerMain.java,156,if (zkServer.isRunning()) {
+src/java/main/org/apache/zookeeper/server/ZooKeeperServerMain.java,183,adminServer.shutdown();
+src/java/main/org/apache/zookeeper/server/quorum/Follower.java,88,while (self.isRunning()) {
+src/java/main/org/apache/zookeeper/server/quorum/LearnerZooKeeperServer.java,161,if (!isRunning()) {
+src/java/main/org/apache/zookeeper/server/quorum/Observer.java,26,import org.apache.zookeeper.ZooDefs.OpCode;
+src/java/main/org/apache/zookeeper/server/quorum/Observer.java,29,import org.apache.zookeeper.server.quorum.QuorumPeer.LearnerType;
+src/java/main/org/apache/zookeeper/server/quorum/Observer.java,30,import org.apache.zookeeper.server.quorum.QuorumPeer.QuorumServer;
+src/java/main/org/apache/zookeeper/server/quorum/Observer.java,31,import org.apache.zookeeper.server.quorum.QuorumPeer.ServerState;
+src/java/main/org/apache/zookeeper/server/quorum/Observer.java,32,import org.apache.zookeeper.server.quorum.QuorumPeerConfig.ConfigException;
+src/java/main/org/apache/zookeeper/server/quorum/Observer.java,81,while (self.isRunning()) {
+src/java/main/org/apache/zookeeper/server/quorum/ObserverZooKeeperServer.java,135,if (!isRunning()) {
+src/java/main/org/apache/zookeeper/server/quorum/ReadOnlyZooKeeperServer.java,140,if (!isRunning()) {
+src/java/main/org/apache/zookeeper/ZooKeeperMain.java,42,import org.apache.commons.cli.ParseException;
+src/java/main/org/apache/zookeeper/ZooKeeperMain.java,277,throws KeeperException, IOException, InterruptedException
+src/java/main/org/apache/zookeeper/ZooKeeperMain.java,295,void run() throws KeeperException, IOException, InterruptedException {
+src/java/main/org/apache/zookeeper/ZooKeeperMain.java,356,throws InterruptedException, IOException, KeeperException {
+src/java/main/org/apache/zookeeper/ZooKeeperMain.java,574,throws KeeperException, IOException, InterruptedException
+src/java/main/org/apache/zookeeper/ZooKeeperMain.java,577,return processZKCmd(co);
+src/java/main/org/apache/zookeeper/ZooKeeperMain.java,579,System.err.println("Command failed: " + e);
+src/java/main/org/apache/zookeeper/ZooKeeperMain.java,581,System.err.println("Node does not exist: " + e.getPath());
+src/java/main/org/apache/zookeeper/ZooKeeperMain.java,583,System.err.println("Ephemerals cannot have children: "
+src/java/main/org/apache/zookeeper/ZooKeeperMain.java,584,+ e.getPath());
+src/java/main/org/apache/zookeeper/ZooKeeperMain.java,586,System.err.println("Node already exists: " + e.getPath());
+src/java/main/org/apache/zookeeper/ZooKeeperMain.java,588,System.err.println("Node not empty: " + e.getPath());
+src/java/main/org/apache/zookeeper/ZooKeeperMain.java,590,System.err.println("Not a read-only call: " + e.getPath());
+src/java/main/org/apache/zookeeper/ZooKeeperMain.java,592,System.err.println("Acl is not valid : "+e.getPath());
+src/java/main/org/apache/zookeeper/ZooKeeperMain.java,594,System.err.println("Authentication is not valid : "+e.getPath());
+src/java/main/org/apache/zookeeper/ZooKeeperMain.java,596,System.err.println("Arguments are not valid : "+e.getPath());
+src/java/main/org/apache/zookeeper/ZooKeeperMain.java,598,System.err.println("version No is not valid : "+e.getPath());
+src/java/main/org/apache/zookeeper/ZooKeeperMain.java,600,System.err.println("Another reconfiguration is in progress -- concurrent " +
+src/java/main/org/apache/zookeeper/ZooKeeperMain.java,603,System.err.println("No quorum of new config is connected and " +
+src/java/main/org/apache/zookeeper/ZooKeeperMain.java,607,return false;
+src/java/main/org/apache/zookeeper/ZooKeeperMain.java,611,throws KeeperException, IOException, InterruptedException
+src/java/main/org/apache/zookeeper/ZooKeeperMain.java,617,return false;
+src/java/main/org/apache/zookeeper/ZooKeeperMain.java,622,return false;
+src/java/main/org/apache/zookeeper/ZooKeeperMain.java,628,try {
+src/java/main/org/apache/zookeeper/ZooKeeperMain.java,631,System.exit(0);
+src/java/main/org/apache/zookeeper/ZooKeeperMain.java,634,if (commandCount <= i){ // don't allow redoing this redo
+src/java/main/org/apache/zookeeper/ZooKeeperMain.java,635,System.out.println("Command index out of range");
+src/java/main/org/apache/zookeeper/ZooKeeperMain.java,636,return false;
+src/java/main/org/apache/zookeeper/ZooKeeperMain.java,639,if (cl.getCommand().equals( "redo" )){
+src/java/main/org/apache/zookeeper/ZooKeeperMain.java,640,System.out.println("No redoing redos");
+src/java/main/org/apache/zookeeper/ZooKeeperMain.java,641,return false;
+src/java/main/org/apache/zookeeper/ZooKeeperMain.java,644,processCmd( cl);
+src/java/main/org/apache/zookeeper/ZooKeeperMain.java,646,for (int i=commandCount - 10;i<=commandCount;++i) {
+src/java/main/org/apache/zookeeper/ZooKeeperMain.java,657,if (args.length >=2) {
+src/java/main/org/apache/zookeeper/ZooKeeperMain.java,660,connectToZK(host);
+src/java/main/org/apache/zookeeper/ZooKeeperMain.java,680,System.err.println(ex.getMessage());
+src/java/main/org/apache/zookeeper/ZooKeeperMain.java,681,usage();
+src/java/main/org/apache/zookeeper/ZooKeeperMain.java,682,return false;
+src/java/main/org/apache/zookeeper/cli/AddAuthCommand.java,41,public CliCommand parse(String[] cmdArgs) throws ParseException {
+src/java/main/org/apache/zookeeper/cli/AddAuthCommand.java,43,CommandLine cl = parser.parse(options, cmdArgs);
+src/java/main/org/apache/zookeeper/cli/AddAuthCommand.java,46,throw new ParseException(getUsageStr());
+src/java/main/org/apache/zookeeper/cli/AddAuthCommand.java,53,public boolean exec() throws KeeperException, IOException,
+src/java/main/org/apache/zookeeper/cli/AddAuthCommand.java,54,InterruptedException {
+src/java/main/org/apache/zookeeper/cli/CliCommand.java,20,import java.io.IOException;
+src/java/main/org/apache/zookeeper/cli/CliCommand.java,23,import org.apache.commons.cli.ParseException;
+src/java/main/org/apache/zookeeper/cli/CliCommand.java,24,import org.apache.zookeeper.KeeperException;
+src/java/main/org/apache/zookeeper/cli/CliCommand.java,113,abstract public CliCommand parse(String cmdArgs[]) throws ParseException;
+src/java/main/org/apache/zookeeper/cli/CliCommand.java,122,abstract public boolean exec() throws KeeperException,
+src/java/main/org/apache/zookeeper/cli/CliCommand.java,123,IOException, InterruptedException;
+src/java/main/org/apache/zookeeper/cli/CloseCommand.java,20,import java.io.IOException;
+src/java/main/org/apache/zookeeper/cli/CloseCommand.java,21,import org.apache.commons.cli.ParseException;
+src/java/main/org/apache/zookeeper/cli/CloseCommand.java,22,import org.apache.zookeeper.KeeperException;
+src/java/main/org/apache/zookeeper/cli/CloseCommand.java,35,public CliCommand parse(String[] cmdArgs) throws ParseException {
+src/java/main/org/apache/zookeeper/cli/CloseCommand.java,40,public boolean exec() throws KeeperException, IOException, InterruptedException {
+src/java/main/org/apache/zookeeper/cli/CloseCommand.java,41,zk.close();
+src/java/main/org/apache/zookeeper/cli/CreateCommand.java,48,public CliCommand parse(String[] cmdArgs) throws ParseException {
+src/java/main/org/apache/zookeeper/cli/CreateCommand.java,50,cl = parser.parse(options, cmdArgs);
+src/java/main/org/apache/zookeeper/cli/CreateCommand.java,53,throw new ParseException(getUsageStr());
+src/java/main/org/apache/zookeeper/cli/CreateCommand.java,60,public boolean exec() throws KeeperException, InterruptedException {
+src/java/main/org/apache/zookeeper/cli/CreateCommand.java,66,err.println("-c cannot be combined with -s or -e. Containers cannot be ephemeral or sequential.");
+src/java/main/org/apache/zookeeper/cli/CreateCommand.java,67,return false;
+src/java/main/org/apache/zookeeper/cli/CreateCommand.java,93,return false;
+src/java/main/org/apache/zookeeper/cli/CreateCommand.java,96,return false;
+src/java/main/org/apache/zookeeper/cli/DelQuotaCommand.java,48,public CliCommand parse(String[] cmdArgs) throws ParseException {
+src/java/main/org/apache/zookeeper/cli/DelQuotaCommand.java,50,cl = parser.parse(options, cmdArgs);
+src/java/main/org/apache/zookeeper/cli/DelQuotaCommand.java,53,throw new ParseException(getUsageStr());
+src/java/main/org/apache/zookeeper/cli/DelQuotaCommand.java,60,public boolean exec() throws KeeperException, IOException,
+src/java/main/org/apache/zookeeper/cli/DelQuotaCommand.java,61,InterruptedException {
+src/java/main/org/apache/zookeeper/cli/DelQuotaCommand.java,65,if (cl.hasOption("b")) {
+src/java/main/org/apache/zookeeper/cli/DelQuotaCommand.java,66,delQuota(zk, path, true, false);
+src/java/main/org/apache/zookeeper/cli/DelQuotaCommand.java,68,delQuota(zk, path, false, true);
+src/java/main/org/apache/zookeeper/cli/DelQuotaCommand.java,72,delQuota(zk, path, true, true);
+src/java/main/org/apache/zookeeper/cli/DeleteAllCommand.java,45,public CliCommand parse(String[] cmdArgs) throws ParseException {
+src/java/main/org/apache/zookeeper/cli/DeleteAllCommand.java,47,CommandLine cl = parser.parse(options, cmdArgs);
+src/java/main/org/apache/zookeeper/cli/DeleteAllCommand.java,50,throw new ParseException(getUsageStr());
+src/java/main/org/apache/zookeeper/cli/DeleteAllCommand.java,57,public boolean exec() throws KeeperException,
+src/java/main/org/apache/zookeeper/cli/DeleteAllCommand.java,58,InterruptedException {
+src/java/main/org/apache/zookeeper/cli/DeleteAllCommand.java,62,ZKUtil.deleteRecursive(zk, path);
+src/java/main/org/apache/zookeeper/cli/DeleteCommand.java,41,public CliCommand parse(String[] cmdArgs) throws ParseException {
+src/java/main/org/apache/zookeeper/cli/DeleteCommand.java,43,cl = parser.parse(options, cmdArgs);
+src/java/main/org/apache/zookeeper/cli/DeleteCommand.java,46,throw new ParseException(getUsageStr());
+src/java/main/org/apache/zookeeper/cli/DeleteCommand.java,54,private void retainCompatibility(String[] cmdArgs) throws ParseException {
+src/java/main/org/apache/zookeeper/cli/DeleteCommand.java,66,cl = parser.parse(options, newCmd);
+src/java/main/org/apache/zookeeper/cli/DeleteCommand.java,72,public boolean exec() throws KeeperException, InterruptedException {
+src/java/main/org/apache/zookeeper/cli/DeleteCommand.java,84,err.println(ex.getMessage());
+src/java/main/org/apache/zookeeper/cli/GetAclCommand.java,48,public CliCommand parse(String[] cmdArgs) throws ParseException {
+src/java/main/org/apache/zookeeper/cli/GetAclCommand.java,50,cl = parser.parse(options, cmdArgs);
+src/java/main/org/apache/zookeeper/cli/GetAclCommand.java,53,throw new ParseException(getUsageStr());
+src/java/main/org/apache/zookeeper/cli/GetAclCommand.java,60,public boolean exec() throws KeeperException, InterruptedException {
+src/java/main/org/apache/zookeeper/cli/GetAclCommand.java,63,List<ACL> acl = zk.getACL(path, stat);
+src/java/main/org/apache/zookeeper/cli/GetCommand.java,43,public CliCommand parse(String[] cmdArgs) throws ParseException {
+src/java/main/org/apache/zookeeper/cli/GetCommand.java,46,cl = parser.parse(options, cmdArgs);
+src/java/main/org/apache/zookeeper/cli/GetCommand.java,49,throw new ParseException(getUsageStr());
+src/java/main/org/apache/zookeeper/cli/GetCommand.java,57,private void retainCompatibility(String[] cmdArgs) throws ParseException {
+src/java/main/org/apache/zookeeper/cli/GetCommand.java,65,cl = parser.parse(options, cmdArgs);
+src/java/main/org/apache/zookeeper/cli/GetCommand.java,71,public boolean exec() throws KeeperException, InterruptedException {
+src/java/main/org/apache/zookeeper/cli/GetCommand.java,75,byte data[] = zk.getData(path, watch, stat);
+src/java/main/org/apache/zookeeper/cli/GetConfigCommand.java,45,public CliCommand parse(String[] cmdArgs) throws ParseException {
+src/java/main/org/apache/zookeeper/cli/GetConfigCommand.java,48,cl = parser.parse(options, cmdArgs);
+src/java/main/org/apache/zookeeper/cli/GetConfigCommand.java,51,throw new ParseException(getUsageStr());
+src/java/main/org/apache/zookeeper/cli/GetConfigCommand.java,58,public boolean exec() throws KeeperException, InterruptedException {
+src/java/main/org/apache/zookeeper/cli/GetConfigCommand.java,61,byte data[] = zk.getConfig(watch, stat);
+src/java/main/org/apache/zookeeper/cli/ListQuotaCommand.java,39,public CliCommand parse(String[] cmdArgs) throws ParseException {
+src/java/main/org/apache/zookeeper/cli/ListQuotaCommand.java,41,CommandLine cl = parser.parse(options, cmdArgs);
+src/java/main/org/apache/zookeeper/cli/ListQuotaCommand.java,44,throw new ParseException(getUsageStr());
+src/java/main/org/apache/zookeeper/cli/ListQuotaCommand.java,51,public boolean exec() throws KeeperException,
+src/java/main/org/apache/zookeeper/cli/ListQuotaCommand.java,52,InterruptedException {
+src/java/main/org/apache/zookeeper/cli/Ls2Command.java,37,public CliCommand parse(String[] cmdArgs) throws ParseException {
+src/java/main/org/apache/zookeeper/cli/Ls2Command.java,39,CommandLine cl = parser.parse(options, cmdArgs);
+src/java/main/org/apache/zookeeper/cli/Ls2Command.java,42,throw new ParseException(getUsageStr());
+src/java/main/org/apache/zookeeper/cli/Ls2Command.java,49,public boolean exec() throws KeeperException, InterruptedException {
+src/java/main/org/apache/zookeeper/cli/Ls2Command.java,55,List<String> children = zk.getChildren(path, watch, stat);
+src/java/main/org/apache/zookeeper/cli/LsCommand.java,50,public CliCommand parse(String[] cmdArgs) throws ParseException {
+src/java/main/org/apache/zookeeper/cli/LsCommand.java,52,cl = parser.parse(options, cmdArgs);
+src/java/main/org/apache/zookeeper/cli/LsCommand.java,58,if (args.length < 2) {
+src/java/main/org/apache/zookeeper/cli/LsCommand.java,59,throw new ParseException(getUsageStr());
+src/java/main/org/apache/zookeeper/cli/LsCommand.java,67,private void retainCompatibility(String[] cmdArgs) throws ParseException {
+src/java/main/org/apache/zookeeper/cli/LsCommand.java,75,cl = parser.parse(options, cmdArgs);
+src/java/main/org/apache/zookeeper/cli/LsCommand.java,81,public boolean exec() throws KeeperException, InterruptedException {
+src/java/main/org/apache/zookeeper/cli/LsCommand.java,100,err.println(ex.getMessage());
+src/java/main/org/apache/zookeeper/cli/LsCommand.java,101,watch = false;
+src/java/main/org/apache/zookeeper/cli/ReconfigCommand.java,82,public CliCommand parse(String[] cmdArgs) throws ParseException {
+src/java/main/org/apache/zookeeper/cli/ReconfigCommand.java,87,cl = parser.parse(options, cmdArgs);
+src/java/main/org/apache/zookeeper/cli/ReconfigCommand.java,89,throw new ParseException(getUsageStr());
+src/java/main/org/apache/zookeeper/cli/ReconfigCommand.java,95,throw new ParseException("-v must be followed by a long (configuration version)");
+src/java/main/org/apache/zookeeper/cli/ReconfigCommand.java,103,throw new ParseException("Can't use -file or -members together with -add or -remove (mixing incremental" +
+src/java/main/org/apache/zookeeper/cli/ReconfigCommand.java,108,throw new ParseException("Can't use -file and -members together (conflicting non-incremental modes)");
+src/java/main/org/apache/zookeeper/cli/ReconfigCommand.java,135,throw new ParseException("Error processing " + cl.getOptionValue("file") + e.getMessage());
+src/java/main/org/apache/zookeeper/cli/ReconfigCommand.java,142,public boolean exec() throws KeeperException, InterruptedException {
+src/java/main/org/apache/zookeeper/cli/ReconfigCommand.java,153,err.println(ex.getMessage());
+src/java/main/org/apache/zookeeper/cli/RemoveWatchesCommand.java,50,public CliCommand parse(String[] cmdArgs) throws ParseException {
+src/java/main/org/apache/zookeeper/cli/RemoveWatchesCommand.java,52,cl = parser.parse(options, cmdArgs);
+src/java/main/org/apache/zookeeper/cli/RemoveWatchesCommand.java,55,throw new ParseException(getUsageStr());
+src/java/main/org/apache/zookeeper/cli/RemoveWatchesCommand.java,61,public boolean exec() throws KeeperException, InterruptedException {
+src/java/main/org/apache/zookeeper/cli/RemoveWatchesCommand.java,79,err.println(ex.getMessage());
+src/java/main/org/apache/zookeeper/cli/RemoveWatchesCommand.java,80,return false;
+src/java/main/org/apache/zookeeper/cli/SetAclCommand.java,45,public CliCommand parse(String[] cmdArgs) throws ParseException {
+src/java/main/org/apache/zookeeper/cli/SetAclCommand.java,47,cl = parser.parse(options, cmdArgs);
+src/java/main/org/apache/zookeeper/cli/SetAclCommand.java,50,throw new ParseException(getUsageStr());
+src/java/main/org/apache/zookeeper/cli/SetAclCommand.java,57,public boolean exec() throws KeeperException,
+src/java/main/org/apache/zookeeper/cli/SetAclCommand.java,58,InterruptedException {
+src/java/main/org/apache/zookeeper/cli/SetAclCommand.java,74,err.println(ex.getMessage());
+src/java/main/org/apache/zookeeper/cli/SetAclCommand.java,76,err.println(ex.getMessage());
+src/java/main/org/apache/zookeeper/cli/SetCommand.java,43,public CliCommand parse(String[] cmdArgs) throws ParseException {
+src/java/main/org/apache/zookeeper/cli/SetCommand.java,45,cl = parser.parse(options, cmdArgs);
+src/java/main/org/apache/zookeeper/cli/SetCommand.java,48,throw new ParseException(getUsageStr());
+src/java/main/org/apache/zookeeper/cli/SetCommand.java,55,public boolean exec() throws KeeperException, InterruptedException {
+src/java/main/org/apache/zookeeper/cli/SetCommand.java,71,err.println(ex.getMessage());
+src/java/main/org/apache/zookeeper/cli/SetQuotaCommand.java,49,public CliCommand parse(String[] cmdArgs) throws ParseException {
+src/java/main/org/apache/zookeeper/cli/SetQuotaCommand.java,51,cl = parser.parse(options, cmdArgs);
+src/java/main/org/apache/zookeeper/cli/SetQuotaCommand.java,54,throw new ParseException(getUsageStr());
+src/java/main/org/apache/zookeeper/cli/SetQuotaCommand.java,61,public boolean exec() throws KeeperException, IOException,
+src/java/main/org/apache/zookeeper/cli/SetQuotaCommand.java,62,InterruptedException {
+src/java/main/org/apache/zookeeper/cli/SetQuotaCommand.java,69,createQuota(zk, path, bytes, -1);
+src/java/main/org/apache/zookeeper/cli/SetQuotaCommand.java,73,createQuota(zk, path, -1L, numNodes);
+src/java/main/org/apache/zookeeper/cli/SetQuotaCommand.java,75,err.println(getUsageStr());
+src/java/main/org/apache/zookeeper/cli/StatCommand.java,43,public CliCommand parse(String[] cmdArgs) throws ParseException {
+src/java/main/org/apache/zookeeper/cli/StatCommand.java,45,cl = parser.parse(options, cmdArgs);
+src/java/main/org/apache/zookeeper/cli/StatCommand.java,48,throw new ParseException(getUsageStr());
+src/java/main/org/apache/zookeeper/cli/StatCommand.java,56,private void retainCompatibility(String[] cmdArgs) throws ParseException {
+src/java/main/org/apache/zookeeper/cli/StatCommand.java,64,cl = parser.parse(options, cmdArgs);
+src/java/main/org/apache/zookeeper/cli/StatCommand.java,70,public boolean exec() throws KeeperException,
+src/java/main/org/apache/zookeeper/cli/StatCommand.java,71,InterruptedException {
+src/java/main/org/apache/zookeeper/cli/StatCommand.java,74,Stat stat = zk.exists(path, watch);
+src/java/main/org/apache/zookeeper/cli/StatCommand.java,76,throw new KeeperException.NoNodeException(path);
+src/java/main/org/apache/zookeeper/cli/SyncCommand.java,41,public CliCommand parse(String[] cmdArgs) throws ParseException {
+src/java/main/org/apache/zookeeper/cli/SyncCommand.java,43,CommandLine cl = parser.parse(options, cmdArgs);
+src/java/main/org/apache/zookeeper/cli/SyncCommand.java,46,throw new ParseException(getUsageStr());
+src/java/main/org/apache/zookeeper/cli/SyncCommand.java,53,public boolean exec() throws KeeperException, IOException, InterruptedException {
+src/java/main/org/apache/zookeeper/server/NIOServerCnxnFactory.java,693,public void reconfigure(InetSocketAddress addr){
+src/java/main/org/apache/zookeeper/server/NIOServerCnxnFactory.java,696,this.ss = ServerSocketChannel.open();
+src/java/main/org/apache/zookeeper/server/NIOServerCnxnFactory.java,697,ss.socket().setReuseAddress(true);
+src/java/main/org/apache/zookeeper/server/NIOServerCnxnFactory.java,698,LOG.info("binding to port " + addr);
+src/java/main/org/apache/zookeeper/server/NIOServerCnxnFactory.java,699,ss.socket().bind(addr);
+src/java/main/org/apache/zookeeper/server/NIOServerCnxnFactory.java,700,ss.configureBlocking(false);
+src/java/main/org/apache/zookeeper/server/NIOServerCnxnFactory.java,701,acceptThread.setReconfiguring();
+src/java/main/org/apache/zookeeper/server/NIOServerCnxnFactory.java,702,oldSS.close();
+src/java/main/org/apache/zookeeper/server/NIOServerCnxnFactory.java,703,acceptThread.wakeupSelector();
+src/java/main/org/apache/zookeeper/server/NIOServerCnxnFactory.java,704,try {
+src/java/main/org/apache/zookeeper/server/NIOServerCnxnFactory.java,705,acceptThread.join();
+src/java/main/org/apache/zookeeper/server/NIOServerCnxnFactory.java,707,LOG.error("Error joining old acceptThread when reconfiguring client port " + e.getMessage());
+src/java/main/org/apache/zookeeper/server/NIOServerCnxnFactory.java,709,acceptThread = new AcceptThread(ss, addr, selectorThreads);
+src/java/main/org/apache/zookeeper/server/NIOServerCnxnFactory.java,710,acceptThread.start();
+src/java/main/org/apache/zookeeper/server/NIOServerCnxnFactory.java,712,LOG.error("Error reconfiguring client port to " + addr + " " + e.getMessage());
+src/java/main/org/apache/zookeeper/server/NettyServerCnxnFactory.java,493,LOG.info("binding to port " + addr);
+src/java/main/org/apache/zookeeper/server/NettyServerCnxnFactory.java,494,parentChannel = bootstrap.bind(addr);
+src/java/main/org/apache/zookeeper/server/NettyServerCnxnFactory.java,495,localAddress = addr;
+src/java/main/org/apache/zookeeper/server/NettyServerCnxnFactory.java,496,oldChannel.close();
+src/java/main/org/apache/zookeeper/server/quorum/QuorumPeer.java,1680,public boolean processReconfig(QuorumVerifier qv, Long suggestedLeaderId, Long zxid, boolean restartLE){
+src/java/main/org/apache/zookeeper/server/quorum/QuorumPeer.java,1709,boolean roleChange = updateLearnerType(qv);
+src/java/main/org/apache/zookeeper/server/quorum/QuorumPeer.java,1827,String plain = cnxnFactory != null ? cnxnFactory.getLocalAddress().toString() : "disabled";
+src/java/main/org/apache/zookeeper/server/quorum/Leader.java,590,shutdown("Not sufficient followers synced, only synced with sids: [ "
+src/java/main/org/apache/zookeeper/server/quorum/Leader.java,591,+ syncedAckSet.ackSetsToString() + " ]");
+src/java/main/org/apache/zookeeper/server/quorum/Leader.java,594,return;
+src/java/main/org/apache/zookeeper/server/DataTree.java,21,import org.apache.jute.Index;
+src/java/main/org/apache/zookeeper/server/DataTree.java,38,import org.apache.zookeeper.ZooDefs.Ids;
+src/java/main/org/apache/zookeeper/server/DataTree.java,146,private final Map<Long, List<ACL>> longKeyMap =
+src/java/main/org/apache/zookeeper/server/DataTree.java,147,new HashMap<Long, List<ACL>>();
+src/java/main/org/apache/zookeeper/server/DataTree.java,152,private final Map<List<ACL>, Long> aclKeyMap =
+src/java/main/org/apache/zookeeper/server/DataTree.java,153,new HashMap<List<ACL>, Long>();
+src/java/main/org/apache/zookeeper/server/DataTree.java,158,private long aclIndex = 0;
+src/java/main/org/apache/zookeeper/server/DataTree.java,177,int getAclSize() {
+src/java/main/org/apache/zookeeper/server/DataTree.java,178,return longKeyMap.size();
+src/java/main/org/apache/zookeeper/server/DataTree.java,181,private long incrementIndex() {
+src/java/main/org/apache/zookeeper/server/DataTree.java,182,return ++aclIndex;
+src/java/main/org/apache/zookeeper/server/DataTree.java,191,public synchronized Long convertAcls(List<ACL> acls) {
+src/java/main/org/apache/zookeeper/server/DataTree.java,193,return -1L;
+src/java/main/org/apache/zookeeper/server/DataTree.java,195,Long ret = aclKeyMap.get(acls);
+src/java/main/org/apache/zookeeper/server/DataTree.java,198,return ret;
+src/java/main/org/apache/zookeeper/server/DataTree.java,199,long val = incrementIndex();
+src/java/main/org/apache/zookeeper/server/DataTree.java,200,longKeyMap.put(val, acls);
+src/java/main/org/apache/zookeeper/server/DataTree.java,201,aclKeyMap.put(acls, val);
+src/java/main/org/apache/zookeeper/server/DataTree.java,202,return val;
+src/java/main/org/apache/zookeeper/server/DataTree.java,212,public synchronized List<ACL> convertLong(Long longVal) {
+src/java/main/org/apache/zookeeper/server/DataTree.java,214,return null;
+src/java/main/org/apache/zookeeper/server/DataTree.java,216,return Ids.OPEN_ACL_UNSAFE;
+src/java/main/org/apache/zookeeper/server/DataTree.java,217,List<ACL> acls = longKeyMap.get(longVal);
+src/java/main/org/apache/zookeeper/server/DataTree.java,218,if (acls == null) {
+src/java/main/org/apache/zookeeper/server/DataTree.java,219,LOG.error("ERROR: ACL not available for long " + longVal);
+src/java/main/org/apache/zookeeper/server/DataTree.java,220,throw new RuntimeException("Failed to fetch acls for " + longVal);
+src/java/main/org/apache/zookeeper/server/DataTree.java,222,return acls;
+src/java/main/org/apache/zookeeper/server/DataTree.java,520,Long longval = convertAcls(acl);
+src/java/main/org/apache/zookeeper/server/DataTree.java,744,n.acl = convertAcls(acl);
+src/java/main/org/apache/zookeeper/server/DataTree.java,758,return new ArrayList<ACL>(convertLong(n.acl));
+src/java/main/org/apache/zookeeper/server/DataTree.java,1205,private void deserializeList(Map<Long, List<ACL>> longKeyMap,
+src/java/main/org/apache/zookeeper/server/DataTree.java,1206,InputArchive ia) throws IOException {
+src/java/main/org/apache/zookeeper/server/DataTree.java,1207,int i = ia.readInt("map");
+src/java/main/org/apache/zookeeper/server/DataTree.java,1208,while (i > 0) {
+src/java/main/org/apache/zookeeper/server/DataTree.java,1209,Long val = ia.readLong("long");
+src/java/main/org/apache/zookeeper/server/DataTree.java,1210,if (aclIndex < val) {
+src/java/main/org/apache/zookeeper/server/DataTree.java,1211,aclIndex = val;
+src/java/main/org/apache/zookeeper/server/DataTree.java,1213,List<ACL> aclList = new ArrayList<ACL>();
+src/java/main/org/apache/zookeeper/server/DataTree.java,1214,Index j = ia.startVector("acls");
+src/java/main/org/apache/zookeeper/server/DataTree.java,1215,while (!j.done()) {
+src/java/main/org/apache/zookeeper/server/DataTree.java,1216,ACL acl = new ACL();
+src/java/main/org/apache/zookeeper/server/DataTree.java,1217,acl.deserialize(ia, "acl");
+src/java/main/org/apache/zookeeper/server/DataTree.java,1218,aclList.add(acl);
+src/java/main/org/apache/zookeeper/server/DataTree.java,1219,j.incr();
+src/java/main/org/apache/zookeeper/server/DataTree.java,1221,longKeyMap.put(val, aclList);
+src/java/main/org/apache/zookeeper/server/DataTree.java,1222,aclKeyMap.put(aclList, val);
+src/java/main/org/apache/zookeeper/server/DataTree.java,1223,i--;
+src/java/main/org/apache/zookeeper/server/DataTree.java,1227,private synchronized void serializeList(Map<Long, List<ACL>> longKeyMap,
+src/java/main/org/apache/zookeeper/server/DataTree.java,1228,OutputArchive oa) throws IOException {
+src/java/main/org/apache/zookeeper/server/DataTree.java,1229,oa.writeInt(longKeyMap.size(), "map");
+src/java/main/org/apache/zookeeper/server/DataTree.java,1230,Set<Map.Entry<Long, List<ACL>>> set = longKeyMap.entrySet();
+src/java/main/org/apache/zookeeper/server/DataTree.java,1231,for (Map.Entry<Long, List<ACL>> val : set) {
+src/java/main/org/apache/zookeeper/server/DataTree.java,1232,oa.writeLong(val.getKey(), "long");
+src/java/main/org/apache/zookeeper/server/DataTree.java,1233,List<ACL> aclList = val.getValue();
+src/java/main/org/apache/zookeeper/server/DataTree.java,1234,oa.startVector(aclList, "acls");
+src/java/main/org/apache/zookeeper/server/DataTree.java,1235,for (ACL acl : aclList) {
+src/java/main/org/apache/zookeeper/server/DataTree.java,1236,acl.serialize(oa, "acl");
+src/java/main/org/apache/zookeeper/server/DataTree.java,1238,oa.endVector(aclList, "acls");
+src/java/main/org/apache/zookeeper/server/DataTree.java,1243,serializeList(longKeyMap, oa);
+src/java/main/org/apache/zookeeper/server/DataTree.java,1253,deserializeList(longKeyMap, ia);
+src/java/main/org/apache/zookeeper/server/FinalRequestProcessor.java,266,lastOp = "RECO";
+src/java/main/org/apache/zookeeper/server/FinalRequestProcessor.java,320,Long aclL;
+src/java/main/org/apache/zookeeper/server/FinalRequestProcessor.java,321,synchronized(n) {
+src/java/main/org/apache/zookeeper/server/FinalRequestProcessor.java,322,aclL = n.acl;
+src/java/main/org/apache/zookeeper/server/FinalRequestProcessor.java,324,PrepRequestProcessor.checkACL(zks, zks.getZKDatabase().convertLong(aclL),
+src/java/main/org/apache/zookeeper/server/FinalRequestProcessor.java,366,Long aclG;
+src/java/main/org/apache/zookeeper/server/FinalRequestProcessor.java,367,synchronized(n) {
+src/java/main/org/apache/zookeeper/server/FinalRequestProcessor.java,368,aclG = n.acl;
+src/java/main/org/apache/zookeeper/server/FinalRequestProcessor.java,371,PrepRequestProcessor.checkACL(zks, zks.getZKDatabase().convertLong(aclG),
+src/java/main/org/apache/zookeeper/server/FinalRequestProcessor.java,390,Long aclG;
+src/java/main/org/apache/zookeeper/server/FinalRequestProcessor.java,391,synchronized(n) {
+src/java/main/org/apache/zookeeper/server/FinalRequestProcessor.java,392,aclG = n.acl;
+src/java/main/org/apache/zookeeper/server/FinalRequestProcessor.java,394,PrepRequestProcessor.checkACL(zks, zks.getZKDatabase().convertLong(aclG),
+src/java/main/org/apache/zookeeper/server/PrepRequestProcessor.java,164,Long acl;
+src/java/main/org/apache/zookeeper/server/PrepRequestProcessor.java,167,acl = n.acl;
+src/java/main/org/apache/zookeeper/server/PrepRequestProcessor.java,172,zks.getZKDatabase().convertLong(acl));
+src/java/main/org/apache/zookeeper/server/ZKDatabase.java,429,public List<ACL> convertLong(Long aclL) {
+src/java/main/org/apache/zookeeper/server/ZKDatabase.java,430,return dataTree.convertLong(aclL);
+src/java/main/org/apache/zookeeper/server/ZKDatabase.java,497,return dataTree.getAclSize();
+src/java/main/org/apache/zookeeper/server/persistence/FileTxnLog.java,115,fsyncWarningThresholdMS = Long.getLong("fsync.warningthresholdms", 1000);
+src/java/main/org/apache/zookeeper/client/ZooKeeperSaslClient.java,220,if (login == null) {
+src/java/main/org/apache/zookeeper/client/ZooKeeperSaslClient.java,217,synchronized private SaslClient createSaslClient(final String servicePrincipal,
+src/java/main/org/apache/zookeeper/client/ZooKeeperSaslClient.java,221,if (LOG.isDebugEnabled()) {
+src/java/main/org/apache/zookeeper/client/ZooKeeperSaslClient.java,222,LOG.debug("JAAS loginContext is: " + loginContext);
+src/java/main/org/apache/zookeeper/client/ZooKeeperSaslClient.java,226,login = new Login(loginContext, new ClientCallbackHandler(null));
+src/java/main/org/apache/zookeeper/client/ZooKeeperSaslClient.java,227,login.startThreadIfNeeded();
+src/java/main/org/apache/zookeeper/server/auth/ProviderRegistry.java,42,X509AuthenticationProvider x509p = new X509AuthenticationProvider();
+src/java/main/org/apache/zookeeper/server/auth/ProviderRegistry.java,45,authenticationProviders.put(x509p.getScheme(), x509p);
+src/java/main/org/apache/zookeeper/Login.java,155,LOG.info("refreshing now because expiry is before next scheduled refresh time.");
+src/java/main/org/apache/zookeeper/Login.java,176,if (now < nextRefresh) {
+src/java/main/org/apache/zookeeper/Login.java,191,return;
+src/java/main/org/apache/zookeeper/server/quorum/LocalPeerBean.java,86,return peer.getClientAddress().getHostString() + ":" +
+src/java/main/org/apache/zookeeper/server/quorum/LocalPeerBean.java,87,peer.getClientAddress().getPort();
+src/java/main/org/apache/zookeeper/server/quorum/QuorumPeer.java,830,this(quorumPeers, snapDir, logDir, electionAlg,
+src/java/main/org/apache/zookeeper/server/quorum/QuorumPeer.java,831,myid,tickTime, initLimit,syncLimit, false,
+src/java/main/org/apache/zookeeper/server/quorum/QuorumPeer.java,832,ServerCnxnFactory.createFactory(new InetSocketAddress(clientPort), -1),
+src/java/main/org/apache/zookeeper/server/quorum/QuorumPeer.java,848,ServerCnxnFactory.createFactory(new InetSocketAddress(clientPort), -1),
+src/java/main/org/apache/zookeeper/server/ZooKeeperServerBean.java,21,import java.net.InetAddress;
+src/java/main/org/apache/zookeeper/server/ZooKeeperServerBean.java,22,import java.net.UnknownHostException;
+src/java/main/org/apache/zookeeper/server/ZooKeeperServerBean.java,44,try {
+src/java/main/org/apache/zookeeper/server/ZooKeeperServerBean.java,45,return InetAddress.getLocalHost().getHostAddress() + ":"
+src/java/main/org/apache/zookeeper/server/ZooKeeperServerBean.java,46,+ zks.getClientPort();
+src/java/main/org/apache/zookeeper/server/ZooKeeperServerBean.java,48,return "localhost:" + zks.getClientPort();
+src/java/main/org/apache/zookeeper/ZooKeeperMain.java,41,import java.util.StringTokenizer;
+src/java/main/org/apache/zookeeper/server/util/KerberosUtil.java,39,getInstanceMethod = classRef.getMethod("getInstance", new Class[0]);
+src/java/main/org/apache/zookeeper/server/util/KerberosUtil.java,42,new Class[0]);
+src/java/main/org/apache/zookeeper/server/util/OSMXBean.java,89,new Class[0]);
+src/java/main/org/apache/zookeeper/Login.java,35,import org.apache.log4j.Logger;
+src/java/main/org/apache/zookeeper/Login.java,46,private static final Logger LOG = Logger.getLogger(Login.class);
+src/java/main/org/apache/zookeeper/Login.java,133,LOG.warn("No TGT found: will try again at " + nextRefreshDate);
+src/java/main/org/apache/zookeeper/Login.java,139,LOG.error("The TGT cannot be renewed beyond the next expiry date: " + expiryDate + "." +
+src/java/main/org/apache/zookeeper/Login.java,162,LOG.warn("TGT refresh thread time adjusted from : " + until + " to : " + newuntil + " since "
+src/java/main/org/apache/zookeeper/Login.java,164,+ MIN_TIME_BEFORE_RELOGIN / 1000 + " seconds) from now.");
+src/java/main/org/apache/zookeeper/Login.java,170,LOG.error("next refresh: " + nextRefreshDate + " is later than expiry " + expiryDate
+src/java/main/org/apache/zookeeper/Login.java,171,+ ". This may indicate a clock skew problem. Check that this host and the KDC's "
+src/java/main/org/apache/zookeeper/Login.java,172,+ "hosts' clocks are in sync. Exiting refresh thread.");
+src/java/main/org/apache/zookeeper/Login.java,178,LOG.info("TGT refresh sleeping until: " + until.toString());
+src/java/main/org/apache/zookeeper/Login.java,187,LOG.error("nextRefresh:" + nextRefreshDate + " is in the past: exiting refresh thread. Check"
+src/java/main/org/apache/zookeeper/Login.java,190,+ " Exiting refresh thread.");
+src/java/main/org/apache/zookeeper/Login.java,202,LOG.debug("running ticket cache refresh command: " + cmd + " " + kinitArgs);
+src/java/main/org/apache/zookeeper/Login.java,216,LOG.warn("Could not renew TGT due to problem running shell command: '" + cmd
+src/java/main/org/apache/zookeeper/Login.java,217,+ " " + kinitArgs + "'" + "; exception was:" + e + ". Exiting refresh thread.",e);
+src/java/main/org/apache/zookeeper/Login.java,240,LOG.error("Could not refresh TGT for principal: " + principal + ".", le);
+src/java/main/org/apache/zookeeper/Login.java,267,LOG.warn("error while waiting for Login thread to shutdown: " + e);
+src/java/main/org/apache/zookeeper/Login.java,298,LOG.info("TGT valid starting at:        " + tgt.getStartTime().toString());
+src/java/main/org/apache/zookeeper/Login.java,299,LOG.info("TGT expires:                  " + tgt.getEndTime().toString());
+src/java/main/org/apache/zookeeper/Login.java,316,LOG.debug("Found tgt " + ticket + ".");
+src/java/main/org/apache/zookeeper/Login.java,326,LOG.warn("Not attempting to re-login since the last re-login was " +
+src/java/main/org/apache/zookeeper/Login.java,385,LOG.info("Initiating logout for " + principal);
+src/java/main/org/apache/zookeeper/Login.java,394,LOG.info("Initiating re-login for " + principal);
+src/java/main/org/apache/zookeeper/Shell.java,41,import org.apache.log4j.Logger;
+src/java/main/org/apache/zookeeper/Shell.java,53,private static final Logger LOG = Logger.getLogger(Shell.class);
+src/java/main/org/apache/zookeeper/client/FourLetterWordMain.java,34,import org.apache.log4j.Logger;
+src/java/main/org/apache/zookeeper/client/FourLetterWordMain.java,41,protected static final Logger LOG = Logger.getLogger(FourLetterWordMain.class);
+src/java/main/org/apache/zookeeper/client/FourLetterWordMain.java,84,LOG.info("connecting to " + host + " " + port);
+src/java/main/org/apache/zookeeper/jmx/ManagedUtil.java,27,import org.apache.log4j.LogManager;
+src/java/main/org/apache/zookeeper/jmx/ManagedUtil.java,28,import org.apache.log4j.Logger;
+src/java/main/org/apache/zookeeper/jmx/ManagedUtil.java,29,import org.apache.log4j.jmx.HierarchyDynamicMBean;
+src/java/main/org/apache/zookeeper/jmx/ManagedUtil.java,30,import org.apache.log4j.spi.LoggerRepository;
+src/java/main/org/apache/zookeeper/jmx/ManagedUtil.java,43,if (Boolean.getBoolean("zookeeper.jmx.log4j.disable") == true) {
+src/java/main/org/apache/zookeeper/jmx/ManagedUtil.java,44,return;
+src/java/main/org/apache/zookeeper/jmx/ManagedUtil.java,47,MBeanServer mbs = MBeanRegistry.getInstance().getPlatformMBeanServer();
+src/java/main/org/apache/zookeeper/jmx/ManagedUtil.java,50,HierarchyDynamicMBean hdm = new HierarchyDynamicMBean();
+src/java/main/org/apache/zookeeper/jmx/ManagedUtil.java,52,ObjectName mbo = new ObjectName("log4j:hiearchy=default");
+src/java/main/org/apache/zookeeper/jmx/ManagedUtil.java,53,mbs.registerMBean(hdm, mbo);
+src/java/main/org/apache/zookeeper/jmx/ManagedUtil.java,56,Logger rootLogger = Logger.getRootLogger();
+src/java/main/org/apache/zookeeper/jmx/ManagedUtil.java,57,hdm.addLoggerMBean(rootLogger.getName());
+src/java/main/org/apache/zookeeper/jmx/ManagedUtil.java,61,LoggerRepository r = LogManager.getLoggerRepository();
+src/java/main/org/apache/zookeeper/jmx/ManagedUtil.java,62,Enumeration enumer = r.getCurrentLoggers();
+src/java/main/org/apache/zookeeper/jmx/ManagedUtil.java,63,Logger logger = null;
+src/java/main/org/apache/zookeeper/jmx/ManagedUtil.java,65,while (enumer.hasMoreElements()) {
+src/java/main/org/apache/zookeeper/jmx/ManagedUtil.java,66,logger = (Logger) enumer.nextElement();
+src/java/main/org/apache/zookeeper/jmx/ManagedUtil.java,67,hdm.addLoggerMBean(logger.getName());
+src/java/main/org/apache/zookeeper/ZooKeeperMain.java,219,StringTokenizer cmdTokens = new StringTokenizer(cmdstring, " ");
+src/java/main/org/apache/zookeeper/ZooKeeperMain.java,220,String[] args = new String[cmdTokens.countTokens()];
+src/java/main/org/apache/zookeeper/ZooKeeperMain.java,221,int tokenIndex = 0;
+src/java/main/org/apache/zookeeper/ZooKeeperMain.java,222,while (cmdTokens.hasMoreTokens()) {
+src/java/main/org/apache/zookeeper/ZooKeeperMain.java,223,args[tokenIndex] = cmdTokens.nextToken();
+src/java/main/org/apache/zookeeper/ZooKeeperMain.java,224,tokenIndex++;
+src/java/main/org/apache/zookeeper/ZooKeeperMain.java,226,if (args.length == 0){
+src/java/main/org/apache/zookeeper/ZooKeeperMain.java,229,command = args[0];
+src/java/main/org/apache/zookeeper/ZooKeeperMain.java,230,cmdArgs = Arrays.asList(args);
+src/java/main/org/apache/zookeeper/server/NettyServerCnxn.java,282,ByteBuffer mask = ByteBuffer.allocate(4);
+src/java/main/org/apache/zookeeper/server/NettyServerCnxn.java,285,bb.flip();
+src/java/main/org/apache/zookeeper/server/PurgeTxnLog.java,45,System.out.println("\tcount -- the number of old snaps/logs you want to keep");
+src/java/main/org/apache/zookeeper/server/PurgeTxnLog.java,46,System.exit(1);
+src/java/main/org/apache/zookeeper/server/PurgeTxnLog.java,65,throw new IllegalArgumentException("count should be greater than 3");
+src/java/main/org/apache/zookeeper/server/PurgeTxnLog.java,124,printUsage();
+src/java/main/org/apache/zookeeper/server/PurgeTxnLog.java,125,int i = 0;
+src/java/main/org/apache/zookeeper/server/PurgeTxnLog.java,126,File dataDir=new File(args[0]);
+src/java/main/org/apache/zookeeper/server/PurgeTxnLog.java,127,File snapDir=dataDir;
+src/java/main/org/apache/zookeeper/server/PurgeTxnLog.java,128,if(args.length==4){
+src/java/main/org/apache/zookeeper/server/PurgeTxnLog.java,129,i++;
+src/java/main/org/apache/zookeeper/server/PurgeTxnLog.java,130,snapDir=new File(args[i]);
+src/java/main/org/apache/zookeeper/server/PurgeTxnLog.java,132,i++; i++;
+src/java/main/org/apache/zookeeper/server/PurgeTxnLog.java,133,int num = Integer.parseInt(args[i]);
+src/java/main/org/apache/zookeeper/server/quorum/LocalPeerBean.java,69,return peer.getState().toString();
+src/java/main/org/apache/zookeeper/server/quorum/QuorumPeer.java,179,private static final String wrongFormat = " does not have the form server_cofig or server_config;client_config"+
+src/java/main/org/apache/zookeeper/server/quorum/QuorumPeer.java,186,String serverParts[] = serverClientParts[0].split(":");
+src/java/main/org/apache/zookeeper/server/quorum/QuorumPeer.java,194,String clientParts[] = serverClientParts[1].split(":");
+src/java/main/org/apache/zookeeper/server/quorum/QuorumPeer.java,256,StringWriter sw = new StringWriter();
+src/java/main/org/apache/zookeeper/server/quorum/QuorumPeer.java,258,if (addr !=null) {
+src/java/main/org/apache/zookeeper/server/quorum/QuorumPeer.java,259,sw.append(addr.getHostString());
+src/java/main/org/apache/zookeeper/server/quorum/QuorumPeer.java,271,sw.append(clientAddr.getHostString());
+src/java/main/org/apache/zookeeper/server/quorum/QuorumPeer.java,765,throw new IOException("The current epoch, " + ZxidUtils.zxidToString(currentEpoch) + " is less than the accepted epoch, " + ZxidUtils.zxidToString(acceptedEpoch));
+src/java/main/org/apache/zookeeper/server/quorum/RemotePeerBean.java,54,return peer.clientAddr.getHostString() + ":" + peer.clientAddr.getPort();
+src/java/main/org/apache/zookeeper/server/quorum/QuorumPeerConfig.java,307,if (this.clientPortAddress != null) {
+src/java/main/org/apache/zookeeper/server/quorum/QuorumPeerConfig.java,321,if (this.secureClientPortAddress != null) {
+src/java/main/org/apache/zookeeper/server/quorum/QuorumPeerConfig.java,322,throw new IllegalArgumentException("clientPortAddress is set but clientPort is not set");
+src/java/main/org/apache/zookeeper/server/ZooKeeperServer.java,1041,if (h.getType() == OpCode.sasl) {
+src/java/main/org/apache/zookeeper/server/ZooKeeperServer.java,1042,Record rsp = processSasl(incomingBuffer,cnxn);
+src/java/main/org/apache/zookeeper/server/ZooKeeperServer.java,1043,ReplyHeader rh = new ReplyHeader(h.getXid(), 0, KeeperException.Code.OK.intValue());
+src/java/main/org/apache/zookeeper/server/ZooKeeperServer.java,1044,cnxn.sendResponse(rh,rsp, "response"); // not sure about 3rd arg..what is it?
+src/java/main/org/apache/zookeeper/server/ZooKeeperServer.java,1046,else {
+src/java/main/org/apache/zookeeper/server/ZooKeeperServer.java,1047,Request si = new Request(cnxn, cnxn.getSessionId(), h.getXid(),
+src/java/main/org/apache/zookeeper/server/ZooKeeperServer.java,1048,h.getType(), incomingBuffer, cnxn.getAuthInfo());
+src/java/main/org/apache/zookeeper/server/ZooKeeperServer.java,1049,si.setOwner(ServerCnxn.me);
+src/java/main/org/apache/zookeeper/server/ZooKeeperServer.java,1052,setLocalSessionFlag(si);
+src/java/main/org/apache/zookeeper/server/ZooKeeperServer.java,1053,submitRequest(si);
+src/java/main/org/apache/zookeeper/server/ZooKeeperServer.java,1056,cnxn.incrOutstandingRequests(h);

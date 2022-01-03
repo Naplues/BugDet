@@ -1,0 +1,1427 @@
+File,Line_number,SRC
+flink-runtime/src/main/java/org/apache/flink/runtime/jobmanager/StandaloneSubmittedJobGraphStore.java,46,public void putJobGraph(SubmittedJobGraph jobGraph) throws Exception {
+flink-runtime/src/main/java/org/apache/flink/runtime/jobmanager/StandaloneSubmittedJobGraphStore.java,51,public void removeJobGraph(JobID jobId) throws Exception {
+flink-runtime/src/main/java/org/apache/flink/runtime/jobmanager/StandaloneSubmittedJobGraphStore.java,56,public Collection<JobID> getJobIds() throws Exception {
+flink-runtime/src/main/java/org/apache/flink/runtime/jobmanager/StandaloneSubmittedJobGraphStore.java,61,public SubmittedJobGraph recoverJobGraph(JobID jobId) throws Exception {
+flink-core/src/main/java/org/apache/flink/api/common/typeinfo/NothingTypeInfo.java,56,return 0;
+flink-queryable-state/flink-queryable-state-client-java/src/main/java/org/apache/flink/queryablestate/client/VoidNamespaceTypeInfo.java,55,return 0;
+flink-runtime/src/main/java/org/apache/flink/runtime/state/VoidNamespaceTypeInfo.java,58,return 0;
+flink-libraries/flink-python/src/main/java/org/apache/flink/python/api/PythonPlanBinder.java,506,sets.add(info.setID, op1.union(op2).setParallelism(info.parallelism).name("Union"));
+flink-yarn/src/main/java/org/apache/flink/yarn/AbstractYarnClusterDescriptor.java,1096,if (!(file.getFileName().startsWith("flink-dist") &&
+flink-yarn/src/main/java/org/apache/flink/yarn/AbstractYarnClusterDescriptor.java,1097,file.getFileName().endsWith("jar"))) {
+flink-runtime-web/src/main/java/org/apache/flink/runtime/webmonitor/handlers/JarListHandler.java,103,try {
+flink-runtime-web/src/main/java/org/apache/flink/runtime/webmonitor/handlers/JarListHandler.java,104,JarFile jar = new JarFile(f);
+flink-clients/src/main/java/org/apache/flink/client/program/PackagedProgram.java,695,name = name.replace(File.separatorChar, '_');
+flink-connectors/flink-connector-kafka-base/src/main/java/org/apache/flink/streaming/connectors/kafka/KafkaTableSource.java,75,private StartupMode startupMode;
+flink-core/src/main/java/org/apache/flink/core/fs/LimitedConnectionsFileSystem.java,394,final int outputLimit = output && maxNumOpenInputStreams > 0 ? maxNumOpenOutputStreams : Integer.MAX_VALUE;
+flink-runtime/src/main/java/org/apache/flink/runtime/metrics/groups/ComponentMetricGroup.java,60,variables = new HashMap<>();
+flink-runtime/src/main/java/org/apache/flink/runtime/metrics/groups/ComponentMetricGroup.java,61,putVariables(variables);
+flink-runtime/src/main/java/org/apache/flink/runtime/metrics/groups/ComponentMetricGroup.java,63,variables.putAll(parent.getAllVariables());
+flink-connectors/flink-connector-kafka-base/src/main/java/org/apache/flink/streaming/connectors/kafka/internals/AbstractFetcher.java,36,import java.util.LinkedList;
+flink-connectors/flink-connector-kafka-base/src/main/java/org/apache/flink/streaming/connectors/kafka/internals/AbstractFetcher.java,469,List<KafkaTopicPartitionState<KPH>> partitionStates = new LinkedList<>();
+flink-streaming-java/src/main/java/org/apache/flink/streaming/api/graph/StreamGraphGenerator.java,197,if (transform.getBufferTimeout() > 0) {
+flink-streaming-java/src/main/java/org/apache/flink/streaming/runtime/tasks/StreamTask.java,73,import java.util.concurrent.TimeUnit;
+flink-streaming-java/src/main/java/org/apache/flink/streaming/runtime/tasks/StreamTask.java,309,if (timerService != null && !timerService.isTerminated()) {
+flink-streaming-java/src/main/java/org/apache/flink/streaming/runtime/tasks/StreamTask.java,310,try {
+flink-streaming-java/src/main/java/org/apache/flink/streaming/runtime/tasks/StreamTask.java,312,final long timeoutMs = getEnvironment().getTaskManagerInfo().getConfiguration().
+flink-streaming-java/src/main/java/org/apache/flink/streaming/runtime/tasks/StreamTask.java,313,getLong(TimerServiceOptions.TIMER_SERVICE_TERMINATION_AWAIT_MS);
+flink-streaming-java/src/main/java/org/apache/flink/streaming/runtime/tasks/StreamTask.java,316,boolean timerShutdownComplete =
+flink-streaming-java/src/main/java/org/apache/flink/streaming/runtime/tasks/StreamTask.java,317,timerService.shutdownAndAwaitPending(timeoutMs, TimeUnit.MILLISECONDS);
+flink-streaming-java/src/main/java/org/apache/flink/streaming/runtime/tasks/StreamTask.java,319,if (!timerShutdownComplete) {
+flink-streaming-java/src/main/java/org/apache/flink/streaming/runtime/tasks/StreamTask.java,320,LOG.warn("Timer service shutdown exceeded time limit of {} ms while waiting for pending " +
+flink-streaming-java/src/main/java/org/apache/flink/streaming/runtime/tasks/StreamTask.java,324,catch (Throwable t) {
+flink-streaming-java/src/main/java/org/apache/flink/streaming/runtime/tasks/StreamTask.java,326,LOG.error("Could not shut down timer service", t);
+flink-streaming-java/src/main/java/org/apache/flink/streaming/api/graph/JSONGenerator.java,63,public int compare(Integer o1, Integer o2) {
+flink-streaming-java/src/main/java/org/apache/flink/streaming/api/graph/JSONGenerator.java,65,if (streamGraph.getSinkIDs().contains(o1)) {
+flink-streaming-java/src/main/java/org/apache/flink/streaming/api/graph/JSONGenerator.java,68,return -1;
+flink-streaming-java/src/main/java/org/apache/flink/streaming/api/graph/JSONGenerator.java,70,return o1 - o2;
+flink-connectors/flink-connector-filesystem/src/main/java/org/apache/flink/streaming/connectors/fs/RollingSink.java,702,LOG.debug("Writing valid-length file for {} to specify valid length {}", partPath, bucketState.currentFileValidLength);
+flink-connectors/flink-connector-filesystem/src/main/java/org/apache/flink/streaming/connectors/fs/bucketing/BucketingSink.java,824,LOG.debug("Writing valid-length file for {} to specify valid length {}", partPath, validLength);
+flink-connectors/flink-connector-filesystem/src/main/java/org/apache/flink/streaming/connectors/fs/bucketing/BucketingSink.java,595,throw new RuntimeException("Could not create file for checking if truncate works.", e);
+flink-connectors/flink-connector-filesystem/src/main/java/org/apache/flink/streaming/connectors/fs/bucketing/BucketingSink.java,609,throw new RuntimeException("Could not delete truncate test file.", e);
+flink-core/src/main/java/org/apache/flink/api/java/typeutils/runtime/kryo/KryoSerializer.java,21,import com.esotericsoftware.kryo.Kryo;
+flink-core/src/main/java/org/apache/flink/api/java/typeutils/runtime/kryo/KryoSerializer.java,22,import com.esotericsoftware.kryo.KryoException;
+flink-core/src/main/java/org/apache/flink/api/java/typeutils/runtime/kryo/KryoSerializer.java,23,import com.esotericsoftware.kryo.Serializer;
+flink-core/src/main/java/org/apache/flink/api/java/typeutils/runtime/kryo/KryoSerializer.java,24,import com.esotericsoftware.kryo.io.Input;
+flink-core/src/main/java/org/apache/flink/api/java/typeutils/runtime/kryo/KryoSerializer.java,25,import com.esotericsoftware.kryo.io.Output;
+flink-core/src/main/java/org/apache/flink/api/java/typeutils/runtime/kryo/KryoSerializer.java,130,defaultSerializers = toCopy.defaultSerializers;
+flink-core/src/main/java/org/apache/flink/api/java/typeutils/runtime/kryo/KryoSerializer.java,131,defaultSerializerClasses = toCopy.defaultSerializerClasses;
+flink-core/src/main/java/org/apache/flink/api/java/typeutils/runtime/kryo/KryoSerializer.java,133,kryoRegistrations = toCopy.kryoRegistrations;
+flink-core/src/main/java/org/apache/flink/api/java/typeutils/runtime/kryo/KryoSerializer.java,135,type = toCopy.type;
+flink-core/src/main/java/org/apache/flink/api/java/typeutils/runtime/kryo/KryoSerializer.java,136,if(type == null){
+flink-core/src/main/java/org/apache/flink/api/java/typeutils/runtime/kryo/KryoSerializer.java,137,throw new NullPointerException("Type class cannot be null.");
+flink-runtime/src/main/java/org/apache/flink/runtime/io/network/netty/NettyClient.java,182,serverSocketAddress.getAddress().getHostAddress(),
+flink-optimizer/src/main/java/org/apache/flink/optimizer/traversals/GraphCreatingVisitor.java,247,if (par > 0) {
+flink-yarn/src/main/java/org/apache/flink/yarn/Utils.java,143,if (new File(localSrcPath.toUri().getPath()).isDirectory()) {
+flink-yarn/src/main/java/org/apache/flink/yarn/Utils.java,162,LocalResource resource = registerLocalResource(fs, dst);
+flink-connectors/flink-connector-kafka-0.8/src/main/java/org/apache/flink/streaming/connectors/kafka/internals/Kafka08Fetcher.java,194,partitionsToAssign.remove(MARKER);
+flink-connectors/flink-connector-kafka-base/src/main/java/org/apache/flink/streaming/connectors/kafka/FlinkKafkaConsumerBase.java,618,cancel();
+flink-runtime/src/main/java/org/apache/flink/runtime/taskmanager/Task.java,81,import javax.annotation.Nullable;
+flink-runtime/src/main/java/org/apache/flink/runtime/taskmanager/Task.java,96,import java.util.concurrent.TimeUnit;
+flink-runtime/src/main/java/org/apache/flink/runtime/taskmanager/Task.java,1083,taskCancellationInterval,
+flink-runtime/src/main/java/org/apache/flink/runtime/taskmanager/Task.java,1084,taskCancellationTimeout,
+flink-runtime/src/main/java/org/apache/flink/runtime/taskmanager/Task.java,1085,taskManagerActions,
+flink-runtime/src/main/java/org/apache/flink/runtime/taskmanager/Task.java,1088,Thread cancelThread = new Thread(executingThread.getThreadGroup(), canceler,
+flink-runtime/src/main/java/org/apache/flink/runtime/taskmanager/Task.java,1423,private final long interruptInterval;
+flink-runtime/src/main/java/org/apache/flink/runtime/taskmanager/Task.java,1426,private final long interruptTimeout;
+flink-runtime/src/main/java/org/apache/flink/runtime/taskmanager/Task.java,1429,private final TaskManagerActions taskManager;
+flink-runtime/src/main/java/org/apache/flink/runtime/taskmanager/Task.java,1433,private final Thread watchDogThread;
+flink-runtime/src/main/java/org/apache/flink/runtime/taskmanager/Task.java,1440,long cancellationInterval,
+flink-runtime/src/main/java/org/apache/flink/runtime/taskmanager/Task.java,1441,long cancellationTimeout,
+flink-runtime/src/main/java/org/apache/flink/runtime/taskmanager/Task.java,1442,TaskManagerActions taskManager,
+flink-runtime/src/main/java/org/apache/flink/runtime/taskmanager/Task.java,1450,this.interruptInterval = cancellationInterval;
+flink-runtime/src/main/java/org/apache/flink/runtime/taskmanager/Task.java,1451,this.interruptTimeout = cancellationTimeout;
+flink-runtime/src/main/java/org/apache/flink/runtime/taskmanager/Task.java,1452,this.taskManager = taskManager;
+flink-runtime/src/main/java/org/apache/flink/runtime/taskmanager/Task.java,1456,if (cancellationTimeout > 0) {
+flink-runtime/src/main/java/org/apache/flink/runtime/taskmanager/Task.java,1461,this.watchDogThread = new Thread(
+flink-runtime/src/main/java/org/apache/flink/runtime/taskmanager/Task.java,1462,executer.getThreadGroup(),
+flink-runtime/src/main/java/org/apache/flink/runtime/taskmanager/Task.java,1463,new TaskCancelerWatchDog(),
+flink-runtime/src/main/java/org/apache/flink/runtime/taskmanager/Task.java,1465,this.watchDogThread.setDaemon(true);
+flink-runtime/src/main/java/org/apache/flink/runtime/taskmanager/Task.java,1467,this.watchDogThread = null;
+flink-runtime/src/main/java/org/apache/flink/runtime/taskmanager/Task.java,1474,if (watchDogThread != null) {
+flink-runtime/src/main/java/org/apache/flink/runtime/taskmanager/Task.java,1475,watchDogThread.start();
+flink-runtime/src/main/java/org/apache/flink/runtime/taskmanager/Task.java,1511,try {
+flink-runtime/src/main/java/org/apache/flink/runtime/taskmanager/Task.java,1512,executer.join(interruptInterval);
+flink-runtime/src/main/java/org/apache/flink/runtime/taskmanager/Task.java,1514,catch (InterruptedException e) {
+flink-runtime/src/main/java/org/apache/flink/runtime/taskmanager/Task.java,1518,if (watchDogThread != null) {
+flink-runtime/src/main/java/org/apache/flink/runtime/taskmanager/Task.java,1519,watchDogThread.interrupt();
+flink-runtime/src/main/java/org/apache/flink/runtime/taskmanager/Task.java,1520,watchDogThread.join();
+flink-runtime/src/main/java/org/apache/flink/runtime/taskmanager/Task.java,1531,private class TaskCancelerWatchDog implements Runnable {
+flink-runtime/src/main/java/org/apache/flink/runtime/taskmanager/Task.java,1534,public void run() {
+flink-runtime/src/main/java/org/apache/flink/runtime/taskmanager/Task.java,1535,long intervalNanos = TimeUnit.NANOSECONDS.convert(interruptInterval, TimeUnit.MILLISECONDS);
+flink-runtime/src/main/java/org/apache/flink/runtime/taskmanager/Task.java,1536,long timeoutNanos = TimeUnit.NANOSECONDS.convert(interruptTimeout, TimeUnit.MILLISECONDS);
+flink-runtime/src/main/java/org/apache/flink/runtime/taskmanager/Task.java,1537,long deadline = System.nanoTime() + timeoutNanos;
+flink-runtime/src/main/java/org/apache/flink/runtime/taskmanager/Task.java,1539,try {
+flink-runtime/src/main/java/org/apache/flink/runtime/taskmanager/Task.java,1541,Thread.sleep(interruptInterval);
+flink-runtime/src/main/java/org/apache/flink/runtime/taskmanager/Task.java,1549,while (executer.isAlive()) {
+flink-runtime/src/main/java/org/apache/flink/runtime/taskmanager/Task.java,1550,long now = System.nanoTime();
+flink-runtime/src/main/java/org/apache/flink/runtime/taskmanager/Task.java,1554,StackTraceElement[] stack = executer.getStackTrace();
+flink-runtime/src/main/java/org/apache/flink/runtime/taskmanager/Task.java,1559,if (now >= deadline) {
+flink-runtime/src/main/java/org/apache/flink/runtime/taskmanager/Task.java,1560,long duration = TimeUnit.SECONDS.convert(interruptInterval, TimeUnit.MILLISECONDS);
+flink-runtime/src/main/java/org/apache/flink/runtime/taskmanager/Task.java,1561,String msg = String.format("Task '%s' did not react to cancelling signal in " +
+flink-runtime/src/main/java/org/apache/flink/runtime/taskmanager/Task.java,1563,taskName,
+flink-runtime/src/main/java/org/apache/flink/runtime/taskmanager/Task.java,1564,duration,
+flink-runtime/src/main/java/org/apache/flink/runtime/taskmanager/Task.java,1565,bld.toString());
+flink-runtime/src/main/java/org/apache/flink/runtime/taskmanager/Task.java,1567,logger.info("Notifying TaskManager about fatal error. {}.", msg);
+flink-runtime/src/main/java/org/apache/flink/runtime/taskmanager/Task.java,1569,taskManager.notifyFatalError(msg, null);
+flink-runtime/src/main/java/org/apache/flink/runtime/taskmanager/Task.java,1571,return; // done, don't forget to leave the loop
+flink-runtime/src/main/java/org/apache/flink/runtime/taskmanager/Task.java,1573,logger.warn("Task '{}' did not react to cancelling signal, but is stuck in method:\n {}",
+flink-runtime/src/main/java/org/apache/flink/runtime/taskmanager/Task.java,1574,taskName, bld.toString());
+flink-runtime/src/main/java/org/apache/flink/runtime/taskmanager/Task.java,1576,executer.interrupt();
+flink-runtime/src/main/java/org/apache/flink/runtime/taskmanager/Task.java,1577,try {
+flink-runtime/src/main/java/org/apache/flink/runtime/taskmanager/Task.java,1578,long timeLeftNanos = Math.min(intervalNanos, deadline - now);
+flink-runtime/src/main/java/org/apache/flink/runtime/taskmanager/Task.java,1579,long timeLeftMillis = TimeUnit.MILLISECONDS.convert(timeLeftNanos, TimeUnit.NANOSECONDS);
+flink-runtime/src/main/java/org/apache/flink/runtime/taskmanager/Task.java,1581,if (timeLeftMillis > 0) {
+flink-runtime/src/main/java/org/apache/flink/runtime/taskmanager/Task.java,1582,executer.join(timeLeftMillis);
+flink-runtime/src/main/java/org/apache/flink/runtime/checkpoint/ZooKeeperCompletedCheckpointStore.java,202,!lastTryRetrievedCheckpoints.equals(retrievedCheckpoints));
+flink-core/src/main/java/org/apache/flink/api/java/typeutils/runtime/TupleSerializerConfigSnapshot.java,64,tupleClass = InstantiationUtil.deserializeObject(inViewWrapper, getUserCodeClassLoader());
+flink-connectors/flink-connector-filesystem/src/main/java/org/apache/flink/streaming/connectors/fs/AvroKeyValueSinkWriter.java,153,CodecFactory compressionCodec = getCompressionCodec(properties);
+flink-connectors/flink-connector-filesystem/src/main/java/org/apache/flink/streaming/connectors/fs/AvroKeyValueSinkWriter.java,154,Schema keySchema = Schema.parse(properties.get(CONF_OUTPUT_KEY_SCHEMA));
+flink-connectors/flink-connector-filesystem/src/main/java/org/apache/flink/streaming/connectors/fs/AvroKeyValueSinkWriter.java,155,Schema valueSchema = Schema.parse(properties.get(CONF_OUTPUT_VALUE_SCHEMA));
+flink-connectors/flink-connector-filesystem/src/main/java/org/apache/flink/streaming/connectors/fs/AvroKeyValueSinkWriter.java,156,keyValueWriter = new AvroKeyValueWriter<K, V>(keySchema, valueSchema, compressionCodec, getStream());
+flink-connectors/flink-connector-filesystem/src/main/java/org/apache/flink/streaming/connectors/fs/AvroKeyValueSinkWriter.java,161,super.close(); //the order is important since super.close flushes inside
+flink-connectors/flink-connector-kafka-base/src/main/java/org/apache/flink/streaming/connectors/kafka/FlinkKafkaConsumerBase.java,588,LOG.debug("Consumer subtask {} is trying to discover new partitions ...");
+flink-examples/flink-examples-streaming/src/main/java/org/apache/flink/streaming/examples/kafka/Kafka010Example.java,63,.addSource(new FlinkKafkaConsumer010<>(
+flink-connectors/flink-connector-cassandra/src/main/java/org/apache/flink/streaming/connectors/cassandra/CassandraSinkBase.java,137,while (updatesPending.get() > 0) {
+flink-connectors/flink-connector-cassandra/src/main/java/org/apache/flink/streaming/connectors/cassandra/CassandraSinkBase.java,138,synchronized (updatesPending) {
+flink-streaming-java/src/main/java/org/apache/flink/streaming/runtime/tasks/OperatorChain.java,552,ClassCastException replace = new ClassCastException(
+flink-streaming-java/src/main/java/org/apache/flink/streaming/runtime/tasks/OperatorChain.java,553,String.format(
+flink-streaming-java/src/main/java/org/apache/flink/streaming/runtime/tasks/OperatorChain.java,557,e.getMessage(),
+flink-streaming-java/src/main/java/org/apache/flink/streaming/runtime/tasks/OperatorChain.java,558,outputTag.getId()));
+flink-streaming-java/src/main/java/org/apache/flink/streaming/runtime/tasks/OperatorChain.java,560,throw new ExceptionInChainedOperatorException(replace);
+flink-yarn/src/main/java/org/apache/flink/yarn/YarnTaskManagerRunner.java,50,public class YarnTaskManagerRunner {
+flink-yarn/src/main/java/org/apache/flink/yarn/YarnTaskManagerRunner.java,52,private static final Logger LOG = LoggerFactory.getLogger(YarnTaskManagerRunner.class);
+flink-yarn/src/main/java/org/apache/flink/yarn/YarnTaskManagerRunner.java,67,return;
+flink-yarn/src/main/java/org/apache/flink/yarn/YarnTaskManagerRunner.java,116,try {
+flink-yarn/src/main/java/org/apache/flink/yarn/YarnTaskManagerRunner.java,159,LOG.error("Exception occurred while launching Task Manager", e);
+flink-runtime/src/main/java/org/apache/flink/runtime/security/SecurityUtils.java,21,import org.apache.flink.annotation.VisibleForTesting;
+flink-runtime/src/main/java/org/apache/flink/runtime/security/SecurityUtils.java,51,static List<SecurityModule> getInstalledModules() {
+flink-yarn/src/main/java/org/apache/flink/yarn/YarnApplicationMasterRunner.java,147,final String remoteKeytabPath = ENV.get(YarnConfigKeys.KEYTAB_PATH);
+flink-yarn/src/main/java/org/apache/flink/yarn/YarnApplicationMasterRunner.java,148,LOG.debug("remoteKeytabPath obtained {}", remoteKeytabPath);
+flink-yarn/src/main/java/org/apache/flink/yarn/YarnApplicationMasterRunner.java,153,String keytabPath = null;
+flink-yarn/src/main/java/org/apache/flink/yarn/YarnApplicationMasterRunner.java,154,if (remoteKeytabPath != null) {
+flink-yarn/src/main/java/org/apache/flink/yarn/YarnApplicationMasterRunner.java,155,File f = new File(currDir, Utils.KEYTAB_FILE_NAME);
+flink-yarn/src/main/java/org/apache/flink/yarn/YarnApplicationMasterRunner.java,156,keytabPath = f.getAbsolutePath();
+flink-yarn/src/main/java/org/apache/flink/yarn/YarnApplicationMasterRunner.java,157,LOG.debug("keytabPath: {}", keytabPath);
+flink-yarn/src/main/java/org/apache/flink/yarn/YarnApplicationMasterRunner.java,173,if (keytabPath != null && remoteKeytabPrincipal != null) {
+flink-yarn/src/main/java/org/apache/flink/yarn/YarnApplicationMasterRunner.java,174,flinkConfig.setString(SecurityOptions.KERBEROS_LOGIN_KEYTAB, keytabPath);
+flink-yarn/src/main/java/org/apache/flink/yarn/YarnApplicationMasterRunner.java,255,final String remoteKeytabPath = ENV.get(YarnConfigKeys.KEYTAB_PATH);
+flink-yarn/src/main/java/org/apache/flink/yarn/YarnApplicationMasterRunner.java,259,String keytabPath = null;
+flink-yarn/src/main/java/org/apache/flink/yarn/YarnApplicationMasterRunner.java,260,if (remoteKeytabPath != null) {
+flink-yarn/src/main/java/org/apache/flink/yarn/YarnApplicationMasterRunner.java,261,File f = new File(currDir, Utils.KEYTAB_FILE_NAME);
+flink-yarn/src/main/java/org/apache/flink/yarn/YarnApplicationMasterRunner.java,262,keytabPath = f.getAbsolutePath();
+flink-yarn/src/main/java/org/apache/flink/yarn/YarnApplicationMasterRunner.java,263,LOG.info("keytabPath: {}", keytabPath);
+flink-yarn/src/main/java/org/apache/flink/yarn/YarnApplicationMasterRunner.java,265,if (keytabPath != null && remoteKeytabPrincipal != null) {
+flink-yarn/src/main/java/org/apache/flink/yarn/YarnApplicationMasterRunner.java,266,config.setString(SecurityOptions.KERBEROS_LOGIN_KEYTAB, keytabPath);
+flink-yarn/src/main/java/org/apache/flink/yarn/YarnTaskManagerRunner.java,54,public static void runYarnTaskManager(String[] args, final Class<? extends YarnTaskManager> taskManager) throws IOException {
+flink-yarn/src/main/java/org/apache/flink/yarn/YarnTaskManagerRunner.java,71,final Map<String, String> envs = System.getenv();
+flink-yarn/src/main/java/org/apache/flink/yarn/YarnTaskManagerRunner.java,79,final String remoteKeytabPath = envs.get(YarnConfigKeys.KEYTAB_PATH);
+flink-yarn/src/main/java/org/apache/flink/yarn/YarnTaskManagerRunner.java,80,LOG.info("TM: remoteKeytabPath obtained {}", remoteKeytabPath);
+flink-yarn/src/main/java/org/apache/flink/yarn/YarnTaskManagerRunner.java,99,String localKeytabPath = null;
+flink-yarn/src/main/java/org/apache/flink/yarn/YarnTaskManagerRunner.java,100,if (remoteKeytabPath != null) {
+flink-yarn/src/main/java/org/apache/flink/yarn/YarnTaskManagerRunner.java,101,File f = new File(currDir, Utils.KEYTAB_FILE_NAME);
+flink-yarn/src/main/java/org/apache/flink/yarn/YarnTaskManagerRunner.java,102,localKeytabPath = f.getAbsolutePath();
+flink-yarn/src/main/java/org/apache/flink/yarn/YarnTaskManagerRunner.java,103,LOG.info("localKeytabPath: {}", localKeytabPath);
+flink-yarn/src/main/java/org/apache/flink/yarn/YarnTaskManagerRunner.java,130,if (localKeytabPath != null && remoteKeytabPrincipal != null) {
+flink-yarn/src/main/java/org/apache/flink/yarn/YarnTaskManagerRunner.java,131,configuration.setString(SecurityOptions.KERBEROS_LOGIN_KEYTAB, localKeytabPath);
+flink-yarn/src/main/java/org/apache/flink/yarn/YarnTaskManagerRunner.java,132,configuration.setString(SecurityOptions.KERBEROS_LOGIN_PRINCIPAL, remoteKeytabPrincipal);
+flink-yarn/src/main/java/org/apache/flink/yarn/YarnTaskManagerRunner.java,145,SecurityUtils.getInstalledContext().runSecured(new Callable<Object>() {
+flink-yarn/src/main/java/org/apache/flink/yarn/YarnTaskManagerRunner.java,147,public Integer call() {
+flink-yarn/src/main/java/org/apache/flink/yarn/YarnTaskManagerRunner.java,148,try {
+flink-yarn/src/main/java/org/apache/flink/yarn/YarnTaskManagerRunner.java,149,TaskManager.selectNetworkInterfaceAndRunTaskManager(configuration, resourceId, taskManager);
+flink-yarn/src/main/java/org/apache/flink/yarn/YarnTaskManagerRunner.java,151,catch (Throwable t) {
+flink-yarn/src/main/java/org/apache/flink/yarn/YarnTaskManagerRunner.java,152,LOG.error("Error while starting the TaskManager", t);
+flink-yarn/src/main/java/org/apache/flink/yarn/YarnTaskManagerRunner.java,153,System.exit(TaskManager.STARTUP_FAILURE_RETURN_CODE());
+flink-yarn/src/main/java/org/apache/flink/yarn/YarnTaskManagerRunner.java,155,return null;
+flink-streaming-java/src/main/java/org/apache/flink/streaming/api/operators/AbstractStreamOperator.java,31,import org.apache.flink.core.memory.DataInputViewStreamWrapper;
+flink-streaming-java/src/main/java/org/apache/flink/streaming/api/operators/AbstractStreamOperator.java,440,new DataInputViewStreamWrapper(streamProvider.getStream()),
+flink-streaming-java/src/main/java/org/apache/flink/streaming/api/operators/HeapInternalTimerService.java,23,import org.apache.flink.core.memory.DataInputViewStreamWrapper;
+flink-streaming-java/src/main/java/org/apache/flink/streaming/api/operators/HeapInternalTimerService.java,24,import org.apache.flink.core.memory.DataOutputViewStreamWrapper;
+flink-streaming-java/src/main/java/org/apache/flink/streaming/api/operators/HeapInternalTimerService.java,29,import org.apache.flink.util.InstantiationUtil;
+flink-streaming-java/src/main/java/org/apache/flink/streaming/api/operators/HeapInternalTimerService.java,87,private InternalTimer.TimerSerializer<K, N> timerSerializer;
+flink-streaming-java/src/main/java/org/apache/flink/streaming/api/operators/HeapInternalTimerService.java,151,if ((this.keyDeserializer != null && !this.keyDeserializer.equals(keySerializer)) ||
+flink-streaming-java/src/main/java/org/apache/flink/streaming/api/operators/HeapInternalTimerService.java,152,(this.namespaceDeserializer != null && !this.namespaceDeserializer.equals(namespaceSerializer))) {
+flink-streaming-java/src/main/java/org/apache/flink/streaming/api/operators/HeapInternalTimerService.java,153,throw new IllegalStateException("Tried to initialize restored TimerService " +
+flink-streaming-java/src/main/java/org/apache/flink/streaming/api/operators/HeapInternalTimerService.java,164,this.timerSerializer = new InternalTimer.TimerSerializer<>(this.keySerializer, this.namespaceSerializer);
+flink-streaming-java/src/main/java/org/apache/flink/streaming/api/operators/HeapInternalTimerService.java,286,public void snapshotTimersForKeyGroup(DataOutputViewStreamWrapper stream, int keyGroupIdx) throws Exception {
+flink-streaming-java/src/main/java/org/apache/flink/streaming/api/operators/HeapInternalTimerService.java,287,InstantiationUtil.serializeObject(stream, keySerializer);
+flink-streaming-java/src/main/java/org/apache/flink/streaming/api/operators/HeapInternalTimerService.java,288,InstantiationUtil.serializeObject(stream, namespaceSerializer);
+flink-streaming-java/src/main/java/org/apache/flink/streaming/api/operators/HeapInternalTimerService.java,291,Set<InternalTimer<K, N>> eventTimers = getEventTimeTimerSetForKeyGroup(keyGroupIdx);
+flink-streaming-java/src/main/java/org/apache/flink/streaming/api/operators/HeapInternalTimerService.java,292,if (eventTimers != null) {
+flink-streaming-java/src/main/java/org/apache/flink/streaming/api/operators/HeapInternalTimerService.java,293,stream.writeInt(eventTimers.size());
+flink-streaming-java/src/main/java/org/apache/flink/streaming/api/operators/HeapInternalTimerService.java,294,for (InternalTimer<K, N> timer : eventTimers) {
+flink-streaming-java/src/main/java/org/apache/flink/streaming/api/operators/HeapInternalTimerService.java,295,this.timerSerializer.serialize(timer, stream);
+flink-streaming-java/src/main/java/org/apache/flink/streaming/api/operators/HeapInternalTimerService.java,298,stream.writeInt(0);
+flink-streaming-java/src/main/java/org/apache/flink/streaming/api/operators/HeapInternalTimerService.java,302,Set<InternalTimer<K, N>> processingTimers = getProcessingTimeTimerSetForKeyGroup(keyGroupIdx);
+flink-streaming-java/src/main/java/org/apache/flink/streaming/api/operators/HeapInternalTimerService.java,303,if (processingTimers != null) {
+flink-streaming-java/src/main/java/org/apache/flink/streaming/api/operators/HeapInternalTimerService.java,304,stream.writeInt(processingTimers.size());
+flink-streaming-java/src/main/java/org/apache/flink/streaming/api/operators/HeapInternalTimerService.java,305,for (InternalTimer<K, N> timer : processingTimers) {
+flink-streaming-java/src/main/java/org/apache/flink/streaming/api/operators/HeapInternalTimerService.java,306,this.timerSerializer.serialize(timer, stream);
+flink-streaming-java/src/main/java/org/apache/flink/streaming/api/operators/HeapInternalTimerService.java,309,stream.writeInt(0);
+flink-streaming-java/src/main/java/org/apache/flink/streaming/api/operators/HeapInternalTimerService.java,320,public void restoreTimersForKeyGroup(DataInputViewStreamWrapper stream, int keyGroupIdx,
+flink-streaming-java/src/main/java/org/apache/flink/streaming/api/operators/HeapInternalTimerService.java,321,ClassLoader userCodeClassLoader) throws IOException, ClassNotFoundException {
+flink-streaming-java/src/main/java/org/apache/flink/streaming/api/operators/HeapInternalTimerService.java,323,TypeSerializer<K> tmpKeyDeserializer = InstantiationUtil.deserializeObject(stream, userCodeClassLoader);
+flink-streaming-java/src/main/java/org/apache/flink/streaming/api/operators/HeapInternalTimerService.java,324,TypeSerializer<N> tmpNamespaceDeserializer = InstantiationUtil.deserializeObject(stream, userCodeClassLoader);
+flink-streaming-java/src/main/java/org/apache/flink/streaming/api/operators/HeapInternalTimerService.java,326,if ((this.keyDeserializer != null && !this.keyDeserializer.equals(tmpKeyDeserializer)) ||
+flink-streaming-java/src/main/java/org/apache/flink/streaming/api/operators/HeapInternalTimerService.java,327,(this.namespaceDeserializer != null && !this.namespaceDeserializer.equals(tmpNamespaceDeserializer))) {
+flink-streaming-java/src/main/java/org/apache/flink/streaming/api/operators/HeapInternalTimerService.java,333,this.keyDeserializer = tmpKeyDeserializer;
+flink-streaming-java/src/main/java/org/apache/flink/streaming/api/operators/HeapInternalTimerService.java,334,this.namespaceDeserializer = tmpNamespaceDeserializer;
+flink-streaming-java/src/main/java/org/apache/flink/streaming/api/operators/HeapInternalTimerService.java,336,InternalTimer.TimerSerializer<K, N> timerSerializer =
+flink-streaming-java/src/main/java/org/apache/flink/streaming/api/operators/HeapInternalTimerService.java,337,new InternalTimer.TimerSerializer<>(this.keyDeserializer, this.namespaceDeserializer);
+flink-streaming-java/src/main/java/org/apache/flink/streaming/api/operators/HeapInternalTimerService.java,343,int sizeOfEventTimeTimers = stream.readInt();
+flink-streaming-java/src/main/java/org/apache/flink/streaming/api/operators/HeapInternalTimerService.java,344,if (sizeOfEventTimeTimers > 0) {
+flink-streaming-java/src/main/java/org/apache/flink/streaming/api/operators/HeapInternalTimerService.java,345,Set<InternalTimer<K, N>> eventTimers = getEventTimeTimerSetForKeyGroup(keyGroupIdx);
+flink-streaming-java/src/main/java/org/apache/flink/streaming/api/operators/HeapInternalTimerService.java,346,for (int i = 0; i < sizeOfEventTimeTimers; i++) {
+flink-streaming-java/src/main/java/org/apache/flink/streaming/api/operators/HeapInternalTimerService.java,347,InternalTimer<K, N> timer = timerSerializer.deserialize(stream);
+flink-streaming-java/src/main/java/org/apache/flink/streaming/api/operators/HeapInternalTimerService.java,348,eventTimers.add(timer);
+flink-streaming-java/src/main/java/org/apache/flink/streaming/api/operators/HeapInternalTimerService.java,349,eventTimeTimersQueue.add(timer);
+flink-streaming-java/src/main/java/org/apache/flink/streaming/api/operators/HeapInternalTimerService.java,354,int sizeOfProcessingTimeTimers = stream.readInt();
+flink-streaming-java/src/main/java/org/apache/flink/streaming/api/operators/HeapInternalTimerService.java,355,if (sizeOfProcessingTimeTimers > 0) {
+flink-streaming-java/src/main/java/org/apache/flink/streaming/api/operators/HeapInternalTimerService.java,356,Set<InternalTimer<K, N>> processingTimers = getProcessingTimeTimerSetForKeyGroup(keyGroupIdx);
+flink-streaming-java/src/main/java/org/apache/flink/streaming/api/operators/HeapInternalTimerService.java,357,for (int i = 0; i < sizeOfProcessingTimeTimers; i++) {
+flink-streaming-java/src/main/java/org/apache/flink/streaming/api/operators/HeapInternalTimerService.java,358,InternalTimer<K, N> timer = timerSerializer.deserialize(stream);
+flink-streaming-java/src/main/java/org/apache/flink/streaming/api/operators/HeapInternalTimerService.java,359,processingTimers.add(timer);
+flink-streaming-java/src/main/java/org/apache/flink/streaming/api/operators/HeapInternalTimerService.java,360,processingTimeTimersQueue.add(timer);
+flink-streaming-java/src/main/java/org/apache/flink/streaming/api/operators/InternalTimeServiceManager.java,24,import org.apache.flink.core.memory.DataInputViewStreamWrapper;
+flink-streaming-java/src/main/java/org/apache/flink/streaming/api/operators/InternalTimeServiceManager.java,25,import org.apache.flink.core.memory.DataOutputViewStreamWrapper;
+flink-streaming-java/src/main/java/org/apache/flink/streaming/api/operators/InternalTimeServiceManager.java,114,public void snapshotStateForKeyGroup(DataOutputViewStreamWrapper stream, int keyGroupIdx) throws Exception {
+flink-streaming-java/src/main/java/org/apache/flink/streaming/api/operators/InternalTimeServiceManager.java,115,stream.writeInt(timerServices.size());
+flink-streaming-java/src/main/java/org/apache/flink/streaming/api/operators/InternalTimeServiceManager.java,117,for (Map.Entry<String, HeapInternalTimerService<K, N>> entry : timerServices.entrySet()) {
+flink-streaming-java/src/main/java/org/apache/flink/streaming/api/operators/InternalTimeServiceManager.java,118,String serviceName = entry.getKey();
+flink-streaming-java/src/main/java/org/apache/flink/streaming/api/operators/InternalTimeServiceManager.java,119,HeapInternalTimerService<?, ?> timerService = entry.getValue();
+flink-streaming-java/src/main/java/org/apache/flink/streaming/api/operators/InternalTimeServiceManager.java,121,stream.writeUTF(serviceName);
+flink-streaming-java/src/main/java/org/apache/flink/streaming/api/operators/InternalTimeServiceManager.java,122,timerService.snapshotTimersForKeyGroup(stream, keyGroupIdx);
+flink-streaming-java/src/main/java/org/apache/flink/streaming/api/operators/InternalTimeServiceManager.java,126,public void restoreStateForKeyGroup(DataInputViewStreamWrapper stream, int keyGroupIdx,
+flink-streaming-java/src/main/java/org/apache/flink/streaming/api/operators/InternalTimeServiceManager.java,127,ClassLoader userCodeClassLoader) throws IOException, ClassNotFoundException {
+flink-streaming-java/src/main/java/org/apache/flink/streaming/api/operators/InternalTimeServiceManager.java,129,int noOfTimerServices = stream.readInt();
+flink-streaming-java/src/main/java/org/apache/flink/streaming/api/operators/InternalTimeServiceManager.java,130,for (int i = 0; i < noOfTimerServices; i++) {
+flink-streaming-java/src/main/java/org/apache/flink/streaming/api/operators/InternalTimeServiceManager.java,131,String serviceName = stream.readUTF();
+flink-streaming-java/src/main/java/org/apache/flink/streaming/api/operators/InternalTimeServiceManager.java,133,HeapInternalTimerService<K, N> timerService = timerServices.get(serviceName);
+flink-streaming-java/src/main/java/org/apache/flink/streaming/api/operators/InternalTimeServiceManager.java,134,if (timerService == null) {
+flink-streaming-java/src/main/java/org/apache/flink/streaming/api/operators/InternalTimeServiceManager.java,135,timerService = new HeapInternalTimerService<>(
+flink-streaming-java/src/main/java/org/apache/flink/streaming/api/operators/InternalTimeServiceManager.java,136,totalKeyGroups,
+flink-streaming-java/src/main/java/org/apache/flink/streaming/api/operators/InternalTimeServiceManager.java,137,localKeyGroupRange,
+flink-streaming-java/src/main/java/org/apache/flink/streaming/api/operators/InternalTimeServiceManager.java,138,keyContext,
+flink-streaming-java/src/main/java/org/apache/flink/streaming/api/operators/InternalTimeServiceManager.java,139,processingTimeService);
+flink-streaming-java/src/main/java/org/apache/flink/streaming/api/operators/InternalTimeServiceManager.java,140,timerServices.put(serviceName, timerService);
+flink-streaming-java/src/main/java/org/apache/flink/streaming/api/operators/InternalTimeServiceManager.java,142,timerService.restoreTimersForKeyGroup(stream, keyGroupIdx, userCodeClassLoader);
+flink-core/src/main/java/org/apache/flink/api/common/typeutils/TypeSerializerSerializationUtil.java,23,import org.apache.flink.api.java.typeutils.runtime.KryoRegistrationSerializerConfigSnapshot;
+flink-core/src/main/java/org/apache/flink/api/common/typeutils/TypeSerializerSerializationUtil.java,39,import java.io.InputStream;
+flink-core/src/main/java/org/apache/flink/api/common/typeutils/TypeSerializerSerializationUtil.java,41,import java.io.ObjectInputStream;
+flink-core/src/main/java/org/apache/flink/api/common/typeutils/TypeSerializerSerializationUtil.java,42,import java.io.ObjectStreamClass;
+flink-core/src/main/java/org/apache/flink/api/common/typeutils/TypeSerializerSerializationUtil.java,44,import java.util.HashSet;
+flink-core/src/main/java/org/apache/flink/api/common/typeutils/TypeSerializerSerializationUtil.java,46,import java.util.Set;
+flink-core/src/main/java/org/apache/flink/api/common/typeutils/TypeSerializerSerializationUtil.java,65,private static Set<String> scalaSerializerClassnames = new HashSet<>();
+flink-core/src/main/java/org/apache/flink/api/common/typeutils/TypeSerializerSerializationUtil.java,66,static {
+flink-core/src/main/java/org/apache/flink/api/common/typeutils/TypeSerializerSerializationUtil.java,67,scalaSerializerClassnames.add("org.apache.flink.api.scala.typeutils.TraversableSerializer");
+flink-core/src/main/java/org/apache/flink/api/common/typeutils/TypeSerializerSerializationUtil.java,68,scalaSerializerClassnames.add("org.apache.flink.api.scala.typeutils.CaseClassSerializer");
+flink-core/src/main/java/org/apache/flink/api/common/typeutils/TypeSerializerSerializationUtil.java,69,scalaSerializerClassnames.add("org.apache.flink.api.scala.typeutils.EitherSerializer");
+flink-core/src/main/java/org/apache/flink/api/common/typeutils/TypeSerializerSerializationUtil.java,70,scalaSerializerClassnames.add("org.apache.flink.api.scala.typeutils.EnumValueSerializer");
+flink-core/src/main/java/org/apache/flink/api/common/typeutils/TypeSerializerSerializationUtil.java,71,scalaSerializerClassnames.add("org.apache.flink.api.scala.typeutils.OptionSerializer");
+flink-core/src/main/java/org/apache/flink/api/common/typeutils/TypeSerializerSerializationUtil.java,72,scalaSerializerClassnames.add("org.apache.flink.api.scala.typeutils.TrySerializer");
+flink-core/src/main/java/org/apache/flink/api/common/typeutils/TypeSerializerSerializationUtil.java,73,scalaSerializerClassnames.add("org.apache.flink.api.scala.typeutils.EitherSerializer");
+flink-core/src/main/java/org/apache/flink/api/common/typeutils/TypeSerializerSerializationUtil.java,74,scalaSerializerClassnames.add("org.apache.flink.api.scala.typeutils.UnitSerializer");
+flink-core/src/main/java/org/apache/flink/api/common/typeutils/TypeSerializerSerializationUtil.java,90,public static class FailureTolerantObjectInputStream extends InstantiationUtil.ClassLoaderObjectInputStream {
+flink-core/src/main/java/org/apache/flink/api/common/typeutils/TypeSerializerSerializationUtil.java,92,public FailureTolerantObjectInputStream(InputStream in, ClassLoader cl) throws IOException {
+flink-core/src/main/java/org/apache/flink/api/common/typeutils/TypeSerializerSerializationUtil.java,93,super(in, cl);
+flink-core/src/main/java/org/apache/flink/api/common/typeutils/TypeSerializerSerializationUtil.java,97,protected ObjectStreamClass readClassDescriptor() throws IOException, ClassNotFoundException {
+flink-core/src/main/java/org/apache/flink/api/common/typeutils/TypeSerializerSerializationUtil.java,98,ObjectStreamClass streamClassDescriptor = super.readClassDescriptor();
+flink-core/src/main/java/org/apache/flink/api/common/typeutils/TypeSerializerSerializationUtil.java,100,try {
+flink-core/src/main/java/org/apache/flink/api/common/typeutils/TypeSerializerSerializationUtil.java,101,Class.forName(streamClassDescriptor.getName(), false, classLoader);
+flink-core/src/main/java/org/apache/flink/api/common/typeutils/TypeSerializerSerializationUtil.java,103,if (streamClassDescriptor.getName().equals("org.apache.avro.generic.GenericData$Array")) {
+flink-core/src/main/java/org/apache/flink/api/common/typeutils/TypeSerializerSerializationUtil.java,104,ObjectStreamClass result = ObjectStreamClass.lookup(
+flink-core/src/main/java/org/apache/flink/api/common/typeutils/TypeSerializerSerializationUtil.java,105,KryoRegistrationSerializerConfigSnapshot.DummyRegisteredClass.class);
+flink-core/src/main/java/org/apache/flink/api/common/typeutils/TypeSerializerSerializationUtil.java,106,return result;
+flink-core/src/main/java/org/apache/flink/api/common/typeutils/TypeSerializerSerializationUtil.java,110,Class localClass = resolveClass(streamClassDescriptor);
+flink-core/src/main/java/org/apache/flink/api/common/typeutils/TypeSerializerSerializationUtil.java,113,|| localClass.getName().contains("$anon$") || localClass.getName().contains("$anonfun")) {
+flink-core/src/main/java/org/apache/flink/api/common/typeutils/TypeSerializerSerializationUtil.java,115,ObjectStreamClass localClassDescriptor = ObjectStreamClass.lookup(localClass);
+flink-core/src/main/java/org/apache/flink/api/common/typeutils/TypeSerializerSerializationUtil.java,116,if (localClassDescriptor != null
+flink-core/src/main/java/org/apache/flink/api/common/typeutils/TypeSerializerSerializationUtil.java,117,&& localClassDescriptor.getSerialVersionUID() != streamClassDescriptor.getSerialVersionUID()) {
+flink-core/src/main/java/org/apache/flink/api/common/typeutils/TypeSerializerSerializationUtil.java,118,LOG.warn("Ignoring serialVersionUID mismatch for anonymous class {}; was {}, now {}.",
+flink-core/src/main/java/org/apache/flink/api/common/typeutils/TypeSerializerSerializationUtil.java,119,streamClassDescriptor.getName(), streamClassDescriptor.getSerialVersionUID(), localClassDescriptor.getSerialVersionUID());
+flink-core/src/main/java/org/apache/flink/api/common/typeutils/TypeSerializerSerializationUtil.java,121,streamClassDescriptor = localClassDescriptor;
+flink-core/src/main/java/org/apache/flink/api/common/typeutils/TypeSerializerSerializationUtil.java,125,return streamClassDescriptor;
+flink-core/src/main/java/org/apache/flink/api/common/typeutils/TypeSerializerSerializationUtil.java,450,FailureTolerantObjectInputStream ois =
+flink-core/src/main/java/org/apache/flink/api/common/typeutils/TypeSerializerSerializationUtil.java,451,new FailureTolerantObjectInputStream(new ByteArrayInputStream(buffer), userClassLoader)) {
+flink-core/src/main/java/org/apache/flink/util/InstantiationUtil.java,287,final ClassLoader old = Thread.currentThread().getContextClassLoader();
+flink-core/src/main/java/org/apache/flink/util/InstantiationUtil.java,288,try (ObjectInputStream oois = new ClassLoaderObjectInputStream(new ByteArrayInputStream(bytes), cl)) {
+flink-core/src/main/java/org/apache/flink/util/InstantiationUtil.java,289,Thread.currentThread().setContextClassLoader(cl);
+flink-core/src/main/java/org/apache/flink/util/InstantiationUtil.java,290,return (T) oois.readObject();
+flink-core/src/main/java/org/apache/flink/util/InstantiationUtil.java,292,finally {
+flink-core/src/main/java/org/apache/flink/util/InstantiationUtil.java,293,Thread.currentThread().setContextClassLoader(old);
+flink-core/src/main/java/org/apache/flink/util/InstantiationUtil.java,300,ObjectInputStream oois;
+flink-core/src/main/java/org/apache/flink/util/InstantiationUtil.java,302,try {
+flink-core/src/main/java/org/apache/flink/util/InstantiationUtil.java,303,oois = new ClassLoaderObjectInputStream(in, cl);
+flink-runtime/src/main/java/org/apache/flink/runtime/state/OperatorBackendStateMetaInfoSnapshotReaderWriters.java,171,TypeSerializerSerializationUtil.FailureTolerantObjectInputStream ois =
+flink-runtime/src/main/java/org/apache/flink/runtime/state/OperatorBackendStateMetaInfoSnapshotReaderWriters.java,172,new TypeSerializerSerializationUtil.FailureTolerantObjectInputStream(dis, userCodeClassLoader)) {
+flink-connectors/flink-connector-kinesis/src/main/java/org/apache/flink/streaming/connectors/kinesis/FlinkKinesisConsumer.java,102,private transient HashMap<StreamShardMetadata, SequenceNumber> sequenceNumsToRestore;
+flink-connectors/flink-connector-kinesis/src/main/java/org/apache/flink/streaming/connectors/kinesis/FlinkKinesisConsumer.java,209,StreamShardMetadata kinesisStreamShard = KinesisDataFetcher.convertToStreamShardMetadata(shard);
+flink-connectors/flink-connector-kinesis/src/main/java/org/apache/flink/streaming/connectors/kinesis/FlinkKinesisConsumer.java,215,new KinesisStreamShardState(kinesisStreamShard, shard, sequenceNumsToRestore.get(kinesisStreamShard)));
+flink-connectors/flink-connector-kinesis/src/main/java/org/apache/flink/streaming/connectors/kinesis/FlinkKinesisConsumer.java,225,new KinesisStreamShardState(kinesisStreamShard, shard, SentinelSequenceNumber.SENTINEL_EARLIEST_SEQUENCE_NUM.get()));
+flink-connectors/flink-connector-kinesis/src/main/java/org/apache/flink/streaming/connectors/kinesis/FlinkKinesisConsumer.java,241,new KinesisStreamShardState(kinesisStreamShard, shard, startingSeqNum.get()));
+flink-connectors/flink-connector-kinesis/src/main/java/org/apache/flink/streaming/connectors/kinesis/FlinkKinesisConsumer.java,316,sequenceNumsToRestore.put(kinesisSequenceNumber.f0, kinesisSequenceNumber.f1);
+flink-connectors/flink-connector-kinesis/src/main/java/org/apache/flink/streaming/connectors/kinesis/FlinkKinesisConsumer.java,340,for (Map.Entry<StreamShardMetadata, SequenceNumber> entry : sequenceNumsToRestore.entrySet()) {
+flink-connectors/flink-connector-kinesis/src/main/java/org/apache/flink/streaming/connectors/kinesis/FlinkKinesisConsumer.java,345,KinesisDataFetcher.convertToStreamShardHandle(entry.getKey()),
+flink-connectors/flink-connector-kinesis/src/main/java/org/apache/flink/streaming/connectors/kinesis/FlinkKinesisConsumer.java,349,sequenceNumsStateForCheckpoint.add(Tuple2.of(entry.getKey(), entry.getValue()));
+flink-connectors/flink-connector-kinesis/src/main/java/org/apache/flink/streaming/connectors/kinesis/FlinkKinesisConsumer.java,380,HashMap<StreamShardMetadata, SequenceNumber> getRestoredState() {
+flink-connectors/flink-connector-kinesis/src/main/java/org/apache/flink/streaming/connectors/kinesis/internals/KinesisDataFetcher.java,484,protected void emitRecordAndUpdateState(T record, long recordTimestamp, int shardStateIndex, SequenceNumber lastSequenceNumber) {
+flink-connectors/flink-connector-kinesis/src/main/java/org/apache/flink/streaming/connectors/kinesis/internals/KinesisDataFetcher.java,501,protected void updateState(int shardStateIndex, SequenceNumber lastSequenceNumber) {
+flink-connectors/flink-connector-kinesis/src/main/java/org/apache/flink/streaming/connectors/kinesis/internals/KinesisDataFetcher.java,562,private static ExecutorService createShardConsumersThreadPool(final String subtaskName) {
+flink-connectors/flink-connector-kafka-base/src/main/java/org/apache/flink/streaming/connectors/kafka/internals/AbstractFetcher.java,566,protected void addOffsetStateGauge(MetricGroup metricGroup) {
+flink-connectors/flink-connector-kafka-base/src/main/java/org/apache/flink/streaming/connectors/kafka/internals/AbstractFetcher.java,568,MetricGroup currentOffsets = metricGroup.addGroup("current-offsets");
+flink-connectors/flink-connector-kafka-base/src/main/java/org/apache/flink/streaming/connectors/kafka/internals/AbstractFetcher.java,569,MetricGroup committedOffsets = metricGroup.addGroup("committed-offsets");
+flink-connectors/flink-connector-kafka-base/src/main/java/org/apache/flink/streaming/connectors/kafka/internals/AbstractFetcher.java,570,for (KafkaTopicPartitionState<KPH> ktp : subscribedPartitionStates) {
+flink-connectors/flink-connector-kafka-base/src/main/java/org/apache/flink/streaming/connectors/kafka/internals/AbstractFetcher.java,571,currentOffsets.gauge(ktp.getTopic() + "-" + ktp.getPartition(), new OffsetGauge(ktp, OffsetGaugeType.CURRENT_OFFSET));
+flink-connectors/flink-connector-kafka-base/src/main/java/org/apache/flink/streaming/connectors/kafka/internals/AbstractFetcher.java,572,committedOffsets.gauge(ktp.getTopic() + "-" + ktp.getPartition(), new OffsetGauge(ktp, OffsetGaugeType.COMMITTED_OFFSET));
+flink-connectors/flink-connector-kafka-0.10/src/main/java/org/apache/flink/streaming/connectors/kafka/FlinkKafkaConsumer010.java,34,import org.apache.flink.util.PropertiesUtil;
+flink-connectors/flink-connector-kafka-0.10/src/main/java/org/apache/flink/streaming/connectors/kafka/FlinkKafkaConsumer010.java,181,OffsetCommitMode offsetCommitMode) throws Exception {
+flink-connectors/flink-connector-kafka-0.10/src/main/java/org/apache/flink/streaming/connectors/kafka/FlinkKafkaConsumer010.java,183,boolean useMetrics = !PropertiesUtil.getBoolean(properties, KEY_DISABLE_METRICS, false);
+flink-connectors/flink-connector-kafka-0.10/src/main/java/org/apache/flink/streaming/connectors/kafka/FlinkKafkaConsumer010.java,200,runtimeContext.getMetricGroup(),
+flink-connectors/flink-connector-kafka-0.10/src/main/java/org/apache/flink/streaming/connectors/kafka/internal/Kafka010Fetcher.java,56,MetricGroup metricGroup,
+flink-connectors/flink-connector-kafka-0.10/src/main/java/org/apache/flink/streaming/connectors/kafka/internal/Kafka010Fetcher.java,70,metricGroup,
+flink-connectors/flink-connector-kafka-0.8/src/main/java/org/apache/flink/streaming/connectors/kafka/FlinkKafkaConsumer08.java,219,KEY_PARTITION_DISCOVERY_INTERVAL_MILLIS, PARTITION_DISCOVERY_DISABLED));
+flink-connectors/flink-connector-kafka-0.8/src/main/java/org/apache/flink/streaming/connectors/kafka/FlinkKafkaConsumer08.java,237,OffsetCommitMode offsetCommitMode) throws Exception {
+flink-connectors/flink-connector-kafka-0.8/src/main/java/org/apache/flink/streaming/connectors/kafka/FlinkKafkaConsumer08.java,239,boolean useMetrics = !PropertiesUtil.getBoolean(kafkaProperties, KEY_DISABLE_METRICS, false);
+flink-connectors/flink-connector-kafka-0.8/src/main/java/org/apache/flink/streaming/connectors/kafka/internals/Kafka08Fetcher.java,179,if (useMetrics) {
+flink-connectors/flink-connector-kafka-0.8/src/main/java/org/apache/flink/streaming/connectors/kafka/internals/Kafka08Fetcher.java,180,final MetricGroup kafkaMetricGroup = runtimeContext.getMetricGroup().addGroup("KafkaConsumer");
+flink-connectors/flink-connector-kafka-0.8/src/main/java/org/apache/flink/streaming/connectors/kafka/internals/Kafka08Fetcher.java,181,addOffsetStateGauge(kafkaMetricGroup);
+flink-connectors/flink-connector-kafka-0.9/src/main/java/org/apache/flink/streaming/connectors/kafka/FlinkKafkaConsumer09.java,210,KEY_PARTITION_DISCOVERY_INTERVAL_MILLIS, PARTITION_DISCOVERY_DISABLED));
+flink-connectors/flink-connector-kafka-0.9/src/main/java/org/apache/flink/streaming/connectors/kafka/FlinkKafkaConsumer09.java,235,OffsetCommitMode offsetCommitMode) throws Exception {
+flink-connectors/flink-connector-kafka-0.9/src/main/java/org/apache/flink/streaming/connectors/kafka/FlinkKafkaConsumer09.java,237,boolean useMetrics = !PropertiesUtil.getBoolean(properties, KEY_DISABLE_METRICS, false);
+flink-connectors/flink-connector-kafka-0.9/src/main/java/org/apache/flink/streaming/connectors/kafka/FlinkKafkaConsumer09.java,254,runtimeContext.getMetricGroup(),
+flink-connectors/flink-connector-kafka-0.9/src/main/java/org/apache/flink/streaming/connectors/kafka/FlinkKafkaConsumer09.java,272,return PropertiesUtil.getBoolean(properties, ConsumerConfig.ENABLE_AUTO_COMMIT_CONFIG, true) &&
+flink-connectors/flink-connector-kafka-0.9/src/main/java/org/apache/flink/streaming/connectors/kafka/internal/Kafka09Fetcher.java,83,MetricGroup metricGroup,
+flink-connectors/flink-connector-kafka-0.9/src/main/java/org/apache/flink/streaming/connectors/kafka/internal/Kafka09Fetcher.java,95,userCodeClassLoader,
+flink-connectors/flink-connector-kafka-0.9/src/main/java/org/apache/flink/streaming/connectors/kafka/internal/Kafka09Fetcher.java,101,final MetricGroup kafkaMetricGroup = metricGroup.addGroup("KafkaConsumer");
+flink-connectors/flink-connector-kafka-0.9/src/main/java/org/apache/flink/streaming/connectors/kafka/internal/Kafka09Fetcher.java,102,addOffsetStateGauge(kafkaMetricGroup);
+flink-connectors/flink-connector-kafka-0.9/src/main/java/org/apache/flink/streaming/connectors/kafka/internal/Kafka09Fetcher.java,109,kafkaMetricGroup,
+flink-connectors/flink-connector-kafka-0.9/src/main/java/org/apache/flink/streaming/connectors/kafka/internal/Kafka09Fetcher.java,113,useMetrics);
+flink-connectors/flink-connector-kafka-0.9/src/main/java/org/apache/flink/streaming/connectors/kafka/internal/KafkaConsumerThread.java,81,private final MetricGroup kafkaMetricGroup;
+flink-connectors/flink-connector-kafka-0.9/src/main/java/org/apache/flink/streaming/connectors/kafka/internal/KafkaConsumerThread.java,121,MetricGroup kafkaMetricGroup,
+flink-connectors/flink-connector-kafka-0.9/src/main/java/org/apache/flink/streaming/connectors/kafka/internal/KafkaConsumerThread.java,125,boolean useMetrics) {
+flink-connectors/flink-connector-kafka-0.9/src/main/java/org/apache/flink/streaming/connectors/kafka/internal/KafkaConsumerThread.java,133,this.kafkaMetricGroup = checkNotNull(kafkaMetricGroup);
+flink-connectors/flink-connector-kafka-0.9/src/main/java/org/apache/flink/streaming/connectors/kafka/internal/KafkaConsumerThread.java,181,kafkaMetricGroup.gauge(metric.getKey().name(), new KafkaMetricWrapper(metric.getValue()));
+flink-connectors/flink-connector-kafka-base/src/main/java/org/apache/flink/streaming/connectors/kafka/FlinkKafkaConsumerBase.java,220,long discoveryIntervalMillis) {
+flink-connectors/flink-connector-kafka-base/src/main/java/org/apache/flink/streaming/connectors/kafka/FlinkKafkaConsumerBase.java,555,offsetCommitMode);
+flink-connectors/flink-connector-kafka-base/src/main/java/org/apache/flink/streaming/connectors/kafka/FlinkKafkaConsumerBase.java,840,OffsetCommitMode offsetCommitMode) throws Exception;
+flink-connectors/flink-connector-kafka-base/src/main/java/org/apache/flink/streaming/connectors/kafka/internals/AbstractFetcher.java,87,protected final boolean useMetrics;
+flink-connectors/flink-connector-kafka-base/src/main/java/org/apache/flink/streaming/connectors/kafka/internals/AbstractFetcher.java,122,this.useMetrics = useMetrics;
+flink-connectors/flink-connector-kafka-0.9/src/main/java/org/apache/flink/streaming/connectors/kafka/internal/KafkaConsumerThread.java,72,private final AtomicReference<Map<TopicPartition, OffsetAndMetadata>> nextOffsetsToCommit;
+flink-connectors/flink-connector-kafka-0.9/src/main/java/org/apache/flink/streaming/connectors/kafka/internal/KafkaConsumerThread.java,114,private volatile KafkaCommitCallback offsetCommitCallback;
+flink-connectors/flink-connector-kafka-0.9/src/main/java/org/apache/flink/streaming/connectors/kafka/internal/KafkaConsumerThread.java,192,final OffsetCommitCallback offsetCommitCallback = new CommitCallback();
+flink-connectors/flink-connector-kafka-0.9/src/main/java/org/apache/flink/streaming/connectors/kafka/internal/KafkaConsumerThread.java,209,final Map<TopicPartition, OffsetAndMetadata> toCommit = nextOffsetsToCommit.getAndSet(null);
+flink-connectors/flink-connector-kafka-0.9/src/main/java/org/apache/flink/streaming/connectors/kafka/internal/KafkaConsumerThread.java,211,if (toCommit != null) {
+flink-connectors/flink-connector-kafka-0.9/src/main/java/org/apache/flink/streaming/connectors/kafka/internal/KafkaConsumerThread.java,217,consumer.commitAsync(toCommit, offsetCommitCallback);
+flink-connectors/flink-connector-kafka-0.9/src/main/java/org/apache/flink/streaming/connectors/kafka/internal/KafkaConsumerThread.java,327,if (nextOffsetsToCommit.getAndSet(offsetsToCommit) != null) {
+flink-connectors/flink-connector-kafka-0.9/src/main/java/org/apache/flink/streaming/connectors/kafka/internal/KafkaConsumerThread.java,332,this.offsetCommitCallback = commitCallback;
+flink-connectors/flink-connector-kafka-0.9/src/main/java/org/apache/flink/streaming/connectors/kafka/internal/KafkaConsumerThread.java,496,offsetCommitCallback.onException(ex);
+flink-connectors/flink-connector-kafka-0.9/src/main/java/org/apache/flink/streaming/connectors/kafka/internal/KafkaConsumerThread.java,498,offsetCommitCallback.onSuccess();
+flink-contrib/flink-statebackend-rocksdb/src/main/java/org/apache/flink/contrib/streaming/state/RocksDBKeyedStateBackend.java,377,snapshotOperation.takeSnapshot();
+flink-connectors/flink-orc/src/main/java/org/apache/flink/orc/OrcTableSource.java,248,Serializable literal = (Serializable) getLiteral(binComp);
+flink-connectors/flink-orc/src/main/java/org/apache/flink/orc/OrcRowInputFormat.java,58,import static org.apache.flink.orc.OrcUtils.fillRows;
+flink-connectors/flink-orc/src/main/java/org/apache/flink/orc/OrcRowInputFormat.java,131,this.rowType = (RowTypeInfo) OrcUtils.schemaToTypeInfo(schema);
+flink-connectors/flink-orc/src/main/java/org/apache/flink/orc/OrcTableSource.java,130,RowTypeInfo typeInfoFromSchema = (RowTypeInfo) OrcUtils.schemaToTypeInfo(this.orcSchema);
+flink-connectors/flink-orc/src/main/java/org/apache/flink/orc/OrcUtils.java,19,package org.apache.flink.orc;
+flink-connectors/flink-orc/src/main/java/org/apache/flink/orc/OrcUtils.java,21,import org.apache.flink.api.common.typeinfo.BasicTypeInfo;
+flink-connectors/flink-orc/src/main/java/org/apache/flink/orc/OrcUtils.java,22,import org.apache.flink.api.common.typeinfo.PrimitiveArrayTypeInfo;
+flink-connectors/flink-orc/src/main/java/org/apache/flink/orc/OrcUtils.java,23,import org.apache.flink.api.common.typeinfo.SqlTimeTypeInfo;
+flink-connectors/flink-orc/src/main/java/org/apache/flink/orc/OrcUtils.java,24,import org.apache.flink.api.common.typeinfo.TypeInformation;
+flink-connectors/flink-orc/src/main/java/org/apache/flink/orc/OrcUtils.java,25,import org.apache.flink.api.java.typeutils.MapTypeInfo;
+flink-connectors/flink-orc/src/main/java/org/apache/flink/orc/OrcUtils.java,26,import org.apache.flink.api.java.typeutils.ObjectArrayTypeInfo;
+flink-connectors/flink-orc/src/main/java/org/apache/flink/orc/OrcUtils.java,27,import org.apache.flink.api.java.typeutils.RowTypeInfo;
+flink-connectors/flink-orc/src/main/java/org/apache/flink/orc/OrcUtils.java,28,import org.apache.flink.types.Row;
+flink-connectors/flink-orc/src/main/java/org/apache/flink/orc/OrcUtils.java,30,import org.apache.hadoop.hive.common.type.HiveDecimal;
+flink-connectors/flink-orc/src/main/java/org/apache/flink/orc/OrcUtils.java,31,import org.apache.hadoop.hive.ql.exec.vector.BytesColumnVector;
+flink-connectors/flink-orc/src/main/java/org/apache/flink/orc/OrcUtils.java,32,import org.apache.hadoop.hive.ql.exec.vector.ColumnVector;
+flink-connectors/flink-orc/src/main/java/org/apache/flink/orc/OrcUtils.java,33,import org.apache.hadoop.hive.ql.exec.vector.DecimalColumnVector;
+flink-connectors/flink-orc/src/main/java/org/apache/flink/orc/OrcUtils.java,34,import org.apache.hadoop.hive.ql.exec.vector.DoubleColumnVector;
+flink-connectors/flink-orc/src/main/java/org/apache/flink/orc/OrcUtils.java,35,import org.apache.hadoop.hive.ql.exec.vector.ListColumnVector;
+flink-connectors/flink-orc/src/main/java/org/apache/flink/orc/OrcUtils.java,36,import org.apache.hadoop.hive.ql.exec.vector.LongColumnVector;
+flink-connectors/flink-orc/src/main/java/org/apache/flink/orc/OrcUtils.java,37,import org.apache.hadoop.hive.ql.exec.vector.MapColumnVector;
+flink-connectors/flink-orc/src/main/java/org/apache/flink/orc/OrcUtils.java,38,import org.apache.hadoop.hive.ql.exec.vector.StructColumnVector;
+flink-connectors/flink-orc/src/main/java/org/apache/flink/orc/OrcUtils.java,39,import org.apache.hadoop.hive.ql.exec.vector.TimestampColumnVector;
+flink-connectors/flink-orc/src/main/java/org/apache/flink/orc/OrcUtils.java,40,import org.apache.hadoop.hive.ql.exec.vector.VectorizedRowBatch;
+flink-connectors/flink-orc/src/main/java/org/apache/flink/orc/OrcUtils.java,41,import org.apache.hadoop.hive.serde2.io.HiveDecimalWritable;
+flink-connectors/flink-orc/src/main/java/org/apache/flink/orc/OrcUtils.java,42,import org.apache.orc.TypeDescription;
+flink-connectors/flink-orc/src/main/java/org/apache/flink/orc/OrcUtils.java,44,import java.lang.reflect.Array;
+flink-connectors/flink-orc/src/main/java/org/apache/flink/orc/OrcUtils.java,45,import java.math.BigDecimal;
+flink-connectors/flink-orc/src/main/java/org/apache/flink/orc/OrcUtils.java,46,import java.nio.charset.StandardCharsets;
+flink-connectors/flink-orc/src/main/java/org/apache/flink/orc/OrcUtils.java,47,import java.sql.Date;
+flink-connectors/flink-orc/src/main/java/org/apache/flink/orc/OrcUtils.java,48,import java.sql.Timestamp;
+flink-connectors/flink-orc/src/main/java/org/apache/flink/orc/OrcUtils.java,49,import java.util.Arrays;
+flink-connectors/flink-orc/src/main/java/org/apache/flink/orc/OrcUtils.java,50,import java.util.HashMap;
+flink-connectors/flink-orc/src/main/java/org/apache/flink/orc/OrcUtils.java,51,import java.util.List;
+flink-connectors/flink-orc/src/main/java/org/apache/flink/orc/OrcUtils.java,52,import java.util.TimeZone;
+flink-connectors/flink-orc/src/main/java/org/apache/flink/orc/OrcUtils.java,53,import java.util.function.DoubleFunction;
+flink-connectors/flink-orc/src/main/java/org/apache/flink/orc/OrcUtils.java,54,import java.util.function.IntFunction;
+flink-connectors/flink-orc/src/main/java/org/apache/flink/orc/OrcUtils.java,55,import java.util.function.LongFunction;
+flink-connectors/flink-orc/src/main/java/org/apache/flink/orc/OrcUtils.java,60,class OrcUtils {
+flink-connectors/flink-orc/src/main/java/org/apache/flink/orc/OrcUtils.java,62,private static final long MILLIS_PER_DAY = 86400000; // = 24 * 60 * 60 * 1000
+flink-connectors/flink-orc/src/main/java/org/apache/flink/orc/OrcUtils.java,63,private static final TimeZone LOCAL_TZ = TimeZone.getDefault();
+flink-connectors/flink-orc/src/main/java/org/apache/flink/orc/OrcUtils.java,71,static TypeInformation schemaToTypeInfo(TypeDescription schema) {
+flink-connectors/flink-orc/src/main/java/org/apache/flink/orc/OrcUtils.java,72,switch (schema.getCategory()) {
+flink-connectors/flink-orc/src/main/java/org/apache/flink/orc/OrcUtils.java,73,case BOOLEAN:
+flink-connectors/flink-orc/src/main/java/org/apache/flink/orc/OrcUtils.java,74,return BasicTypeInfo.BOOLEAN_TYPE_INFO;
+flink-connectors/flink-orc/src/main/java/org/apache/flink/orc/OrcUtils.java,75,case BYTE:
+flink-connectors/flink-orc/src/main/java/org/apache/flink/orc/OrcUtils.java,76,return BasicTypeInfo.BYTE_TYPE_INFO;
+flink-connectors/flink-orc/src/main/java/org/apache/flink/orc/OrcUtils.java,77,case SHORT:
+flink-connectors/flink-orc/src/main/java/org/apache/flink/orc/OrcUtils.java,78,return BasicTypeInfo.SHORT_TYPE_INFO;
+flink-connectors/flink-orc/src/main/java/org/apache/flink/orc/OrcUtils.java,79,case INT:
+flink-connectors/flink-orc/src/main/java/org/apache/flink/orc/OrcUtils.java,80,return BasicTypeInfo.INT_TYPE_INFO;
+flink-connectors/flink-orc/src/main/java/org/apache/flink/orc/OrcUtils.java,81,case LONG:
+flink-connectors/flink-orc/src/main/java/org/apache/flink/orc/OrcUtils.java,82,return BasicTypeInfo.LONG_TYPE_INFO;
+flink-connectors/flink-orc/src/main/java/org/apache/flink/orc/OrcUtils.java,83,case FLOAT:
+flink-connectors/flink-orc/src/main/java/org/apache/flink/orc/OrcUtils.java,84,return BasicTypeInfo.FLOAT_TYPE_INFO;
+flink-connectors/flink-orc/src/main/java/org/apache/flink/orc/OrcUtils.java,85,case DOUBLE:
+flink-connectors/flink-orc/src/main/java/org/apache/flink/orc/OrcUtils.java,86,return BasicTypeInfo.DOUBLE_TYPE_INFO;
+flink-connectors/flink-orc/src/main/java/org/apache/flink/orc/OrcUtils.java,87,case DECIMAL:
+flink-connectors/flink-orc/src/main/java/org/apache/flink/orc/OrcUtils.java,88,return BasicTypeInfo.BIG_DEC_TYPE_INFO;
+flink-connectors/flink-orc/src/main/java/org/apache/flink/orc/OrcUtils.java,89,case STRING:
+flink-connectors/flink-orc/src/main/java/org/apache/flink/orc/OrcUtils.java,90,case CHAR:
+flink-connectors/flink-orc/src/main/java/org/apache/flink/orc/OrcUtils.java,91,case VARCHAR:
+flink-connectors/flink-orc/src/main/java/org/apache/flink/orc/OrcUtils.java,92,return BasicTypeInfo.STRING_TYPE_INFO;
+flink-connectors/flink-orc/src/main/java/org/apache/flink/orc/OrcUtils.java,93,case DATE:
+flink-connectors/flink-orc/src/main/java/org/apache/flink/orc/OrcUtils.java,94,return SqlTimeTypeInfo.DATE;
+flink-connectors/flink-orc/src/main/java/org/apache/flink/orc/OrcUtils.java,95,case TIMESTAMP:
+flink-connectors/flink-orc/src/main/java/org/apache/flink/orc/OrcUtils.java,96,return SqlTimeTypeInfo.TIMESTAMP;
+flink-connectors/flink-orc/src/main/java/org/apache/flink/orc/OrcUtils.java,97,case BINARY:
+flink-connectors/flink-orc/src/main/java/org/apache/flink/orc/OrcUtils.java,98,return PrimitiveArrayTypeInfo.BYTE_PRIMITIVE_ARRAY_TYPE_INFO;
+flink-connectors/flink-orc/src/main/java/org/apache/flink/orc/OrcUtils.java,99,case STRUCT:
+flink-connectors/flink-orc/src/main/java/org/apache/flink/orc/OrcUtils.java,100,List<TypeDescription> fieldSchemas = schema.getChildren();
+flink-connectors/flink-orc/src/main/java/org/apache/flink/orc/OrcUtils.java,101,TypeInformation[] fieldTypes = new TypeInformation[fieldSchemas.size()];
+flink-connectors/flink-orc/src/main/java/org/apache/flink/orc/OrcUtils.java,102,for (int i = 0; i < fieldSchemas.size(); i++) {
+flink-connectors/flink-orc/src/main/java/org/apache/flink/orc/OrcUtils.java,103,fieldTypes[i] = schemaToTypeInfo(fieldSchemas.get(i));
+flink-connectors/flink-orc/src/main/java/org/apache/flink/orc/OrcUtils.java,105,String[] fieldNames = schema.getFieldNames().toArray(new String[]{});
+flink-connectors/flink-orc/src/main/java/org/apache/flink/orc/OrcUtils.java,106,return new RowTypeInfo(fieldTypes, fieldNames);
+flink-connectors/flink-orc/src/main/java/org/apache/flink/orc/OrcUtils.java,107,case LIST:
+flink-connectors/flink-orc/src/main/java/org/apache/flink/orc/OrcUtils.java,108,TypeDescription elementSchema = schema.getChildren().get(0);
+flink-connectors/flink-orc/src/main/java/org/apache/flink/orc/OrcUtils.java,109,TypeInformation<?> elementType = schemaToTypeInfo(elementSchema);
+flink-connectors/flink-orc/src/main/java/org/apache/flink/orc/OrcUtils.java,111,return ObjectArrayTypeInfo.getInfoFor(elementType);
+flink-connectors/flink-orc/src/main/java/org/apache/flink/orc/OrcUtils.java,112,case MAP:
+flink-connectors/flink-orc/src/main/java/org/apache/flink/orc/OrcUtils.java,113,TypeDescription keySchema = schema.getChildren().get(0);
+flink-connectors/flink-orc/src/main/java/org/apache/flink/orc/OrcUtils.java,114,TypeDescription valSchema = schema.getChildren().get(1);
+flink-connectors/flink-orc/src/main/java/org/apache/flink/orc/OrcUtils.java,115,TypeInformation<?> keyType = schemaToTypeInfo(keySchema);
+flink-connectors/flink-orc/src/main/java/org/apache/flink/orc/OrcUtils.java,116,TypeInformation<?> valType = schemaToTypeInfo(valSchema);
+flink-connectors/flink-orc/src/main/java/org/apache/flink/orc/OrcUtils.java,117,return new MapTypeInfo<>(keyType, valType);
+flink-connectors/flink-orc/src/main/java/org/apache/flink/orc/OrcUtils.java,118,case UNION:
+flink-connectors/flink-orc/src/main/java/org/apache/flink/orc/OrcUtils.java,119,throw new UnsupportedOperationException("UNION type is not supported yet.");
+flink-connectors/flink-orc/src/main/java/org/apache/flink/orc/OrcUtils.java,120,default:
+flink-connectors/flink-orc/src/main/java/org/apache/flink/orc/OrcUtils.java,121,throw new IllegalArgumentException("Unknown type " + schema);
+flink-connectors/flink-orc/src/main/java/org/apache/flink/orc/OrcUtils.java,134,static int fillRows(Row[] rows, TypeDescription schema, VectorizedRowBatch batch, int[] selectedFields) {
+flink-connectors/flink-orc/src/main/java/org/apache/flink/orc/OrcUtils.java,136,int rowsToRead = Math.min((int) batch.count(), rows.length);
+flink-connectors/flink-orc/src/main/java/org/apache/flink/orc/OrcUtils.java,138,List<TypeDescription> fieldTypes = schema.getChildren();
+flink-connectors/flink-orc/src/main/java/org/apache/flink/orc/OrcUtils.java,140,for (int rowIdx = 0; rowIdx < selectedFields.length; rowIdx++) {
+flink-connectors/flink-orc/src/main/java/org/apache/flink/orc/OrcUtils.java,141,int orcIdx = selectedFields[rowIdx];
+flink-connectors/flink-orc/src/main/java/org/apache/flink/orc/OrcUtils.java,142,readField(rows, rowIdx, fieldTypes.get(orcIdx), batch.cols[orcIdx], null, rowsToRead);
+flink-connectors/flink-orc/src/main/java/org/apache/flink/orc/OrcUtils.java,144,return rowsToRead;
+flink-connectors/flink-orc/src/main/java/org/apache/flink/orc/OrcUtils.java,158,private static void readField(Object[] vals, int fieldIdx, TypeDescription schema, ColumnVector vector, long[] lengthVector, int childCount) {
+flink-connectors/flink-orc/src/main/java/org/apache/flink/orc/OrcUtils.java,161,switch (schema.getCategory()) {
+flink-connectors/flink-orc/src/main/java/org/apache/flink/orc/OrcUtils.java,162,case BOOLEAN:
+flink-connectors/flink-orc/src/main/java/org/apache/flink/orc/OrcUtils.java,163,if (vector.noNulls) {
+flink-connectors/flink-orc/src/main/java/org/apache/flink/orc/OrcUtils.java,164,readNonNullLongColumn(vals, fieldIdx, (LongColumnVector) vector, lengthVector, childCount, OrcUtils::readBoolean, OrcUtils::boolArray);
+flink-connectors/flink-orc/src/main/java/org/apache/flink/orc/OrcUtils.java,166,readLongColumn(vals, fieldIdx, (LongColumnVector) vector, lengthVector, childCount, OrcUtils::readBoolean, OrcUtils::boolArray);
+flink-connectors/flink-orc/src/main/java/org/apache/flink/orc/OrcUtils.java,168,break;
+flink-connectors/flink-orc/src/main/java/org/apache/flink/orc/OrcUtils.java,169,case BYTE:
+flink-connectors/flink-orc/src/main/java/org/apache/flink/orc/OrcUtils.java,170,if (vector.noNulls) {
+flink-connectors/flink-orc/src/main/java/org/apache/flink/orc/OrcUtils.java,171,readNonNullLongColumn(vals, fieldIdx, (LongColumnVector) vector, lengthVector, childCount, OrcUtils::readByte, OrcUtils::byteArray);
+flink-connectors/flink-orc/src/main/java/org/apache/flink/orc/OrcUtils.java,173,readLongColumn(vals, fieldIdx, (LongColumnVector) vector, lengthVector, childCount, OrcUtils::readByte, OrcUtils::byteArray);
+flink-connectors/flink-orc/src/main/java/org/apache/flink/orc/OrcUtils.java,175,break;
+flink-connectors/flink-orc/src/main/java/org/apache/flink/orc/OrcUtils.java,176,case SHORT:
+flink-connectors/flink-orc/src/main/java/org/apache/flink/orc/OrcUtils.java,177,if (vector.noNulls) {
+flink-connectors/flink-orc/src/main/java/org/apache/flink/orc/OrcUtils.java,178,readNonNullLongColumn(vals, fieldIdx, (LongColumnVector) vector, lengthVector, childCount, OrcUtils::readShort, OrcUtils::shortArray);
+flink-connectors/flink-orc/src/main/java/org/apache/flink/orc/OrcUtils.java,180,readLongColumn(vals, fieldIdx, (LongColumnVector) vector, lengthVector, childCount, OrcUtils::readShort, OrcUtils::shortArray);
+flink-connectors/flink-orc/src/main/java/org/apache/flink/orc/OrcUtils.java,182,break;
+flink-connectors/flink-orc/src/main/java/org/apache/flink/orc/OrcUtils.java,183,case INT:
+flink-connectors/flink-orc/src/main/java/org/apache/flink/orc/OrcUtils.java,184,if (vector.noNulls) {
+flink-connectors/flink-orc/src/main/java/org/apache/flink/orc/OrcUtils.java,185,readNonNullLongColumn(vals, fieldIdx, (LongColumnVector) vector, lengthVector, childCount, OrcUtils::readInt, OrcUtils::intArray);
+flink-connectors/flink-orc/src/main/java/org/apache/flink/orc/OrcUtils.java,187,readLongColumn(vals, fieldIdx, (LongColumnVector) vector, lengthVector, childCount, OrcUtils::readInt, OrcUtils::intArray);
+flink-connectors/flink-orc/src/main/java/org/apache/flink/orc/OrcUtils.java,189,break;
+flink-connectors/flink-orc/src/main/java/org/apache/flink/orc/OrcUtils.java,190,case LONG:
+flink-connectors/flink-orc/src/main/java/org/apache/flink/orc/OrcUtils.java,191,if (vector.noNulls) {
+flink-connectors/flink-orc/src/main/java/org/apache/flink/orc/OrcUtils.java,192,readNonNullLongColumn(vals, fieldIdx, (LongColumnVector) vector, lengthVector, childCount, OrcUtils::readLong, OrcUtils::longArray);
+flink-connectors/flink-orc/src/main/java/org/apache/flink/orc/OrcUtils.java,194,readLongColumn(vals, fieldIdx, (LongColumnVector) vector, lengthVector, childCount, OrcUtils::readLong, OrcUtils::longArray);
+flink-connectors/flink-orc/src/main/java/org/apache/flink/orc/OrcUtils.java,196,break;
+flink-connectors/flink-orc/src/main/java/org/apache/flink/orc/OrcUtils.java,197,case FLOAT:
+flink-connectors/flink-orc/src/main/java/org/apache/flink/orc/OrcUtils.java,198,if (vector.noNulls) {
+flink-connectors/flink-orc/src/main/java/org/apache/flink/orc/OrcUtils.java,199,readNonNullDoubleColumn(vals, fieldIdx, (DoubleColumnVector) vector, lengthVector, childCount, OrcUtils::readFloat, OrcUtils::floatArray);
+flink-connectors/flink-orc/src/main/java/org/apache/flink/orc/OrcUtils.java,201,readDoubleColumn(vals, fieldIdx, (DoubleColumnVector) vector, lengthVector, childCount, OrcUtils::readFloat, OrcUtils::floatArray);
+flink-connectors/flink-orc/src/main/java/org/apache/flink/orc/OrcUtils.java,203,break;
+flink-connectors/flink-orc/src/main/java/org/apache/flink/orc/OrcUtils.java,204,case DOUBLE:
+flink-connectors/flink-orc/src/main/java/org/apache/flink/orc/OrcUtils.java,205,if (vector.noNulls) {
+flink-connectors/flink-orc/src/main/java/org/apache/flink/orc/OrcUtils.java,206,readNonNullDoubleColumn(vals, fieldIdx, (DoubleColumnVector) vector, lengthVector, childCount, OrcUtils::readDouble, OrcUtils::doubleArray);
+flink-connectors/flink-orc/src/main/java/org/apache/flink/orc/OrcUtils.java,208,readDoubleColumn(vals, fieldIdx, (DoubleColumnVector) vector, lengthVector, childCount, OrcUtils::readDouble, OrcUtils::doubleArray);
+flink-connectors/flink-orc/src/main/java/org/apache/flink/orc/OrcUtils.java,210,break;
+flink-connectors/flink-orc/src/main/java/org/apache/flink/orc/OrcUtils.java,211,case CHAR:
+flink-connectors/flink-orc/src/main/java/org/apache/flink/orc/OrcUtils.java,212,case VARCHAR:
+flink-connectors/flink-orc/src/main/java/org/apache/flink/orc/OrcUtils.java,213,case STRING:
+flink-connectors/flink-orc/src/main/java/org/apache/flink/orc/OrcUtils.java,214,if (vector.noNulls) {
+flink-connectors/flink-orc/src/main/java/org/apache/flink/orc/OrcUtils.java,215,readNonNullBytesColumnAsString(vals, fieldIdx, (BytesColumnVector) vector, lengthVector, childCount);
+flink-connectors/flink-orc/src/main/java/org/apache/flink/orc/OrcUtils.java,217,readBytesColumnAsString(vals, fieldIdx, (BytesColumnVector) vector, lengthVector, childCount);
+flink-connectors/flink-orc/src/main/java/org/apache/flink/orc/OrcUtils.java,219,break;
+flink-connectors/flink-orc/src/main/java/org/apache/flink/orc/OrcUtils.java,220,case DATE:
+flink-connectors/flink-orc/src/main/java/org/apache/flink/orc/OrcUtils.java,221,if (vector.noNulls) {
+flink-connectors/flink-orc/src/main/java/org/apache/flink/orc/OrcUtils.java,222,readNonNullLongColumnAsDate(vals, fieldIdx, (LongColumnVector) vector, lengthVector, childCount);
+flink-connectors/flink-orc/src/main/java/org/apache/flink/orc/OrcUtils.java,224,readLongColumnAsDate(vals, fieldIdx, (LongColumnVector) vector, lengthVector, childCount);
+flink-connectors/flink-orc/src/main/java/org/apache/flink/orc/OrcUtils.java,226,break;
+flink-connectors/flink-orc/src/main/java/org/apache/flink/orc/OrcUtils.java,227,case TIMESTAMP:
+flink-connectors/flink-orc/src/main/java/org/apache/flink/orc/OrcUtils.java,228,if (vector.noNulls) {
+flink-connectors/flink-orc/src/main/java/org/apache/flink/orc/OrcUtils.java,229,readNonNullTimestampColumn(vals, fieldIdx, (TimestampColumnVector) vector, lengthVector, childCount);
+flink-connectors/flink-orc/src/main/java/org/apache/flink/orc/OrcUtils.java,231,readTimestampColumn(vals, fieldIdx, (TimestampColumnVector) vector, lengthVector, childCount);
+flink-connectors/flink-orc/src/main/java/org/apache/flink/orc/OrcUtils.java,233,break;
+flink-connectors/flink-orc/src/main/java/org/apache/flink/orc/OrcUtils.java,234,case BINARY:
+flink-connectors/flink-orc/src/main/java/org/apache/flink/orc/OrcUtils.java,235,if (vector.noNulls) {
+flink-connectors/flink-orc/src/main/java/org/apache/flink/orc/OrcUtils.java,236,readNonNullBytesColumnAsBinary(vals, fieldIdx, (BytesColumnVector) vector, lengthVector, childCount);
+flink-connectors/flink-orc/src/main/java/org/apache/flink/orc/OrcUtils.java,238,readBytesColumnAsBinary(vals, fieldIdx, (BytesColumnVector) vector, lengthVector, childCount);
+flink-connectors/flink-orc/src/main/java/org/apache/flink/orc/OrcUtils.java,240,break;
+flink-connectors/flink-orc/src/main/java/org/apache/flink/orc/OrcUtils.java,241,case DECIMAL:
+flink-connectors/flink-orc/src/main/java/org/apache/flink/orc/OrcUtils.java,242,if (vector.noNulls) {
+flink-connectors/flink-orc/src/main/java/org/apache/flink/orc/OrcUtils.java,243,readNonNullDecimalColumn(vals, fieldIdx, (DecimalColumnVector) vector, lengthVector, childCount);
+flink-connectors/flink-orc/src/main/java/org/apache/flink/orc/OrcUtils.java,245,readDecimalColumn(vals, fieldIdx, (DecimalColumnVector) vector, lengthVector, childCount);
+flink-connectors/flink-orc/src/main/java/org/apache/flink/orc/OrcUtils.java,247,break;
+flink-connectors/flink-orc/src/main/java/org/apache/flink/orc/OrcUtils.java,248,case STRUCT:
+flink-connectors/flink-orc/src/main/java/org/apache/flink/orc/OrcUtils.java,249,if (vector.noNulls) {
+flink-connectors/flink-orc/src/main/java/org/apache/flink/orc/OrcUtils.java,250,readNonNullStructColumn(vals, fieldIdx, (StructColumnVector) vector, schema, lengthVector, childCount);
+flink-connectors/flink-orc/src/main/java/org/apache/flink/orc/OrcUtils.java,252,readStructColumn(vals, fieldIdx, (StructColumnVector) vector, schema, lengthVector, childCount);
+flink-connectors/flink-orc/src/main/java/org/apache/flink/orc/OrcUtils.java,254,break;
+flink-connectors/flink-orc/src/main/java/org/apache/flink/orc/OrcUtils.java,255,case LIST:
+flink-connectors/flink-orc/src/main/java/org/apache/flink/orc/OrcUtils.java,256,if (vector.noNulls) {
+flink-connectors/flink-orc/src/main/java/org/apache/flink/orc/OrcUtils.java,257,readNonNullListColumn(vals, fieldIdx, (ListColumnVector) vector, schema, lengthVector, childCount);
+flink-connectors/flink-orc/src/main/java/org/apache/flink/orc/OrcUtils.java,259,readListColumn(vals, fieldIdx, (ListColumnVector) vector, schema, lengthVector, childCount);
+flink-connectors/flink-orc/src/main/java/org/apache/flink/orc/OrcUtils.java,261,break;
+flink-connectors/flink-orc/src/main/java/org/apache/flink/orc/OrcUtils.java,262,case MAP:
+flink-connectors/flink-orc/src/main/java/org/apache/flink/orc/OrcUtils.java,263,if (vector.noNulls) {
+flink-connectors/flink-orc/src/main/java/org/apache/flink/orc/OrcUtils.java,264,readNonNullMapColumn(vals, fieldIdx, (MapColumnVector) vector, schema, lengthVector, childCount);
+flink-connectors/flink-orc/src/main/java/org/apache/flink/orc/OrcUtils.java,266,readMapColumn(vals, fieldIdx, (MapColumnVector) vector, schema, lengthVector, childCount);
+flink-connectors/flink-orc/src/main/java/org/apache/flink/orc/OrcUtils.java,268,break;
+flink-connectors/flink-orc/src/main/java/org/apache/flink/orc/OrcUtils.java,269,case UNION:
+flink-connectors/flink-orc/src/main/java/org/apache/flink/orc/OrcUtils.java,270,throw new UnsupportedOperationException("UNION type not supported yet");
+flink-connectors/flink-orc/src/main/java/org/apache/flink/orc/OrcUtils.java,271,default:
+flink-connectors/flink-orc/src/main/java/org/apache/flink/orc/OrcUtils.java,272,throw new IllegalArgumentException("Unknown type " + schema);
+flink-connectors/flink-orc/src/main/java/org/apache/flink/orc/OrcUtils.java,276,private static <T> void readNonNullLongColumn(Object[] vals, int fieldIdx, LongColumnVector vector, long[] lengthVector, int childCount,
+flink-connectors/flink-orc/src/main/java/org/apache/flink/orc/OrcUtils.java,277,LongFunction<T> reader, IntFunction<T[]> array) {
+flink-connectors/flink-orc/src/main/java/org/apache/flink/orc/OrcUtils.java,280,if (lengthVector == null) {
+flink-connectors/flink-orc/src/main/java/org/apache/flink/orc/OrcUtils.java,281,if (vector.isRepeating) { // fill complete column with first value
+flink-connectors/flink-orc/src/main/java/org/apache/flink/orc/OrcUtils.java,282,T repeatingValue = reader.apply(vector.vector[0]);
+flink-connectors/flink-orc/src/main/java/org/apache/flink/orc/OrcUtils.java,283,fillColumnWithRepeatingValue(vals, fieldIdx, repeatingValue, childCount);
+flink-connectors/flink-orc/src/main/java/org/apache/flink/orc/OrcUtils.java,285,if (fieldIdx == -1) { // set as an object
+flink-connectors/flink-orc/src/main/java/org/apache/flink/orc/OrcUtils.java,286,for (int i = 0; i < childCount; i++) {
+flink-connectors/flink-orc/src/main/java/org/apache/flink/orc/OrcUtils.java,287,vals[i] = reader.apply(vector.vector[i]);
+flink-connectors/flink-orc/src/main/java/org/apache/flink/orc/OrcUtils.java,290,Row[] rows = (Row[]) vals;
+flink-connectors/flink-orc/src/main/java/org/apache/flink/orc/OrcUtils.java,291,for (int i = 0; i < childCount; i++) {
+flink-connectors/flink-orc/src/main/java/org/apache/flink/orc/OrcUtils.java,292,rows[i].setField(fieldIdx, reader.apply(vector.vector[i]));
+flink-connectors/flink-orc/src/main/java/org/apache/flink/orc/OrcUtils.java,297,T[] temp;
+flink-connectors/flink-orc/src/main/java/org/apache/flink/orc/OrcUtils.java,298,int offset = 0;
+flink-connectors/flink-orc/src/main/java/org/apache/flink/orc/OrcUtils.java,299,if (vector.isRepeating) { // fill complete list with first value
+flink-connectors/flink-orc/src/main/java/org/apache/flink/orc/OrcUtils.java,300,T repeatingValue = reader.apply(vector.vector[0]);
+flink-connectors/flink-orc/src/main/java/org/apache/flink/orc/OrcUtils.java,301,for (int i = 0; offset < childCount; i++) {
+flink-connectors/flink-orc/src/main/java/org/apache/flink/orc/OrcUtils.java,302,temp = array.apply((int) lengthVector[i]);
+flink-connectors/flink-orc/src/main/java/org/apache/flink/orc/OrcUtils.java,303,Arrays.fill(temp, repeatingValue);
+flink-connectors/flink-orc/src/main/java/org/apache/flink/orc/OrcUtils.java,304,offset += temp.length;
+flink-connectors/flink-orc/src/main/java/org/apache/flink/orc/OrcUtils.java,305,if (fieldIdx == -1) {
+flink-connectors/flink-orc/src/main/java/org/apache/flink/orc/OrcUtils.java,306,vals[i] = temp;
+flink-connectors/flink-orc/src/main/java/org/apache/flink/orc/OrcUtils.java,308,((Row) vals[i]).setField(fieldIdx, temp);
+flink-connectors/flink-orc/src/main/java/org/apache/flink/orc/OrcUtils.java,312,for (int i = 0; offset < childCount; i++) {
+flink-connectors/flink-orc/src/main/java/org/apache/flink/orc/OrcUtils.java,313,temp = array.apply((int) lengthVector[i]);
+flink-connectors/flink-orc/src/main/java/org/apache/flink/orc/OrcUtils.java,314,for (int j = 0; j < temp.length; j++) {
+flink-connectors/flink-orc/src/main/java/org/apache/flink/orc/OrcUtils.java,315,temp[j] = reader.apply(vector.vector[offset++]);
+flink-connectors/flink-orc/src/main/java/org/apache/flink/orc/OrcUtils.java,317,if (fieldIdx == -1) {
+flink-connectors/flink-orc/src/main/java/org/apache/flink/orc/OrcUtils.java,318,vals[i] = temp;
+flink-connectors/flink-orc/src/main/java/org/apache/flink/orc/OrcUtils.java,320,((Row) vals[i]).setField(fieldIdx, temp);
+flink-connectors/flink-orc/src/main/java/org/apache/flink/orc/OrcUtils.java,327,private static <T> void readNonNullDoubleColumn(Object[] vals, int fieldIdx, DoubleColumnVector vector, long[] lengthVector, int childCount,
+flink-connectors/flink-orc/src/main/java/org/apache/flink/orc/OrcUtils.java,328,DoubleFunction<T> reader, IntFunction<T[]> array) {
+flink-connectors/flink-orc/src/main/java/org/apache/flink/orc/OrcUtils.java,331,if (lengthVector == null) {
+flink-connectors/flink-orc/src/main/java/org/apache/flink/orc/OrcUtils.java,332,if (vector.isRepeating) { // fill complete column with first value
+flink-connectors/flink-orc/src/main/java/org/apache/flink/orc/OrcUtils.java,333,T repeatingValue = reader.apply(vector.vector[0]);
+flink-connectors/flink-orc/src/main/java/org/apache/flink/orc/OrcUtils.java,334,fillColumnWithRepeatingValue(vals, fieldIdx, repeatingValue, childCount);
+flink-connectors/flink-orc/src/main/java/org/apache/flink/orc/OrcUtils.java,336,if (fieldIdx == -1) { // set as an object
+flink-connectors/flink-orc/src/main/java/org/apache/flink/orc/OrcUtils.java,337,for (int i = 0; i < childCount; i++) {
+flink-connectors/flink-orc/src/main/java/org/apache/flink/orc/OrcUtils.java,338,vals[i] = reader.apply(vector.vector[i]);
+flink-connectors/flink-orc/src/main/java/org/apache/flink/orc/OrcUtils.java,341,Row[] rows = (Row[]) vals;
+flink-connectors/flink-orc/src/main/java/org/apache/flink/orc/OrcUtils.java,342,for (int i = 0; i < childCount; i++) {
+flink-connectors/flink-orc/src/main/java/org/apache/flink/orc/OrcUtils.java,343,rows[i].setField(fieldIdx, reader.apply(vector.vector[i]));
+flink-connectors/flink-orc/src/main/java/org/apache/flink/orc/OrcUtils.java,348,T[] temp;
+flink-connectors/flink-orc/src/main/java/org/apache/flink/orc/OrcUtils.java,349,int offset = 0;
+flink-connectors/flink-orc/src/main/java/org/apache/flink/orc/OrcUtils.java,350,if (vector.isRepeating) { // fill complete list with first value
+flink-connectors/flink-orc/src/main/java/org/apache/flink/orc/OrcUtils.java,351,T repeatingValue = reader.apply(vector.vector[0]);
+flink-connectors/flink-orc/src/main/java/org/apache/flink/orc/OrcUtils.java,352,for (int i = 0; offset < childCount; i++) {
+flink-connectors/flink-orc/src/main/java/org/apache/flink/orc/OrcUtils.java,353,temp = array.apply((int) lengthVector[i]);
+flink-connectors/flink-orc/src/main/java/org/apache/flink/orc/OrcUtils.java,354,Arrays.fill(temp, repeatingValue);
+flink-connectors/flink-orc/src/main/java/org/apache/flink/orc/OrcUtils.java,355,offset += temp.length;
+flink-connectors/flink-orc/src/main/java/org/apache/flink/orc/OrcUtils.java,356,if (fieldIdx == -1) {
+flink-connectors/flink-orc/src/main/java/org/apache/flink/orc/OrcUtils.java,357,vals[i] = temp;
+flink-connectors/flink-orc/src/main/java/org/apache/flink/orc/OrcUtils.java,359,((Row) vals[i]).setField(fieldIdx, temp);
+flink-connectors/flink-orc/src/main/java/org/apache/flink/orc/OrcUtils.java,363,for (int i = 0; offset < childCount; i++) {
+flink-connectors/flink-orc/src/main/java/org/apache/flink/orc/OrcUtils.java,364,temp = array.apply((int) lengthVector[i]);
+flink-connectors/flink-orc/src/main/java/org/apache/flink/orc/OrcUtils.java,365,for (int j = 0; j < temp.length; j++) {
+flink-connectors/flink-orc/src/main/java/org/apache/flink/orc/OrcUtils.java,366,temp[j] = reader.apply(vector.vector[offset++]);
+flink-connectors/flink-orc/src/main/java/org/apache/flink/orc/OrcUtils.java,368,if (fieldIdx == -1) {
+flink-connectors/flink-orc/src/main/java/org/apache/flink/orc/OrcUtils.java,369,vals[i] = temp;
+flink-connectors/flink-orc/src/main/java/org/apache/flink/orc/OrcUtils.java,371,((Row) vals[i]).setField(fieldIdx, temp);
+flink-connectors/flink-orc/src/main/java/org/apache/flink/orc/OrcUtils.java,378,private static void readNonNullBytesColumnAsString(Object[] vals, int fieldIdx, BytesColumnVector bytes, long[] lengthVector, int childCount) {
+flink-connectors/flink-orc/src/main/java/org/apache/flink/orc/OrcUtils.java,380,if (lengthVector == null) {
+flink-connectors/flink-orc/src/main/java/org/apache/flink/orc/OrcUtils.java,381,if (bytes.isRepeating) { // fill complete column with first value
+flink-connectors/flink-orc/src/main/java/org/apache/flink/orc/OrcUtils.java,382,String repeatingValue = new String(bytes.vector[0], bytes.start[0], bytes.length[0]);
+flink-connectors/flink-orc/src/main/java/org/apache/flink/orc/OrcUtils.java,383,fillColumnWithRepeatingValue(vals, fieldIdx, repeatingValue, childCount);
+flink-connectors/flink-orc/src/main/java/org/apache/flink/orc/OrcUtils.java,385,if (fieldIdx == -1) { // set as an object
+flink-connectors/flink-orc/src/main/java/org/apache/flink/orc/OrcUtils.java,386,for (int i = 0; i < childCount; i++) {
+flink-connectors/flink-orc/src/main/java/org/apache/flink/orc/OrcUtils.java,387,vals[i] = new String(bytes.vector[i], bytes.start[i], bytes.length[i], StandardCharsets.UTF_8);
+flink-connectors/flink-orc/src/main/java/org/apache/flink/orc/OrcUtils.java,390,Row[] rows = (Row[]) vals;
+flink-connectors/flink-orc/src/main/java/org/apache/flink/orc/OrcUtils.java,391,for (int i = 0; i < childCount; i++) {
+flink-connectors/flink-orc/src/main/java/org/apache/flink/orc/OrcUtils.java,392,rows[i].setField(fieldIdx, new String(bytes.vector[i], bytes.start[i], bytes.length[i], StandardCharsets.UTF_8));
+flink-connectors/flink-orc/src/main/java/org/apache/flink/orc/OrcUtils.java,397,String[] temp;
+flink-connectors/flink-orc/src/main/java/org/apache/flink/orc/OrcUtils.java,398,int offset = 0;
+flink-connectors/flink-orc/src/main/java/org/apache/flink/orc/OrcUtils.java,399,if (bytes.isRepeating) { // fill complete list with first value
+flink-connectors/flink-orc/src/main/java/org/apache/flink/orc/OrcUtils.java,400,String repeatingValue = new String(bytes.vector[0], bytes.start[0], bytes.length[0], StandardCharsets.UTF_8);
+flink-connectors/flink-orc/src/main/java/org/apache/flink/orc/OrcUtils.java,401,for (int i = 0; offset < childCount; i++) {
+flink-connectors/flink-orc/src/main/java/org/apache/flink/orc/OrcUtils.java,402,temp = new String[(int) lengthVector[i]];
+flink-connectors/flink-orc/src/main/java/org/apache/flink/orc/OrcUtils.java,403,Arrays.fill(temp, repeatingValue);
+flink-connectors/flink-orc/src/main/java/org/apache/flink/orc/OrcUtils.java,404,offset += temp.length;
+flink-connectors/flink-orc/src/main/java/org/apache/flink/orc/OrcUtils.java,405,if (fieldIdx == -1) {
+flink-connectors/flink-orc/src/main/java/org/apache/flink/orc/OrcUtils.java,406,vals[i] = temp;
+flink-connectors/flink-orc/src/main/java/org/apache/flink/orc/OrcUtils.java,408,((Row) vals[i]).setField(fieldIdx, temp);
+flink-connectors/flink-orc/src/main/java/org/apache/flink/orc/OrcUtils.java,412,for (int i = 0; offset < childCount; i++) {
+flink-connectors/flink-orc/src/main/java/org/apache/flink/orc/OrcUtils.java,413,temp = new String[(int) lengthVector[i]];
+flink-connectors/flink-orc/src/main/java/org/apache/flink/orc/OrcUtils.java,414,for (int j = 0; j < temp.length; j++) {
+flink-connectors/flink-orc/src/main/java/org/apache/flink/orc/OrcUtils.java,415,temp[j] = new String(bytes.vector[offset], bytes.start[offset], bytes.length[offset], StandardCharsets.UTF_8);
+flink-connectors/flink-orc/src/main/java/org/apache/flink/orc/OrcUtils.java,416,offset++;
+flink-connectors/flink-orc/src/main/java/org/apache/flink/orc/OrcUtils.java,418,if (fieldIdx == -1) {
+flink-connectors/flink-orc/src/main/java/org/apache/flink/orc/OrcUtils.java,419,vals[i] = temp;
+flink-connectors/flink-orc/src/main/java/org/apache/flink/orc/OrcUtils.java,421,((Row) vals[i]).setField(fieldIdx, temp);
+flink-connectors/flink-orc/src/main/java/org/apache/flink/orc/OrcUtils.java,428,private static void readNonNullBytesColumnAsBinary(Object[] vals, int fieldIdx, BytesColumnVector bytes, long[] lengthVector, int childCount) {
+flink-connectors/flink-orc/src/main/java/org/apache/flink/orc/OrcUtils.java,430,if (lengthVector == null) {
+flink-connectors/flink-orc/src/main/java/org/apache/flink/orc/OrcUtils.java,431,if (bytes.isRepeating) { // fill complete column with first value
+flink-connectors/flink-orc/src/main/java/org/apache/flink/orc/OrcUtils.java,432,if (fieldIdx == -1) { // set as an object
+flink-connectors/flink-orc/src/main/java/org/apache/flink/orc/OrcUtils.java,433,for (int i = 0; i < childCount; i++) {
+flink-connectors/flink-orc/src/main/java/org/apache/flink/orc/OrcUtils.java,435,vals[i] = readBinary(bytes.vector[0], bytes.start[0], bytes.length[0]);
+flink-connectors/flink-orc/src/main/java/org/apache/flink/orc/OrcUtils.java,438,Row[] rows = (Row[]) vals;
+flink-connectors/flink-orc/src/main/java/org/apache/flink/orc/OrcUtils.java,439,for (int i = 0; i < childCount; i++) {
+flink-connectors/flink-orc/src/main/java/org/apache/flink/orc/OrcUtils.java,441,rows[i].setField(fieldIdx, readBinary(bytes.vector[0], bytes.start[0], bytes.length[0]));
+flink-connectors/flink-orc/src/main/java/org/apache/flink/orc/OrcUtils.java,445,if (fieldIdx == -1) { // set as an object
+flink-connectors/flink-orc/src/main/java/org/apache/flink/orc/OrcUtils.java,446,for (int i = 0; i < childCount; i++) {
+flink-connectors/flink-orc/src/main/java/org/apache/flink/orc/OrcUtils.java,447,vals[i] = readBinary(bytes.vector[i], bytes.start[i], bytes.length[i]);
+flink-connectors/flink-orc/src/main/java/org/apache/flink/orc/OrcUtils.java,450,Row[] rows = (Row[]) vals;
+flink-connectors/flink-orc/src/main/java/org/apache/flink/orc/OrcUtils.java,451,for (int i = 0; i < childCount; i++) {
+flink-connectors/flink-orc/src/main/java/org/apache/flink/orc/OrcUtils.java,452,rows[i].setField(fieldIdx, readBinary(bytes.vector[i], bytes.start[i], bytes.length[i]));
+flink-connectors/flink-orc/src/main/java/org/apache/flink/orc/OrcUtils.java,457,byte[][] temp;
+flink-connectors/flink-orc/src/main/java/org/apache/flink/orc/OrcUtils.java,458,int offset = 0;
+flink-connectors/flink-orc/src/main/java/org/apache/flink/orc/OrcUtils.java,459,if (bytes.isRepeating) { // fill complete list with first value
+flink-connectors/flink-orc/src/main/java/org/apache/flink/orc/OrcUtils.java,460,for (int i = 0; offset < childCount; i++) {
+flink-connectors/flink-orc/src/main/java/org/apache/flink/orc/OrcUtils.java,461,temp = new byte[(int) lengthVector[i]][];
+flink-connectors/flink-orc/src/main/java/org/apache/flink/orc/OrcUtils.java,462,for (int j = 0; j < temp.length; j++) {
+flink-connectors/flink-orc/src/main/java/org/apache/flink/orc/OrcUtils.java,463,temp[j] = readBinary(bytes.vector[0], bytes.start[0], bytes.length[0]);
+flink-connectors/flink-orc/src/main/java/org/apache/flink/orc/OrcUtils.java,465,offset += temp.length;
+flink-connectors/flink-orc/src/main/java/org/apache/flink/orc/OrcUtils.java,466,if (fieldIdx == -1) {
+flink-connectors/flink-orc/src/main/java/org/apache/flink/orc/OrcUtils.java,467,vals[i] = temp;
+flink-connectors/flink-orc/src/main/java/org/apache/flink/orc/OrcUtils.java,469,((Row) vals[i]).setField(fieldIdx, temp);
+flink-connectors/flink-orc/src/main/java/org/apache/flink/orc/OrcUtils.java,473,for (int i = 0; offset < childCount; i++) {
+flink-connectors/flink-orc/src/main/java/org/apache/flink/orc/OrcUtils.java,474,temp = new byte[(int) lengthVector[i]][];
+flink-connectors/flink-orc/src/main/java/org/apache/flink/orc/OrcUtils.java,475,for (int j = 0; j < temp.length; j++) {
+flink-connectors/flink-orc/src/main/java/org/apache/flink/orc/OrcUtils.java,476,temp[j] = readBinary(bytes.vector[offset], bytes.start[offset], bytes.length[offset]);
+flink-connectors/flink-orc/src/main/java/org/apache/flink/orc/OrcUtils.java,477,offset++;
+flink-connectors/flink-orc/src/main/java/org/apache/flink/orc/OrcUtils.java,479,if (fieldIdx == -1) {
+flink-connectors/flink-orc/src/main/java/org/apache/flink/orc/OrcUtils.java,480,vals[i] = temp;
+flink-connectors/flink-orc/src/main/java/org/apache/flink/orc/OrcUtils.java,482,((Row) vals[i]).setField(fieldIdx, temp);
+flink-connectors/flink-orc/src/main/java/org/apache/flink/orc/OrcUtils.java,489,private static void readNonNullLongColumnAsDate(Object[] vals, int fieldIdx, LongColumnVector vector, long[] lengthVector, int childCount) {
+flink-connectors/flink-orc/src/main/java/org/apache/flink/orc/OrcUtils.java,492,if (lengthVector == null) {
+flink-connectors/flink-orc/src/main/java/org/apache/flink/orc/OrcUtils.java,493,if (vector.isRepeating) { // fill complete column with first value
+flink-connectors/flink-orc/src/main/java/org/apache/flink/orc/OrcUtils.java,494,if (fieldIdx == -1) { // set as an object
+flink-connectors/flink-orc/src/main/java/org/apache/flink/orc/OrcUtils.java,495,for (int i = 0; i < childCount; i++) {
+flink-connectors/flink-orc/src/main/java/org/apache/flink/orc/OrcUtils.java,497,vals[i] = readDate(vector.vector[0]);
+flink-connectors/flink-orc/src/main/java/org/apache/flink/orc/OrcUtils.java,500,Row[] rows = (Row[]) vals;
+flink-connectors/flink-orc/src/main/java/org/apache/flink/orc/OrcUtils.java,501,for (int i = 0; i < childCount; i++) {
+flink-connectors/flink-orc/src/main/java/org/apache/flink/orc/OrcUtils.java,503,rows[i].setField(fieldIdx, readDate(vector.vector[0]));
+flink-connectors/flink-orc/src/main/java/org/apache/flink/orc/OrcUtils.java,507,if (fieldIdx == -1) { // set as an object
+flink-connectors/flink-orc/src/main/java/org/apache/flink/orc/OrcUtils.java,508,for (int i = 0; i < childCount; i++) {
+flink-connectors/flink-orc/src/main/java/org/apache/flink/orc/OrcUtils.java,509,vals[i] = readDate(vector.vector[i]);
+flink-connectors/flink-orc/src/main/java/org/apache/flink/orc/OrcUtils.java,512,Row[] rows = (Row[]) vals;
+flink-connectors/flink-orc/src/main/java/org/apache/flink/orc/OrcUtils.java,513,for (int i = 0; i < childCount; i++) {
+flink-connectors/flink-orc/src/main/java/org/apache/flink/orc/OrcUtils.java,514,rows[i].setField(fieldIdx, readDate(vector.vector[i]));
+flink-connectors/flink-orc/src/main/java/org/apache/flink/orc/OrcUtils.java,519,Date[] temp;
+flink-connectors/flink-orc/src/main/java/org/apache/flink/orc/OrcUtils.java,520,int offset = 0;
+flink-connectors/flink-orc/src/main/java/org/apache/flink/orc/OrcUtils.java,521,if (vector.isRepeating) { // fill complete list with first value
+flink-connectors/flink-orc/src/main/java/org/apache/flink/orc/OrcUtils.java,522,for (int i = 0; offset < childCount; i++) {
+flink-connectors/flink-orc/src/main/java/org/apache/flink/orc/OrcUtils.java,523,temp = new Date[(int) lengthVector[i]];
+flink-connectors/flink-orc/src/main/java/org/apache/flink/orc/OrcUtils.java,524,for (int j = 0; j < temp.length; j++) {
+flink-connectors/flink-orc/src/main/java/org/apache/flink/orc/OrcUtils.java,525,temp[j] = readDate(vector.vector[0]);
+flink-connectors/flink-orc/src/main/java/org/apache/flink/orc/OrcUtils.java,527,offset += temp.length;
+flink-connectors/flink-orc/src/main/java/org/apache/flink/orc/OrcUtils.java,528,if (fieldIdx == -1) {
+flink-connectors/flink-orc/src/main/java/org/apache/flink/orc/OrcUtils.java,529,vals[i] = temp;
+flink-connectors/flink-orc/src/main/java/org/apache/flink/orc/OrcUtils.java,531,((Row) vals[i]).setField(fieldIdx, temp);
+flink-connectors/flink-orc/src/main/java/org/apache/flink/orc/OrcUtils.java,535,for (int i = 0; offset < childCount; i++) {
+flink-connectors/flink-orc/src/main/java/org/apache/flink/orc/OrcUtils.java,536,temp = new Date[(int) lengthVector[i]];
+flink-connectors/flink-orc/src/main/java/org/apache/flink/orc/OrcUtils.java,537,for (int j = 0; j < temp.length; j++) {
+flink-connectors/flink-orc/src/main/java/org/apache/flink/orc/OrcUtils.java,538,temp[j] = readDate(vector.vector[offset++]);
+flink-connectors/flink-orc/src/main/java/org/apache/flink/orc/OrcUtils.java,540,if (fieldIdx == -1) {
+flink-connectors/flink-orc/src/main/java/org/apache/flink/orc/OrcUtils.java,541,vals[i] = temp;
+flink-connectors/flink-orc/src/main/java/org/apache/flink/orc/OrcUtils.java,543,((Row) vals[i]).setField(fieldIdx, temp);
+flink-connectors/flink-orc/src/main/java/org/apache/flink/orc/OrcUtils.java,550,private static void readNonNullTimestampColumn(Object[] vals, int fieldIdx, TimestampColumnVector vector, long[] lengthVector, int childCount) {
+flink-connectors/flink-orc/src/main/java/org/apache/flink/orc/OrcUtils.java,553,if (lengthVector == null) {
+flink-connectors/flink-orc/src/main/java/org/apache/flink/orc/OrcUtils.java,554,if (vector.isRepeating) { // fill complete column with first value
+flink-connectors/flink-orc/src/main/java/org/apache/flink/orc/OrcUtils.java,555,if (fieldIdx == -1) { // set as an object
+flink-connectors/flink-orc/src/main/java/org/apache/flink/orc/OrcUtils.java,556,for (int i = 0; i < childCount; i++) {
+flink-connectors/flink-orc/src/main/java/org/apache/flink/orc/OrcUtils.java,558,vals[i] = readTimestamp(vector.time[0], vector.nanos[0]);
+flink-connectors/flink-orc/src/main/java/org/apache/flink/orc/OrcUtils.java,561,Row[] rows = (Row[]) vals;
+flink-connectors/flink-orc/src/main/java/org/apache/flink/orc/OrcUtils.java,562,for (int i = 0; i < childCount; i++) {
+flink-connectors/flink-orc/src/main/java/org/apache/flink/orc/OrcUtils.java,564,rows[i].setField(fieldIdx, readTimestamp(vector.time[0], vector.nanos[0]));
+flink-connectors/flink-orc/src/main/java/org/apache/flink/orc/OrcUtils.java,568,if (fieldIdx == -1) { // set as an object
+flink-connectors/flink-orc/src/main/java/org/apache/flink/orc/OrcUtils.java,569,for (int i = 0; i < childCount; i++) {
+flink-connectors/flink-orc/src/main/java/org/apache/flink/orc/OrcUtils.java,570,vals[i] = readTimestamp(vector.time[i], vector.nanos[i]);
+flink-connectors/flink-orc/src/main/java/org/apache/flink/orc/OrcUtils.java,573,Row[] rows = (Row[]) vals;
+flink-connectors/flink-orc/src/main/java/org/apache/flink/orc/OrcUtils.java,574,for (int i = 0; i < childCount; i++) {
+flink-connectors/flink-orc/src/main/java/org/apache/flink/orc/OrcUtils.java,575,rows[i].setField(fieldIdx, readTimestamp(vector.time[i], vector.nanos[i]));
+flink-connectors/flink-orc/src/main/java/org/apache/flink/orc/OrcUtils.java,580,Timestamp[] temp;
+flink-connectors/flink-orc/src/main/java/org/apache/flink/orc/OrcUtils.java,581,int offset = 0;
+flink-connectors/flink-orc/src/main/java/org/apache/flink/orc/OrcUtils.java,582,if (vector.isRepeating) { // fill complete list with first value
+flink-connectors/flink-orc/src/main/java/org/apache/flink/orc/OrcUtils.java,583,for (int i = 0; offset < childCount; i++) {
+flink-connectors/flink-orc/src/main/java/org/apache/flink/orc/OrcUtils.java,584,temp = new Timestamp[(int) lengthVector[i]];
+flink-connectors/flink-orc/src/main/java/org/apache/flink/orc/OrcUtils.java,585,for (int j = 0; j < temp.length; j++) {
+flink-connectors/flink-orc/src/main/java/org/apache/flink/orc/OrcUtils.java,587,temp[j] = readTimestamp(vector.time[0], vector.nanos[0]);
+flink-connectors/flink-orc/src/main/java/org/apache/flink/orc/OrcUtils.java,589,offset += temp.length;
+flink-connectors/flink-orc/src/main/java/org/apache/flink/orc/OrcUtils.java,590,if (fieldIdx == -1) {
+flink-connectors/flink-orc/src/main/java/org/apache/flink/orc/OrcUtils.java,591,vals[i] = temp;
+flink-connectors/flink-orc/src/main/java/org/apache/flink/orc/OrcUtils.java,593,((Row) vals[i]).setField(fieldIdx, temp);
+flink-connectors/flink-orc/src/main/java/org/apache/flink/orc/OrcUtils.java,597,for (int i = 0; offset < childCount; i++) {
+flink-connectors/flink-orc/src/main/java/org/apache/flink/orc/OrcUtils.java,598,temp = new Timestamp[(int) lengthVector[i]];
+flink-connectors/flink-orc/src/main/java/org/apache/flink/orc/OrcUtils.java,599,for (int j = 0; j < temp.length; j++) {
+flink-connectors/flink-orc/src/main/java/org/apache/flink/orc/OrcUtils.java,600,temp[j] = readTimestamp(vector.time[offset], vector.nanos[offset]);
+flink-connectors/flink-orc/src/main/java/org/apache/flink/orc/OrcUtils.java,601,offset++;
+flink-connectors/flink-orc/src/main/java/org/apache/flink/orc/OrcUtils.java,603,if (fieldIdx == -1) {
+flink-connectors/flink-orc/src/main/java/org/apache/flink/orc/OrcUtils.java,604,vals[i] = temp;
+flink-connectors/flink-orc/src/main/java/org/apache/flink/orc/OrcUtils.java,606,((Row) vals[i]).setField(fieldIdx, temp);
+flink-connectors/flink-orc/src/main/java/org/apache/flink/orc/OrcUtils.java,613,private static void readNonNullDecimalColumn(Object[] vals, int fieldIdx, DecimalColumnVector vector, long[] lengthVector, int childCount) {
+flink-connectors/flink-orc/src/main/java/org/apache/flink/orc/OrcUtils.java,616,if (lengthVector == null) {
+flink-connectors/flink-orc/src/main/java/org/apache/flink/orc/OrcUtils.java,617,if (vector.isRepeating) { // fill complete column with first value
+flink-connectors/flink-orc/src/main/java/org/apache/flink/orc/OrcUtils.java,618,fillColumnWithRepeatingValue(vals, fieldIdx, readBigDecimal(vector.vector[0]), childCount);
+flink-connectors/flink-orc/src/main/java/org/apache/flink/orc/OrcUtils.java,620,if (fieldIdx == -1) { // set as an object
+flink-connectors/flink-orc/src/main/java/org/apache/flink/orc/OrcUtils.java,621,for (int i = 0; i < childCount; i++) {
+flink-connectors/flink-orc/src/main/java/org/apache/flink/orc/OrcUtils.java,622,vals[i] = readBigDecimal(vector.vector[i]);
+flink-connectors/flink-orc/src/main/java/org/apache/flink/orc/OrcUtils.java,625,Row[] rows = (Row[]) vals;
+flink-connectors/flink-orc/src/main/java/org/apache/flink/orc/OrcUtils.java,626,for (int i = 0; i < childCount; i++) {
+flink-connectors/flink-orc/src/main/java/org/apache/flink/orc/OrcUtils.java,627,rows[i].setField(fieldIdx, readBigDecimal(vector.vector[i]));
+flink-connectors/flink-orc/src/main/java/org/apache/flink/orc/OrcUtils.java,632,BigDecimal[] temp;
+flink-connectors/flink-orc/src/main/java/org/apache/flink/orc/OrcUtils.java,633,int offset = 0;
+flink-connectors/flink-orc/src/main/java/org/apache/flink/orc/OrcUtils.java,634,if (vector.isRepeating) { // fill complete list with first value
+flink-connectors/flink-orc/src/main/java/org/apache/flink/orc/OrcUtils.java,635,BigDecimal repeatingValue = readBigDecimal(vector.vector[0]);
+flink-connectors/flink-orc/src/main/java/org/apache/flink/orc/OrcUtils.java,636,for (int i = 0; offset < childCount; i++) {
+flink-connectors/flink-orc/src/main/java/org/apache/flink/orc/OrcUtils.java,637,temp = new BigDecimal[(int) lengthVector[i]];
+flink-connectors/flink-orc/src/main/java/org/apache/flink/orc/OrcUtils.java,638,Arrays.fill(temp, repeatingValue);
+flink-connectors/flink-orc/src/main/java/org/apache/flink/orc/OrcUtils.java,639,offset += temp.length;
+flink-connectors/flink-orc/src/main/java/org/apache/flink/orc/OrcUtils.java,640,if (fieldIdx == -1) {
+flink-connectors/flink-orc/src/main/java/org/apache/flink/orc/OrcUtils.java,641,vals[i] = temp;
+flink-connectors/flink-orc/src/main/java/org/apache/flink/orc/OrcUtils.java,643,((Row) vals[i]).setField(fieldIdx, temp);
+flink-connectors/flink-orc/src/main/java/org/apache/flink/orc/OrcUtils.java,647,for (int i = 0; offset < childCount; i++) {
+flink-connectors/flink-orc/src/main/java/org/apache/flink/orc/OrcUtils.java,648,temp = new BigDecimal[(int) lengthVector[i]];
+flink-connectors/flink-orc/src/main/java/org/apache/flink/orc/OrcUtils.java,649,for (int j = 0; j < temp.length; j++) {
+flink-connectors/flink-orc/src/main/java/org/apache/flink/orc/OrcUtils.java,650,temp[j] = readBigDecimal(vector.vector[offset++]);
+flink-connectors/flink-orc/src/main/java/org/apache/flink/orc/OrcUtils.java,652,if (fieldIdx == -1) {
+flink-connectors/flink-orc/src/main/java/org/apache/flink/orc/OrcUtils.java,653,vals[i] = temp;
+flink-connectors/flink-orc/src/main/java/org/apache/flink/orc/OrcUtils.java,655,((Row) vals[i]).setField(fieldIdx, temp);
+flink-connectors/flink-orc/src/main/java/org/apache/flink/orc/OrcUtils.java,663,private static void readNonNullStructColumn(Object[] vals, int fieldIdx, StructColumnVector structVector, TypeDescription schema, long[] lengthVector, int childCount) {
+flink-connectors/flink-orc/src/main/java/org/apache/flink/orc/OrcUtils.java,665,List<TypeDescription> childrenTypes = schema.getChildren();
+flink-connectors/flink-orc/src/main/java/org/apache/flink/orc/OrcUtils.java,667,int numFields = childrenTypes.size();
+flink-connectors/flink-orc/src/main/java/org/apache/flink/orc/OrcUtils.java,669,Row[] structs = new Row[childCount];
+flink-connectors/flink-orc/src/main/java/org/apache/flink/orc/OrcUtils.java,671,for (int i = 0; i < childCount; i++) {
+flink-connectors/flink-orc/src/main/java/org/apache/flink/orc/OrcUtils.java,672,structs[i] = new Row(numFields);
+flink-connectors/flink-orc/src/main/java/org/apache/flink/orc/OrcUtils.java,676,for (int i = 0; i < numFields; i++) {
+flink-connectors/flink-orc/src/main/java/org/apache/flink/orc/OrcUtils.java,677,readField(structs, i, childrenTypes.get(i), structVector.fields[i], null, childCount);
+flink-connectors/flink-orc/src/main/java/org/apache/flink/orc/OrcUtils.java,681,if (lengthVector == null) {
+flink-connectors/flink-orc/src/main/java/org/apache/flink/orc/OrcUtils.java,682,if (fieldIdx == -1) { // set struct as an object
+flink-connectors/flink-orc/src/main/java/org/apache/flink/orc/OrcUtils.java,683,System.arraycopy(structs, 0, vals, 0, childCount);
+flink-connectors/flink-orc/src/main/java/org/apache/flink/orc/OrcUtils.java,685,Row[] rows = (Row[]) vals;
+flink-connectors/flink-orc/src/main/java/org/apache/flink/orc/OrcUtils.java,686,for (int i = 0; i < childCount; i++) {
+flink-connectors/flink-orc/src/main/java/org/apache/flink/orc/OrcUtils.java,687,rows[i].setField(fieldIdx, structs[i]);
+flink-connectors/flink-orc/src/main/java/org/apache/flink/orc/OrcUtils.java,691,int offset = 0;
+flink-connectors/flink-orc/src/main/java/org/apache/flink/orc/OrcUtils.java,692,Row[] temp;
+flink-connectors/flink-orc/src/main/java/org/apache/flink/orc/OrcUtils.java,693,for (int i = 0; offset < childCount; i++) {
+flink-connectors/flink-orc/src/main/java/org/apache/flink/orc/OrcUtils.java,694,temp = new Row[(int) lengthVector[i]];
+flink-connectors/flink-orc/src/main/java/org/apache/flink/orc/OrcUtils.java,695,System.arraycopy(structs, offset, temp, 0, temp.length);
+flink-connectors/flink-orc/src/main/java/org/apache/flink/orc/OrcUtils.java,696,offset = offset + temp.length;
+flink-connectors/flink-orc/src/main/java/org/apache/flink/orc/OrcUtils.java,697,if (fieldIdx == -1) {
+flink-connectors/flink-orc/src/main/java/org/apache/flink/orc/OrcUtils.java,698,vals[i] = temp;
+flink-connectors/flink-orc/src/main/java/org/apache/flink/orc/OrcUtils.java,700,((Row) vals[i]).setField(fieldIdx, temp);
+flink-connectors/flink-orc/src/main/java/org/apache/flink/orc/OrcUtils.java,706,private static void readNonNullListColumn(Object[] vals, int fieldIdx, ListColumnVector list, TypeDescription schema, long[] lengthVector, int childCount) {
+flink-connectors/flink-orc/src/main/java/org/apache/flink/orc/OrcUtils.java,708,TypeDescription fieldType = schema.getChildren().get(0);
+flink-connectors/flink-orc/src/main/java/org/apache/flink/orc/OrcUtils.java,710,if (lengthVector == null) {
+flink-connectors/flink-orc/src/main/java/org/apache/flink/orc/OrcUtils.java,711,long[] lengthVectorNested = list.lengths;
+flink-connectors/flink-orc/src/main/java/org/apache/flink/orc/OrcUtils.java,712,readField(vals, fieldIdx, fieldType, list.child, lengthVectorNested, list.childCount);
+flink-connectors/flink-orc/src/main/java/org/apache/flink/orc/OrcUtils.java,714,Object[] nestedLists = new Object[childCount];
+flink-connectors/flink-orc/src/main/java/org/apache/flink/orc/OrcUtils.java,716,long[] lengthVectorNested = list.lengths;
+flink-connectors/flink-orc/src/main/java/org/apache/flink/orc/OrcUtils.java,718,readField(nestedLists, -1, fieldType, list.child, lengthVectorNested, list.childCount);
+flink-connectors/flink-orc/src/main/java/org/apache/flink/orc/OrcUtils.java,720,Class<?> classType = nestedLists[0].getClass();
+flink-connectors/flink-orc/src/main/java/org/apache/flink/orc/OrcUtils.java,723,int offset = 0;
+flink-connectors/flink-orc/src/main/java/org/apache/flink/orc/OrcUtils.java,724,int length;
+flink-connectors/flink-orc/src/main/java/org/apache/flink/orc/OrcUtils.java,725,for (int i = 0; offset < childCount; i++) {
+flink-connectors/flink-orc/src/main/java/org/apache/flink/orc/OrcUtils.java,726,length = (int) lengthVector[i];
+flink-connectors/flink-orc/src/main/java/org/apache/flink/orc/OrcUtils.java,727,Object[] temp = (Object[]) Array.newInstance(classType, length);
+flink-connectors/flink-orc/src/main/java/org/apache/flink/orc/OrcUtils.java,728,System.arraycopy(nestedLists, offset, temp, 0, length);
+flink-connectors/flink-orc/src/main/java/org/apache/flink/orc/OrcUtils.java,729,offset = offset + length;
+flink-connectors/flink-orc/src/main/java/org/apache/flink/orc/OrcUtils.java,730,if (fieldIdx == -1) {
+flink-connectors/flink-orc/src/main/java/org/apache/flink/orc/OrcUtils.java,731,vals[i] = temp;
+flink-connectors/flink-orc/src/main/java/org/apache/flink/orc/OrcUtils.java,733,((Row) vals[i]).setField(fieldIdx, temp);
+flink-connectors/flink-orc/src/main/java/org/apache/flink/orc/OrcUtils.java,739,private static void readNonNullMapColumn(Object[] vals, int fieldIdx, MapColumnVector mapsVector, TypeDescription schema, long[] lengthVector, int childCount) {
+flink-connectors/flink-orc/src/main/java/org/apache/flink/orc/OrcUtils.java,741,List<TypeDescription> fieldType = schema.getChildren();
+flink-connectors/flink-orc/src/main/java/org/apache/flink/orc/OrcUtils.java,742,TypeDescription keyType = fieldType.get(0);
+flink-connectors/flink-orc/src/main/java/org/apache/flink/orc/OrcUtils.java,743,TypeDescription valueType = fieldType.get(1);
+flink-connectors/flink-orc/src/main/java/org/apache/flink/orc/OrcUtils.java,745,ColumnVector keys = mapsVector.keys;
+flink-connectors/flink-orc/src/main/java/org/apache/flink/orc/OrcUtils.java,746,ColumnVector values = mapsVector.values;
+flink-connectors/flink-orc/src/main/java/org/apache/flink/orc/OrcUtils.java,747,Object[] keyRows = new Object[mapsVector.childCount];
+flink-connectors/flink-orc/src/main/java/org/apache/flink/orc/OrcUtils.java,748,Object[] valueRows = new Object[mapsVector.childCount];
+flink-connectors/flink-orc/src/main/java/org/apache/flink/orc/OrcUtils.java,751,readField(keyRows, -1, keyType, keys, null, keyRows.length);
+flink-connectors/flink-orc/src/main/java/org/apache/flink/orc/OrcUtils.java,752,readField(valueRows, -1, valueType, values, null, valueRows.length);
+flink-connectors/flink-orc/src/main/java/org/apache/flink/orc/OrcUtils.java,755,if (lengthVector == null) {
+flink-connectors/flink-orc/src/main/java/org/apache/flink/orc/OrcUtils.java,756,long[] lengthVectorMap = mapsVector.lengths;
+flink-connectors/flink-orc/src/main/java/org/apache/flink/orc/OrcUtils.java,757,int offset = 0;
+flink-connectors/flink-orc/src/main/java/org/apache/flink/orc/OrcUtils.java,759,for (int i = 0; i < childCount; i++) {
+flink-connectors/flink-orc/src/main/java/org/apache/flink/orc/OrcUtils.java,760,long numMapEntries = lengthVectorMap[i];
+flink-connectors/flink-orc/src/main/java/org/apache/flink/orc/OrcUtils.java,761,HashMap map = readHashMap(keyRows, valueRows, offset, numMapEntries);
+flink-connectors/flink-orc/src/main/java/org/apache/flink/orc/OrcUtils.java,762,offset += numMapEntries;
+flink-connectors/flink-orc/src/main/java/org/apache/flink/orc/OrcUtils.java,764,if (fieldIdx == -1) {
+flink-connectors/flink-orc/src/main/java/org/apache/flink/orc/OrcUtils.java,765,vals[i] = map;
+flink-connectors/flink-orc/src/main/java/org/apache/flink/orc/OrcUtils.java,767,((Row) vals[i]).setField(fieldIdx, map);
+flink-connectors/flink-orc/src/main/java/org/apache/flink/orc/OrcUtils.java,772,long[] lengthVectorMap = mapsVector.lengths;
+flink-connectors/flink-orc/src/main/java/org/apache/flink/orc/OrcUtils.java,773,int mapOffset = 0; // offset of map element
+flink-connectors/flink-orc/src/main/java/org/apache/flink/orc/OrcUtils.java,774,int offset = 0; // offset of map
+flink-connectors/flink-orc/src/main/java/org/apache/flink/orc/OrcUtils.java,775,HashMap[] temp;
+flink-connectors/flink-orc/src/main/java/org/apache/flink/orc/OrcUtils.java,777,for (int i = 0; offset < childCount; i++) {
+flink-connectors/flink-orc/src/main/java/org/apache/flink/orc/OrcUtils.java,778,temp = new HashMap[(int) lengthVector[i]];
+flink-connectors/flink-orc/src/main/java/org/apache/flink/orc/OrcUtils.java,779,for (int j = 0; j < temp.length; j++) {
+flink-connectors/flink-orc/src/main/java/org/apache/flink/orc/OrcUtils.java,780,long numMapEntries = lengthVectorMap[offset];
+flink-connectors/flink-orc/src/main/java/org/apache/flink/orc/OrcUtils.java,781,temp[j] = readHashMap(keyRows, valueRows, mapOffset, numMapEntries);
+flink-connectors/flink-orc/src/main/java/org/apache/flink/orc/OrcUtils.java,782,mapOffset += numMapEntries;
+flink-connectors/flink-orc/src/main/java/org/apache/flink/orc/OrcUtils.java,783,offset++;
+flink-connectors/flink-orc/src/main/java/org/apache/flink/orc/OrcUtils.java,785,if (fieldIdx == 1) {
+flink-connectors/flink-orc/src/main/java/org/apache/flink/orc/OrcUtils.java,786,vals[i] = temp;
+flink-connectors/flink-orc/src/main/java/org/apache/flink/orc/OrcUtils.java,788,((Row) vals[i]).setField(fieldIdx, temp);
+flink-connectors/flink-orc/src/main/java/org/apache/flink/orc/OrcUtils.java,794,private static <T> void readLongColumn(Object[] vals, int fieldIdx, LongColumnVector vector, long[] lengthVector, int childCount,
+flink-connectors/flink-orc/src/main/java/org/apache/flink/orc/OrcUtils.java,795,LongFunction<T> reader, IntFunction<T[]> array) {
+flink-connectors/flink-orc/src/main/java/org/apache/flink/orc/OrcUtils.java,798,if (lengthVector == null) {
+flink-connectors/flink-orc/src/main/java/org/apache/flink/orc/OrcUtils.java,799,if (vector.isRepeating) { // fill complete column with first value
+flink-connectors/flink-orc/src/main/java/org/apache/flink/orc/OrcUtils.java,801,fillColumnWithRepeatingValue(vals, fieldIdx, null, childCount);
+flink-connectors/flink-orc/src/main/java/org/apache/flink/orc/OrcUtils.java,803,boolean[] isNullVector = vector.isNull;
+flink-connectors/flink-orc/src/main/java/org/apache/flink/orc/OrcUtils.java,804,if (fieldIdx == -1) { // set as an object
+flink-connectors/flink-orc/src/main/java/org/apache/flink/orc/OrcUtils.java,805,for (int i = 0; i < childCount; i++) {
+flink-connectors/flink-orc/src/main/java/org/apache/flink/orc/OrcUtils.java,806,if (isNullVector[i]) {
+flink-connectors/flink-orc/src/main/java/org/apache/flink/orc/OrcUtils.java,807,vals[i] = null;
+flink-connectors/flink-orc/src/main/java/org/apache/flink/orc/OrcUtils.java,809,vals[i] = reader.apply(vector.vector[i]);
+flink-connectors/flink-orc/src/main/java/org/apache/flink/orc/OrcUtils.java,813,Row[] rows = (Row[]) vals;
+flink-connectors/flink-orc/src/main/java/org/apache/flink/orc/OrcUtils.java,814,for (int i = 0; i < childCount; i++) {
+flink-connectors/flink-orc/src/main/java/org/apache/flink/orc/OrcUtils.java,815,if (isNullVector[i]) {
+flink-connectors/flink-orc/src/main/java/org/apache/flink/orc/OrcUtils.java,816,rows[i].setField(fieldIdx, null);
+flink-connectors/flink-orc/src/main/java/org/apache/flink/orc/OrcUtils.java,818,rows[i].setField(fieldIdx, reader.apply(vector.vector[i]));
+flink-connectors/flink-orc/src/main/java/org/apache/flink/orc/OrcUtils.java,824,if (vector.isRepeating) { // // fill complete list with first value
+flink-connectors/flink-orc/src/main/java/org/apache/flink/orc/OrcUtils.java,826,fillListWithRepeatingNull(vals, fieldIdx, lengthVector, childCount, array);
+flink-connectors/flink-orc/src/main/java/org/apache/flink/orc/OrcUtils.java,829,int offset = 0;
+flink-connectors/flink-orc/src/main/java/org/apache/flink/orc/OrcUtils.java,830,T[] temp;
+flink-connectors/flink-orc/src/main/java/org/apache/flink/orc/OrcUtils.java,831,boolean[] isNullVector = vector.isNull;
+flink-connectors/flink-orc/src/main/java/org/apache/flink/orc/OrcUtils.java,832,for (int i = 0; offset < childCount; i++) {
+flink-connectors/flink-orc/src/main/java/org/apache/flink/orc/OrcUtils.java,833,temp = array.apply((int) lengthVector[i]);
+flink-connectors/flink-orc/src/main/java/org/apache/flink/orc/OrcUtils.java,834,for (int j = 0; j < temp.length; j++) {
+flink-connectors/flink-orc/src/main/java/org/apache/flink/orc/OrcUtils.java,835,if (isNullVector[offset]) {
+flink-connectors/flink-orc/src/main/java/org/apache/flink/orc/OrcUtils.java,836,offset++;
+flink-connectors/flink-orc/src/main/java/org/apache/flink/orc/OrcUtils.java,838,temp[j] = reader.apply(vector.vector[offset++]);
+flink-connectors/flink-orc/src/main/java/org/apache/flink/orc/OrcUtils.java,841,if (fieldIdx == -1) {
+flink-connectors/flink-orc/src/main/java/org/apache/flink/orc/OrcUtils.java,842,vals[i] = temp;
+flink-connectors/flink-orc/src/main/java/org/apache/flink/orc/OrcUtils.java,844,((Row) vals[i]).setField(fieldIdx, temp);
+flink-connectors/flink-orc/src/main/java/org/apache/flink/orc/OrcUtils.java,851,private static <T> void readDoubleColumn(Object[] vals, int fieldIdx, DoubleColumnVector vector, long[] lengthVector, int childCount,
+flink-connectors/flink-orc/src/main/java/org/apache/flink/orc/OrcUtils.java,852,DoubleFunction<T> reader, IntFunction<T[]> array) {
+flink-connectors/flink-orc/src/main/java/org/apache/flink/orc/OrcUtils.java,855,if (lengthVector == null) {
+flink-connectors/flink-orc/src/main/java/org/apache/flink/orc/OrcUtils.java,856,if (vector.isRepeating) { // fill complete column with first value
+flink-connectors/flink-orc/src/main/java/org/apache/flink/orc/OrcUtils.java,858,fillColumnWithRepeatingValue(vals, fieldIdx, null, childCount);
+flink-connectors/flink-orc/src/main/java/org/apache/flink/orc/OrcUtils.java,860,boolean[] isNullVector = vector.isNull;
+flink-connectors/flink-orc/src/main/java/org/apache/flink/orc/OrcUtils.java,861,if (fieldIdx == -1) { // set as an object
+flink-connectors/flink-orc/src/main/java/org/apache/flink/orc/OrcUtils.java,862,for (int i = 0; i < childCount; i++) {
+flink-connectors/flink-orc/src/main/java/org/apache/flink/orc/OrcUtils.java,863,if (isNullVector[i]) {
+flink-connectors/flink-orc/src/main/java/org/apache/flink/orc/OrcUtils.java,864,vals[i] = null;
+flink-connectors/flink-orc/src/main/java/org/apache/flink/orc/OrcUtils.java,866,vals[i] = reader.apply(vector.vector[i]);
+flink-connectors/flink-orc/src/main/java/org/apache/flink/orc/OrcUtils.java,870,Row[] rows = (Row[]) vals;
+flink-connectors/flink-orc/src/main/java/org/apache/flink/orc/OrcUtils.java,871,for (int i = 0; i < childCount; i++) {
+flink-connectors/flink-orc/src/main/java/org/apache/flink/orc/OrcUtils.java,872,if (isNullVector[i]) {
+flink-connectors/flink-orc/src/main/java/org/apache/flink/orc/OrcUtils.java,873,rows[i].setField(fieldIdx, null);
+flink-connectors/flink-orc/src/main/java/org/apache/flink/orc/OrcUtils.java,875,rows[i].setField(fieldIdx, reader.apply(vector.vector[i]));
+flink-connectors/flink-orc/src/main/java/org/apache/flink/orc/OrcUtils.java,881,if (vector.isRepeating) { // // fill complete list with first value
+flink-connectors/flink-orc/src/main/java/org/apache/flink/orc/OrcUtils.java,883,fillListWithRepeatingNull(vals, fieldIdx, lengthVector, childCount, array);
+flink-connectors/flink-orc/src/main/java/org/apache/flink/orc/OrcUtils.java,886,int offset = 0;
+flink-connectors/flink-orc/src/main/java/org/apache/flink/orc/OrcUtils.java,887,T[] temp;
+flink-connectors/flink-orc/src/main/java/org/apache/flink/orc/OrcUtils.java,888,boolean[] isNullVector = vector.isNull;
+flink-connectors/flink-orc/src/main/java/org/apache/flink/orc/OrcUtils.java,889,for (int i = 0; offset < childCount; i++) {
+flink-connectors/flink-orc/src/main/java/org/apache/flink/orc/OrcUtils.java,890,temp = array.apply((int) lengthVector[i]);
+flink-connectors/flink-orc/src/main/java/org/apache/flink/orc/OrcUtils.java,891,for (int j = 0; j < temp.length; j++) {
+flink-connectors/flink-orc/src/main/java/org/apache/flink/orc/OrcUtils.java,892,if (isNullVector[offset]) {
+flink-connectors/flink-orc/src/main/java/org/apache/flink/orc/OrcUtils.java,893,offset++;
+flink-connectors/flink-orc/src/main/java/org/apache/flink/orc/OrcUtils.java,895,temp[j] = reader.apply(vector.vector[offset++]);
+flink-connectors/flink-orc/src/main/java/org/apache/flink/orc/OrcUtils.java,898,if (fieldIdx == -1) {
+flink-connectors/flink-orc/src/main/java/org/apache/flink/orc/OrcUtils.java,899,vals[i] = temp;
+flink-connectors/flink-orc/src/main/java/org/apache/flink/orc/OrcUtils.java,901,((Row) vals[i]).setField(fieldIdx, temp);
+flink-connectors/flink-orc/src/main/java/org/apache/flink/orc/OrcUtils.java,908,private static void readBytesColumnAsString(Object[] vals, int fieldIdx, BytesColumnVector bytes, long[] lengthVector, int childCount) {
+flink-connectors/flink-orc/src/main/java/org/apache/flink/orc/OrcUtils.java,911,if (lengthVector == null) {
+flink-connectors/flink-orc/src/main/java/org/apache/flink/orc/OrcUtils.java,912,if (bytes.isRepeating) { // fill complete column with first value
+flink-connectors/flink-orc/src/main/java/org/apache/flink/orc/OrcUtils.java,914,fillColumnWithRepeatingValue(vals, fieldIdx, null, childCount);
+flink-connectors/flink-orc/src/main/java/org/apache/flink/orc/OrcUtils.java,916,boolean[] isNullVector = bytes.isNull;
+flink-connectors/flink-orc/src/main/java/org/apache/flink/orc/OrcUtils.java,917,if (fieldIdx == -1) { // set as an object
+flink-connectors/flink-orc/src/main/java/org/apache/flink/orc/OrcUtils.java,918,for (int i = 0; i < childCount; i++) {
+flink-connectors/flink-orc/src/main/java/org/apache/flink/orc/OrcUtils.java,919,if (isNullVector[i]) {
+flink-connectors/flink-orc/src/main/java/org/apache/flink/orc/OrcUtils.java,920,vals[i] = null;
+flink-connectors/flink-orc/src/main/java/org/apache/flink/orc/OrcUtils.java,922,vals[i] = new String(bytes.vector[i], bytes.start[i], bytes.length[i]);
+flink-connectors/flink-orc/src/main/java/org/apache/flink/orc/OrcUtils.java,926,Row[] rows = (Row[]) vals;
+flink-connectors/flink-orc/src/main/java/org/apache/flink/orc/OrcUtils.java,927,for (int i = 0; i < childCount; i++) {
+flink-connectors/flink-orc/src/main/java/org/apache/flink/orc/OrcUtils.java,928,if (isNullVector[i]) {
+flink-connectors/flink-orc/src/main/java/org/apache/flink/orc/OrcUtils.java,929,rows[i].setField(fieldIdx, null);
+flink-connectors/flink-orc/src/main/java/org/apache/flink/orc/OrcUtils.java,931,rows[i].setField(fieldIdx, new String(bytes.vector[i], bytes.start[i], bytes.length[i]));
+flink-connectors/flink-orc/src/main/java/org/apache/flink/orc/OrcUtils.java,937,if (bytes.isRepeating) { // fill list with first value
+flink-connectors/flink-orc/src/main/java/org/apache/flink/orc/OrcUtils.java,939,fillListWithRepeatingNull(vals, fieldIdx, lengthVector, childCount, OrcUtils::stringArray);
+flink-connectors/flink-orc/src/main/java/org/apache/flink/orc/OrcUtils.java,941,int offset = 0;
+flink-connectors/flink-orc/src/main/java/org/apache/flink/orc/OrcUtils.java,942,String[] temp;
+flink-connectors/flink-orc/src/main/java/org/apache/flink/orc/OrcUtils.java,943,boolean[] isNullVector = bytes.isNull;
+flink-connectors/flink-orc/src/main/java/org/apache/flink/orc/OrcUtils.java,944,for (int i = 0; offset < childCount; i++) {
+flink-connectors/flink-orc/src/main/java/org/apache/flink/orc/OrcUtils.java,945,temp = new String[(int) lengthVector[i]];
+flink-connectors/flink-orc/src/main/java/org/apache/flink/orc/OrcUtils.java,946,for (int j = 0; j < temp.length; j++) {
+flink-connectors/flink-orc/src/main/java/org/apache/flink/orc/OrcUtils.java,947,if (isNullVector[offset]) {
+flink-connectors/flink-orc/src/main/java/org/apache/flink/orc/OrcUtils.java,948,offset++;
+flink-connectors/flink-orc/src/main/java/org/apache/flink/orc/OrcUtils.java,950,temp[j] = new String(bytes.vector[offset], bytes.start[offset], bytes.length[offset]);
+flink-connectors/flink-orc/src/main/java/org/apache/flink/orc/OrcUtils.java,951,offset++;
+flink-connectors/flink-orc/src/main/java/org/apache/flink/orc/OrcUtils.java,954,if (fieldIdx == -1) {
+flink-connectors/flink-orc/src/main/java/org/apache/flink/orc/OrcUtils.java,955,vals[i] = temp;
+flink-connectors/flink-orc/src/main/java/org/apache/flink/orc/OrcUtils.java,957,((Row) vals[i]).setField(fieldIdx, temp);
+flink-connectors/flink-orc/src/main/java/org/apache/flink/orc/OrcUtils.java,964,private static void readBytesColumnAsBinary(Object[] vals, int fieldIdx, BytesColumnVector bytes, long[] lengthVector, int childCount) {
+flink-connectors/flink-orc/src/main/java/org/apache/flink/orc/OrcUtils.java,967,if (lengthVector == null) {
+flink-connectors/flink-orc/src/main/java/org/apache/flink/orc/OrcUtils.java,968,if (bytes.isRepeating) { // fill complete column with first value
+flink-connectors/flink-orc/src/main/java/org/apache/flink/orc/OrcUtils.java,970,fillColumnWithRepeatingValue(vals, fieldIdx, null, childCount);
+flink-connectors/flink-orc/src/main/java/org/apache/flink/orc/OrcUtils.java,972,boolean[] isNullVector = bytes.isNull;
+flink-connectors/flink-orc/src/main/java/org/apache/flink/orc/OrcUtils.java,973,if (fieldIdx == -1) { // set as an object
+flink-connectors/flink-orc/src/main/java/org/apache/flink/orc/OrcUtils.java,974,for (int i = 0; i < childCount; i++) {
+flink-connectors/flink-orc/src/main/java/org/apache/flink/orc/OrcUtils.java,975,if (isNullVector[i]) {
+flink-connectors/flink-orc/src/main/java/org/apache/flink/orc/OrcUtils.java,976,vals[i] = null;
+flink-connectors/flink-orc/src/main/java/org/apache/flink/orc/OrcUtils.java,978,vals[i] = readBinary(bytes.vector[i], bytes.start[i], bytes.length[i]);
+flink-connectors/flink-orc/src/main/java/org/apache/flink/orc/OrcUtils.java,982,Row[] rows = (Row[]) vals;
+flink-connectors/flink-orc/src/main/java/org/apache/flink/orc/OrcUtils.java,983,for (int i = 0; i < childCount; i++) {
+flink-connectors/flink-orc/src/main/java/org/apache/flink/orc/OrcUtils.java,984,if (isNullVector[i]) {
+flink-connectors/flink-orc/src/main/java/org/apache/flink/orc/OrcUtils.java,985,rows[i].setField(fieldIdx, null);
+flink-connectors/flink-orc/src/main/java/org/apache/flink/orc/OrcUtils.java,987,rows[i].setField(fieldIdx, readBinary(bytes.vector[i], bytes.start[i], bytes.length[i]));
+flink-connectors/flink-orc/src/main/java/org/apache/flink/orc/OrcUtils.java,993,if (bytes.isRepeating) { // fill complete list with first value
+flink-connectors/flink-orc/src/main/java/org/apache/flink/orc/OrcUtils.java,995,fillListWithRepeatingNull(vals, fieldIdx, lengthVector, childCount, OrcUtils::binaryArray);
+flink-connectors/flink-orc/src/main/java/org/apache/flink/orc/OrcUtils.java,997,int offset = 0;
+flink-connectors/flink-orc/src/main/java/org/apache/flink/orc/OrcUtils.java,998,byte[][] temp;
+flink-connectors/flink-orc/src/main/java/org/apache/flink/orc/OrcUtils.java,999,boolean[] isNullVector = bytes.isNull;
+flink-connectors/flink-orc/src/main/java/org/apache/flink/orc/OrcUtils.java,1000,for (int i = 0; offset < childCount; i++) {
+flink-connectors/flink-orc/src/main/java/org/apache/flink/orc/OrcUtils.java,1001,temp = new byte[(int) lengthVector[i]][];
+flink-connectors/flink-orc/src/main/java/org/apache/flink/orc/OrcUtils.java,1002,for (int j = 0; j < temp.length; j++) {
+flink-connectors/flink-orc/src/main/java/org/apache/flink/orc/OrcUtils.java,1003,if (isNullVector[offset]) {
+flink-connectors/flink-orc/src/main/java/org/apache/flink/orc/OrcUtils.java,1004,offset++;
+flink-connectors/flink-orc/src/main/java/org/apache/flink/orc/OrcUtils.java,1006,temp[j] = readBinary(bytes.vector[offset], bytes.start[offset], bytes.length[offset]);
+flink-connectors/flink-orc/src/main/java/org/apache/flink/orc/OrcUtils.java,1007,offset++;
+flink-connectors/flink-orc/src/main/java/org/apache/flink/orc/OrcUtils.java,1010,if (fieldIdx == -1) {
+flink-connectors/flink-orc/src/main/java/org/apache/flink/orc/OrcUtils.java,1011,vals[i] = temp;
+flink-connectors/flink-orc/src/main/java/org/apache/flink/orc/OrcUtils.java,1013,((Row) vals[i]).setField(fieldIdx, temp);
+flink-connectors/flink-orc/src/main/java/org/apache/flink/orc/OrcUtils.java,1020,private static void readLongColumnAsDate(Object[] vals, int fieldIdx, LongColumnVector vector, long[] lengthVector, int childCount) {
+flink-connectors/flink-orc/src/main/java/org/apache/flink/orc/OrcUtils.java,1023,if (lengthVector == null) {
+flink-connectors/flink-orc/src/main/java/org/apache/flink/orc/OrcUtils.java,1024,if (vector.isRepeating) { // fill complete column with first value
+flink-connectors/flink-orc/src/main/java/org/apache/flink/orc/OrcUtils.java,1026,fillColumnWithRepeatingValue(vals, fieldIdx, null, childCount);
+flink-connectors/flink-orc/src/main/java/org/apache/flink/orc/OrcUtils.java,1028,boolean[] isNullVector = vector.isNull;
+flink-connectors/flink-orc/src/main/java/org/apache/flink/orc/OrcUtils.java,1029,if (fieldIdx == -1) { // set as an object
+flink-connectors/flink-orc/src/main/java/org/apache/flink/orc/OrcUtils.java,1030,for (int i = 0; i < childCount; i++) {
+flink-connectors/flink-orc/src/main/java/org/apache/flink/orc/OrcUtils.java,1031,if (isNullVector[i]) {
+flink-connectors/flink-orc/src/main/java/org/apache/flink/orc/OrcUtils.java,1032,vals[i] = null;
+flink-connectors/flink-orc/src/main/java/org/apache/flink/orc/OrcUtils.java,1034,vals[i] = readDate(vector.vector[i]);
+flink-connectors/flink-orc/src/main/java/org/apache/flink/orc/OrcUtils.java,1038,Row[] rows = (Row[]) vals;
+flink-connectors/flink-orc/src/main/java/org/apache/flink/orc/OrcUtils.java,1039,for (int i = 0; i < childCount; i++) {
+flink-connectors/flink-orc/src/main/java/org/apache/flink/orc/OrcUtils.java,1040,if (isNullVector[i]) {
+flink-connectors/flink-orc/src/main/java/org/apache/flink/orc/OrcUtils.java,1041,rows[i].setField(fieldIdx, null);
+flink-connectors/flink-orc/src/main/java/org/apache/flink/orc/OrcUtils.java,1043,rows[i].setField(fieldIdx, readDate(vector.vector[i]));
+flink-connectors/flink-orc/src/main/java/org/apache/flink/orc/OrcUtils.java,1049,if (vector.isRepeating) { // // fill complete list with first value
+flink-connectors/flink-orc/src/main/java/org/apache/flink/orc/OrcUtils.java,1051,fillListWithRepeatingNull(vals, fieldIdx, lengthVector, childCount, OrcUtils::dateArray);
+flink-connectors/flink-orc/src/main/java/org/apache/flink/orc/OrcUtils.java,1054,int offset = 0;
+flink-connectors/flink-orc/src/main/java/org/apache/flink/orc/OrcUtils.java,1055,Date[] temp;
+flink-connectors/flink-orc/src/main/java/org/apache/flink/orc/OrcUtils.java,1056,boolean[] isNullVector = vector.isNull;
+flink-connectors/flink-orc/src/main/java/org/apache/flink/orc/OrcUtils.java,1057,for (int i = 0; offset < childCount; i++) {
+flink-connectors/flink-orc/src/main/java/org/apache/flink/orc/OrcUtils.java,1058,temp = new Date[(int) lengthVector[i]];
+flink-connectors/flink-orc/src/main/java/org/apache/flink/orc/OrcUtils.java,1059,for (int j = 0; j < temp.length; j++) {
+flink-connectors/flink-orc/src/main/java/org/apache/flink/orc/OrcUtils.java,1060,if (isNullVector[offset]) {
+flink-connectors/flink-orc/src/main/java/org/apache/flink/orc/OrcUtils.java,1061,offset++;
+flink-connectors/flink-orc/src/main/java/org/apache/flink/orc/OrcUtils.java,1063,temp[j] = readDate(vector.vector[offset++]);
+flink-connectors/flink-orc/src/main/java/org/apache/flink/orc/OrcUtils.java,1066,if (fieldIdx == -1) {
+flink-connectors/flink-orc/src/main/java/org/apache/flink/orc/OrcUtils.java,1067,vals[i] = temp;
+flink-connectors/flink-orc/src/main/java/org/apache/flink/orc/OrcUtils.java,1069,((Row) vals[i]).setField(fieldIdx, temp);
+flink-connectors/flink-orc/src/main/java/org/apache/flink/orc/OrcUtils.java,1076,private static void readTimestampColumn(Object[] vals, int fieldIdx, TimestampColumnVector vector, long[] lengthVector, int childCount) {
+flink-connectors/flink-orc/src/main/java/org/apache/flink/orc/OrcUtils.java,1079,if (lengthVector == null) {
+flink-connectors/flink-orc/src/main/java/org/apache/flink/orc/OrcUtils.java,1080,if (vector.isRepeating) { // fill complete column with first value
+flink-connectors/flink-orc/src/main/java/org/apache/flink/orc/OrcUtils.java,1082,fillColumnWithRepeatingValue(vals, fieldIdx, null, childCount);
+flink-connectors/flink-orc/src/main/java/org/apache/flink/orc/OrcUtils.java,1084,boolean[] isNullVector = vector.isNull;
+flink-connectors/flink-orc/src/main/java/org/apache/flink/orc/OrcUtils.java,1085,if (fieldIdx == -1) { // set as an object
+flink-connectors/flink-orc/src/main/java/org/apache/flink/orc/OrcUtils.java,1086,for (int i = 0; i < childCount; i++) {
+flink-connectors/flink-orc/src/main/java/org/apache/flink/orc/OrcUtils.java,1087,if (isNullVector[i]) {
+flink-connectors/flink-orc/src/main/java/org/apache/flink/orc/OrcUtils.java,1088,vals[i] = null;
+flink-connectors/flink-orc/src/main/java/org/apache/flink/orc/OrcUtils.java,1090,Timestamp ts = readTimestamp(vector.time[i], vector.nanos[i]);
+flink-connectors/flink-orc/src/main/java/org/apache/flink/orc/OrcUtils.java,1091,vals[i] = ts;
+flink-connectors/flink-orc/src/main/java/org/apache/flink/orc/OrcUtils.java,1095,Row[] rows = (Row[]) vals;
+flink-connectors/flink-orc/src/main/java/org/apache/flink/orc/OrcUtils.java,1096,for (int i = 0; i < childCount; i++) {
+flink-connectors/flink-orc/src/main/java/org/apache/flink/orc/OrcUtils.java,1097,if (isNullVector[i]) {
+flink-connectors/flink-orc/src/main/java/org/apache/flink/orc/OrcUtils.java,1098,rows[i].setField(fieldIdx, null);
+flink-connectors/flink-orc/src/main/java/org/apache/flink/orc/OrcUtils.java,1100,Timestamp ts = readTimestamp(vector.time[i], vector.nanos[i]);
+flink-connectors/flink-orc/src/main/java/org/apache/flink/orc/OrcUtils.java,1101,rows[i].setField(fieldIdx, ts);
+flink-connectors/flink-orc/src/main/java/org/apache/flink/orc/OrcUtils.java,1107,if (vector.isRepeating) { // fill complete list with first value
+flink-connectors/flink-orc/src/main/java/org/apache/flink/orc/OrcUtils.java,1109,fillListWithRepeatingNull(vals, fieldIdx, lengthVector, childCount, OrcUtils::timestampArray);
+flink-connectors/flink-orc/src/main/java/org/apache/flink/orc/OrcUtils.java,1111,int offset = 0;
+flink-connectors/flink-orc/src/main/java/org/apache/flink/orc/OrcUtils.java,1112,Timestamp[] temp;
+flink-connectors/flink-orc/src/main/java/org/apache/flink/orc/OrcUtils.java,1113,boolean[] isNullVector = vector.isNull;
+flink-connectors/flink-orc/src/main/java/org/apache/flink/orc/OrcUtils.java,1114,for (int i = 0; offset < childCount; i++) {
+flink-connectors/flink-orc/src/main/java/org/apache/flink/orc/OrcUtils.java,1115,temp = new Timestamp[(int) lengthVector[i]];
+flink-connectors/flink-orc/src/main/java/org/apache/flink/orc/OrcUtils.java,1116,for (int j = 0; j < temp.length; j++) {
+flink-connectors/flink-orc/src/main/java/org/apache/flink/orc/OrcUtils.java,1117,if (isNullVector[offset]) {
+flink-connectors/flink-orc/src/main/java/org/apache/flink/orc/OrcUtils.java,1118,offset++;
+flink-connectors/flink-orc/src/main/java/org/apache/flink/orc/OrcUtils.java,1120,temp[j] = readTimestamp(vector.time[offset], vector.nanos[offset]);
+flink-connectors/flink-orc/src/main/java/org/apache/flink/orc/OrcUtils.java,1121,offset++;
+flink-connectors/flink-orc/src/main/java/org/apache/flink/orc/OrcUtils.java,1124,if (fieldIdx == -1) {
+flink-connectors/flink-orc/src/main/java/org/apache/flink/orc/OrcUtils.java,1125,vals[i] = temp;
+flink-connectors/flink-orc/src/main/java/org/apache/flink/orc/OrcUtils.java,1127,((Row) vals[i]).setField(fieldIdx, temp);
+flink-connectors/flink-orc/src/main/java/org/apache/flink/orc/OrcUtils.java,1134,private static void readDecimalColumn(Object[] vals, int fieldIdx, DecimalColumnVector vector, long[] lengthVector, int childCount) {
+flink-connectors/flink-orc/src/main/java/org/apache/flink/orc/OrcUtils.java,1137,if (lengthVector == null) {
+flink-connectors/flink-orc/src/main/java/org/apache/flink/orc/OrcUtils.java,1138,if (vector.isRepeating) { // fill complete column with first value
+flink-connectors/flink-orc/src/main/java/org/apache/flink/orc/OrcUtils.java,1140,fillColumnWithRepeatingValue(vals, fieldIdx, null, childCount);
+flink-connectors/flink-orc/src/main/java/org/apache/flink/orc/OrcUtils.java,1142,boolean[] isNullVector = vector.isNull;
+flink-connectors/flink-orc/src/main/java/org/apache/flink/orc/OrcUtils.java,1143,if (fieldIdx == -1) { // set as an object
+flink-connectors/flink-orc/src/main/java/org/apache/flink/orc/OrcUtils.java,1144,for (int i = 0; i < childCount; i++) {
+flink-connectors/flink-orc/src/main/java/org/apache/flink/orc/OrcUtils.java,1145,if (isNullVector[i]) {
+flink-connectors/flink-orc/src/main/java/org/apache/flink/orc/OrcUtils.java,1146,vals[i] = null;
+flink-connectors/flink-orc/src/main/java/org/apache/flink/orc/OrcUtils.java,1148,vals[i] = readBigDecimal(vector.vector[i]);
+flink-connectors/flink-orc/src/main/java/org/apache/flink/orc/OrcUtils.java,1152,Row[] rows = (Row[]) vals;
+flink-connectors/flink-orc/src/main/java/org/apache/flink/orc/OrcUtils.java,1153,for (int i = 0; i < childCount; i++) {
+flink-connectors/flink-orc/src/main/java/org/apache/flink/orc/OrcUtils.java,1154,if (isNullVector[i]) {
+flink-connectors/flink-orc/src/main/java/org/apache/flink/orc/OrcUtils.java,1155,rows[i].setField(fieldIdx, null);
+flink-connectors/flink-orc/src/main/java/org/apache/flink/orc/OrcUtils.java,1157,rows[i].setField(fieldIdx, readBigDecimal(vector.vector[i]));
+flink-connectors/flink-orc/src/main/java/org/apache/flink/orc/OrcUtils.java,1163,if (vector.isRepeating) { // fill complete list with first value
+flink-connectors/flink-orc/src/main/java/org/apache/flink/orc/OrcUtils.java,1165,fillListWithRepeatingNull(vals, fieldIdx, lengthVector, childCount, OrcUtils::decimalArray);
+flink-connectors/flink-orc/src/main/java/org/apache/flink/orc/OrcUtils.java,1167,int offset = 0;
+flink-connectors/flink-orc/src/main/java/org/apache/flink/orc/OrcUtils.java,1168,BigDecimal[] temp;
+flink-connectors/flink-orc/src/main/java/org/apache/flink/orc/OrcUtils.java,1169,boolean[] isNullVector = vector.isNull;
+flink-connectors/flink-orc/src/main/java/org/apache/flink/orc/OrcUtils.java,1170,for (int i = 0; offset < childCount; i++) {
+flink-connectors/flink-orc/src/main/java/org/apache/flink/orc/OrcUtils.java,1171,temp = new BigDecimal[(int) lengthVector[i]];
+flink-connectors/flink-orc/src/main/java/org/apache/flink/orc/OrcUtils.java,1172,for (int j = 0; j < temp.length; j++) {
+flink-connectors/flink-orc/src/main/java/org/apache/flink/orc/OrcUtils.java,1173,if (isNullVector[offset]) {
+flink-connectors/flink-orc/src/main/java/org/apache/flink/orc/OrcUtils.java,1174,offset++;
+flink-connectors/flink-orc/src/main/java/org/apache/flink/orc/OrcUtils.java,1176,temp[j] = readBigDecimal(vector.vector[offset++]);
+flink-connectors/flink-orc/src/main/java/org/apache/flink/orc/OrcUtils.java,1179,if (fieldIdx == -1) {
+flink-connectors/flink-orc/src/main/java/org/apache/flink/orc/OrcUtils.java,1180,vals[i] = temp;
+flink-connectors/flink-orc/src/main/java/org/apache/flink/orc/OrcUtils.java,1182,((Row) vals[i]).setField(fieldIdx, temp);
+flink-connectors/flink-orc/src/main/java/org/apache/flink/orc/OrcUtils.java,1189,private static void readStructColumn(Object[] vals, int fieldIdx, StructColumnVector structVector, TypeDescription schema, long[] lengthVector, int childCount) {
+flink-connectors/flink-orc/src/main/java/org/apache/flink/orc/OrcUtils.java,1191,List<TypeDescription> childrenTypes = schema.getChildren();
+flink-connectors/flink-orc/src/main/java/org/apache/flink/orc/OrcUtils.java,1193,int numFields = childrenTypes.size();
+flink-connectors/flink-orc/src/main/java/org/apache/flink/orc/OrcUtils.java,1195,Row[] structs = new Row[childCount];
+flink-connectors/flink-orc/src/main/java/org/apache/flink/orc/OrcUtils.java,1197,for (int i = 0; i < childCount; i++) {
+flink-connectors/flink-orc/src/main/java/org/apache/flink/orc/OrcUtils.java,1198,structs[i] = new Row(numFields);
+flink-connectors/flink-orc/src/main/java/org/apache/flink/orc/OrcUtils.java,1202,for (int i = 0; i < numFields; i++) {
+flink-connectors/flink-orc/src/main/java/org/apache/flink/orc/OrcUtils.java,1203,readField(structs, i, childrenTypes.get(i), structVector.fields[i], null, childCount);
+flink-connectors/flink-orc/src/main/java/org/apache/flink/orc/OrcUtils.java,1206,boolean[] isNullVector = structVector.isNull;
+flink-connectors/flink-orc/src/main/java/org/apache/flink/orc/OrcUtils.java,1209,if (lengthVector == null) {
+flink-connectors/flink-orc/src/main/java/org/apache/flink/orc/OrcUtils.java,1210,if (fieldIdx == -1) { // set struct as an object
+flink-connectors/flink-orc/src/main/java/org/apache/flink/orc/OrcUtils.java,1211,for (int i = 0; i < childCount; i++) {
+flink-connectors/flink-orc/src/main/java/org/apache/flink/orc/OrcUtils.java,1212,if (isNullVector[i]) {
+flink-connectors/flink-orc/src/main/java/org/apache/flink/orc/OrcUtils.java,1213,vals[i] = null;
+flink-connectors/flink-orc/src/main/java/org/apache/flink/orc/OrcUtils.java,1215,vals[i] = structs[i];
+flink-connectors/flink-orc/src/main/java/org/apache/flink/orc/OrcUtils.java,1219,Row[] rows = (Row[]) vals;
+flink-connectors/flink-orc/src/main/java/org/apache/flink/orc/OrcUtils.java,1220,for (int i = 0; i < childCount; i++) {
+flink-connectors/flink-orc/src/main/java/org/apache/flink/orc/OrcUtils.java,1221,if (isNullVector[i]) {
+flink-connectors/flink-orc/src/main/java/org/apache/flink/orc/OrcUtils.java,1222,rows[i].setField(fieldIdx, null);
+flink-connectors/flink-orc/src/main/java/org/apache/flink/orc/OrcUtils.java,1224,rows[i].setField(fieldIdx, structs[i]);
+flink-connectors/flink-orc/src/main/java/org/apache/flink/orc/OrcUtils.java,1229,int offset = 0;
+flink-connectors/flink-orc/src/main/java/org/apache/flink/orc/OrcUtils.java,1230,Row[] temp;
+flink-connectors/flink-orc/src/main/java/org/apache/flink/orc/OrcUtils.java,1231,for (int i = 0; offset < childCount; i++) {
+flink-connectors/flink-orc/src/main/java/org/apache/flink/orc/OrcUtils.java,1232,temp = new Row[(int) lengthVector[i]];
+flink-connectors/flink-orc/src/main/java/org/apache/flink/orc/OrcUtils.java,1233,for (int j = 0; j < temp.length; j++) {
+flink-connectors/flink-orc/src/main/java/org/apache/flink/orc/OrcUtils.java,1234,if (isNullVector[offset]) {
+flink-connectors/flink-orc/src/main/java/org/apache/flink/orc/OrcUtils.java,1235,temp[j] = null;
+flink-connectors/flink-orc/src/main/java/org/apache/flink/orc/OrcUtils.java,1237,temp[j] = structs[offset++];
+flink-connectors/flink-orc/src/main/java/org/apache/flink/orc/OrcUtils.java,1240,if (fieldIdx == -1) { // set list of structs as an object
+flink-connectors/flink-orc/src/main/java/org/apache/flink/orc/OrcUtils.java,1241,vals[i] = temp;
+flink-connectors/flink-orc/src/main/java/org/apache/flink/orc/OrcUtils.java,1243,((Row) vals[i]).setField(fieldIdx, temp);
+flink-connectors/flink-orc/src/main/java/org/apache/flink/orc/OrcUtils.java,1249,private static void readListColumn(Object[] vals, int fieldIdx, ListColumnVector list, TypeDescription schema, long[] lengthVector, int childCount) {
+flink-connectors/flink-orc/src/main/java/org/apache/flink/orc/OrcUtils.java,1251,TypeDescription fieldType = schema.getChildren().get(0);
+flink-connectors/flink-orc/src/main/java/org/apache/flink/orc/OrcUtils.java,1253,if (lengthVector == null) {
+flink-connectors/flink-orc/src/main/java/org/apache/flink/orc/OrcUtils.java,1254,long[] lengthVectorNested = list.lengths;
+flink-connectors/flink-orc/src/main/java/org/apache/flink/orc/OrcUtils.java,1255,readField(vals, fieldIdx, fieldType, list.child, lengthVectorNested, list.childCount);
+flink-connectors/flink-orc/src/main/java/org/apache/flink/orc/OrcUtils.java,1257,Object[] nestedList = new Object[childCount];
+flink-connectors/flink-orc/src/main/java/org/apache/flink/orc/OrcUtils.java,1259,long[] lengthVectorNested = list.lengths;
+flink-connectors/flink-orc/src/main/java/org/apache/flink/orc/OrcUtils.java,1261,readField(nestedList, -1, fieldType, list.child, lengthVectorNested, list.childCount);
+flink-connectors/flink-orc/src/main/java/org/apache/flink/orc/OrcUtils.java,1264,int offset = 0;
+flink-connectors/flink-orc/src/main/java/org/apache/flink/orc/OrcUtils.java,1265,int length;
+flink-connectors/flink-orc/src/main/java/org/apache/flink/orc/OrcUtils.java,1267,Class<?> classType = nestedList[0].getClass();
+flink-connectors/flink-orc/src/main/java/org/apache/flink/orc/OrcUtils.java,1268,for (int i = 0; offset < childCount; i++) {
+flink-connectors/flink-orc/src/main/java/org/apache/flink/orc/OrcUtils.java,1269,length = (int) lengthVector[i];
+flink-connectors/flink-orc/src/main/java/org/apache/flink/orc/OrcUtils.java,1270,Object[] temp = (Object[]) Array.newInstance(classType, length);
+flink-connectors/flink-orc/src/main/java/org/apache/flink/orc/OrcUtils.java,1271,System.arraycopy(nestedList, offset, temp, 0, length);
+flink-connectors/flink-orc/src/main/java/org/apache/flink/orc/OrcUtils.java,1272,offset = offset + length;
+flink-connectors/flink-orc/src/main/java/org/apache/flink/orc/OrcUtils.java,1273,if (fieldIdx == -1) { // set list of list as an object
+flink-connectors/flink-orc/src/main/java/org/apache/flink/orc/OrcUtils.java,1274,vals[i] = temp;
+flink-connectors/flink-orc/src/main/java/org/apache/flink/orc/OrcUtils.java,1276,((Row) vals[i]).setField(fieldIdx, temp);
+flink-connectors/flink-orc/src/main/java/org/apache/flink/orc/OrcUtils.java,1282,private static void readMapColumn(Object[] vals, int fieldIdx, MapColumnVector map, TypeDescription schema, long[] lengthVector, int childCount) {
+flink-connectors/flink-orc/src/main/java/org/apache/flink/orc/OrcUtils.java,1284,List<TypeDescription> fieldType = schema.getChildren();
+flink-connectors/flink-orc/src/main/java/org/apache/flink/orc/OrcUtils.java,1285,TypeDescription keyType = fieldType.get(0);
+flink-connectors/flink-orc/src/main/java/org/apache/flink/orc/OrcUtils.java,1286,TypeDescription valueType = fieldType.get(1);
+flink-connectors/flink-orc/src/main/java/org/apache/flink/orc/OrcUtils.java,1288,ColumnVector keys = map.keys;
+flink-connectors/flink-orc/src/main/java/org/apache/flink/orc/OrcUtils.java,1289,ColumnVector values = map.values;
+flink-connectors/flink-orc/src/main/java/org/apache/flink/orc/OrcUtils.java,1290,Object[] keyRows = new Object[map.childCount];
+flink-connectors/flink-orc/src/main/java/org/apache/flink/orc/OrcUtils.java,1291,Object[] valueRows = new Object[map.childCount];
+flink-connectors/flink-orc/src/main/java/org/apache/flink/orc/OrcUtils.java,1294,readField(keyRows, -1, keyType, keys, null, keyRows.length);
+flink-connectors/flink-orc/src/main/java/org/apache/flink/orc/OrcUtils.java,1295,readField(valueRows, -1, valueType, values, null, valueRows.length);
+flink-connectors/flink-orc/src/main/java/org/apache/flink/orc/OrcUtils.java,1297,boolean[] isNullVector = map.isNull;
+flink-connectors/flink-orc/src/main/java/org/apache/flink/orc/OrcUtils.java,1300,if (lengthVector == null) {
+flink-connectors/flink-orc/src/main/java/org/apache/flink/orc/OrcUtils.java,1301,long[] lengthVectorMap = map.lengths;
+flink-connectors/flink-orc/src/main/java/org/apache/flink/orc/OrcUtils.java,1302,int offset = 0;
+flink-connectors/flink-orc/src/main/java/org/apache/flink/orc/OrcUtils.java,1303,if (fieldIdx == -1) { // set map as an object
+flink-connectors/flink-orc/src/main/java/org/apache/flink/orc/OrcUtils.java,1304,for (int i = 0; i < childCount; i++) {
+flink-connectors/flink-orc/src/main/java/org/apache/flink/orc/OrcUtils.java,1305,if (isNullVector[i]) {
+flink-connectors/flink-orc/src/main/java/org/apache/flink/orc/OrcUtils.java,1306,vals[i] = null;
+flink-connectors/flink-orc/src/main/java/org/apache/flink/orc/OrcUtils.java,1308,vals[i] = readHashMap(keyRows, valueRows, offset, lengthVectorMap[i]);
+flink-connectors/flink-orc/src/main/java/org/apache/flink/orc/OrcUtils.java,1309,offset += lengthVectorMap[i];
+flink-connectors/flink-orc/src/main/java/org/apache/flink/orc/OrcUtils.java,1313,Row[] rows = (Row[]) vals;
+flink-connectors/flink-orc/src/main/java/org/apache/flink/orc/OrcUtils.java,1314,for (int i = 0; i < childCount; i++) {
+flink-connectors/flink-orc/src/main/java/org/apache/flink/orc/OrcUtils.java,1315,if (isNullVector[i]) {
+flink-connectors/flink-orc/src/main/java/org/apache/flink/orc/OrcUtils.java,1316,rows[i].setField(fieldIdx, null);
+flink-connectors/flink-orc/src/main/java/org/apache/flink/orc/OrcUtils.java,1318,rows[i].setField(fieldIdx, readHashMap(keyRows, valueRows, offset, lengthVectorMap[i]));
+flink-connectors/flink-orc/src/main/java/org/apache/flink/orc/OrcUtils.java,1319,offset += lengthVectorMap[i];
+flink-connectors/flink-orc/src/main/java/org/apache/flink/orc/OrcUtils.java,1324,long[] lengthVectorMap = map.lengths;
+flink-connectors/flink-orc/src/main/java/org/apache/flink/orc/OrcUtils.java,1325,int mapOffset = 0; // offset of map element
+flink-connectors/flink-orc/src/main/java/org/apache/flink/orc/OrcUtils.java,1326,int offset = 0; // offset of map
+flink-connectors/flink-orc/src/main/java/org/apache/flink/orc/OrcUtils.java,1327,HashMap[] temp;
+flink-connectors/flink-orc/src/main/java/org/apache/flink/orc/OrcUtils.java,1329,for (int i = 0; offset < childCount; i++) {
+flink-connectors/flink-orc/src/main/java/org/apache/flink/orc/OrcUtils.java,1330,temp = new HashMap[(int) lengthVector[i]];
+flink-connectors/flink-orc/src/main/java/org/apache/flink/orc/OrcUtils.java,1331,for (int j = 0; j < temp.length; j++) {
+flink-connectors/flink-orc/src/main/java/org/apache/flink/orc/OrcUtils.java,1332,if (isNullVector[offset]) {
+flink-connectors/flink-orc/src/main/java/org/apache/flink/orc/OrcUtils.java,1333,temp[j] = null;
+flink-connectors/flink-orc/src/main/java/org/apache/flink/orc/OrcUtils.java,1335,temp[j] = readHashMap(keyRows, valueRows, mapOffset, lengthVectorMap[offset]);
+flink-connectors/flink-orc/src/main/java/org/apache/flink/orc/OrcUtils.java,1336,mapOffset += lengthVectorMap[offset];
+flink-connectors/flink-orc/src/main/java/org/apache/flink/orc/OrcUtils.java,1337,offset++;
+flink-connectors/flink-orc/src/main/java/org/apache/flink/orc/OrcUtils.java,1340,if (fieldIdx == -1) {
+flink-connectors/flink-orc/src/main/java/org/apache/flink/orc/OrcUtils.java,1341,vals[i] = temp;
+flink-connectors/flink-orc/src/main/java/org/apache/flink/orc/OrcUtils.java,1343,((Row) vals[i]).setField(fieldIdx, temp);
+flink-connectors/flink-orc/src/main/java/org/apache/flink/orc/OrcUtils.java,1358,private static void fillColumnWithRepeatingValue(Object[] vals, int fieldIdx, Object repeatingValue, int childCount) {
+flink-connectors/flink-orc/src/main/java/org/apache/flink/orc/OrcUtils.java,1360,if (fieldIdx == -1) {
+flink-connectors/flink-orc/src/main/java/org/apache/flink/orc/OrcUtils.java,1362,Arrays.fill(vals, 0, childCount, repeatingValue);
+flink-connectors/flink-orc/src/main/java/org/apache/flink/orc/OrcUtils.java,1365,Row[] rows = (Row[]) vals;
+flink-connectors/flink-orc/src/main/java/org/apache/flink/orc/OrcUtils.java,1366,for (int i = 0; i < childCount; i++) {
+flink-connectors/flink-orc/src/main/java/org/apache/flink/orc/OrcUtils.java,1367,rows[i].setField(fieldIdx, repeatingValue);
+flink-connectors/flink-orc/src/main/java/org/apache/flink/orc/OrcUtils.java,1383,private static <T> void fillListWithRepeatingNull(Object[] vals, int fieldIdx, long[] lengthVector, int childCount, IntFunction<T[]> array) {
+flink-connectors/flink-orc/src/main/java/org/apache/flink/orc/OrcUtils.java,1385,if (fieldIdx == -1) {
+flink-connectors/flink-orc/src/main/java/org/apache/flink/orc/OrcUtils.java,1387,for (int i = 0; i < childCount; i++) {
+flink-connectors/flink-orc/src/main/java/org/apache/flink/orc/OrcUtils.java,1388,vals[i] = array.apply((int) lengthVector[i]);
+flink-connectors/flink-orc/src/main/java/org/apache/flink/orc/OrcUtils.java,1392,Row[] rows = (Row[]) vals;
+flink-connectors/flink-orc/src/main/java/org/apache/flink/orc/OrcUtils.java,1393,for (int i = 0; i < childCount; i++) {
+flink-connectors/flink-orc/src/main/java/org/apache/flink/orc/OrcUtils.java,1394,rows[i].setField(fieldIdx, array.apply((int) lengthVector[i]));
+flink-connectors/flink-orc/src/main/java/org/apache/flink/orc/OrcUtils.java,1399,private static Boolean readBoolean(long l) {
+flink-connectors/flink-orc/src/main/java/org/apache/flink/orc/OrcUtils.java,1400,return l != 0;
+flink-connectors/flink-orc/src/main/java/org/apache/flink/orc/OrcUtils.java,1403,private static Byte readByte(long l) {
+flink-connectors/flink-orc/src/main/java/org/apache/flink/orc/OrcUtils.java,1404,return (byte) l;
+flink-connectors/flink-orc/src/main/java/org/apache/flink/orc/OrcUtils.java,1407,private static Short readShort(long l) {
+flink-connectors/flink-orc/src/main/java/org/apache/flink/orc/OrcUtils.java,1408,return (short) l;
+flink-connectors/flink-orc/src/main/java/org/apache/flink/orc/OrcUtils.java,1411,private static Integer readInt(long l) {
+flink-connectors/flink-orc/src/main/java/org/apache/flink/orc/OrcUtils.java,1412,return (int) l;
+flink-connectors/flink-orc/src/main/java/org/apache/flink/orc/OrcUtils.java,1415,private static Long readLong(long l) {
+flink-connectors/flink-orc/src/main/java/org/apache/flink/orc/OrcUtils.java,1416,return l;
+flink-connectors/flink-orc/src/main/java/org/apache/flink/orc/OrcUtils.java,1419,private static Float readFloat(double d) {
+flink-connectors/flink-orc/src/main/java/org/apache/flink/orc/OrcUtils.java,1420,return (float) d;
+flink-connectors/flink-orc/src/main/java/org/apache/flink/orc/OrcUtils.java,1423,private static Double readDouble(double d) {
+flink-connectors/flink-orc/src/main/java/org/apache/flink/orc/OrcUtils.java,1424,return d;
+flink-connectors/flink-orc/src/main/java/org/apache/flink/orc/OrcUtils.java,1427,private static Date readDate(long l) {
+flink-connectors/flink-orc/src/main/java/org/apache/flink/orc/OrcUtils.java,1429,final long t = l * MILLIS_PER_DAY;
+flink-connectors/flink-orc/src/main/java/org/apache/flink/orc/OrcUtils.java,1431,return new java.sql.Date(t - LOCAL_TZ.getOffset(t));
+flink-connectors/flink-orc/src/main/java/org/apache/flink/orc/OrcUtils.java,1434,private static byte[] readBinary(byte[] src, int srcPos, int length) {
+flink-connectors/flink-orc/src/main/java/org/apache/flink/orc/OrcUtils.java,1435,byte[] result = new byte[length];
+flink-connectors/flink-orc/src/main/java/org/apache/flink/orc/OrcUtils.java,1436,System.arraycopy(src, srcPos, result, 0, length);
+flink-connectors/flink-orc/src/main/java/org/apache/flink/orc/OrcUtils.java,1437,return result;
+flink-connectors/flink-orc/src/main/java/org/apache/flink/orc/OrcUtils.java,1440,private static BigDecimal readBigDecimal(HiveDecimalWritable hiveDecimalWritable) {
+flink-connectors/flink-orc/src/main/java/org/apache/flink/orc/OrcUtils.java,1441,HiveDecimal hiveDecimal = hiveDecimalWritable.getHiveDecimal();
+flink-connectors/flink-orc/src/main/java/org/apache/flink/orc/OrcUtils.java,1442,return hiveDecimal.bigDecimalValue();
+flink-connectors/flink-orc/src/main/java/org/apache/flink/orc/OrcUtils.java,1445,private static Timestamp readTimestamp(long time, int nanos) {
+flink-connectors/flink-orc/src/main/java/org/apache/flink/orc/OrcUtils.java,1446,Timestamp ts = new Timestamp(time);
+flink-connectors/flink-orc/src/main/java/org/apache/flink/orc/OrcUtils.java,1447,ts.setNanos(nanos);
+flink-connectors/flink-orc/src/main/java/org/apache/flink/orc/OrcUtils.java,1448,return ts;
+flink-connectors/flink-orc/src/main/java/org/apache/flink/orc/OrcUtils.java,1451,private static HashMap readHashMap(Object[] keyRows, Object[] valueRows, int offset, long length) {
+flink-connectors/flink-orc/src/main/java/org/apache/flink/orc/OrcUtils.java,1452,HashMap<Object, Object> resultMap = new HashMap<>();
+flink-connectors/flink-orc/src/main/java/org/apache/flink/orc/OrcUtils.java,1453,for (int j = 0; j < length; j++) {
+flink-connectors/flink-orc/src/main/java/org/apache/flink/orc/OrcUtils.java,1454,resultMap.put(keyRows[offset], valueRows[offset]);
+flink-connectors/flink-orc/src/main/java/org/apache/flink/orc/OrcUtils.java,1455,offset++;
+flink-connectors/flink-orc/src/main/java/org/apache/flink/orc/OrcUtils.java,1457,return resultMap;
+flink-connectors/flink-orc/src/main/java/org/apache/flink/orc/OrcUtils.java,1460,private static Boolean[] boolArray(int len) {
+flink-connectors/flink-orc/src/main/java/org/apache/flink/orc/OrcUtils.java,1461,return new Boolean[len];
+flink-connectors/flink-orc/src/main/java/org/apache/flink/orc/OrcUtils.java,1464,private static Byte[] byteArray(int len) {
+flink-connectors/flink-orc/src/main/java/org/apache/flink/orc/OrcUtils.java,1465,return new Byte[len];
+flink-connectors/flink-orc/src/main/java/org/apache/flink/orc/OrcUtils.java,1468,private static Short[] shortArray(int len) {
+flink-connectors/flink-orc/src/main/java/org/apache/flink/orc/OrcUtils.java,1469,return new Short[len];
+flink-connectors/flink-orc/src/main/java/org/apache/flink/orc/OrcUtils.java,1472,private static Integer[] intArray(int len) {
+flink-connectors/flink-orc/src/main/java/org/apache/flink/orc/OrcUtils.java,1473,return new Integer[len];
+flink-connectors/flink-orc/src/main/java/org/apache/flink/orc/OrcUtils.java,1476,private static Long[] longArray(int len) {
+flink-connectors/flink-orc/src/main/java/org/apache/flink/orc/OrcUtils.java,1477,return new Long[len];
+flink-connectors/flink-orc/src/main/java/org/apache/flink/orc/OrcUtils.java,1480,private static Float[] floatArray(int len) {
+flink-connectors/flink-orc/src/main/java/org/apache/flink/orc/OrcUtils.java,1481,return new Float[len];
+flink-connectors/flink-orc/src/main/java/org/apache/flink/orc/OrcUtils.java,1484,private static Double[] doubleArray(int len) {
+flink-connectors/flink-orc/src/main/java/org/apache/flink/orc/OrcUtils.java,1485,return new Double[len];
+flink-connectors/flink-orc/src/main/java/org/apache/flink/orc/OrcUtils.java,1488,private static Date[] dateArray(int len) {
+flink-connectors/flink-orc/src/main/java/org/apache/flink/orc/OrcUtils.java,1489,return new Date[len];
+flink-connectors/flink-orc/src/main/java/org/apache/flink/orc/OrcUtils.java,1492,private static byte[][] binaryArray(int len) {
+flink-connectors/flink-orc/src/main/java/org/apache/flink/orc/OrcUtils.java,1493,return new byte[len][];
+flink-connectors/flink-orc/src/main/java/org/apache/flink/orc/OrcUtils.java,1496,private static String[] stringArray(int len) {
+flink-connectors/flink-orc/src/main/java/org/apache/flink/orc/OrcUtils.java,1497,return new String[len];
+flink-connectors/flink-orc/src/main/java/org/apache/flink/orc/OrcUtils.java,1500,private static BigDecimal[] decimalArray(int len) {
+flink-connectors/flink-orc/src/main/java/org/apache/flink/orc/OrcUtils.java,1501,return new BigDecimal[len];
+flink-connectors/flink-orc/src/main/java/org/apache/flink/orc/OrcUtils.java,1504,private static Timestamp[] timestampArray(int len) {
+flink-connectors/flink-orc/src/main/java/org/apache/flink/orc/OrcUtils.java,1505,return new Timestamp[len];
+flink-runtime/src/main/java/org/apache/flink/runtime/metrics/util/MetricUtils.java,86,instantiateNetworkMetrics(statusGroup, network);
+flink-runtime/src/main/java/org/apache/flink/runtime/client/JobSubmissionClientActor.java,21,import akka.actor.ActorRef;
+flink-runtime/src/main/java/org/apache/flink/runtime/client/JobSubmissionClientActor.java,22,import akka.actor.Props;
+flink-runtime/src/main/java/org/apache/flink/runtime/client/JobSubmissionClientActor.java,23,import akka.actor.Status;
+flink-runtime/src/main/java/org/apache/flink/runtime/client/JobSubmissionClientActor.java,24,import akka.dispatch.Futures;
+flink-runtime/src/main/java/org/apache/flink/runtime/client/JobSubmissionClientActor.java,39,import scala.concurrent.duration.FiniteDuration;
+flink-runtime/src/main/java/org/apache/flink/runtime/client/JobSubmissionClientActor.java,43,import java.util.concurrent.Callable;
+flink-runtime/src/main/java/org/apache/flink/runtime/client/JobSubmissionClientActor.java,45,import java.util.concurrent.TimeUnit;
+flink-runtime/src/main/java/org/apache/flink/runtime/client/JobSubmissionClientActor.java,146,Futures.future(new Callable<Object>() {
+flink-runtime/src/main/java/org/apache/flink/runtime/client/JobSubmissionClientActor.java,148,public Object call() throws Exception {
+flink-runtime/src/main/java/org/apache/flink/runtime/client/JobSubmissionClientActor.java,149,final ActorGateway jobManagerGateway = new AkkaActorGateway(jobManager, leaderSessionID);
+flink-runtime/src/main/java/org/apache/flink/runtime/client/JobSubmissionClientActor.java,150,final AkkaJobManagerGateway akkaJobManagerGateway = new AkkaJobManagerGateway(jobManagerGateway);
+flink-runtime/src/main/java/org/apache/flink/runtime/client/JobSubmissionClientActor.java,152,LOG.info("Upload jar files to job manager {}.", jobManager.path());
+flink-runtime/src/main/java/org/apache/flink/runtime/client/JobSubmissionClientActor.java,154,final CompletableFuture<InetSocketAddress> blobServerAddressFuture = JobClient.retrieveBlobServerAddress(
+flink-runtime/src/main/java/org/apache/flink/runtime/client/JobSubmissionClientActor.java,155,akkaJobManagerGateway,
+flink-runtime/src/main/java/org/apache/flink/runtime/client/JobSubmissionClientActor.java,156,Time.milliseconds(timeout.toMillis()));
+flink-runtime/src/main/java/org/apache/flink/runtime/client/JobSubmissionClientActor.java,157,final InetSocketAddress blobServerAddress;
+flink-runtime/src/main/java/org/apache/flink/runtime/client/JobSubmissionClientActor.java,159,try {
+flink-runtime/src/main/java/org/apache/flink/runtime/client/JobSubmissionClientActor.java,160,blobServerAddress = blobServerAddressFuture.get(timeout.toMillis(), TimeUnit.MILLISECONDS);
+flink-runtime/src/main/java/org/apache/flink/runtime/client/JobSubmissionClientActor.java,162,getSelf().tell(
+flink-runtime/src/main/java/org/apache/flink/runtime/client/JobSubmissionClientActor.java,163,decorateMessage(new JobManagerMessages.JobResultFailure(
+flink-runtime/src/main/java/org/apache/flink/runtime/client/JobSubmissionClientActor.java,164,new SerializedThrowable(
+flink-runtime/src/main/java/org/apache/flink/runtime/client/JobSubmissionClientActor.java,165,new JobSubmissionException(
+flink-runtime/src/main/java/org/apache/flink/runtime/client/JobSubmissionClientActor.java,166,jobGraph.getJobID(),
+flink-runtime/src/main/java/org/apache/flink/runtime/client/JobSubmissionClientActor.java,170,)),
+flink-runtime/src/main/java/org/apache/flink/runtime/client/JobSubmissionClientActor.java,171,ActorRef.noSender());
+flink-runtime/src/main/java/org/apache/flink/runtime/client/JobSubmissionClientActor.java,173,return null;
+flink-runtime/src/main/java/org/apache/flink/runtime/client/JobSubmissionClientActor.java,179,getSelf().tell(
+flink-runtime/src/main/java/org/apache/flink/runtime/client/JobSubmissionClientActor.java,180,decorateMessage(new JobManagerMessages.JobResultFailure(
+flink-runtime/src/main/java/org/apache/flink/runtime/client/JobSubmissionClientActor.java,181,new SerializedThrowable(
+flink-runtime/src/main/java/org/apache/flink/runtime/client/JobSubmissionClientActor.java,182,new JobSubmissionException(
+flink-runtime/src/main/java/org/apache/flink/runtime/client/JobSubmissionClientActor.java,183,jobGraph.getJobID(),
+flink-runtime/src/main/java/org/apache/flink/runtime/client/JobSubmissionClientActor.java,187,)),
+flink-runtime/src/main/java/org/apache/flink/runtime/client/JobSubmissionClientActor.java,188,ActorRef.noSender());
+flink-runtime/src/main/java/org/apache/flink/runtime/client/JobSubmissionClientActor.java,190,return null;
+flink-runtime/src/main/java/org/apache/flink/runtime/client/JobSubmissionClientActor.java,193,LOG.info("Submit job to the job manager {}.", jobManager.path());
+flink-runtime/src/main/java/org/apache/flink/runtime/client/JobSubmissionClientActor.java,195,jobManager.tell(
+flink-runtime/src/main/java/org/apache/flink/runtime/client/JobSubmissionClientActor.java,196,decorateMessage(
+flink-runtime/src/main/java/org/apache/flink/runtime/client/JobSubmissionClientActor.java,197,new JobManagerMessages.SubmitJob(
+flink-runtime/src/main/java/org/apache/flink/runtime/client/JobSubmissionClientActor.java,198,jobGraph,
+flink-runtime/src/main/java/org/apache/flink/runtime/client/JobSubmissionClientActor.java,199,ListeningBehaviour.EXECUTION_RESULT_AND_STATE_CHANGES)),
+flink-runtime/src/main/java/org/apache/flink/runtime/client/JobSubmissionClientActor.java,200,getSelf());
+flink-runtime/src/main/java/org/apache/flink/runtime/client/JobSubmissionClientActor.java,204,getContext().system().scheduler().scheduleOnce(
+flink-runtime/src/main/java/org/apache/flink/runtime/client/JobSubmissionClientActor.java,205,timeout,
+flink-runtime/src/main/java/org/apache/flink/runtime/client/JobSubmissionClientActor.java,206,getSelf(),
+flink-runtime/src/main/java/org/apache/flink/runtime/client/JobSubmissionClientActor.java,207,decorateMessage(JobClientMessages.getSubmissionTimeout()),
+flink-runtime/src/main/java/org/apache/flink/runtime/client/JobSubmissionClientActor.java,208,getContext().dispatcher(),
+flink-runtime/src/main/java/org/apache/flink/runtime/client/JobSubmissionClientActor.java,209,ActorRef.noSender());
+flink-runtime/src/main/java/org/apache/flink/runtime/client/JobSubmissionClientActor.java,211,return null;
+flink-streaming-java/src/main/java/org/apache/flink/streaming/api/operators/async/AsyncWaitOperator.java,190,this.emitter = new Emitter<>(checkpointingLock, output, queue, this);
+flink-streaming-java/src/main/java/org/apache/flink/streaming/api/operators/async/AsyncWaitOperator.java,193,this.emitterThread = new Thread(emitter, "AsyncIO-Emitter-Thread (" + getOperatorName() + ')');
+flink-streaming-java/src/main/java/org/apache/flink/streaming/api/operators/async/AsyncWaitOperator.java,194,emitterThread.setDaemon(true);
+flink-streaming-java/src/main/java/org/apache/flink/streaming/api/operators/async/AsyncWaitOperator.java,195,emitterThread.start();
+flink-connectors/flink-connector-filesystem/src/main/java/org/apache/flink/streaming/connectors/fs/bucketing/BucketingSink.java,1125,final org.apache.flink.core.fs.FileSystem flinkFs = org.apache.flink.core.fs.FileSystem.get(path.toUri());
+flink-runtime/src/main/java/org/apache/flink/runtime/executiongraph/AccessExecutionGraph.java,73,ErrorInfo getFailureCause();
+flink-runtime/src/main/java/org/apache/flink/runtime/executiongraph/ArchivedExecutionGraph.java,146,public ErrorInfo getFailureCause() {
+flink-runtime/src/main/java/org/apache/flink/runtime/executiongraph/ErrorInfo.java,21,import org.apache.flink.util.ExceptionUtils;
+flink-runtime/src/main/java/org/apache/flink/runtime/executiongraph/ErrorInfo.java,24,import java.io.IOException;
+flink-runtime/src/main/java/org/apache/flink/runtime/executiongraph/ErrorInfo.java,25,import java.io.ObjectOutputStream;
+flink-runtime/src/main/java/org/apache/flink/runtime/executiongraph/ErrorInfo.java,35,private final transient Throwable exception;
+flink-runtime/src/main/java/org/apache/flink/runtime/executiongraph/ErrorInfo.java,36,private final long timestamp;
+flink-runtime/src/main/java/org/apache/flink/runtime/executiongraph/ErrorInfo.java,38,private volatile String exceptionAsString;
+flink-runtime/src/main/java/org/apache/flink/runtime/executiongraph/ErrorInfo.java,44,this.exception = exception;
+flink-runtime/src/main/java/org/apache/flink/runtime/executiongraph/ErrorInfo.java,53,Throwable getException() {
+flink-runtime/src/main/java/org/apache/flink/runtime/executiongraph/ErrorInfo.java,54,return exception;
+flink-runtime/src/main/java/org/apache/flink/runtime/executiongraph/ErrorInfo.java,63,if (exceptionAsString == null) {
+flink-runtime/src/main/java/org/apache/flink/runtime/executiongraph/ErrorInfo.java,64,exceptionAsString = ExceptionUtils.stringifyException(exception);
+flink-runtime/src/main/java/org/apache/flink/runtime/executiongraph/ErrorInfo.java,66,return exceptionAsString;
+flink-runtime/src/main/java/org/apache/flink/runtime/executiongraph/ErrorInfo.java,78,private void writeObject(ObjectOutputStream out) throws IOException {
+flink-runtime/src/main/java/org/apache/flink/runtime/executiongraph/ErrorInfo.java,80,if (exceptionAsString == null) {
+flink-runtime/src/main/java/org/apache/flink/runtime/executiongraph/ErrorInfo.java,81,exceptionAsString = ExceptionUtils.stringifyException(exception);
+flink-runtime/src/main/java/org/apache/flink/runtime/executiongraph/ErrorInfo.java,83,out.defaultWriteObject();
+flink-runtime/src/main/java/org/apache/flink/runtime/executiongraph/ExecutionGraph.java,267,private volatile ErrorInfo failureCause;
+flink-runtime/src/main/java/org/apache/flink/runtime/executiongraph/ExecutionGraph.java,623,public ErrorInfo getFailureCause() {
+flink-runtime/src/main/java/org/apache/flink/runtime/executiongraph/ExecutionGraph.java,1029,suspend(new ErrorInfo(suspensionCause, System.currentTimeMillis()));
+flink-runtime/src/main/java/org/apache/flink/runtime/executiongraph/ExecutionGraph.java,1043,public void suspend(ErrorInfo errorInfo) {
+flink-runtime/src/main/java/org/apache/flink/runtime/executiongraph/ExecutionGraph.java,1044,Throwable suspensionCause = errorInfo != null
+flink-runtime/src/main/java/org/apache/flink/runtime/executiongraph/ExecutionGraph.java,1046,: null;
+flink-runtime/src/main/java/org/apache/flink/runtime/executiongraph/ExecutionGraph.java,1055,this.failureCause = errorInfo;
+flink-runtime/src/main/java/org/apache/flink/runtime/executiongraph/ExecutionGraph.java,1075,public void failGlobal(Throwable error) {
+flink-runtime/src/main/java/org/apache/flink/runtime/executiongraph/ExecutionGraph.java,1076,failGlobal(new ErrorInfo(error, System.currentTimeMillis()));
+flink-runtime/src/main/java/org/apache/flink/runtime/executiongraph/ExecutionGraph.java,1090,public void failGlobal(ErrorInfo errorInfo) {
+flink-runtime/src/main/java/org/apache/flink/runtime/executiongraph/ExecutionGraph.java,1091,Throwable t = errorInfo != null
+flink-runtime/src/main/java/org/apache/flink/runtime/executiongraph/ExecutionGraph.java,1093,: null;
+flink-runtime/src/main/java/org/apache/flink/runtime/executiongraph/ExecutionGraph.java,1106,this.failureCause = errorInfo;
+flink-runtime/src/main/java/org/apache/flink/runtime/executiongraph/ExecutionGraph.java,1114,this.failureCause = errorInfo;
+flink-runtime/src/main/java/org/apache/flink/runtime/executiongraph/ExecutionGraph.java,1402,Throwable failureCause = this.failureCause != null
+flink-runtime/src/main/java/org/apache/flink/runtime/executiongraph/ExecutionGraph.java,1404,: null;
+flink-runtime/src/main/java/org/apache/flink/runtime/executiongraph/ExecutionGraph.java,1681,failGlobal(new ErrorInfo(ex, timestamp));
+flink-runtime/src/main/java/org/apache/flink/runtime/executiongraph/ExecutionGraph.java,1713,failureCause,
+flink-runtime/src/main/java/org/apache/flink/runtime/rest/handler/job/JobExceptionsHandler.java,68,ErrorInfo rootException = executionGraph.getFailureCause();
+flink-runtime/src/main/java/org/apache/flink/runtime/rest/handler/legacy/JobExceptionsHandler.java,95,ErrorInfo rootException = graph.getFailureCause();
+flink-libraries/flink-cep/src/main/java/org/apache/flink/cep/nfa/SharedBuffer.java,194,boolean pruned = false;
+flink-libraries/flink-cep/src/main/java/org/apache/flink/cep/nfa/SharedBuffer.java,199,if (page.prune(pruningTimestamp)) {
+flink-libraries/flink-cep/src/main/java/org/apache/flink/cep/nfa/SharedBuffer.java,200,pruned = true;
+flink-libraries/flink-cep/src/main/java/org/apache/flink/cep/nfa/SharedBuffer.java,209,return pruned;
+flink-libraries/flink-cep/src/main/java/org/apache/flink/cep/nfa/SharedBuffer.java,456,public boolean prune(long pruningTimestamp) {
+flink-libraries/flink-cep/src/main/java/org/apache/flink/cep/nfa/SharedBuffer.java,459,boolean pruned = false;
+flink-libraries/flink-cep/src/main/java/org/apache/flink/cep/nfa/SharedBuffer.java,466,pruned = true;
+flink-libraries/flink-cep/src/main/java/org/apache/flink/cep/nfa/SharedBuffer.java,472,return pruned;
+flink-runtime/src/main/java/org/apache/flink/runtime/io/network/partition/SpillableSubpartition.java,145,for (Buffer buffer : buffers) {
+flink-runtime/src/main/java/org/apache/flink/runtime/io/network/partition/SpillableSubpartition.java,146,buffer.recycle();
+flink-runtime/src/main/java/org/apache/flink/runtime/io/network/partition/SpillableSubpartition.java,148,buffers.clear();
+flink-core/src/main/java/org/apache/flink/types/parser/BooleanParser.java,40,public int parseField(byte[] bytes, int startPos, int limit, byte[] delim, Boolean reuse) {
+flink-core/src/main/java/org/apache/flink/types/parser/BooleanParser.java,42,final int delimLimit = limit - delim.length + 1;
+flink-core/src/main/java/org/apache/flink/types/parser/BooleanParser.java,44,int i = startPos;
+flink-core/src/main/java/org/apache/flink/types/parser/BooleanParser.java,46,while (i < limit) {
+flink-core/src/main/java/org/apache/flink/types/parser/BooleanParser.java,47,if (i < delimLimit && delimiterNext(bytes, i, delim)) {
+flink-core/src/main/java/org/apache/flink/types/parser/BooleanParser.java,48,if (i == startPos) {
+flink-core/src/main/java/org/apache/flink/types/parser/BooleanParser.java,49,setErrorState(ParseErrorState.EMPTY_COLUMN);
+flink-core/src/main/java/org/apache/flink/types/parser/BooleanParser.java,50,return -1;
+flink-core/src/main/java/org/apache/flink/types/parser/BooleanParser.java,52,break;
+flink-core/src/main/java/org/apache/flink/types/parser/BooleanParser.java,54,i++;
+flink-core/src/main/java/org/apache/flink/types/parser/BooleanParser.java,60,return (i == limit) ? limit : i + delim.length;
+flink-core/src/main/java/org/apache/flink/types/parser/BooleanParser.java,67,return (i == limit) ? limit : i + delim.length;
+flink-core/src/main/java/org/apache/flink/types/parser/FieldParser.java,213,if (endPos == startPos) {
+flink-core/src/main/java/org/apache/flink/types/parser/FieldParser.java,214,setErrorState(ParseErrorState.EMPTY_COLUMN);
+flink-core/src/main/java/org/apache/flink/types/parser/FieldParser.java,215,return -1;
+flink-core/src/main/java/org/apache/flink/types/parser/IntParser.java,38,public int parseField(byte[] bytes, int startPos, int limit, byte[] delimiter, Integer
+flink-core/src/main/java/org/apache/flink/types/parser/IntParser.java,39,reusable) {
+flink-core/src/main/java/org/apache/flink/types/parser/StringParser.java,87,if (limit == startPos) {
+flink-core/src/main/java/org/apache/flink/types/parser/StringParser.java,88,setErrorState(ParseErrorState.EMPTY_COLUMN); // mark empty column
+flink-core/src/main/java/org/apache/flink/types/parser/StringValueParser.java,93,if (limit == startPos) {
+flink-core/src/main/java/org/apache/flink/types/parser/StringValueParser.java,94,setErrorState(ParseErrorState.EMPTY_COLUMN); // mark empty column
+flink-libraries/flink-gelly/src/main/java/org/apache/flink/graph/library/CommunityDetection.java,147,double maxScore = Double.MIN_VALUE;
+flink-clients/src/main/java/org/apache/flink/client/program/rest/RestClusterClient.java,92,org.apache.flink.runtime.concurrent.Executors.gracefulShutdown(5, TimeUnit.SECONDS, this.executorService);
+flink-mesos/src/main/java/org/apache/flink/mesos/runtime/clusterframework/MesosApplicationMasterRunner.java,442,org.apache.flink.runtime.concurrent.Executors.gracefulShutdown(
+flink-queryable-state/flink-queryable-state-client-java/src/main/java/org/apache/flink/queryablestate/network/AbstractServerBase.java,182,Preconditions.checkState(serverAddress == null,
+flink-queryable-state/flink-queryable-state-client-java/src/main/java/org/apache/flink/queryablestate/network/AbstractServerBase.java,183,serverName + " is already running @ " + serverAddress + '.');
+flink-queryable-state/flink-queryable-state-client-java/src/main/java/org/apache/flink/queryablestate/network/AbstractServerBase.java,254,shutdown();
+flink-queryable-state/flink-queryable-state-client-java/src/main/java/org/apache/flink/queryablestate/network/AbstractServerBase.java,263,public void shutdown() {
+flink-queryable-state/flink-queryable-state-client-java/src/main/java/org/apache/flink/queryablestate/network/AbstractServerBase.java,264,log.info("Shutting down {} @ {}", serverName, serverAddress);
+flink-queryable-state/flink-queryable-state-client-java/src/main/java/org/apache/flink/queryablestate/network/AbstractServerBase.java,266,if (handler != null) {
+flink-queryable-state/flink-queryable-state-client-java/src/main/java/org/apache/flink/queryablestate/network/AbstractServerBase.java,267,handler.shutdown();
+flink-queryable-state/flink-queryable-state-client-java/src/main/java/org/apache/flink/queryablestate/network/AbstractServerBase.java,268,handler = null;
+flink-queryable-state/flink-queryable-state-client-java/src/main/java/org/apache/flink/queryablestate/network/AbstractServerBase.java,271,if (queryExecutor != null) {
+flink-queryable-state/flink-queryable-state-client-java/src/main/java/org/apache/flink/queryablestate/network/AbstractServerBase.java,272,queryExecutor.shutdown();
+flink-queryable-state/flink-queryable-state-client-java/src/main/java/org/apache/flink/queryablestate/network/AbstractServerBase.java,275,if (bootstrap != null) {
+flink-queryable-state/flink-queryable-state-client-java/src/main/java/org/apache/flink/queryablestate/network/AbstractServerBase.java,276,EventLoopGroup group = bootstrap.group();
+flink-queryable-state/flink-queryable-state-client-java/src/main/java/org/apache/flink/queryablestate/network/AbstractServerBase.java,277,if (group != null) {
+flink-queryable-state/flink-queryable-state-client-java/src/main/java/org/apache/flink/queryablestate/network/AbstractServerBase.java,278,group.shutdownGracefully(0L, 10L, TimeUnit.SECONDS);
+flink-queryable-state/flink-queryable-state-client-java/src/main/java/org/apache/flink/queryablestate/network/AbstractServerBase.java,281,serverAddress = null;
+flink-queryable-state/flink-queryable-state-client-java/src/main/java/org/apache/flink/queryablestate/network/AbstractServerHandler.java,188,public abstract void shutdown();
+flink-queryable-state/flink-queryable-state-runtime/src/main/java/org/apache/flink/queryablestate/client/proxy/KvStateClientProxyHandler.java,209,final CompletableFuture<KvStateLocation> locationFuture = FutureUtils.toJava(
+flink-queryable-state/flink-queryable-state-runtime/src/main/java/org/apache/flink/queryablestate/client/proxy/KvStateClientProxyHandler.java,211,.mapTo(ClassTag$.MODULE$.<KvStateLocation>apply(KvStateLocation.class)));
+flink-queryable-state/flink-queryable-state-runtime/src/main/java/org/apache/flink/queryablestate/client/proxy/KvStateClientProxyHandler.java,213,lookupCache.put(cacheKey, locationFuture);
+flink-queryable-state/flink-queryable-state-runtime/src/main/java/org/apache/flink/queryablestate/client/proxy/KvStateClientProxyHandler.java,214,return locationFuture;
+flink-queryable-state/flink-queryable-state-runtime/src/main/java/org/apache/flink/queryablestate/client/proxy/KvStateClientProxyHandler.java,219,public void shutdown() {
+flink-queryable-state/flink-queryable-state-runtime/src/main/java/org/apache/flink/queryablestate/client/proxy/KvStateClientProxyHandler.java,220,kvStateClient.shutdown();
+flink-queryable-state/flink-queryable-state-runtime/src/main/java/org/apache/flink/queryablestate/client/proxy/KvStateClientProxyImpl.java,99,super.shutdown();
+flink-queryable-state/flink-queryable-state-runtime/src/main/java/org/apache/flink/queryablestate/server/KvStateServerHandler.java,104,public void shutdown() {
+flink-queryable-state/flink-queryable-state-runtime/src/main/java/org/apache/flink/queryablestate/server/KvStateServerImpl.java,104,super.shutdown();
+flink-runtime/src/main/java/org/apache/flink/runtime/concurrent/Executors.java,26,import java.util.concurrent.ExecutorService;
+flink-runtime/src/main/java/org/apache/flink/runtime/concurrent/Executors.java,27,import java.util.concurrent.TimeUnit;
+flink-runtime/src/main/java/org/apache/flink/runtime/concurrent/Executors.java,107,public static void gracefulShutdown(long timeout, TimeUnit unit, ExecutorService... executorServices) {
+flink-runtime/src/main/java/org/apache/flink/runtime/concurrent/Executors.java,108,for (ExecutorService executorService: executorServices) {
+flink-runtime/src/main/java/org/apache/flink/runtime/concurrent/Executors.java,109,executorService.shutdown();
+flink-runtime/src/main/java/org/apache/flink/runtime/concurrent/Executors.java,112,boolean wasInterrupted = false;
+flink-runtime/src/main/java/org/apache/flink/runtime/concurrent/Executors.java,113,final long endTime = unit.toMillis(timeout) + System.currentTimeMillis();
+flink-runtime/src/main/java/org/apache/flink/runtime/concurrent/Executors.java,114,long timeLeft = unit.toMillis(timeout);
+flink-runtime/src/main/java/org/apache/flink/runtime/concurrent/Executors.java,115,boolean hasTimeLeft = timeLeft > 0L;
+flink-runtime/src/main/java/org/apache/flink/runtime/concurrent/Executors.java,117,for (ExecutorService executorService: executorServices) {
+flink-runtime/src/main/java/org/apache/flink/runtime/concurrent/Executors.java,118,if (wasInterrupted || !hasTimeLeft) {
+flink-runtime/src/main/java/org/apache/flink/runtime/concurrent/Executors.java,119,executorService.shutdownNow();
+flink-runtime/src/main/java/org/apache/flink/runtime/concurrent/Executors.java,121,try {
+flink-runtime/src/main/java/org/apache/flink/runtime/concurrent/Executors.java,122,if (!executorService.awaitTermination(timeLeft, TimeUnit.MILLISECONDS)) {
+flink-runtime/src/main/java/org/apache/flink/runtime/concurrent/Executors.java,123,LOG.warn("ExecutorService did not terminate in time. Shutting it down now.");
+flink-runtime/src/main/java/org/apache/flink/runtime/concurrent/Executors.java,124,executorService.shutdownNow();
+flink-runtime/src/main/java/org/apache/flink/runtime/concurrent/Executors.java,127,LOG.warn("Interrupted while shutting down executor services. Shutting all " +
+flink-runtime/src/main/java/org/apache/flink/runtime/concurrent/Executors.java,129,executorService.shutdownNow();
+flink-runtime/src/main/java/org/apache/flink/runtime/concurrent/Executors.java,131,wasInterrupted = true;
+flink-runtime/src/main/java/org/apache/flink/runtime/concurrent/Executors.java,133,Thread.currentThread().interrupt();
+flink-runtime/src/main/java/org/apache/flink/runtime/concurrent/Executors.java,136,timeLeft = endTime - System.currentTimeMillis();
+flink-runtime/src/main/java/org/apache/flink/runtime/concurrent/Executors.java,137,hasTimeLeft = timeLeft > 0L;
+flink-runtime/src/main/java/org/apache/flink/runtime/taskexecutor/TaskManagerRunner.java,28,import org.apache.flink.runtime.concurrent.Executors;
+flink-runtime/src/main/java/org/apache/flink/runtime/taskexecutor/TaskManagerRunner.java,168,Executors.gracefulShutdown(timeout.toMilliseconds(), TimeUnit.MILLISECONDS, executor);
+flink-yarn/src/main/java/org/apache/flink/yarn/YarnApplicationMasterRunner.java,475,org.apache.flink.runtime.concurrent.Executors.gracefulShutdown(
+flink-queryable-state/flink-queryable-state-client-java/src/main/java/org/apache/flink/queryablestate/client/QueryableStateClient.java,112,public void shutdown() {
+flink-queryable-state/flink-queryable-state-client-java/src/main/java/org/apache/flink/queryablestate/client/QueryableStateClient.java,113,client.shutdown();
+flink-queryable-state/flink-queryable-state-client-java/src/main/java/org/apache/flink/queryablestate/network/Client.java,53,import java.util.concurrent.atomic.AtomicBoolean;
+flink-queryable-state/flink-queryable-state-client-java/src/main/java/org/apache/flink/queryablestate/network/Client.java,86,private final AtomicBoolean shutDown = new AtomicBoolean();
+flink-queryable-state/flink-queryable-state-client-java/src/main/java/org/apache/flink/queryablestate/network/Client.java,136,if (shutDown.get()) {
+flink-queryable-state/flink-queryable-state-client-java/src/main/java/org/apache/flink/queryablestate/network/Client.java,170,public void shutdown() {
+flink-queryable-state/flink-queryable-state-client-java/src/main/java/org/apache/flink/queryablestate/network/Client.java,171,if (shutDown.compareAndSet(false, true)) {
+flink-queryable-state/flink-queryable-state-client-java/src/main/java/org/apache/flink/queryablestate/network/Client.java,174,conn.getValue().close();
+flink-queryable-state/flink-queryable-state-client-java/src/main/java/org/apache/flink/queryablestate/network/Client.java,180,conn.getValue().close();
+flink-queryable-state/flink-queryable-state-client-java/src/main/java/org/apache/flink/queryablestate/network/Client.java,184,if (bootstrap != null) {
+flink-queryable-state/flink-queryable-state-client-java/src/main/java/org/apache/flink/queryablestate/network/Client.java,185,EventLoopGroup group = bootstrap.group();
+flink-queryable-state/flink-queryable-state-client-java/src/main/java/org/apache/flink/queryablestate/network/Client.java,186,if (group != null) {
+flink-queryable-state/flink-queryable-state-client-java/src/main/java/org/apache/flink/queryablestate/network/Client.java,187,group.shutdownGracefully(0L, 10L, TimeUnit.SECONDS);
+flink-queryable-state/flink-queryable-state-client-java/src/main/java/org/apache/flink/queryablestate/network/Client.java,213,private boolean closed;
+flink-queryable-state/flink-queryable-state-client-java/src/main/java/org/apache/flink/queryablestate/network/Client.java,275,if (closed || failureCause != null) {
+flink-queryable-state/flink-queryable-state-client-java/src/main/java/org/apache/flink/queryablestate/network/Client.java,303,if (shutDown.get()) {
+flink-queryable-state/flink-queryable-state-client-java/src/main/java/org/apache/flink/queryablestate/network/Client.java,315,private void close() {
+flink-queryable-state/flink-queryable-state-client-java/src/main/java/org/apache/flink/queryablestate/network/Client.java,316,close(new ClosedChannelException());
+flink-queryable-state/flink-queryable-state-client-java/src/main/java/org/apache/flink/queryablestate/network/Client.java,323,private void close(Throwable cause) {
+flink-queryable-state/flink-queryable-state-client-java/src/main/java/org/apache/flink/queryablestate/network/Client.java,324,synchronized (connectLock) {
+flink-queryable-state/flink-queryable-state-client-java/src/main/java/org/apache/flink/queryablestate/network/Client.java,325,if (!closed) {
+flink-queryable-state/flink-queryable-state-client-java/src/main/java/org/apache/flink/queryablestate/network/Client.java,331,established.close();
+flink-queryable-state/flink-queryable-state-client-java/src/main/java/org/apache/flink/queryablestate/network/Client.java,338,closed = true;
+flink-queryable-state/flink-queryable-state-client-java/src/main/java/org/apache/flink/queryablestate/network/Client.java,387,private final AtomicReference<Throwable> failureCause = new AtomicReference<>();
+flink-queryable-state/flink-queryable-state-client-java/src/main/java/org/apache/flink/queryablestate/network/Client.java,415,void close() {
+flink-queryable-state/flink-queryable-state-client-java/src/main/java/org/apache/flink/queryablestate/network/Client.java,416,close(new ClosedChannelException());
+flink-queryable-state/flink-queryable-state-client-java/src/main/java/org/apache/flink/queryablestate/network/Client.java,425,private boolean close(Throwable cause) {
+flink-queryable-state/flink-queryable-state-client-java/src/main/java/org/apache/flink/queryablestate/network/Client.java,426,if (failureCause.compareAndSet(null, cause)) {
+flink-queryable-state/flink-queryable-state-client-java/src/main/java/org/apache/flink/queryablestate/network/Client.java,427,channel.close();
+flink-queryable-state/flink-queryable-state-client-java/src/main/java/org/apache/flink/queryablestate/network/Client.java,428,stats.reportInactiveConnection();
+flink-queryable-state/flink-queryable-state-client-java/src/main/java/org/apache/flink/queryablestate/network/Client.java,430,for (long requestId : pendingRequests.keySet()) {
+flink-queryable-state/flink-queryable-state-client-java/src/main/java/org/apache/flink/queryablestate/network/Client.java,431,TimestampedCompletableFuture pending = pendingRequests.remove(requestId);
+flink-queryable-state/flink-queryable-state-client-java/src/main/java/org/apache/flink/queryablestate/network/Client.java,432,if (pending != null && pending.completeExceptionally(cause)) {
+flink-queryable-state/flink-queryable-state-client-java/src/main/java/org/apache/flink/queryablestate/network/Client.java,433,stats.reportFailedRequest();
+flink-queryable-state/flink-queryable-state-client-java/src/main/java/org/apache/flink/queryablestate/network/Client.java,436,return true;
+flink-queryable-state/flink-queryable-state-client-java/src/main/java/org/apache/flink/queryablestate/network/Client.java,438,return false;
+flink-queryable-state/flink-queryable-state-client-java/src/main/java/org/apache/flink/queryablestate/network/Client.java,470,Throwable failure = failureCause.get();
+flink-queryable-state/flink-queryable-state-client-java/src/main/java/org/apache/flink/queryablestate/network/Client.java,471,if (failure != null) {
+flink-queryable-state/flink-queryable-state-client-java/src/main/java/org/apache/flink/queryablestate/network/Client.java,475,if (pending != null && pending.completeExceptionally(failure)) {
+flink-queryable-state/flink-queryable-state-client-java/src/main/java/org/apache/flink/queryablestate/network/Client.java,476,stats.reportFailedRequest();
+flink-queryable-state/flink-queryable-state-client-java/src/main/java/org/apache/flink/queryablestate/network/Client.java,489,if (pending != null && pending.complete(response)) {
+flink-queryable-state/flink-queryable-state-client-java/src/main/java/org/apache/flink/queryablestate/network/Client.java,498,if (pending != null && pending.completeExceptionally(cause)) {
+flink-queryable-state/flink-queryable-state-client-java/src/main/java/org/apache/flink/queryablestate/network/Client.java,505,if (close(cause)) {
+flink-queryable-state/flink-queryable-state-client-java/src/main/java/org/apache/flink/queryablestate/network/Client.java,508,establishedConnections.remove(serverAddress, this);

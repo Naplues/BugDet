@@ -1,0 +1,632 @@
+File,Line_number,SRC
+bookkeeper-server/src/main/java/org/apache/bookkeeper/net/ScriptBasedMapping.java,166,for (int i = 0; i < names.size(); i++) {
+bookkeeper-server/src/main/java/org/apache/bookkeeper/net/ScriptBasedMapping.java,167,m.add(NetworkTopology.DEFAULT_RACK);
+bookkeeper-server/src/main/java/org/apache/bookkeeper/net/ScriptBasedMapping.java,169,return m;
+bookkeeper-server/src/main/java/org/apache/bookkeeper/util/Main.java,32,System.err.println("USAGE: bookeeper client|bookie");
+bookkeeper-server/src/main/java/org/apache/bookkeeper/bookie/EntryLogger.java,715,for (BufferedLogChannel channel : channels) {
+bookkeeper-server/src/main/java/org/apache/bookkeeper/bookie/EntryLogger.java,716,channel.flush(true);
+bookkeeper-server/src/main/java/org/apache/bookkeeper/tools/BookKeeperTools.java,69,if (args.length < 3) {
+bookkeeper-server/src/main/java/org/apache/bookkeeper/bookie/Bookie.java,53,import org.apache.bookkeeper.jmx.BKMBeanInfo;
+bookkeeper-server/src/main/java/org/apache/bookkeeper/bookie/Bookie.java,54,import org.apache.bookkeeper.jmx.BKMBeanRegistry;
+bookkeeper-server/src/main/java/org/apache/bookkeeper/bookie/Bookie.java,86,import com.google.common.annotations.VisibleForTesting;
+bookkeeper-server/src/main/java/org/apache/bookkeeper/bookie/Bookie.java,140,BookieBean jmxBookieBean;
+bookkeeper-server/src/main/java/org/apache/bookkeeper/bookie/Bookie.java,141,BKMBeanInfo jmxLedgerStorageBean;
+bookkeeper-server/src/main/java/org/apache/bookkeeper/bookie/Bookie.java,703,public void registerJMX(BKMBeanInfo parent) {
+bookkeeper-server/src/main/java/org/apache/bookkeeper/bookie/Bookie.java,704,try {
+bookkeeper-server/src/main/java/org/apache/bookkeeper/bookie/Bookie.java,705,jmxBookieBean = new BookieBean(this);
+bookkeeper-server/src/main/java/org/apache/bookkeeper/bookie/Bookie.java,706,BKMBeanRegistry.getInstance().register(jmxBookieBean, parent);
+bookkeeper-server/src/main/java/org/apache/bookkeeper/bookie/Bookie.java,708,try {
+bookkeeper-server/src/main/java/org/apache/bookkeeper/bookie/Bookie.java,709,jmxLedgerStorageBean = this.ledgerStorage.getJMXBean();
+bookkeeper-server/src/main/java/org/apache/bookkeeper/bookie/Bookie.java,710,if (jmxLedgerStorageBean != null) {
+bookkeeper-server/src/main/java/org/apache/bookkeeper/bookie/Bookie.java,711,BKMBeanRegistry.getInstance().register(jmxLedgerStorageBean, jmxBookieBean);
+bookkeeper-server/src/main/java/org/apache/bookkeeper/bookie/Bookie.java,714,LOG.warn("Failed to register with JMX for ledger cache", e);
+bookkeeper-server/src/main/java/org/apache/bookkeeper/bookie/Bookie.java,715,jmxLedgerStorageBean = null;
+bookkeeper-server/src/main/java/org/apache/bookkeeper/bookie/Bookie.java,718,LOG.warn("Failed to register with JMX", e);
+bookkeeper-server/src/main/java/org/apache/bookkeeper/bookie/Bookie.java,719,jmxBookieBean = null;
+bookkeeper-server/src/main/java/org/apache/bookkeeper/bookie/Bookie.java,726,public void unregisterJMX() {
+bookkeeper-server/src/main/java/org/apache/bookkeeper/bookie/Bookie.java,727,try {
+bookkeeper-server/src/main/java/org/apache/bookkeeper/bookie/Bookie.java,728,if (jmxLedgerStorageBean != null) {
+bookkeeper-server/src/main/java/org/apache/bookkeeper/bookie/Bookie.java,729,BKMBeanRegistry.getInstance().unregister(jmxLedgerStorageBean);
+bookkeeper-server/src/main/java/org/apache/bookkeeper/bookie/Bookie.java,732,LOG.warn("Failed to unregister with JMX", e);
+bookkeeper-server/src/main/java/org/apache/bookkeeper/bookie/Bookie.java,734,try {
+bookkeeper-server/src/main/java/org/apache/bookkeeper/bookie/Bookie.java,735,if (jmxBookieBean != null) {
+bookkeeper-server/src/main/java/org/apache/bookkeeper/bookie/Bookie.java,736,BKMBeanRegistry.getInstance().unregister(jmxBookieBean);
+bookkeeper-server/src/main/java/org/apache/bookkeeper/bookie/Bookie.java,739,LOG.warn("Failed to unregister with JMX", e);
+bookkeeper-server/src/main/java/org/apache/bookkeeper/bookie/Bookie.java,741,jmxBookieBean = null;
+bookkeeper-server/src/main/java/org/apache/bookkeeper/bookie/Bookie.java,742,jmxLedgerStorageBean = null;
+bookkeeper-server/src/main/java/org/apache/bookkeeper/bookie/BookieBean.java,19,package org.apache.bookkeeper.bookie;
+bookkeeper-server/src/main/java/org/apache/bookkeeper/bookie/BookieBean.java,21,import java.io.File;
+bookkeeper-server/src/main/java/org/apache/bookkeeper/bookie/BookieBean.java,23,import org.apache.bookkeeper.jmx.BKMBeanInfo;
+bookkeeper-server/src/main/java/org/apache/bookkeeper/bookie/BookieBean.java,28,public class BookieBean implements BookieMXBean, BKMBeanInfo {
+bookkeeper-server/src/main/java/org/apache/bookkeeper/bookie/BookieBean.java,30,protected Bookie bk;
+bookkeeper-server/src/main/java/org/apache/bookkeeper/bookie/BookieBean.java,32,public BookieBean(Bookie bk) {
+bookkeeper-server/src/main/java/org/apache/bookkeeper/bookie/BookieBean.java,33,this.bk = bk;
+bookkeeper-server/src/main/java/org/apache/bookkeeper/bookie/BookieBean.java,37,public String getName() {
+bookkeeper-server/src/main/java/org/apache/bookkeeper/bookie/BookieBean.java,38,return "Bookie";
+bookkeeper-server/src/main/java/org/apache/bookkeeper/bookie/BookieBean.java,42,public boolean isHidden() {
+bookkeeper-server/src/main/java/org/apache/bookkeeper/bookie/BookieBean.java,43,return false;
+bookkeeper-server/src/main/java/org/apache/bookkeeper/bookie/BookieBean.java,47,public int getQueueLength() {
+bookkeeper-server/src/main/java/org/apache/bookkeeper/bookie/BookieMXBean.java,19,package org.apache.bookkeeper.bookie;
+bookkeeper-server/src/main/java/org/apache/bookkeeper/bookie/BookieMXBean.java,21,import java.io.File;
+bookkeeper-server/src/main/java/org/apache/bookkeeper/bookie/BookieMXBean.java,26,public interface BookieMXBean {
+bookkeeper-server/src/main/java/org/apache/bookkeeper/bookie/BookieMXBean.java,30,public int getQueueLength();
+bookkeeper-server/src/main/java/org/apache/bookkeeper/bookie/InterleavedLedgerStorage.java,39,import org.apache.bookkeeper.jmx.BKMBeanInfo;
+bookkeeper-server/src/main/java/org/apache/bookkeeper/bookie/InterleavedLedgerStorage.java,385,public BKMBeanInfo getJMXBean() {
+bookkeeper-server/src/main/java/org/apache/bookkeeper/bookie/InterleavedLedgerStorage.java,386,return ledgerCache.getJMXBean();
+bookkeeper-server/src/main/java/org/apache/bookkeeper/bookie/LedgerCache.java,49,LedgerCacheBean getJMXBean();
+bookkeeper-server/src/main/java/org/apache/bookkeeper/bookie/LedgerCacheBean.java,19,package org.apache.bookkeeper.bookie;
+bookkeeper-server/src/main/java/org/apache/bookkeeper/bookie/LedgerCacheBean.java,21,import org.apache.bookkeeper.jmx.BKMBeanInfo;
+bookkeeper-server/src/main/java/org/apache/bookkeeper/bookie/LedgerCacheBean.java,26,public interface LedgerCacheBean extends LedgerCacheMXBean, BKMBeanInfo {
+bookkeeper-server/src/main/java/org/apache/bookkeeper/bookie/LedgerCacheImpl.java,140,public LedgerCacheBean getJMXBean() {
+bookkeeper-server/src/main/java/org/apache/bookkeeper/bookie/LedgerCacheImpl.java,141,return new LedgerCacheBean() {
+bookkeeper-server/src/main/java/org/apache/bookkeeper/bookie/LedgerCacheImpl.java,143,public String getName() {
+bookkeeper-server/src/main/java/org/apache/bookkeeper/bookie/LedgerCacheImpl.java,144,return "LedgerCache";
+bookkeeper-server/src/main/java/org/apache/bookkeeper/bookie/LedgerCacheImpl.java,148,public boolean isHidden() {
+bookkeeper-server/src/main/java/org/apache/bookkeeper/bookie/LedgerCacheImpl.java,149,return false;
+bookkeeper-server/src/main/java/org/apache/bookkeeper/bookie/LedgerCacheImpl.java,153,public int getPageCount() {
+bookkeeper-server/src/main/java/org/apache/bookkeeper/bookie/LedgerCacheImpl.java,154,return LedgerCacheImpl.this.indexPageManager.getNumUsedPages();
+bookkeeper-server/src/main/java/org/apache/bookkeeper/bookie/LedgerCacheImpl.java,158,public int getPageSize() {
+bookkeeper-server/src/main/java/org/apache/bookkeeper/bookie/LedgerCacheImpl.java,159,return LedgerCacheImpl.this.getPageSize();
+bookkeeper-server/src/main/java/org/apache/bookkeeper/bookie/LedgerCacheImpl.java,163,public int getOpenFileLimit() {
+bookkeeper-server/src/main/java/org/apache/bookkeeper/bookie/LedgerCacheImpl.java,164,return LedgerCacheImpl.this.indexPersistenceManager.getOpenFileLimit();
+bookkeeper-server/src/main/java/org/apache/bookkeeper/bookie/LedgerCacheImpl.java,168,public int getPageLimit() {
+bookkeeper-server/src/main/java/org/apache/bookkeeper/bookie/LedgerCacheImpl.java,169,return LedgerCacheImpl.this.indexPageManager.getPageLimit();
+bookkeeper-server/src/main/java/org/apache/bookkeeper/bookie/LedgerCacheImpl.java,173,public int getNumOpenLedgers() {
+bookkeeper-server/src/main/java/org/apache/bookkeeper/bookie/LedgerCacheImpl.java,174,return LedgerCacheImpl.this.indexPersistenceManager.getNumOpenLedgers();
+bookkeeper-server/src/main/java/org/apache/bookkeeper/bookie/LedgerCacheMXBean.java,19,package org.apache.bookkeeper.bookie;
+bookkeeper-server/src/main/java/org/apache/bookkeeper/bookie/LedgerCacheMXBean.java,24,public interface LedgerCacheMXBean {
+bookkeeper-server/src/main/java/org/apache/bookkeeper/bookie/LedgerCacheMXBean.java,29,public int getPageCount();
+bookkeeper-server/src/main/java/org/apache/bookkeeper/bookie/LedgerCacheMXBean.java,34,public int getPageSize();
+bookkeeper-server/src/main/java/org/apache/bookkeeper/bookie/LedgerCacheMXBean.java,39,public int getOpenFileLimit();
+bookkeeper-server/src/main/java/org/apache/bookkeeper/bookie/LedgerCacheMXBean.java,44,public int getPageLimit();
+bookkeeper-server/src/main/java/org/apache/bookkeeper/bookie/LedgerCacheMXBean.java,49,public int getNumOpenLedgers();
+bookkeeper-server/src/main/java/org/apache/bookkeeper/bookie/LedgerStorage.java,31,import org.apache.bookkeeper.jmx.BKMBeanInfo;
+bookkeeper-server/src/main/java/org/apache/bookkeeper/bookie/LedgerStorage.java,141,BKMBeanInfo getJMXBean();
+bookkeeper-server/src/main/java/org/apache/bookkeeper/jmx/BKMBeanInfo.java,19,package org.apache.bookkeeper.jmx;
+bookkeeper-server/src/main/java/org/apache/bookkeeper/jmx/BKMBeanInfo.java,21,import org.apache.zookeeper.jmx.ZKMBeanInfo;
+bookkeeper-server/src/main/java/org/apache/bookkeeper/jmx/BKMBeanInfo.java,26,public interface BKMBeanInfo extends ZKMBeanInfo {
+bookkeeper-server/src/main/java/org/apache/bookkeeper/jmx/BKMBeanRegistry.java,19,package org.apache.bookkeeper.jmx;
+bookkeeper-server/src/main/java/org/apache/bookkeeper/jmx/BKMBeanRegistry.java,21,import javax.management.MalformedObjectNameException;
+bookkeeper-server/src/main/java/org/apache/bookkeeper/jmx/BKMBeanRegistry.java,22,import javax.management.ObjectName;
+bookkeeper-server/src/main/java/org/apache/bookkeeper/jmx/BKMBeanRegistry.java,24,import org.slf4j.Logger;
+bookkeeper-server/src/main/java/org/apache/bookkeeper/jmx/BKMBeanRegistry.java,25,import org.slf4j.LoggerFactory;
+bookkeeper-server/src/main/java/org/apache/bookkeeper/jmx/BKMBeanRegistry.java,26,import org.apache.zookeeper.jmx.MBeanRegistry;
+bookkeeper-server/src/main/java/org/apache/bookkeeper/jmx/BKMBeanRegistry.java,27,import org.apache.zookeeper.jmx.ZKMBeanInfo;
+bookkeeper-server/src/main/java/org/apache/bookkeeper/jmx/BKMBeanRegistry.java,35,public class BKMBeanRegistry extends MBeanRegistry {
+bookkeeper-server/src/main/java/org/apache/bookkeeper/jmx/BKMBeanRegistry.java,36,static final Logger LOG = LoggerFactory.getLogger(BKMBeanRegistry.class);
+bookkeeper-server/src/main/java/org/apache/bookkeeper/jmx/BKMBeanRegistry.java,38,static final String DOMAIN = "org.apache.BookKeeperService";
+bookkeeper-server/src/main/java/org/apache/bookkeeper/jmx/BKMBeanRegistry.java,40,static BKMBeanRegistry instance=new BKMBeanRegistry();
+bookkeeper-server/src/main/java/org/apache/bookkeeper/jmx/BKMBeanRegistry.java,42,public static BKMBeanRegistry getInstance(){
+bookkeeper-server/src/main/java/org/apache/bookkeeper/jmx/BKMBeanRegistry.java,43,return instance;
+bookkeeper-server/src/main/java/org/apache/bookkeeper/jmx/BKMBeanRegistry.java,46,protected String getDomainName() {
+bookkeeper-server/src/main/java/org/apache/bookkeeper/jmx/BKMBeanRegistry.java,47,return DOMAIN;
+bookkeeper-server/src/main/java/org/apache/bookkeeper/jmx/BKMBeanRegistry.java,56,protected int tokenize(StringBuilder sb, String path, int index) {
+bookkeeper-server/src/main/java/org/apache/bookkeeper/jmx/BKMBeanRegistry.java,57,String[] tokens = path.split("/");
+bookkeeper-server/src/main/java/org/apache/bookkeeper/jmx/BKMBeanRegistry.java,58,for (String s: tokens) {
+bookkeeper-server/src/main/java/org/apache/bookkeeper/jmx/BKMBeanRegistry.java,60,continue;
+bookkeeper-server/src/main/java/org/apache/bookkeeper/jmx/BKMBeanRegistry.java,61,sb.append("name").append(index++).append("=").append(s).append(",");
+bookkeeper-server/src/main/java/org/apache/bookkeeper/jmx/BKMBeanRegistry.java,63,return index;
+bookkeeper-server/src/main/java/org/apache/bookkeeper/jmx/BKMBeanRegistry.java,73,throws MalformedObjectNameException {
+bookkeeper-server/src/main/java/org/apache/bookkeeper/jmx/BKMBeanRegistry.java,75,return null;
+bookkeeper-server/src/main/java/org/apache/bookkeeper/jmx/BKMBeanRegistry.java,76,StringBuilder beanName = new StringBuilder(getDomainName() + ":");
+bookkeeper-server/src/main/java/org/apache/bookkeeper/jmx/BKMBeanRegistry.java,77,int counter=0;
+bookkeeper-server/src/main/java/org/apache/bookkeeper/jmx/BKMBeanRegistry.java,78,counter=tokenize(beanName,path,counter);
+bookkeeper-server/src/main/java/org/apache/bookkeeper/jmx/BKMBeanRegistry.java,79,tokenize(beanName,bean.getName(),counter);
+bookkeeper-server/src/main/java/org/apache/bookkeeper/jmx/BKMBeanRegistry.java,80,beanName.deleteCharAt(beanName.length()-1);
+bookkeeper-server/src/main/java/org/apache/bookkeeper/jmx/BKMBeanRegistry.java,81,try {
+bookkeeper-server/src/main/java/org/apache/bookkeeper/jmx/BKMBeanRegistry.java,82,return new ObjectName(beanName.toString());
+bookkeeper-server/src/main/java/org/apache/bookkeeper/jmx/BKMBeanRegistry.java,84,LOG.warn("Invalid name \"" + beanName.toString() + "\" for class "
+bookkeeper-server/src/main/java/org/apache/bookkeeper/jmx/BKMBeanRegistry.java,85,+ bean.getClass().toString());
+bookkeeper-server/src/main/java/org/apache/bookkeeper/jmx/BKMBeanRegistry.java,86,throw e;
+bookkeeper-server/src/main/java/org/apache/bookkeeper/proto/BookieServer.java,34,import org.apache.bookkeeper.jmx.BKMBeanRegistry;
+bookkeeper-server/src/main/java/org/apache/bookkeeper/proto/BookieServer.java,75,protected BookieServerBean jmxBkServerBean;
+bookkeeper-server/src/main/java/org/apache/bookkeeper/proto/BookieServer.java,130,registerJMX();
+bookkeeper-server/src/main/java/org/apache/bookkeeper/proto/BookieServer.java,175,unregisterJMX();
+bookkeeper-server/src/main/java/org/apache/bookkeeper/proto/BookieServer.java,178,protected void registerJMX() {
+bookkeeper-server/src/main/java/org/apache/bookkeeper/proto/BookieServer.java,179,try {
+bookkeeper-server/src/main/java/org/apache/bookkeeper/proto/BookieServer.java,180,jmxBkServerBean = new BookieServerBean(conf, this);
+bookkeeper-server/src/main/java/org/apache/bookkeeper/proto/BookieServer.java,181,BKMBeanRegistry.getInstance().register(jmxBkServerBean, null);
+bookkeeper-server/src/main/java/org/apache/bookkeeper/proto/BookieServer.java,183,bookie.registerJMX(jmxBkServerBean);
+bookkeeper-server/src/main/java/org/apache/bookkeeper/proto/BookieServer.java,185,LOG.warn("Failed to register with JMX", e);
+bookkeeper-server/src/main/java/org/apache/bookkeeper/proto/BookieServer.java,186,jmxBkServerBean = null;
+bookkeeper-server/src/main/java/org/apache/bookkeeper/proto/BookieServer.java,190,protected void unregisterJMX() {
+bookkeeper-server/src/main/java/org/apache/bookkeeper/proto/BookieServer.java,191,try {
+bookkeeper-server/src/main/java/org/apache/bookkeeper/proto/BookieServer.java,192,bookie.unregisterJMX();
+bookkeeper-server/src/main/java/org/apache/bookkeeper/proto/BookieServer.java,193,if (jmxBkServerBean != null) {
+bookkeeper-server/src/main/java/org/apache/bookkeeper/proto/BookieServer.java,194,BKMBeanRegistry.getInstance().unregister(jmxBkServerBean);
+bookkeeper-server/src/main/java/org/apache/bookkeeper/proto/BookieServer.java,197,LOG.warn("Failed to unregister with JMX", e);
+bookkeeper-server/src/main/java/org/apache/bookkeeper/proto/BookieServer.java,199,jmxBkServerBean = null;
+bookkeeper-server/src/main/java/org/apache/bookkeeper/proto/BookieServerBean.java,19,package org.apache.bookkeeper.proto;
+bookkeeper-server/src/main/java/org/apache/bookkeeper/proto/BookieServerBean.java,21,import java.net.UnknownHostException;
+bookkeeper-server/src/main/java/org/apache/bookkeeper/proto/BookieServerBean.java,23,import org.apache.bookkeeper.bookie.Bookie;
+bookkeeper-server/src/main/java/org/apache/bookkeeper/proto/BookieServerBean.java,24,import org.apache.bookkeeper.conf.ServerConfiguration;
+bookkeeper-server/src/main/java/org/apache/bookkeeper/proto/BookieServerBean.java,25,import org.apache.bookkeeper.jmx.BKMBeanInfo;
+bookkeeper-server/src/main/java/org/apache/bookkeeper/proto/BookieServerBean.java,26,import org.apache.bookkeeper.proto.BKStats.OpStatData;
+bookkeeper-server/src/main/java/org/apache/bookkeeper/proto/BookieServerBean.java,31,public class BookieServerBean implements BookieServerMXBean, BKMBeanInfo {
+bookkeeper-server/src/main/java/org/apache/bookkeeper/proto/BookieServerBean.java,33,protected final BookieServer bks;
+bookkeeper-server/src/main/java/org/apache/bookkeeper/proto/BookieServerBean.java,34,protected final ServerConfiguration conf;
+bookkeeper-server/src/main/java/org/apache/bookkeeper/proto/BookieServerBean.java,35,private final String name;
+bookkeeper-server/src/main/java/org/apache/bookkeeper/proto/BookieServerBean.java,37,public BookieServerBean(ServerConfiguration conf, BookieServer bks) {
+bookkeeper-server/src/main/java/org/apache/bookkeeper/proto/BookieServerBean.java,38,this.conf = conf;
+bookkeeper-server/src/main/java/org/apache/bookkeeper/proto/BookieServerBean.java,39,this.bks = bks;
+bookkeeper-server/src/main/java/org/apache/bookkeeper/proto/BookieServerBean.java,40,name = "BookieServer_" + conf.getBookiePort();
+bookkeeper-server/src/main/java/org/apache/bookkeeper/proto/BookieServerBean.java,44,public String getName() {
+bookkeeper-server/src/main/java/org/apache/bookkeeper/proto/BookieServerBean.java,45,return name;
+bookkeeper-server/src/main/java/org/apache/bookkeeper/proto/BookieServerBean.java,49,public boolean isHidden() {
+bookkeeper-server/src/main/java/org/apache/bookkeeper/proto/BookieServerBean.java,50,return false;
+bookkeeper-server/src/main/java/org/apache/bookkeeper/proto/BookieServerBean.java,54,public long getNumPacketsReceived() {
+bookkeeper-server/src/main/java/org/apache/bookkeeper/proto/BookieServerBean.java,55,return ServerStats.getInstance().getPacketsReceived();
+bookkeeper-server/src/main/java/org/apache/bookkeeper/proto/BookieServerBean.java,59,public long getNumPacketsSent() {
+bookkeeper-server/src/main/java/org/apache/bookkeeper/proto/BookieServerBean.java,60,return ServerStats.getInstance().getPacketsSent();
+bookkeeper-server/src/main/java/org/apache/bookkeeper/proto/BookieServerBean.java,64,public OpStatData getAddStats() {
+bookkeeper-server/src/main/java/org/apache/bookkeeper/proto/BookieServerBean.java,65,return BKStats.getInstance().getOpStats(BKStats.STATS_ADD).toOpStatData();
+bookkeeper-server/src/main/java/org/apache/bookkeeper/proto/BookieServerBean.java,69,public OpStatData getReadStats() {
+bookkeeper-server/src/main/java/org/apache/bookkeeper/proto/BookieServerBean.java,70,return BKStats.getInstance().getOpStats(BKStats.STATS_READ).toOpStatData();
+bookkeeper-server/src/main/java/org/apache/bookkeeper/proto/BookieServerBean.java,74,public String getServerPort() {
+bookkeeper-server/src/main/java/org/apache/bookkeeper/proto/BookieServerBean.java,75,try {
+bookkeeper-server/src/main/java/org/apache/bookkeeper/proto/BookieServerBean.java,76,return Bookie.getBookieAddress(conf).toString();
+bookkeeper-server/src/main/java/org/apache/bookkeeper/proto/BookieServerBean.java,78,return "localhost:" + conf.getBookiePort();
+bookkeeper-server/src/main/java/org/apache/bookkeeper/proto/BookieServerMXBean.java,19,package org.apache.bookkeeper.proto;
+bookkeeper-server/src/main/java/org/apache/bookkeeper/proto/BookieServerMXBean.java,21,import org.apache.bookkeeper.proto.BKStats.OpStatData;
+bookkeeper-server/src/main/java/org/apache/bookkeeper/proto/BookieServerMXBean.java,26,public interface BookieServerMXBean {
+bookkeeper-server/src/main/java/org/apache/bookkeeper/proto/BookieServerMXBean.java,31,public long getNumPacketsReceived();
+bookkeeper-server/src/main/java/org/apache/bookkeeper/proto/BookieServerMXBean.java,36,public long getNumPacketsSent();
+bookkeeper-server/src/main/java/org/apache/bookkeeper/proto/BookieServerMXBean.java,41,public OpStatData getAddStats();
+bookkeeper-server/src/main/java/org/apache/bookkeeper/proto/BookieServerMXBean.java,46,public OpStatData getReadStats();
+bookkeeper-server/src/main/java/org/apache/bookkeeper/proto/BookieServerMXBean.java,51,public String getServerPort();
+bookkeeper-server/src/main/java/org/apache/bookkeeper/proto/BookieNettyServer.java,78,final BookieProtoEncoding.ResponseEncoder responseEncoder;
+bookkeeper-server/src/main/java/org/apache/bookkeeper/proto/BookieNettyServer.java,79,final BookieProtoEncoding.RequestDecoder requestDecoder;
+bookkeeper-server/src/main/java/org/apache/bookkeeper/proto/BookieNettyServer.java,86,ExtensionRegistry registry = ExtensionRegistry.newInstance();
+bookkeeper-server/src/main/java/org/apache/bookkeeper/proto/BookieNettyServer.java,89,responseEncoder = new BookieProtoEncoding.ResponseEncoder(registry);
+bookkeeper-server/src/main/java/org/apache/bookkeeper/proto/BookieNettyServer.java,90,requestDecoder = new BookieProtoEncoding.RequestDecoder(registry);
+bookkeeper-stats-providers/twitter-ostrich-provider/src/main/java/org/apache/bookkeeper/stats/twitter/ostrich/OpStatsLoggerImpl.java,50,failureMetric.add((int) unit.toMillis(eventLatency));
+bookkeeper-stats-providers/twitter-ostrich-provider/src/main/java/org/apache/bookkeeper/stats/twitter/ostrich/OpStatsLoggerImpl.java,51,failureCounter.incr();
+bookkeeper-stats-providers/twitter-ostrich-provider/src/main/java/org/apache/bookkeeper/stats/twitter/ostrich/OpStatsLoggerImpl.java,56,successMetric.add((int) unit.toMillis(eventLatency));
+bookkeeper-stats-providers/twitter-ostrich-provider/src/main/java/org/apache/bookkeeper/stats/twitter/ostrich/OpStatsLoggerImpl.java,57,successCounter.incr();
+bookkeeper-stats-providers/twitter-ostrich-provider/src/main/java/org/apache/bookkeeper/stats/twitter/ostrich/OpStatsLoggerImpl.java,62,successMetric.add((int) value);
+bookkeeper-stats-providers/twitter-ostrich-provider/src/main/java/org/apache/bookkeeper/stats/twitter/ostrich/OpStatsLoggerImpl.java,63,successCounter.incr();
+bookkeeper-stats-providers/twitter-ostrich-provider/src/main/java/org/apache/bookkeeper/stats/twitter/ostrich/OpStatsLoggerImpl.java,68,failureMetric.add((int) value);
+bookkeeper-stats-providers/twitter-ostrich-provider/src/main/java/org/apache/bookkeeper/stats/twitter/ostrich/OpStatsLoggerImpl.java,69,failureCounter.incr();
+bookkeeper-stats-providers/twitter-ostrich-provider/src/main/java/org/apache/bookkeeper/stats/twitter/ostrich/OstrichProvider.java,43,private static List<Duration> list(Duration... ts) {
+bookkeeper-stats-providers/twitter-ostrich-provider/src/main/java/org/apache/bookkeeper/stats/twitter/ostrich/OstrichProvider.java,46,result = new $colon$colon<Duration>(ts[i-1], result);
+bookkeeper-stats-providers/twitter-ostrich-provider/src/main/java/org/apache/bookkeeper/stats/twitter/ostrich/OstrichProvider.java,60,conf.getInt(STATS_HTTP_PORT, 9002), 20, List$.MODULE$.<StatsFactory>empty(), Some.apply(""), List$.MODULE$.<Regex>empty(),
+bookkeeper-stats-providers/twitter-ostrich-provider/src/main/java/org/apache/bookkeeper/stats/twitter/ostrich/OstrichProvider.java,75,return new OstrichStatsLoggerImpl(scope, com.twitter.ostrich.stats.Stats.get(""));
+bookkeeper-stats-providers/twitter-science-provider/src/main/java/org/apache/bookkeeper/stats/twitter/science/TwitterStatsProvider.java,61,return new TwitterStatsLoggerImpl(name);
+bookkeeper-server/src/main/java/org/apache/bookkeeper/conf/ServerConfiguration.java,562,if (null == ledgerDirs) {
+bookkeeper-server/src/main/java/org/apache/bookkeeper/util/LocalBookKeeper.java,182,bsConfs[i].setJournalDirName(tmpDirs[i].getPath());
+bookkeeper-server/src/main/java/org/apache/bookkeeper/util/LocalBookKeeper.java,183,bsConfs[i].setLedgerDirNames(new String[] { tmpDirs[i].getPath() });
+bookkeeper-server/src/main/java/org/apache/bookkeeper/client/LedgerMetadata.java,366,TextFormat.merge(reader, builder);
+bookkeeper-server/src/main/java/org/apache/bookkeeper/client/BookieWatcher.java,183,synchronized (this) {
+bookkeeper-server/src/main/java/org/apache/bookkeeper/client/BookieWatcher.java,184,Set<BookieSocketAddress> readonlyBookies = readOnlyBookieWatcher.getReadOnlyBookies();
+bookkeeper-server/src/main/java/org/apache/bookkeeper/client/BookieWatcher.java,185,placementPolicy.onClusterChanged(newBookieAddrs, readonlyBookies);
+bookkeeper-server/src/main/java/org/apache/bookkeeper/client/BookieWatcher.java,232,try {
+bookkeeper-server/src/main/java/org/apache/bookkeeper/client/BookieWatcher.java,234,queue.put(rc);
+bookkeeper-server/src/main/java/org/apache/bookkeeper/client/BookieWatcher.java,236,logger.error("Interruped when trying to read bookies in a blocking fashion");
+bookkeeper-server/src/main/java/org/apache/bookkeeper/client/BookieWatcher.java,237,throw new RuntimeException(e);
+bookkeeper-server/src/main/java/org/apache/bookkeeper/replication/BookieLedgerIndexer.java,74,public void operationComplete(final int rc,
+bookkeeper-server/src/main/java/org/apache/bookkeeper/meta/AbstractZkLedgerManager.java,398,LOG.warn("Conditional update ledger metadata failed: ", KeeperException.Code.get(rc));
+bookkeeper-server/src/main/java/org/apache/bookkeeper/proto/PerChannelBookieClient.java,868,rc.cb.readEntryComplete(rcToRet, ledgerId, entryId, buffer.slice(), rc.ctx);
+bookkeeper-server/src/main/java/org/apache/bookkeeper/replication/ReplicationWorker.java,225,LedgerHandle lh;
+bookkeeper-server/src/main/java/org/apache/bookkeeper/replication/ReplicationWorker.java,226,try {
+bookkeeper-server/src/main/java/org/apache/bookkeeper/replication/ReplicationWorker.java,227,lh = admin.openLedgerNoRecovery(ledgerIdToReplicate);
+bookkeeper-server/src/main/java/org/apache/bookkeeper/replication/ReplicationWorker.java,253,Set<LedgerFragment> fragments = getUnderreplicatedFragments(lh);
+bookkeeper-server/src/main/java/org/apache/bookkeeper/replication/ReplicationWorker.java,254,LOG.debug("Founds fragments {} for replication from ledger: {}", fragments, ledgerIdToReplicate);
+bookkeeper-server/src/main/java/org/apache/bookkeeper/replication/ReplicationWorker.java,256,boolean foundOpenFragments = false;
+bookkeeper-server/src/main/java/org/apache/bookkeeper/replication/ReplicationWorker.java,257,for (LedgerFragment ledgerFragment : fragments) {
+bookkeeper-server/src/main/java/org/apache/bookkeeper/replication/ReplicationWorker.java,258,if (!ledgerFragment.isClosed()) {
+bookkeeper-server/src/main/java/org/apache/bookkeeper/replication/ReplicationWorker.java,259,foundOpenFragments = true;
+bookkeeper-server/src/main/java/org/apache/bookkeeper/replication/ReplicationWorker.java,260,continue;
+bookkeeper-server/src/main/java/org/apache/bookkeeper/replication/ReplicationWorker.java,262,ledgerFragment)) {
+bookkeeper-server/src/main/java/org/apache/bookkeeper/replication/ReplicationWorker.java,263,LOG.debug("Target Bookie[{}] found in the fragment ensemble: {}", targetBookie,
+bookkeeper-server/src/main/java/org/apache/bookkeeper/replication/ReplicationWorker.java,264,ledgerFragment.getEnsemble());
+bookkeeper-server/src/main/java/org/apache/bookkeeper/replication/ReplicationWorker.java,265,continue;
+bookkeeper-server/src/main/java/org/apache/bookkeeper/replication/ReplicationWorker.java,267,try {
+bookkeeper-server/src/main/java/org/apache/bookkeeper/replication/ReplicationWorker.java,268,admin.replicateLedgerFragment(lh, ledgerFragment, targetBookie);
+bookkeeper-server/src/main/java/org/apache/bookkeeper/replication/ReplicationWorker.java,270,LOG.warn("BKBookieHandleNotAvailableException "
+bookkeeper-server/src/main/java/org/apache/bookkeeper/replication/ReplicationWorker.java,271,+ "while replicating the fragment", e);
+bookkeeper-server/src/main/java/org/apache/bookkeeper/replication/ReplicationWorker.java,273,LOG.warn("BKLedgerRecoveryException "
+bookkeeper-server/src/main/java/org/apache/bookkeeper/replication/ReplicationWorker.java,274,+ "while replicating the fragment", e);
+bookkeeper-server/src/main/java/org/apache/bookkeeper/replication/ReplicationWorker.java,275,if (admin.getReadOnlyBookies().contains(targetBookie)) {
+bookkeeper-server/src/main/java/org/apache/bookkeeper/replication/ReplicationWorker.java,276,underreplicationManager.releaseUnderreplicatedLedger(ledgerIdToReplicate);
+bookkeeper-server/src/main/java/org/apache/bookkeeper/replication/ReplicationWorker.java,277,throw new BKException.BKWriteOnReadOnlyBookieException();
+bookkeeper-server/src/main/java/org/apache/bookkeeper/replication/ReplicationWorker.java,282,if (foundOpenFragments || isLastSegmentOpenAndMissingBookies(lh)) {
+bookkeeper-server/src/main/java/org/apache/bookkeeper/replication/ReplicationWorker.java,283,deferLedgerLockRelease(ledgerIdToReplicate);
+bookkeeper-server/src/main/java/org/apache/bookkeeper/replication/ReplicationWorker.java,284,return false;
+bookkeeper-server/src/main/java/org/apache/bookkeeper/replication/ReplicationWorker.java,287,fragments = getUnderreplicatedFragments(lh);
+bookkeeper-server/src/main/java/org/apache/bookkeeper/replication/ReplicationWorker.java,288,if (fragments.size() == 0) {
+bookkeeper-server/src/main/java/org/apache/bookkeeper/replication/ReplicationWorker.java,289,LOG.info("Ledger replicated successfully. ledger id is: "
+bookkeeper-server/src/main/java/org/apache/bookkeeper/replication/ReplicationWorker.java,290,+ ledgerIdToReplicate);
+bookkeeper-server/src/main/java/org/apache/bookkeeper/replication/ReplicationWorker.java,291,underreplicationManager.markLedgerReplicated(ledgerIdToReplicate);
+bookkeeper-server/src/main/java/org/apache/bookkeeper/replication/ReplicationWorker.java,292,return true;
+bookkeeper-server/src/main/java/org/apache/bookkeeper/replication/ReplicationWorker.java,296,underreplicationManager
+bookkeeper-server/src/main/java/org/apache/bookkeeper/replication/ReplicationWorker.java,297,.releaseUnderreplicatedLedger(ledgerIdToReplicate);
+bookkeeper-server/src/main/java/org/apache/bookkeeper/replication/ReplicationWorker.java,298,return false;
+bookkeeper-server/src/main/java/org/apache/bookkeeper/proto/PerChannelBookieClient.java,346,final long txnId = getTxnId();
+bookkeeper-server/src/main/java/org/apache/bookkeeper/proto/PerChannelBookieClient.java,347,final int entrySize = toSend.readableBytes();
+bookkeeper-server/src/main/java/org/apache/bookkeeper/proto/PerChannelBookieClient.java,348,final CompletionKey completionKey = new CompletionKey(txnId, OperationType.ADD_ENTRY);
+bookkeeper-server/src/main/java/org/apache/bookkeeper/proto/PerChannelBookieClient.java,349,completionObjects.put(completionKey,
+bookkeeper-server/src/main/java/org/apache/bookkeeper/proto/PerChannelBookieClient.java,350,new AddCompletion(this, addEntryOpLogger, cb, ctx, ledgerId, entryId,
+bookkeeper-server/src/main/java/org/apache/bookkeeper/proto/PerChannelBookieClient.java,351,scheduleTimeout(completionKey, addEntryTimeout)));
+bookkeeper-server/src/main/java/org/apache/bookkeeper/proto/PerChannelBookieClient.java,357,.setTxnId(txnId);
+bookkeeper-server/src/main/java/org/apache/bookkeeper/proto/PerChannelBookieClient.java,363,.setBody(ByteString.copyFrom(toSend.toByteBuffer()));
+bookkeeper-server/src/main/java/org/apache/bookkeeper/proto/PerChannelBookieClient.java,365,if (((short)options & BookieProtocol.FLAG_RECOVERY_ADD) == BookieProtocol.FLAG_RECOVERY_ADD) {
+bookkeeper-server/src/main/java/org/apache/bookkeeper/proto/PerChannelBookieClient.java,366,addBuilder.setFlag(AddRequest.Flag.RECOVERY_ADD);
+bookkeeper-server/src/main/java/org/apache/bookkeeper/proto/PerChannelBookieClient.java,372,.build();
+bookkeeper-server/src/main/java/org/apache/bookkeeper/proto/PerChannelBookieClient.java,408,final long txnId = getTxnId();
+bookkeeper-server/src/main/java/org/apache/bookkeeper/proto/PerChannelBookieClient.java,409,final CompletionKey completionKey = new CompletionKey(txnId, OperationType.READ_ENTRY);
+bookkeeper-server/src/main/java/org/apache/bookkeeper/proto/PerChannelBookieClient.java,410,completionObjects.put(completionKey,
+bookkeeper-server/src/main/java/org/apache/bookkeeper/proto/PerChannelBookieClient.java,411,new ReadCompletion(this, readEntryOpLogger, cb, ctx, ledgerId, entryId,
+bookkeeper-server/src/main/java/org/apache/bookkeeper/proto/PerChannelBookieClient.java,412,scheduleTimeout(completionKey, readEntryTimeout)));
+bookkeeper-server/src/main/java/org/apache/bookkeeper/proto/PerChannelBookieClient.java,418,.setTxnId(txnId);
+bookkeeper-server/src/main/java/org/apache/bookkeeper/proto/PerChannelBookieClient.java,424,.setFlag(ReadRequest.Flag.FENCE_LEDGER);
+bookkeeper-server/src/main/java/org/apache/bookkeeper/proto/PerChannelBookieClient.java,429,.build();
+bookkeeper-server/src/main/java/org/apache/bookkeeper/proto/PerChannelBookieClient.java,463,final long txnId = getTxnId();
+bookkeeper-server/src/main/java/org/apache/bookkeeper/proto/PerChannelBookieClient.java,464,final CompletionKey completionKey = new CompletionKey(txnId, OperationType.READ_ENTRY);
+bookkeeper-server/src/main/java/org/apache/bookkeeper/proto/PerChannelBookieClient.java,465,completionObjects.put(completionKey,
+bookkeeper-server/src/main/java/org/apache/bookkeeper/proto/PerChannelBookieClient.java,466,new ReadCompletion(this, readEntryOpLogger, cb, ctx, ledgerId, entryId,
+bookkeeper-server/src/main/java/org/apache/bookkeeper/proto/PerChannelBookieClient.java,467,scheduleTimeout(completionKey, readEntryTimeout)));
+bookkeeper-server/src/main/java/org/apache/bookkeeper/proto/PerChannelBookieClient.java,473,.setTxnId(txnId);
+bookkeeper-server/src/main/java/org/apache/bookkeeper/proto/PerChannelBookieClient.java,477,.setEntryId(entryId);
+bookkeeper-server/src/main/java/org/apache/bookkeeper/proto/PerChannelBookieClient.java,482,.build();
+bookkeeper-server/src/main/java/org/apache/bookkeeper/proto/PerChannelBookieClient.java,765,if (!(e.getMessage() instanceof Response)) {
+bookkeeper-server/src/main/java/org/apache/bookkeeper/proto/PerChannelBookieClient.java,767,return;
+bookkeeper-server/src/main/java/org/apache/bookkeeper/proto/PerChannelBookieClient.java,770,final Response response = (Response) e.getMessage();
+bookkeeper-server/src/main/java/org/apache/bookkeeper/proto/PerChannelBookieClient.java,789,case ADD_ENTRY:
+bookkeeper-server/src/main/java/org/apache/bookkeeper/proto/PerChannelBookieClient.java,790,handleAddResponse(response, completionValue);
+bookkeeper-server/src/main/java/org/apache/bookkeeper/proto/PerChannelBookieClient.java,792,case READ_ENTRY:
+bookkeeper-server/src/main/java/org/apache/bookkeeper/proto/PerChannelBookieClient.java,793,handleReadResponse(response, completionValue);
+bookkeeper-server/src/main/java/org/apache/bookkeeper/proto/PerChannelBookieClient.java,815,AddResponse addResponse = response.getAddResponse();
+bookkeeper-server/src/main/java/org/apache/bookkeeper/proto/PerChannelBookieClient.java,817,long ledgerId = addResponse.getLedgerId();
+bookkeeper-server/src/main/java/org/apache/bookkeeper/proto/PerChannelBookieClient.java,818,long entryId = addResponse.getEntryId();
+bookkeeper-server/src/main/java/org/apache/bookkeeper/proto/PerChannelBookieClient.java,819,StatusCode status = response.getStatus() == StatusCode.EOK ? addResponse.getStatus() : response.getStatus();
+bookkeeper-server/src/main/java/org/apache/bookkeeper/proto/PerChannelBookieClient.java,839,void handleReadResponse(Response response, CompletionValue completionValue) {
+bookkeeper-server/src/main/java/org/apache/bookkeeper/proto/PerChannelBookieClient.java,842,ReadResponse readResponse = response.getReadResponse();
+bookkeeper-server/src/main/java/org/apache/bookkeeper/proto/PerChannelBookieClient.java,844,long ledgerId = readResponse.getLedgerId();
+bookkeeper-server/src/main/java/org/apache/bookkeeper/proto/PerChannelBookieClient.java,845,long entryId = readResponse.getEntryId();
+bookkeeper-server/src/main/java/org/apache/bookkeeper/proto/PerChannelBookieClient.java,846,StatusCode status = response.getStatus() == StatusCode.EOK ? readResponse.getStatus() : response.getStatus();
+bookkeeper-server/src/main/java/org/apache/bookkeeper/proto/PerChannelBookieClient.java,848,ChannelBuffer buffer = ChannelBuffers.buffer(0);
+bookkeeper-server/src/main/java/org/apache/bookkeeper/proto/PerChannelBookieClient.java,850,if (readResponse.hasBody()) {
+bookkeeper-server/src/main/java/org/apache/bookkeeper/proto/PerChannelBookieClient.java,851,buffer = ChannelBuffers.copiedBuffer(readResponse.getBody().asReadOnlyByteBuffer());
+bookkeeper-server/src/main/java/org/apache/bookkeeper/bookie/Bookie.java,38,import java.util.concurrent.ConcurrentHashMap;
+bookkeeper-server/src/main/java/org/apache/bookkeeper/bookie/Bookie.java,39,import java.util.concurrent.ConcurrentMap;
+bookkeeper-server/src/main/java/org/apache/bookkeeper/bookie/Bookie.java,143,final ConcurrentMap<Long, byte[]> masterKeyCache = new ConcurrentHashMap<Long, byte[]>();
+bookkeeper-server/src/main/java/org/apache/bookkeeper/bookie/Bookie.java,1151,long ledgerId = entry.getLong();
+bookkeeper-server/src/main/java/org/apache/bookkeeper/bookie/Bookie.java,1153,if (!masterKeyCache.containsKey(ledgerId)) {
+bookkeeper-server/src/main/java/org/apache/bookkeeper/bookie/Bookie.java,1155,ByteBuffer bb = ByteBuffer.allocate(8 + 8 + 4 + masterKey.length);
+bookkeeper-server/src/main/java/org/apache/bookkeeper/bookie/Bookie.java,1156,bb.putLong(ledgerId);
+bookkeeper-server/src/main/java/org/apache/bookkeeper/bookie/Bookie.java,1157,bb.putLong(METAENTRY_ID_LEDGER_KEY);
+bookkeeper-server/src/main/java/org/apache/bookkeeper/bookie/Bookie.java,1158,bb.putInt(masterKey.length);
+bookkeeper-server/src/main/java/org/apache/bookkeeper/bookie/Bookie.java,1159,bb.put(masterKey);
+bookkeeper-server/src/main/java/org/apache/bookkeeper/bookie/Bookie.java,1160,bb.flip();
+bookkeeper-server/src/main/java/org/apache/bookkeeper/bookie/Bookie.java,1162,if (null == masterKeyCache.putIfAbsent(ledgerId, masterKey)) {
+bookkeeper-server/src/main/java/org/apache/bookkeeper/bookie/HandleFactoryImpl.java,25,import java.util.concurrent.ConcurrentHashMap;
+bookkeeper-server/src/main/java/org/apache/bookkeeper/bookie/HandleFactoryImpl.java,26,import java.util.concurrent.ConcurrentMap;
+bookkeeper-server/src/main/java/org/apache/bookkeeper/bookie/HandleFactoryImpl.java,28,class HandleFactoryImpl implements HandleFactory {
+bookkeeper-server/src/main/java/org/apache/bookkeeper/bookie/HandleFactoryImpl.java,29,ConcurrentMap<Long, LedgerDescriptor> ledgers = new ConcurrentHashMap<Long, LedgerDescriptor>();
+bookkeeper-server/src/main/java/org/apache/bookkeeper/bookie/HandleFactoryImpl.java,30,ConcurrentMap<Long, LedgerDescriptor> readOnlyLedgers
+bookkeeper-server/src/main/java/org/apache/bookkeeper/bookie/HandleFactoryImpl.java,31,= new ConcurrentHashMap<Long, LedgerDescriptor>();
+bookkeeper-server/src/main/java/org/apache/bookkeeper/bookie/HandleFactoryImpl.java,41,throws IOException, BookieException {
+bookkeeper-server/src/main/java/org/apache/bookkeeper/bookie/HandleFactoryImpl.java,42,LedgerDescriptor handle = null;
+bookkeeper-server/src/main/java/org/apache/bookkeeper/bookie/HandleFactoryImpl.java,43,if (null == (handle = ledgers.get(ledgerId))) {
+bookkeeper-server/src/main/java/org/apache/bookkeeper/bookie/HandleFactoryImpl.java,47,handle = ledgers.putIfAbsent(ledgerId, LedgerDescriptor.create(masterKey, ledgerId, ledgerStorage));
+bookkeeper-server/src/main/java/org/apache/bookkeeper/bookie/HandleFactoryImpl.java,48,if (null == handle) {
+bookkeeper-server/src/main/java/org/apache/bookkeeper/bookie/HandleFactoryImpl.java,49,handle = ledgers.get(ledgerId);
+bookkeeper-server/src/main/java/org/apache/bookkeeper/bookie/HandleFactoryImpl.java,58,throws IOException, Bookie.NoLedgerException {
+bookkeeper-server/src/main/java/org/apache/bookkeeper/bookie/HandleFactoryImpl.java,59,LedgerDescriptor handle = null;
+bookkeeper-server/src/main/java/org/apache/bookkeeper/bookie/HandleFactoryImpl.java,60,if (null == (handle = readOnlyLedgers.get(ledgerId))) {
+bookkeeper-server/src/main/java/org/apache/bookkeeper/bookie/HandleFactoryImpl.java,61,handle = readOnlyLedgers.putIfAbsent(ledgerId, LedgerDescriptor.createReadOnly(ledgerId, ledgerStorage));
+bookkeeper-server/src/main/java/org/apache/bookkeeper/bookie/HandleFactoryImpl.java,62,if (null == handle) {
+bookkeeper-server/src/main/java/org/apache/bookkeeper/bookie/HandleFactoryImpl.java,63,handle = readOnlyLedgers.get(ledgerId);
+bookkeeper-server/src/main/java/org/apache/bookkeeper/client/LedgerHandle.java,197,long addToLength(long delta) {
+bookkeeper-server/src/main/java/org/apache/bookkeeper/client/ReadOnlyLedgerHandle.java,57,ReadOnlyLedgerHandle.this.metadata = this.m;
+bookkeeper-server/src/main/java/org/apache/bookkeeper/conf/ServerConfiguration.java,550,return null;
+bookkeeper-server/src/main/java/org/apache/bookkeeper/client/BookKeeper.java,216,this(conf, validateZooKeeper(zk), new NioClientSocketChannelFactory(
+bookkeeper-server/src/main/java/org/apache/bookkeeper/client/BookKeeper.java,218,.setNameFormat("BookKeeper-NIOBoss-%d").build()),
+bookkeeper-server/src/main/java/org/apache/bookkeeper/client/BookKeeper.java,220,.setNameFormat("BookKeeper-NIOWorker-%d").build())));
+bookkeeper-server/src/main/java/org/apache/bookkeeper/auth/AuthProviderFactoryFactory.java,24,import java.net.InetSocketAddress;
+bookkeeper-server/src/main/java/org/apache/bookkeeper/auth/AuthProviderFactoryFactory.java,29,import org.apache.bookkeeper.proto.BookkeeperInternalCallbacks.GenericCallback;
+bookkeeper-server/src/main/java/org/apache/bookkeeper/auth/AuthProviderFactoryFactory.java,30,import org.apache.bookkeeper.proto.BookkeeperProtocol.AuthMessage;
+bookkeeper-server/src/main/java/org/apache/bookkeeper/auth/AuthProviderFactoryFactory.java,35,import com.google.protobuf.ExtensionRegistry;
+bookkeeper-server/src/main/java/org/apache/bookkeeper/auth/AuthProviderFactoryFactory.java,42,public static BookieAuthProvider.Factory newBookieAuthProviderFactory(ServerConfiguration conf,
+bookkeeper-server/src/main/java/org/apache/bookkeeper/auth/AuthProviderFactoryFactory.java,43,ExtensionRegistry registry) throws IOException {
+bookkeeper-server/src/main/java/org/apache/bookkeeper/auth/AuthProviderFactoryFactory.java,47,return new NullBookieAuthProviderFactory();
+bookkeeper-server/src/main/java/org/apache/bookkeeper/auth/AuthProviderFactoryFactory.java,52,factory.init(conf, registry);
+bookkeeper-server/src/main/java/org/apache/bookkeeper/auth/AuthProviderFactoryFactory.java,56,public static ClientAuthProvider.Factory newClientAuthProviderFactory(ClientConfiguration conf,
+bookkeeper-server/src/main/java/org/apache/bookkeeper/auth/AuthProviderFactoryFactory.java,57,ExtensionRegistry registry) throws IOException {
+bookkeeper-server/src/main/java/org/apache/bookkeeper/auth/AuthProviderFactoryFactory.java,66,factory.init(conf, registry);
+bookkeeper-server/src/main/java/org/apache/bookkeeper/auth/AuthProviderFactoryFactory.java,70,private final static String nullPluginName = "NULLPlugin";
+bookkeeper-server/src/main/java/org/apache/bookkeeper/auth/AuthProviderFactoryFactory.java,72,private static class NullBookieAuthProviderFactory implements BookieAuthProvider.Factory {
+bookkeeper-server/src/main/java/org/apache/bookkeeper/auth/AuthProviderFactoryFactory.java,75,return nullPluginName;
+bookkeeper-server/src/main/java/org/apache/bookkeeper/auth/AuthProviderFactoryFactory.java,79,public void init(ServerConfiguration conf, ExtensionRegistry registry) {}
+bookkeeper-server/src/main/java/org/apache/bookkeeper/auth/AuthProviderFactoryFactory.java,82,public BookieAuthProvider newProvider(InetSocketAddress addr,
+bookkeeper-server/src/main/java/org/apache/bookkeeper/auth/AuthProviderFactoryFactory.java,83,GenericCallback<Void> completeCb) {
+bookkeeper-server/src/main/java/org/apache/bookkeeper/auth/AuthProviderFactoryFactory.java,86,public void process(AuthMessage m, GenericCallback<AuthMessage> cb) {}
+bookkeeper-server/src/main/java/org/apache/bookkeeper/auth/AuthProviderFactoryFactory.java,94,return nullPluginName;
+bookkeeper-server/src/main/java/org/apache/bookkeeper/auth/AuthProviderFactoryFactory.java,98,public void init(ClientConfiguration conf, ExtensionRegistry registry) {}
+bookkeeper-server/src/main/java/org/apache/bookkeeper/auth/AuthProviderFactoryFactory.java,101,public ClientAuthProvider newProvider(InetSocketAddress addr,
+bookkeeper-server/src/main/java/org/apache/bookkeeper/auth/AuthProviderFactoryFactory.java,102,GenericCallback<Void> completeCb) {
+bookkeeper-server/src/main/java/org/apache/bookkeeper/auth/AuthProviderFactoryFactory.java,105,public void init(GenericCallback<AuthMessage> cb) {}
+bookkeeper-server/src/main/java/org/apache/bookkeeper/auth/AuthProviderFactoryFactory.java,106,public void process(AuthMessage m, GenericCallback<AuthMessage> cb) {}
+bookkeeper-server/src/main/java/org/apache/bookkeeper/auth/BookieAuthProvider.java,24,import java.net.InetSocketAddress;
+bookkeeper-server/src/main/java/org/apache/bookkeeper/auth/BookieAuthProvider.java,28,import org.apache.bookkeeper.proto.BookkeeperProtocol.AuthMessage;
+bookkeeper-server/src/main/java/org/apache/bookkeeper/auth/BookieAuthProvider.java,30,import com.google.protobuf.ExtensionRegistry;
+bookkeeper-server/src/main/java/org/apache/bookkeeper/auth/BookieAuthProvider.java,46,void init(ServerConfiguration conf,
+bookkeeper-server/src/main/java/org/apache/bookkeeper/auth/BookieAuthProvider.java,47,ExtensionRegistry registry) throws IOException;
+bookkeeper-server/src/main/java/org/apache/bookkeeper/auth/BookieAuthProvider.java,65,BookieAuthProvider newProvider(InetSocketAddress addr,
+bookkeeper-server/src/main/java/org/apache/bookkeeper/auth/BookieAuthProvider.java,66,GenericCallback<Void> completeCb);
+bookkeeper-server/src/main/java/org/apache/bookkeeper/auth/BookieAuthProvider.java,82,void process(AuthMessage m, GenericCallback<AuthMessage> cb);
+bookkeeper-server/src/main/java/org/apache/bookkeeper/auth/ClientAuthProvider.java,24,import java.net.InetSocketAddress;
+bookkeeper-server/src/main/java/org/apache/bookkeeper/auth/ClientAuthProvider.java,27,import org.apache.bookkeeper.proto.BookkeeperInternalCallbacks.GenericCallback;
+bookkeeper-server/src/main/java/org/apache/bookkeeper/auth/ClientAuthProvider.java,28,import org.apache.bookkeeper.proto.BookkeeperProtocol.AuthMessage;
+bookkeeper-server/src/main/java/org/apache/bookkeeper/auth/ClientAuthProvider.java,30,import com.google.protobuf.ExtensionRegistry;
+bookkeeper-server/src/main/java/org/apache/bookkeeper/auth/ClientAuthProvider.java,46,void init(ClientConfiguration conf,
+bookkeeper-server/src/main/java/org/apache/bookkeeper/auth/ClientAuthProvider.java,47,ExtensionRegistry registry) throws IOException;
+bookkeeper-server/src/main/java/org/apache/bookkeeper/auth/ClientAuthProvider.java,63,ClientAuthProvider newProvider(InetSocketAddress addr,
+bookkeeper-server/src/main/java/org/apache/bookkeeper/auth/ClientAuthProvider.java,64,GenericCallback<Void> completeCb);
+bookkeeper-server/src/main/java/org/apache/bookkeeper/auth/ClientAuthProvider.java,80,void init(GenericCallback<AuthMessage> cb);
+bookkeeper-server/src/main/java/org/apache/bookkeeper/auth/ClientAuthProvider.java,88,void process(AuthMessage m, GenericCallback<AuthMessage> cb);
+bookkeeper-server/src/main/java/org/apache/bookkeeper/conf/ClientConfiguration.java,85,protected final static String CLIENT_AUTH_PROVIDER_FACTORY_CLASS = "clientAuthProviderFactoryClass";
+bookkeeper-server/src/main/java/org/apache/bookkeeper/conf/ClientConfiguration.java,815,public ClientConfiguration setClientAuthProviderFactoryClass(
+bookkeeper-server/src/main/java/org/apache/bookkeeper/conf/ClientConfiguration.java,816,String factoryClass) {
+bookkeeper-server/src/main/java/org/apache/bookkeeper/conf/ClientConfiguration.java,817,setProperty(CLIENT_AUTH_PROVIDER_FACTORY_CLASS, factoryClass);
+bookkeeper-server/src/main/java/org/apache/bookkeeper/conf/ClientConfiguration.java,827,public String getClientAuthProviderFactoryClass() {
+bookkeeper-server/src/main/java/org/apache/bookkeeper/conf/ClientConfiguration.java,828,return getString(CLIENT_AUTH_PROVIDER_FACTORY_CLASS, null);
+bookkeeper-server/src/main/java/org/apache/bookkeeper/proto/AuthHandler.java,24,import java.net.Inet4Address;
+bookkeeper-server/src/main/java/org/apache/bookkeeper/proto/AuthHandler.java,25,import java.net.InetSocketAddress;
+bookkeeper-server/src/main/java/org/apache/bookkeeper/proto/AuthHandler.java,42,import org.jboss.netty.channel.local.LocalChannel;
+bookkeeper-server/src/main/java/org/apache/bookkeeper/proto/AuthHandler.java,54,ServerSideHandler(BookieAuthProvider.Factory authProviderFactory) {
+bookkeeper-server/src/main/java/org/apache/bookkeeper/proto/AuthHandler.java,62,LOG.info("Channel open {}", ctx.getChannel());
+bookkeeper-server/src/main/java/org/apache/bookkeeper/proto/AuthHandler.java,63,SocketAddress remote  = ctx.getChannel().getRemoteAddress();
+bookkeeper-server/src/main/java/org/apache/bookkeeper/proto/AuthHandler.java,64,if (remote instanceof InetSocketAddress) {
+bookkeeper-server/src/main/java/org/apache/bookkeeper/proto/AuthHandler.java,65,authProvider = authProviderFactory.newProvider((InetSocketAddress)remote,
+bookkeeper-server/src/main/java/org/apache/bookkeeper/proto/AuthHandler.java,66,new AuthHandshakeCompleteCallback());
+bookkeeper-server/src/main/java/org/apache/bookkeeper/proto/AuthHandler.java,68,authProvider = authProviderFactory.newProvider(new InetSocketAddress(Inet4Address.getLocalHost(), 0),
+bookkeeper-server/src/main/java/org/apache/bookkeeper/proto/AuthHandler.java,69,new AuthHandshakeCompleteCallback());
+bookkeeper-server/src/main/java/org/apache/bookkeeper/proto/AuthHandler.java,71,LOG.error("Unknown channel ({}) or socket type {} for {}",
+bookkeeper-server/src/main/java/org/apache/bookkeeper/proto/AuthHandler.java,72,new Object[] { ctx.getChannel(), remote != null ? remote.getClass() : null, remote });
+bookkeeper-server/src/main/java/org/apache/bookkeeper/proto/AuthHandler.java,97,authProvider.process(req.getAuthMessage(),
+bookkeeper-server/src/main/java/org/apache/bookkeeper/proto/AuthHandler.java,122,authProvider.process(req.getAuthRequest(),
+bookkeeper-server/src/main/java/org/apache/bookkeeper/proto/AuthHandler.java,123,new AuthResponseCallback(req, ctx.getChannel()));
+bookkeeper-server/src/main/java/org/apache/bookkeeper/proto/AuthHandler.java,149,static class AuthResponseCallbackLegacy implements GenericCallback<AuthMessage> {
+bookkeeper-server/src/main/java/org/apache/bookkeeper/proto/AuthHandler.java,158,public void operationComplete(int rc, AuthMessage newam) {
+bookkeeper-server/src/main/java/org/apache/bookkeeper/proto/AuthHandler.java,165,newam));
+bookkeeper-server/src/main/java/org/apache/bookkeeper/proto/AuthHandler.java,169,static class AuthResponseCallback implements GenericCallback<AuthMessage> {
+bookkeeper-server/src/main/java/org/apache/bookkeeper/proto/AuthHandler.java,173,AuthResponseCallback(BookkeeperProtocol.Request req, Channel channel) {
+bookkeeper-server/src/main/java/org/apache/bookkeeper/proto/AuthHandler.java,178,public void operationComplete(int rc, AuthMessage newam) {
+bookkeeper-server/src/main/java/org/apache/bookkeeper/proto/AuthHandler.java,192,.setAuthResponse(newam);
+bookkeeper-server/src/main/java/org/apache/bookkeeper/proto/AuthHandler.java,198,class AuthHandshakeCompleteCallback implements GenericCallback<Void> {
+bookkeeper-server/src/main/java/org/apache/bookkeeper/proto/AuthHandler.java,214,AtomicLong transactionIdGenerator;
+bookkeeper-server/src/main/java/org/apache/bookkeeper/proto/AuthHandler.java,215,Queue<MessageEvent> waitingForAuth = new ConcurrentLinkedQueue<MessageEvent>();
+bookkeeper-server/src/main/java/org/apache/bookkeeper/proto/AuthHandler.java,218,AtomicLong transactionIdGenerator) {
+bookkeeper-server/src/main/java/org/apache/bookkeeper/proto/AuthHandler.java,228,SocketAddress remote  = ctx.getChannel().getRemoteAddress();
+bookkeeper-server/src/main/java/org/apache/bookkeeper/proto/AuthHandler.java,229,if (remote instanceof InetSocketAddress) {
+bookkeeper-server/src/main/java/org/apache/bookkeeper/proto/AuthHandler.java,230,authProvider = authProviderFactory.newProvider((InetSocketAddress)remote,
+bookkeeper-server/src/main/java/org/apache/bookkeeper/proto/AuthHandler.java,231,new AuthHandshakeCompleteCallback(ctx));
+bookkeeper-server/src/main/java/org/apache/bookkeeper/proto/AuthHandler.java,233,authProvider = authProviderFactory.newProvider(new InetSocketAddress(Inet4Address.getLocalHost(), 0),
+bookkeeper-server/src/main/java/org/apache/bookkeeper/proto/AuthHandler.java,236,LOG.error("Unknown channel ({}) or socket type {} for {}",
+bookkeeper-server/src/main/java/org/apache/bookkeeper/proto/AuthHandler.java,237,new Object[] { ctx.getChannel(), remote != null ? remote.getClass() : null, remote });
+bookkeeper-server/src/main/java/org/apache/bookkeeper/proto/AuthHandler.java,241,authProvider.init(new AuthRequestCallback(ctx));
+bookkeeper-server/src/main/java/org/apache/bookkeeper/proto/AuthHandler.java,243,super.channelConnected(ctx, e);
+bookkeeper-server/src/main/java/org/apache/bookkeeper/proto/AuthHandler.java,264,authProvider.process(am, new AuthRequestCallback(ctx));
+bookkeeper-server/src/main/java/org/apache/bookkeeper/proto/AuthHandler.java,304,class AuthRequestCallback implements GenericCallback<AuthMessage> {
+bookkeeper-server/src/main/java/org/apache/bookkeeper/proto/AuthHandler.java,308,AuthRequestCallback(ChannelHandlerContext ctx) {
+bookkeeper-server/src/main/java/org/apache/bookkeeper/proto/AuthHandler.java,313,public void operationComplete(int rc, AuthMessage newam) {
+bookkeeper-server/src/main/java/org/apache/bookkeeper/proto/AuthHandler.java,327,.setAuthRequest(newam);
+bookkeeper-server/src/main/java/org/apache/bookkeeper/proto/AuthHandler.java,333,class AuthHandshakeCompleteCallback implements GenericCallback<Void> {
+bookkeeper-server/src/main/java/org/apache/bookkeeper/proto/BookieClient.java,101,this.authProviderFactory = AuthProviderFactoryFactory.newClientAuthProviderFactory(conf, registry);
+bookkeeper-server/src/main/java/org/apache/bookkeeper/proto/BookieNettyServer.java,87,authProviderFactory = AuthProviderFactoryFactory.newBookieAuthProviderFactory(conf, registry);
+bookkeeper-server/src/main/java/org/apache/bookkeeper/proto/BookieNettyServer.java,190,: new RejectRequestHandler();
+bookkeeper-server/src/main/java/org/apache/bookkeeper/proto/BookkeeperProtocol.java,4942,com.google.protobuf.GeneratedMessage.
+bookkeeper-server/src/main/java/org/apache/bookkeeper/proto/BookkeeperProtocol.java,4943,ExtendableMessageOrBuilder<AuthMessage> {
+bookkeeper-server/src/main/java/org/apache/bookkeeper/proto/BookkeeperProtocol.java,4950,com.google.protobuf.GeneratedMessage.ExtendableMessage<
+bookkeeper-server/src/main/java/org/apache/bookkeeper/proto/BookkeeperProtocol.java,5022,if (!extensionsAreInitialized()) {
+bookkeeper-server/src/main/java/org/apache/bookkeeper/proto/BookkeeperProtocol.java,5033,com.google.protobuf.GeneratedMessage
+bookkeeper-server/src/main/java/org/apache/bookkeeper/proto/BookkeeperProtocol.java,5034,.ExtendableMessage<org.apache.bookkeeper.proto.BookkeeperProtocol.AuthMessage>.ExtensionWriter extensionWriter =
+bookkeeper-server/src/main/java/org/apache/bookkeeper/proto/BookkeeperProtocol.java,5035,newExtensionWriter();
+bookkeeper-server/src/main/java/org/apache/bookkeeper/proto/BookkeeperProtocol.java,5039,extensionWriter.writeUntil(536870912, output);
+bookkeeper-server/src/main/java/org/apache/bookkeeper/proto/BookkeeperProtocol.java,5053,size += extensionsSerializedSize();
+bookkeeper-server/src/main/java/org/apache/bookkeeper/proto/BookkeeperProtocol.java,5147,com.google.protobuf.GeneratedMessage.ExtendableBuilder<
+bookkeeper-server/src/main/java/org/apache/bookkeeper/proto/BookkeeperProtocol.java,5241,this.mergeExtensionFields(other);
+bookkeeper-server/src/main/java/org/apache/bookkeeper/proto/BookkeeperProtocol.java,5251,if (!extensionsAreInitialized()) {
+bookkeeper-server/src/main/java/org/apache/bookkeeper/proto/PerChannelBookieClient.java,70,import org.jboss.netty.channel.local.LocalAddress;
+bookkeeper-server/src/main/java/org/apache/bookkeeper/proto/PerChannelBookieClient.java,690,pipeline.addLast("authHandler", new AuthHandler.ClientSideHandler(authProviderFactory, txnIdGenerator));
+bookkeeper-server/src/main/java/org/apache/bookkeeper/replication/Auditor.java,115,this.bkc = new BookKeeper(new ClientConfiguration(conf), zkc);
+bookkeeper-server/src/main/java/org/apache/bookkeeper/bookie/BookieShell.java,454,ByteArrayOutputStream out = new ByteArrayOutputStream();
+bookkeeper-server/src/main/java/org/apache/bookkeeper/bookie/BookieShell.java,460,HexDump.dump(entry.getEntry(), 0, out, 0);
+bookkeeper-server/src/main/java/org/apache/bookkeeper/bookie/BookieShell.java,461,System.out.println(
+bookkeeper-server/src/main/java/org/apache/bookkeeper/bookie/BookieShell.java,463,out.reset();
+bookkeeper-server/src/main/java/org/apache/bookkeeper/bookie/BookieShell.java,469,out.close();
+bookkeeper-server/src/main/java/org/apache/bookkeeper/bookie/EntryMemTable.java,202,return flushSnapshot(flusher, Checkpoint.MAX);
+bookkeeper-server/src/main/java/org/apache/bookkeeper/bookie/EntryMemTable.java,212,long size = flushSnapshot(flusher, checkpoint);
+bookkeeper-server/src/main/java/org/apache/bookkeeper/bookie/EntryMemTable.java,213,if (null != snapshot(checkpoint)) {
+bookkeeper-server/src/main/java/org/apache/bookkeeper/bookie/EntryMemTable.java,214,size += flushSnapshot(flusher, checkpoint);
+bookkeeper-server/src/main/java/org/apache/bookkeeper/bookie/EntryMemTable.java,216,return size;
+bookkeeper-server/src/main/java/org/apache/bookkeeper/bookie/EntryMemTable.java,292,if (isSizeLimitReached()) {
+bookkeeper-server/src/main/java/org/apache/bookkeeper/bookie/EntryMemTable.java,294,if (null != cp) {
+bookkeeper-server/src/main/java/org/apache/bookkeeper/bookie/SortedLedgerStorage.java,42,private EntryMemTable memTable;
+bookkeeper-server/src/main/java/org/apache/bookkeeper/client/BookKeeperAdmin.java,1014,throws NoSuchElementException {
+bookkeeper-server/src/main/java/org/apache/bookkeeper/client/BookKeeperAdmin.java,1015,try{
+bookkeeper-server/src/main/java/org/apache/bookkeeper/client/BookKeeperAdmin.java,1016,if (currentRange == null) {
+bookkeeper-server/src/main/java/org/apache/bookkeeper/client/LedgerHandleAdv.java,154,pendingAddOps.add(op);
+bookkeeper-server/src/main/java/org/apache/bookkeeper/client/LedgerHandleAdv.java,175,if (metadata.isClosed()) {
+bookkeeper-server/src/main/java/org/apache/bookkeeper/client/LedgerHandleAdv.java,198,final long currentLength = addToLength(length);
+bookkeeper-server/src/main/java/org/apache/bookkeeper/meta/HierarchicalLedgerManager.java,314,l1NodesIter = zk.getChildren(ledgerRootPath, null).iterator();
+bookkeeper-server/src/main/java/org/apache/bookkeeper/client/BookKeeper.java,542,SyncCounter counter = new SyncCounter();
+bookkeeper-server/src/main/java/org/apache/bookkeeper/client/BookKeeper.java,543,counter.inc();
+bookkeeper-server/src/main/java/org/apache/bookkeeper/client/BookKeeper.java,553,counter.block(0);
+bookkeeper-server/src/main/java/org/apache/bookkeeper/client/BookKeeper.java,554,if (counter.getrc() != BKException.Code.OK) {
+bookkeeper-server/src/main/java/org/apache/bookkeeper/client/BookKeeper.java,555,LOG.error("Error while creating ledger : {}", counter.getrc());
+bookkeeper-server/src/main/java/org/apache/bookkeeper/client/BookKeeper.java,556,throw BKException.create(counter.getrc());
+bookkeeper-server/src/main/java/org/apache/bookkeeper/client/BookKeeper.java,562,return counter.getLh();
+bookkeeper-server/src/main/java/org/apache/bookkeeper/client/BookKeeper.java,584,SyncCounter counter = new SyncCounter();
+bookkeeper-server/src/main/java/org/apache/bookkeeper/client/BookKeeper.java,585,counter.inc();
+bookkeeper-server/src/main/java/org/apache/bookkeeper/client/BookKeeper.java,595,counter.block(0);
+bookkeeper-server/src/main/java/org/apache/bookkeeper/client/BookKeeper.java,596,if (counter.getrc() != BKException.Code.OK) {
+bookkeeper-server/src/main/java/org/apache/bookkeeper/client/BookKeeper.java,597,LOG.error("Error while creating ledger : {}", counter.getrc());
+bookkeeper-server/src/main/java/org/apache/bookkeeper/client/BookKeeper.java,598,throw BKException.create(counter.getrc());
+bookkeeper-server/src/main/java/org/apache/bookkeeper/client/BookKeeper.java,604,return counter.getLh();
+bookkeeper-server/src/main/java/org/apache/bookkeeper/client/BookKeeper.java,757,SyncCounter counter = new SyncCounter();
+bookkeeper-server/src/main/java/org/apache/bookkeeper/client/BookKeeper.java,758,counter.inc();
+bookkeeper-server/src/main/java/org/apache/bookkeeper/client/BookKeeper.java,768,counter.block(0);
+bookkeeper-server/src/main/java/org/apache/bookkeeper/client/BookKeeper.java,770,throw BKException.create(counter.getrc());
+bookkeeper-server/src/main/java/org/apache/bookkeeper/client/BookKeeper.java,772,return counter.getLh();
+bookkeeper-server/src/main/java/org/apache/bookkeeper/client/BookKeeper.java,792,SyncCounter counter = new SyncCounter();
+bookkeeper-server/src/main/java/org/apache/bookkeeper/client/BookKeeper.java,793,counter.inc();
+bookkeeper-server/src/main/java/org/apache/bookkeeper/client/BookKeeper.java,804,counter.block(0);
+bookkeeper-server/src/main/java/org/apache/bookkeeper/client/BookKeeper.java,806,throw BKException.create(counter.getrc());
+bookkeeper-server/src/main/java/org/apache/bookkeeper/client/BookKeeper.java,808,return counter.getLh();
+bookkeeper-server/src/main/java/org/apache/bookkeeper/client/BookKeeper.java,846,SyncCounter counter = new SyncCounter();
+bookkeeper-server/src/main/java/org/apache/bookkeeper/client/BookKeeper.java,847,counter.inc();
+bookkeeper-server/src/main/java/org/apache/bookkeeper/client/BookKeeper.java,851,counter.block(0);
+bookkeeper-server/src/main/java/org/apache/bookkeeper/client/BookKeeper.java,852,if (counter.getrc() != BKException.Code.OK) {
+bookkeeper-server/src/main/java/org/apache/bookkeeper/client/BookKeeper.java,853,LOG.error("Error deleting ledger " + lId + " : " + counter.getrc());
+bookkeeper-server/src/main/java/org/apache/bookkeeper/client/BookKeeper.java,854,throw BKException.create(counter.getrc());
+bookkeeper-server/src/main/java/org/apache/bookkeeper/client/BookKeeper.java,979,SyncCounter counter = (SyncCounter) ctx;
+bookkeeper-server/src/main/java/org/apache/bookkeeper/client/BookKeeper.java,980,counter.setLh(lh);
+bookkeeper-server/src/main/java/org/apache/bookkeeper/client/BookKeeper.java,981,counter.setrc(rc);
+bookkeeper-server/src/main/java/org/apache/bookkeeper/client/BookKeeper.java,982,counter.dec();
+bookkeeper-server/src/main/java/org/apache/bookkeeper/client/BookKeeper.java,999,SyncCounter counter = (SyncCounter) ctx;
+bookkeeper-server/src/main/java/org/apache/bookkeeper/client/BookKeeper.java,1000,counter.setLh(lh);
+bookkeeper-server/src/main/java/org/apache/bookkeeper/client/BookKeeper.java,1002,LOG.debug("Open complete: {}", rc);
+bookkeeper-server/src/main/java/org/apache/bookkeeper/client/BookKeeper.java,1004,counter.setrc(rc);
+bookkeeper-server/src/main/java/org/apache/bookkeeper/client/BookKeeper.java,1005,counter.dec();
+bookkeeper-server/src/main/java/org/apache/bookkeeper/client/BookKeeper.java,1020,SyncCounter counter = (SyncCounter) ctx;
+bookkeeper-server/src/main/java/org/apache/bookkeeper/client/BookKeeper.java,1021,counter.setrc(rc);
+bookkeeper-server/src/main/java/org/apache/bookkeeper/client/BookKeeper.java,1022,counter.dec();
+bookkeeper-server/src/main/java/org/apache/bookkeeper/client/BookKeeperAdmin.java,256,SyncCounter counter = new SyncCounter();
+bookkeeper-server/src/main/java/org/apache/bookkeeper/client/BookKeeperAdmin.java,257,counter.inc();
+bookkeeper-server/src/main/java/org/apache/bookkeeper/client/BookKeeperAdmin.java,262,counter.block(0);
+bookkeeper-server/src/main/java/org/apache/bookkeeper/client/BookKeeperAdmin.java,263,if (counter.getrc() != BKException.Code.OK) {
+bookkeeper-server/src/main/java/org/apache/bookkeeper/client/BookKeeperAdmin.java,264,throw BKException.create(counter.getrc());
+bookkeeper-server/src/main/java/org/apache/bookkeeper/client/BookKeeperAdmin.java,267,return counter.getLh();
+bookkeeper-server/src/main/java/org/apache/bookkeeper/client/BookKeeperAdmin.java,299,SyncCounter counter = new SyncCounter();
+bookkeeper-server/src/main/java/org/apache/bookkeeper/client/BookKeeperAdmin.java,300,counter.inc();
+bookkeeper-server/src/main/java/org/apache/bookkeeper/client/BookKeeperAdmin.java,306,counter.block(0);
+bookkeeper-server/src/main/java/org/apache/bookkeeper/client/BookKeeperAdmin.java,307,if (counter.getrc() != BKException.Code.OK) {
+bookkeeper-server/src/main/java/org/apache/bookkeeper/client/BookKeeperAdmin.java,308,throw BKException.create(counter.getrc());
+bookkeeper-server/src/main/java/org/apache/bookkeeper/client/BookKeeperAdmin.java,311,return counter.getLh();
+bookkeeper-server/src/main/java/org/apache/bookkeeper/client/BookKeeperAdmin.java,380,SyncCounter counter = new SyncCounter();
+bookkeeper-server/src/main/java/org/apache/bookkeeper/client/BookKeeperAdmin.java,381,counter.inc();
+bookkeeper-server/src/main/java/org/apache/bookkeeper/client/BookKeeperAdmin.java,385,counter.block(0);
+bookkeeper-server/src/main/java/org/apache/bookkeeper/client/BookKeeperAdmin.java,386,if (counter.getrc() != BKException.Code.OK) {
+bookkeeper-server/src/main/java/org/apache/bookkeeper/client/BookKeeperAdmin.java,387,throw BKException.create(counter.getrc());
+bookkeeper-server/src/main/java/org/apache/bookkeeper/client/BookKeeperAdmin.java,389,currentEntry = counter.getSequence().nextElement();
+bookkeeper-server/src/main/java/org/apache/bookkeeper/client/BookKeeperAdmin.java,855,SyncCounter syncCounter = new SyncCounter();
+bookkeeper-server/src/main/java/org/apache/bookkeeper/client/BookKeeperAdmin.java,856,ResultCallBack resultCallBack = new ResultCallBack(syncCounter);
+bookkeeper-server/src/main/java/org/apache/bookkeeper/client/BookKeeperAdmin.java,860,syncCounter.inc();
+bookkeeper-server/src/main/java/org/apache/bookkeeper/client/BookKeeperAdmin.java,862,syncCounter.block(0);
+bookkeeper-server/src/main/java/org/apache/bookkeeper/client/BookKeeperAdmin.java,863,if (syncCounter.getrc() != BKException.Code.OK) {
+bookkeeper-server/src/main/java/org/apache/bookkeeper/client/BookKeeperAdmin.java,864,throw BKException.create(bkc.getReturnRc(syncCounter.getrc()));
+bookkeeper-server/src/main/java/org/apache/bookkeeper/client/BookKeeperAdmin.java,870,private SyncCounter sync;
+bookkeeper-server/src/main/java/org/apache/bookkeeper/client/BookKeeperAdmin.java,872,public ResultCallBack(SyncCounter sync) {
+bookkeeper-server/src/main/java/org/apache/bookkeeper/client/BookKeeperAdmin.java,877,public void processResult(int rc, String s, Object obj) {
+bookkeeper-server/src/main/java/org/apache/bookkeeper/client/BookKeeperAdmin.java,878,sync.setrc(rc);
+bookkeeper-server/src/main/java/org/apache/bookkeeper/client/BookKeeperAdmin.java,879,sync.dec();
+bookkeeper-server/src/main/java/org/apache/bookkeeper/client/LedgerHandle.java,232,SyncCounter counter = new SyncCounter();
+bookkeeper-server/src/main/java/org/apache/bookkeeper/client/LedgerHandle.java,233,counter.inc();
+bookkeeper-server/src/main/java/org/apache/bookkeeper/client/LedgerHandle.java,237,counter.block(0);
+bookkeeper-server/src/main/java/org/apache/bookkeeper/client/LedgerHandle.java,238,if (counter.getrc() != BKException.Code.OK) {
+bookkeeper-server/src/main/java/org/apache/bookkeeper/client/LedgerHandle.java,239,throw BKException.create(counter.getrc());
+bookkeeper-server/src/main/java/org/apache/bookkeeper/client/LedgerHandle.java,427,SyncCounter counter = new SyncCounter();
+bookkeeper-server/src/main/java/org/apache/bookkeeper/client/LedgerHandle.java,428,counter.inc();
+bookkeeper-server/src/main/java/org/apache/bookkeeper/client/LedgerHandle.java,432,counter.block(0);
+bookkeeper-server/src/main/java/org/apache/bookkeeper/client/LedgerHandle.java,433,if (counter.getrc() != BKException.Code.OK) {
+bookkeeper-server/src/main/java/org/apache/bookkeeper/client/LedgerHandle.java,434,throw BKException.create(counter.getrc());
+bookkeeper-server/src/main/java/org/apache/bookkeeper/client/LedgerHandle.java,437,return counter.getSequence();
+bookkeeper-server/src/main/java/org/apache/bookkeeper/client/LedgerHandle.java,516,SyncCounter counter = new SyncCounter();
+bookkeeper-server/src/main/java/org/apache/bookkeeper/client/LedgerHandle.java,517,counter.inc();
+bookkeeper-server/src/main/java/org/apache/bookkeeper/client/LedgerHandle.java,521,counter.block(0);
+bookkeeper-server/src/main/java/org/apache/bookkeeper/client/LedgerHandle.java,523,if (counter.getrc() != BKException.Code.OK) {
+bookkeeper-server/src/main/java/org/apache/bookkeeper/client/LedgerHandle.java,524,throw BKException.create(counter.getrc());
+bookkeeper-server/src/main/java/org/apache/bookkeeper/client/LedgerHandle.java,527,return callback.entryId;
+bookkeeper-server/src/main/java/org/apache/bookkeeper/client/LedgerHandle.java,1318,SyncCounter counter = (SyncCounter) ctx;
+bookkeeper-server/src/main/java/org/apache/bookkeeper/client/LedgerHandle.java,1319,synchronized (counter) {
+bookkeeper-server/src/main/java/org/apache/bookkeeper/client/LedgerHandle.java,1320,counter.setSequence(seq);
+bookkeeper-server/src/main/java/org/apache/bookkeeper/client/LedgerHandle.java,1321,counter.setrc(rc);
+bookkeeper-server/src/main/java/org/apache/bookkeeper/client/LedgerHandle.java,1322,counter.dec();
+bookkeeper-server/src/main/java/org/apache/bookkeeper/client/LedgerHandle.java,1323,counter.notify();
+bookkeeper-server/src/main/java/org/apache/bookkeeper/client/LedgerHandle.java,1329,long entryId = -1;
+bookkeeper-server/src/main/java/org/apache/bookkeeper/client/LedgerHandle.java,1345,SyncCounter counter = (SyncCounter) ctx;
+bookkeeper-server/src/main/java/org/apache/bookkeeper/client/LedgerHandle.java,1347,this.entryId = entry;
+bookkeeper-server/src/main/java/org/apache/bookkeeper/client/LedgerHandle.java,1348,counter.setrc(rc);
+bookkeeper-server/src/main/java/org/apache/bookkeeper/client/LedgerHandle.java,1349,counter.dec();
+bookkeeper-server/src/main/java/org/apache/bookkeeper/client/LedgerHandle.java,1379,SyncCounter counter = (SyncCounter) ctx;
+bookkeeper-server/src/main/java/org/apache/bookkeeper/client/LedgerHandle.java,1380,counter.setrc(rc);
+bookkeeper-server/src/main/java/org/apache/bookkeeper/client/LedgerHandle.java,1381,synchronized (counter) {
+bookkeeper-server/src/main/java/org/apache/bookkeeper/client/LedgerHandle.java,1382,counter.dec();
+bookkeeper-server/src/main/java/org/apache/bookkeeper/client/LedgerHandle.java,1383,counter.notify();
+bookkeeper-server/src/main/java/org/apache/bookkeeper/client/LedgerHandleAdv.java,93,SyncCounter counter = new SyncCounter();
+bookkeeper-server/src/main/java/org/apache/bookkeeper/client/LedgerHandleAdv.java,94,counter.inc();
+bookkeeper-server/src/main/java/org/apache/bookkeeper/client/LedgerHandleAdv.java,99,counter.block(0);
+bookkeeper-server/src/main/java/org/apache/bookkeeper/client/LedgerHandleAdv.java,101,if (counter.getrc() != BKException.Code.OK) {
+bookkeeper-server/src/main/java/org/apache/bookkeeper/client/LedgerHandleAdv.java,102,throw BKException.create(counter.getrc());
+bookkeeper-server/src/main/java/org/apache/bookkeeper/client/LedgerHandleAdv.java,104,return callback.entryId;
+bookkeeper-server/src/main/java/org/apache/bookkeeper/client/LedgerOpenOp.java,51,final DigestType digestType;
+bookkeeper-server/src/main/java/org/apache/bookkeeper/client/LedgerOpenOp.java,74,this.digestType = digestType;
+bookkeeper-server/src/main/java/org/apache/bookkeeper/client/LedgerOpenOp.java,84,this.digestType = bk.getConf().getBookieRecoveryDigestType();
+bookkeeper-server/src/main/java/org/apache/bookkeeper/client/LedgerOpenOp.java,122,final DigestType digestType;
+bookkeeper-server/src/main/java/org/apache/bookkeeper/client/LedgerOpenOp.java,132,digestType = this.digestType;
+bookkeeper-server/src/main/java/org/apache/bookkeeper/conf/AbstractConfiguration.java,64,addConfiguration(new SystemConfiguration());
+bookkeeper-server/src/main/java/org/apache/bookkeeper/client/LedgerHandleAdv.java,173,throttler.acquire();
+bookkeeper-benchmark/src/main/java/org/apache/bookkeeper/benchmark/BenchBookie.java,136,int port = Integer.valueOf(cmd.getOptionValue("port", "3181"));
+bookkeeper-benchmark/src/main/java/org/apache/bookkeeper/benchmark/BenchBookie.java,137,int size = Integer.valueOf(cmd.getOptionValue("size", "1024"));
+bookkeeper-benchmark/src/main/java/org/apache/bookkeeper/benchmark/BenchReadThroughputLatency.java,62,- Integer.valueOf(m2.group(1));
+bookkeeper-benchmark/src/main/java/org/apache/bookkeeper/benchmark/BenchReadThroughputLatency.java,167,final int sockTimeout = Integer.valueOf(cmd.getOptionValue("sockettimeout", "5"));
+bookkeeper-benchmark/src/main/java/org/apache/bookkeeper/benchmark/BenchReadThroughputLatency.java,177,ledger.set(Integer.valueOf(cmd.getOptionValue("ledger")));
+bookkeeper-benchmark/src/main/java/org/apache/bookkeeper/benchmark/BenchReadThroughputLatency.java,179,numLedgers.set(Integer.valueOf(cmd.getOptionValue("listen")));
+bookkeeper-benchmark/src/main/java/org/apache/bookkeeper/benchmark/BenchThroughputLatency.java,263,long runningTime = Long.valueOf(cmd.getOptionValue("time", "60"));
+bookkeeper-benchmark/src/main/java/org/apache/bookkeeper/benchmark/BenchThroughputLatency.java,265,int entrysize = Integer.valueOf(cmd.getOptionValue("entrysize", "1024"));
+bookkeeper-benchmark/src/main/java/org/apache/bookkeeper/benchmark/BenchThroughputLatency.java,267,int ledgers = Integer.valueOf(cmd.getOptionValue("ledgers", "1"));
+bookkeeper-benchmark/src/main/java/org/apache/bookkeeper/benchmark/BenchThroughputLatency.java,268,int ensemble = Integer.valueOf(cmd.getOptionValue("ensemble", "3"));
+bookkeeper-benchmark/src/main/java/org/apache/bookkeeper/benchmark/BenchThroughputLatency.java,269,int quorum = Integer.valueOf(cmd.getOptionValue("quorum", "2"));
+bookkeeper-benchmark/src/main/java/org/apache/bookkeeper/benchmark/BenchThroughputLatency.java,272,ackQuorum = Integer.valueOf(cmd.getOptionValue("ackQuorum"));
+bookkeeper-benchmark/src/main/java/org/apache/bookkeeper/benchmark/BenchThroughputLatency.java,274,int throttle = Integer.valueOf(cmd.getOptionValue("throttle", "10000"));
+bookkeeper-benchmark/src/main/java/org/apache/bookkeeper/benchmark/BenchThroughputLatency.java,275,int sendLimit = Integer.valueOf(cmd.getOptionValue("sendlimit", "20000000"));
+bookkeeper-benchmark/src/main/java/org/apache/bookkeeper/benchmark/BenchThroughputLatency.java,277,final int sockTimeout = Integer.valueOf(cmd.getOptionValue("sockettimeout", "5"));
+bookkeeper-benchmark/src/main/java/org/apache/bookkeeper/benchmark/BenchThroughputLatency.java,286,final long timeout = Long.valueOf(cmd.getOptionValue("timeout", "360")) * 1000;
+bookkeeper-benchmark/src/main/java/org/apache/bookkeeper/benchmark/TestClient.java,100,int length = Integer.valueOf(cmd.getOptionValue("length", "1024"));
+bookkeeper-benchmark/src/main/java/org/apache/bookkeeper/benchmark/TestClient.java,102,long runfor = Long.valueOf(cmd.getOptionValue("runfor", "60")) * 1000;
+bookkeeper-benchmark/src/main/java/org/apache/bookkeeper/benchmark/TestClient.java,111,final long timeout = Long.valueOf(cmd.getOptionValue("timeout", "360")) * 1000;
+bookkeeper-benchmark/src/main/java/org/apache/bookkeeper/benchmark/TestClient.java,123,int numFiles = Integer.valueOf(cmd.getOptionValue("numconcurrent", "1"));
+bookkeeper-benchmark/src/main/java/org/apache/bookkeeper/benchmark/TestClient.java,131,int bkensemble = Integer.valueOf(cmd.getOptionValue("bkensemble", "3"));
+bookkeeper-benchmark/src/main/java/org/apache/bookkeeper/benchmark/TestClient.java,132,int bkquorum = Integer.valueOf(cmd.getOptionValue("bkquorum", "2"));
+bookkeeper-benchmark/src/main/java/org/apache/bookkeeper/benchmark/TestClient.java,133,int bkthrottle = Integer.valueOf(cmd.getOptionValue("bkthrottle", "10000"));
+bookkeeper-server/src/main/java/org/apache/bookkeeper/bookie/Bookie.java,1348,&& journalDir.list().length != 0) {
+bookkeeper-server/src/main/java/org/apache/bookkeeper/bookie/Bookie.java,1403,for (File child : dir.listFiles()) {
+bookkeeper-server/src/main/java/org/apache/bookkeeper/bookie/Bookie.java,1404,boolean delete = FileUtils.deleteQuietly(child);
+bookkeeper-server/src/main/java/org/apache/bookkeeper/bookie/Bookie.java,1405,if (!delete) {
+bookkeeper-server/src/main/java/org/apache/bookkeeper/bookie/Bookie.java,1406,LOG.error("Not able to delete " + child);
+bookkeeper-server/src/main/java/org/apache/bookkeeper/bookie/Bookie.java,1407,return false;
+bookkeeper-server/src/main/java/org/apache/bookkeeper/bookie/EntryLogger.java,654,for (File lf : logFiles) {
+bookkeeper-server/src/main/java/org/apache/bookkeeper/bookie/EntryLogger.java,655,String idString = lf.getName().split("\\.")[0];
+bookkeeper-server/src/main/java/org/apache/bookkeeper/bookie/EntryLogger.java,656,try {
+bookkeeper-server/src/main/java/org/apache/bookkeeper/bookie/EntryLogger.java,657,long lid = Long.parseLong(idString, 16);
+bookkeeper-server/src/main/java/org/apache/bookkeeper/bookie/EntryLogger.java,658,logs.add(lid);
+bookkeeper-server/src/main/java/org/apache/bookkeeper/bookie/FileSystemUpgrade.java,73,for (String f : files) {
+bookkeeper-server/src/main/java/org/apache/bookkeeper/bookie/FileSystemUpgrade.java,74,if (containsIndexFiles(d, f)) {
+bookkeeper-server/src/main/java/org/apache/bookkeeper/bookie/FileSystemUpgrade.java,75,return true;
+bookkeeper-server/src/main/java/org/apache/bookkeeper/bookie/FileSystemUpgrade.java,110,if (files.length == 0 && !v2versionFile.exists()) { // no old data, so we're ok
+bookkeeper-server/src/main/java/org/apache/bookkeeper/bookie/FileSystemUpgrade.java,260,for (File f : files) {
+bookkeeper-server/src/main/java/org/apache/bookkeeper/bookie/FileSystemUpgrade.java,261,if (f.isDirectory()) {
+bookkeeper-server/src/main/java/org/apache/bookkeeper/bookie/FileSystemUpgrade.java,262,FileUtils.deleteDirectory(f);
+bookkeeper-server/src/main/java/org/apache/bookkeeper/bookie/FileSystemUpgrade.java,264,if (!f.delete()) {
+bookkeeper-server/src/main/java/org/apache/bookkeeper/bookie/FileSystemUpgrade.java,265,LOG.warn("Could not delete {}", f);
+bookkeeper-server/src/main/java/org/apache/bookkeeper/bookie/GarbageCollectorThread.java,379,for (Long entryLogId : entryLogMetaMap.keySet()) {
+bookkeeper-server/src/main/java/org/apache/bookkeeper/bookie/GarbageCollectorThread.java,380,EntryLogMetadata meta = entryLogMetaMap.get(entryLogId);
+bookkeeper-server/src/main/java/org/apache/bookkeeper/bookie/IndexPersistenceMgr.java,192,for (File grandParent : ledgerDirectory.listFiles()) {
+bookkeeper-server/src/main/java/org/apache/bookkeeper/bookie/IndexPersistenceMgr.java,194,for (File parent : grandParent.listFiles()) {
+bookkeeper-server/src/main/java/org/apache/bookkeeper/bookie/IndexPersistenceMgr.java,196,for (File index : parent.listFiles()) {
+bookkeeper-server/src/main/java/org/apache/bookkeeper/client/LedgerMetadata.java,343,lc.metadataFormatVersion = new Integer(parts[1]);
+bookkeeper-server/src/main/java/org/apache/bookkeeper/client/LedgerMetadata.java,404,lc.writeQuorumSize = lc.ackQuorumSize = new Integer(reader.readLine());
+bookkeeper-server/src/main/java/org/apache/bookkeeper/client/LedgerMetadata.java,405,lc.ensembleSize = new Integer(reader.readLine());
+bookkeeper-server/src/main/java/org/apache/bookkeeper/client/LedgerMetadata.java,406,lc.length = new Long(reader.readLine());
+bookkeeper-server/src/main/java/org/apache/bookkeeper/client/LedgerMetadata.java,413,Long l = new Long(parts[0]);
+bookkeeper-server/src/main/java/org/apache/bookkeeper/client/LedgerMetadata.java,429,lc.addEnsemble(new Long(parts[0]), addrs);
+bookkeeper-server/src/main/java/org/apache/bookkeeper/meta/LedgerLayout.java,193,int layoutFormatVersion = new Integer(lines[0]);
+bookkeeper-server/src/main/java/org/apache/bookkeeper/meta/LedgerLayout.java,211,int managerVersion = new Integer(parts[1]);
+bookkeeper-server/src/main/java/org/apache/bookkeeper/meta/ZkLedgerUnderreplicationManager.java,199,return Long.valueOf(m.group(1));
+bookkeeper-server/src/main/java/org/apache/bookkeeper/metastore/MetastoreTable.java,20,import java.util.HashSet;
+bookkeeper-server/src/main/java/org/apache/bookkeeper/metastore/MetastoreTable.java,30,public static final Set<String> NON_FIELDS = new HashSet<String>();
+bookkeeper-server/src/main/java/org/apache/bookkeeper/metastore/Value.java,109,for (String f : fields.keySet()) {
+bookkeeper-server/src/main/java/org/apache/bookkeeper/metastore/Value.java,110,byte[] v1 = fields.get(f);
+bookkeeper-server/src/main/java/org/apache/bookkeeper/replication/AuditorElector.java,328,Integer.valueOf(parts[1]));

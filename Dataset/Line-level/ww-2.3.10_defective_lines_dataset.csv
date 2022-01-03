@@ -1,0 +1,1071 @@
+File,Line_number,SRC
+core/src/main/java/org/apache/struts2/dispatcher/multipart/JakartaMultiPartRequest.java,176,if (charset != null) {
+core/src/main/java/org/apache/struts2/dispatcher/multipart/JakartaMultiPartRequest.java,195,fac.setSizeThreshold(0);
+core/src/main/java/org/apache/struts2/dispatcher/multipart/JakartaMultiPartRequest.java,239,File storeLocation = ((DiskFileItem) fileItem).getStoreLocation();
+core/src/main/java/org/apache/struts2/dispatcher/multipart/JakartaMultiPartRequest.java,240,if (fileItem.isInMemory() && storeLocation != null && !storeLocation.exists()) {
+core/src/main/java/org/apache/struts2/components/Set.java,98,if (body != null && !body.equals("")) {
+core/src/main/java/org/apache/struts2/components/Set.java,99,o = body;
+core/src/main/java/org/apache/struts2/components/Set.java,101,o = findValue("top");
+plugins/portlet/src/main/java/org/apache/struts2/StrutsPortletTestCase.java,8,import org.springframework.mock.web.portlet.MockPortletContext;
+plugins/portlet/src/main/java/org/apache/struts2/StrutsPortletTestCase.java,9,import org.springframework.mock.web.portlet.MockPortletRequest;
+plugins/portlet/src/main/java/org/apache/struts2/StrutsPortletTestCase.java,10,import org.springframework.mock.web.portlet.MockPortletResponse;
+plugins/portlet/src/main/java/org/apache/struts2/StrutsPortletTestCase.java,11,import org.springframework.mock.web.portlet.MockPortletSession;
+plugins/portlet/src/main/java/org/apache/struts2/StrutsPortletTestCase.java,12,import org.springframework.mock.web.portlet.MockStateAwareResponse;
+plugins/portlet/src/main/java/org/apache/struts2/portlet/PortletRequestMap.java,56,String key = (String) keys.nextElement();
+core/src/main/java/org/apache/struts2/interceptor/debugging/DebuggingInterceptor.java,155,new PreResultListener() {
+core/src/main/java/org/apache/struts2/interceptor/debugging/DebuggingInterceptor.java,156,public void beforeResult(ActionInvocation inv, String result) {
+core/src/main/java/org/apache/struts2/interceptor/debugging/DebuggingInterceptor.java,157,printContext();
+core/src/main/java/org/apache/struts2/interceptor/debugging/DebuggingInterceptor.java,163,new PreResultListener() {
+core/src/main/java/org/apache/struts2/interceptor/debugging/DebuggingInterceptor.java,164,public void beforeResult(ActionInvocation inv, String actionResult) {
+core/src/main/java/org/apache/struts2/interceptor/debugging/DebuggingInterceptor.java,165,String xml = "";
+core/src/main/java/org/apache/struts2/interceptor/debugging/DebuggingInterceptor.java,166,if (enableXmlWithConsole) {
+core/src/main/java/org/apache/struts2/interceptor/debugging/DebuggingInterceptor.java,167,StringWriter writer = new StringWriter();
+core/src/main/java/org/apache/struts2/interceptor/debugging/DebuggingInterceptor.java,168,printContext(new PrettyPrintWriter(writer));
+core/src/main/java/org/apache/struts2/interceptor/debugging/DebuggingInterceptor.java,169,xml = writer.toString();
+core/src/main/java/org/apache/struts2/interceptor/debugging/DebuggingInterceptor.java,170,xml = xml.replaceAll("&", "&amp;");
+core/src/main/java/org/apache/struts2/interceptor/debugging/DebuggingInterceptor.java,171,xml = xml.replaceAll(">", "&gt;");
+core/src/main/java/org/apache/struts2/interceptor/debugging/DebuggingInterceptor.java,172,xml = xml.replaceAll("<", "&lt;");
+core/src/main/java/org/apache/struts2/interceptor/debugging/DebuggingInterceptor.java,174,ActionContext.getContext().put("debugXML", xml);
+core/src/main/java/org/apache/struts2/interceptor/debugging/DebuggingInterceptor.java,179,result.setLocation("/org/apache/struts2/interceptor/debugging/console.ftl");
+core/src/main/java/org/apache/struts2/interceptor/debugging/DebuggingInterceptor.java,180,result.setParse(false);
+core/src/main/java/org/apache/struts2/interceptor/debugging/DebuggingInterceptor.java,181,try {
+core/src/main/java/org/apache/struts2/interceptor/debugging/DebuggingInterceptor.java,182,result.execute(inv);
+core/src/main/java/org/apache/struts2/interceptor/debugging/DebuggingInterceptor.java,184,LOG.error("Unable to create debugging console", ex);
+core/src/main/java/org/apache/struts2/interceptor/debugging/DebuggingInterceptor.java,294,ServletActionContext.getResponse().getWriter());
+core/src/main/java/org/apache/struts2/interceptor/debugging/DebuggingInterceptor.java,443,if(valueStack != null) {
+core/src/main/java/org/apache/struts2/interceptor/debugging/DebuggingInterceptor.java,444,filter.add(valueStack);
+core/src/main/java/org/apache/struts2/interceptor/debugging/DebuggingInterceptor.java,446,return filter;
+core/src/main/java/org/apache/struts2/interceptor/debugging/DebuggingInterceptor.java,151,String type = getParameter(DEBUG_PARAM);
+core/src/main/java/org/apache/struts2/interceptor/debugging/DebuggingInterceptor.java,152,ctx.getParameters().remove(DEBUG_PARAM);
+core/src/main/java/org/apache/struts2/interceptor/debugging/DebuggingInterceptor.java,153,if (XML_MODE.equals(type)) {
+core/src/main/java/org/apache/struts2/interceptor/debugging/DebuggingInterceptor.java,154,inv.addPreResultListener(
+core/src/main/java/org/apache/struts2/interceptor/debugging/DebuggingInterceptor.java,161,consoleEnabled = true;
+core/src/main/java/org/apache/struts2/interceptor/debugging/DebuggingInterceptor.java,162,inv.addPreResultListener(
+core/src/main/java/org/apache/struts2/interceptor/debugging/DebuggingInterceptor.java,190,ValueStack stack = (ValueStack) ctx.getSession().get(SESSION_KEY);
+core/src/main/java/org/apache/struts2/interceptor/debugging/DebuggingInterceptor.java,191,if (stack == null) {
+core/src/main/java/org/apache/struts2/interceptor/debugging/DebuggingInterceptor.java,193,stack = (ValueStack) ctx.get(ActionContext.VALUE_STACK);
+core/src/main/java/org/apache/struts2/interceptor/debugging/DebuggingInterceptor.java,194,ctx.getSession().put(SESSION_KEY, stack);
+core/src/main/java/org/apache/struts2/interceptor/debugging/DebuggingInterceptor.java,196,String cmd = getParameter(EXPRESSION_PARAM);
+core/src/main/java/org/apache/struts2/interceptor/debugging/DebuggingInterceptor.java,198,ServletActionContext.getRequest().setAttribute("decorator", "none");
+core/src/main/java/org/apache/struts2/interceptor/debugging/DebuggingInterceptor.java,199,HttpServletResponse res = ServletActionContext.getResponse();
+core/src/main/java/org/apache/struts2/interceptor/debugging/DebuggingInterceptor.java,200,res.setContentType("text/plain");
+core/src/main/java/org/apache/struts2/interceptor/debugging/DebuggingInterceptor.java,205,writer.print(stack.findValue(cmd));
+core/src/main/java/org/apache/struts2/interceptor/debugging/DebuggingInterceptor.java,208,ex.printStackTrace();
+core/src/main/java/org/apache/struts2/interceptor/debugging/DebuggingInterceptor.java,210,cont = false;
+core/src/main/java/org/apache/struts2/interceptor/debugging/DebuggingInterceptor.java,212,actionOnly = true;
+core/src/main/java/org/apache/struts2/interceptor/debugging/DebuggingInterceptor.java,213,inv.addPreResultListener(
+core/src/main/java/org/apache/struts2/interceptor/debugging/DebuggingInterceptor.java,214,new PreResultListener() {
+core/src/main/java/org/apache/struts2/interceptor/debugging/DebuggingInterceptor.java,215,public void beforeResult(ActionInvocation inv, String actionResult) {
+core/src/main/java/org/apache/struts2/interceptor/debugging/DebuggingInterceptor.java,216,String rootObjectExpression = getParameter(OBJECT_PARAM);
+core/src/main/java/org/apache/struts2/interceptor/debugging/DebuggingInterceptor.java,218,rootObjectExpression = "#context";
+core/src/main/java/org/apache/struts2/interceptor/debugging/DebuggingInterceptor.java,219,String decorate = getParameter(DECORATE_PARAM);
+core/src/main/java/org/apache/struts2/interceptor/debugging/DebuggingInterceptor.java,220,ValueStack stack = (ValueStack) ctx.get(ActionContext.VALUE_STACK);
+core/src/main/java/org/apache/struts2/interceptor/debugging/DebuggingInterceptor.java,221,Object rootObject = stack.findValue(rootObjectExpression);
+core/src/main/java/org/apache/struts2/interceptor/debugging/DebuggingInterceptor.java,225,ObjectToHTMLWriter htmlWriter = new ObjectToHTMLWriter(writer);
+core/src/main/java/org/apache/struts2/interceptor/debugging/DebuggingInterceptor.java,226,htmlWriter.write(reflectionProvider, rootObject, rootObjectExpression);
+core/src/main/java/org/apache/struts2/interceptor/debugging/DebuggingInterceptor.java,227,String html = writer.toString();
+core/src/main/java/org/apache/struts2/interceptor/debugging/DebuggingInterceptor.java,228,writer.close();
+core/src/main/java/org/apache/struts2/interceptor/debugging/DebuggingInterceptor.java,230,stack.set("debugHtml", html);
+core/src/main/java/org/apache/struts2/interceptor/debugging/DebuggingInterceptor.java,235,ServletActionContext.getRequest().setAttribute("decorator", "none");
+core/src/main/java/org/apache/struts2/interceptor/debugging/DebuggingInterceptor.java,237,FreemarkerResult result = new FreemarkerResult();
+core/src/main/java/org/apache/struts2/interceptor/debugging/DebuggingInterceptor.java,238,result.setFreemarkerManager(freemarkerManager);
+core/src/main/java/org/apache/struts2/interceptor/debugging/DebuggingInterceptor.java,239,result.setContentType("text/html");
+core/src/main/java/org/apache/struts2/interceptor/debugging/DebuggingInterceptor.java,240,result.setLocation("/org/apache/struts2/interceptor/debugging/browser.ftl");
+core/src/main/java/org/apache/struts2/interceptor/debugging/DebuggingInterceptor.java,241,result.execute(inv);
+core/src/main/java/org/apache/struts2/interceptor/debugging/DebuggingInterceptor.java,243,LOG.error("Unable to create debugging console", ex);
+core/src/main/java/org/apache/struts2/interceptor/debugging/ObjectToHTMLWriter.java,53,if (root instanceof Map) {
+core/src/main/java/org/apache/struts2/interceptor/debugging/ObjectToHTMLWriter.java,62,List list = (List) root;
+core/src/main/java/org/apache/struts2/interceptor/debugging/ObjectToHTMLWriter.java,68,Set set = (Set) root;
+core/src/main/java/org/apache/struts2/interceptor/debugging/ObjectToHTMLWriter.java,126,Class clazz = value.getClass();
+core/src/main/java/org/apache/struts2/interceptor/debugging/ObjectToHTMLWriter.java,143,return value instanceof Map && ((Map) value).isEmpty();
+core/src/main/java/org/apache/struts2/interceptor/debugging/ObjectToHTMLWriter.java,154,return value instanceof Collection && ((Collection) value).isEmpty();
+core/src/main/java/org/apache/struts2/interceptor/debugging/ObjectToHTMLWriter.java,161,Class clazz = value.getClass();
+core/src/main/java/org/apache/struts2/views/jsp/ui/AnchorTag.java,83,if (forceAddSchemeHostAndPort != null) {
+apps/showcase/src/main/java/org/apache/struts2/showcase/fileupload/MultipleFileUploadUsingArrayAction.java,36,private String[] uploadFileNames;
+apps/showcase/src/main/java/org/apache/struts2/showcase/fileupload/MultipleFileUploadUsingArrayAction.java,37,private String[] uploadContentTypes;
+core/src/main/java/org/apache/struts2/util/InvocationSessionStore.java,30,import com.opensymphony.xwork2.util.ValueStack;
+core/src/main/java/org/apache/struts2/util/InvocationSessionStore.java,62,ValueStack stack = invocationContext.invocation.getStack();
+core/src/main/java/org/apache/struts2/util/InvocationSessionStore.java,63,ActionContext.getContext().setValueStack(stack);
+core/src/main/java/org/apache/struts2/util/InvocationSessionStore.java,114,ActionInvocation invocation;
+plugins/dwr/src/main/java/org/apache/struts2/validators/DWRValidator.java,121,private static final long serialVersionUID = -7645433725470191275L;
+plugins/rest/src/main/java/org/apache/struts2/rest/RestActionInvocation.java,55,private static final long serialVersionUID = 3485701178946428716L;
+plugins/sitemesh/src/main/java/org/apache/struts2/sitemesh/OldDecorator2NewStrutsDecorator.java,146,private static final long serialVersionUID = -4808072199157363028L;
+core/src/main/java/org/apache/struts2/interceptor/BackgroundProcess.java,36,protected Object action;
+core/src/main/java/org/apache/struts2/interceptor/BackgroundProcess.java,37,protected ActionInvocation invocation;
+core/src/main/java/org/apache/struts2/interceptor/BackgroundProcess.java,39,protected Exception exception;
+core/src/main/java/org/apache/struts2/interceptor/BackgroundProcess.java,49,public BackgroundProcess(String threadName, final ActionInvocation invocation, int threadPriority) {
+core/src/main/java/org/apache/struts2/interceptor/BackgroundProcess.java,51,this.action = invocation.getAction();
+core/src/main/java/org/apache/struts2/interceptor/BackgroundProcess.java,80,protected void beforeInvocation() throws Exception {
+core/src/main/java/org/apache/struts2/interceptor/BackgroundProcess.java,90,protected void afterInvocation() throws Exception {
+core/src/main/java/org/apache/struts2/interceptor/BackgroundProcess.java,99,return action;
+plugins/json/src/main/java/org/apache/struts2/json/JSONUtil.java,68,JSONWriter writer = new JSONWriter();
+plugins/json/src/main/java/org/apache/struts2/json/JSONUtil.java,89,JSONWriter writer = new JSONWriter();
+plugins/json/src/main/java/org/apache/struts2/json/JSONUtil.java,113,JSONWriter writer = new JSONWriter();
+plugins/json/src/main/java/org/apache/struts2/json/JSONWriter.java,190,Class clazz = object.getClass();
+core/src/main/java/org/apache/struts2/views/util/DefaultUrlHelper.java,102,link.append(":");
+core/src/main/java/org/apache/struts2/views/util/DefaultUrlHelper.java,107,int reqPort = request.getServerPort();
+core/src/main/java/org/apache/struts2/views/util/DefaultUrlHelper.java,110,link.append(":");
+core/src/main/java/org/apache/struts2/views/util/DefaultUrlHelper.java,111,link.append(reqPort);
+core/src/main/java/org/apache/struts2/views/util/DefaultUrlHelper.java,124,link.append(":");
+core/src/main/java/org/apache/struts2/views/xslt/XSLTResult.java,420,return new ServletURIResolver(
+core/src/main/java/org/apache/struts2/views/xslt/XSLTResult.java,421,ServletActionContext.getServletContext());
+core/src/main/java/org/apache/struts2/interceptor/TokenInterceptor.java,149,synchronized (session) {
+plugins/json/src/main/java/org/apache/struts2/json/JSONValidationInterceptor.java,81,private int validationFailedStatus = -1;
+plugins/json/src/main/java/org/apache/struts2/json/JSONValidationInterceptor.java,87,public void setValidationFailedStatus(int validationFailedStatus) {
+plugins/json/src/main/java/org/apache/struts2/json/JSONValidationInterceptor.java,88,this.validationFailedStatus = validationFailedStatus;
+plugins/json/src/main/java/org/apache/struts2/json/JSONValidationInterceptor.java,121,if (LOG.isDebugEnabled()) {
+plugins/json/src/main/java/org/apache/struts2/json/JSONValidationInterceptor.java,125,if (LOG.isDebugEnabled()) {
+plugins/json/src/main/java/org/apache/struts2/json/JSONValidationInterceptor.java,126,LOG.debug("Setting up encoding to: [" + DEFAULT_ENCODING + "]!");
+plugins/json/src/main/java/org/apache/struts2/json/JSONValidationInterceptor.java,143,private boolean isJsonEnabled(HttpServletRequest request) {
+plugins/json/src/main/java/org/apache/struts2/json/JSONValidationInterceptor.java,144,return "true".equals(request.getParameter(VALIDATE_JSON_PARAM));
+plugins/json/src/main/java/org/apache/struts2/json/JSONValidationInterceptor.java,147,private boolean isValidateOnly(HttpServletRequest request) {
+plugins/json/src/main/java/org/apache/struts2/json/JSONValidationInterceptor.java,148,return "true".equals(request.getParameter(VALIDATE_ONLY_PARAM));
+plugins/json/src/main/java/org/apache/struts2/json/JSONValidationInterceptor.java,151,private boolean isSetEncoding(HttpServletRequest request) {
+plugins/json/src/main/java/org/apache/struts2/json/JSONValidationInterceptor.java,152,return "true".equals(request.getParameter(NO_ENCODING_SET_PARAM));
+core/src/main/java/org/apache/struts2/views/xslt/XSLTResult.java,266,throw new IllegalArgumentException("Null location");
+core/src/main/java/org/apache/struts2/views/xslt/XSLTResult.java,368,else
+core/src/main/java/org/apache/struts2/views/xslt/XSLTResult.java,458,throws IllegalAccessException, InstantiationException {
+plugins/pell-multipart/src/main/java/org/apache/struts2/dispatcher/multipart/PellMultiPartRequest.java,79,multi = new ServletMultipartRequest(servletRequest, saveDir, maxSize);
+core/src/main/java/org/apache/struts2/interceptor/ProfilingActivationInterceptor.java,96,Object val = invocation.getInvocationContext().getParameters().get(profilingKey);
+core/src/main/java/org/apache/struts2/interceptor/ProfilingActivationInterceptor.java,97,if (val != null) {
+core/src/main/java/org/apache/struts2/interceptor/ProfilingActivationInterceptor.java,98,String sval = (val instanceof String ? (String)val : ((String[])val)[0]);
+core/src/main/java/org/apache/struts2/interceptor/ScopeInterceptor.java,305,if (ActionContext.getContext().getParameters().get(sessionReset) != null) {
+core/src/main/java/org/apache/struts2/views/xslt/XSLTResult.java,344,transformer.setErrorListener(new ErrorListener() {
+core/src/main/java/org/apache/struts2/views/xslt/XSLTResult.java,347,throws TransformerException {
+core/src/main/java/org/apache/struts2/views/xslt/XSLTResult.java,348,throw new StrutsException("Error transforming result", exception);
+core/src/main/java/org/apache/struts2/views/xslt/XSLTResult.java,352,throws TransformerException {
+core/src/main/java/org/apache/struts2/views/xslt/XSLTResult.java,353,throw new StrutsException("Fatal error transforming result", exception);
+core/src/main/java/org/apache/struts2/views/xslt/XSLTResult.java,357,throws TransformerException {
+core/src/main/java/org/apache/struts2/views/xslt/XSLTResult.java,358,if (LOG.isWarnEnabled()) {
+core/src/main/java/org/apache/struts2/views/xslt/XSLTResult.java,359,LOG.warn(exception.getMessage(), exception);
+core/src/main/java/org/apache/struts2/dispatcher/multipart/JakartaMultiPartRequest.java,105,String errorMessage = buildErrorMessage(e, new Object[]{});
+core/src/main/java/org/apache/struts2/dispatcher/multipart/JakartaMultiPartRequest.java,118,protected String buildErrorMessage(Throwable e, Object[] args) {
+core/src/main/java/org/apache/struts2/dispatcher/multipart/JakartaMultiPartRequest.java,123,return LocalizedTextUtil.findText(this.getClass(), errorKey, defaultLocale, e.getMessage(), args);
+core/src/main/java/org/apache/struts2/dispatcher/multipart/JakartaMultiPartRequest.java,325,public List<String> getErrors() {
+core/src/main/java/org/apache/struts2/dispatcher/multipart/MultiPartRequest.java,116,public List<String> getErrors();
+core/src/main/java/org/apache/struts2/dispatcher/multipart/MultiPartRequestWrapper.java,62,private Collection<String> errors;
+core/src/main/java/org/apache/struts2/dispatcher/multipart/MultiPartRequestWrapper.java,82,for (String error : multi.getErrors()) {
+core/src/main/java/org/apache/struts2/dispatcher/multipart/MultiPartRequestWrapper.java,99,protected String buildErrorMessage(Throwable e, Object[] args) {
+core/src/main/java/org/apache/struts2/dispatcher/multipart/MultiPartRequestWrapper.java,104,return LocalizedTextUtil.findText(this.getClass(), errorKey, defaultLocale, e.getMessage(), args);
+core/src/main/java/org/apache/struts2/dispatcher/multipart/MultiPartRequestWrapper.java,233,public Collection<String> getErrors() {
+core/src/main/java/org/apache/struts2/dispatcher/multipart/MultiPartRequestWrapper.java,242,protected void addError(String anErrorMessage) {
+core/src/main/java/org/apache/struts2/interceptor/FileUploadInterceptor.java,266,for (String error : multiWrapper.getErrors()) {
+core/src/main/java/org/apache/struts2/interceptor/FileUploadInterceptor.java,268,validation.addActionError(error);
+plugins/pell-multipart/src/main/java/org/apache/struts2/dispatcher/multipart/PellMultiPartRequest.java,134,public List<String> getErrors() {
+core/src/main/java/org/apache/struts2/components/Param.java,121,component.addParameter(findString(name), body);
+core/src/main/java/org/apache/struts2/util/ComponentUtils.java,48,return expr.startsWith("%{") && expr.endsWith("}");
+core/src/main/java/org/apache/struts2/views/util/DefaultUrlHelper.java,26,import com.opensymphony.xwork2.inject.Inject;
+core/src/main/java/org/apache/struts2/views/util/DefaultUrlHelper.java,36,import javax.servlet.http.HttpServletRequest;
+core/src/main/java/org/apache/struts2/views/util/DefaultUrlHelper.java,37,import javax.servlet.http.HttpServletResponse;
+core/src/main/java/org/apache/struts2/views/util/DefaultUrlHelper.java,38,import java.io.UnsupportedEncodingException;
+core/src/main/java/org/apache/struts2/views/util/DefaultUrlHelper.java,39,import java.net.URLDecoder;
+core/src/main/java/org/apache/struts2/views/util/DefaultUrlHelper.java,40,import java.net.URLEncoder;
+core/src/main/java/org/apache/struts2/views/util/DefaultUrlHelper.java,173,buildParametersString(params, link, AMP);
+core/src/main/java/org/apache/struts2/views/util/DefaultUrlHelper.java,175,buildParametersString(params, link, "&");
+core/src/main/java/org/apache/struts2/views/util/DefaultUrlHelper.java,231,link.append(buildParameterSubstring(name, value != null ? value.toString() : StringUtils.EMPTY));
+core/src/main/java/org/apache/struts2/views/util/DefaultUrlHelper.java,242,private String buildParameterSubstring(String name, String value) {
+plugins/rest/src/main/java/org/apache/struts2/rest/RestActionMapper.java,291,mapping.setName(fullName);
+core/src/main/java/org/apache/struts2/dispatcher/DefaultStaticContentLoader.java,144,return "org.apache.struts2.static template org.apache.struts2.interceptor.debugging static";
+plugins/json/src/main/java/org/apache/struts2/json/JSONInterceptor.java,101,Object obj = JSONUtil.deserialize(request.getReader());
+plugins/json/src/main/java/org/apache/struts2/json/JSONInterceptor.java,103,if (obj instanceof Map) {
+plugins/json/src/main/java/org/apache/struts2/json/JSONInterceptor.java,104,Map json = (Map) obj;
+plugins/json/src/main/java/org/apache/struts2/json/JSONInterceptor.java,108,dataCleaner.clean("", json);
+plugins/json/src/main/java/org/apache/struts2/json/JSONInterceptor.java,110,if (rootObject == null) // model overrides action
+plugins/json/src/main/java/org/apache/struts2/json/JSONInterceptor.java,111,rootObject = invocation.getStack().peek();
+plugins/json/src/main/java/org/apache/struts2/json/JSONInterceptor.java,114,populator.populateObject(rootObject, json);
+plugins/json/src/main/java/org/apache/struts2/json/JSONInterceptor.java,116,LOG.error("Unable to deserialize JSON object from request");
+plugins/json/src/main/java/org/apache/struts2/json/JSONInterceptor.java,117,throw new JSONException("Unable to deserialize JSON object from request");
+plugins/json/src/main/java/org/apache/struts2/json/JSONInterceptor.java,120,Object result;
+plugins/json/src/main/java/org/apache/struts2/json/JSONInterceptor.java,121,if (this.enableSMD) {
+plugins/json/src/main/java/org/apache/struts2/json/JSONInterceptor.java,123,Object obj = JSONUtil.deserialize(request.getReader());
+plugins/json/src/main/java/org/apache/struts2/json/JSONInterceptor.java,125,if (obj instanceof Map) {
+plugins/json/src/main/java/org/apache/struts2/json/JSONInterceptor.java,126,Map smd = (Map) obj;
+plugins/json/src/main/java/org/apache/struts2/json/JSONInterceptor.java,129,rootObject = invocation.getAction();
+plugins/json/src/main/java/org/apache/struts2/json/JSONInterceptor.java,132,try {
+plugins/json/src/main/java/org/apache/struts2/json/JSONInterceptor.java,133,result = this.invoke(rootObject, smd);
+plugins/json/src/main/java/org/apache/struts2/json/JSONInterceptor.java,136,rpcResponse.setId(smd.get("id").toString());
+plugins/json/src/main/java/org/apache/struts2/json/JSONInterceptor.java,137,rpcResponse.setError(new RPCError(e, RPCErrorCode.EXCEPTION, getDebug()));
+plugins/json/src/main/java/org/apache/struts2/json/JSONInterceptor.java,142,String message = "SMD request was not in the right format. See http://json-rpc.org";
+plugins/json/src/main/java/org/apache/struts2/json/JSONInterceptor.java,145,rpcResponse.setError(new RPCError(message, RPCErrorCode.INVALID_PROCEDURE_CALL));
+plugins/json/src/main/java/org/apache/struts2/json/JSONInterceptor.java,149,String message = "Request with content type of 'application/json-rpc' was received but SMD is "
+plugins/json/src/main/java/org/apache/struts2/json/JSONInterceptor.java,150,+ "not enabled for this interceptor. Set 'enableSMD' to true to enable it";
+plugins/json/src/main/java/org/apache/struts2/json/JSONInterceptor.java,152,RPCResponse rpcResponse = new RPCResponse();
+plugins/json/src/main/java/org/apache/struts2/json/JSONInterceptor.java,153,rpcResponse.setError(new RPCError(message, RPCErrorCode.SMD_DISABLED));
+plugins/json/src/main/java/org/apache/struts2/json/JSONInterceptor.java,154,result = rpcResponse;
+plugins/json/src/main/java/org/apache/struts2/json/JSONInterceptor.java,157,String json = JSONUtil.serialize(result, excludeProperties, getIncludeProperties(),
+plugins/json/src/main/java/org/apache/struts2/json/JSONInterceptor.java,158,ignoreHierarchy, excludeNullProperties);
+plugins/json/src/main/java/org/apache/struts2/json/JSONInterceptor.java,159,json = addCallbackIfApplicable(request, json);
+plugins/json/src/main/java/org/apache/struts2/json/JSONInterceptor.java,160,boolean writeGzip = enableGZIP && JSONUtil.isGzipInRequest(request);
+plugins/json/src/main/java/org/apache/struts2/json/JSONInterceptor.java,161,JSONUtil.writeJSONToResponse(new SerializationParams(response, this.defaultEncoding,
+plugins/json/src/main/java/org/apache/struts2/json/JSONInterceptor.java,162,this.wrapWithComments, json, true, writeGzip, noCache, -1, -1, prefix, "application/json"));
+plugins/json/src/main/java/org/apache/struts2/json/JSONInterceptor.java,164,return Action.NONE;
+plugins/rest/src/main/java/org/apache/struts2/rest/RestActionMapper.java,292,return mapping;
+plugins/rest/src/main/java/org/apache/struts2/rest/RestActionMapper.java,295,return null;
+plugins/json/src/main/java/org/apache/struts2/json/JSONInterceptor.java,64,private String defaultEncoding = "ISO-8859-1";
+plugins/json/src/main/java/org/apache/struts2/json/JSONInterceptor.java,76,private String contentType;
+plugins/json/src/main/java/org/apache/struts2/json/JSONInterceptor.java,82,String contentType = request.getHeader("content-type");
+plugins/json/src/main/java/org/apache/struts2/json/JSONInterceptor.java,83,if (contentType != null) {
+plugins/json/src/main/java/org/apache/struts2/json/JSONInterceptor.java,86,contentType = contentType.substring(0, iSemicolonIdx);
+plugins/json/src/main/java/org/apache/struts2/json/JSONInterceptor.java,99,if ((contentType != null) && contentType.equalsIgnoreCase("application/json")) {
+plugins/json/src/main/java/org/apache/struts2/json/JSONInterceptor.java,528,public void setContentType(String contentType) {
+plugins/json/src/main/java/org/apache/struts2/json/JSONInterceptor.java,529,this.contentType = contentType;
+plugins/rest/src/main/java/org/apache/struts2/rest/RestActionMapper.java,217,if (prevSlashPos > -1) {
+plugins/rest/src/main/java/org/apache/struts2/rest/RestActionMapper.java,301,mapping.setName(name.substring(0, exclamation));
+plugins/rest/src/main/java/org/apache/struts2/rest/RestActionMapper.java,303,mapping.setMethod(name.substring(exclamation + 1));
+core/src/main/java/org/apache/struts2/dispatcher/mapper/Restful2ActionMapper.java,31,import java.net.URLDecoder;
+core/src/main/java/org/apache/struts2/dispatcher/mapper/Restful2ActionMapper.java,136,paramName = URLDecoder.decode(st.nextToken(), "UTF-8");
+core/src/main/java/org/apache/struts2/dispatcher/mapper/Restful2ActionMapper.java,139,paramValue = URLDecoder.decode(st.nextToken(), "UTF-8");
+core/src/main/java/org/apache/struts2/dispatcher/mapper/RestfulActionMapper.java,30,import java.net.URLDecoder;
+core/src/main/java/org/apache/struts2/dispatcher/mapper/RestfulActionMapper.java,70,paramName = URLDecoder.decode(st.nextToken(), "UTF-8");
+core/src/main/java/org/apache/struts2/dispatcher/mapper/RestfulActionMapper.java,73,paramValue = URLDecoder.decode(st.nextToken(), "UTF-8");
+core/src/main/java/org/apache/struts2/components/IteratorComponent.java,306,if ((var != null) && (currentValue != null)) {
+plugins/json/src/main/java/org/apache/struts2/json/JSONResult.java,69,private String defaultEncoding = "ISO-8859-1";
+plugins/json/src/main/java/org/apache/struts2/json/JSONReader.java,177,protected Object number() {
+plugins/json/src/main/java/org/apache/struts2/json/JSONReader.java,205,return Double.parseDouble(this.buf.toString());
+plugins/json/src/main/java/org/apache/struts2/json/JSONReader.java,207,return Long.parseLong(this.buf.toString());
+core/src/main/java/org/apache/struts2/dispatcher/multipart/JakartaMultiPartRequest.java,97,String errorMessage = buildErrorMessage(e, new Object[]{e.getPermittedSize(), e.getActualSize()});
+core/src/main/java/org/apache/struts2/interceptor/MessageStoreInterceptor.java,270,if (action instanceof ValidationAware) {
+core/src/main/java/org/apache/struts2/interceptor/MessageStoreInterceptor.java,272,Map session = (Map) invocation.getInvocationContext().get(ActionContext.SESSION);
+core/src/main/java/org/apache/struts2/views/util/DefaultUrlHelper.java,78,public String buildUrl(String action, HttpServletRequest request, HttpServletResponse response, Map<String, Object> params, String scheme,
+plugins/rest/src/main/java/org/apache/struts2/rest/DefaultContentTypeHandlerManager.java,142,res.getOutputStream().close();
+plugins/json/src/main/java/org/apache/struts2/json/JSONResult.java,23,import com.opensymphony.xwork2.ActionContext;
+plugins/json/src/main/java/org/apache/struts2/json/JSONResult.java,24,import com.opensymphony.xwork2.ActionInvocation;
+plugins/json/src/main/java/org/apache/struts2/json/JSONResult.java,25,import com.opensymphony.xwork2.Result;
+plugins/json/src/main/java/org/apache/struts2/json/JSONResult.java,26,import com.opensymphony.xwork2.inject.Inject;
+plugins/json/src/main/java/org/apache/struts2/json/JSONResult.java,27,import com.opensymphony.xwork2.util.ValueStack;
+plugins/json/src/main/java/org/apache/struts2/json/JSONResult.java,28,import com.opensymphony.xwork2.util.WildcardUtil;
+plugins/json/src/main/java/org/apache/struts2/json/JSONResult.java,35,import javax.servlet.http.HttpServletRequest;
+plugins/json/src/main/java/org/apache/struts2/json/JSONResult.java,36,import javax.servlet.http.HttpServletResponse;
+plugins/json/src/main/java/org/apache/struts2/json/JSONResult.java,37,import java.io.IOException;
+plugins/json/src/main/java/org/apache/struts2/json/JSONResult.java,38,import java.util.ArrayList;
+plugins/json/src/main/java/org/apache/struts2/json/JSONResult.java,39,import java.util.List;
+plugins/json/src/main/java/org/apache/struts2/json/JSONResult.java,40,import java.util.Set;
+plugins/json/src/main/java/org/apache/struts2/json/JSONResult.java,41,import java.util.regex.Pattern;
+plugins/json/src/main/java/org/apache/struts2/json/JSONUtil.java,23,import com.opensymphony.xwork2.util.TextParseUtil;
+plugins/json/src/main/java/org/apache/struts2/json/JSONUtil.java,24,import com.opensymphony.xwork2.util.WildcardUtil;
+plugins/json/src/main/java/org/apache/struts2/json/JSONUtil.java,30,import javax.servlet.http.HttpServletRequest;
+plugins/json/src/main/java/org/apache/struts2/json/JSONUtil.java,31,import javax.servlet.http.HttpServletResponse;
+plugins/json/src/main/java/org/apache/struts2/json/JSONUtil.java,39,import java.lang.reflect.Method;
+plugins/json/src/main/java/org/apache/struts2/json/JSONUtil.java,47,import java.util.regex.Pattern;
+plugins/json/src/main/java/org/apache/struts2/json/JSONUtil.java,48,import java.util.zip.GZIPOutputStream;
+plugins/json/src/main/java/org/apache/struts2/json/JSONUtil.java,130,writer.write(serialize(object));
+plugins/json/src/main/java/org/apache/struts2/json/JSONUtil.java,150,writer.write(serialize(object, excludeProperties, includeProperties, true, excludeNullProperties));
+core/src/main/java/org/apache/struts2/components/Component.java,426,stack.setValue(key, entry.getValue());
+core/src/main/java/org/apache/struts2/interceptor/FileUploadInterceptor.java,34,import com.opensymphony.xwork2.util.PatternMatcher;
+core/src/main/java/org/apache/struts2/interceptor/FileUploadInterceptor.java,197,private PatternMatcher matcher;
+core/src/main/java/org/apache/struts2/interceptor/FileUploadInterceptor.java,201,public void setMatcher(PatternMatcher matcher) {
+core/src/main/java/org/apache/struts2/dispatcher/multipart/MultiPartRequestWrapper.java,74,public MultiPartRequestWrapper(MultiPartRequest multiPartRequest, HttpServletRequest request, String saveDir, LocaleProvider provider) {
+core/src/main/java/org/apache/struts2/dispatcher/multipart/MultiPartRequestWrapper.java,75,super(request);
+core/src/main/java/org/apache/struts2/dispatcher/ServletActionRedirectResult.java,213,return Arrays.asList(DEFAULT_PARAM, "namespace", "method", "encode", "parse", "location", "prependServletContext", "suppressEmptyParameters", "anchor");
+xwork-core/src/main/java/com/opensymphony/xwork2/ognl/OgnlValueStack.java,309,return handleOgnlException(expr, throwExceptionOnFailure, e);
+xwork-core/src/main/java/com/opensymphony/xwork2/ognl/OgnlValueStack.java,311,return handleOtherException(expr, throwExceptionOnFailure, e);
+xwork-core/src/main/java/com/opensymphony/xwork2/ognl/SecurityMemberAccess.java,21,import java.lang.reflect.Method;
+xwork-core/src/main/java/com/opensymphony/xwork2/ognl/OgnlValueStack.java,328,LOG.warn("Could not find property [" + ((NoSuchPropertyException) e).getName() + "]");
+core/src/main/java/org/apache/struts2/interceptor/CookieInterceptor.java,38,import java.util.regex.Pattern;
+core/src/main/java/org/apache/struts2/interceptor/CookieInterceptor.java,202,public void setAcceptCookieNames(String pattern) {
+core/src/main/java/org/apache/struts2/interceptor/CookieInterceptor.java,203,acceptedPattern = Pattern.compile(pattern);
+core/src/main/java/org/apache/struts2/components/UIBean.java,42,import java.lang.reflect.Field;
+core/src/main/java/org/apache/struts2/components/UIBean.java,43,import java.lang.reflect.Modifier;
+core/src/main/java/org/apache/struts2/components/UIBean.java,45,import java.util.HashSet;
+core/src/main/java/org/apache/struts2/components/UIBean.java,50,import java.util.Set;
+core/src/main/java/org/apache/struts2/components/UIBean.java,51,import java.util.concurrent.ConcurrentHashMap;
+core/src/main/java/org/apache/struts2/components/UIBean.java,52,import java.util.concurrent.ConcurrentMap;
+core/src/main/java/org/apache/struts2/components/UIBean.java,1221,public void setDynamicAttributes(Map<String, Object> dynamicAttributes) {
+core/src/main/java/org/apache/struts2/components/UIBean.java,1222,this.dynamicAttributes.putAll(dynamicAttributes);
+core/src/main/java/org/apache/struts2/dispatcher/SessionMap.java,71,synchronized (session) {
+core/src/main/java/org/apache/struts2/dispatcher/SessionMap.java,87,synchronized (session) {
+core/src/main/java/org/apache/struts2/dispatcher/SessionMap.java,107,synchronized (session) {
+core/src/main/java/org/apache/struts2/dispatcher/SessionMap.java,162,synchronized (session) {
+core/src/main/java/org/apache/struts2/dispatcher/SessionMap.java,180,synchronized (session) {
+core/src/main/java/org/apache/struts2/dispatcher/SessionMap.java,199,synchronized (session) {
+core/src/main/java/org/apache/struts2/dispatcher/SessionMap.java,221,synchronized (session) {
+core/src/main/java/org/apache/struts2/interceptor/TokenSessionStoreInterceptor.java,112,synchronized (session) {
+plugins/convention/src/main/java/org/apache/struts2/convention/PackageBasedActionConfigBuilder.java,96,private String[] includeJars;
+plugins/convention/src/main/java/org/apache/struts2/convention/PackageBasedActionConfigBuilder.java,461,if (includeJars == null) {
+plugins/convention/src/main/java/org/apache/struts2/convention/PackageBasedActionConfigBuilder.java,462,urlSet = urlSet.exclude(".*?\\.jar(!/|/)?");
+plugins/convention/src/main/java/org/apache/struts2/convention/PackageBasedActionConfigBuilder.java,465,List<URL> rawIncludedUrls = urlSet.getUrls();
+plugins/convention/src/main/java/org/apache/struts2/convention/PackageBasedActionConfigBuilder.java,466,Set<URL> includeUrls = new HashSet<URL>();
+plugins/convention/src/main/java/org/apache/struts2/convention/PackageBasedActionConfigBuilder.java,467,boolean[] patternUsed = new boolean[includeJars.length];
+plugins/convention/src/main/java/org/apache/struts2/convention/PackageBasedActionConfigBuilder.java,469,for (URL url : rawIncludedUrls) {
+plugins/convention/src/main/java/org/apache/struts2/convention/PackageBasedActionConfigBuilder.java,470,if (fileProtocols.contains(url.getProtocol())) {
+plugins/convention/src/main/java/org/apache/struts2/convention/PackageBasedActionConfigBuilder.java,472,for (int i = 0; i < includeJars.length; i++) {
+plugins/convention/src/main/java/org/apache/struts2/convention/PackageBasedActionConfigBuilder.java,473,String includeJar = includeJars[i];
+plugins/convention/src/main/java/org/apache/struts2/convention/PackageBasedActionConfigBuilder.java,474,if (Pattern.matches(includeJar, url.toExternalForm())) {
+plugins/convention/src/main/java/org/apache/struts2/convention/PackageBasedActionConfigBuilder.java,475,includeUrls.add(url);
+plugins/convention/src/main/java/org/apache/struts2/convention/PackageBasedActionConfigBuilder.java,476,patternUsed[i] = true;
+plugins/convention/src/main/java/org/apache/struts2/convention/PackageBasedActionConfigBuilder.java,477,break;
+plugins/convention/src/main/java/org/apache/struts2/convention/PackageBasedActionConfigBuilder.java,482,includeUrls.add(url);
+plugins/convention/src/main/java/org/apache/struts2/convention/PackageBasedActionConfigBuilder.java,486,if (LOG.isWarnEnabled()) {
+plugins/convention/src/main/java/org/apache/struts2/convention/PackageBasedActionConfigBuilder.java,487,for (int i = 0; i < patternUsed.length; i++) {
+plugins/convention/src/main/java/org/apache/struts2/convention/PackageBasedActionConfigBuilder.java,488,if (!patternUsed[i]) {
+plugins/convention/src/main/java/org/apache/struts2/convention/PackageBasedActionConfigBuilder.java,489,LOG.warn("The includeJars pattern [#0] did not match any jars in the classpath", includeJars[i]);
+plugins/convention/src/main/java/org/apache/struts2/convention/PackageBasedActionConfigBuilder.java,493,return new UrlSet(includeUrls);
+plugins/convention/src/main/java/org/apache/struts2/convention/PackageBasedActionConfigBuilder.java,496,return urlSet;
+plugins/jasperreports/src/main/java/org/apache/struts2/views/jasperreports/JasperReportsResult.java,287,stackDataSource = new ValueStackDataSource(stack, dataSource);
+plugins/jasperreports/src/main/java/org/apache/struts2/views/jasperreports/ValueStackDataSource.java,45,Iterator iterator;
+plugins/jasperreports/src/main/java/org/apache/struts2/views/jasperreports/ValueStackDataSource.java,46,ValueStack valueStack;
+plugins/jasperreports/src/main/java/org/apache/struts2/views/jasperreports/ValueStackDataSource.java,47,String dataSource;
+plugins/jasperreports/src/main/java/org/apache/struts2/views/jasperreports/ValueStackDataSource.java,48,boolean firstTimeThrough = true;
+plugins/jasperreports/src/main/java/org/apache/struts2/views/jasperreports/ValueStackDataSource.java,57,public ValueStackDataSource(ValueStack valueStack, String dataSourceParam) {
+plugins/jasperreports/src/main/java/org/apache/struts2/views/jasperreports/ValueStackDataSource.java,60,dataSource = dataSourceParam;
+plugins/jasperreports/src/main/java/org/apache/struts2/views/jasperreports/ValueStackDataSource.java,109,return new ValueStackDataSource(this.valueStack, expression);
+xwork-core/src/main/java/com/opensymphony/xwork2/ognl/SecurityMemberAccess.java,57,int modifiers = member.getModifiers();
+xwork-core/src/main/java/com/opensymphony/xwork2/ognl/SecurityMemberAccess.java,58,if (Modifier.isStatic(modifiers)) {
+xwork-core/src/main/java/com/opensymphony/xwork2/ognl/SecurityMemberAccess.java,59,if (member instanceof Method && !getAllowStaticMethodAccess()) {
+xwork-core/src/main/java/com/opensymphony/xwork2/ognl/SecurityMemberAccess.java,60,allow = false;
+xwork-core/src/main/java/com/opensymphony/xwork2/ognl/SecurityMemberAccess.java,61,if (target instanceof Class) {
+xwork-core/src/main/java/com/opensymphony/xwork2/ognl/SecurityMemberAccess.java,62,Class clazz = (Class) target;
+xwork-core/src/main/java/com/opensymphony/xwork2/ognl/SecurityMemberAccess.java,63,Method method = (Method) member;
+xwork-core/src/main/java/com/opensymphony/xwork2/ognl/SecurityMemberAccess.java,65,allow = true;
+xwork-core/src/main/java/com/opensymphony/xwork2/ognl/SecurityMemberAccess.java,76,return false;
+xwork-core/src/main/java/com/opensymphony/xwork2/ognl/SecurityMemberAccess.java,78,return isAcceptableProperty(propertyName);
+xwork-core/src/main/java/com/opensymphony/xwork2/config/providers/XmlConfigurationProvider.java,428,LOG.error("Unable to verify action [#0] with class [#1], from [#2]", name, className, location.toString());
+xwork-core/src/main/java/com/opensymphony/xwork2/util/NamedVariablePatternMatcher.java,83,case '}' :  varNames.add(varName.toString());
+xwork-core/src/main/java/com/opensymphony/xwork2/util/finder/ResourceFinder.java,1003,BufferedInputStream reader = null;
+xwork-core/src/main/java/com/opensymphony/xwork2/util/finder/ResourceFinder.java,1005,reader = new BufferedInputStream(in);
+xwork-core/src/main/java/com/opensymphony/xwork2/util/finder/ResourceFinder.java,1021,BufferedInputStream reader = null;
+xwork-core/src/main/java/com/opensymphony/xwork2/util/finder/ResourceFinder.java,1025,reader = new BufferedInputStream(in);
+xwork-core/src/main/java/com/opensymphony/xwork2/util/location/LocationUtils.java,268,Location result = finder.getLocation(obj, description);
+xwork-core/src/main/java/com/opensymphony/xwork2/util/location/LocationUtils.java,269,if (result != null) {
+xwork-core/src/main/java/com/opensymphony/xwork2/util/location/LocationUtils.java,270,return result;
+plugins/convention/src/main/java/org/apache/struts2/convention/ConventionUnknownHandler.java,423,throw null;
+core/src/main/java/org/apache/struts2/dispatcher/ServletRedirectResult.java,197,ResultConfig resultConfig = invocation.getProxy().getConfig().getResults().get(invocation.getResultCode());
+core/src/main/java/org/apache/struts2/dispatcher/ServletRedirectResult.java,198,if (resultConfig != null) {
+core/src/main/java/org/apache/struts2/dispatcher/ServletRedirectResult.java,199,Map<String, String> resultConfigParams = resultConfig.getParams();
+core/src/main/java/org/apache/struts2/dispatcher/ServletRedirectResult.java,201,for (Map.Entry<String, String> e : resultConfigParams.entrySet()) {
+core/src/main/java/org/apache/struts2/dispatcher/ServletRedirectResult.java,211,StringBuilder tmpLocation = new StringBuilder(finalLocation);
+core/src/main/java/org/apache/struts2/dispatcher/ServletRedirectResult.java,212,urlHelper.buildParametersString(requestParameters, tmpLocation, "&");
+core/src/main/java/org/apache/struts2/dispatcher/ServletRedirectResult.java,215,if (anchor != null) {
+core/src/main/java/org/apache/struts2/dispatcher/ServletRedirectResult.java,216,tmpLocation.append('#').append(anchor);
+core/src/main/java/org/apache/struts2/dispatcher/ServletRedirectResult.java,219,finalLocation = response.encodeRedirectURL(tmpLocation.toString());
+xwork-core/src/main/java/com/opensymphony/xwork2/validator/validators/DateRangeFieldValidator.java,89,public class DateRangeFieldValidator extends AbstractRangeValidator<Date> {
+xwork-core/src/main/java/com/opensymphony/xwork2/validator/validators/IntRangeFieldValidator.java,77,public class IntRangeFieldValidator extends AbstractRangeValidator<Integer> {
+xwork-core/src/main/java/com/opensymphony/xwork2/validator/validators/LongRangeFieldValidator.java,76,public class LongRangeFieldValidator extends AbstractRangeValidator<Long> {
+xwork-core/src/main/java/com/opensymphony/xwork2/validator/validators/AbstractRangeValidator.java,29,public abstract class AbstractRangeValidator<T extends Comparable> extends FieldValidatorSupport {
+xwork-core/src/main/java/com/opensymphony/xwork2/validator/validators/AbstractRangeValidator.java,31,private static final Logger LOG = LoggerFactory.getLogger(AbstractRangeValidator.class);
+xwork-core/src/main/java/com/opensymphony/xwork2/validator/validators/AbstractRangeValidator.java,38,protected AbstractRangeValidator(Class<T> type) {
+xwork-core/src/main/java/com/opensymphony/xwork2/validator/validators/ShortRangeFieldValidator.java,76,public class ShortRangeFieldValidator extends AbstractRangeValidator<Short> {
+core/src/main/java/org/apache/struts2/interceptor/validation/AnnotationValidationInterceptor.java,28,import org.apache.commons.lang3.ArrayUtils;
+core/src/main/java/org/apache/struts2/interceptor/validation/AnnotationValidationInterceptor.java,73,Method method;
+core/src/main/java/org/apache/struts2/interceptor/validation/AnnotationValidationInterceptor.java,83,throw e;
+xwork-core/src/main/java/com/opensymphony/xwork2/conversion/impl/XWorkConverter.java,357,public TypeConverter lookup(String className) {
+xwork-core/src/main/java/com/opensymphony/xwork2/conversion/impl/XWorkConverter.java,365,if (result == null) {
+xwork-core/src/main/java/com/opensymphony/xwork2/conversion/impl/XWorkConverter.java,397,return lookup(clazz.getName());
+xwork-core/src/main/java/com/opensymphony/xwork2/config/entities/UnknownHandlerConfig.java,18,public class UnknownHandlerConfig {
+xwork-core/src/main/java/com/opensymphony/xwork2/config/entities/UnknownHandlerConfig.java,21,public UnknownHandlerConfig(String name) {
+xwork-core/src/main/java/com/opensymphony/xwork2/config/providers/XmlConfigurationProvider.java,263,unknownHandlerStack.add(new UnknownHandlerConfig(unknownHandler.getAttribute("name")));
+core/src/main/java/org/apache/struts2/views/freemarker/FreemarkerResult.java,40,import org.apache.struts2.views.util.ResourceUtil;
+core/src/main/java/org/apache/struts2/views/freemarker/FreemarkerResult.java,164,if (!locationArg.startsWith("/")) {
+core/src/main/java/org/apache/struts2/views/freemarker/FreemarkerResult.java,165,String base = ResourceUtil.getResourceBase(req);
+core/src/main/java/org/apache/struts2/views/freemarker/FreemarkerResult.java,166,locationArg = base + "/" + locationArg;
+core/src/main/java/org/apache/struts2/views/freemarker/FreemarkerResult.java,169,Template template = configuration.getTemplate(locationArg, deduceLocale());
+xwork-core/src/main/java/com/opensymphony/xwork2/validator/DelegatingValidatorContext.java,190,return new TextProviderFactory().createInstance(object.getClass(), localeProvider);
+xwork-core/src/main/java/com/opensymphony/xwork2/ognl/OgnlUtil.java,219,protected void setValue(String name, Map<String, Object> context, Object root, Object value, boolean evalName) throws OgnlException {
+xwork-core/src/main/java/com/opensymphony/xwork2/ognl/OgnlUtil.java,221,if (!evalName && isEvalExpression(tree, context)) {
+xwork-core/src/main/java/com/opensymphony/xwork2/ognl/OgnlUtil.java,222,throw new OgnlException("Eval expression cannot be used as parameter name");
+xwork-core/src/main/java/com/opensymphony/xwork2/ognl/OgnlUtil.java,224,Ognl.setValue(tree, context, root, value);
+xwork-core/src/main/java/com/opensymphony/xwork2/ognl/OgnlUtil.java,235,public Object getValue(String name, Map<String, Object> context, Object root) throws OgnlException {
+xwork-core/src/main/java/com/opensymphony/xwork2/ognl/OgnlUtil.java,239,public Object getValue(String name, Map<String, Object> context, Object root, Class resultType) throws OgnlException {
+xwork-core/src/main/java/com/opensymphony/xwork2/ognl/OgnlUtil.java,268,public void copy(Object from, Object to, Map<String, Object> context, Collection<String> exclusions, Collection<String> inclusions) {
+xwork-core/src/main/java/com/opensymphony/xwork2/ognl/OgnlUtil.java,278,Map contextFrom = Ognl.createDefaultContext(from);
+xwork-core/src/main/java/com/opensymphony/xwork2/ognl/OgnlUtil.java,280,Map contextTo = Ognl.createDefaultContext(to);
+xwork-core/src/main/java/com/opensymphony/xwork2/ognl/OgnlUtil.java,316,Object value = Ognl.getValue(expr, contextFrom, from);
+xwork-core/src/main/java/com/opensymphony/xwork2/ognl/OgnlUtil.java,317,Ognl.setValue(expr, contextTo, to, value);
+xwork-core/src/main/java/com/opensymphony/xwork2/ognl/OgnlUtil.java,382,public Map getBeanMap(Object source) throws IntrospectionException, OgnlException {
+xwork-core/src/main/java/com/opensymphony/xwork2/ognl/OgnlUtil.java,383,Map beanMap = new HashMap();
+xwork-core/src/main/java/com/opensymphony/xwork2/ognl/OgnlUtil.java,384,Map sourceMap = Ognl.createDefaultContext(source);
+xwork-core/src/main/java/com/opensymphony/xwork2/ognl/OgnlUtil.java,387,String propertyName = propertyDescriptor.getDisplayName();
+xwork-core/src/main/java/com/opensymphony/xwork2/ognl/OgnlUtil.java,390,Object expr = compile(propertyName);
+xwork-core/src/main/java/com/opensymphony/xwork2/ognl/OgnlUtil.java,391,Object value = Ognl.getValue(expr, sourceMap, source);
+xwork-core/src/main/java/com/opensymphony/xwork2/ognl/accessor/CompoundRootAccessor.java,20,import com.opensymphony.xwork2.ognl.OgnlValueStack;
+xwork-core/src/main/java/com/opensymphony/xwork2/ognl/accessor/CompoundRootAccessor.java,58,private static Map invalidMethods = new HashMap();
+xwork-core/src/main/java/com/opensymphony/xwork2/ognl/accessor/CompoundRootAccessor.java,82,Map<Object, Object> map = (Map) o;
+xwork-core/src/main/java/com/opensymphony/xwork2/ognl/accessor/CompoundRootAccessor.java,101,Boolean reportError = (Boolean) context.get(ValueStack.REPORT_ERRORS_ON_NO_PROP);
+xwork-core/src/main/java/com/opensymphony/xwork2/ognl/accessor/CompoundRootAccessor.java,103,final String msg = "No object in the CompoundRoot has a publicly accessible property named '" + name + "' (no setter could be found).";
+xwork-core/src/main/java/com/opensymphony/xwork2/ognl/accessor/CompoundRootAccessor.java,105,if ((reportError != null) && (reportError.booleanValue())) {
+xwork-core/src/main/java/com/opensymphony/xwork2/ognl/accessor/CompoundRootAccessor.java,106,throw new XWorkException(msg);
+xwork-core/src/main/java/com/opensymphony/xwork2/ognl/accessor/CompoundRootAccessor.java,108,if (devMode) {
+xwork-core/src/main/java/com/opensymphony/xwork2/ognl/accessor/CompoundRootAccessor.java,121,return root.cutStack(index.intValue());
+xwork-core/src/main/java/com/opensymphony/xwork2/ognl/accessor/CompoundRootAccessor.java,237,Object value = OgnlRuntime.callMethod((OgnlContext) context, o, name, name, objects);
+core/src/main/java/org/apache/struts2/components/UIBean.java,997,addParameter("id", tryId);
+core/src/main/java/org/apache/struts2/components/UIBean.java,998,addParameter("escapedId", escape(tryId));
+xwork-core/src/main/java/com/opensymphony/xwork2/util/LocalizedTextUtil.java,794,clearMap(ResourceBundle.class, null, "cacheList");
+plugins/javatemplates/src/main/java/org/apache/struts2/views/java/simple/CheckboxListHandler.java,38,Map<String, Object> params = context.getParameters();
+plugins/javatemplates/src/main/java/org/apache/struts2/views/java/simple/CheckboxListHandler.java,75,.addIfExists("id", id + "-" + Integer.toString(cnt));
+plugins/javatemplates/src/main/java/org/apache/struts2/views/java/simple/CheckboxListHandler.java,76,start("input", a);
+plugins/javatemplates/src/main/java/org/apache/struts2/views/java/simple/CheckboxListHandler.java,77,end("input");
+plugins/javatemplates/src/main/java/org/apache/struts2/views/java/simple/CheckboxListHandler.java,83,.addIfExists("style", params.get("cssStyle"));
+plugins/javatemplates/src/main/java/org/apache/struts2/views/java/simple/CheckboxListHandler.java,95,.addIfTrue("disabled", disabled);
+plugins/javatemplates/src/main/java/org/apache/struts2/views/java/simple/CheckboxListHandler.java,108,String[] nameValues = (String[]) params.get("nameValue");
+plugins/javatemplates/src/main/java/org/apache/struts2/views/java/simple/RadioHandler.java,44,Object nameValue = params.get("nameValue");
+plugins/javatemplates/src/main/java/org/apache/struts2/views/java/simple/RadioHandler.java,94,.addIfExists("title", params.get("title"));
+core/src/main/java/org/apache/struts2/components/ServletUrlRenderer.java,165,formComponent.request, formComponent.response, actionParams, null, formComponent.includeContext, true);
+plugins/config-browser/src/main/java/org/apache/struts2/config_browser/ShowConfigAction.java,108,Class clazz = objectFactory.getClassInstance(getConfig().getClassName());
+plugins/config-browser/src/main/java/org/apache/struts2/config_browser/ShowConfigAction.java,109,properties = reflectionProvider.getPropertyDescriptors(clazz.newInstance());
+plugins/rest/src/main/java/org/apache/struts2/rest/DefaultHttpHeaders.java,24,import com.opensymphony.xwork2.util.logging.Logger;
+plugins/rest/src/main/java/org/apache/struts2/rest/DefaultHttpHeaders.java,25,import com.opensymphony.xwork2.util.logging.LoggerFactory;
+plugins/rest/src/main/java/org/apache/struts2/rest/DefaultHttpHeaders.java,29,import java.text.ParseException;
+plugins/rest/src/main/java/org/apache/struts2/rest/DefaultHttpHeaders.java,30,import java.text.SimpleDateFormat;
+plugins/rest/src/main/java/org/apache/struts2/rest/DefaultHttpHeaders.java,33,import static javax.servlet.http.HttpServletResponse.SC_CREATED;
+plugins/rest/src/main/java/org/apache/struts2/rest/DefaultHttpHeaders.java,34,import static javax.servlet.http.HttpServletResponse.SC_NOT_MODIFIED;
+plugins/rest/src/main/java/org/apache/struts2/rest/DefaultHttpHeaders.java,35,import static javax.servlet.http.HttpServletResponse.SC_OK;
+plugins/rest/src/main/java/org/apache/struts2/rest/DefaultHttpHeaders.java,42,private static final Logger LOG = LoggerFactory.getLogger(DefaultHttpHeaders.class);
+plugins/rest/src/main/java/org/apache/struts2/rest/DefaultHttpHeaders.java,44,private static final String IF_MODIFIED_SINCE_DATE_FORMAT = "EEE, dd MMM yyyy HH:mm:ss zzz";
+plugins/rest/src/main/java/org/apache/struts2/rest/DefaultHttpHeaders.java,45,private static final SimpleDateFormat IF_MODIFIED_SINCE_FORMAT = new SimpleDateFormat(IF_MODIFIED_SINCE_DATE_FORMAT);
+plugins/rest/src/main/java/org/apache/struts2/rest/DefaultHttpHeaders.java,147,String reqLastModified = request.getHeader("If-Modified-Since");
+plugins/rest/src/main/java/org/apache/struts2/rest/DefaultHttpHeaders.java,148,if (lastModified != null && reqLastModified != null) {
+plugins/rest/src/main/java/org/apache/struts2/rest/DefaultHttpHeaders.java,149,lastModifiedNotChanged = compareIfModifiedSince(reqLastModified);
+plugins/rest/src/main/java/org/apache/struts2/rest/DefaultHttpHeaders.java,153,(etagNotChanged && reqLastModified == null) ||
+plugins/rest/src/main/java/org/apache/struts2/rest/DefaultHttpHeaders.java,163,private boolean compareIfModifiedSince(String reqLastModified) {
+plugins/rest/src/main/java/org/apache/struts2/rest/DefaultHttpHeaders.java,164,try {
+plugins/rest/src/main/java/org/apache/struts2/rest/DefaultHttpHeaders.java,165,if (lastModified.compareTo(IF_MODIFIED_SINCE_FORMAT.parse(reqLastModified)) >= 0) {
+plugins/rest/src/main/java/org/apache/struts2/rest/DefaultHttpHeaders.java,166,return true;
+plugins/rest/src/main/java/org/apache/struts2/rest/DefaultHttpHeaders.java,169,if (LOG.isDebugEnabled()) {
+plugins/rest/src/main/java/org/apache/struts2/rest/DefaultHttpHeaders.java,170,LOG.debug("Got error parsing If-Modified-Since header value [#0] as [#1]!", e, reqLastModified, IF_MODIFIED_SINCE_DATE_FORMAT);
+plugins/rest/src/main/java/org/apache/struts2/rest/DefaultHttpHeaders.java,172,return false;
+plugins/rest/src/main/java/org/apache/struts2/rest/DefaultHttpHeaders.java,174,return false;
+plugins/json/src/main/java/org/apache/struts2/json/JSONValidationInterceptor.java,213,sb.append(StringEscapeUtils.escapeEcmaScript(value));
+xwork-core/src/main/java/com/opensymphony/xwork2/interceptor/ParametersInterceptor.java,169,devMode = "true".equals(mode);
+plugins/tiles3/src/main/java/org/apache/struts2/views/tiles/TilesResult.java,62,setLocation(location);
+plugins/tiles3/src/main/java/org/apache/struts2/views/tiles/TilesResult.java,64,ApplicationContext applicationContext = ServletUtil.getApplicationContext(context);
+plugins/tiles3/src/main/java/org/apache/struts2/views/tiles/TilesResult.java,65,TilesContainer container = TilesAccess.getContainer(applicationContext);
+core/src/main/java/org/apache/struts2/components/UIBean.java,631,addParameter("templateDir", getTemplateDir());
+core/src/main/java/org/apache/struts2/components/UIBean.java,632,addParameter("theme", getTheme());
+core/src/main/java/org/apache/struts2/views/freemarker/FreemarkerManager.java,265,config.setWhitespaceStripping(true);
+core/src/main/java/org/apache/struts2/views/freemarker/FreemarkerManager.java,292,config.setTemplateLoader(createTemplateLoader(servletContext, templatePath));
+plugins/convention/src/main/java/org/apache/struts2/convention/DefaultResultMapBuilder.java,363,if (indexOfDot == resultPrefix.length() || !flatResultLayout) {
+core/src/main/java/org/apache/struts2/util/AttributeMap.java,29,import javax.servlet.jsp.PageContext;
+core/src/main/java/org/apache/struts2/util/AttributeMap.java,31,import org.apache.struts2.ServletActionContext;
+core/src/main/java/org/apache/struts2/impl/StrutsActionProxyFactory.java,26,import java.util.Map;
+core/src/main/java/org/apache/struts2/config/DefaultPropertiesProvider.java,32,public class DefaultPropertiesProvider extends LegacyPropertiesConfigurationProvider {
+core/src/main/java/org/apache/struts2/config/DefaultPropertiesProvider.java,41,throws ConfigurationException {
+core/src/main/java/org/apache/struts2/config/DefaultPropertiesProvider.java,43,Settings defaultSettings = null;
+core/src/main/java/org/apache/struts2/config/DefaultPropertiesProvider.java,45,defaultSettings = new PropertiesSettings("org/apache/struts2/default");
+core/src/main/java/org/apache/struts2/config/DefaultPropertiesProvider.java,50,loadSettings(props, defaultSettings);
+core/src/main/java/org/apache/struts2/config/DefaultSettings.java,28,import org.apache.struts2.StrutsConstants;
+core/src/main/java/org/apache/struts2/config/DefaultSettings.java,30,import com.opensymphony.xwork2.util.logging.Logger;
+core/src/main/java/org/apache/struts2/config/DefaultSettings.java,31,import com.opensymphony.xwork2.util.logging.LoggerFactory;
+core/src/main/java/org/apache/struts2/config/DefaultSettings.java,41,public class DefaultSettings extends Settings {
+core/src/main/java/org/apache/struts2/config/DefaultSettings.java,46,protected Logger log = LoggerFactory.getLogger(this.getClass());
+core/src/main/java/org/apache/struts2/config/DefaultSettings.java,51,Settings delegate;
+core/src/main/java/org/apache/struts2/config/DefaultSettings.java,70,log.warn("DefaultSettings: Could not find or error in struts.properties", e);
+core/src/main/java/org/apache/struts2/config/DefaultSettings.java,73,Settings[] settings = new Settings[list.size()];
+core/src/main/java/org/apache/struts2/config/DefaultSettings.java,74,delegate = new DelegatingSettings(list.toArray(settings));
+core/src/main/java/org/apache/struts2/config/DefaultSettings.java,77,try {
+core/src/main/java/org/apache/struts2/config/DefaultSettings.java,78,StringTokenizer customProperties = new StringTokenizer(delegate.getImpl(StrutsConstants.STRUTS_CUSTOM_PROPERTIES), ",");
+core/src/main/java/org/apache/struts2/config/DefaultSettings.java,86,log.error("DefaultSettings: Could not find " + name + ".properties. Skipping.");
+core/src/main/java/org/apache/struts2/config/DefaultSettings.java,90,settings = new Settings[list.size()];
+core/src/main/java/org/apache/struts2/config/DefaultSettings.java,91,delegate = new DelegatingSettings(list.toArray(settings));
+core/src/main/java/org/apache/struts2/config/DefaultSettings.java,101,public void setImpl(String name, String value) throws IllegalArgumentException, UnsupportedOperationException {
+core/src/main/java/org/apache/struts2/config/DefaultSettings.java,102,delegate.setImpl(name, value);
+core/src/main/java/org/apache/struts2/config/DefaultSettings.java,106,public String getImpl(String aName) throws IllegalArgumentException {
+core/src/main/java/org/apache/struts2/config/DefaultSettings.java,107,return delegate.getImpl(aName);
+core/src/main/java/org/apache/struts2/config/DefaultSettings.java,111,public boolean isSetImpl(String aName) {
+core/src/main/java/org/apache/struts2/config/DefaultSettings.java,112,return delegate.isSetImpl(aName);
+core/src/main/java/org/apache/struts2/config/DefaultSettings.java,116,public Iterator listImpl() {
+core/src/main/java/org/apache/struts2/config/DefaultSettings.java,117,return delegate.listImpl();
+core/src/main/java/org/apache/struts2/config/DelegatingSettings.java,39,class DelegatingSettings extends Settings {
+core/src/main/java/org/apache/struts2/config/DelegatingSettings.java,44,Settings[] delegates;
+core/src/main/java/org/apache/struts2/config/DelegatingSettings.java,51,public DelegatingSettings(Settings[] delegates) {
+core/src/main/java/org/apache/struts2/config/DelegatingSettings.java,56,public void setImpl(String name, String value) throws IllegalArgumentException, UnsupportedOperationException {
+core/src/main/java/org/apache/struts2/config/DelegatingSettings.java,57,IllegalArgumentException e = null;
+core/src/main/java/org/apache/struts2/config/DelegatingSettings.java,60,try {
+core/src/main/java/org/apache/struts2/config/DelegatingSettings.java,61,delegate.getImpl(name); // Throws exception if not found
+core/src/main/java/org/apache/struts2/config/DelegatingSettings.java,62,delegate.setImpl(name, value); // Found it
+core/src/main/java/org/apache/struts2/config/DelegatingSettings.java,63,return; // Done
+core/src/main/java/org/apache/struts2/config/DelegatingSettings.java,65,e = ex;
+core/src/main/java/org/apache/struts2/config/DelegatingSettings.java,71,throw e;
+core/src/main/java/org/apache/struts2/config/DelegatingSettings.java,75,public String getImpl(String name) throws IllegalArgumentException {
+core/src/main/java/org/apache/struts2/config/DelegatingSettings.java,77,IllegalArgumentException e = null;
+core/src/main/java/org/apache/struts2/config/DelegatingSettings.java,79,for (Settings delegate : delegates) {
+core/src/main/java/org/apache/struts2/config/DelegatingSettings.java,80,try {
+core/src/main/java/org/apache/struts2/config/DelegatingSettings.java,81,return delegate.getImpl(name);  // Throws exception if not found
+core/src/main/java/org/apache/struts2/config/DelegatingSettings.java,83,e = ex;
+core/src/main/java/org/apache/struts2/config/DelegatingSettings.java,89,throw e;
+core/src/main/java/org/apache/struts2/config/DelegatingSettings.java,93,public boolean isSetImpl(String aName) {
+core/src/main/java/org/apache/struts2/config/DelegatingSettings.java,94,for (Settings delegate : delegates) {
+core/src/main/java/org/apache/struts2/config/DelegatingSettings.java,95,if (delegate.isSetImpl(aName)) {
+core/src/main/java/org/apache/struts2/config/DelegatingSettings.java,96,return true;
+core/src/main/java/org/apache/struts2/config/DelegatingSettings.java,100,return false;
+core/src/main/java/org/apache/struts2/config/DelegatingSettings.java,104,public Iterator listImpl() {
+core/src/main/java/org/apache/struts2/config/DelegatingSettings.java,112,Iterator list = delegate.listImpl();
+core/src/main/java/org/apache/struts2/config/LegacyPropertiesConfigurationProvider.java,22,package org.apache.struts2.config;
+core/src/main/java/org/apache/struts2/config/LegacyPropertiesConfigurationProvider.java,28,import com.opensymphony.xwork2.config.Configuration;
+core/src/main/java/org/apache/struts2/config/LegacyPropertiesConfigurationProvider.java,29,import com.opensymphony.xwork2.config.ConfigurationException;
+core/src/main/java/org/apache/struts2/config/LegacyPropertiesConfigurationProvider.java,30,import com.opensymphony.xwork2.config.ConfigurationProvider;
+core/src/main/java/org/apache/struts2/config/LegacyPropertiesConfigurationProvider.java,31,import com.opensymphony.xwork2.inject.ContainerBuilder;
+core/src/main/java/org/apache/struts2/config/LegacyPropertiesConfigurationProvider.java,32,import com.opensymphony.xwork2.inject.Context;
+core/src/main/java/org/apache/struts2/config/LegacyPropertiesConfigurationProvider.java,33,import com.opensymphony.xwork2.inject.Factory;
+core/src/main/java/org/apache/struts2/config/LegacyPropertiesConfigurationProvider.java,35,import com.opensymphony.xwork2.util.location.LocatableProperties;
+core/src/main/java/org/apache/struts2/config/LegacyPropertiesConfigurationProvider.java,36,import com.opensymphony.xwork2.util.logging.Logger;
+core/src/main/java/org/apache/struts2/config/LegacyPropertiesConfigurationProvider.java,37,import com.opensymphony.xwork2.util.logging.LoggerFactory;
+core/src/main/java/org/apache/struts2/config/LegacyPropertiesConfigurationProvider.java,38,import org.apache.struts2.StrutsConstants;
+core/src/main/java/org/apache/struts2/config/LegacyPropertiesConfigurationProvider.java,40,public class LegacyPropertiesConfigurationProvider implements ConfigurationProvider {
+core/src/main/java/org/apache/struts2/config/LegacyPropertiesConfigurationProvider.java,45,private static final Logger LOG = LoggerFactory.getLogger(LegacyPropertiesConfigurationProvider.class);
+core/src/main/java/org/apache/struts2/config/LegacyPropertiesConfigurationProvider.java,47,public void destroy() {
+core/src/main/java/org/apache/struts2/config/LegacyPropertiesConfigurationProvider.java,48,Settings.reset();
+core/src/main/java/org/apache/struts2/config/LegacyPropertiesConfigurationProvider.java,52,throws ConfigurationException {
+core/src/main/java/org/apache/struts2/config/LegacyPropertiesConfigurationProvider.java,53,Settings.reset();
+core/src/main/java/org/apache/struts2/config/LegacyPropertiesConfigurationProvider.java,57,throws ConfigurationException {
+core/src/main/java/org/apache/struts2/config/LegacyPropertiesConfigurationProvider.java,60,public boolean needsReload() {
+core/src/main/java/org/apache/struts2/config/LegacyPropertiesConfigurationProvider.java,61,return false;
+core/src/main/java/org/apache/struts2/config/LegacyPropertiesConfigurationProvider.java,65,throws ConfigurationException {
+core/src/main/java/org/apache/struts2/config/LegacyPropertiesConfigurationProvider.java,67,final Settings settings = Settings.getInstance();
+core/src/main/java/org/apache/struts2/config/LegacyPropertiesConfigurationProvider.java,69,loadSettings(props, settings);
+core/src/main/java/org/apache/struts2/config/LegacyPropertiesConfigurationProvider.java,73,private Locale locale;
+core/src/main/java/org/apache/struts2/config/LegacyPropertiesConfigurationProvider.java,76,if (locale == null) {
+core/src/main/java/org/apache/struts2/config/LegacyPropertiesConfigurationProvider.java,77,String loc = context.getContainer().getInstance(String.class, StrutsConstants.STRUTS_LOCALE);
+core/src/main/java/org/apache/struts2/config/LegacyPropertiesConfigurationProvider.java,78,if (loc != null) {
+core/src/main/java/org/apache/struts2/config/LegacyPropertiesConfigurationProvider.java,79,StringTokenizer localeTokens = new StringTokenizer(loc, "_");
+core/src/main/java/org/apache/struts2/config/LegacyPropertiesConfigurationProvider.java,80,String lang = null;
+core/src/main/java/org/apache/struts2/config/LegacyPropertiesConfigurationProvider.java,81,String country = null;
+core/src/main/java/org/apache/struts2/config/LegacyPropertiesConfigurationProvider.java,83,if (localeTokens.hasMoreTokens()) {
+core/src/main/java/org/apache/struts2/config/LegacyPropertiesConfigurationProvider.java,84,lang = localeTokens.nextToken();
+core/src/main/java/org/apache/struts2/config/LegacyPropertiesConfigurationProvider.java,87,if (localeTokens.hasMoreTokens()) {
+core/src/main/java/org/apache/struts2/config/LegacyPropertiesConfigurationProvider.java,88,country = localeTokens.nextToken();
+core/src/main/java/org/apache/struts2/config/LegacyPropertiesConfigurationProvider.java,90,locale = new Locale(lang, country);
+core/src/main/java/org/apache/struts2/config/LegacyPropertiesConfigurationProvider.java,92,if (LOG.isInfoEnabled()) {
+core/src/main/java/org/apache/struts2/config/LegacyPropertiesConfigurationProvider.java,93,LOG.info("No locale define, substituting the default VM locale");
+core/src/main/java/org/apache/struts2/config/LegacyPropertiesConfigurationProvider.java,95,locale = Locale.getDefault();
+core/src/main/java/org/apache/struts2/config/LegacyPropertiesConfigurationProvider.java,98,return locale;
+core/src/main/java/org/apache/struts2/config/LegacyPropertiesConfigurationProvider.java,107,protected void loadSettings(LocatableProperties props, final Settings settings) {
+core/src/main/java/org/apache/struts2/config/LegacyPropertiesConfigurationProvider.java,109,for (Iterator i = settings.listImpl(); i.hasNext(); ) {
+core/src/main/java/org/apache/struts2/config/LegacyPropertiesConfigurationProvider.java,110,String name = (String) i.next();
+core/src/main/java/org/apache/struts2/config/LegacyPropertiesConfigurationProvider.java,111,props.setProperty(name, settings.getImpl(name), settings.getLocationImpl(name));
+core/src/main/java/org/apache/struts2/config/PropertiesSettings.java,41,class PropertiesSettings extends Settings {
+core/src/main/java/org/apache/struts2/config/PropertiesSettings.java,43,LocatableProperties settings;
+core/src/main/java/org/apache/struts2/config/PropertiesSettings.java,44,static Logger LOG = LoggerFactory.getLogger(PropertiesSettings.class);
+core/src/main/java/org/apache/struts2/config/PropertiesSettings.java,94,public void setImpl(String aName, String aValue) {
+core/src/main/java/org/apache/struts2/config/PropertiesSettings.java,95,settings.setProperty(aName, aValue);
+core/src/main/java/org/apache/struts2/config/PropertiesSettings.java,103,public String getImpl(String aName) throws IllegalArgumentException {
+core/src/main/java/org/apache/struts2/config/PropertiesSettings.java,104,String setting = settings.getProperty(aName);
+core/src/main/java/org/apache/struts2/config/PropertiesSettings.java,106,if (setting == null) {
+core/src/main/java/org/apache/struts2/config/PropertiesSettings.java,107,throw new IllegalArgumentException("No such setting:" + aName);
+core/src/main/java/org/apache/struts2/config/PropertiesSettings.java,110,return setting;
+core/src/main/java/org/apache/struts2/config/PropertiesSettings.java,118,public Location getLocationImpl(String aName) throws IllegalArgumentException {
+core/src/main/java/org/apache/struts2/config/PropertiesSettings.java,119,Location loc = settings.getPropertyLocation(aName);
+core/src/main/java/org/apache/struts2/config/PropertiesSettings.java,121,if (loc == null) {
+core/src/main/java/org/apache/struts2/config/PropertiesSettings.java,122,if (!settings.containsKey(aName)) {
+core/src/main/java/org/apache/struts2/config/PropertiesSettings.java,123,throw new IllegalArgumentException("No such setting:" + aName);
+core/src/main/java/org/apache/struts2/config/PropertiesSettings.java,127,return loc;
+core/src/main/java/org/apache/struts2/config/PropertiesSettings.java,135,public boolean isSetImpl(String aName) {
+core/src/main/java/org/apache/struts2/config/PropertiesSettings.java,136,if (settings.get(aName) != null) {
+core/src/main/java/org/apache/struts2/config/PropertiesSettings.java,137,return true;
+core/src/main/java/org/apache/struts2/config/PropertiesSettings.java,139,return false;
+core/src/main/java/org/apache/struts2/config/PropertiesSettings.java,148,public Iterator listImpl() {
+core/src/main/java/org/apache/struts2/config/Settings.java,30,import com.opensymphony.xwork2.ObjectFactory;
+core/src/main/java/org/apache/struts2/config/Settings.java,32,import com.opensymphony.xwork2.util.logging.Logger;
+core/src/main/java/org/apache/struts2/config/Settings.java,33,import com.opensymphony.xwork2.util.logging.LoggerFactory;
+core/src/main/java/org/apache/struts2/config/Settings.java,62,class Settings {
+core/src/main/java/org/apache/struts2/config/Settings.java,69,static Settings settingsImpl;
+core/src/main/java/org/apache/struts2/config/Settings.java,75,static Settings defaultImpl;
+core/src/main/java/org/apache/struts2/config/Settings.java,82,static Locale locale;
+core/src/main/java/org/apache/struts2/config/Settings.java,87,private static final Logger LOG = LoggerFactory.getLogger(Settings.class);
+core/src/main/java/org/apache/struts2/config/Settings.java,98,public static void setInstance(Settings config) throws IllegalStateException {
+core/src/main/java/org/apache/struts2/config/Settings.java,99,settingsImpl = config;
+core/src/main/java/org/apache/struts2/config/Settings.java,100,locale = null;
+core/src/main/java/org/apache/struts2/config/Settings.java,110,public static Settings getInstance() {
+core/src/main/java/org/apache/struts2/config/Settings.java,111,return (settingsImpl == null) ? getDefaultInstance() : settingsImpl;
+core/src/main/java/org/apache/struts2/config/Settings.java,127,public static Locale getLocale() {
+core/src/main/java/org/apache/struts2/config/Settings.java,130,return locale;
+core/src/main/java/org/apache/struts2/config/Settings.java,142,public static boolean isSet(String name) {
+core/src/main/java/org/apache/struts2/config/Settings.java,143,return getInstance().isSetImpl(name);
+core/src/main/java/org/apache/struts2/config/Settings.java,156,public static String get(String name) throws IllegalArgumentException {
+core/src/main/java/org/apache/struts2/config/Settings.java,157,return getInstance().getImpl(name);
+core/src/main/java/org/apache/struts2/config/Settings.java,172,public static Location getLocation(String name) throws IllegalArgumentException {
+core/src/main/java/org/apache/struts2/config/Settings.java,173,return getInstance().getLocationImpl(name);
+core/src/main/java/org/apache/struts2/config/Settings.java,181,public static Iterator list() {
+core/src/main/java/org/apache/struts2/config/Settings.java,182,return getInstance().listImpl();
+core/src/main/java/org/apache/struts2/config/Settings.java,192,public boolean isSetImpl(String name) {
+core/src/main/java/org/apache/struts2/config/Settings.java,195,return false;
+core/src/main/java/org/apache/struts2/config/Settings.java,209,public static void set(String name, String value) throws IllegalArgumentException, UnsupportedOperationException {
+core/src/main/java/org/apache/struts2/config/Settings.java,210,getInstance().setImpl(name, value);
+core/src/main/java/org/apache/struts2/config/Settings.java,222,public void setImpl(String name, String value) throws IllegalArgumentException, UnsupportedOperationException {
+core/src/main/java/org/apache/struts2/config/Settings.java,223,throw new UnsupportedOperationException("Settings: This implementation does not support setting a value.");
+core/src/main/java/org/apache/struts2/config/Settings.java,234,public String getImpl(String name) throws IllegalArgumentException {
+core/src/main/java/org/apache/struts2/config/Settings.java,235,return null;
+core/src/main/java/org/apache/struts2/config/Settings.java,246,public Location getLocationImpl(String name) throws IllegalArgumentException {
+core/src/main/java/org/apache/struts2/config/Settings.java,247,return null;
+core/src/main/java/org/apache/struts2/config/Settings.java,256,public Iterator listImpl() {
+core/src/main/java/org/apache/struts2/config/Settings.java,257,throw new UnsupportedOperationException("Settings: This implementation does not support listing the registered settings");
+core/src/main/java/org/apache/struts2/config/Settings.java,268,private static Settings getDefaultInstance() {
+core/src/main/java/org/apache/struts2/config/Settings.java,269,if (defaultImpl == null) {
+core/src/main/java/org/apache/struts2/config/Settings.java,290,return defaultImpl;
+core/src/main/java/org/apache/struts2/config/Settings.java,296,public static void reset() {
+core/src/main/java/org/apache/struts2/config/Settings.java,298,settingsImpl = null;
+core/src/main/java/org/apache/struts2/dispatcher/Dispatcher.java,63,import org.apache.struts2.config.LegacyPropertiesConfigurationProvider;
+core/src/main/java/org/apache/struts2/dispatcher/Dispatcher.java,353,configurationManager.addContainerProvider(new LegacyPropertiesConfigurationProvider());
+plugins/sitegraph/src/main/java/org/apache/struts2/sitegraph/StrutsConfigRetriever.java,32,import org.apache.struts2.config.LegacyPropertiesConfigurationProvider;
+plugins/sitegraph/src/main/java/org/apache/struts2/sitegraph/StrutsConfigRetriever.java,78,cm.addContainerProvider(new LegacyPropertiesConfigurationProvider());
+xwork-core/src/main/java/com/opensymphony/xwork2/util/location/LocatableProperties.java,22,Map<String,Location> propLocations;
+xwork-core/src/main/java/com/opensymphony/xwork2/util/location/LocatableProperties.java,25,this(null);
+xwork-core/src/main/java/com/opensymphony/xwork2/util/location/LocatableProperties.java,31,this.propLocations = new HashMap<String,Location>();
+xwork-core/src/main/java/com/opensymphony/xwork2/util/location/LocatableProperties.java,69,return propLocations.get(key);
+xwork-core/src/main/java/com/opensymphony/xwork2/interceptor/ParametersInterceptor.java,332,String developerNotification = LocalizedTextUtil.findText(ParametersInterceptor.class, "devmode.notification", ActionContext.getContext().getLocale(), "Developer Notification:\n{0}", new Object[]{
+xwork-core/src/main/java/com/opensymphony/xwork2/interceptor/ParametersInterceptor.java,336,if (action instanceof ValidationAware) {
+xwork-core/src/main/java/com/opensymphony/xwork2/interceptor/ParametersInterceptor.java,337,((ValidationAware) action).addActionMessage(developerNotification);
+xwork-core/src/main/java/com/opensymphony/xwork2/interceptor/ParametersInterceptor.java,157,private String acceptedParamNames = ACCEPTED_PARAM_NAMES;
+xwork-core/src/main/java/com/opensymphony/xwork2/interceptor/ParametersInterceptor.java,158,private Pattern acceptedPattern = Pattern.compile(acceptedParamNames);
+xwork-core/src/main/java/com/opensymphony/xwork2/interceptor/ParametersInterceptor.java,390,boolean accepted = isWithinLengthLimit(name) && isAccepted(name) && !isExcluded(name);
+core/src/main/java/org/apache/struts2/config/BeanSelectionProvider.java,358,if ("true".equalsIgnoreCase(props.getProperty(StrutsConstants.STRUTS_DEVMODE))) {
+core/src/main/java/org/apache/struts2/config/BeanSelectionProvider.java,359,props.setProperty(StrutsConstants.STRUTS_I18N_RELOAD, "true");
+core/src/main/java/org/apache/struts2/config/BeanSelectionProvider.java,360,props.setProperty(StrutsConstants.STRUTS_CONFIGURATION_XML_RELOAD, "true");
+core/src/main/java/org/apache/struts2/config/BeanSelectionProvider.java,361,props.setProperty(StrutsConstants.STRUTS_FREEMARKER_TEMPLATES_CACHE, "false");
+core/src/main/java/org/apache/struts2/config/BeanSelectionProvider.java,362,props.setProperty(StrutsConstants.STRUTS_FREEMARKER_TEMPLATES_CACHE_UPDATE_DELAY, "0");
+core/src/main/java/org/apache/struts2/config/BeanSelectionProvider.java,364,props.setProperty(XWorkConstants.DEV_MODE, "true");
+core/src/main/java/org/apache/struts2/config/BeanSelectionProvider.java,366,props.setProperty(XWorkConstants.DEV_MODE, "false");
+core/src/main/java/org/apache/struts2/dispatcher/ContainerHolder.java,4,import org.apache.struts2.StrutsConstants;
+core/src/main/java/org/apache/struts2/dispatcher/ContainerHolder.java,18,boolean reloadConfigs = Boolean.valueOf(instance.getInstance(String.class, StrutsConstants.STRUTS_CONFIGURATION_XML_RELOAD));
+core/src/main/java/org/apache/struts2/dispatcher/ContainerHolder.java,19,if (!reloadConfigs) {
+core/src/main/java/org/apache/struts2/dispatcher/ContainerHolder.java,21,ContainerHolder.instance.set(instance);
+xwork-core/src/main/java/com/opensymphony/xwork2/ognl/accessor/XWorkMapPropertyAccessor.java,98,context.get(ReflectionContextState.CREATE_NULL_OBJECTS) != null
+core/src/main/java/org/apache/struts2/interceptor/RolesInterceptor.java,81,private List<String> allowedRoles = new ArrayList<String>();
+core/src/main/java/org/apache/struts2/interceptor/RolesInterceptor.java,82,private List<String> disallowedRoles = new ArrayList<String>();
+plugins/jasperreports/src/main/java/org/apache/struts2/views/jasperreports/ValueStackDataSource.java,104,LOG.debug("field: " + field.getName() + "/" + value);
+plugins/jasperreports/src/main/java/org/apache/struts2/views/jasperreports/ValueStackDataSource.java,107,if ((!field.getValueClass().isInstance(value) && MakeIterator.isIterable(value))) {
+plugins/convention/src/main/java/org/apache/struts2/convention/DefaultResultMapBuilder.java,23,import java.io.IOException;
+plugins/convention/src/main/java/org/apache/struts2/convention/DefaultResultMapBuilder.java,24,import java.net.URL;
+plugins/convention/src/main/java/org/apache/struts2/convention/DefaultResultMapBuilder.java,25,import java.util.Arrays;
+plugins/convention/src/main/java/org/apache/struts2/convention/DefaultResultMapBuilder.java,26,import java.util.HashMap;
+plugins/convention/src/main/java/org/apache/struts2/convention/DefaultResultMapBuilder.java,27,import java.util.HashSet;
+plugins/convention/src/main/java/org/apache/struts2/convention/DefaultResultMapBuilder.java,28,import java.util.Map;
+plugins/convention/src/main/java/org/apache/struts2/convention/DefaultResultMapBuilder.java,29,import java.util.Set;
+plugins/convention/src/main/java/org/apache/struts2/convention/DefaultResultMapBuilder.java,31,import javax.servlet.ServletContext;
+plugins/convention/src/main/java/org/apache/struts2/convention/DefaultResultMapBuilder.java,33,import org.apache.commons.lang3.ObjectUtils;
+plugins/convention/src/main/java/org/apache/struts2/convention/DefaultResultMapBuilder.java,34,import org.apache.commons.lang3.StringUtils;
+plugins/convention/src/main/java/org/apache/struts2/convention/DefaultResultMapBuilder.java,35,import org.apache.struts2.convention.annotation.Result;
+plugins/convention/src/main/java/org/apache/struts2/convention/DefaultResultMapBuilder.java,36,import org.apache.struts2.convention.annotation.Results;
+plugins/convention/src/main/java/org/apache/struts2/convention/DefaultResultMapBuilder.java,370,if (!results.containsKey(Action.SUCCESS)) {
+plugins/convention/src/main/java/org/apache/struts2/convention/DefaultResultMapBuilder.java,371,ResultConfig success = createResultConfig(actionClass,
+plugins/convention/src/main/java/org/apache/struts2/convention/DefaultResultMapBuilder.java,372,new ResultInfo(Action.SUCCESS, path, packageConfig, resultsByExtension),
+plugins/convention/src/main/java/org/apache/struts2/convention/DefaultResultMapBuilder.java,373,packageConfig, null);
+plugins/convention/src/main/java/org/apache/struts2/convention/DefaultResultMapBuilder.java,374,results.put(Action.SUCCESS, success);
+plugins/convention/src/main/java/org/apache/struts2/convention/DefaultResultMapBuilder.java,376,if (!results.containsKey(Action.INPUT)) {
+plugins/convention/src/main/java/org/apache/struts2/convention/DefaultResultMapBuilder.java,377,ResultConfig input = createResultConfig(actionClass,
+plugins/convention/src/main/java/org/apache/struts2/convention/DefaultResultMapBuilder.java,378,new ResultInfo(Action.INPUT, path, packageConfig, resultsByExtension),
+plugins/convention/src/main/java/org/apache/struts2/convention/DefaultResultMapBuilder.java,379,packageConfig, null);
+plugins/convention/src/main/java/org/apache/struts2/convention/DefaultResultMapBuilder.java,380,results.put(Action.INPUT, input);
+plugins/convention/src/main/java/org/apache/struts2/convention/DefaultResultMapBuilder.java,382,if (!results.containsKey(Action.ERROR)) {
+plugins/convention/src/main/java/org/apache/struts2/convention/DefaultResultMapBuilder.java,383,ResultConfig error = createResultConfig(actionClass,
+plugins/convention/src/main/java/org/apache/struts2/convention/DefaultResultMapBuilder.java,384,new ResultInfo(Action.ERROR, path, packageConfig, resultsByExtension),
+plugins/convention/src/main/java/org/apache/struts2/convention/DefaultResultMapBuilder.java,385,packageConfig, null);
+plugins/convention/src/main/java/org/apache/struts2/convention/DefaultResultMapBuilder.java,386,results.put(Action.ERROR, error);
+plugins/convention/src/main/java/org/apache/struts2/convention/PackageBasedActionConfigBuilder.java,996,actionNamespace = StringUtils.contains(actionName, "/") ? StringUtils.substringBeforeLast(actionName, "/") : StringUtils.EMPTY;
+plugins/convention/src/main/java/org/apache/struts2/convention/PackageBasedActionConfigBuilder.java,1022,throw new ConfigurationException("Unable to locate parent package [" + parentName + "]");
+core/src/main/java/org/apache/struts2/components/Param.java,24,import java.io.Writer;
+core/src/main/java/org/apache/struts2/components/Param.java,28,import org.apache.struts2.StrutsException;
+core/src/main/java/org/apache/struts2/components/Param.java,30,import com.opensymphony.xwork2.util.ValueStack;
+core/src/main/java/org/apache/struts2/dispatcher/ng/filter/StrutsPrepareAndExecuteFilter.java,77,prepare.setEncodingAndLocale(request, response);
+core/src/main/java/org/apache/struts2/dispatcher/ng/filter/StrutsPrepareAndExecuteFilter.java,78,prepare.createActionContext(request, response);
+core/src/main/java/org/apache/struts2/dispatcher/ng/filter/StrutsPrepareAndExecuteFilter.java,79,prepare.assignDispatcherToThread();
+core/src/main/java/org/apache/struts2/dispatcher/ng/filter/StrutsPrepareFilter.java,73,prepare.setEncodingAndLocale(request, response);
+core/src/main/java/org/apache/struts2/dispatcher/ng/filter/StrutsPrepareFilter.java,74,prepare.createActionContext(request, response);
+core/src/main/java/org/apache/struts2/dispatcher/ng/filter/StrutsPrepareFilter.java,75,prepare.assignDispatcherToThread();
+xwork-core/src/main/java/com/opensymphony/xwork2/ognl/OgnlValueStack.java,210,String msg = "Error setting expression '" + expr + "' with value '" + value + "'";
+xwork-core/src/main/java/com/opensymphony/xwork2/ognl/OgnlValueStack.java,211,if (LOG.isWarnEnabled()) {
+xwork-core/src/main/java/com/opensymphony/xwork2/ognl/OgnlValueStack.java,327,if (shouldLogNoSuchPropertyWarning(e)) {
+xwork-core/src/main/java/com/opensymphony/xwork2/ognl/OgnlValueStack.java,337,private boolean shouldLogNoSuchPropertyWarning(OgnlException e) {
+xwork-core/src/main/java/com/opensymphony/xwork2/ognl/OgnlValueStack.java,338,return e instanceof NoSuchPropertyException && devMode && logMissingProperties;
+core/src/main/java/org/apache/struts2/dispatcher/Dispatcher.java,555,if (devMode) {
+core/src/main/java/org/apache/struts2/dispatcher/Dispatcher.java,556,String reqStr = request.getRequestURI();
+core/src/main/java/org/apache/struts2/dispatcher/Dispatcher.java,557,if (request.getQueryString() != null) {
+core/src/main/java/org/apache/struts2/dispatcher/Dispatcher.java,558,reqStr = reqStr + "?" + request.getQueryString();
+core/src/main/java/org/apache/struts2/dispatcher/Dispatcher.java,560,LOG.error("Could not find action or result\n" + reqStr, e);
+core/src/main/java/org/apache/struts2/dispatcher/Dispatcher.java,562,if (LOG.isWarnEnabled()) {
+core/src/main/java/org/apache/struts2/dispatcher/Dispatcher.java,563,LOG.warn("Could not find action or result", e);
+core/src/main/java/org/apache/struts2/dispatcher/Dispatcher.java,852,if (LOG.isErrorEnabled()) {
+core/src/main/java/org/apache/struts2/dispatcher/Dispatcher.java,853,LOG.error("Exception occurred during processing request: #0", e, e.getMessage());
+xwork-core/src/main/java/com/opensymphony/xwork2/ognl/OgnlUtil.java,57,static boolean devMode = false;
+xwork-core/src/main/java/com/opensymphony/xwork2/ognl/OgnlUtil.java,58,static boolean enableExpressionCache = true;
+xwork-core/src/main/java/com/opensymphony/xwork2/ognl/OgnlUtil.java,66,public static void setDevMode(String mode) {
+xwork-core/src/main/java/com/opensymphony/xwork2/ognl/OgnlUtil.java,71,public static void setEnableExpressionCache(String cache) {
+xwork-core/src/main/java/com/opensymphony/xwork2/ognl/OgnlUtil.java,442,if (devMode) {
+xwork-core/src/main/java/com/opensymphony/xwork2/ognl/OgnlUtil.java,443,LOG.warn(msg, exception);
+plugins/javatemplates/src/main/java/org/apache/struts2/views/java/simple/CheckboxListHandler.java,109,for (String value : nameValues) {
+plugins/javatemplates/src/main/java/org/apache/struts2/views/java/simple/CheckboxListHandler.java,110,if (checked = value.equalsIgnoreCase(itemKeyStr)) {
+plugins/javatemplates/src/main/java/org/apache/struts2/views/java/simple/CheckboxListHandler.java,111,break;
+plugins/embeddedjsp/src/main/java/org/apache/struts2/el/lang/ELSupport.java,385,if (obj[0] == null) {
+core/src/main/java/org/apache/struts2/interceptor/MessageStoreInterceptor.java,150,private static final long serialVersionUID = 4491997514314242420L;
+core/src/main/java/org/apache/struts2/dispatcher/mapper/DefaultActionMapper.java,34,import org.apache.struts2.dispatcher.ServletRedirectResult;
+core/src/main/java/org/apache/struts2/dispatcher/mapper/DefaultActionMapper.java,167,protected static final String REDIRECT_PREFIX = "redirect:";
+core/src/main/java/org/apache/struts2/dispatcher/mapper/DefaultActionMapper.java,168,protected static final String REDIRECT_ACTION_PREFIX = "redirectAction:";
+core/src/main/java/org/apache/struts2/dispatcher/mapper/DefaultActionMapper.java,188,mapping.setMethod(key.substring(
+core/src/main/java/org/apache/struts2/dispatcher/mapper/DefaultActionMapper.java,189,METHOD_PREFIX.length()));
+core/src/main/java/org/apache/struts2/dispatcher/mapper/DefaultActionMapper.java,205,mapping.setName(name);
+core/src/main/java/org/apache/struts2/dispatcher/mapper/DefaultActionMapper.java,209,put(REDIRECT_PREFIX, new ParameterAction() {
+core/src/main/java/org/apache/struts2/dispatcher/mapper/DefaultActionMapper.java,210,public void execute(String key, ActionMapping mapping) {
+core/src/main/java/org/apache/struts2/dispatcher/mapper/DefaultActionMapper.java,211,ServletRedirectResult redirect = new ServletRedirectResult();
+core/src/main/java/org/apache/struts2/dispatcher/mapper/DefaultActionMapper.java,212,container.inject(redirect);
+core/src/main/java/org/apache/struts2/dispatcher/mapper/DefaultActionMapper.java,213,redirect.setLocation(key.substring(REDIRECT_PREFIX
+core/src/main/java/org/apache/struts2/dispatcher/mapper/DefaultActionMapper.java,214,.length()));
+core/src/main/java/org/apache/struts2/dispatcher/mapper/DefaultActionMapper.java,215,mapping.setResult(redirect);
+core/src/main/java/org/apache/struts2/dispatcher/mapper/DefaultActionMapper.java,219,put(REDIRECT_ACTION_PREFIX, new ParameterAction() {
+core/src/main/java/org/apache/struts2/dispatcher/mapper/DefaultActionMapper.java,220,public void execute(String key, ActionMapping mapping) {
+core/src/main/java/org/apache/struts2/dispatcher/mapper/DefaultActionMapper.java,221,String location = key.substring(REDIRECT_ACTION_PREFIX
+core/src/main/java/org/apache/struts2/dispatcher/mapper/DefaultActionMapper.java,222,.length());
+core/src/main/java/org/apache/struts2/dispatcher/mapper/DefaultActionMapper.java,223,ServletRedirectResult redirect = new ServletRedirectResult();
+core/src/main/java/org/apache/struts2/dispatcher/mapper/DefaultActionMapper.java,224,container.inject(redirect);
+core/src/main/java/org/apache/struts2/dispatcher/mapper/DefaultActionMapper.java,225,String extension = getDefaultExtension();
+core/src/main/java/org/apache/struts2/dispatcher/mapper/DefaultActionMapper.java,226,if (extension != null && extension.length() > 0) {
+core/src/main/java/org/apache/struts2/dispatcher/mapper/DefaultActionMapper.java,227,location += "." + extension;
+core/src/main/java/org/apache/struts2/dispatcher/mapper/DefaultActionMapper.java,229,redirect.setLocation(location);
+core/src/main/java/org/apache/struts2/dispatcher/mapper/DefaultActionMapper.java,230,mapping.setResult(redirect);
+core/src/main/java/org/apache/struts2/interceptor/RolesInterceptor.java,29,import javax.servlet.http.HttpServletRequest;
+core/src/main/java/org/apache/struts2/interceptor/RolesInterceptor.java,30,import javax.servlet.http.HttpServletResponse;
+core/src/main/java/org/apache/struts2/interceptor/RolesInterceptor.java,32,import com.opensymphony.xwork2.ActionInvocation;
+core/src/main/java/org/apache/struts2/interceptor/RolesInterceptor.java,33,import com.opensymphony.xwork2.interceptor.AbstractInterceptor;
+core/src/main/java/org/apache/struts2/interceptor/RolesInterceptor.java,35,import org.apache.struts2.ServletActionContext;
+core/src/main/java/org/apache/struts2/interceptor/RolesInterceptor.java,95,String result = null;
+core/src/main/java/org/apache/struts2/interceptor/RolesInterceptor.java,112,return Collections.EMPTY_LIST;
+xwork-core/src/main/java/com/opensymphony/xwork2/interceptor/MethodFilterInterceptorUtil.java,22,import java.util.Iterator;
+xwork-core/src/main/java/com/opensymphony/xwork2/interceptor/MethodFilterInterceptorUtil.java,54,Iterator quickIter = includeMethods.iterator();
+xwork-core/src/main/java/com/opensymphony/xwork2/interceptor/MethodFilterInterceptorUtil.java,55,for (String incMeth : includeMethods) {
+xwork-core/src/main/java/com/opensymphony/xwork2/interceptor/MethodFilterInterceptorUtil.java,56,if (!"*".equals(incMeth) && incMeth.contains("*")) {
+xwork-core/src/main/java/com/opensymphony/xwork2/interceptor/MethodFilterInterceptorUtil.java,61,for (String incMeth : excludeMethods) {
+xwork-core/src/main/java/com/opensymphony/xwork2/interceptor/MethodFilterInterceptorUtil.java,62,if (!"*".equals(incMeth) && incMeth.contains("*")) {
+plugins/struts1/src/main/java/org/apache/struts2/s1/Struts1Factory.java,24,import com.opensymphony.xwork2.*;
+plugins/struts1/src/main/java/org/apache/struts2/s1/Struts1Factory.java,27,import com.opensymphony.xwork2.config.entities.ResultConfig;
+plugins/struts1/src/main/java/org/apache/struts2/s1/Struts1Factory.java,30,import org.apache.struts.Globals;
+plugins/struts1/src/main/java/org/apache/struts2/s1/Struts1Factory.java,31,import org.apache.struts.action.*;
+plugins/struts1/src/main/java/org/apache/struts2/s1/Struts1Factory.java,32,import org.apache.struts.config.*;
+plugins/struts1/src/main/java/org/apache/struts2/s1/Struts1Factory.java,34,import java.util.Iterator;
+plugins/struts1/src/main/java/org/apache/struts2/s1/Struts1Factory.java,36,import java.util.Map;
+plugins/struts1/src/main/java/org/apache/struts2/s1/Struts1Factory.java,38,import javax.servlet.ServletContext;
+plugins/struts1/src/main/java/org/apache/struts2/s1/Struts1Factory.java,124,ActionMessage error = null;
+plugins/struts1/src/main/java/org/apache/struts2/s1/Struts1Factory.java,125,String field = null;
+plugins/struts1/src/main/java/org/apache/struts2/s1/Struts1Factory.java,126,String msg = null;
+plugins/struts1/src/main/java/org/apache/struts2/s1/Struts1Factory.java,127,Object[] values = null;
+plugins/struts1/src/main/java/org/apache/struts2/s1/Struts1Factory.java,129,field = (String) i.next();
+plugins/struts1/src/main/java/org/apache/struts2/s1/Struts1Factory.java,131,error = (ActionMessage) it.next();
+plugins/struts1/src/main/java/org/apache/struts2/s1/Struts1Factory.java,132,msg = error.getKey();
+plugins/struts1/src/main/java/org/apache/struts2/s1/Struts1Factory.java,134,values = error.getValues();
+plugins/struts1/src/main/java/org/apache/struts2/s1/Struts1Factory.java,141,if (vaction != null) {
+plugins/struts1/src/main/java/org/apache/struts2/s1/Struts1Factory.java,142,if (field == errors.GLOBAL_MESSAGE) {
+plugins/struts1/src/main/java/org/apache/struts2/s1/Struts1Factory.java,143,vaction.addActionError(msg);
+plugins/struts1/src/main/java/org/apache/struts2/s1/Struts1Factory.java,145,vaction.addFieldError(field, msg);
+plugins/convention/src/main/java/org/apache/struts2/convention/PackageBasedActionConfigBuilder.java,565,if (packageLocators != null && !disablePackageLocatorsScanning) {
+plugins/convention/src/main/java/org/apache/struts2/convention/PackageBasedActionConfigBuilder.java,566,for (String packageLocator : packageLocators) {
+plugins/convention/src/main/java/org/apache/struts2/convention/PackageBasedActionConfigBuilder.java,567,if (classPackageName.length() > 0
+plugins/convention/src/main/java/org/apache/struts2/convention/PackageBasedActionConfigBuilder.java,568,&& (packageLocatorsBasePackage == null || classPackageName
+plugins/convention/src/main/java/org/apache/struts2/convention/PackageBasedActionConfigBuilder.java,570,String[] splitted = classPackageName.split("\\.");
+plugins/convention/src/main/java/org/apache/struts2/convention/PackageBasedActionConfigBuilder.java,573,return true;
+plugins/embeddedjsp/src/main/java/org/apache/struts2/jasper/compiler/Validator.java,20,import java.lang.reflect.Method;
+plugins/embeddedjsp/src/main/java/org/apache/struts2/jasper/compiler/Validator.java,21,import java.util.ArrayList;
+plugins/embeddedjsp/src/main/java/org/apache/struts2/jasper/compiler/Validator.java,22,import java.util.HashMap;
+plugins/embeddedjsp/src/main/java/org/apache/struts2/jasper/compiler/Validator.java,23,import java.util.Hashtable;
+plugins/embeddedjsp/src/main/java/org/apache/struts2/jasper/compiler/Validator.java,24,import java.util.Iterator;
+plugins/embeddedjsp/src/main/java/org/apache/struts2/jasper/compiler/Validator.java,39,import org.apache.struts2.el.lang.ELSupport;
+plugins/embeddedjsp/src/main/java/org/apache/struts2/jasper/compiler/Validator.java,40,import org.apache.struts2.jasper.Constants;
+plugins/embeddedjsp/src/main/java/org/apache/struts2/jasper/compiler/Validator.java,41,import org.apache.struts2.jasper.JasperException;
+plugins/embeddedjsp/src/main/java/org/apache/struts2/jasper/compiler/Validator.java,42,import org.apache.struts2.jasper.el.ELContextImpl;
+plugins/embeddedjsp/src/main/java/org/apache/struts2/jasper/compiler/Validator.java,43,import org.xml.sax.Attributes;
+core/src/main/java/org/apache/struts2/dispatcher/mapper/DefaultActionMapper.java,38,import java.util.ArrayList;
+core/src/main/java/org/apache/struts2/dispatcher/mapper/DefaultActionMapper.java,39,import java.util.Collections;
+core/src/main/java/org/apache/struts2/dispatcher/mapper/DefaultActionMapper.java,40,import java.util.HashSet;
+core/src/main/java/org/apache/struts2/dispatcher/mapper/DefaultActionMapper.java,41,import java.util.List;
+core/src/main/java/org/apache/struts2/dispatcher/mapper/DefaultActionMapper.java,42,import java.util.Map;
+core/src/main/java/org/apache/struts2/dispatcher/mapper/DefaultActionMapper.java,43,import java.util.Set;
+core/src/main/java/org/apache/struts2/dispatcher/mapper/DefaultActionMapper.java,432,mapping.setName(name);
+plugins/javatemplates/src/main/java/org/apache/struts2/views/java/simple/AnchorHandler.java,33,Map<String, Object> params = context.getParameters();
+plugins/javatemplates/src/main/java/org/apache/struts2/views/java/simple/AnchorHandler.java,35,Attributes attrs = new Attributes();
+plugins/javatemplates/src/main/java/org/apache/struts2/views/java/simple/AnchorHandler.java,42,.addIfExists("tabindex", params.get("tabindex"));
+plugins/javatemplates/src/main/java/org/apache/struts2/views/java/simple/AnchorHandler.java,43,start("a", attrs);
+plugins/javatemplates/src/main/java/org/apache/struts2/views/java/simple/AnchorHandler.java,51,if (StringUtils.isNotEmpty(body)) {
+plugins/javatemplates/src/main/java/org/apache/struts2/views/java/simple/SimpleTheme.java,42,put("a", new FactoryList(AnchorHandler.class, ScriptingEventsHandler.class, CommonAttributesHandler.class, DynamicAttributesHandler.class));
+plugins/javatemplates/src/main/java/org/apache/struts2/views/java/simple/SimpleTheme.java,43,put("a-close", new FactoryList(AnchorHandler.CloseHandler.class));
+xwork-core/src/main/java/com/opensymphony/xwork2/interceptor/ParametersInterceptor.java,25,import com.opensymphony.xwork2.util.ArrayUtils;
+xwork-core/src/main/java/com/opensymphony/xwork2/interceptor/ParametersInterceptor.java,26,import com.opensymphony.xwork2.util.ClearableValueStack;
+xwork-core/src/main/java/com/opensymphony/xwork2/interceptor/ParametersInterceptor.java,27,import com.opensymphony.xwork2.util.LocalizedTextUtil;
+xwork-core/src/main/java/com/opensymphony/xwork2/interceptor/ParametersInterceptor.java,28,import com.opensymphony.xwork2.util.MemberAccessValueStack;
+xwork-core/src/main/java/com/opensymphony/xwork2/interceptor/ParametersInterceptor.java,29,import com.opensymphony.xwork2.util.ValueStack;
+xwork-core/src/main/java/com/opensymphony/xwork2/interceptor/ParametersInterceptor.java,30,import com.opensymphony.xwork2.util.ValueStackFactory;
+xwork-core/src/main/java/com/opensymphony/xwork2/interceptor/ParametersInterceptor.java,35,import java.util.Collection;
+xwork-core/src/main/java/com/opensymphony/xwork2/interceptor/ParametersInterceptor.java,36,import java.util.Collections;
+xwork-core/src/main/java/com/opensymphony/xwork2/interceptor/ParametersInterceptor.java,37,import java.util.Comparator;
+xwork-core/src/main/java/com/opensymphony/xwork2/interceptor/ParametersInterceptor.java,38,import java.util.HashSet;
+xwork-core/src/main/java/com/opensymphony/xwork2/interceptor/ParametersInterceptor.java,39,import java.util.Map;
+xwork-core/src/main/java/com/opensymphony/xwork2/interceptor/ParametersInterceptor.java,40,import java.util.Set;
+xwork-core/src/main/java/com/opensymphony/xwork2/interceptor/ParametersInterceptor.java,41,import java.util.TreeMap;
+xwork-core/src/main/java/com/opensymphony/xwork2/interceptor/ParametersInterceptor.java,275,protected void setParameters(Object action, ValueStack stack, final Map<String, Object> parameters) {
+xwork-core/src/main/java/com/opensymphony/xwork2/ognl/OgnlValueStack.java,34,import ognl.NoSuchPropertyException;
+xwork-core/src/main/java/com/opensymphony/xwork2/ognl/OgnlValueStack.java,35,import ognl.Ognl;
+xwork-core/src/main/java/com/opensymphony/xwork2/ognl/OgnlValueStack.java,36,import ognl.OgnlContext;
+xwork-core/src/main/java/com/opensymphony/xwork2/ognl/OgnlValueStack.java,37,import ognl.OgnlException;
+xwork-core/src/main/java/com/opensymphony/xwork2/ognl/OgnlValueStack.java,38,import ognl.PropertyAccessor;
+xwork-core/src/main/java/com/opensymphony/xwork2/ognl/SecurityMemberAccess.java,36,Set<Pattern> excludeProperties = Collections.emptySet();
+xwork-core/src/main/java/com/opensymphony/xwork2/ognl/SecurityMemberAccess.java,37,Set<Pattern> acceptProperties = Collections.emptySet();
+xwork-core/src/main/java/com/opensymphony/xwork2/ognl/SecurityMemberAccess.java,86,if (isAccepted(name) && !isExcluded(name)) {
+core/src/main/java/org/apache/struts2/views/util/DefaultUrlHelper.java,244,builder.append(translateAndEncode(name));
+core/src/main/java/org/apache/struts2/views/util/DefaultUrlHelper.java,246,builder.append(translateAndEncode(value));
+core/src/main/java/org/apache/struts2/views/util/DefaultUrlHelper.java,257,public String translateAndEncode(String input) {
+core/src/main/java/org/apache/struts2/views/util/DefaultUrlHelper.java,258,String translatedInput = translateVariable(input);
+core/src/main/java/org/apache/struts2/views/util/DefaultUrlHelper.java,259,try {
+core/src/main/java/org/apache/struts2/views/util/DefaultUrlHelper.java,260,return URLEncoder.encode(translatedInput, encoding);
+core/src/main/java/org/apache/struts2/views/util/DefaultUrlHelper.java,262,if (LOG.isWarnEnabled()) {
+core/src/main/java/org/apache/struts2/views/util/DefaultUrlHelper.java,263,LOG.warn("Could not encode URL parameter '#0', returning value un-encoded", input);
+core/src/main/java/org/apache/struts2/views/util/DefaultUrlHelper.java,265,return translatedInput;
+core/src/main/java/org/apache/struts2/views/util/DefaultUrlHelper.java,269,public String translateAndDecode(String input) {
+core/src/main/java/org/apache/struts2/views/util/DefaultUrlHelper.java,270,String translatedInput = translateVariable(input);
+core/src/main/java/org/apache/struts2/views/util/DefaultUrlHelper.java,271,try {
+core/src/main/java/org/apache/struts2/views/util/DefaultUrlHelper.java,272,return URLDecoder.decode(translatedInput, encoding);
+core/src/main/java/org/apache/struts2/views/util/DefaultUrlHelper.java,274,if (LOG.isWarnEnabled()) {
+core/src/main/java/org/apache/struts2/views/util/DefaultUrlHelper.java,275,LOG.warn("Could not encode URL parameter '#0', returning value un-encoded", input);
+core/src/main/java/org/apache/struts2/views/util/DefaultUrlHelper.java,277,return translatedInput;
+core/src/main/java/org/apache/struts2/views/util/DefaultUrlHelper.java,281,private String translateVariable(String input) {
+core/src/main/java/org/apache/struts2/views/util/DefaultUrlHelper.java,282,ValueStack valueStack = ServletActionContext.getContext().getValueStack();
+core/src/main/java/org/apache/struts2/views/util/DefaultUrlHelper.java,283,return TextParseUtil.translateVariables(input, valueStack);
+core/src/main/java/org/apache/struts2/views/util/DefaultUrlHelper.java,302,paramName = translateAndDecode(paramName);
+core/src/main/java/org/apache/struts2/views/util/DefaultUrlHelper.java,303,String translatedParamValue = translateAndDecode(paramValue);
+xwork-core/src/main/java/com/opensymphony/xwork2/ognl/SecurityMemberAccess.java,35,private boolean allowStaticMethodAccess;
+xwork-core/src/main/java/com/opensymphony/xwork2/ognl/SecurityMemberAccess.java,48,public void setAllowStaticMethodAccess(boolean allowStaticMethodAccess) {
+xwork-core/src/main/java/com/opensymphony/xwork2/ognl/SecurityMemberAccess.java,49,this.allowStaticMethodAccess = allowStaticMethodAccess;
+plugins/javatemplates/src/main/java/org/apache/struts2/views/java/simple/DynamicAttributesHandler.java,39,a.putAll((Map<String, String>) context.getParameters().get("dynamicAttributes"));
+xwork-core/src/main/java/com/opensymphony/xwork2/interceptor/ExceptionMappingInterceptor.java,193,String mappedResult = this.findResultFromExceptions(exceptionMappings, e);
+xwork-core/src/main/java/com/opensymphony/xwork2/interceptor/ExceptionMappingInterceptor.java,194,if (mappedResult != null) {
+xwork-core/src/main/java/com/opensymphony/xwork2/interceptor/ExceptionMappingInterceptor.java,195,result = mappedResult;
+xwork-core/src/main/java/com/opensymphony/xwork2/interceptor/ExceptionMappingInterceptor.java,252,String result = null;
+xwork-core/src/main/java/com/opensymphony/xwork2/interceptor/ExceptionMappingInterceptor.java,262,result = exceptionMappingConfig.getResult();
+xwork-core/src/main/java/com/opensymphony/xwork2/interceptor/ExceptionMappingInterceptor.java,267,return result;
+core/src/main/java/org/apache/struts2/config/LegacyPropertiesConfigurationProvider.java,24,import java.util.Iterator;
+core/src/main/java/org/apache/struts2/config/LegacyPropertiesConfigurationProvider.java,25,import java.util.Locale;
+core/src/main/java/org/apache/struts2/config/LegacyPropertiesConfigurationProvider.java,26,import java.util.StringTokenizer;
+core/src/main/java/org/apache/struts2/config/LegacyPropertiesConfigurationProvider.java,34,import com.opensymphony.xwork2.inject.Inject;
+core/src/main/java/org/apache/struts2/config/LegacyPropertiesConfigurationProvider.java,72,builder.factory(Locale.class, new Factory() {
+core/src/main/java/org/apache/struts2/config/LegacyPropertiesConfigurationProvider.java,75,public synchronized Object create(Context context) throws Exception {
+core/src/main/java/org/apache/struts2/config/Settings.java,24,import java.util.Iterator;
+core/src/main/java/org/apache/struts2/config/Settings.java,25,import java.util.Locale;
+core/src/main/java/org/apache/struts2/config/Settings.java,26,import java.util.StringTokenizer;
+core/src/main/java/org/apache/struts2/config/Settings.java,28,import org.apache.struts2.StrutsConstants;
+core/src/main/java/org/apache/struts2/config/Settings.java,271,defaultImpl = new DefaultSettings();
+core/src/main/java/org/apache/struts2/config/Settings.java,274,try {
+core/src/main/java/org/apache/struts2/config/Settings.java,275,String className = get(StrutsConstants.STRUTS_CONFIGURATION);
+core/src/main/java/org/apache/struts2/config/Settings.java,277,if (!className.equals(defaultImpl.getClass().getName())) {
+core/src/main/java/org/apache/struts2/config/Settings.java,280,defaultImpl = (Settings) ObjectFactory.getObjectFactory().buildBean(Thread.currentThread().getContextClassLoader().loadClass(className), null);
+core/src/main/java/org/apache/struts2/config/Settings.java,282,LOG.error("Settings: Could not instantiate the struts.configuration object, substituting the default implementation.", e);
+core/src/main/java/org/apache/struts2/config/Settings.java,297,defaultImpl = null;
+plugins/javatemplates/src/main/java/org/apache/struts2/views/java/simple/RadioHandler.java,36,public void generate() throws IOException {
+plugins/javatemplates/src/main/java/org/apache/struts2/views/java/simple/RadioHandler.java,64,String itemNameValueStr;
+plugins/javatemplates/src/main/java/org/apache/struts2/views/java/simple/RadioHandler.java,66,itemNameValueStr = nameValue.toString();
+plugins/javatemplates/src/main/java/org/apache/struts2/views/java/simple/RadioHandler.java,67,else
+plugins/javatemplates/src/main/java/org/apache/struts2/views/java/simple/RadioHandler.java,68,itemNameValueStr = null;
+plugins/javatemplates/src/main/java/org/apache/struts2/views/java/simple/RadioHandler.java,72,Boolean checked = itemKeyStr != null &&
+plugins/javatemplates/src/main/java/org/apache/struts2/views/java/simple/RadioHandler.java,73,itemNameValueStr != null &&
+plugins/javatemplates/src/main/java/org/apache/struts2/views/java/simple/RadioHandler.java,74,itemNameValueStr.equals(itemKeyStr);
+core/src/main/java/org/apache/struts2/interceptor/TokenSessionStoreInterceptor.java,140,Map context = stack.getContext();
+core/src/main/java/org/apache/struts2/util/InvocationSessionStore.java,24,import java.io.Serializable;
+core/src/main/java/org/apache/struts2/util/InvocationSessionStore.java,25,import java.util.HashMap;
+core/src/main/java/org/apache/struts2/util/InvocationSessionStore.java,26,import java.util.Map;
+core/src/main/java/org/apache/struts2/util/InvocationSessionStore.java,65,return invocationContext.invocation;
+core/src/main/java/org/apache/struts2/util/InvocationSessionStore.java,76,InvocationContext invocationContext = new InvocationContext(invocation, token);
+xwork-core/src/main/java/com/opensymphony/xwork2/DefaultActionInvocation.java,80,DefaultActionInvocation.this.extraContext = extraContext;
+xwork-core/src/main/java/com/opensymphony/xwork2/DefaultActionInvocation.java,81,DefaultActionInvocation.this.pushAction = pushAction;
+core/src/main/java/org/apache/struts2/components/UIBean.java,674,addParameter("requiredposition", findString(requiredPosition));
+core/src/main/java/org/apache/struts2/views/jsp/ui/AbstractUITag.java,48,protected String requiredposition;
+core/src/main/java/org/apache/struts2/views/jsp/ui/AbstractUITag.java,100,uiBean.setRequiredPosition(requiredposition);
+core/src/main/java/org/apache/struts2/views/jsp/ui/AbstractUITag.java,172,public void setRequiredposition(String requiredPosition) {
+core/src/main/java/org/apache/struts2/views/jsp/ui/AbstractUITag.java,173,this.requiredposition = requiredPosition;
+core/src/main/java/org/apache/struts2/dispatcher/ng/filter/StrutsPrepareAndExecuteFilter.java,51,Dispatcher dispatcher = init.initDispatcher(config);
+core/src/main/java/org/apache/struts2/dispatcher/ng/filter/StrutsPrepareFilter.java,50,Dispatcher dispatcher = init.initDispatcher(config);
+core/src/main/java/org/apache/struts2/dispatcher/ng/listener/StrutsListener.java,23,import org.apache.struts2.ServletActionContext;
+core/src/main/java/org/apache/struts2/dispatcher/ng/listener/StrutsListener.java,24,import org.apache.struts2.StrutsConstants;
+core/src/main/java/org/apache/struts2/dispatcher/ng/listener/StrutsListener.java,47,Dispatcher dispatcher = init.initDispatcher(config);
+core/src/main/java/org/apache/struts2/dispatcher/ng/servlet/StrutsServlet.java,52,Dispatcher dispatcher = init.initDispatcher(config);
+core/src/main/java/org/apache/struts2/dispatcher/ContainerHolder.java,30,ContainerHolder.instance.set(null);
+core/src/main/java/org/apache/struts2/dispatcher/mapper/CompositeActionMapper.java,88,protected Container container;
+core/src/main/java/org/apache/struts2/dispatcher/mapper/CompositeActionMapper.java,90,protected List<ActionMapper> actionMappers = new ArrayList<ActionMapper>();
+core/src/main/java/org/apache/struts2/dispatcher/mapper/CompositeActionMapper.java,94,this.container = container;
+core/src/main/java/org/apache/struts2/dispatcher/mapper/CompositeActionMapper.java,98,public void setActionMappers(String list) {
+plugins/convention/src/main/java/org/apache/struts2/convention/PackageBasedActionConfigBuilder.java,416,urlSet.include(new UrlSet(classLoaderInterface, this.fileProtocols));
+xwork-core/src/main/java/com/opensymphony/xwork2/ObjectFactory.java,254,Validator validator = (Validator) buildBean(className, null);
+xwork-core/src/main/java/com/opensymphony/xwork2/ObjectFactory.java,255,reflectionProvider.setProperties(params, validator);
+xwork-core/src/main/java/com/opensymphony/xwork2/ognl/OgnlReflectionProvider.java,48,public void setProperties(Map<String, String> props, Object o, Map<String, Object> context) {
+xwork-core/src/main/java/com/opensymphony/xwork2/ognl/OgnlReflectionProvider.java,52,public void setProperties(Map<String, String> props, Object o, Map<String, Object> context,
+xwork-core/src/main/java/com/opensymphony/xwork2/ognl/OgnlReflectionProvider.java,53,boolean throwPropertyExceptions) throws ReflectionException{
+xwork-core/src/main/java/com/opensymphony/xwork2/util/reflection/ReflectionProvider.java,26,void setProperties(Map<String, String> props, Object o, Map<String, Object> context);
+xwork-core/src/main/java/com/opensymphony/xwork2/util/reflection/ReflectionProvider.java,37,void setProperties(Map<String, String> props, Object o, Map<String, Object> context, boolean throwPropertyExceptions) throws ReflectionException;
+xwork-core/src/main/java/com/opensymphony/xwork2/validator/DefaultValidatorFactory.java,32,import java.util.*;
+xwork-core/src/main/java/com/opensymphony/xwork2/validator/DefaultValidatorFactory.java,33,import java.util.zip.ZipInputStream;
+xwork-core/src/main/java/com/opensymphony/xwork2/validator/DefaultValidatorFactory.java,67,validator = objectFactory.buildValidator(className, cfg.getParams(), null); // ActionContext.getContext().getContextMap());
+xwork-core/src/main/java/com/opensymphony/xwork2/util/logging/LoggerFactory.java,62,try {
+xwork-core/src/main/java/com/opensymphony/xwork2/util/logging/LoggerFactory.java,72,factory = new JdkLoggerFactory();
+xwork-core/src/main/java/com/opensymphony/xwork2/util/logging/LoggerFactory.java,78,finally {
+xwork-core/src/main/java/com/opensymphony/xwork2/util/logging/LoggerFactory.java,85,protected abstract Logger getLoggerImpl(String name);
+plugins/rest/src/main/java/org/apache/struts2/rest/DefaultContentTypeHandlerManager.java,87,public ContentTypeHandler getHandlerForRequest(HttpServletRequest req) {
+plugins/rest/src/main/java/org/apache/struts2/rest/DefaultContentTypeHandlerManager.java,89,String contentType = req.getContentType();
+plugins/rest/src/main/java/org/apache/struts2/rest/DefaultContentTypeHandlerManager.java,91,int index = contentType.indexOf(';');
+plugins/rest/src/main/java/org/apache/struts2/rest/DefaultContentTypeHandlerManager.java,93,contentType = contentType.substring(0,index).trim();
+plugins/rest/src/main/java/org/apache/struts2/rest/DefaultContentTypeHandlerManager.java,98,String extension = findExtension(req.getRequestURI());
+xwork-core/src/main/java/com/opensymphony/xwork2/util/logging/LoggerFactory.java,63,Class.forName("org.slf4j.LoggerFactory");
+xwork-core/src/main/java/com/opensymphony/xwork2/util/logging/LoggerFactory.java,64,factory = new Slf4jLoggerFactory();
+xwork-core/src/main/java/com/opensymphony/xwork2/util/logging/LoggerFactory.java,68,Class.forName("org.apache.commons.logging.LogFactory");
+xwork-core/src/main/java/com/opensymphony/xwork2/util/logging/LoggerFactory.java,69,factory = new com.opensymphony.xwork2.util.logging.commons.CommonsLoggerFactory();
+xwork-core/src/main/java/com/opensymphony/xwork2/config/providers/XmlConfigurationProvider.java,571,catch (Throwable t) {
+xwork-core/src/main/java/com/opensymphony/xwork2/config/providers/XmlConfigurationProvider.java,573,LOG.debug("The result type #0 doesn't have a default param [DEFAULT_PARAM] defined", t, className);
+core/src/main/java/org/apache/struts2/dispatcher/ServletRedirectResult.java,202,if (!getProhibitedResultParams().contains(e.getKey())) {
+core/src/main/java/org/apache/struts2/dispatcher/ServletRedirectResult.java,230,return Arrays.asList(DEFAULT_PARAM, "namespace", "method", "encode", "parse", "location", "prependServletContext", "suppressEmptyParameters", "anchor");
+core/src/main/java/org/apache/struts2/dispatcher/mapper/DefaultActionMapper.java,349,public void handleSpecialParameters(HttpServletRequest request,
+core/src/main/java/org/apache/struts2/dispatcher/mapper/DefaultActionMapper.java,350,ActionMapping mapping) {
+core/src/main/java/org/apache/struts2/dispatcher/mapper/DefaultActionMapper.java,380,protected void parseNameAndNamespace(String uri, ActionMapping mapping,
+core/src/main/java/org/apache/struts2/dispatcher/mapper/DefaultActionMapper.java,381,ConfigurationManager configManager) {
+core/src/main/java/org/apache/struts2/dispatcher/mapper/DefaultActionMapper.java,424,if (!allowSlashesInActionNames && name != null) {
+core/src/main/java/org/apache/struts2/dispatcher/mapper/DefaultActionMapper.java,298,public ActionMapping getMapping(HttpServletRequest request,
+core/src/main/java/org/apache/struts2/dispatcher/mapper/DefaultActionMapper.java,299,ConfigurationManager configManager) {
+core/src/main/java/org/apache/struts2/dispatcher/mapper/DefaultActionMapper.java,316,if (StringUtils.isEmpty(mapping.getName())) {
+core/src/main/java/org/apache/struts2/dispatcher/mapper/DefaultActionMapper.java,317,return null;
+core/src/main/java/org/apache/struts2/dispatcher/mapper/DefaultActionMapper.java,320,parseActionName(mapping);
+core/src/main/java/org/apache/struts2/dispatcher/mapper/DefaultActionMapper.java,322,return mapping;
+core/src/main/java/org/apache/struts2/dispatcher/mapper/DefaultActionMapper.java,327,return mapping;
+core/src/main/java/org/apache/struts2/dispatcher/mapper/CompositeActionMapper.java,24,import java.util.ArrayList;
+core/src/main/java/org/apache/struts2/dispatcher/mapper/CompositeActionMapper.java,25,import java.util.List;
+core/src/main/java/org/apache/struts2/dispatcher/mapper/CompositeActionMapper.java,27,import javax.servlet.http.HttpServletRequest;
+core/src/main/java/org/apache/struts2/dispatcher/mapper/CompositeActionMapper.java,29,import org.apache.struts2.StrutsConstants;
+core/src/main/java/org/apache/struts2/dispatcher/mapper/CompositeActionMapper.java,93,public void setContainer(Container container) {
+plugins/jsf/src/main/java/org/apache/struts2/jsf/StrutsNavigationHandler.java,24,import java.util.Map;
+plugins/jsf/src/main/java/org/apache/struts2/jsf/StrutsNavigationHandler.java,26,import javax.faces.application.NavigationHandler;
+plugins/jsf/src/main/java/org/apache/struts2/jsf/StrutsNavigationHandler.java,27,import javax.faces.context.FacesContext;
+plugins/jsf/src/main/java/org/apache/struts2/jsf/StrutsNavigationHandler.java,63,if (ctx == null && ctx.getActionInvocation() == null) {
+xwork-core/src/main/java/com/opensymphony/xwork2/ObjectFactory.java,253,public Validator buildValidator(String className, Map<String, String> params, Map<String, Object> extraContext) throws Exception {
+xwork-core/src/main/java/com/opensymphony/xwork2/ognl/OgnlReflectionProvider.java,58,public void setProperties(Map<String, String> properties, Object o) {
+xwork-core/src/main/java/com/opensymphony/xwork2/util/reflection/ReflectionProvider.java,46,void setProperties(Map<String, String> properties, Object o);
+xwork-core/src/main/java/com/opensymphony/xwork2/validator/AnnotationValidationConfigurationBuilder.java,370,Map<String, String> params = new HashMap<String, String>();
+xwork-core/src/main/java/com/opensymphony/xwork2/validator/AnnotationValidationConfigurationBuilder.java,391,Map<String, String> params = new HashMap<String, String>();
+xwork-core/src/main/java/com/opensymphony/xwork2/validator/AnnotationValidationConfigurationBuilder.java,432,Map<String, String> params = new HashMap<String, String>();
+xwork-core/src/main/java/com/opensymphony/xwork2/validator/AnnotationValidationConfigurationBuilder.java,440,params.put("expression", v.expression());
+xwork-core/src/main/java/com/opensymphony/xwork2/validator/AnnotationValidationConfigurationBuilder.java,455,Map<String, String> params = new HashMap<String, String>();
+xwork-core/src/main/java/com/opensymphony/xwork2/validator/AnnotationValidationConfigurationBuilder.java,483,Map<String, String> params = new HashMap<String, String>();
+xwork-core/src/main/java/com/opensymphony/xwork2/validator/AnnotationValidationConfigurationBuilder.java,507,Map<String, String> params = new HashMap<String, String>();
+xwork-core/src/main/java/com/opensymphony/xwork2/validator/AnnotationValidationConfigurationBuilder.java,528,Map<String, String> params = new HashMap<String, String>();
+xwork-core/src/main/java/com/opensymphony/xwork2/validator/AnnotationValidationConfigurationBuilder.java,575,Map<String, String> params = new HashMap<String, String>();
+xwork-core/src/main/java/com/opensymphony/xwork2/validator/AnnotationValidationConfigurationBuilder.java,598,Map<String, String> params = new HashMap<String, String>();
+xwork-core/src/main/java/com/opensymphony/xwork2/validator/AnnotationValidationConfigurationBuilder.java,619,Map<String, String> params = new HashMap<String, String>();
+xwork-core/src/main/java/com/opensymphony/xwork2/validator/AnnotationValidationConfigurationBuilder.java,647,Map<String, String> params = new HashMap<String, String>();
+xwork-core/src/main/java/com/opensymphony/xwork2/validator/AnnotationValidationConfigurationBuilder.java,675,Map<String, String> params = new HashMap<String, String>();
+xwork-core/src/main/java/com/opensymphony/xwork2/validator/AnnotationValidationConfigurationBuilder.java,710,Map<String, String> params = new HashMap<String, String>();
+xwork-core/src/main/java/com/opensymphony/xwork2/validator/AnnotationValidationConfigurationBuilder.java,733,Map<String, String> params = new HashMap<String, String>();
+xwork-core/src/main/java/com/opensymphony/xwork2/validator/AnnotationValidationConfigurationBuilder.java,754,Map<String, String> params = new HashMap<String, String>();
+xwork-core/src/main/java/com/opensymphony/xwork2/validator/AnnotationValidationConfigurationBuilder.java,783,Map<String, String> params = new HashMap<String, String>();
+xwork-core/src/main/java/com/opensymphony/xwork2/validator/DefaultValidatorFileParser.java,91,addValidatorConfigs(validatorFactory, validatorNodes, new HashMap<String, String>(), validatorCfgs);
+xwork-core/src/main/java/com/opensymphony/xwork2/validator/DefaultValidatorFileParser.java,97,Map<String, String> extraParams = new HashMap<String, String>();
+xwork-core/src/main/java/com/opensymphony/xwork2/validator/DefaultValidatorFileParser.java,130,objectFactory.buildValidator(className, new HashMap<String, String>(), null);
+xwork-core/src/main/java/com/opensymphony/xwork2/validator/DefaultValidatorFileParser.java,169,private void addValidatorConfigs(ValidatorFactory factory, NodeList validatorNodes, Map<String, String> extraParams, List<ValidatorConfig> validatorCfgs) {
+xwork-core/src/main/java/com/opensymphony/xwork2/validator/DefaultValidatorFileParser.java,173,Map<String, String> params = new HashMap<String, String>(extraParams);
+xwork-core/src/main/java/com/opensymphony/xwork2/validator/ValidatorConfig.java,37,private Map<String,String> params;
+xwork-core/src/main/java/com/opensymphony/xwork2/validator/ValidatorConfig.java,48,params = new LinkedHashMap<String, String>();
+xwork-core/src/main/java/com/opensymphony/xwork2/validator/ValidatorConfig.java,53,this.params = new LinkedHashMap<String,String>(orig.params);
+xwork-core/src/main/java/com/opensymphony/xwork2/validator/ValidatorConfig.java,85,public Map<String, String> getParams() {
+xwork-core/src/main/java/com/opensymphony/xwork2/validator/ValidatorConfig.java,141,public Builder addParam(String name, String value) {
+xwork-core/src/main/java/com/opensymphony/xwork2/validator/ValidatorConfig.java,148,public Builder addParams(Map<String,String> params) {
+xwork-core/src/main/java/com/opensymphony/xwork2/validator/annotations/RegexFieldValidator.java,116,String expression();
+xwork-core/src/main/java/com/opensymphony/xwork2/validator/validators/RegexFieldValidator.java,81,private boolean caseSensitive = true;
+xwork-core/src/main/java/com/opensymphony/xwork2/validator/validators/RegexFieldValidator.java,82,private boolean trim = true;
+xwork-core/src/main/java/com/opensymphony/xwork2/validator/validators/RegexFieldValidator.java,89,if (value == null || regex == null) {
+xwork-core/src/main/java/com/opensymphony/xwork2/validator/validators/RegexFieldValidator.java,107,pattern = Pattern.compile(regex);
+xwork-core/src/main/java/com/opensymphony/xwork2/validator/validators/RegexFieldValidator.java,109,pattern = Pattern.compile(regex, Pattern.CASE_INSENSITIVE);
+xwork-core/src/main/java/com/opensymphony/xwork2/validator/validators/RegexFieldValidator.java,113,if ( trim ) {
+xwork-core/src/main/java/com/opensymphony/xwork2/validator/validators/RegexFieldValidator.java,127,return regex;
+xwork-core/src/main/java/com/opensymphony/xwork2/validator/validators/RegexFieldValidator.java,141,this.regex = (String) parse(regexExpression, String.class);
+xwork-core/src/main/java/com/opensymphony/xwork2/validator/validators/RegexFieldValidator.java,164,this.caseSensitive = (Boolean) parse(caseSensitiveExpression, Boolean.class);
+xwork-core/src/main/java/com/opensymphony/xwork2/validator/validators/RegexFieldValidator.java,187,this.trim = (Boolean) parse(trimExpression, Boolean.class);
+core/src/main/java/org/apache/struts2/components/UIBean.java,884,return "";
+core/src/main/java/org/apache/struts2/components/UIBean.java,898,return "";
+xwork-core/src/main/java/com/opensymphony/xwork2/util/fs/DefaultFileManager.java,127,return null; //it is not a jar or zip file
+xwork-core/src/main/java/com/opensymphony/xwork2/util/fs/DefaultFileManager.java,131,LOG.warn("Error opening url [#0]", e, url.toString());
+core/src/main/java/org/apache/struts2/dispatcher/Dispatcher.java,144,private MultiPartRequest multipartHandler;
+core/src/main/java/org/apache/struts2/dispatcher/Dispatcher.java,256,public void setMultipartHandler(MultiPartRequest multiPartRequest) {
+core/src/main/java/org/apache/struts2/dispatcher/Dispatcher.java,257,this.multipartHandler = multiPartRequest;
+core/src/main/java/org/apache/struts2/dispatcher/Dispatcher.java,778,request = new MultiPartRequestWrapper(multipartHandler, request, getSaveDir(servletContext), provider);
+core/src/main/java/org/apache/struts2/util/fs/JBossFileManager.java,48,LOG.debug("Cannot load [#0] class, not a JBoss 5!", VFS_JBOSS7);
+core/src/main/java/org/apache/struts2/util/fs/JBossFileManager.java,73,Revision revision = FileRevision.build(normalizeToFileProtocol(fileUrl));
+core/src/main/java/org/apache/struts2/util/fs/JBossFileManager.java,125,try {
+core/src/main/java/org/apache/struts2/util/fs/JBossFileManager.java,126,String s = content.getClass().toString();
+core/src/main/java/org/apache/struts2/util/fs/JBossFileManager.java,127,if (s.startsWith("class org.jboss.vfs.VirtualFile")) { // JBoss 7 and probably 6
+core/src/main/java/org/apache/struts2/util/fs/JBossFileManager.java,128,File physicalFile = readJBossPhysicalFile(content);
+core/src/main/java/org/apache/struts2/util/fs/JBossFileManager.java,129,return physicalFile.toURI().toURL();
+core/src/main/java/org/apache/struts2/util/fs/JBossFileManager.java,131,String fileName = url.toExternalForm();
+core/src/main/java/org/apache/struts2/util/fs/JBossFileManager.java,132,return new URL("file", null, fileName.substring(fileName.indexOf(":") + 1));
+core/src/main/java/org/apache/struts2/util/fs/JBossFileManager.java,135,LOG.warn("Error calling getPhysicalFile() on JBoss VirtualFile.", e);
+core/src/main/java/org/apache/struts2/util/fs/JBossFileManager.java,140,private File readJBossPhysicalFile(Object content) throws Exception {
+core/src/main/java/org/apache/struts2/util/fs/JBossFileManager.java,141,Method method = content.getClass().getDeclaredMethod("getPhysicalFile");
+core/src/main/java/org/apache/struts2/util/fs/JBossFileManager.java,142,return (File) method.invoke(content);
+core/src/main/java/org/apache/struts2/util/fs/JBossFileManager.java,148,try {
+core/src/main/java/org/apache/struts2/util/fs/JBossFileManager.java,149,if (content.getClass().toString().startsWith("class org.jboss.vfs.VirtualFile")) {
+core/src/main/java/org/apache/struts2/util/fs/JBossFileManager.java,150,File physicalFile = readJBossPhysicalFile(content);
+core/src/main/java/org/apache/struts2/util/fs/JBossFileManager.java,154,urls.add(url);
+core/src/main/java/org/apache/struts2/util/fs/JBossFileManager.java,157,LOG.warn("Error calling getPhysicalFile() on JBoss VirtualFile!", e);
+xwork-core/src/main/java/com/opensymphony/xwork2/util/fs/DefaultFileManager.java,97,revision = JarEntryRevision.build(fileUrl, this);
+xwork-core/src/main/java/com/opensymphony/xwork2/util/fs/FileRevision.java,48,public void setLastModified(long lastModified) {
+xwork-core/src/main/java/com/opensymphony/xwork2/util/fs/FileRevision.java,49,this.lastModified = lastModified;
+xwork-core/src/main/java/com/opensymphony/xwork2/util/fs/FileRevision.java,52,public long getLastModified() {
+xwork-core/src/main/java/com/opensymphony/xwork2/util/fs/FileRevision.java,53,return lastModified;
+xwork-core/src/main/java/com/opensymphony/xwork2/util/fs/JarEntryRevision.java,3,import com.opensymphony.xwork2.FileManager;
+xwork-core/src/main/java/com/opensymphony/xwork2/util/fs/JarEntryRevision.java,16,class JarEntryRevision extends Revision {
+xwork-core/src/main/java/com/opensymphony/xwork2/util/fs/JarEntryRevision.java,27,public JarEntryRevision(String jarFileName, String fileNameInJar, long lastModified) {
+xwork-core/src/main/java/com/opensymphony/xwork2/util/fs/JarEntryRevision.java,28,if ((jarFileName == null) || (fileNameInJar == null)) {
+xwork-core/src/main/java/com/opensymphony/xwork2/util/fs/JarEntryRevision.java,29,throw new IllegalArgumentException("JarFileName and FileNameInJar cannot be null");
+xwork-core/src/main/java/com/opensymphony/xwork2/util/fs/JarEntryRevision.java,31,this.jarFileName = jarFileName;
+xwork-core/src/main/java/com/opensymphony/xwork2/util/fs/JarEntryRevision.java,32,this.fileNameInJar = fileNameInJar;
+xwork-core/src/main/java/com/opensymphony/xwork2/util/fs/JarEntryRevision.java,33,this.lastModified = lastModified;
+xwork-core/src/main/java/com/opensymphony/xwork2/util/fs/JarEntryRevision.java,36,public boolean needsReloading() {
+xwork-core/src/main/java/com/opensymphony/xwork2/util/fs/JarEntryRevision.java,37,ZipEntry entry;
+xwork-core/src/main/java/com/opensymphony/xwork2/util/fs/JarEntryRevision.java,38,try {
+xwork-core/src/main/java/com/opensymphony/xwork2/util/fs/JarEntryRevision.java,39,JarFile jarFile = new JarFile(this.jarFileName);
+xwork-core/src/main/java/com/opensymphony/xwork2/util/fs/JarEntryRevision.java,40,entry = jarFile.getEntry(this.fileNameInJar);
+xwork-core/src/main/java/com/opensymphony/xwork2/util/fs/JarEntryRevision.java,42,entry = null;
+xwork-core/src/main/java/com/opensymphony/xwork2/util/fs/JarEntryRevision.java,45,return entry != null && (lastModified < entry.getTime());
+xwork-core/src/main/java/com/opensymphony/xwork2/util/fs/JarEntryRevision.java,48,public static Revision build(URL fileUrl, FileManager fileManager) {
+xwork-core/src/main/java/com/opensymphony/xwork2/util/fs/JarEntryRevision.java,69,URL url = fileManager.normalizeToFileProtocol(fileUrl);
+xwork-core/src/main/java/com/opensymphony/xwork2/util/fs/JarEntryRevision.java,70,if (url != null) {
+xwork-core/src/main/java/com/opensymphony/xwork2/util/fs/JarEntryRevision.java,71,JarFile jarFile = new JarFile(FileUtils.toFile(url));
+xwork-core/src/main/java/com/opensymphony/xwork2/util/fs/JarEntryRevision.java,72,ZipEntry entry = jarFile.getEntry(fileNameInJar);
+xwork-core/src/main/java/com/opensymphony/xwork2/util/fs/JarEntryRevision.java,73,return new JarEntryRevision(jarFileName.toString(), fileNameInJar, entry.getTime());
+xwork-core/src/main/java/com/opensymphony/xwork2/util/fs/JarEntryRevision.java,75,return null;
+xwork-core/src/main/java/com/opensymphony/xwork2/util/fs/JarEntryRevision.java,79,LOG.warn("Could not create JarEntryRevision for [" + jarFileName + "]!", e);
+xwork-core/src/main/java/com/opensymphony/xwork2/util/fs/Revision.java,10,public Revision() {
+xwork-core/src/main/java/com/opensymphony/xwork2/config/providers/InterceptorBuilder.java,187,if (result != null && result.contains(mapping)) {
+xwork-core/src/main/java/com/opensymphony/xwork2/config/providers/InterceptorBuilder.java,191,int index = result.indexOf(mapping);
+xwork-core/src/main/java/com/opensymphony/xwork2/config/providers/InterceptorBuilder.java,192,result.set(index, mapping);
+core/src/main/java/org/apache/struts2/dispatcher/DefaultStaticContentLoader.java,104,public void setServeStaticContent(String val) {
+core/src/main/java/org/apache/struts2/dispatcher/DefaultStaticContentLoader.java,105,serveStatic = "true".equals(val);
+core/src/main/java/org/apache/struts2/dispatcher/DefaultStaticContentLoader.java,116,public void setServeStaticBrowserCache(String val) {
+core/src/main/java/org/apache/struts2/dispatcher/DefaultStaticContentLoader.java,117,serveStaticBrowserCache = "true".equals(val);
+core/src/main/java/org/apache/struts2/dispatcher/DefaultStaticContentLoader.java,125,public void setEncoding(String val) {
+core/src/main/java/org/apache/struts2/dispatcher/DefaultStaticContentLoader.java,126,encoding = val;
+plugins/rest/src/main/java/org/apache/struts2/rest/RestActionMapper.java,284,mapping.setParams(new HashMap());
+core/src/main/java/org/apache/struts2/interceptor/MessageStoreInterceptor.java,195,after(invocation, result);
+core/src/main/java/org/apache/struts2/interceptor/MessageStoreInterceptor.java,261,protected void after(ActionInvocation invocation, String result) throws Exception {
+core/src/main/java/org/apache/struts2/interceptor/MessageStoreInterceptor.java,263,String reqOperationMode = getRequestOperationMode(invocation);
+core/src/main/java/org/apache/struts2/interceptor/MessageStoreInterceptor.java,264,boolean isRedirect = invocation.getResult() instanceof ServletRedirectResult;
+core/src/main/java/org/apache/struts2/interceptor/MessageStoreInterceptor.java,265,if (STORE_MODE.equalsIgnoreCase(reqOperationMode) ||
+core/src/main/java/org/apache/struts2/interceptor/MessageStoreInterceptor.java,266,STORE_MODE.equalsIgnoreCase(operationMode) ||
+core/src/main/java/org/apache/struts2/interceptor/MessageStoreInterceptor.java,267,(AUTOMATIC_MODE.equalsIgnoreCase(operationMode) && isRedirect)) {
+core/src/main/java/org/apache/struts2/interceptor/MessageStoreInterceptor.java,269,Object action = invocation.getAction();
+core/src/main/java/org/apache/struts2/interceptor/MessageStoreInterceptor.java,278,ValidationAware validationAwareAction = (ValidationAware) action;
+core/src/main/java/org/apache/struts2/interceptor/MessageStoreInterceptor.java,279,session.put(actionErrorsSessionKey, validationAwareAction.getActionErrors());
+core/src/main/java/org/apache/struts2/interceptor/MessageStoreInterceptor.java,280,session.put(actionMessagesSessionKey, validationAwareAction.getActionMessages());
+core/src/main/java/org/apache/struts2/interceptor/MessageStoreInterceptor.java,281,session.put(fieldErrorsSessionKey, validationAwareAction.getFieldErrors());
+xwork-core/src/main/java/com/opensymphony/xwork2/DefaultActionInvocation.java,365,result = createResult();
+core/src/main/java/org/apache/struts2/interceptor/MessageStoreInterceptor.java,274,if (LOG.isDebugEnabled()) {
+core/src/main/java/org/apache/struts2/interceptor/MessageStoreInterceptor.java,275,LOG.debug("store action ["+action+"] error/messages into session ");
+xwork-core/src/main/java/com/opensymphony/xwork2/util/CompoundRoot.java,28,public class CompoundRoot extends ArrayList {
+xwork-core/src/main/java/com/opensymphony/xwork2/util/CompoundRoot.java,33,public CompoundRoot(List list) {
+core/src/main/java/org/apache/struts2/interceptor/MessageStoreInterceptor.java,283,else if(LOG.isDebugEnabled()) {
+core/src/main/java/org/apache/struts2/interceptor/MessageStoreInterceptor.java,284,LOG.debug("Action ["+action+"] is not ValidationAware, no message / error that are storeable");
+xwork-core/src/main/java/com/opensymphony/xwork2/spring/SpringObjectFactory.java,180,bean = autoWiringFactory.applyBeanPostProcessorsBeforeInitialization(bean, bean.getClass().getName());
+xwork-core/src/main/java/com/opensymphony/xwork2/spring/SpringObjectFactory.java,182,bean = autoWiringFactory.applyBeanPostProcessorsAfterInitialization(bean, bean.getClass().getName());
+xwork-core/src/main/java/com/opensymphony/xwork2/validator/AnnotationActionValidatorManager.java,31,import com.opensymphony.xwork2.validator.validators.VisitorFieldValidator;
+xwork-core/src/main/java/com/opensymphony/xwork2/validator/AnnotationActionValidatorManager.java,257,if (configName.contains(ActionConfig.WILDCARD)) {
+xwork-core/src/main/java/com/opensymphony/xwork2/validator/AnnotationActionValidatorManager.java,235,protected static String buildValidatorKey(Class clazz, String context) {
+core/src/main/java/org/apache/struts2/interceptor/TokenSessionStoreInterceptor.java,134,String sessionTokenName = TokenHelper.buildTokenSessionAttributeName(tokenName);
+core/src/main/java/org/apache/struts2/interceptor/TokenSessionStoreInterceptor.java,167,String sessionTokenName = TokenHelper.buildTokenSessionAttributeName(key);
+core/src/main/java/org/apache/struts2/interceptor/TokenSessionStoreInterceptor.java,168,InvocationSessionStore.storeInvocation(sessionTokenName, token, invocation);
+core/src/main/java/org/apache/struts2/StrutsConstants.java,48,public static final String STRUTS_ACTION_EXCLUDE_PATTERN = "struts.action.excludePattern";
+core/src/main/java/org/apache/struts2/StrutsConstants.java,62,public static final String STRUTS_URL_RENDERER = "struts.urlRenderer";
+core/src/main/java/org/apache/struts2/StrutsConstants.java,196,public static final String STRUTS_ID_PARAMETER_NAME = "struts.mapper.idParameterName";
+core/src/main/java/org/apache/struts2/StrutsConstants.java,199,public static final String STRUTS_ALLOW_STATIC_METHOD_ACCESS = "struts.ognl.allowStaticMethodAccess";
+core/src/main/java/org/apache/struts2/components/Include.java,106,private static String systemEncoding = System.getProperty("file.encoding");
+core/src/main/java/org/apache/struts2/components/Include.java,111,private static String defaultEncoding;
+core/src/main/java/org/apache/struts2/components/Include.java,167,include(result, writer, req, res, defaultEncoding);
+core/src/main/java/org/apache/struts2/util/FastByteArrayOutputStream.java,176,if (result.isOverflow() && !result.isError() && !result.isMalformed()) {
+xwork-core/src/main/java/com/opensymphony/xwork2/conversion/impl/CollectionConverter.java,7,import com.opensymphony.xwork2.util.XWorkList;
+xwork-core/src/main/java/com/opensymphony/xwork2/util/XWorkList.java,16,package com.opensymphony.xwork2.util;
+xwork-core/src/main/java/com/opensymphony/xwork2/util/XWorkList.java,22,import com.opensymphony.xwork2.conversion.impl.XWorkConverter;

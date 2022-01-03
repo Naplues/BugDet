@@ -1,0 +1,860 @@
+File,Line_number,SRC
+flink-state-backends/flink-statebackend-rocksdb/src/main/java/org/apache/flink/contrib/streaming/state/RocksDBKeyedStateBackend.java,1980,if (directory.exists()) {
+flink-state-backends/flink-statebackend-rocksdb/src/main/java/org/apache/flink/contrib/streaming/state/RocksDBKeyedStateBackend.java,1981,FileUtils.deleteDirectory(directory);
+flink-state-backends/flink-statebackend-rocksdb/src/main/java/org/apache/flink/contrib/streaming/state/RocksDBKeyedStateBackend.java,1984,if (!directory.mkdirs()) {
+flink-state-backends/flink-statebackend-rocksdb/src/main/java/org/apache/flink/contrib/streaming/state/RocksDBKeyedStateBackend.java,1990,File rdbSnapshotDir = new File(directory, "rocks_db");
+flink-libraries/flink-sql-client/src/main/java/org/apache/flink/table/client/SqlClient.java,114,final CliClient cli = new CliClient(context, executor);
+flink-libraries/flink-sql-client/src/main/java/org/apache/flink/table/client/SqlClient.java,116,if (options.getUpdateStatement() == null) {
+flink-libraries/flink-sql-client/src/main/java/org/apache/flink/table/client/SqlClient.java,117,cli.open();
+flink-libraries/flink-sql-client/src/main/java/org/apache/flink/table/client/SqlClient.java,120,else {
+flink-libraries/flink-sql-client/src/main/java/org/apache/flink/table/client/SqlClient.java,121,final boolean success = cli.submitUpdate(options.getUpdateStatement());
+flink-libraries/flink-sql-client/src/main/java/org/apache/flink/table/client/SqlClient.java,122,if (!success) {
+flink-libraries/flink-sql-client/src/main/java/org/apache/flink/table/client/SqlClient.java,123,throw new SqlClientException("Could not submit given SQL update statement to cluster.");
+flink-libraries/flink-sql-client/src/main/java/org/apache/flink/table/client/cli/CliChangelogResultView.java,119,stopRetrieval();
+flink-libraries/flink-sql-client/src/main/java/org/apache/flink/table/client/cli/CliClient.java,80,public CliClient(SessionContext context, Executor executor) {
+flink-libraries/flink-sql-client/src/main/java/org/apache/flink/table/client/cli/CliClient.java,84,try {
+flink-libraries/flink-sql-client/src/main/java/org/apache/flink/table/client/cli/CliClient.java,88,.build();
+flink-libraries/flink-sql-client/src/main/java/org/apache/flink/table/client/cli/CliClient.java,90,terminal.writer().println();
+flink-libraries/flink-sql-client/src/main/java/org/apache/flink/table/client/cli/CliClient.java,91,terminal.writer().flush();
+flink-libraries/flink-sql-client/src/main/java/org/apache/flink/table/client/cli/CliClient.java,93,throw new SqlClientException("Error opening command line interface.", e);
+flink-libraries/flink-sql-client/src/main/java/org/apache/flink/table/client/cli/CliResultView.java,154,protected void stopRetrieval() {
+flink-libraries/flink-sql-client/src/main/java/org/apache/flink/table/client/cli/CliResultView.java,220,stopRetrieval();
+flink-libraries/flink-sql-client/src/main/java/org/apache/flink/table/client/cli/CliResultView.java,282,try {
+flink-libraries/flink-sql-client/src/main/java/org/apache/flink/table/client/cli/CliResultView.java,285,client.getExecutor().cancelQuery(client.getContext(), resultDescriptor.getResultId());
+flink-libraries/flink-sql-client/src/main/java/org/apache/flink/table/client/cli/CliTableResultView.java,99,stopRetrieval();
+flink-docs/src/main/java/org/apache/flink/docs/configuration/ConfigOptionsDocGenerator.java,328,currentNode = currentNode.findChild(keyComponent);
+flink-docs/src/main/java/org/apache/flink/docs/configuration/ConfigOptionsDocGenerator.java,330,return currentNode.isGroupRoot() ? currentNode : root;
+flink-docs/src/main/java/org/apache/flink/docs/configuration/ConfigOptionsDocGenerator.java,347,private Node findChild(String keyComponent) {
+flink-docs/src/main/java/org/apache/flink/docs/configuration/ConfigOptionsDocGenerator.java,348,Node child = children.get(keyComponent);
+flink-docs/src/main/java/org/apache/flink/docs/configuration/ConfigOptionsDocGenerator.java,349,if (child == null) {
+flink-docs/src/main/java/org/apache/flink/docs/configuration/ConfigOptionsDocGenerator.java,350,return this;
+flink-docs/src/main/java/org/apache/flink/docs/configuration/ConfigOptionsDocGenerator.java,352,return child;
+flink-filesystems/flink-hadoop-fs/src/main/java/org/apache/flink/runtime/fs/hdfs/HadoopRecoverableFsDataOutputStream.java,90,try {
+flink-filesystems/flink-hadoop-fs/src/main/java/org/apache/flink/runtime/fs/hdfs/HadoopRecoverableFsDataOutputStream.java,93,throw new IOException("Missing data in tmp file: " + tempFile, e);
+flink-filesystems/flink-hadoop-fs/src/main/java/org/apache/flink/runtime/fs/hdfs/HadoopRecoverableFsDataOutputStream.java,263,try {
+flink-filesystems/flink-hadoop-fs/src/main/java/org/apache/flink/runtime/fs/hdfs/HadoopRecoverableFsDataOutputStream.java,264,truncate(fs, src, expectedLength);
+flink-filesystems/flink-hadoop-fs/src/main/java/org/apache/flink/runtime/fs/hdfs/HadoopRecoverableFsDataOutputStream.java,267,throw new IOException("Problem while truncating file: " + src, e);
+flink-filesystems/flink-hadoop-fs/src/main/java/org/apache/flink/runtime/fs/hdfs/HadoopRecoverableFsDataOutputStream.java,307,private boolean waitUntilLeaseIsRevoked(final Path path) throws IOException {
+flink-filesystems/flink-hadoop-fs/src/main/java/org/apache/flink/runtime/fs/hdfs/HadoopRecoverableFsDataOutputStream.java,91,truncate(fs, tempFile, recoverable.offset());
+flink-filesystems/flink-hadoop-fs/src/main/java/org/apache/flink/runtime/fs/hdfs/HadoopRecoverableFsDataOutputStream.java,96,waitUntilLeaseIsRevoked(tempFile);
+flink-filesystems/flink-hadoop-fs/src/main/java/org/apache/flink/runtime/fs/hdfs/HadoopRecoverableFsDataOutputStream.java,176,static void truncate(FileSystem hadoopFs, Path file, long length) throws IOException {
+flink-filesystems/flink-hadoop-fs/src/main/java/org/apache/flink/runtime/fs/hdfs/HadoopRecoverableFsDataOutputStream.java,179,truncateHandle.invoke(hadoopFs, file, length);
+flink-runtime/src/main/java/org/apache/flink/runtime/deployment/TaskDeploymentDescriptor.java,211,if (serializedJobInformation instanceof NonOffloaded) {
+flink-runtime/src/main/java/org/apache/flink/runtime/deployment/TaskDeploymentDescriptor.java,212,NonOffloaded<TaskInformation> jobInformation =
+flink-runtime/src/main/java/org/apache/flink/runtime/deployment/TaskDeploymentDescriptor.java,214,return jobInformation.serializedValue;
+flink-connectors/flink-connector-kafka-base/src/main/java/org/apache/flink/streaming/connectors/kafka/FlinkKafkaConsumerBase.java,473,List<KafkaTopicPartition> allPartitions = partitionDiscoverer.discoverPartitions();
+flink-connectors/flink-connector-kafka-base/src/main/java/org/apache/flink/streaming/connectors/kafka/FlinkKafkaConsumerBase.java,488,== getRuntimeContext().getIndexOfThisSubtask()){
+flink-connectors/flink-connector-kafka-base/src/main/java/org/apache/flink/streaming/connectors/kafka/FlinkKafkaConsumerBase.java,536,: fetchOffsetsWithTimestamp(allPartitions, startupOffsetsTimestamp).entrySet()) {
+flink-connectors/flink-connector-kafka-base/src/main/java/org/apache/flink/streaming/connectors/kafka/FlinkKafkaConsumerBase.java,542,? KafkaTopicPartitionStateSentinel.LATEST_OFFSET
+flink-connectors/flink-connector-kafka-base/src/main/java/org/apache/flink/streaming/connectors/kafka/FlinkKafkaConsumerBase.java,545,: partitionToOffset.getValue() - 1);
+flink-connectors/flink-connector-kafka-base/src/main/java/org/apache/flink/streaming/connectors/kafka/FlinkKafkaConsumerBase.java,598,default:
+flink-connectors/flink-connector-kafka-base/src/main/java/org/apache/flink/streaming/connectors/kafka/FlinkKafkaConsumerBase.java,667,if (discoveryIntervalMillis != PARTITION_DISCOVERY_DISABLED) {
+flink-connectors/flink-connector-kafka-base/src/main/java/org/apache/flink/streaming/connectors/kafka/FlinkKafkaConsumerBase.java,668,final AtomicReference<Exception> discoveryLoopErrorRef = new AtomicReference<>();
+flink-connectors/flink-connector-kafka-base/src/main/java/org/apache/flink/streaming/connectors/kafka/FlinkKafkaConsumerBase.java,669,this.discoveryLoopThread = new Thread(new Runnable() {
+flink-connectors/flink-connector-kafka-base/src/main/java/org/apache/flink/streaming/connectors/kafka/FlinkKafkaConsumerBase.java,671,public void run() {
+flink-connectors/flink-connector-kafka-base/src/main/java/org/apache/flink/streaming/connectors/kafka/FlinkKafkaConsumerBase.java,672,try {
+flink-connectors/flink-connector-kafka-base/src/main/java/org/apache/flink/streaming/connectors/kafka/FlinkKafkaConsumerBase.java,675,List<KafkaTopicPartition> discoveredPartitions;
+flink-connectors/flink-connector-kafka-base/src/main/java/org/apache/flink/streaming/connectors/kafka/FlinkKafkaConsumerBase.java,680,while (running) {
+flink-connectors/flink-connector-kafka-base/src/main/java/org/apache/flink/streaming/connectors/kafka/FlinkKafkaConsumerBase.java,681,if (LOG.isDebugEnabled()) {
+flink-connectors/flink-connector-kafka-base/src/main/java/org/apache/flink/streaming/connectors/kafka/FlinkKafkaConsumerBase.java,682,LOG.debug("Consumer subtask {} is trying to discover new partitions ...", getRuntimeContext().getIndexOfThisSubtask());
+flink-connectors/flink-connector-kafka-base/src/main/java/org/apache/flink/streaming/connectors/kafka/FlinkKafkaConsumerBase.java,685,try {
+flink-connectors/flink-connector-kafka-base/src/main/java/org/apache/flink/streaming/connectors/kafka/FlinkKafkaConsumerBase.java,686,discoveredPartitions = partitionDiscoverer.discoverPartitions();
+flink-connectors/flink-connector-kafka-base/src/main/java/org/apache/flink/streaming/connectors/kafka/FlinkKafkaConsumerBase.java,690,break;
+flink-connectors/flink-connector-kafka-base/src/main/java/org/apache/flink/streaming/connectors/kafka/FlinkKafkaConsumerBase.java,694,if (running && !discoveredPartitions.isEmpty()) {
+flink-connectors/flink-connector-kafka-base/src/main/java/org/apache/flink/streaming/connectors/kafka/FlinkKafkaConsumerBase.java,695,kafkaFetcher.addDiscoveredPartitions(discoveredPartitions);
+flink-connectors/flink-connector-kafka-base/src/main/java/org/apache/flink/streaming/connectors/kafka/FlinkKafkaConsumerBase.java,699,if (running && discoveryIntervalMillis != 0) {
+flink-connectors/flink-connector-kafka-base/src/main/java/org/apache/flink/streaming/connectors/kafka/FlinkKafkaConsumerBase.java,700,try {
+flink-connectors/flink-connector-kafka-base/src/main/java/org/apache/flink/streaming/connectors/kafka/FlinkKafkaConsumerBase.java,701,Thread.sleep(discoveryIntervalMillis);
+flink-connectors/flink-connector-kafka-base/src/main/java/org/apache/flink/streaming/connectors/kafka/FlinkKafkaConsumerBase.java,704,break;
+flink-connectors/flink-connector-kafka-base/src/main/java/org/apache/flink/streaming/connectors/kafka/FlinkKafkaConsumerBase.java,709,discoveryLoopErrorRef.set(e);
+flink-connectors/flink-connector-kafka-base/src/main/java/org/apache/flink/streaming/connectors/kafka/FlinkKafkaConsumerBase.java,713,if (running) {
+flink-connectors/flink-connector-kafka-base/src/main/java/org/apache/flink/streaming/connectors/kafka/FlinkKafkaConsumerBase.java,714,cancel();
+flink-connectors/flink-connector-kafka-base/src/main/java/org/apache/flink/streaming/connectors/kafka/FlinkKafkaConsumerBase.java,720,discoveryLoopThread.start();
+flink-connectors/flink-connector-kafka-base/src/main/java/org/apache/flink/streaming/connectors/kafka/FlinkKafkaConsumerBase.java,721,kafkaFetcher.runFetchLoop();
+flink-connectors/flink-connector-kafka-base/src/main/java/org/apache/flink/streaming/connectors/kafka/FlinkKafkaConsumerBase.java,726,partitionDiscoverer.close();
+flink-connectors/flink-connector-kafka-base/src/main/java/org/apache/flink/streaming/connectors/kafka/FlinkKafkaConsumerBase.java,727,discoveryLoopThread.join();
+flink-connectors/flink-connector-kafka-base/src/main/java/org/apache/flink/streaming/connectors/kafka/FlinkKafkaConsumerBase.java,730,final Exception discoveryLoopError = discoveryLoopErrorRef.get();
+flink-connectors/flink-connector-kafka-base/src/main/java/org/apache/flink/streaming/connectors/kafka/FlinkKafkaConsumerBase.java,731,if (discoveryLoopError != null) {
+flink-connectors/flink-connector-kafka-base/src/main/java/org/apache/flink/streaming/connectors/kafka/FlinkKafkaConsumerBase.java,732,throw new RuntimeException(discoveryLoopError);
+flink-connectors/flink-connector-kafka-base/src/main/java/org/apache/flink/streaming/connectors/kafka/FlinkKafkaConsumerBase.java,736,partitionDiscoverer.close();
+flink-connectors/flink-connector-kafka-base/src/main/java/org/apache/flink/streaming/connectors/kafka/FlinkKafkaConsumerBase.java,738,kafkaFetcher.runFetchLoop();
+flink-connectors/flink-connector-kafka-base/src/main/java/org/apache/flink/streaming/connectors/kafka/FlinkKafkaConsumerBase.java,771,cancel();
+flink-yarn/src/main/java/org/apache/flink/yarn/YarnFlinkResourceManager.java,328,for (int i = 0; i < numWorkers; i++) {
+flink-yarn/src/main/java/org/apache/flink/yarn/YarnFlinkResourceManager.java,329,numPendingContainerRequests++;
+flink-yarn/src/main/java/org/apache/flink/yarn/YarnFlinkResourceManager.java,330,LOG.info("Requesting new TaskManager container with {} megabytes memory. Pending requests: {}",
+flink-yarn/src/main/java/org/apache/flink/yarn/YarnFlinkResourceManager.java,331,containerMemorySizeMB, numPendingContainerRequests);
+flink-yarn/src/main/java/org/apache/flink/yarn/YarnFlinkResourceManager.java,334,Priority priority = Priority.newInstance(0);
+flink-yarn/src/main/java/org/apache/flink/yarn/YarnFlinkResourceManager.java,337,int taskManagerSlots = taskManagerParameters.numSlots();
+flink-yarn/src/main/java/org/apache/flink/yarn/YarnFlinkResourceManager.java,338,int vcores = config.getInteger(YarnConfigOptions.VCORES, Math.max(taskManagerSlots, 1));
+flink-yarn/src/main/java/org/apache/flink/yarn/YarnFlinkResourceManager.java,339,Resource capability = Resource.newInstance(containerMemorySizeMB, vcores);
+flink-yarn/src/main/java/org/apache/flink/yarn/YarnFlinkResourceManager.java,341,resourceManagerClient.addContainerRequest(
+flink-yarn/src/main/java/org/apache/flink/yarn/YarnFlinkResourceManager.java,342,new AMRMClient.ContainerRequest(capability, null, null, priority));
+flink-yarn/src/main/java/org/apache/flink/yarn/YarnFlinkResourceManager.java,346,resourceManagerClient.setHeartbeatInterval(FAST_YARN_HEARTBEAT_INTERVAL_MS);
+flink-yarn/src/main/java/org/apache/flink/yarn/YarnResourceManager.java,292,Priority priority = Priority.newInstance(generatePriority(resourceProfile));
+flink-yarn/src/main/java/org/apache/flink/yarn/YarnResourceManager.java,293,int mem = resourceProfile.getMemoryInMB() < 0 ? defaultTaskManagerMemoryMB : resourceProfile.getMemoryInMB();
+flink-yarn/src/main/java/org/apache/flink/yarn/YarnResourceManager.java,294,int vcore = resourceProfile.getCpuCores() < 1 ? defaultCpus : (int) resourceProfile.getCpuCores();
+flink-yarn/src/main/java/org/apache/flink/yarn/YarnResourceManager.java,295,Resource capability = Resource.newInstance(mem, vcore);
+flink-yarn/src/main/java/org/apache/flink/yarn/YarnResourceManager.java,296,requestYarnContainer(capability, priority);
+flink-yarn/src/main/java/org/apache/flink/yarn/YarnResourceManager.java,338,final Container container = yarnWorkerNode.getContainer();
+flink-yarn/src/main/java/org/apache/flink/yarn/YarnResourceManager.java,358,numPendingContainerRequests--;
+flink-yarn/src/main/java/org/apache/flink/yarn/YarnResourceManager.java,380,requestYarnContainer(container.getResource(), container.getPriority());
+flink-yarn/src/main/java/org/apache/flink/yarn/YarnResourceManager.java,448,private void requestYarnContainer(Resource resource, Priority priority) {
+flink-yarn/src/main/java/org/apache/flink/yarn/YarnResourceManager.java,506,private int generatePriority(ResourceProfile resourceProfile) {
+flink-yarn/src/main/java/org/apache/flink/yarn/YarnResourceManager.java,507,if (resourcePriorities.containsKey(resourceProfile)) {
+flink-yarn/src/main/java/org/apache/flink/yarn/YarnResourceManager.java,508,return resourcePriorities.get(resourceProfile);
+flink-yarn/src/main/java/org/apache/flink/yarn/YarnResourceManager.java,510,int priority = resourcePriorities.size();
+flink-yarn/src/main/java/org/apache/flink/yarn/YarnResourceManager.java,511,resourcePriorities.put(resourceProfile, priority);
+flink-yarn/src/main/java/org/apache/flink/yarn/YarnResourceManager.java,512,return priority;
+flink-streaming-java/src/main/java/org/apache/flink/streaming/api/functions/sink/filesystem/Buckets.java,249,void onElement(final IN value, final SinkFunction.Context context) throws Exception {
+flink-streaming-java/src/main/java/org/apache/flink/streaming/api/functions/sink/filesystem/Buckets.java,299,return new Path(basePath, bucketId.toString());
+flink-runtime/src/main/java/org/apache/flink/runtime/metrics/groups/GenericValueMetricGroup.java,54,public String getLogicalScope(CharacterFilter filter, char delimiter) {
+flink-runtime/src/main/java/org/apache/flink/runtime/rest/messages/JobVertexDetailsInfo.java,113,public static final String FIELD_NAME_START_TIME = "start_time";
+flink-runtime/src/main/java/org/apache/flink/runtime/rest/messages/JobVertexDetailsInfo.java,185,return Objects.hash(subtask, status, attempt, host, startTime, endTime, duration, metrics);
+flink-runtime/src/main/java/org/apache/flink/runtime/metrics/groups/AbstractMetricGroup.java,113,if (variables == null) { // avoid synchronization for common case
+flink-runtime/src/main/java/org/apache/flink/runtime/metrics/groups/AbstractMetricGroup.java,114,synchronized (this) {
+flink-runtime/src/main/java/org/apache/flink/runtime/metrics/groups/AbstractMetricGroup.java,115,if (variables == null) {
+flink-runtime/src/main/java/org/apache/flink/runtime/metrics/groups/AbstractMetricGroup.java,116,Map<String, String> tmpVariables = new HashMap<>();
+flink-runtime/src/main/java/org/apache/flink/runtime/metrics/groups/AbstractMetricGroup.java,117,putVariables(tmpVariables);
+flink-runtime/src/main/java/org/apache/flink/runtime/metrics/groups/AbstractMetricGroup.java,118,if (parent != null) { // not true for Job-/TaskManagerMetricGroup
+flink-runtime/src/main/java/org/apache/flink/runtime/metrics/groups/AbstractMetricGroup.java,119,tmpVariables.putAll(parent.getAllVariables());
+flink-runtime/src/main/java/org/apache/flink/runtime/metrics/groups/AbstractMetricGroup.java,121,variables = tmpVariables;
+flink-runtime/src/main/java/org/apache/flink/runtime/state/metainfo/LegacyStateMetaInfoReaders.java,141,private static final String[] ORDERED_KEY_STRINGS =
+flink-runtime/src/main/java/org/apache/flink/runtime/state/metainfo/LegacyStateMetaInfoReaders.java,142,new String[]{
+flink-runtime/src/main/java/org/apache/flink/runtime/state/metainfo/LegacyStateMetaInfoReaders.java,143,StateMetaInfoSnapshot.CommonSerializerKeys.KEY_SERIALIZER.toString(),
+flink-runtime/src/main/java/org/apache/flink/runtime/state/metainfo/LegacyStateMetaInfoReaders.java,144,StateMetaInfoSnapshot.CommonSerializerKeys.VALUE_SERIALIZER.toString()};
+flink-runtime/src/main/java/org/apache/flink/runtime/state/metainfo/LegacyStateMetaInfoReaders.java,167,for (int i = 0; i < listSize; ++i) {
+flink-runtime/src/main/java/org/apache/flink/runtime/state/metainfo/LegacyStateMetaInfoReaders.java,168,Tuple2<TypeSerializer<?>, TypeSerializerConfigSnapshot> serializerAndConf =
+flink-runtime/src/main/java/org/apache/flink/runtime/state/metainfo/LegacyStateMetaInfoReaders.java,169,stateSerializerAndConfigList.get(i);
+flink-runtime/src/main/java/org/apache/flink/runtime/state/metainfo/LegacyStateMetaInfoReaders.java,172,String serializerKey = ORDERED_KEY_STRINGS[ORDERED_KEY_STRINGS.length - 1 - i];
+flink-runtime/src/main/java/org/apache/flink/runtime/state/metainfo/LegacyStateMetaInfoReaders.java,174,serializerMap.put(
+flink-runtime/src/main/java/org/apache/flink/runtime/state/metainfo/LegacyStateMetaInfoReaders.java,175,serializerKey,
+flink-runtime/src/main/java/org/apache/flink/runtime/state/metainfo/LegacyStateMetaInfoReaders.java,176,serializerAndConf.f0);
+flink-runtime/src/main/java/org/apache/flink/runtime/state/metainfo/LegacyStateMetaInfoReaders.java,177,serializerConfigsMap.put(
+flink-runtime/src/main/java/org/apache/flink/runtime/state/metainfo/LegacyStateMetaInfoReaders.java,178,serializerKey,
+flink-runtime/src/main/java/org/apache/flink/runtime/state/metainfo/LegacyStateMetaInfoReaders.java,179,serializerAndConf.f1);
+flink-runtime/src/main/java/org/apache/flink/runtime/checkpoint/CheckpointStatsCounts.java,150,if (--numInProgressCheckpoints < 0) {
+flink-runtime/src/main/java/org/apache/flink/runtime/checkpoint/CheckpointStatsCounts.java,151,throw new IllegalStateException("Incremented the completed number of checkpoints " +
+flink-runtime/src/main/java/org/apache/flink/runtime/checkpoint/CheckpointStatsCounts.java,164,if (--numInProgressCheckpoints < 0) {
+flink-runtime/src/main/java/org/apache/flink/runtime/checkpoint/CheckpointStatsCounts.java,165,throw new IllegalStateException("Incremented the completed number of checkpoints " +
+flink-runtime/src/main/java/org/apache/flink/runtime/jobmaster/JobMaster.java,945,.thenApplyAsync(path -> {
+flink-runtime/src/main/java/org/apache/flink/runtime/jobmaster/JobMaster.java,946,if (cancelJob) {
+flink-runtime/src/main/java/org/apache/flink/runtime/jobmaster/JobMaster.java,952,.exceptionally(throwable -> {
+flink-runtime/src/main/java/org/apache/flink/runtime/jobmaster/JobMaster.java,953,if (cancelJob) {
+flink-runtime/src/main/java/org/apache/flink/runtime/jobmaster/JobMaster.java,954,startCheckpointScheduler(checkpointCoordinator);
+flink-runtime/src/main/java/org/apache/flink/runtime/jobmaster/JobMaster.java,956,throw new CompletionException(throwable);
+flink-runtime/src/main/java/org/apache/flink/runtime/jobmaster/JobMaster.java,685,log.error("Received AcknowledgeCheckpoint message for job {} with no CheckpointCoordinator",
+flink-runtime/src/main/java/org/apache/flink/runtime/jobmaster/JobMaster.java,686,jobGraph.getJobID());
+flink-runtime/src/main/java/org/apache/flink/runtime/jobmaster/JobMaster.java,710,log.error("Received DeclineCheckpoint message for job {} with no CheckpointCoordinator",
+flink-runtime/src/main/java/org/apache/flink/runtime/jobmaster/JobMaster.java,711,jobGraph.getJobID());
+flink-core/src/main/java/org/apache/flink/api/common/operators/CollectionExecutor.java,86,private final ClassLoader classLoader;
+flink-core/src/main/java/org/apache/flink/api/common/operators/CollectionExecutor.java,102,this.classLoader = getClass().getClassLoader();
+flink-core/src/main/java/org/apache/flink/api/common/operators/CollectionExecutor.java,194,ctx = superStep == 0 ? new RuntimeUDFContext(taskInfo, classLoader, executionConfig, cachedFiles, accumulators, metrics) :
+flink-core/src/main/java/org/apache/flink/api/common/operators/CollectionExecutor.java,195,new IterationRuntimeUDFContext(taskInfo, classLoader, executionConfig, cachedFiles, accumulators, metrics);
+flink-core/src/main/java/org/apache/flink/api/common/operators/CollectionExecutor.java,214,ctx = superStep == 0 ? new RuntimeUDFContext(taskInfo, classLoader, executionConfig, cachedFiles, accumulators, metrics) :
+flink-core/src/main/java/org/apache/flink/api/common/operators/CollectionExecutor.java,215,new IterationRuntimeUDFContext(taskInfo, classLoader, executionConfig, cachedFiles, accumulators, metrics);
+flink-core/src/main/java/org/apache/flink/api/common/operators/CollectionExecutor.java,240,ctx = superStep == 0 ? new RuntimeUDFContext(taskInfo, classLoader, executionConfig, cachedFiles, accumulators, metrics) :
+flink-core/src/main/java/org/apache/flink/api/common/operators/CollectionExecutor.java,241,new IterationRuntimeUDFContext(taskInfo, classLoader, executionConfig, cachedFiles, accumulators, metrics);
+flink-core/src/main/java/org/apache/flink/api/common/operators/CollectionExecutor.java,281,ctx = superStep == 0 ? new RuntimeUDFContext(taskInfo, classLoader, executionConfig, cachedFiles, accumulators, metrics) :
+flink-core/src/main/java/org/apache/flink/api/common/operators/CollectionExecutor.java,282,new IterationRuntimeUDFContext(taskInfo, classLoader, executionConfig, cachedFiles, accumulators, metrics);
+flink-mesos/src/main/java/org/apache/flink/mesos/runtime/clusterframework/LaunchableMesosWorker.java,70,static final String[] TM_PORT_KEYS = {
+flink-mesos/src/main/java/org/apache/flink/mesos/runtime/clusterframework/LaunchableMesosWorker.java,345,final LinkedHashSet<String> tmPortKeys = new LinkedHashSet<>(Arrays.asList(TM_PORT_KEYS));
+flink-mesos/src/main/java/org/apache/flink/mesos/runtime/clusterframework/LaunchableMesosWorker.java,354,return tmPortKeys;
+flink-mesos/src/main/java/org/apache/flink/mesos/runtime/clusterframework/LaunchableMesosWorker.java,352,.forEach(tmPortKeys::add);
+flink-metrics/flink-metrics-core/src/main/java/org/apache/flink/metrics/MeterView.java,53,this.timeSpanInSeconds = timeSpanInSeconds - (timeSpanInSeconds % UPDATE_INTERVAL_SECONDS);
+flink-libraries/flink-python/src/main/java/org/apache/flink/python/api/streaming/plan/PythonPlanStreamer.java,129,server.close();
+flink-docs/src/main/java/org/apache/flink/docs/configuration/ConfigOptionsDocGenerator.java,205,if (field.getType().equals(ConfigOption.class) && field.getAnnotation(Deprecated.class) == null) {
+flink-streaming-java/src/main/java/org/apache/flink/streaming/api/functions/sink/TwoPhaseCommitSinkFunction.java,272,commit(pendingTransaction.handle);
+flink-runtime/src/main/java/org/apache/flink/runtime/metrics/groups/AbstractMetricGroup.java,95,private String logicalScopeString;
+flink-runtime/src/main/java/org/apache/flink/runtime/metrics/groups/AbstractMetricGroup.java,155,if (logicalScopeString == null) {
+flink-runtime/src/main/java/org/apache/flink/runtime/metrics/groups/AbstractMetricGroup.java,156,if (parent == null) {
+flink-runtime/src/main/java/org/apache/flink/runtime/metrics/groups/AbstractMetricGroup.java,157,logicalScopeString = getGroupName(filter);
+flink-runtime/src/main/java/org/apache/flink/runtime/metrics/groups/AbstractMetricGroup.java,159,logicalScopeString = parent.getLogicalScope(filter, delimiter) + delimiter + getGroupName(filter);
+flink-runtime/src/main/java/org/apache/flink/runtime/metrics/groups/AbstractMetricGroup.java,162,return logicalScopeString;
+flink-runtime/src/main/java/org/apache/flink/runtime/metrics/groups/FrontMetricGroup.java,55,return parentMetricGroup.getLogicalScope(filter, delimiter);
+flink-runtime/src/main/java/org/apache/flink/runtime/checkpoint/CheckpointCoordinatorGateway.java,34,void declineCheckpoint(
+flink-runtime/src/main/java/org/apache/flink/runtime/checkpoint/CheckpointCoordinatorGateway.java,35,JobID jobID,
+flink-runtime/src/main/java/org/apache/flink/runtime/checkpoint/CheckpointCoordinatorGateway.java,36,ExecutionAttemptID executionAttemptID,
+flink-runtime/src/main/java/org/apache/flink/runtime/checkpoint/CheckpointCoordinatorGateway.java,37,long checkpointId,
+flink-runtime/src/main/java/org/apache/flink/runtime/checkpoint/CheckpointCoordinatorGateway.java,38,Throwable cause);
+flink-runtime/src/main/java/org/apache/flink/runtime/jobmaster/JobMaster.java,692,public void declineCheckpoint(
+flink-runtime/src/main/java/org/apache/flink/runtime/jobmaster/JobMaster.java,693,final JobID jobID,
+flink-runtime/src/main/java/org/apache/flink/runtime/jobmaster/JobMaster.java,694,final ExecutionAttemptID executionAttemptID,
+flink-runtime/src/main/java/org/apache/flink/runtime/jobmaster/JobMaster.java,695,final long checkpointID,
+flink-runtime/src/main/java/org/apache/flink/runtime/jobmaster/JobMaster.java,696,final Throwable reason) {
+flink-runtime/src/main/java/org/apache/flink/runtime/jobmaster/JobMaster.java,697,final DeclineCheckpoint decline = new DeclineCheckpoint(
+flink-runtime/src/main/java/org/apache/flink/runtime/jobmaster/JobMaster.java,698,jobID, executionAttemptID, checkpointID, reason);
+flink-runtime/src/main/java/org/apache/flink/runtime/taskexecutor/rpc/RpcCheckpointResponder.java,60,checkpointCoordinatorGateway.declineCheckpoint(jobID, executionAttemptID, checkpointId, cause);
+flink-runtime/src/main/java/org/apache/flink/runtime/checkpoint/CheckpointCoordinator.java,1255,final String reason = (cause != null) ? cause.getMessage() : "";
+flink-runtime/src/main/java/org/apache/flink/runtime/checkpoint/CheckpointCoordinator.java,1257,LOG.info("Discarding checkpoint {} of job {} because: {}", checkpointId, job, reason);
+flink-runtime/src/main/java/org/apache/flink/runtime/checkpoint/CheckpointCoordinator.java,1259,pendingCheckpoint.abortDeclined();
+flink-runtime/src/main/java/org/apache/flink/runtime/checkpoint/PendingCheckpoint.java,437,try {
+flink-runtime/src/main/java/org/apache/flink/runtime/checkpoint/PendingCheckpoint.java,438,Exception cause = new Exception("Checkpoint was declined (tasks not ready)");
+flink-runtime/src/main/java/org/apache/flink/runtime/checkpoint/PendingCheckpoint.java,439,onCompletionPromise.completeExceptionally(cause);
+flink-runtime/src/main/java/org/apache/flink/runtime/checkpoint/PendingCheckpoint.java,440,reportFailedCheckpoint(cause);
+flink-runtime/src/main/java/org/apache/flink/runtime/checkpoint/PendingCheckpoint.java,442,dispose(true);
+flink-runtime/src/main/java/org/apache/flink/runtime/checkpoint/PendingCheckpoint.java,450,public void abortError(Throwable cause) {
+flink-runtime/src/main/java/org/apache/flink/runtime/checkpoint/PendingCheckpoint.java,452,Exception failure = new Exception("Checkpoint failed: " + cause.getMessage(), cause);
+flink-runtime/src/main/java/org/apache/flink/runtime/checkpoint/PendingCheckpoint.java,453,onCompletionPromise.completeExceptionally(failure);
+flink-runtime/src/main/java/org/apache/flink/runtime/checkpoint/PendingCheckpoint.java,454,reportFailedCheckpoint(failure);
+flink-streaming-java/src/main/java/org/apache/flink/streaming/api/operators/AbstractStreamOperator.java,392,throw new Exception("Could not complete snapshot " + checkpointId + " for operator " +
+flink-streaming-java/src/main/java/org/apache/flink/streaming/api/operators/AbstractStreamOperator.java,393,getOperatorName() + '.', snapshotException);
+flink-runtime/src/main/java/org/apache/flink/runtime/checkpoint/StateAssignmentOperation.java,74,public boolean assignStates() throws Exception {
+flink-runtime/src/main/java/org/apache/flink/runtime/checkpoint/StateAssignmentOperation.java,76,Map<JobVertexID, ExecutionJobVertex> localTasks = this.tasks;
+flink-runtime/src/main/java/org/apache/flink/runtime/checkpoint/StateAssignmentOperation.java,80,for (Map.Entry<JobVertexID, ExecutionJobVertex> task : localTasks.entrySet()) {
+flink-runtime/src/main/java/org/apache/flink/runtime/checkpoint/StateAssignmentOperation.java,111,return true;
+flink-runtime/src/main/java/org/apache/flink/runtime/checkpoint/StateAssignmentOperation.java,251,private static boolean isHeadOperator(int opIdx, List<OperatorID> operatorIDs) {
+flink-runtime/src/main/java/org/apache/flink/runtime/checkpoint/StateAssignmentOperation.java,252,return opIdx == operatorIDs.size() - 1;
+flink-runtime/src/main/java/org/apache/flink/runtime/checkpoint/StateAssignmentOperation.java,278,if (isHeadOperator(operatorIndex, newOperatorIDs)) {
+flink-runtime/src/main/java/org/apache/flink/runtime/checkpoint/StateAssignmentOperation.java,280,operatorState,
+flink-runtime/src/main/java/org/apache/flink/runtime/checkpoint/StateAssignmentOperation.java,281,newKeyGroupPartitions,
+flink-runtime/src/main/java/org/apache/flink/runtime/checkpoint/StateAssignmentOperation.java,282,subTaskIndex,
+flink-runtime/src/main/java/org/apache/flink/runtime/checkpoint/StateAssignmentOperation.java,283,newParallelism,
+flink-runtime/src/main/java/org/apache/flink/runtime/checkpoint/StateAssignmentOperation.java,284,oldParallelism);
+flink-core/src/main/java/org/apache/flink/api/java/typeutils/runtime/PojoSerializer.java,21,import java.io.IOException;
+flink-core/src/main/java/org/apache/flink/api/java/typeutils/runtime/PojoSerializer.java,22,import java.io.ObjectInputStream;
+flink-core/src/main/java/org/apache/flink/api/java/typeutils/runtime/PojoSerializer.java,23,import java.io.ObjectOutputStream;
+flink-core/src/main/java/org/apache/flink/api/java/typeutils/runtime/PojoSerializer.java,24,import java.lang.reflect.Field;
+flink-core/src/main/java/org/apache/flink/api/java/typeutils/runtime/PojoSerializer.java,25,import java.lang.reflect.Modifier;
+flink-core/src/main/java/org/apache/flink/api/java/typeutils/runtime/PojoSerializer.java,26,import java.util.Arrays;
+flink-core/src/main/java/org/apache/flink/api/java/typeutils/runtime/PojoSerializer.java,27,import java.util.HashMap;
+flink-core/src/main/java/org/apache/flink/api/java/typeutils/runtime/PojoSerializer.java,28,import java.util.LinkedHashMap;
+flink-core/src/main/java/org/apache/flink/api/java/typeutils/runtime/PojoSerializer.java,29,import java.util.LinkedHashSet;
+flink-core/src/main/java/org/apache/flink/api/java/typeutils/runtime/PojoSerializer.java,30,import java.util.Map;
+flink-core/src/main/java/org/apache/flink/api/java/typeutils/runtime/PojoSerializer.java,31,import java.util.Objects;
+flink-core/src/main/java/org/apache/flink/api/java/typeutils/runtime/PojoSerializer.java,182,if (stateful) {
+flink-core/src/main/java/org/apache/flink/api/java/typeutils/runtime/PojoSerializer.java,183,return new PojoSerializer<T>(clazz, duplicateFieldSerializers, fields, executionConfig);
+flink-core/src/main/java/org/apache/flink/api/java/typeutils/runtime/PojoSerializer.java,185,return this;
+flink-libraries/flink-cep/src/main/java/org/apache/flink/cep/nfa/sharedbuffer/Lockable.java,109,public TypeSerializer<Lockable<E>> duplicate() {
+flink-libraries/flink-cep/src/main/java/org/apache/flink/cep/nfa/sharedbuffer/Lockable.java,110,return new LockableTypeSerializer<>(elementSerializer);
+flink-libraries/flink-cep/src/main/java/org/apache/flink/cep/nfa/sharedbuffer/Lockable.java,120,return new Lockable<E>(elementSerializer.copy(from.element), from.refCounter);
+flink-runtime/src/main/java/org/apache/flink/runtime/rpc/messages/RemoteRpcInvocation.java,207,methodName + '.', e);
+flink-runtime/src/main/java/org/apache/flink/runtime/rpc/messages/RemoteRpcInvocation.java,209,throw new ClassNotFoundException("Could not deserialize " + i + "th " +
+flink-runtime/src/main/java/org/apache/flink/runtime/rpc/messages/RemoteRpcInvocation.java,225,methodName + '.', e);
+flink-runtime/src/main/java/org/apache/flink/runtime/rpc/messages/RemoteRpcInvocation.java,227,throw new ClassNotFoundException("Could not deserialize " + i + "th " +
+flink-yarn/src/main/java/org/apache/flink/yarn/AbstractYarnClusterDescriptor.java,117,private static final int MIN_JM_MEMORY = 768; // the minimum memory should be higher than the min heap cutoff
+flink-yarn/src/main/java/org/apache/flink/yarn/AbstractYarnClusterDescriptor.java,118,private static final int MIN_TM_MEMORY = 768;
+flink-yarn/src/main/java/org/apache/flink/yarn/AbstractYarnClusterDescriptor.java,549,clusterSpecification);
+flink-yarn/src/main/java/org/apache/flink/yarn/AbstractYarnClusterDescriptor.java,564,clusterSpecification.getNumberTaskManagers(),
+flink-yarn/src/main/java/org/apache/flink/yarn/AbstractYarnClusterDescriptor.java,565,clusterSpecification.getSlotsPerTaskManager(),
+flink-yarn/src/main/java/org/apache/flink/yarn/AbstractYarnClusterDescriptor.java,581,if (jobManagerMemoryMb < MIN_JM_MEMORY) {
+flink-yarn/src/main/java/org/apache/flink/yarn/AbstractYarnClusterDescriptor.java,582,LOG.warn("The minimum JobManager memory is {}. Will set the JobManager memory to this value.", MIN_JM_MEMORY);
+flink-yarn/src/main/java/org/apache/flink/yarn/AbstractYarnClusterDescriptor.java,583,jobManagerMemoryMb = MIN_JM_MEMORY;
+flink-yarn/src/main/java/org/apache/flink/yarn/AbstractYarnClusterDescriptor.java,586,if (taskManagerMemoryMb < MIN_TM_MEMORY) {
+flink-yarn/src/main/java/org/apache/flink/yarn/AbstractYarnClusterDescriptor.java,587,LOG.warn("The minimum TaskManager memory is {}. Will set the Taskmanager memory to this value.", MIN_TM_MEMORY);
+flink-yarn/src/main/java/org/apache/flink/yarn/AbstractYarnClusterDescriptor.java,588,taskManagerMemoryMb = MIN_TM_MEMORY;
+flink-runtime/src/main/java/org/apache/flink/runtime/clusterframework/types/SlotProfile.java,50,private final Collection<AllocationID> priorAllocations;
+flink-runtime/src/main/java/org/apache/flink/runtime/clusterframework/types/SlotProfile.java,59,this.priorAllocations = priorAllocations;
+flink-runtime/src/main/java/org/apache/flink/runtime/clusterframework/types/SlotProfile.java,82,public Collection<AllocationID> getPriorAllocations() {
+flink-runtime/src/main/java/org/apache/flink/runtime/clusterframework/types/SlotProfile.java,83,return priorAllocations;
+flink-runtime/src/main/java/org/apache/flink/runtime/executiongraph/Execution.java,388,LocationPreferenceConstraint.ANY);
+flink-runtime/src/main/java/org/apache/flink/runtime/executiongraph/Execution.java,405,LocationPreferenceConstraint locationPreferenceConstraint) {
+flink-runtime/src/main/java/org/apache/flink/runtime/executiongraph/Execution.java,498,previousAllocationIDs),
+flink-runtime/src/main/java/org/apache/flink/runtime/executiongraph/Execution.java,742,LocationPreferenceConstraint.ANY); // there must be at least one known location
+flink-runtime/src/main/java/org/apache/flink/runtime/executiongraph/ExecutionGraph.java,912,LocationPreferenceConstraint.ALL); // since it is an input vertex, the input based location preferences should be empty
+flink-runtime/src/main/java/org/apache/flink/runtime/executiongraph/ExecutionGraph.java,949,allocationTimeout);
+flink-runtime/src/main/java/org/apache/flink/runtime/executiongraph/ExecutionJobVertex.java,482,LocationPreferenceConstraint locationPreferenceConstraint) {
+flink-runtime/src/main/java/org/apache/flink/runtime/executiongraph/ExecutionJobVertex.java,490,scheduleFutures.add(ev.scheduleForExecution(slotProvider, queued, locationPreferenceConstraint));
+flink-runtime/src/main/java/org/apache/flink/runtime/executiongraph/ExecutionVertex.java,626,LocationPreferenceConstraint locationPreferenceConstraint) {
+flink-runtime/src/main/java/org/apache/flink/runtime/executiongraph/ExecutionVertex.java,630,locationPreferenceConstraint);
+flink-runtime/src/main/java/org/apache/flink/runtime/executiongraph/failover/FailoverRegion.java,222,LocationPreferenceConstraint.ANY); // some inputs not belonging to the failover region might have failed concurrently
+flink-runtime/src/main/java/org/apache/flink/runtime/instance/SimpleSlotContext.java,22,import org.apache.flink.runtime.jobmaster.SlotContext;
+flink-runtime/src/main/java/org/apache/flink/runtime/jobmaster/SlotContext.java,21,import org.apache.flink.runtime.clusterframework.types.AllocationID;
+flink-runtime/src/main/java/org/apache/flink/runtime/jobmaster/SlotContext.java,23,import org.apache.flink.runtime.taskmanager.TaskManagerLocation;
+flink-runtime/src/main/java/org/apache/flink/runtime/jobmaster/SlotContext.java,30,public interface SlotContext {
+flink-runtime/src/main/java/org/apache/flink/runtime/jobmaster/SlotContext.java,37,AllocationID getAllocationId();
+flink-runtime/src/main/java/org/apache/flink/runtime/jobmaster/SlotContext.java,44,TaskManagerLocation getTaskManagerLocation();
+flink-runtime/src/main/java/org/apache/flink/runtime/jobmaster/SlotContext.java,51,int getPhysicalSlotNumber();
+flink-runtime/src/main/java/org/apache/flink/runtime/jobmaster/slotpool/LocationPreferenceSchedulingStrategy.java,24,import org.apache.flink.runtime.jobmaster.SlotContext;
+flink-runtime/src/main/java/org/apache/flink/runtime/jobmaster/slotpool/LocationPreferenceSchedulingStrategy.java,91,SlotContext slotContext = contextExtractor.apply(candidate);
+flink-runtime/src/main/java/org/apache/flink/runtime/jobmaster/slotpool/PreviousAllocationSchedulingStrategy.java,24,import org.apache.flink.runtime.jobmaster.SlotContext;
+flink-runtime/src/main/java/org/apache/flink/runtime/jobmaster/slotpool/PreviousAllocationSchedulingStrategy.java,56,Collection<AllocationID> priorAllocations = slotProfile.getPriorAllocations();
+flink-runtime/src/main/java/org/apache/flink/runtime/jobmaster/slotpool/PreviousAllocationSchedulingStrategy.java,59,return super.findMatchWithLocality(slotProfile, candidates, contextExtractor, additionalRequirementsFilter, resultProducer);
+flink-runtime/src/main/java/org/apache/flink/runtime/jobmaster/slotpool/PreviousAllocationSchedulingStrategy.java,61,return findPreviousAllocation(candidates, contextExtractor, additionalRequirementsFilter, resultProducer, priorAllocations);
+flink-runtime/src/main/java/org/apache/flink/runtime/jobmaster/slotpool/PreviousAllocationSchedulingStrategy.java,71,Collection<AllocationID> priorAllocations) {
+flink-runtime/src/main/java/org/apache/flink/runtime/jobmaster/slotpool/PreviousAllocationSchedulingStrategy.java,73,(candidate) -> priorAllocations.contains(contextExtractor.apply(candidate).getAllocationId());
+flink-runtime/src/main/java/org/apache/flink/runtime/jobmaster/slotpool/PreviousAllocationSchedulingStrategy.java,75,return candidates
+flink-runtime/src/main/java/org/apache/flink/runtime/jobmaster/slotpool/PreviousAllocationSchedulingStrategy.java,78,.map((result) -> resultProducer.apply(result, Locality.LOCAL)) // TODO introduce special locality?
+flink-runtime/src/main/java/org/apache/flink/runtime/jobmaster/slotpool/SlotPool.java,173,this.providerAndOwner = new ProviderAndOwner(getSelfGateway(SlotPoolGateway.class));
+flink-runtime/src/main/java/org/apache/flink/runtime/jobmaster/slotpool/SlotPool.java,328,final SlotSharingGroupId slotSharingGroupId = task.getSlotSharingGroupId();
+flink-runtime/src/main/java/org/apache/flink/runtime/jobmaster/slotpool/SlotPool.java,330,if (slotSharingGroupId != null) {
+flink-runtime/src/main/java/org/apache/flink/runtime/jobmaster/slotpool/SlotPool.java,332,final SlotSharingManager multiTaskSlotManager = slotSharingManagers.computeIfAbsent(
+flink-runtime/src/main/java/org/apache/flink/runtime/jobmaster/slotpool/SlotPool.java,333,slotSharingGroupId,
+flink-runtime/src/main/java/org/apache/flink/runtime/jobmaster/slotpool/SlotPool.java,334,id -> new SlotSharingManager(
+flink-runtime/src/main/java/org/apache/flink/runtime/jobmaster/slotpool/SlotPool.java,335,id,
+flink-runtime/src/main/java/org/apache/flink/runtime/jobmaster/slotpool/SlotPool.java,336,this,
+flink-runtime/src/main/java/org/apache/flink/runtime/jobmaster/slotpool/SlotPool.java,337,providerAndOwner));
+flink-runtime/src/main/java/org/apache/flink/runtime/jobmaster/slotpool/SlotPool.java,339,final SlotSharingManager.MultiTaskSlotLocality multiTaskSlotLocality;
+flink-runtime/src/main/java/org/apache/flink/runtime/jobmaster/slotpool/SlotPool.java,341,try {
+flink-runtime/src/main/java/org/apache/flink/runtime/jobmaster/slotpool/SlotPool.java,342,if (task.getCoLocationConstraint() != null) {
+flink-runtime/src/main/java/org/apache/flink/runtime/jobmaster/slotpool/SlotPool.java,343,multiTaskSlotLocality = allocateCoLocatedMultiTaskSlot(
+flink-runtime/src/main/java/org/apache/flink/runtime/jobmaster/slotpool/SlotPool.java,344,task.getCoLocationConstraint(),
+flink-runtime/src/main/java/org/apache/flink/runtime/jobmaster/slotpool/SlotPool.java,345,multiTaskSlotManager,
+flink-runtime/src/main/java/org/apache/flink/runtime/jobmaster/slotpool/SlotPool.java,346,slotProfile,
+flink-runtime/src/main/java/org/apache/flink/runtime/jobmaster/slotpool/SlotPool.java,347,allowQueuedScheduling,
+flink-runtime/src/main/java/org/apache/flink/runtime/jobmaster/slotpool/SlotPool.java,348,allocationTimeout);
+flink-runtime/src/main/java/org/apache/flink/runtime/jobmaster/slotpool/SlotPool.java,350,multiTaskSlotLocality = allocateMultiTaskSlot(
+flink-runtime/src/main/java/org/apache/flink/runtime/jobmaster/slotpool/SlotPool.java,351,task.getJobVertexId(),
+flink-runtime/src/main/java/org/apache/flink/runtime/jobmaster/slotpool/SlotPool.java,352,multiTaskSlotManager,
+flink-runtime/src/main/java/org/apache/flink/runtime/jobmaster/slotpool/SlotPool.java,353,slotProfile,
+flink-runtime/src/main/java/org/apache/flink/runtime/jobmaster/slotpool/SlotPool.java,354,allowQueuedScheduling,
+flink-runtime/src/main/java/org/apache/flink/runtime/jobmaster/slotpool/SlotPool.java,355,allocationTimeout);
+flink-runtime/src/main/java/org/apache/flink/runtime/jobmaster/slotpool/SlotPool.java,358,return FutureUtils.completedExceptionally(noResourceException);
+flink-runtime/src/main/java/org/apache/flink/runtime/jobmaster/slotpool/SlotPool.java,362,Preconditions.checkState(!multiTaskSlotLocality.getMultiTaskSlot().contains(task.getJobVertexId()));
+flink-runtime/src/main/java/org/apache/flink/runtime/jobmaster/slotpool/SlotPool.java,364,final SlotSharingManager.SingleTaskSlot leaf = multiTaskSlotLocality.getMultiTaskSlot().allocateSingleTaskSlot(
+flink-runtime/src/main/java/org/apache/flink/runtime/jobmaster/slotpool/SlotPool.java,365,slotRequestId,
+flink-runtime/src/main/java/org/apache/flink/runtime/jobmaster/slotpool/SlotPool.java,366,task.getJobVertexId(),
+flink-runtime/src/main/java/org/apache/flink/runtime/jobmaster/slotpool/SlotPool.java,367,multiTaskSlotLocality.getLocality());
+flink-runtime/src/main/java/org/apache/flink/runtime/jobmaster/slotpool/SlotPool.java,369,return leaf.getLogicalSlotFuture();
+flink-runtime/src/main/java/org/apache/flink/runtime/jobmaster/slotpool/SlotPool.java,372,CompletableFuture<SlotAndLocality> slotAndLocalityFuture = requestAllocatedSlot(
+flink-runtime/src/main/java/org/apache/flink/runtime/jobmaster/slotpool/SlotPool.java,373,slotRequestId,
+flink-runtime/src/main/java/org/apache/flink/runtime/jobmaster/slotpool/SlotPool.java,374,slotProfile,
+flink-runtime/src/main/java/org/apache/flink/runtime/jobmaster/slotpool/SlotPool.java,375,allowQueuedScheduling,
+flink-runtime/src/main/java/org/apache/flink/runtime/jobmaster/slotpool/SlotPool.java,376,allocationTimeout);
+flink-runtime/src/main/java/org/apache/flink/runtime/jobmaster/slotpool/SlotPool.java,378,return slotAndLocalityFuture.thenApply(
+flink-runtime/src/main/java/org/apache/flink/runtime/jobmaster/slotpool/SlotPool.java,379,(SlotAndLocality slotAndLocality) -> {
+flink-runtime/src/main/java/org/apache/flink/runtime/jobmaster/slotpool/SlotPool.java,380,final AllocatedSlot allocatedSlot = slotAndLocality.getSlot();
+flink-runtime/src/main/java/org/apache/flink/runtime/jobmaster/slotpool/SlotPool.java,382,final SingleLogicalSlot singleTaskSlot = new SingleLogicalSlot(
+flink-runtime/src/main/java/org/apache/flink/runtime/jobmaster/slotpool/SlotPool.java,383,slotRequestId,
+flink-runtime/src/main/java/org/apache/flink/runtime/jobmaster/slotpool/SlotPool.java,384,allocatedSlot,
+flink-runtime/src/main/java/org/apache/flink/runtime/jobmaster/slotpool/SlotPool.java,385,null,
+flink-runtime/src/main/java/org/apache/flink/runtime/jobmaster/slotpool/SlotPool.java,386,slotAndLocality.getLocality(),
+flink-runtime/src/main/java/org/apache/flink/runtime/jobmaster/slotpool/SlotPool.java,387,providerAndOwner);
+flink-runtime/src/main/java/org/apache/flink/runtime/jobmaster/slotpool/SlotPool.java,389,if (allocatedSlot.tryAssignPayload(singleTaskSlot)) {
+flink-runtime/src/main/java/org/apache/flink/runtime/jobmaster/slotpool/SlotPool.java,390,return singleTaskSlot;
+flink-runtime/src/main/java/org/apache/flink/runtime/jobmaster/slotpool/SlotPool.java,392,final FlinkException flinkException = new FlinkException("Could not assign payload to allocated slot " + allocatedSlot.getAllocationId() + '.');
+flink-runtime/src/main/java/org/apache/flink/runtime/jobmaster/slotpool/SlotPool.java,393,releaseSlot(slotRequestId, null, flinkException);
+flink-runtime/src/main/java/org/apache/flink/runtime/jobmaster/slotpool/SlotPool.java,394,throw new CompletionException(flinkException);
+flink-runtime/src/main/java/org/apache/flink/runtime/jobmaster/slotpool/SlotPool.java,441,slotProfile.getPriorAllocations());
+flink-runtime/src/main/java/org/apache/flink/runtime/jobmaster/slotpool/SlotPool.java,446,coLocationConstraint.getGroupId(), multiTaskSlotManager,
+flink-runtime/src/main/java/org/apache/flink/runtime/jobmaster/slotpool/SlotPool.java,551,releaseSlot(
+flink-runtime/src/main/java/org/apache/flink/runtime/jobmaster/slotpool/SlotPool.java,553,null,
+flink-runtime/src/main/java/org/apache/flink/runtime/jobmaster/slotpool/SlotPool.java,590,releaseSlot(
+flink-runtime/src/main/java/org/apache/flink/runtime/jobmaster/slotpool/SlotPool.java,592,null,
+flink-runtime/src/main/java/org/apache/flink/runtime/jobmaster/slotpool/SlotPool.java,744,public CompletableFuture<Acknowledge> releaseSlot(SlotRequestId slotRequestId, @Nullable SlotSharingGroupId slotSharingGroupId, Throwable cause) {
+flink-runtime/src/main/java/org/apache/flink/runtime/jobmaster/slotpool/SlotPool.java,748,final SlotSharingManager multiTaskSlotManager = slotSharingManagers.get(slotSharingGroupId);
+flink-runtime/src/main/java/org/apache/flink/runtime/jobmaster/slotpool/SlotPool.java,750,if (multiTaskSlotManager != null) {
+flink-runtime/src/main/java/org/apache/flink/runtime/jobmaster/slotpool/SlotPool.java,751,final SlotSharingManager.TaskSlot taskSlot = multiTaskSlotManager.getTaskSlot(slotRequestId);
+flink-runtime/src/main/java/org/apache/flink/runtime/jobmaster/slotpool/SlotPool.java,753,if (taskSlot != null) {
+flink-runtime/src/main/java/org/apache/flink/runtime/jobmaster/slotpool/SlotPool.java,754,taskSlot.release(cause);
+flink-runtime/src/main/java/org/apache/flink/runtime/jobmaster/slotpool/SlotPool.java,756,log.debug("Could not find slot [{}] in slot sharing group {}. Ignoring release slot request.", slotRequestId, slotSharingGroupId);
+flink-runtime/src/main/java/org/apache/flink/runtime/jobmaster/slotpool/SlotPool.java,759,log.debug("Could not find slot sharing group {}. Ignoring release slot request.", slotSharingGroupId);
+flink-runtime/src/main/java/org/apache/flink/runtime/jobmaster/slotpool/SlotPool.java,762,final PendingRequest pendingRequest = removePendingRequest(slotRequestId);
+flink-runtime/src/main/java/org/apache/flink/runtime/jobmaster/slotpool/SlotPool.java,764,if (pendingRequest != null) {
+flink-runtime/src/main/java/org/apache/flink/runtime/jobmaster/slotpool/SlotPool.java,765,failPendingRequest(pendingRequest, new FlinkException("Pending slot request with " + slotRequestId + " has been released."));
+flink-runtime/src/main/java/org/apache/flink/runtime/jobmaster/slotpool/SlotPool.java,767,final AllocatedSlot allocatedSlot = allocatedSlots.remove(slotRequestId);
+flink-runtime/src/main/java/org/apache/flink/runtime/jobmaster/slotpool/SlotPool.java,769,if (allocatedSlot != null) {
+flink-runtime/src/main/java/org/apache/flink/runtime/jobmaster/slotpool/SlotPool.java,770,allocatedSlot.releasePayload(cause);
+flink-runtime/src/main/java/org/apache/flink/runtime/jobmaster/slotpool/SlotPool.java,771,tryFulfillSlotRequestOrMakeAvailable(allocatedSlot);
+flink-runtime/src/main/java/org/apache/flink/runtime/jobmaster/slotpool/SlotPool.java,773,log.debug("There is no allocated slot [{}]. Ignoring the release slot request.", slotRequestId);
+flink-runtime/src/main/java/org/apache/flink/runtime/jobmaster/slotpool/SlotPool.java,778,return CompletableFuture.completedFuture(Acknowledge.get());
+flink-runtime/src/main/java/org/apache/flink/runtime/jobmaster/slotpool/SlotPool.java,878,offer -> {
+flink-runtime/src/main/java/org/apache/flink/runtime/jobmaster/slotpool/SlotPool.java,879,CompletableFuture<Optional<SlotOffer>> acceptedSlotOffer = offerSlot(
+flink-runtime/src/main/java/org/apache/flink/runtime/jobmaster/slotpool/SlotPool.java,880,taskManagerLocation,
+flink-runtime/src/main/java/org/apache/flink/runtime/jobmaster/slotpool/SlotPool.java,881,taskManagerGateway,
+flink-runtime/src/main/java/org/apache/flink/runtime/jobmaster/slotpool/SlotPool.java,883,.thenApply(
+flink-runtime/src/main/java/org/apache/flink/runtime/jobmaster/slotpool/SlotPool.java,885,);
+flink-runtime/src/main/java/org/apache/flink/runtime/jobmaster/slotpool/SlotPool.java,887,return acceptedSlotOffer;
+flink-runtime/src/main/java/org/apache/flink/runtime/jobmaster/slotpool/SlotPool.java,1362,if (allocatedSlotsByTaskManager.containsKey(resourceId)) {
+flink-runtime/src/main/java/org/apache/flink/runtime/jobmaster/slotpool/SlotPool.java,1363,return allocatedSlotsByTaskManager.get(resourceId);
+flink-runtime/src/main/java/org/apache/flink/runtime/jobmaster/slotpool/SlotPool.java,1365,return Collections.emptySet();
+flink-runtime/src/main/java/org/apache/flink/runtime/jobmaster/slotpool/SlotPool.java,1407,Set<AllocatedSlot> slotsForTaskManager = availableSlotsByTaskManager.get(resourceID);
+flink-runtime/src/main/java/org/apache/flink/runtime/jobmaster/slotpool/SlotPool.java,1408,if (slotsForTaskManager == null) {
+flink-runtime/src/main/java/org/apache/flink/runtime/jobmaster/slotpool/SlotPool.java,1409,slotsForTaskManager = new HashSet<>();
+flink-runtime/src/main/java/org/apache/flink/runtime/jobmaster/slotpool/SlotPool.java,1410,availableSlotsByTaskManager.put(resourceID, slotsForTaskManager);
+flink-runtime/src/main/java/org/apache/flink/runtime/jobmaster/slotpool/SlotPool.java,1414,Set<AllocatedSlot> slotsForHost = availableSlotsByHost.get(host);
+flink-runtime/src/main/java/org/apache/flink/runtime/jobmaster/slotpool/SlotPool.java,1415,if (slotsForHost == null) {
+flink-runtime/src/main/java/org/apache/flink/runtime/jobmaster/slotpool/SlotPool.java,1416,slotsForHost = new HashSet<>();
+flink-runtime/src/main/java/org/apache/flink/runtime/jobmaster/slotpool/SlotPool.java,1417,availableSlotsByHost.put(host, slotsForHost);
+flink-runtime/src/main/java/org/apache/flink/runtime/jobmaster/slotpool/SlotPool.java,1459,slotAndTimestamps.stream(),
+flink-runtime/src/main/java/org/apache/flink/runtime/jobmaster/slotpool/SlotPool.java,1566,private static class ProviderAndOwner implements SlotOwner, SlotProvider {
+flink-runtime/src/main/java/org/apache/flink/runtime/jobmaster/slotpool/SlotPool.java,1570,ProviderAndOwner(SlotPoolGateway gateway) {
+flink-runtime/src/main/java/org/apache/flink/runtime/jobmaster/slotpool/SlotSharingManager.java,200,resolvedRootSlotsValues.stream().flatMap(Collection::stream),
+flink-streaming-java/src/main/java/org/apache/flink/streaming/api/functions/sink/filesystem/StreamingFileSink.java,378,buckets.close();
+flink-mesos/src/main/java/org/apache/flink/mesos/runtime/clusterframework/LaunchableMesosWorker.java,21,import org.apache.flink.configuration.ConfigConstants;
+flink-mesos/src/main/java/org/apache/flink/mesos/runtime/clusterframework/LaunchableMesosWorker.java,235,dynamicProperties.setString(ConfigConstants.TASK_MANAGER_HOSTNAME_KEY, taskManagerHostname);
+flink-runtime/src/main/java/org/apache/flink/runtime/minicluster/MiniClusterConfiguration.java,22,import org.apache.flink.configuration.ConfigConstants;
+flink-runtime/src/main/java/org/apache/flink/runtime/minicluster/MiniClusterConfiguration.java,88,configuration.getString(ConfigConstants.TASK_MANAGER_HOSTNAME_KEY, "localhost");
+flink-runtime/src/main/java/org/apache/flink/runtime/taskexecutor/TaskManagerRunner.java,22,import org.apache.flink.configuration.ConfigConstants;
+flink-runtime/src/main/java/org/apache/flink/runtime/taskexecutor/TaskManagerRunner.java,395,String taskManagerHostname = configuration.getString(ConfigConstants.TASK_MANAGER_HOSTNAME_KEY, null);
+flink-yarn/src/main/java/org/apache/flink/yarn/YarnTaskExecutorRunner.java,22,import org.apache.flink.configuration.ConfigConstants;
+flink-yarn/src/main/java/org/apache/flink/yarn/YarnTaskExecutorRunner.java,134,configuration.setString(ConfigConstants.TASK_MANAGER_HOSTNAME_KEY, taskExecutorHostname);
+flink-runtime/src/main/java/org/apache/flink/runtime/io/network/NetworkEnvironment.java,213,maxNumberOfMemorySegments);
+flink-runtime/src/main/java/org/apache/flink/runtime/io/network/buffer/BufferPool.java,32,void setBufferPoolOwner(BufferPoolOwner owner);
+flink-runtime/src/main/java/org/apache/flink/runtime/io/network/buffer/LocalBufferPool.java,31,import static org.apache.flink.util.Preconditions.checkNotNull;
+flink-runtime/src/main/java/org/apache/flink/runtime/io/network/buffer/LocalBufferPool.java,32,import static org.apache.flink.util.Preconditions.checkState;
+flink-runtime/src/main/java/org/apache/flink/runtime/io/network/buffer/LocalBufferPool.java,89,private BufferPoolOwner owner;
+flink-runtime/src/main/java/org/apache/flink/runtime/io/network/buffer/LocalBufferPool.java,101,this(networkBufferPool, numberOfRequiredMemorySegments, Integer.MAX_VALUE);
+flink-runtime/src/main/java/org/apache/flink/runtime/io/network/buffer/LocalBufferPool.java,180,public void setBufferPoolOwner(BufferPoolOwner owner) {
+flink-runtime/src/main/java/org/apache/flink/runtime/io/network/buffer/LocalBufferPool.java,181,synchronized (availableMemorySegments) {
+flink-runtime/src/main/java/org/apache/flink/runtime/io/network/buffer/LocalBufferPool.java,182,checkState(this.owner == null, "Buffer pool owner has already been set.");
+flink-runtime/src/main/java/org/apache/flink/runtime/io/network/buffer/LocalBufferPool.java,183,this.owner = checkNotNull(owner);
+flink-runtime/src/main/java/org/apache/flink/runtime/io/network/buffer/LocalBufferPool.java,225,boolean askToRecycle = owner != null;
+flink-runtime/src/main/java/org/apache/flink/runtime/io/network/buffer/LocalBufferPool.java,243,owner.releaseMemory(1);
+flink-runtime/src/main/java/org/apache/flink/runtime/io/network/buffer/LocalBufferPool.java,354,if (owner != null && numberOfRequestedMemorySegments > currentPoolSize) {
+flink-runtime/src/main/java/org/apache/flink/runtime/io/network/buffer/LocalBufferPool.java,355,owner.releaseMemory(numberOfRequestedMemorySegments - currentPoolSize);
+flink-runtime/src/main/java/org/apache/flink/runtime/io/network/buffer/NetworkBufferPool.java,286,new LocalBufferPool(this, numRequiredBuffers, maxUsedBuffers);
+flink-runtime/src/main/java/org/apache/flink/runtime/io/network/partition/ResultPartition.java,193,if (!partitionType.hasBackPressure()) {
+flink-runtime/src/main/java/org/apache/flink/runtime/io/network/partition/ResultPartition.java,194,bufferPool.setBufferPoolOwner(this);
+flink-mesos/src/main/java/org/apache/flink/mesos/util/MesosArtifactServer.java,27,import org.apache.flink.runtime.net.SSLEngineFactory;
+flink-mesos/src/main/java/org/apache/flink/mesos/util/MesosArtifactServer.java,54,import org.apache.flink.shaded.netty4.io.netty.handler.ssl.SslHandler;
+flink-mesos/src/main/java/org/apache/flink/mesos/util/MesosArtifactServer.java,62,import javax.net.ssl.SSLEngine;
+flink-mesos/src/main/java/org/apache/flink/mesos/util/MesosArtifactServer.java,118,final SSLEngineFactory sslFactory;
+flink-mesos/src/main/java/org/apache/flink/mesos/util/MesosArtifactServer.java,141,SSLEngine sslEngine = sslFactory.createSSLEngine();
+flink-mesos/src/main/java/org/apache/flink/mesos/util/MesosArtifactServer.java,142,ch.pipeline().addLast("ssl", new SslHandler(sslEngine));
+flink-runtime-web/src/main/java/org/apache/flink/runtime/webmonitor/WebRuntimeMonitor.java,29,import org.apache.flink.runtime.net.SSLEngineFactory;
+flink-runtime-web/src/main/java/org/apache/flink/runtime/webmonitor/WebRuntimeMonitor.java,234,final SSLEngineFactory sslFactory;
+flink-runtime-web/src/main/java/org/apache/flink/runtime/webmonitor/history/HistoryServer.java,29,import org.apache.flink.runtime.net.SSLEngineFactory;
+flink-runtime-web/src/main/java/org/apache/flink/runtime/webmonitor/history/HistoryServer.java,91,private final SSLEngineFactory serverSSLFactory;
+flink-runtime-web/src/main/java/org/apache/flink/runtime/webmonitor/utils/WebFrontendBootstrap.java,23,import org.apache.flink.runtime.net.SSLEngineFactory;
+flink-runtime-web/src/main/java/org/apache/flink/runtime/webmonitor/utils/WebFrontendBootstrap.java,38,import org.apache.flink.shaded.netty4.io.netty.handler.ssl.SslHandler;
+flink-runtime-web/src/main/java/org/apache/flink/runtime/webmonitor/utils/WebFrontendBootstrap.java,44,import javax.net.ssl.SSLEngine;
+flink-runtime-web/src/main/java/org/apache/flink/runtime/webmonitor/utils/WebFrontendBootstrap.java,84,SSLEngine sslEngine = serverSSLFactory.createSSLEngine();
+flink-runtime-web/src/main/java/org/apache/flink/runtime/webmonitor/utils/WebFrontendBootstrap.java,85,ch.pipeline().addLast("ssl", new SslHandler(sslEngine));
+flink-runtime/src/main/java/org/apache/flink/runtime/io/network/netty/NettyClient.java,21,import org.apache.flink.runtime.net.SSLEngineFactory;
+flink-runtime/src/main/java/org/apache/flink/runtime/io/network/netty/NettyClient.java,40,import javax.net.ssl.SSLEngine;
+flink-runtime/src/main/java/org/apache/flink/runtime/io/network/netty/NettyClient.java,58,private SSLEngineFactory clientSSLFactory;
+flink-runtime/src/main/java/org/apache/flink/runtime/io/network/netty/NettyClient.java,184,SSLEngine sslEngine = clientSSLFactory.createSSLEngine(
+flink-runtime/src/main/java/org/apache/flink/runtime/io/network/netty/NettyClient.java,185,serverSocketAddress.getAddress().getCanonicalHostName(),
+flink-runtime/src/main/java/org/apache/flink/runtime/io/network/netty/NettyClient.java,186,serverSocketAddress.getPort());
+flink-runtime/src/main/java/org/apache/flink/runtime/io/network/netty/NettyClient.java,188,channel.pipeline().addLast("ssl", new SslHandler(sslEngine));
+flink-runtime/src/main/java/org/apache/flink/runtime/io/network/netty/NettyConfig.java,25,import org.apache.flink.runtime.net.SSLEngineFactory;
+flink-runtime/src/main/java/org/apache/flink/runtime/io/network/netty/NettyConfig.java,194,public SSLEngineFactory createClientSSLEngineFactory() throws Exception {
+flink-runtime/src/main/java/org/apache/flink/runtime/io/network/netty/NettyConfig.java,201,public SSLEngineFactory createServerSSLEngineFactory() throws Exception {
+flink-runtime/src/main/java/org/apache/flink/runtime/io/network/netty/NettyServer.java,21,import org.apache.flink.runtime.net.SSLEngineFactory;
+flink-runtime/src/main/java/org/apache/flink/runtime/io/network/netty/NettyServer.java,35,import org.apache.flink.shaded.netty4.io.netty.handler.ssl.SslHandler;
+flink-runtime/src/main/java/org/apache/flink/runtime/io/network/netty/NettyServer.java,40,import javax.net.ssl.SSLEngine;
+flink-runtime/src/main/java/org/apache/flink/runtime/io/network/netty/NettyServer.java,139,final SSLEngineFactory sslEngineFactory;
+flink-runtime/src/main/java/org/apache/flink/runtime/io/network/netty/NettyServer.java,141,sslEngineFactory = config.createServerSSLEngineFactory();
+flink-runtime/src/main/java/org/apache/flink/runtime/io/network/netty/NettyServer.java,153,if (sslEngineFactory != null) {
+flink-runtime/src/main/java/org/apache/flink/runtime/io/network/netty/NettyServer.java,154,SSLEngine sslEngine = sslEngineFactory.createSSLEngine();
+flink-runtime/src/main/java/org/apache/flink/runtime/io/network/netty/NettyServer.java,155,channel.pipeline().addLast("ssl", new SslHandler(sslEngine));
+flink-runtime/src/main/java/org/apache/flink/runtime/net/SSLEngineFactory.java,19,package org.apache.flink.runtime.net;
+flink-runtime/src/main/java/org/apache/flink/runtime/net/SSLEngineFactory.java,29,public class SSLEngineFactory {
+flink-runtime/src/main/java/org/apache/flink/runtime/net/SSLEngineFactory.java,39,final boolean clientAuthentication;
+flink-runtime/src/main/java/org/apache/flink/runtime/net/SSLEngineFactory.java,41,public SSLEngineFactory(
+flink-runtime/src/main/java/org/apache/flink/runtime/net/SSLEngineFactory.java,46,final boolean clientAuthentication) {
+flink-runtime/src/main/java/org/apache/flink/runtime/net/SSLEngineFactory.java,55,public SSLEngine createSSLEngine() {
+flink-runtime/src/main/java/org/apache/flink/runtime/net/SSLEngineFactory.java,61,public SSLEngine createSSLEngine(String hostname, int port) {
+flink-runtime/src/main/java/org/apache/flink/runtime/net/SSLUtils.java,101,public static SSLEngineFactory createInternalServerSSLEngineFactory(final Configuration config) throws Exception {
+flink-runtime/src/main/java/org/apache/flink/runtime/net/SSLUtils.java,107,return new SSLEngineFactory(
+flink-runtime/src/main/java/org/apache/flink/runtime/net/SSLUtils.java,112,true);
+flink-runtime/src/main/java/org/apache/flink/runtime/net/SSLUtils.java,118,public static SSLEngineFactory createInternalClientSSLEngineFactory(final Configuration config) throws Exception {
+flink-runtime/src/main/java/org/apache/flink/runtime/net/SSLUtils.java,124,return new SSLEngineFactory(
+flink-runtime/src/main/java/org/apache/flink/runtime/net/SSLUtils.java,129,true);
+flink-runtime/src/main/java/org/apache/flink/runtime/net/SSLUtils.java,137,public static SSLEngineFactory createRestServerSSLEngineFactory(final Configuration config) throws Exception {
+flink-runtime/src/main/java/org/apache/flink/runtime/net/SSLUtils.java,143,return new SSLEngineFactory(
+flink-runtime/src/main/java/org/apache/flink/runtime/net/SSLUtils.java,156,public static SSLEngineFactory createRestClientSSLEngineFactory(final Configuration config) throws Exception {
+flink-runtime/src/main/java/org/apache/flink/runtime/net/SSLUtils.java,162,return new SSLEngineFactory(
+flink-runtime/src/main/java/org/apache/flink/runtime/net/SSLUtils.java,186,public static SSLContext createInternalSSLContext(Configuration config) throws Exception {
+flink-runtime/src/main/java/org/apache/flink/runtime/rest/RestClient.java,25,import org.apache.flink.runtime.net.SSLEngineFactory;
+flink-runtime/src/main/java/org/apache/flink/runtime/rest/RestClient.java,70,import org.apache.flink.shaded.netty4.io.netty.handler.ssl.SslHandler;
+flink-runtime/src/main/java/org/apache/flink/runtime/rest/RestClient.java,108,final SSLEngineFactory sslEngineFactory = configuration.getSslEngineFactory();
+flink-runtime/src/main/java/org/apache/flink/runtime/rest/RestClientConfiguration.java,23,import org.apache.flink.runtime.net.SSLEngineFactory;
+flink-runtime/src/main/java/org/apache/flink/runtime/rest/RestClientConfiguration.java,39,private final SSLEngineFactory sslEngineFactory;
+flink-runtime/src/main/java/org/apache/flink/runtime/rest/RestClientConfiguration.java,50,this.sslEngineFactory = sslEngineFactory;
+flink-runtime/src/main/java/org/apache/flink/runtime/rest/RestClientConfiguration.java,61,public SSLEngineFactory getSslEngineFactory() {
+flink-runtime/src/main/java/org/apache/flink/runtime/rest/RestClientConfiguration.java,62,return sslEngineFactory;
+flink-runtime/src/main/java/org/apache/flink/runtime/rest/RestClientConfiguration.java,92,final SSLEngineFactory sslEngineFactory;
+flink-runtime/src/main/java/org/apache/flink/runtime/rest/RestClientConfiguration.java,95,sslEngineFactory = SSLUtils.createRestClientSSLEngineFactory(config);
+flink-runtime/src/main/java/org/apache/flink/runtime/rest/RestClientConfiguration.java,100,sslEngineFactory = null;
+flink-runtime/src/main/java/org/apache/flink/runtime/rest/RestServerEndpoint.java,25,import org.apache.flink.runtime.net.SSLEngineFactory;
+flink-runtime/src/main/java/org/apache/flink/runtime/rest/RestServerEndpoint.java,79,private final SSLEngineFactory sslEngineFactory;
+flink-runtime/src/main/java/org/apache/flink/runtime/rest/RestServerEndpoint.java,99,this.sslEngineFactory = configuration.getSslEngineFactory();
+flink-runtime/src/main/java/org/apache/flink/runtime/rest/RestServerEndpoint.java,158,if (sslEngineFactory != null) {
+flink-runtime/src/main/java/org/apache/flink/runtime/rest/RestServerEndpoint.java,202,if (sslEngineFactory != null) {
+flink-runtime/src/main/java/org/apache/flink/runtime/rest/RestServerEndpointConfiguration.java,24,import org.apache.flink.runtime.net.SSLEngineFactory;
+flink-runtime/src/main/java/org/apache/flink/runtime/rest/RestServerEndpointConfiguration.java,54,private final SSLEngineFactory sslEngineFactory;
+flink-runtime/src/main/java/org/apache/flink/runtime/rest/RestServerEndpointConfiguration.java,77,this.sslEngineFactory = sslEngineFactory;
+flink-runtime/src/main/java/org/apache/flink/runtime/rest/RestServerEndpointConfiguration.java,114,public SSLEngineFactory getSslEngineFactory() {
+flink-runtime/src/main/java/org/apache/flink/runtime/rest/RestServerEndpointConfiguration.java,115,return sslEngineFactory;
+flink-runtime/src/main/java/org/apache/flink/runtime/rest/RestServerEndpointConfiguration.java,158,final SSLEngineFactory sslEngineFactory;
+flink-runtime/src/main/java/org/apache/flink/runtime/rest/RestServerEndpointConfiguration.java,161,sslEngineFactory = SSLUtils.createRestServerSSLEngineFactory(config);
+flink-runtime/src/main/java/org/apache/flink/runtime/rest/RestServerEndpointConfiguration.java,166,sslEngineFactory = null;
+flink-runtime/src/main/java/org/apache/flink/runtime/rest/RestServerEndpointConfiguration.java,183,sslEngineFactory,
+flink-runtime/src/main/java/org/apache/flink/runtime/entrypoint/ClusterEntrypoint.java,498,if (webMonitorEndpoint != null) {
+flink-runtime/src/main/java/org/apache/flink/runtime/entrypoint/ClusterEntrypoint.java,499,terminationFutures.add(webMonitorEndpoint.closeAsync());
+flink-runtime/src/main/java/org/apache/flink/runtime/entrypoint/ClusterEntrypoint.java,561,final CompletableFuture<Void> shutDownApplicationFuture = deregisterApplication(applicationStatus, diagnostics);
+flink-runtime/src/main/java/org/apache/flink/runtime/entrypoint/ClusterEntrypoint.java,564,shutDownApplicationFuture,
+flink-runtime/src/main/java/org/apache/flink/runtime/rest/RestServerEndpoint.java,133,List<Tuple2<RestHandlerSpecification, ChannelInboundHandler>> handlers = initializeHandlers(restAddressFuture);
+flink-runtime/src/main/java/org/apache/flink/runtime/rest/RestServerEndpoint.java,266,final CompletableFuture<Void> shutDownFuture = shutDownInternal();
+flink-runtime/src/main/java/org/apache/flink/runtime/rest/AbstractHandler.java,19,package org.apache.flink.runtime.rest;
+flink-runtime/src/main/java/org/apache/flink/runtime/rest/AbstractHandler.java,22,import org.apache.flink.runtime.rest.handler.FileUploads;
+flink-runtime/src/main/java/org/apache/flink/runtime/rest/AbstractHandler.java,23,import org.apache.flink.runtime.rest.handler.HandlerRequest;
+flink-runtime/src/main/java/org/apache/flink/runtime/rest/AbstractHandler.java,24,import org.apache.flink.runtime.rest.handler.HandlerRequestException;
+flink-runtime/src/main/java/org/apache/flink/runtime/rest/AbstractHandler.java,25,import org.apache.flink.runtime.rest.handler.RedirectHandler;
+flink-runtime/src/main/java/org/apache/flink/runtime/rest/AbstractHandler.java,26,import org.apache.flink.runtime.rest.handler.RestHandlerException;
+flink-runtime/src/main/java/org/apache/flink/runtime/rest/AbstractHandler.java,67,public abstract class AbstractHandler<T extends RestfulGateway, R extends RequestBody, M extends MessageParameters> extends RedirectHandler<T> {
+flink-runtime/src/main/java/org/apache/flink/runtime/rest/AbstractHandler.java,156,.whenComplete((Void ignored, Throwable throwable) -> cleanupFileUploads(finalUploadedFiles));
+flink-runtime/src/main/java/org/apache/flink/runtime/rest/handler/AbstractRestHandler.java,23,import org.apache.flink.runtime.rest.AbstractHandler;
+flink-runtime/src/main/java/org/apache/flink/runtime/rest/handler/AbstractRestHandler.java,82,return response.whenComplete((P resp, Throwable throwable) -> {
+flink-runtime/src/main/java/org/apache/flink/runtime/rest/handler/async/AbstractAsynchronousOperationHandlers.java,21,import org.apache.flink.api.common.JobID;
+flink-runtime/src/main/java/org/apache/flink/runtime/rest/handler/async/AbstractAsynchronousOperationHandlers.java,32,import org.apache.flink.runtime.rest.messages.TriggerId;
+flink-runtime/src/main/java/org/apache/flink/runtime/rest/handler/async/AbstractAsynchronousOperationHandlers.java,36,import org.apache.flink.util.FlinkException;
+flink-runtime/src/main/java/org/apache/flink/runtime/rest/handler/async/AbstractAsynchronousOperationHandlers.java,38,import org.apache.flink.shaded.guava18.com.google.common.cache.Cache;
+flink-runtime/src/main/java/org/apache/flink/runtime/rest/handler/async/AbstractAsynchronousOperationHandlers.java,39,import org.apache.flink.shaded.guava18.com.google.common.cache.CacheBuilder;
+flink-runtime/src/main/java/org/apache/flink/runtime/rest/handler/async/AbstractAsynchronousOperationHandlers.java,42,import javax.annotation.Nullable;
+flink-runtime/src/main/java/org/apache/flink/runtime/rest/handler/async/AbstractAsynchronousOperationHandlers.java,43,import javax.annotation.concurrent.ThreadSafe;
+flink-runtime/src/main/java/org/apache/flink/runtime/rest/handler/async/AbstractAsynchronousOperationHandlers.java,46,import java.util.Set;
+flink-runtime/src/main/java/org/apache/flink/runtime/rest/handler/async/AbstractAsynchronousOperationHandlers.java,48,import java.util.concurrent.ConcurrentHashMap;
+flink-runtime/src/main/java/org/apache/flink/runtime/rest/handler/async/AbstractAsynchronousOperationHandlers.java,49,import java.util.concurrent.TimeUnit;
+flink-runtime/src/main/java/org/apache/flink/runtime/rest/handler/async/AbstractAsynchronousOperationHandlers.java,232,protected static class CompletedOperationCache<K, R> {
+flink-runtime/src/main/java/org/apache/flink/runtime/rest/handler/async/AbstractAsynchronousOperationHandlers.java,234,private static final long COMPLETED_OPERATION_RESULT_CACHE_DURATION_SECONDS = 300L;
+flink-runtime/src/main/java/org/apache/flink/runtime/rest/handler/async/AbstractAsynchronousOperationHandlers.java,240,private final Set<K> registeredOperationTriggers = ConcurrentHashMap.newKeySet();
+flink-runtime/src/main/java/org/apache/flink/runtime/rest/handler/async/AbstractAsynchronousOperationHandlers.java,243,private final Cache<K, Either<Throwable, R>> completedOperations =
+flink-runtime/src/main/java/org/apache/flink/runtime/rest/handler/async/AbstractAsynchronousOperationHandlers.java,246,.build();
+flink-runtime/src/main/java/org/apache/flink/runtime/rest/handler/async/AbstractAsynchronousOperationHandlers.java,253,public void registerOngoingOperation(
+flink-runtime/src/main/java/org/apache/flink/runtime/rest/handler/async/AbstractAsynchronousOperationHandlers.java,254,final K operationKey,
+flink-runtime/src/main/java/org/apache/flink/runtime/rest/handler/async/AbstractAsynchronousOperationHandlers.java,255,final CompletableFuture<R> operationResultFuture) {
+flink-runtime/src/main/java/org/apache/flink/runtime/rest/handler/async/AbstractAsynchronousOperationHandlers.java,256,registeredOperationTriggers.add(operationKey);
+flink-runtime/src/main/java/org/apache/flink/runtime/rest/handler/async/AbstractAsynchronousOperationHandlers.java,257,operationResultFuture.whenComplete((savepointLocation, error) -> {
+flink-runtime/src/main/java/org/apache/flink/runtime/rest/handler/async/AbstractAsynchronousOperationHandlers.java,258,if (error == null) {
+flink-runtime/src/main/java/org/apache/flink/runtime/rest/handler/async/AbstractAsynchronousOperationHandlers.java,259,completedOperations.put(operationKey, Either.Right(savepointLocation));
+flink-runtime/src/main/java/org/apache/flink/runtime/rest/handler/async/AbstractAsynchronousOperationHandlers.java,261,completedOperations.put(operationKey, Either.Left(error));
+flink-runtime/src/main/java/org/apache/flink/runtime/rest/handler/async/AbstractAsynchronousOperationHandlers.java,263,registeredOperationTriggers.remove(operationKey);
+flink-runtime/src/main/java/org/apache/flink/runtime/rest/handler/async/AbstractAsynchronousOperationHandlers.java,275,public Either<Throwable, R> get(
+flink-runtime/src/main/java/org/apache/flink/runtime/rest/handler/async/AbstractAsynchronousOperationHandlers.java,276,final K operationKey) throws UnknownOperationKey {
+flink-runtime/src/main/java/org/apache/flink/runtime/rest/handler/async/AbstractAsynchronousOperationHandlers.java,277,Either<Throwable, R> operationResultOrError = null;
+flink-runtime/src/main/java/org/apache/flink/runtime/rest/handler/async/AbstractAsynchronousOperationHandlers.java,279,&& (operationResultOrError = completedOperations.getIfPresent(operationKey)) == null) {
+flink-runtime/src/main/java/org/apache/flink/runtime/rest/handler/async/AbstractAsynchronousOperationHandlers.java,280,throw new UnknownOperationKey(operationKey);
+flink-runtime/src/main/java/org/apache/flink/runtime/rest/handler/async/AbstractAsynchronousOperationHandlers.java,282,return operationResultOrError;
+flink-runtime/src/main/java/org/apache/flink/runtime/rest/handler/async/AbstractAsynchronousOperationHandlers.java,290,static class UnknownOperationKey extends FlinkException {
+flink-runtime/src/main/java/org/apache/flink/runtime/rest/handler/async/AbstractAsynchronousOperationHandlers.java,291,private static final long serialVersionUID = 1L;
+flink-runtime/src/main/java/org/apache/flink/runtime/rest/handler/async/AbstractAsynchronousOperationHandlers.java,293,UnknownOperationKey(final Object operationKey) {
+flink-runtime/src/main/java/org/apache/flink/runtime/rest/handler/async/AbstractAsynchronousOperationHandlers.java,294,super("No ongoing operation for " + operationKey);
+flink-runtime/src/main/java/org/apache/flink/runtime/rest/handler/taskmanager/AbstractTaskManagerFileHandler.java,27,import org.apache.flink.runtime.rest.AbstractHandler;
+flink-runtime/src/main/java/org/apache/flink/runtime/rest/handler/util/HandlerUtils.java,72,public static <P extends ResponseBody> void sendResponse(
+flink-runtime/src/main/java/org/apache/flink/runtime/rest/handler/util/HandlerUtils.java,83,sendErrorResponse(
+flink-runtime/src/main/java/org/apache/flink/runtime/rest/handler/util/HandlerUtils.java,89,return;
+flink-runtime/src/main/java/org/apache/flink/runtime/rest/handler/util/HandlerUtils.java,91,sendResponse(
+flink-runtime/src/main/java/org/apache/flink/runtime/rest/handler/util/HandlerUtils.java,108,public static void sendErrorResponse(
+flink-runtime/src/main/java/org/apache/flink/runtime/rest/handler/util/HandlerUtils.java,115,sendErrorResponse(
+flink-runtime/src/main/java/org/apache/flink/runtime/rest/handler/util/HandlerUtils.java,132,public static void sendErrorResponse(
+flink-runtime/src/main/java/org/apache/flink/runtime/rest/handler/util/HandlerUtils.java,145,sendResponse(
+flink-runtime/src/main/java/org/apache/flink/runtime/rest/handler/util/HandlerUtils.java,152,sendResponse(
+flink-runtime/src/main/java/org/apache/flink/runtime/rest/handler/util/HandlerUtils.java,169,public static void sendResponse(
+flink-runtime/src/main/java/org/apache/flink/runtime/rest/handler/util/HandlerUtils.java,176,sendResponse(
+flink-runtime/src/main/java/org/apache/flink/runtime/rest/handler/util/HandlerUtils.java,193,public static void sendResponse(
+flink-runtime/src/main/java/org/apache/flink/runtime/state/ttl/TtlStateFactory.java,227,return new TtlSerializer<>(precomputed, (TypeSerializer<T>) originalSerializers[1]);
+flink-runtime/src/main/java/org/apache/flink/runtime/taskexecutor/TaskExecutor.java,447,if (!taskSlotTable.existsActiveSlot(jobId, tdd.getAllocationId())) {
+flink-runtime/src/main/java/org/apache/flink/runtime/taskexecutor/TaskExecutor.java,1053,try {
+flink-runtime/src/main/java/org/apache/flink/runtime/taskexecutor/TaskExecutor.java,1054,if (!taskSlotTable.markSlotActive(offer.getAllocationId())) {
+flink-runtime/src/main/java/org/apache/flink/runtime/taskexecutor/TaskExecutor.java,1056,final String message = "Could not mark slot " + jobId + " active.";
+flink-runtime/src/main/java/org/apache/flink/runtime/taskexecutor/TaskExecutor.java,1057,log.debug(message);
+flink-runtime/src/main/java/org/apache/flink/runtime/taskexecutor/TaskExecutor.java,1058,jobMasterGateway.failSlot(getResourceID(), offer.getAllocationId(), new Exception(message));
+flink-runtime/src/main/java/org/apache/flink/runtime/taskexecutor/TaskExecutor.java,1061,final String message = "Could not mark slot " + jobId + " active.";
+flink-runtime/src/main/java/org/apache/flink/runtime/taskexecutor/TaskExecutor.java,1062,jobMasterGateway.failSlot(getResourceID(), offer.getAllocationId(), new Exception(message));
+flink-runtime/src/main/java/org/apache/flink/runtime/taskexecutor/TaskExecutor.java,1063,continue;
+flink-runtime/src/main/java/org/apache/flink/runtime/taskexecutor/slot/TaskSlotTable.java,388,public boolean existsActiveSlot(JobID jobId, AllocationID allocationId) {
+flink-runtime/src/main/java/org/apache/flink/runtime/taskexecutor/slot/TaskSlotTable.java,391,if (taskSlot != null) {
+flink-runtime/src/main/java/org/apache/flink/runtime/taskexecutor/slot/TaskSlotTable.java,392,return taskSlot.isActive(jobId, allocationId);
+flink-container/src/main/java/org/apache/flink/container/entrypoint/StandaloneJobClusterEntryPoint.java,130,fatalErrorHandler);
+flink-mesos/src/main/java/org/apache/flink/mesos/runtime/clusterframework/MesosResourceManager.java,175,fatalErrorHandler);
+flink-runtime/src/main/java/org/apache/flink/runtime/entrypoint/ClusterEntrypoint.java,347,webMonitorEndpoint.getRestBaseUrl());
+flink-runtime/src/main/java/org/apache/flink/runtime/entrypoint/ClusterEntrypoint.java,349,jobManagerMetricGroup = MetricUtils.instantiateJobManagerMetricGroup(metricRegistry, rpcService.getAddress());
+flink-runtime/src/main/java/org/apache/flink/runtime/entrypoint/StandaloneSessionClusterEntrypoint.java,79,fatalErrorHandler);
+flink-runtime/src/main/java/org/apache/flink/runtime/minicluster/MiniCluster.java,303,new ClusterInformation("localhost", blobServer.getPort()));
+flink-runtime/src/main/java/org/apache/flink/runtime/minicluster/MiniCluster.java,745,ClusterInformation clusterInformation) throws Exception {
+flink-runtime/src/main/java/org/apache/flink/runtime/minicluster/MiniCluster.java,755,clusterInformation);
+flink-runtime/src/main/java/org/apache/flink/runtime/resourcemanager/ResourceManager.java,164,FatalErrorHandler fatalErrorHandler) {
+flink-runtime/src/main/java/org/apache/flink/runtime/resourcemanager/ResourceManagerRunner.java,59,final ClusterInformation clusterInformation) throws Exception {
+flink-runtime/src/main/java/org/apache/flink/runtime/resourcemanager/ResourceManagerRunner.java,88,this);
+flink-runtime/src/main/java/org/apache/flink/runtime/resourcemanager/StandaloneResourceManager.java,54,FatalErrorHandler fatalErrorHandler) {
+flink-runtime/src/main/java/org/apache/flink/runtime/resourcemanager/StandaloneResourceManager.java,66,fatalErrorHandler);
+flink-yarn/src/main/java/org/apache/flink/yarn/YarnResourceManager.java,145,fatalErrorHandler);
+flink-yarn/src/main/java/org/apache/flink/yarn/entrypoint/YarnJobClusterEntrypoint.java,117,webInterfaceUrl);
+flink-yarn/src/main/java/org/apache/flink/yarn/entrypoint/YarnSessionClusterEntrypoint.java,105,webInterfaceUrl);
+flink-runtime/src/main/java/org/apache/flink/runtime/memory/MemoryManager.java,457,catch (ConcurrentModificationException e) {
+flink-runtime/src/main/java/org/apache/flink/runtime/executiongraph/ExecutionGraph.java,1155,else if (current == JobStatus.RESTARTING) {
+flink-runtime/src/main/java/org/apache/flink/runtime/executiongraph/ExecutionGraph.java,1158,initFailureCause(t);
+flink-runtime/src/main/java/org/apache/flink/runtime/executiongraph/ExecutionGraph.java,1160,final long globalVersionForRestart = incrementGlobalModVersion();
+flink-runtime/src/main/java/org/apache/flink/runtime/executiongraph/ExecutionGraph.java,1161,if (tryRestartOrFail(globalVersionForRestart)) {
+flink-runtime/src/main/java/org/apache/flink/runtime/executiongraph/ExecutionGraph.java,1162,return;
+flink-runtime/src/main/java/org/apache/flink/runtime/executiongraph/ExecutionGraph.java,1165,else if (transitionState(current, JobStatus.FAILING, t)) {
+flink-runtime/src/main/java/org/apache/flink/runtime/executiongraph/ExecutionGraph.java,1243,jv.resetForNewExecution(resetTimestamp, globalModVersion);
+flink-connectors/flink-connector-kinesis/src/main/java/org/apache/flink/streaming/connectors/kinesis/util/KinesisConfigUtil.java,269,if (!(config.containsKey(AWSConfigConstants.AWS_REGION) ^ config.containsKey(ConsumerConfigConstants.AWS_ENDPOINT))) {
+flink-connectors/flink-connector-kinesis/src/main/java/org/apache/flink/streaming/connectors/kinesis/util/KinesisConfigUtil.java,271,throw new IllegalArgumentException(String.format("Either AWS region ('%s') or AWS endpoint ('%s') must be set in the config.",
+flink-connectors/flink-connector-kinesis/src/main/java/org/apache/flink/streaming/connectors/kinesis/util/KinesisConfigUtil.java,272,AWSConfigConstants.AWS_REGION, AWSConfigConstants.AWS_REGION));
+flink-yarn/src/main/java/org/apache/flink/yarn/AbstractYarnClusterDescriptor.java,287,int numYarnVcores = yarnConfiguration.getInt(YarnConfiguration.NM_VCORES, YarnConfiguration.DEFAULT_NM_VCORES);
+flink-yarn/src/main/java/org/apache/flink/yarn/AbstractYarnClusterDescriptor.java,290,if (configuredVcores > numYarnVcores) {
+flink-yarn/src/main/java/org/apache/flink/yarn/AbstractYarnClusterDescriptor.java,292,String.format("The number of virtual cores per node were configured with %d" +
+flink-yarn/src/main/java/org/apache/flink/yarn/AbstractYarnClusterDescriptor.java,296,configuredVcores, numYarnVcores, YarnConfigOptions.VCORES.key()));
+flink-runtime/src/main/java/org/apache/flink/runtime/io/disk/iomanager/AsynchronousFileIOChannel.java,344,this.channel.fileChannel.write(this.segment.wrap(0, this.segment.size()));
+flink-runtime/src/main/java/org/apache/flink/runtime/io/disk/iomanager/AsynchronousFileIOChannel.java,378,channel.fileChannel.write(header);
+flink-runtime/src/main/java/org/apache/flink/runtime/io/disk/iomanager/AsynchronousFileIOChannel.java,379,channel.fileChannel.write(nioBufferReadable);
+flink-runtime/src/main/java/org/apache/flink/runtime/io/network/api/serialization/SpillingAdaptiveSpanningRecordDeserializer.java,484,this.spillingChannel.write(toWrite);
+flink-runtime/src/main/java/org/apache/flink/runtime/io/network/api/serialization/SpillingAdaptiveSpanningRecordDeserializer.java,529,this.spillingChannel.write(toWrite);
+flink-streaming-java/src/main/java/org/apache/flink/streaming/runtime/io/BufferSpiller.java,79,private final ByteBuffer[] sources;
+flink-streaming-java/src/main/java/org/apache/flink/streaming/runtime/io/BufferSpiller.java,112,this.sources = new ByteBuffer[] { this.headBuffer, null };
+flink-streaming-java/src/main/java/org/apache/flink/streaming/runtime/io/BufferSpiller.java,151,sources[1] = contents;
+flink-streaming-java/src/main/java/org/apache/flink/streaming/runtime/io/BufferSpiller.java,152,currentChannel.write(sources);
+flink-runtime/src/main/java/org/apache/flink/runtime/checkpoint/CheckpointCoordinator.java,843,if (!completedCheckpoint.getProperties().isSavepoint()) {
+flink-runtime/src/main/java/org/apache/flink/runtime/checkpoint/CheckpointCoordinator.java,844,try {
+flink-runtime/src/main/java/org/apache/flink/runtime/checkpoint/CheckpointCoordinator.java,845,completedCheckpointStore.addCheckpoint(completedCheckpoint);
+flink-runtime/src/main/java/org/apache/flink/runtime/checkpoint/CheckpointCoordinator.java,848,executor.execute(new Runnable() {
+flink-runtime/src/main/java/org/apache/flink/runtime/checkpoint/CheckpointCoordinator.java,850,public void run() {
+flink-runtime/src/main/java/org/apache/flink/runtime/checkpoint/CheckpointCoordinator.java,851,try {
+flink-runtime/src/main/java/org/apache/flink/runtime/checkpoint/CheckpointCoordinator.java,852,completedCheckpoint.discardOnFailedStoring();
+flink-runtime/src/main/java/org/apache/flink/runtime/checkpoint/CheckpointCoordinator.java,854,LOG.warn("Could not properly discard completed checkpoint {} of job {}.", completedCheckpoint.getCheckpointID(), job, t);
+flink-runtime/src/main/java/org/apache/flink/runtime/checkpoint/CheckpointCoordinator.java,859,throw new CheckpointException("Could not complete the pending checkpoint " + checkpointId + '.', exception);
+flink-runtime/src/main/java/org/apache/flink/runtime/checkpoint/CheckpointCoordinator.java,863,dropSubsumedCheckpoints(checkpointId);
+flink-runtime/src/main/java/org/apache/flink/runtime/rest/RestClient.java,34,import org.apache.flink.util.FlinkException;
+flink-runtime/src/main/java/org/apache/flink/runtime/rest/RestClient.java,284,CompletableFuture<JsonResponse> future = handler.getJsonFuture();
+flink-runtime/src/main/java/org/apache/flink/runtime/rest/RestClient.java,286,httpRequest.writeTo(channel);
+flink-runtime/src/main/java/org/apache/flink/runtime/rest/RestClient.java,288,return FutureUtils.completedExceptionally(new FlinkException("Could not write request.", e));
+flink-runtime/src/main/java/org/apache/flink/runtime/rest/RestClient.java,113,if (sslEngineFactory != null) {
+flink-runtime/src/main/java/org/apache/flink/runtime/rest/RestClient.java,114,socketChannel.pipeline().addLast("ssl", new SslHandler(sslEngineFactory.createSSLEngine()));
+flink-runtime/src/main/java/org/apache/flink/runtime/rest/RestClient.java,120,.addLast(new ChunkedWriteHandler()) // required for multipart-requests
+flink-runtime/src/main/java/org/apache/flink/runtime/rest/RestClient.java,121,.addLast(new ClientHandler());
+flink-runtime/src/main/java/org/apache/flink/runtime/rest/RestClientConfiguration.java,107,return new RestClientConfiguration(sslEngineFactory, connectionTimeout, maxContentLength);
+flink-clients/src/main/java/org/apache/flink/client/program/MiniClusterClient.java,98,throw new ProgramInvocationException("Job failed", jobGraph.getJobID(), e.getCause());
+flink-clients/src/main/java/org/apache/flink/client/program/rest/RestClusterClient.java,267,throw new ProgramInvocationException("Job failed.", jobGraph.getJobID(), we.getCause());
+flink-runtime/src/main/java/org/apache/flink/runtime/jobmaster/JobResult.java,29,import org.apache.flink.util.FlinkException;
+flink-runtime/src/main/java/org/apache/flink/runtime/jobmaster/JobResult.java,83,return serializedThrowable == null;
+flink-runtime/src/main/java/org/apache/flink/runtime/jobmaster/JobResult.java,115,public JobExecutionResult toJobExecutionResult(ClassLoader classLoader) throws WrappedJobException, IOException, ClassNotFoundException {
+flink-runtime/src/main/java/org/apache/flink/runtime/jobmaster/JobResult.java,116,if (serializedThrowable != null) {
+flink-runtime/src/main/java/org/apache/flink/runtime/jobmaster/JobResult.java,117,final Throwable throwable = serializedThrowable.deserializeError(classLoader);
+flink-runtime/src/main/java/org/apache/flink/runtime/jobmaster/JobResult.java,118,throw new WrappedJobException(throwable);
+flink-runtime/src/main/java/org/apache/flink/runtime/jobmaster/JobResult.java,121,return new JobExecutionResult(
+flink-runtime/src/main/java/org/apache/flink/runtime/jobmaster/JobResult.java,122,jobId,
+flink-runtime/src/main/java/org/apache/flink/runtime/jobmaster/JobResult.java,123,netRuntime,
+flink-runtime/src/main/java/org/apache/flink/runtime/jobmaster/JobResult.java,124,AccumulatorHelper.deserializeAccumulators(
+flink-runtime/src/main/java/org/apache/flink/runtime/jobmaster/JobResult.java,125,accumulatorResults,
+flink-runtime/src/main/java/org/apache/flink/runtime/jobmaster/JobResult.java,126,classLoader));
+flink-runtime/src/main/java/org/apache/flink/runtime/jobmaster/JobResult.java,211,public static final class WrappedJobException extends FlinkException {
+flink-runtime/src/main/java/org/apache/flink/runtime/jobmaster/JobResult.java,213,private static final long serialVersionUID = 6535061898650156019L;
+flink-runtime/src/main/java/org/apache/flink/runtime/jobmaster/JobResult.java,215,public WrappedJobException(Throwable cause) {
+flink-runtime/src/main/java/org/apache/flink/runtime/jobmaster/JobResult.java,216,super(cause);
+flink-runtime/src/main/java/org/apache/flink/runtime/minicluster/MiniCluster.java,623,throw new JobExecutionException(job.getJobID(), e.getCause());
+flink-clients/src/main/java/org/apache/flink/client/cli/CliFrontend.java,495,.forEachOrdered(job -> {
+flink-clients/src/main/java/org/apache/flink/client/cli/CliFrontend.java,498,+ " (" + job.getJobState() + ")");
+flink-clients/src/main/java/org/apache/flink/client/cli/CliFrontend.java,834,throws FileNotFoundException, ProgramInvocationException {
+flink-clients/src/main/java/org/apache/flink/client/cli/CliFrontend.java,1166,public static void setJobManagerAddressInConfig(Configuration config, InetSocketAddress address) {
+flink-clients/src/main/java/org/apache/flink/client/cli/CliFrontend.java,282,if (clusterId == null && !client.isDetached()) {
+flink-clients/src/main/java/org/apache/flink/client/cli/CliFrontend.java,285,client.shutDownCluster();
+flink-clients/src/main/java/org/apache/flink/client/cli/CliFrontend.java,287,LOG.info("Could not properly terminate the Flink cluster.", e);
+flink-libraries/flink-sql-client/src/main/java/org/apache/flink/table/client/gateway/local/LocalExecutor.java,229,return tableEnv.explain(table);
+flink-libraries/flink-sql-client/src/main/java/org/apache/flink/table/client/gateway/local/LocalExecutor.java,245,final DynamicResult result = resultStore.getResult(resultId);
+flink-libraries/flink-sql-client/src/main/java/org/apache/flink/table/client/gateway/local/LocalExecutor.java,257,final DynamicResult result = resultStore.getResult(resultId);
+flink-libraries/flink-sql-client/src/main/java/org/apache/flink/table/client/gateway/local/LocalExecutor.java,269,final DynamicResult result = resultStore.getResult(resultId);
+flink-libraries/flink-sql-client/src/main/java/org/apache/flink/table/client/gateway/local/LocalExecutor.java,347,applyUpdate(envInst.getTableEnvironment(), envInst.getQueryConfig(), statement);
+flink-libraries/flink-sql-client/src/main/java/org/apache/flink/table/client/gateway/local/LocalExecutor.java,389,table.writeToSink(result.getTableSink(), envInst.getQueryConfig());
+flink-libraries/flink-sql-client/src/main/java/org/apache/flink/table/client/gateway/local/LocalExecutor.java,432,private void applyUpdate(TableEnvironment tableEnv, QueryConfig queryConfig, String updateStatement) {
+flink-libraries/flink-sql-client/src/main/java/org/apache/flink/table/client/gateway/local/LocalExecutor.java,435,tableEnv.sqlUpdate(updateStatement, queryConfig);
+flink-filesystems/flink-s3-fs-hadoop/src/main/java/org/apache/hadoop/conf/Configuration.java,655,static{
+flink-filesystems/flink-s3-fs-hadoop/src/main/java/org/apache/hadoop/conf/Configuration.java,657,ClassLoader cL = Thread.currentThread().getContextClassLoader();
+flink-filesystems/flink-s3-fs-hadoop/src/main/java/org/apache/hadoop/conf/Configuration.java,658,if (cL == null) {
+flink-filesystems/flink-s3-fs-hadoop/src/main/java/org/apache/hadoop/conf/Configuration.java,659,cL = Configuration.class.getClassLoader();
+flink-filesystems/flink-s3-fs-hadoop/src/main/java/org/apache/hadoop/conf/Configuration.java,661,if(cL.getResource("hadoop-site.xml")!=null) {
+flink-filesystems/flink-s3-fs-hadoop/src/main/java/org/apache/hadoop/conf/Configuration.java,662,LOG.warn("DEPRECATED: hadoop-site.xml found in the classpath. " +
+flink-filesystems/flink-s3-fs-hadoop/src/main/java/org/apache/hadoop/conf/Configuration.java,664,+ "mapred-site.xml and hdfs-site.xml to override properties of " +
+flink-filesystems/flink-s3-fs-hadoop/src/main/java/org/apache/hadoop/conf/Configuration.java,669,addDefaultResource("core-site.xml");
+flink-filesystems/flink-s3-fs-presto/src/main/java/org/apache/hadoop/conf/Configuration.java,649,static{
+flink-filesystems/flink-s3-fs-presto/src/main/java/org/apache/hadoop/conf/Configuration.java,651,ClassLoader cL = Thread.currentThread().getContextClassLoader();
+flink-filesystems/flink-s3-fs-presto/src/main/java/org/apache/hadoop/conf/Configuration.java,652,if (cL == null) {
+flink-filesystems/flink-s3-fs-presto/src/main/java/org/apache/hadoop/conf/Configuration.java,653,cL = Configuration.class.getClassLoader();
+flink-filesystems/flink-s3-fs-presto/src/main/java/org/apache/hadoop/conf/Configuration.java,655,if(cL.getResource("hadoop-site.xml")!=null) {
+flink-filesystems/flink-s3-fs-presto/src/main/java/org/apache/hadoop/conf/Configuration.java,656,LOG.warn("DEPRECATED: hadoop-site.xml found in the classpath. " +
+flink-filesystems/flink-s3-fs-presto/src/main/java/org/apache/hadoop/conf/Configuration.java,658,+ "mapred-site.xml and hdfs-site.xml to override properties of " +
+flink-filesystems/flink-s3-fs-presto/src/main/java/org/apache/hadoop/conf/Configuration.java,663,addDefaultResource("core-site.xml");
+flink-filesystems/flink-swift-fs-hadoop/src/main/java/org/apache/hadoop/conf/Configuration.java,623,static{
+flink-filesystems/flink-swift-fs-hadoop/src/main/java/org/apache/hadoop/conf/Configuration.java,625,ClassLoader cL = Thread.currentThread().getContextClassLoader();
+flink-filesystems/flink-swift-fs-hadoop/src/main/java/org/apache/hadoop/conf/Configuration.java,626,if (cL == null) {
+flink-filesystems/flink-swift-fs-hadoop/src/main/java/org/apache/hadoop/conf/Configuration.java,627,cL = Configuration.class.getClassLoader();
+flink-filesystems/flink-swift-fs-hadoop/src/main/java/org/apache/hadoop/conf/Configuration.java,629,if(cL.getResource("hadoop-site.xml")!=null) {
+flink-filesystems/flink-swift-fs-hadoop/src/main/java/org/apache/hadoop/conf/Configuration.java,630,LOG.warn("DEPRECATED: hadoop-site.xml found in the classpath. " +
+flink-filesystems/flink-swift-fs-hadoop/src/main/java/org/apache/hadoop/conf/Configuration.java,632,+ "mapred-site.xml and hdfs-site.xml to override properties of " +
+flink-filesystems/flink-swift-fs-hadoop/src/main/java/org/apache/hadoop/conf/Configuration.java,637,addDefaultResource("core-site.xml");
+flink-runtime/src/main/java/org/apache/flink/runtime/state/ttl/AbstractTtlDecorator.java,95,return ttlValue.getUserValue();
+flink-runtime/src/main/java/org/apache/flink/runtime/state/ttl/TtlMapState.java,57,return getWithTtlCheckAndUpdate(() -> original.get(key), v -> original.put(key, v), () -> original.remove(key));
+flink-runtime/src/main/java/org/apache/flink/runtime/state/ttl/TtlMapState.java,84,return get(key) != null;
+flink-runtime/src/main/java/org/apache/flink/runtime/state/ttl/TtlMapState.java,162,UV unexpiredValue;
+flink-runtime/src/main/java/org/apache/flink/runtime/state/ttl/TtlMapState.java,164,unexpiredValue = getWithTtlCheckAndUpdate(
+flink-runtime/src/main/java/org/apache/flink/runtime/state/ttl/TtlMapState.java,171,return unexpiredValue == null ? null : new AbstractMap.SimpleEntry<>(e.getKey(), unexpiredValue);
+flink-runtime/src/main/java/org/apache/flink/runtime/state/ttl/TtlUtils.java,37,return value == null ? null : new TtlValue<>(value, ts);
+flink-runtime/src/main/java/org/apache/flink/runtime/state/ttl/TtlValue.java,21,import org.apache.flink.util.Preconditions;
+flink-runtime/src/main/java/org/apache/flink/runtime/state/ttl/TtlValue.java,34,TtlValue(T userValue, long lastAccessTimestamp) {
+flink-runtime/src/main/java/org/apache/flink/runtime/state/ttl/TtlValue.java,35,Preconditions.checkNotNull(userValue);
+flink-yarn/src/main/java/org/apache/flink/yarn/YarnResourceManager.java,339,internalRequestYarnContainer(container.getResource(), yarnWorkerNode.getContainer().getPriority());
+flink-yarn/src/main/java/org/apache/flink/yarn/YarnResourceManager.java,449,resourceManagerClient.addContainerRequest(new AMRMClient.ContainerRequest(resource, null, null, priority));
+flink-yarn/src/main/java/org/apache/flink/yarn/YarnResourceManager.java,452,resourceManagerClient.setHeartbeatInterval(FAST_YARN_HEARTBEAT_INTERVAL_MS);
+flink-yarn/src/main/java/org/apache/flink/yarn/YarnResourceManager.java,454,numPendingContainerRequests++;
+flink-yarn/src/main/java/org/apache/flink/yarn/YarnResourceManager.java,456,log.info("Requesting new TaskExecutor container with resources {}. Number pending requests {}.",
+flink-yarn/src/main/java/org/apache/flink/yarn/YarnResourceManager.java,457,resource,
+flink-yarn/src/main/java/org/apache/flink/yarn/YarnResourceManager.java,458,numPendingContainerRequests);
+flink-yarn/src/main/java/org/apache/flink/yarn/YarnResourceManager.java,519,private void internalRequestYarnContainer(Resource resource, Priority priority) {
+flink-yarn/src/main/java/org/apache/flink/yarn/YarnResourceManager.java,520,int pendingSlotRequests = getNumberPendingSlotRequests();
+flink-yarn/src/main/java/org/apache/flink/yarn/YarnResourceManager.java,521,int pendingSlotAllocation = numPendingContainerRequests * numberOfTaskSlots;
+flink-yarn/src/main/java/org/apache/flink/yarn/YarnResourceManager.java,522,if (pendingSlotRequests > pendingSlotAllocation) {
+flink-yarn/src/main/java/org/apache/flink/yarn/YarnResourceManager.java,523,requestYarnContainer(resource, priority);
+flink-filesystems/flink-hadoop-fs/src/main/java/org/apache/flink/runtime/fs/hdfs/HadoopConfigLoader.java,103,LOG.debug("Adding Flink config entry for {} as {}={} to Hadoop config", key, newKey, value);
+flink-runtime/src/main/java/org/apache/flink/runtime/dispatcher/Dispatcher.java,111,private final Map<JobID, JobManagerRunner> jobManagerRunners;
+flink-runtime/src/main/java/org/apache/flink/runtime/dispatcher/Dispatcher.java,165,jobManagerRunners = new HashMap<>(16);
+flink-runtime/src/main/java/org/apache/flink/runtime/dispatcher/Dispatcher.java,247,if (jobSchedulingStatus == RunningJobsRegistry.JobSchedulingStatus.DONE || jobManagerRunners.containsKey(jobId)) {
+flink-runtime/src/main/java/org/apache/flink/runtime/dispatcher/Dispatcher.java,257,new JobSubmissionException(jobId, "Failed to submit job.", throwable));
+flink-runtime/src/main/java/org/apache/flink/runtime/dispatcher/Dispatcher.java,262,private void persistAndRunJob(JobGraph jobGraph) throws Exception {
+flink-runtime/src/main/java/org/apache/flink/runtime/dispatcher/Dispatcher.java,265,try {
+flink-runtime/src/main/java/org/apache/flink/runtime/dispatcher/Dispatcher.java,266,runJob(jobGraph);
+flink-runtime/src/main/java/org/apache/flink/runtime/dispatcher/Dispatcher.java,268,try {
+flink-runtime/src/main/java/org/apache/flink/runtime/dispatcher/Dispatcher.java,271,e.addSuppressed(ie);
+flink-runtime/src/main/java/org/apache/flink/runtime/dispatcher/Dispatcher.java,274,throw e;
+flink-runtime/src/main/java/org/apache/flink/runtime/dispatcher/Dispatcher.java,278,private void runJob(JobGraph jobGraph) throws Exception {
+flink-runtime/src/main/java/org/apache/flink/runtime/dispatcher/Dispatcher.java,279,Preconditions.checkState(!jobManagerRunners.containsKey(jobGraph.getJobID()));
+flink-runtime/src/main/java/org/apache/flink/runtime/dispatcher/Dispatcher.java,281,final JobManagerRunner jobManagerRunner = createJobManagerRunner(jobGraph);
+flink-runtime/src/main/java/org/apache/flink/runtime/dispatcher/Dispatcher.java,283,jobManagerRunner.start();
+flink-runtime/src/main/java/org/apache/flink/runtime/dispatcher/Dispatcher.java,285,jobManagerRunners.put(jobGraph.getJobID(), jobManagerRunner);
+flink-runtime/src/main/java/org/apache/flink/runtime/dispatcher/Dispatcher.java,288,private JobManagerRunner createJobManagerRunner(JobGraph jobGraph) throws Exception {
+flink-runtime/src/main/java/org/apache/flink/runtime/dispatcher/Dispatcher.java,289,final JobID jobId = jobGraph.getJobID();
+flink-runtime/src/main/java/org/apache/flink/runtime/dispatcher/Dispatcher.java,291,final JobManagerRunner jobManagerRunner = jobManagerRunnerFactory.createJobManagerRunner(
+flink-runtime/src/main/java/org/apache/flink/runtime/dispatcher/Dispatcher.java,292,ResourceID.generate(),
+flink-runtime/src/main/java/org/apache/flink/runtime/dispatcher/Dispatcher.java,293,jobGraph,
+flink-runtime/src/main/java/org/apache/flink/runtime/dispatcher/Dispatcher.java,294,configuration,
+flink-runtime/src/main/java/org/apache/flink/runtime/dispatcher/Dispatcher.java,295,getRpcService(),
+flink-runtime/src/main/java/org/apache/flink/runtime/dispatcher/Dispatcher.java,296,highAvailabilityServices,
+flink-runtime/src/main/java/org/apache/flink/runtime/dispatcher/Dispatcher.java,297,heartbeatServices,
+flink-runtime/src/main/java/org/apache/flink/runtime/dispatcher/Dispatcher.java,298,blobServer,
+flink-runtime/src/main/java/org/apache/flink/runtime/dispatcher/Dispatcher.java,299,jobManagerSharedServices,
+flink-runtime/src/main/java/org/apache/flink/runtime/dispatcher/Dispatcher.java,300,new DefaultJobManagerJobMetricGroupFactory(jobManagerMetricGroup),
+flink-runtime/src/main/java/org/apache/flink/runtime/dispatcher/Dispatcher.java,301,fatalErrorHandler);
+flink-runtime/src/main/java/org/apache/flink/runtime/dispatcher/Dispatcher.java,307,if (jobManagerRunner == jobManagerRunners.get(jobId)) {
+flink-runtime/src/main/java/org/apache/flink/runtime/dispatcher/Dispatcher.java,330,Collections.unmodifiableSet(new HashSet<>(jobManagerRunners.keySet())));
+flink-runtime/src/main/java/org/apache/flink/runtime/dispatcher/Dispatcher.java,480,final JobManagerRunner jobManagerRunner = jobManagerRunners.get(jobId);
+flink-runtime/src/main/java/org/apache/flink/runtime/dispatcher/Dispatcher.java,482,if (jobManagerRunner == null) {
+flink-runtime/src/main/java/org/apache/flink/runtime/dispatcher/Dispatcher.java,491,return jobManagerRunner.getResultFuture().thenApply(JobResult::createFrom);
+flink-runtime/src/main/java/org/apache/flink/runtime/dispatcher/Dispatcher.java,565,JobManagerRunner jobManagerRunner = jobManagerRunners.remove(jobId);
+flink-runtime/src/main/java/org/apache/flink/runtime/dispatcher/Dispatcher.java,568,if (jobManagerRunner != null) {
+flink-runtime/src/main/java/org/apache/flink/runtime/dispatcher/Dispatcher.java,569,jobManagerRunnerTerminationFuture = jobManagerRunner.closeAsync();
+flink-runtime/src/main/java/org/apache/flink/runtime/dispatcher/Dispatcher.java,607,final HashSet<JobID> jobsToRemove = new HashSet<>(jobManagerRunners.keySet());
+flink-runtime/src/main/java/org/apache/flink/runtime/dispatcher/Dispatcher.java,710,final JobManagerRunner jobManagerRunner = jobManagerRunners.get(jobId);
+flink-runtime/src/main/java/org/apache/flink/runtime/dispatcher/Dispatcher.java,712,if (jobManagerRunner == null) {
+flink-runtime/src/main/java/org/apache/flink/runtime/dispatcher/Dispatcher.java,715,final CompletableFuture<JobMasterGateway> leaderGatewayFuture = jobManagerRunner.getLeaderGatewayFuture();
+flink-runtime/src/main/java/org/apache/flink/runtime/dispatcher/Dispatcher.java,719,if (jobManagerRunners.containsKey(jobId)) {
+flink-runtime/src/main/java/org/apache/flink/runtime/dispatcher/Dispatcher.java,735,final int numberJobsRunning = jobManagerRunners.size();
+flink-runtime/src/main/java/org/apache/flink/runtime/dispatcher/Dispatcher.java,740,for (JobID jobId : jobManagerRunners.keySet()) {
+flink-runtime/src/main/java/org/apache/flink/runtime/dispatcher/Dispatcher.java,794,Collection<CompletableFuture<Void>> runFutures = new ArrayList<>(recoveredJobs.size());
+flink-runtime/src/main/java/org/apache/flink/runtime/dispatcher/Dispatcher.java,797,final CompletableFuture<Void> runFuture = waitForTerminatingJobManager(recoveredJob.getJobID(), recoveredJob, this::runJob);
+flink-runtime/src/main/java/org/apache/flink/runtime/dispatcher/Dispatcher.java,817,return jobManagerTerminationFuture.thenRunAsync(
+flink-runtime/src/main/java/org/apache/flink/runtime/dispatcher/Dispatcher.java,820,action.accept(jobGraph);
+flink-runtime/src/main/java/org/apache/flink/runtime/jobmanager/ZooKeeperSubmittedJobGraphStore.java,152,pathCache.close();
+flink-runtime/src/main/java/org/apache/flink/runtime/jobmanager/ZooKeeperSubmittedJobGraphStore.java,154,throw new Exception("Could not properly stop the ZooKeeperSubmittedJobGraphStore.", e);
+flink-runtime/src/main/java/org/apache/flink/runtime/jobmanager/ZooKeeperSubmittedJobGraphStore.java,270,jobGraphsInZooKeeper.releaseAndTryRemove(path);
+flink-runtime/src/main/java/org/apache/flink/runtime/jobmanager/ZooKeeperSubmittedJobGraphStore.java,272,addedJobGraphs.remove(jobId);
+flink-runtime/src/main/java/org/apache/flink/runtime/dispatcher/Dispatcher.java,63,import org.apache.flink.runtime.rpc.RpcUtils;
+flink-runtime/src/main/java/org/apache/flink/runtime/dispatcher/Dispatcher.java,624,CompletableFuture<Collection<JobGraph>> recoverJobs() {
+flink-runtime/src/main/java/org/apache/flink/runtime/dispatcher/Dispatcher.java,626,return FutureUtils.supplyAsync(
+flink-runtime/src/main/java/org/apache/flink/runtime/dispatcher/Dispatcher.java,627,() -> {
+flink-runtime/src/main/java/org/apache/flink/runtime/dispatcher/Dispatcher.java,628,final Collection<JobID> jobIds = submittedJobGraphStore.getJobIds();
+flink-runtime/src/main/java/org/apache/flink/runtime/dispatcher/Dispatcher.java,630,final List<JobGraph> jobGraphs = new ArrayList<>(jobIds.size());
+flink-runtime/src/main/java/org/apache/flink/runtime/dispatcher/Dispatcher.java,632,for (JobID jobId : jobIds) {
+flink-runtime/src/main/java/org/apache/flink/runtime/dispatcher/Dispatcher.java,633,jobGraphs.add(recoverJob(jobId));
+flink-runtime/src/main/java/org/apache/flink/runtime/dispatcher/Dispatcher.java,636,return jobGraphs;
+flink-runtime/src/main/java/org/apache/flink/runtime/dispatcher/Dispatcher.java,638,getRpcService().getExecutor());
+flink-runtime/src/main/java/org/apache/flink/runtime/dispatcher/Dispatcher.java,643,SubmittedJobGraph submittedJobGraph = submittedJobGraphStore.recoverJobGraph(jobId);
+flink-runtime/src/main/java/org/apache/flink/runtime/dispatcher/Dispatcher.java,648,throw new FlinkJobNotFoundException(jobId);
+flink-runtime/src/main/java/org/apache/flink/runtime/dispatcher/Dispatcher.java,763,log.info("Dispatcher {} was granted leadership with fencing token {}", getAddress(), newLeaderSessionID);
+flink-runtime/src/main/java/org/apache/flink/runtime/dispatcher/Dispatcher.java,765,final CompletableFuture<Collection<JobGraph>> recoveredJobsFuture = recoverJobs();
+flink-runtime/src/main/java/org/apache/flink/runtime/dispatcher/Dispatcher.java,767,final CompletableFuture<Boolean> fencingTokenFuture = recoveredJobsFuture.thenComposeAsync(
+flink-runtime/src/main/java/org/apache/flink/runtime/dispatcher/Dispatcher.java,768,(Collection<JobGraph> recoveredJobs) -> tryAcceptLeadershipAndRunJobs(newLeaderSessionID, recoveredJobs),
+flink-runtime/src/main/java/org/apache/flink/runtime/dispatcher/Dispatcher.java,769,getUnfencedMainThreadExecutor());
+flink-runtime/src/main/java/org/apache/flink/runtime/dispatcher/Dispatcher.java,771,final CompletableFuture<Void> confirmationFuture = fencingTokenFuture.thenAcceptAsync(
+flink-runtime/src/main/java/org/apache/flink/runtime/dispatcher/Dispatcher.java,772,(Boolean confirmLeadership) -> {
+flink-runtime/src/main/java/org/apache/flink/runtime/dispatcher/Dispatcher.java,773,if (confirmLeadership) {
+flink-runtime/src/main/java/org/apache/flink/runtime/dispatcher/Dispatcher.java,774,leaderElectionService.confirmLeaderSessionID(newLeaderSessionID);
+flink-runtime/src/main/java/org/apache/flink/runtime/dispatcher/Dispatcher.java,777,getRpcService().getExecutor());
+flink-runtime/src/main/java/org/apache/flink/runtime/dispatcher/Dispatcher.java,779,confirmationFuture.whenComplete(
+flink-runtime/src/main/java/org/apache/flink/runtime/dispatcher/Dispatcher.java,780,(Void ignored, Throwable throwable) -> {
+flink-runtime/src/main/java/org/apache/flink/runtime/dispatcher/Dispatcher.java,781,if (throwable != null) {
+flink-runtime/src/main/java/org/apache/flink/runtime/dispatcher/Dispatcher.java,782,onFatalError(ExceptionUtils.stripCompletionException(throwable));
+flink-runtime/src/main/java/org/apache/flink/runtime/dispatcher/Dispatcher.java,867,final CompletableFuture<SubmittedJobGraph> recoveredJob = getRpcService().execute(
+flink-runtime/src/main/java/org/apache/flink/runtime/dispatcher/Dispatcher.java,868,() -> submittedJobGraphStore.recoverJobGraph(jobId));
+flink-runtime/src/main/java/org/apache/flink/runtime/dispatcher/Dispatcher.java,870,final CompletableFuture<Acknowledge> submissionFuture = recoveredJob.thenComposeAsync(
+flink-runtime/src/main/java/org/apache/flink/runtime/dispatcher/Dispatcher.java,871,(SubmittedJobGraph submittedJobGraph) -> submitJob(submittedJobGraph.getJobGraph(), RpcUtils.INF_TIMEOUT),
+flink-runtime/src/main/java/org/apache/flink/runtime/dispatcher/Dispatcher.java,872,getMainThreadExecutor());
+flink-runtime/src/main/java/org/apache/flink/runtime/dispatcher/Dispatcher.java,874,submissionFuture.whenComplete(
+flink-runtime/src/main/java/org/apache/flink/runtime/dispatcher/Dispatcher.java,875,(Acknowledge acknowledge, Throwable throwable) -> {
+flink-runtime/src/main/java/org/apache/flink/runtime/dispatcher/Dispatcher.java,876,if (throwable != null) {
+flink-runtime/src/main/java/org/apache/flink/runtime/dispatcher/Dispatcher.java,877,onFatalError(
+flink-runtime/src/main/java/org/apache/flink/runtime/dispatcher/Dispatcher.java,878,new DispatcherException(
+flink-runtime/src/main/java/org/apache/flink/runtime/dispatcher/Dispatcher.java,879,String.format("Could not start the added job %s", jobId),
+flink-runtime/src/main/java/org/apache/flink/runtime/dispatcher/Dispatcher.java,880,ExceptionUtils.stripCompletionException(throwable)));
+flink-runtime/src/main/java/org/apache/flink/runtime/zookeeper/ZooKeeperStateHandleStore.java,549,throw new Exception("Cannot lock the node " + path + " since it does not exist.", e);
+flink-runtime/src/main/java/org/apache/flink/runtime/zookeeper/ZooKeeperStateHandleStore.java,556,byte[] data;
+flink-runtime/src/main/java/org/apache/flink/runtime/zookeeper/ZooKeeperStateHandleStore.java,558,try {
+flink-runtime/src/main/java/org/apache/flink/runtime/zookeeper/ZooKeeperStateHandleStore.java,559,data = client.getData().forPath(path);
+flink-runtime/src/main/java/org/apache/flink/runtime/zookeeper/ZooKeeperStateHandleStore.java,561,throw new Exception("Failed to retrieve state handle data under " + path +
+flink-connectors/flink-connector-elasticsearch-base/src/main/java/org/apache/flink/streaming/connectors/elasticsearch/ElasticsearchSinkBase.java,167,private transient BulkProcessorIndexer requestIndexer;
+flink-connectors/flink-connector-elasticsearch-base/src/main/java/org/apache/flink/streaming/connectors/elasticsearch/ElasticsearchSinkBase.java,298,requestIndexer = new BulkProcessorIndexer(bulkProcessor, flushOnCheckpoint, numPendingRequests);
+flink-runtime/src/main/java/org/apache/flink/runtime/dispatcher/Dispatcher.java,575,() -> {
+flink-runtime/src/main/java/org/apache/flink/runtime/dispatcher/Dispatcher.java,576,jobManagerMetricGroup.removeJob(jobId);
+flink-runtime/src/main/java/org/apache/flink/runtime/dispatcher/Dispatcher.java,578,boolean cleanupHABlobs = false;
+flink-runtime/src/main/java/org/apache/flink/runtime/dispatcher/Dispatcher.java,579,if (cleanupHA) {
+flink-runtime/src/main/java/org/apache/flink/runtime/dispatcher/Dispatcher.java,580,try {
+flink-runtime/src/main/java/org/apache/flink/runtime/dispatcher/Dispatcher.java,581,submittedJobGraphStore.removeJobGraph(jobId);
+flink-runtime/src/main/java/org/apache/flink/runtime/dispatcher/Dispatcher.java,584,cleanupHABlobs = true;
+flink-runtime/src/main/java/org/apache/flink/runtime/dispatcher/Dispatcher.java,586,log.warn("Could not properly remove job {} from submitted job graph store.", jobId, e);
+flink-runtime/src/main/java/org/apache/flink/runtime/dispatcher/Dispatcher.java,589,try {
+flink-runtime/src/main/java/org/apache/flink/runtime/dispatcher/Dispatcher.java,590,runningJobsRegistry.clearJob(jobId);
+flink-runtime/src/main/java/org/apache/flink/runtime/dispatcher/Dispatcher.java,592,log.warn("Could not properly remove job {} from the running jobs registry.", jobId, e);
+flink-runtime/src/main/java/org/apache/flink/runtime/dispatcher/Dispatcher.java,596,blobServer.cleanupJob(jobId, cleanupHABlobs);
+flink-runtime/src/main/java/org/apache/flink/runtime/dispatcher/Dispatcher.java,598,getRpcService().getExecutor());
+flink-runtime/src/main/java/org/apache/flink/runtime/dispatcher/Dispatcher.java,809,final CompletableFuture<Void> jobManagerTerminationFuture = jobManagerTerminationFutures
+flink-runtime/src/main/java/org/apache/flink/runtime/dispatcher/SingleJobSubmittedJobGraphStore.java,69,public void removeJobGraph(JobID jobId) throws Exception {
+flink-runtime/src/main/java/org/apache/flink/runtime/dispatcher/SingleJobSubmittedJobGraphStore.java,74,public Collection<JobID> getJobIds() throws Exception {
+flink-runtime/src/main/java/org/apache/flink/runtime/jobmanager/StandaloneSubmittedJobGraphStore.java,46,public void putJobGraph(SubmittedJobGraph jobGraph) throws Exception {
+flink-runtime/src/main/java/org/apache/flink/runtime/jobmanager/StandaloneSubmittedJobGraphStore.java,51,public void removeJobGraph(JobID jobId) throws Exception {
+flink-runtime/src/main/java/org/apache/flink/runtime/jobmanager/StandaloneSubmittedJobGraphStore.java,56,public Collection<JobID> getJobIds() throws Exception {
+flink-runtime/src/main/java/org/apache/flink/runtime/jobmanager/StandaloneSubmittedJobGraphStore.java,61,public SubmittedJobGraph recoverJobGraph(JobID jobId) throws Exception {
+flink-state-backends/flink-statebackend-rocksdb/src/main/java/org/apache/flink/contrib/streaming/state/RocksDBMapState.java,535,if (cacheIndex == 0 || cacheIndex > cacheEntries.size()) {
+flink-state-backends/flink-statebackend-rocksdb/src/main/java/org/apache/flink/contrib/streaming/state/RocksDBMapState.java,539,RocksDBMapEntry lastEntry = cacheEntries.get(cacheIndex - 1);
+flink-state-backends/flink-statebackend-rocksdb/src/main/java/org/apache/flink/contrib/streaming/state/RocksDBMapState.java,540,lastEntry.remove();
+flink-state-backends/flink-statebackend-rocksdb/src/main/java/org/apache/flink/contrib/streaming/state/RocksDBMapState.java,554,RocksDBMapEntry entry = cacheEntries.get(cacheIndex);
+flink-state-backends/flink-statebackend-rocksdb/src/main/java/org/apache/flink/contrib/streaming/state/RocksDBMapState.java,557,return entry;
+flink-state-backends/flink-statebackend-rocksdb/src/main/java/org/apache/flink/contrib/streaming/state/RocksDBMapState.java,579,RocksDBMapEntry lastEntry = cacheEntries.size() == 0 ? null : cacheEntries.get(cacheEntries.size() - 1);
+flink-state-backends/flink-statebackend-rocksdb/src/main/java/org/apache/flink/contrib/streaming/state/RocksDBMapState.java,580,byte[] startBytes = (lastEntry == null ? keyPrefixBytes : lastEntry.rawKeyBytes);
+flink-state-backends/flink-statebackend-rocksdb/src/main/java/org/apache/flink/contrib/streaming/state/RocksDBMapState.java,591,if (lastEntry != null && !lastEntry.deleted) {
+flink-runtime/src/main/java/org/apache/flink/runtime/jobmaster/JobMasterGateway.java,271,final Time timeout);
+flink-runtime/src/main/java/org/apache/flink/runtime/filecache/FileCache.java,229,LOG.warn("improper use of releaseJob() without a matching number of createTmpFiles() calls for jobId " + jobId);
+flink-runtime/src/main/java/org/apache/flink/runtime/metrics/groups/TaskMetricGroup.java,45,private final Map<OperatorID, OperatorMetricGroup> operators = new HashMap<>();
+flink-runtime/src/main/java/org/apache/flink/runtime/metrics/groups/TaskMetricGroup.java,149,OperatorMetricGroup previous = operators.put(operatorID, operator);
+flink-runtime/src/main/java/org/apache/flink/runtime/metrics/groups/TaskMetricGroup.java,155,operators.put(operatorID, previous);
+flink-runtime/src/main/java/org/apache/flink/runtime/rest/FileUploadHandler.java,138,ctx.fireChannelRead(currentHttpRequest);
+flink-runtime/src/main/java/org/apache/flink/runtime/rest/FileUploadHandler.java,142,ctx.fireChannelRead(ReferenceCountUtil.retain(httpContent));
+flink-runtime/src/main/java/org/apache/flink/runtime/io/network/partition/consumer/RemoteInputChannel.java,388,if (unannouncedCredit.getAndAdd(1) == 0) {
+flink-runtime/src/main/java/org/apache/flink/runtime/io/network/partition/consumer/RemoteInputChannel.java,389,notifyCreditAvailable();
+flink-runtime/src/main/java/org/apache/flink/runtime/io/network/partition/consumer/RemoteInputChannel.java,512,boolean success = false;
+flink-runtime/src/main/java/org/apache/flink/runtime/io/network/partition/consumer/RemoteInputChannel.java,516,if (!isReleased.get()) {
+flink-runtime/src/main/java/org/apache/flink/runtime/io/network/partition/consumer/RemoteInputChannel.java,517,if (expectedSequenceNumber == sequenceNumber) {
+flink-runtime/src/main/java/org/apache/flink/runtime/io/network/partition/consumer/RemoteInputChannel.java,520,receivedBuffers.add(buffer);
+flink-runtime/src/main/java/org/apache/flink/runtime/io/network/partition/consumer/RemoteInputChannel.java,521,expectedSequenceNumber++;
+flink-runtime/src/main/java/org/apache/flink/runtime/io/network/partition/consumer/RemoteInputChannel.java,524,notifyChannelNonEmpty();
+flink-runtime/src/main/java/org/apache/flink/runtime/io/network/partition/consumer/RemoteInputChannel.java,527,success = true;
+flink-runtime/src/main/java/org/apache/flink/runtime/io/network/partition/consumer/RemoteInputChannel.java,529,onError(new BufferReorderingException(expectedSequenceNumber, sequenceNumber));
+flink-runtime/src/main/java/org/apache/flink/runtime/io/network/partition/consumer/RemoteInputChannel.java,534,if (success && backlog >= 0) {
+flink-runtime/src/main/java/org/apache/flink/runtime/io/network/partition/consumer/RemoteInputChannel.java,538,if (!success) {
+flink-libraries/flink-sql-client/src/main/java/org/apache/flink/table/client/gateway/local/result/MaterializedCollectStreamResult.java,42,private final Map<Row, List<Integer>> rowPositions; // positions of rows in table for faster access
+flink-libraries/flink-sql-client/src/main/java/org/apache/flink/table/client/gateway/local/result/MaterializedCollectStreamResult.java,54,rowPositions = new HashMap<>();
+flink-libraries/flink-sql-client/src/main/java/org/apache/flink/table/client/gateway/local/result/MaterializedCollectStreamResult.java,107,final List<Integer> positions = rowPositions.get(change.f1);
+flink-libraries/flink-sql-client/src/main/java/org/apache/flink/table/client/gateway/local/result/MaterializedCollectStreamResult.java,111,materializedTable.add(change.f1);
+flink-libraries/flink-sql-client/src/main/java/org/apache/flink/table/client/gateway/local/result/MaterializedCollectStreamResult.java,112,if (positions == null) {
+flink-libraries/flink-sql-client/src/main/java/org/apache/flink/table/client/gateway/local/result/MaterializedCollectStreamResult.java,114,final ArrayList<Integer> pos = new ArrayList<>(1);
+flink-libraries/flink-sql-client/src/main/java/org/apache/flink/table/client/gateway/local/result/MaterializedCollectStreamResult.java,115,pos.add(materializedTable.size() - 1);
+flink-libraries/flink-sql-client/src/main/java/org/apache/flink/table/client/gateway/local/result/MaterializedCollectStreamResult.java,116,rowPositions.put(change.f1, pos);
+flink-libraries/flink-sql-client/src/main/java/org/apache/flink/table/client/gateway/local/result/MaterializedCollectStreamResult.java,119,positions.add(materializedTable.size() - 1);
+flink-libraries/flink-sql-client/src/main/java/org/apache/flink/table/client/gateway/local/result/MaterializedCollectStreamResult.java,124,if (positions != null) {
+flink-libraries/flink-sql-client/src/main/java/org/apache/flink/table/client/gateway/local/result/MaterializedCollectStreamResult.java,126,final int pos = positions.remove(positions.size() - 1);
+flink-libraries/flink-sql-client/src/main/java/org/apache/flink/table/client/gateway/local/result/MaterializedCollectStreamResult.java,127,materializedTable.remove(pos);
+flink-libraries/flink-sql-client/src/main/java/org/apache/flink/table/client/gateway/local/result/MaterializedCollectStreamResult.java,128,if (positions.isEmpty()) {
+flink-libraries/flink-sql-client/src/main/java/org/apache/flink/table/client/gateway/local/result/MaterializedCollectStreamResult.java,129,rowPositions.remove(change.f1);
+flink-streaming-java/src/main/java/org/apache/flink/streaming/runtime/streamrecord/LatencyMarker.java,83,if (operatorId != that.operatorId) {
+flink-streaming-java/src/main/java/org/apache/flink/streaming/runtime/streamrecord/StreamElementSerializer.java,159,target.writeInt(source.readInt());
+flink-core/src/main/java/org/apache/flink/api/common/typeinfo/NothingTypeInfo.java,56,return 0;
+flink-queryable-state/flink-queryable-state-client-java/src/main/java/org/apache/flink/queryablestate/client/VoidNamespaceTypeInfo.java,55,return 0;
+flink-runtime/src/main/java/org/apache/flink/runtime/state/VoidNamespaceTypeInfo.java,58,return 0;
+flink-connectors/flink-connector-kinesis/src/main/java/org/apache/flink/streaming/connectors/kinesis/internals/ShardConsumer.java,282,maxNumberOfRecordsPerFetch = Math.min(maxNumberOfRecordsPerFetch, ConsumerConfigConstants.DEFAULT_SHARD_GETRECORDS_MAX);
+flink-runtime/src/main/java/org/apache/flink/runtime/state/heap/CopyOnWriteStateTableSnapshot.java,271,return tryAddToSource(currentIndex, filteredEntry);
+flink-mesos/src/main/java/org/apache/flink/mesos/entrypoint/MesosJobClusterEntrypoint.java,151,taskManagerContainerSpec
+flink-mesos/src/main/java/org/apache/flink/mesos/entrypoint/MesosJobClusterEntrypoint.java,152,);
+flink-mesos/src/main/java/org/apache/flink/mesos/entrypoint/MesosSessionClusterEntrypoint.java,141,taskManagerContainerSpec
+flink-mesos/src/main/java/org/apache/flink/mesos/entrypoint/MesosSessionClusterEntrypoint.java,142,);
+flink-mesos/src/main/java/org/apache/flink/mesos/runtime/clusterframework/MesosResourceManager.java,163,ContainerSpecification taskManagerContainerSpec) {
+flink-libraries/flink-python/src/main/java/org/apache/flink/python/api/PythonPlanBinder.java,518,sets.add(info.setID, op1.union(op2).setParallelism(info.parallelism).name("Union"));
+flink-runtime/src/main/java/org/apache/flink/runtime/heartbeat/HeartbeatManagerImpl.java,280,Preconditions.checkArgument(heartbeatTimeoutIntervalMs >= 0L, "The heartbeat timeout interval has to be larger than 0.");

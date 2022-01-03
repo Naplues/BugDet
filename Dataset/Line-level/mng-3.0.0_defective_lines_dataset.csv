@@ -1,0 +1,968 @@
+File,Line_number,SRC
+maven-core/src/main/java/org/apache/maven/execution/SettingsAdapter.java,106,return new ArrayList<Profile>();
+maven-core/src/main/java/org/apache/maven/settings/SettingsUtils.java,22,import java.util.List;
+maven-model-builder/src/main/java/org/apache/maven/model/building/DefaultModelBuilder.java,643,Model result = modelInterpolator.interpolateModel( model, model.getProjectDirectory(), request, problems );
+maven-model-builder/src/main/java/org/apache/maven/model/building/DefaultModelBuilder.java,644,result.setPomFile( model.getPomFile() );
+maven-model-builder/src/main/java/org/apache/maven/model/building/DefaultModelBuilder.java,645,return result;
+maven-core/src/main/java/org/apache/maven/model/plugin/DefaultLifecycleBindingsInjector.java,35,import org.apache.maven.model.PluginExecution;
+maven-core/src/main/java/org/apache/maven/model/plugin/DefaultLifecycleBindingsInjector.java,161,protected void mergePluginExecution( PluginExecution target, PluginExecution source, boolean sourceDominant,
+maven-core/src/main/java/org/apache/maven/model/plugin/DefaultLifecycleBindingsInjector.java,164,super.mergePluginExecution( target, source, sourceDominant, context );
+maven-core/src/main/java/org/apache/maven/model/plugin/DefaultLifecycleBindingsInjector.java,166,target.setPriority( Math.min( target.getPriority(), source.getPriority() ) );
+maven-core/src/main/java/org/apache/maven/RepositoryUtils.java,286,Dependency result = new Dependency( artifact, dependency.getScope(), dependency.isOptional(), exclusions );
+maven-core/src/main/java/org/apache/maven/project/MavenProject.java,1444,throws DuplicateArtifactAttachmentException
+maven-core/src/main/java/org/apache/maven/project/MavenProject.java,1458,getAttachedArtifacts().add( artifact );
+maven-core/src/main/java/org/apache/maven/project/MavenProject.java,1467,return attachedArtifacts;
+maven-core/src/main/java/org/apache/maven/project/MavenProjectHelper.java,29,void attachArtifact( MavenProject project, File artifactFile, String artifactClassifier );
+maven-core/src/main/java/org/apache/maven/project/MavenProjectHelper.java,31,void attachArtifact( MavenProject project, String artifactType, File artifactFile );
+maven-core/src/main/java/org/apache/maven/project/MavenProjectHelper.java,33,void attachArtifact( MavenProject project, String artifactType, String artifactClassifier, File artifactFile );
+maven-compat/src/main/java/org/apache/maven/repository/legacy/DefaultUpdateCheckManager.java,22,import java.io.ByteArrayInputStream;
+maven-compat/src/main/java/org/apache/maven/repository/legacy/DefaultUpdateCheckManager.java,23,import java.io.ByteArrayOutputStream;
+maven-compat/src/main/java/org/apache/maven/repository/legacy/DefaultUpdateCheckManager.java,28,import java.nio.ByteBuffer;
+maven-compat/src/main/java/org/apache/maven/repository/legacy/DefaultUpdateCheckManager.java,244,lock = channel.lock( 0, channel.size(), false );
+maven-compat/src/main/java/org/apache/maven/repository/legacy/DefaultUpdateCheckManager.java,249,ByteBuffer buffer = ByteBuffer.allocate( (int) channel.size() );
+maven-compat/src/main/java/org/apache/maven/repository/legacy/DefaultUpdateCheckManager.java,251,channel.read( buffer );
+maven-compat/src/main/java/org/apache/maven/repository/legacy/DefaultUpdateCheckManager.java,252,buffer.flip();
+maven-compat/src/main/java/org/apache/maven/repository/legacy/DefaultUpdateCheckManager.java,254,ByteArrayInputStream stream = new ByteArrayInputStream( buffer.array() );
+maven-compat/src/main/java/org/apache/maven/repository/legacy/DefaultUpdateCheckManager.java,255,props.load( stream );
+maven-compat/src/main/java/org/apache/maven/repository/legacy/DefaultUpdateCheckManager.java,269,ByteArrayOutputStream stream = new ByteArrayOutputStream();
+maven-compat/src/main/java/org/apache/maven/repository/legacy/DefaultUpdateCheckManager.java,272,props.store( stream, "Last modified on: " + new Date() );
+maven-compat/src/main/java/org/apache/maven/repository/legacy/DefaultUpdateCheckManager.java,274,byte[] data = stream.toByteArray();
+maven-compat/src/main/java/org/apache/maven/repository/legacy/DefaultUpdateCheckManager.java,275,ByteBuffer buffer = ByteBuffer.allocate( data.length );
+maven-compat/src/main/java/org/apache/maven/repository/legacy/DefaultUpdateCheckManager.java,276,buffer.put( data );
+maven-compat/src/main/java/org/apache/maven/repository/legacy/DefaultUpdateCheckManager.java,277,buffer.flip();
+maven-compat/src/main/java/org/apache/maven/repository/legacy/DefaultUpdateCheckManager.java,279,channel.position( 0 );
+maven-compat/src/main/java/org/apache/maven/repository/legacy/DefaultUpdateCheckManager.java,280,channel.write( buffer );
+maven-compat/src/main/java/org/apache/maven/repository/legacy/DefaultUpdateCheckManager.java,363,FileChannel channel = null;
+maven-compat/src/main/java/org/apache/maven/repository/legacy/DefaultUpdateCheckManager.java,402,channel.close();
+maven-core/src/main/java/org/apache/maven/project/ReactorModelCache.java,40,return models.get( new CacheKey( groupId, artifactId, version, tag ) );
+maven-core/src/main/java/org/apache/maven/project/ReactorModelCache.java,45,models.put( new CacheKey( groupId, artifactId, version, tag ), data );
+maven-core/src/main/java/org/apache/maven/project/ReactorModelCache.java,48,private static final class CacheKey
+maven-core/src/main/java/org/apache/maven/project/ReactorModelCache.java,89,CacheKey that = (CacheKey) obj;
+maven-model-builder/src/main/java/org/apache/maven/model/building/DefaultModelBuilder.java,432,Model model;
+maven-model-builder/src/main/java/org/apache/maven/model/building/DefaultModelBuilder.java,438,modelSource = new FileModelSource( pomFile );
+maven-model-builder/src/main/java/org/apache/maven/model/building/DefaultModelBuilder.java,440,else
+maven-model-builder/src/main/java/org/apache/maven/model/building/DefaultModelBuilder.java,450,InputSource source = request.isLocationTracking() ? new InputSource() : null;
+maven-model-builder/src/main/java/org/apache/maven/model/building/DefaultModelBuilder.java,454,options.put( ModelProcessor.INPUT_SOURCE, source );
+maven-model-builder/src/main/java/org/apache/maven/model/building/DefaultModelBuilder.java,652,ModelData parentData;
+maven-model-builder/src/main/java/org/apache/maven/model/building/DefaultModelBuilder.java,658,String groupId = parent.getGroupId();
+maven-model-builder/src/main/java/org/apache/maven/model/building/DefaultModelBuilder.java,659,String artifactId = parent.getArtifactId();
+maven-model-builder/src/main/java/org/apache/maven/model/building/DefaultModelBuilder.java,660,String version = parent.getVersion();
+maven-model-builder/src/main/java/org/apache/maven/model/building/DefaultModelBuilder.java,662,parentData = getCache( request.getModelCache(), groupId, artifactId, version, ModelCacheTag.RAW );
+maven-model-builder/src/main/java/org/apache/maven/model/building/DefaultModelBuilder.java,670,parentData = readParentExternally( childModel, request, problems );
+maven-model-builder/src/main/java/org/apache/maven/model/building/DefaultModelBuilder.java,673,putCache( request.getModelCache(), groupId, artifactId, version, ModelCacheTag.RAW, parentData );
+maven-model-builder/src/main/java/org/apache/maven/model/building/DefaultModelBuilder.java,675,else
+maven-model-builder/src/main/java/org/apache/maven/model/building/DefaultModelBuilder.java,684,File pomFile = parentData.getModel().getPomFile();
+maven-model-builder/src/main/java/org/apache/maven/model/building/DefaultModelBuilder.java,691,parentData = readParentExternally( childModel, request, problems );
+maven-model-builder/src/main/java/org/apache/maven/model/building/DefaultModelBuilder.java,1001,private <T> void putCache( ModelCache modelCache, String groupId, String artifactId, String version,
+maven-model-builder/src/main/java/org/apache/maven/model/building/DefaultModelBuilder.java,1010,private <T> T getCache( ModelCache modelCache, String groupId, String artifactId, String version,
+maven-model/src/main/java/org/apache/maven/model/merge/ModelMerger.java,1714,List<String> src = source.getOtherArchives();
+maven-model/src/main/java/org/apache/maven/model/merge/ModelMerger.java,1717,List<String> tgt = target.getOtherArchives();
+maven-model/src/main/java/org/apache/maven/model/merge/ModelMerger.java,1719,merged.addAll( tgt );
+maven-model/src/main/java/org/apache/maven/model/merge/ModelMerger.java,1720,merged.addAll( src );
+maven-model/src/main/java/org/apache/maven/model/merge/ModelMerger.java,1721,target.setOtherArchives( merged );
+maven-model/src/main/java/org/apache/maven/model/merge/ModelMerger.java,1846,List<String> src = source.getRoles();
+maven-model/src/main/java/org/apache/maven/model/merge/ModelMerger.java,1849,List<String> tgt = target.getRoles();
+maven-model/src/main/java/org/apache/maven/model/merge/ModelMerger.java,1851,merged.addAll( tgt );
+maven-model/src/main/java/org/apache/maven/model/merge/ModelMerger.java,1852,merged.addAll( src );
+maven-model/src/main/java/org/apache/maven/model/merge/ModelMerger.java,1853,target.setRoles( merged );
+maven-model/src/main/java/org/apache/maven/model/merge/ModelMerger.java,2363,List<String> src = source.getFilters();
+maven-model/src/main/java/org/apache/maven/model/merge/ModelMerger.java,2366,List<String> tgt = target.getFilters();
+maven-model/src/main/java/org/apache/maven/model/merge/ModelMerger.java,2368,merged.addAll( tgt );
+maven-model/src/main/java/org/apache/maven/model/merge/ModelMerger.java,2369,merged.addAll( src );
+maven-model/src/main/java/org/apache/maven/model/merge/ModelMerger.java,2370,target.setFilters( merged );
+maven-model/src/main/java/org/apache/maven/model/merge/ModelMerger.java,2699,List<String> src = source.getGoals();
+maven-model/src/main/java/org/apache/maven/model/merge/ModelMerger.java,2702,List<String> tgt = target.getGoals();
+maven-model/src/main/java/org/apache/maven/model/merge/ModelMerger.java,2704,merged.addAll( tgt );
+maven-model/src/main/java/org/apache/maven/model/merge/ModelMerger.java,2705,merged.addAll( src );
+maven-model/src/main/java/org/apache/maven/model/merge/ModelMerger.java,2706,target.setGoals( merged );
+maven-model/src/main/java/org/apache/maven/model/merge/ModelMerger.java,2790,List<String> src = source.getIncludes();
+maven-model/src/main/java/org/apache/maven/model/merge/ModelMerger.java,2793,List<String> tgt = target.getIncludes();
+maven-model/src/main/java/org/apache/maven/model/merge/ModelMerger.java,2795,merged.addAll( tgt );
+maven-model/src/main/java/org/apache/maven/model/merge/ModelMerger.java,2796,merged.addAll( src );
+maven-model/src/main/java/org/apache/maven/model/merge/ModelMerger.java,2797,target.setIncludes( merged );
+maven-model/src/main/java/org/apache/maven/model/merge/ModelMerger.java,2804,List<String> src = source.getExcludes();
+maven-model/src/main/java/org/apache/maven/model/merge/ModelMerger.java,2807,List<String> tgt = target.getExcludes();
+maven-model/src/main/java/org/apache/maven/model/merge/ModelMerger.java,2809,merged.addAll( tgt );
+maven-model/src/main/java/org/apache/maven/model/merge/ModelMerger.java,2810,merged.addAll( src );
+maven-model/src/main/java/org/apache/maven/model/merge/ModelMerger.java,2811,target.setExcludes( merged );
+maven-core/src/main/java/org/apache/maven/model/plugin/DefaultLifecycleBindingsInjector.java,112,Object key = getPluginKey( element );
+maven-core/src/main/java/org/apache/maven/model/plugin/DefaultLifecycleBindingsInjector.java,121,Object key = getPluginKey( element );
+maven-core/src/main/java/org/apache/maven/model/plugin/DefaultLifecycleBindingsInjector.java,142,Object key = getPluginKey( managedPlugin );
+maven-model-builder/src/main/java/org/apache/maven/model/inheritance/DefaultInheritanceAssembler.java,132,Object key = getPluginKey( element );
+maven-model-builder/src/main/java/org/apache/maven/model/inheritance/DefaultInheritanceAssembler.java,142,Object key = getPluginKey( element );
+maven-model-builder/src/main/java/org/apache/maven/model/inheritance/DefaultInheritanceAssembler.java,206,Object key = getReportPluginKey( element );
+maven-model-builder/src/main/java/org/apache/maven/model/inheritance/DefaultInheritanceAssembler.java,220,Object key = getReportPluginKey( element );
+maven-model-builder/src/main/java/org/apache/maven/model/management/DefaultDependencyManagementInjector.java,67,Object key = getDependencyKey( dependency );
+maven-model-builder/src/main/java/org/apache/maven/model/management/DefaultDependencyManagementInjector.java,73,Object key = getDependencyKey( managedDependency );
+maven-model-builder/src/main/java/org/apache/maven/model/management/DefaultPluginManagementInjector.java,86,Object key = getPluginKey( element );
+maven-model-builder/src/main/java/org/apache/maven/model/management/DefaultPluginManagementInjector.java,92,Object key = getPluginKey( element );
+maven-model-builder/src/main/java/org/apache/maven/model/management/DefaultPluginManagementInjector.java,116,Object key = getPluginExecutionKey( element );
+maven-model-builder/src/main/java/org/apache/maven/model/management/DefaultPluginManagementInjector.java,122,Object key = getPluginExecutionKey( element );
+maven-model-builder/src/main/java/org/apache/maven/model/merge/MavenModelMerger.java,505,Object key = getPluginExecutionKey( element );
+maven-model-builder/src/main/java/org/apache/maven/model/merge/MavenModelMerger.java,512,Object key = getPluginExecutionKey( element );
+maven-model-builder/src/main/java/org/apache/maven/model/profile/DefaultProfileInjector.java,98,Object key = getPluginKey( element );
+maven-model-builder/src/main/java/org/apache/maven/model/profile/DefaultProfileInjector.java,106,Object key = getPluginKey( element );
+maven-model-builder/src/main/java/org/apache/maven/model/profile/DefaultProfileInjector.java,153,Object key = getReportPluginKey( element );
+maven-model-builder/src/main/java/org/apache/maven/model/profile/DefaultProfileInjector.java,159,Object key = getReportPluginKey( element );
+maven-model/src/main/java/org/apache/maven/model/merge/ModelMerger.java,530,List<String> src = source.getModules();
+maven-model/src/main/java/org/apache/maven/model/merge/ModelMerger.java,533,List<String> tgt = target.getModules();
+maven-model/src/main/java/org/apache/maven/model/merge/ModelMerger.java,535,merged.addAll( tgt );
+maven-model/src/main/java/org/apache/maven/model/merge/ModelMerger.java,536,merged.addAll( src );
+maven-model/src/main/java/org/apache/maven/model/merge/ModelMerger.java,537,target.setModules( merged );
+maven-model-builder/src/main/java/org/apache/maven/model/path/DefaultUrlNormalizer.java,52,break;
+maven-model-builder/src/main/java/org/apache/maven/model/path/DefaultUrlNormalizer.java,54,result = result.substring( 0, parent ) + result.substring( idx + 3 );
+maven-core/src/main/java/org/apache/maven/project/artifact/MavenMetadataSource.java,50,import org.apache.maven.artifact.resolver.filter.ExcludesArtifactFilter;
+maven-core/src/main/java/org/apache/maven/project/artifact/MavenMetadataSource.java,59,import org.apache.maven.model.Exclusion;
+maven-core/src/main/java/org/apache/maven/project/artifact/MavenMetadataSource.java,404,exclusions.add( e.getGroupId() + ':' + e.getArtifactId() );
+maven-core/src/main/java/org/apache/maven/project/artifact/MavenMetadataSource.java,407,effectiveFilter = new ExcludesArtifactFilter( exclusions );
+maven-core/src/main/java/org/apache/maven/artifact/handler/manager/DefaultArtifactHandlerManager.java,47,ArtifactHandler handler = unmanagedHandlers.get( type );
+maven-core/src/main/java/org/apache/maven/artifact/handler/manager/DefaultArtifactHandlerManager.java,65,unmanagedHandlers.putAll( handlers );
+maven-artifact/src/main/java/org/apache/maven/artifact/versioning/DefaultArtifactVersion.java,124,try
+maven-artifact/src/main/java/org/apache/maven/artifact/versioning/DefaultArtifactVersion.java,128,buildNumber = Integer.valueOf( part2 );
+maven-artifact/src/main/java/org/apache/maven/artifact/versioning/DefaultArtifactVersion.java,130,else
+maven-artifact/src/main/java/org/apache/maven/artifact/versioning/DefaultArtifactVersion.java,143,try
+maven-artifact/src/main/java/org/apache/maven/artifact/versioning/DefaultArtifactVersion.java,145,majorVersion = Integer.valueOf( part1 );
+maven-artifact/src/main/java/org/apache/maven/artifact/versioning/DefaultArtifactVersion.java,159,try
+maven-artifact/src/main/java/org/apache/maven/artifact/versioning/DefaultArtifactVersion.java,164,minorVersion = getNextIntegerToken( tok );
+maven-artifact/src/main/java/org/apache/maven/artifact/versioning/DefaultArtifactVersion.java,168,incrementalVersion = getNextIntegerToken( tok );
+maven-artifact/src/main/java/org/apache/maven/artifact/versioning/ComparableVersion.java,439,canonical = items.toString();
+maven-artifact/src/main/java/org/apache/maven/artifact/versioning/ComparableVersion.java,459,return ( o instanceof ComparableVersion ) && canonical.equals( ( (ComparableVersion) o ).canonical );
+maven-artifact/src/main/java/org/apache/maven/artifact/versioning/ComparableVersion.java,464,return canonical.hashCode();
+maven-core/src/main/java/org/apache/maven/project/MavenProject.java,1898,setFile( project.getFile() );
+maven-core/src/main/java/org/apache/maven/project/DefaultProjectBuildingHelper.java,49,import org.apache.maven.repository.RepositorySystem;
+maven-core/src/main/java/org/apache/maven/project/DefaultProjectBuildingHelper.java,93,private RepositorySystem repositorySystem;
+maven-core/src/main/java/org/apache/maven/project/DefaultProjectBuildingHelper.java,112,internalRepositories.add( repositorySystem.buildArtifactRepository( repository ) );
+maven-core/src/main/java/org/apache/maven/project/DefaultProjectBuilder.java,484,MavenProject project = interimResult.listener.getProject();
+maven-core/src/main/java/org/apache/maven/project/DefaultProjectBuilder.java,496,results.add( new DefaultProjectBuildingResult( project, result.getProblems(), null ) );
+maven-model-builder/src/main/java/org/apache/maven/model/merge/MavenModelMerger.java,405,tgt = new Site();
+maven-core/src/main/java/org/apache/maven/project/ReactorModelCache.java,22,import java.util.HashMap;
+maven-core/src/main/java/org/apache/maven/project/ReactorModelCache.java,23,import java.util.Map;
+maven-artifact/src/main/java/org/apache/maven/artifact/Artifact.java,45,Pattern VERSION_FILE_PATTERN = Pattern.compile( "^(.*)-([0-9]{8}.[0-9]{6})-([0-9]+)$" );
+maven-compat/src/main/java/org/apache/maven/project/interpolation/AbstractStringBasedModelInterpolator.java,249,return projectDir.getAbsoluteFile().toURI().toString();
+maven-model-builder/src/main/java/org/apache/maven/model/interpolation/AbstractStringBasedModelInterpolator.java,164,return projectDir.getAbsoluteFile().toURI().toString();
+maven-core/src/main/java/org/apache/maven/plugin/CacheUtils.java,52,int result = 17;
+maven-core/src/main/java/org/apache/maven/plugin/CacheUtils.java,55,result = 31 * result + repositoryHashCode( repository );
+maven-core/src/main/java/org/apache/maven/plugin/CacheUtils.java,57,return result;
+maven-core/src/main/java/org/apache/maven/plugin/CacheUtils.java,62,int result = 17;
+maven-core/src/main/java/org/apache/maven/plugin/CacheUtils.java,63,result = 31 * result + hash( repository.getUrl() );
+maven-core/src/main/java/org/apache/maven/plugin/CacheUtils.java,64,return result;
+maven-core/src/main/java/org/apache/maven/plugin/CacheUtils.java,71,return true;
+maven-core/src/main/java/org/apache/maven/plugin/CacheUtils.java,76,&& policyEquals( r1.getPolicy( true ), r2.getPolicy( true ) );
+maven-core/src/main/java/org/apache/maven/plugin/CacheUtils.java,83,return true;
+maven-core/src/main/java/org/apache/maven/plugin/CacheUtils.java,86,return p1.isEnabled() == p2.isEnabled() && eq( p1.getChecksumPolicy(), p2.getChecksumPolicy() );
+maven-core/src/main/java/org/apache/maven/plugin/CacheUtils.java,93,return false;
+maven-core/src/main/java/org/apache/maven/plugin/CacheUtils.java,100,return false;
+maven-core/src/main/java/org/apache/maven/plugin/CacheUtils.java,104,return true;
+maven-core/src/main/java/org/apache/maven/plugin/CacheUtils.java,207,WorkspaceReader reader = session.getWorkspaceReader();
+maven-core/src/main/java/org/apache/maven/plugin/CacheUtils.java,208,return ( reader != null ) ? reader.getRepository() : null;
+maven-core/src/main/java/org/apache/maven/plugin/DefaultPluginArtifactsCache.java,67,workspace = CacheUtils.getWorkspace( session );
+maven-core/src/main/java/org/apache/maven/plugin/DefaultPluginArtifactsCache.java,85,hash = hash * 31 + hash( workspace );
+maven-core/src/main/java/org/apache/maven/plugin/DefaultPluginArtifactsCache.java,86,hash = hash * 31 + hash( localRepo );
+maven-core/src/main/java/org/apache/maven/plugin/DefaultPluginArtifactsCache.java,87,hash = hash * 31 + CacheUtils.repositoriesHashCode( repositories );
+maven-core/src/main/java/org/apache/maven/plugin/DefaultPluginArtifactsCache.java,88,hash = hash * 31 + hash( extensionFilter );
+maven-core/src/main/java/org/apache/maven/plugin/DefaultPluginArtifactsCache.java,106,return obj != null ? obj.hashCode() : 0;
+maven-core/src/main/java/org/apache/maven/plugin/DefaultPluginArtifactsCache.java,126,&& eq( filter, that.filter );
+maven-core/src/main/java/org/apache/maven/plugin/DefaultPluginArtifactsCache.java,131,return s1 != null ? s1.equals( s2 ) : s2 == null;
+maven-core/src/main/java/org/apache/maven/plugin/DefaultPluginDescriptorCache.java,146,workspace = CacheUtils.getWorkspace( session );
+maven-core/src/main/java/org/apache/maven/plugin/DefaultPluginDescriptorCache.java,167,hash = hash * 31 + CacheUtils.repositoriesHashCode( repositories );
+maven-core/src/main/java/org/apache/maven/plugin/DefaultPluginDescriptorCache.java,195,&& CacheUtils.repositoriesEquals( this.repositories, that.repositories );
+maven-core/src/main/java/org/apache/maven/plugin/DefaultPluginRealmCache.java,72,this.workspace = CacheUtils.getWorkspace( session );
+maven-core/src/main/java/org/apache/maven/plugin/DefaultPluginRealmCache.java,92,hash = hash * 31 + hash( workspace );
+maven-core/src/main/java/org/apache/maven/plugin/DefaultPluginRealmCache.java,93,hash = hash * 31 + hash( localRepo );
+maven-core/src/main/java/org/apache/maven/plugin/DefaultPluginRealmCache.java,94,hash = hash * 31 + CacheUtils.repositoriesHashCode( repositories );
+maven-core/src/main/java/org/apache/maven/plugin/DefaultPluginRealmCache.java,95,hash = hash * 31 + hash( parentRealm );
+maven-core/src/main/java/org/apache/maven/plugin/DefaultPluginRealmCache.java,97,hash = hash * 31 + hash( dependencyFilter );
+maven-core/src/main/java/org/apache/maven/plugin/DefaultPluginRealmCache.java,115,return obj != null ? obj.hashCode() : 0;
+maven-core/src/main/java/org/apache/maven/plugin/DefaultPluginRealmCache.java,141,return s1 != null ? s1.equals( s2 ) : s2 == null;
+maven-core/src/main/java/org/apache/maven/artifact/repository/metadata/io/DefaultMetadataReader.java,31,import org.codehaus.plexus.util.IOUtil;
+maven-core/src/main/java/org/apache/maven/artifact/repository/metadata/io/DefaultMetadataReader.java,66,try
+maven-core/src/main/java/org/apache/maven/artifact/repository/metadata/io/DefaultMetadataReader.java,68,MetadataXpp3Reader r = new MetadataXpp3Reader();
+maven-core/src/main/java/org/apache/maven/artifact/repository/metadata/io/DefaultMetadataReader.java,69,return r.read( input, isStrict( options ) );
+maven-core/src/main/java/org/apache/maven/artifact/repository/metadata/io/DefaultMetadataReader.java,75,finally
+maven-core/src/main/java/org/apache/maven/artifact/repository/metadata/io/DefaultMetadataReader.java,77,IOUtil.close( input );
+maven-core/src/main/java/org/apache/maven/artifact/repository/metadata/io/DefaultMetadataReader.java,89,try
+maven-core/src/main/java/org/apache/maven/artifact/repository/metadata/io/DefaultMetadataReader.java,91,MetadataXpp3Reader r = new MetadataXpp3Reader();
+maven-core/src/main/java/org/apache/maven/artifact/repository/metadata/io/DefaultMetadataReader.java,92,return r.read( input, isStrict( options ) );
+maven-core/src/main/java/org/apache/maven/artifact/repository/metadata/io/DefaultMetadataReader.java,98,finally
+maven-core/src/main/java/org/apache/maven/artifact/repository/metadata/io/DefaultMetadataReader.java,100,IOUtil.close( input );
+maven-model-builder/src/main/java/org/apache/maven/model/io/DefaultModelReader.java,34,import org.codehaus.plexus.util.IOUtil;
+maven-model-builder/src/main/java/org/apache/maven/model/io/DefaultModelReader.java,71,try
+maven-model-builder/src/main/java/org/apache/maven/model/io/DefaultModelReader.java,73,return read( input, isStrict( options ), getSource( options ) );
+maven-model-builder/src/main/java/org/apache/maven/model/io/DefaultModelReader.java,75,finally
+maven-model-builder/src/main/java/org/apache/maven/model/io/DefaultModelReader.java,77,IOUtil.close( input );
+maven-model-builder/src/main/java/org/apache/maven/model/io/DefaultModelReader.java,89,try
+maven-model-builder/src/main/java/org/apache/maven/model/io/DefaultModelReader.java,91,return read( ReaderFactory.newXmlReader( input ), isStrict( options ), getSource( options ) );
+maven-model-builder/src/main/java/org/apache/maven/model/io/DefaultModelReader.java,93,finally
+maven-model-builder/src/main/java/org/apache/maven/model/io/DefaultModelReader.java,95,IOUtil.close( input );
+maven-model-builder/src/main/java/org/apache/maven/model/io/DefaultModelWriter.java,32,import org.codehaus.plexus.util.IOUtil;
+maven-model-builder/src/main/java/org/apache/maven/model/io/DefaultModelWriter.java,76,try
+maven-model-builder/src/main/java/org/apache/maven/model/io/DefaultModelWriter.java,78,MavenXpp3Writer w = new MavenXpp3Writer();
+maven-model-builder/src/main/java/org/apache/maven/model/io/DefaultModelWriter.java,79,w.write( output, model );
+maven-model-builder/src/main/java/org/apache/maven/model/io/DefaultModelWriter.java,81,finally
+maven-model-builder/src/main/java/org/apache/maven/model/io/DefaultModelWriter.java,83,IOUtil.close( output );
+maven-model-builder/src/main/java/org/apache/maven/model/io/DefaultModelWriter.java,100,try
+maven-model-builder/src/main/java/org/apache/maven/model/io/DefaultModelWriter.java,102,String encoding = model.getModelEncoding();
+maven-model-builder/src/main/java/org/apache/maven/model/io/DefaultModelWriter.java,105,encoding = "UTF-8";
+maven-model-builder/src/main/java/org/apache/maven/model/io/DefaultModelWriter.java,107,write( new OutputStreamWriter( output, encoding ), options, model );
+maven-model-builder/src/main/java/org/apache/maven/model/io/DefaultModelWriter.java,109,finally
+maven-model-builder/src/main/java/org/apache/maven/model/io/DefaultModelWriter.java,111,IOUtil.close( output );
+maven-settings-builder/src/main/java/org/apache/maven/settings/io/DefaultSettingsReader.java,31,import org.codehaus.plexus.util.IOUtil;
+maven-settings-builder/src/main/java/org/apache/maven/settings/io/DefaultSettingsReader.java,66,try
+maven-settings-builder/src/main/java/org/apache/maven/settings/io/DefaultSettingsReader.java,68,SettingsXpp3Reader r = new SettingsXpp3Reader();
+maven-settings-builder/src/main/java/org/apache/maven/settings/io/DefaultSettingsReader.java,69,return r.read( input, isStrict( options ) );
+maven-settings-builder/src/main/java/org/apache/maven/settings/io/DefaultSettingsReader.java,75,finally
+maven-settings-builder/src/main/java/org/apache/maven/settings/io/DefaultSettingsReader.java,77,IOUtil.close( input );
+maven-settings-builder/src/main/java/org/apache/maven/settings/io/DefaultSettingsReader.java,89,try
+maven-settings-builder/src/main/java/org/apache/maven/settings/io/DefaultSettingsReader.java,91,SettingsXpp3Reader r = new SettingsXpp3Reader();
+maven-settings-builder/src/main/java/org/apache/maven/settings/io/DefaultSettingsReader.java,92,return r.read( input, isStrict( options ) );
+maven-settings-builder/src/main/java/org/apache/maven/settings/io/DefaultSettingsReader.java,98,finally
+maven-settings-builder/src/main/java/org/apache/maven/settings/io/DefaultSettingsReader.java,100,IOUtil.close( input );
+maven-settings-builder/src/main/java/org/apache/maven/settings/io/DefaultSettingsWriter.java,32,import org.codehaus.plexus.util.IOUtil;
+maven-settings-builder/src/main/java/org/apache/maven/settings/io/DefaultSettingsWriter.java,76,try
+maven-settings-builder/src/main/java/org/apache/maven/settings/io/DefaultSettingsWriter.java,78,SettingsXpp3Writer w = new SettingsXpp3Writer();
+maven-settings-builder/src/main/java/org/apache/maven/settings/io/DefaultSettingsWriter.java,79,w.write( output, settings );
+maven-settings-builder/src/main/java/org/apache/maven/settings/io/DefaultSettingsWriter.java,81,finally
+maven-settings-builder/src/main/java/org/apache/maven/settings/io/DefaultSettingsWriter.java,83,IOUtil.close( output );
+maven-settings-builder/src/main/java/org/apache/maven/settings/io/DefaultSettingsWriter.java,100,try
+maven-settings-builder/src/main/java/org/apache/maven/settings/io/DefaultSettingsWriter.java,102,String encoding = settings.getModelEncoding();
+maven-settings-builder/src/main/java/org/apache/maven/settings/io/DefaultSettingsWriter.java,105,encoding = "UTF-8";
+maven-settings-builder/src/main/java/org/apache/maven/settings/io/DefaultSettingsWriter.java,107,write( new OutputStreamWriter( output, encoding ), options, settings );
+maven-settings-builder/src/main/java/org/apache/maven/settings/io/DefaultSettingsWriter.java,109,finally
+maven-settings-builder/src/main/java/org/apache/maven/settings/io/DefaultSettingsWriter.java,111,IOUtil.close( output );
+maven-core/src/main/java/org/apache/maven/execution/DefaultMavenExecutionRequest.java,468,this.systemProperties = new Properties();
+maven-core/src/main/java/org/apache/maven/execution/DefaultMavenExecutionRequest.java,469,this.systemProperties.putAll( properties );
+maven-core/src/main/java/org/apache/maven/project/DefaultProjectBuildingRequest.java,165,this.systemProperties = new Properties();
+maven-model-builder/src/main/java/org/apache/maven/model/building/DefaultModelBuildingRequest.java,259,this.systemProperties.putAll( systemProperties );
+maven-compat/src/main/java/org/apache/maven/repository/MetadataResolutionResult.java,238,initList( exceptions );
+maven-embedder/src/main/java/org/apache/maven/cli/CLIManager.java,24,import java.util.ArrayList;
+maven-embedder/src/main/java/org/apache/maven/cli/CLIManager.java,25,import java.util.List;
+maven-embedder/src/main/java/org/apache/maven/cli/CLIManager.java,150,String[] cleanArgs = cleanArgs( args );
+maven-embedder/src/main/java/org/apache/maven/cli/CLIManager.java,161,StringBuilder currentArg = null;
+maven-embedder/src/main/java/org/apache/maven/cli/CLIManager.java,167,boolean addedToBuffer = false;
+maven-embedder/src/main/java/org/apache/maven/cli/CLIManager.java,175,cleaned.add( currentArg.toString() );
+maven-embedder/src/main/java/org/apache/maven/cli/CLIManager.java,179,currentArg = new StringBuilder( arg.substring( 1 ) );
+maven-embedder/src/main/java/org/apache/maven/cli/CLIManager.java,180,addedToBuffer = true;
+maven-embedder/src/main/java/org/apache/maven/cli/CLIManager.java,186,String cleanArgPart = arg.substring( 0, arg.length() - 1 );
+maven-embedder/src/main/java/org/apache/maven/cli/CLIManager.java,194,currentArg.setLength( currentArg.length() - 1 );
+maven-embedder/src/main/java/org/apache/maven/cli/CLIManager.java,197,else
+maven-embedder/src/main/java/org/apache/maven/cli/CLIManager.java,200,currentArg.append( ' ' ).append( cleanArgPart );
+maven-embedder/src/main/java/org/apache/maven/cli/CLIManager.java,203,cleaned.add( currentArg.toString() );
+maven-embedder/src/main/java/org/apache/maven/cli/CLIManager.java,205,else
+maven-embedder/src/main/java/org/apache/maven/cli/CLIManager.java,207,cleaned.add( cleanArgPart );
+maven-embedder/src/main/java/org/apache/maven/cli/CLIManager.java,210,currentArg = null;
+maven-embedder/src/main/java/org/apache/maven/cli/CLIManager.java,212,continue;
+maven-embedder/src/main/java/org/apache/maven/cli/CLIManager.java,223,currentArg.append( ' ' ).append( arg );
+maven-embedder/src/main/java/org/apache/maven/cli/CLIManager.java,225,else
+maven-embedder/src/main/java/org/apache/maven/cli/CLIManager.java,227,cleaned.add( arg );
+maven-embedder/src/main/java/org/apache/maven/cli/CLIManager.java,234,cleaned.add( currentArg.toString() );
+maven-embedder/src/main/java/org/apache/maven/cli/CLIManager.java,237,int cleanedSz = cleaned.size();
+maven-embedder/src/main/java/org/apache/maven/cli/CLIManager.java,243,cleanArgs = args;
+maven-embedder/src/main/java/org/apache/maven/cli/CLIManager.java,245,else
+maven-embedder/src/main/java/org/apache/maven/cli/CLIManager.java,247,cleanArgs = cleaned.toArray( new String[cleanedSz] );
+maven-embedder/src/main/java/org/apache/maven/cli/CLIManager.java,250,return cleanArgs;
+maven-embedder/src/main/java/org/apache/maven/cli/CLIManager.java,132,options.addOption( OptionBuilder.withLongOpt( "log-file" ).hasArg().withDescription( "Log file to where all build output will go." ).create( LOG_FILE ) );
+maven-model-builder/src/main/java/org/apache/maven/model/building/DefaultModelBuilder.java,22,import java.io.File;
+maven-model-builder/src/main/java/org/apache/maven/model/building/DefaultModelBuilder.java,23,import java.io.IOException;
+maven-model-builder/src/main/java/org/apache/maven/model/building/DefaultModelBuilder.java,24,import java.util.ArrayList;
+maven-model-builder/src/main/java/org/apache/maven/model/building/DefaultModelBuilder.java,25,import java.util.Collection;
+maven-model-builder/src/main/java/org/apache/maven/model/building/DefaultModelBuilder.java,26,import java.util.Iterator;
+maven-model-builder/src/main/java/org/apache/maven/model/building/DefaultModelBuilder.java,27,import java.util.LinkedHashSet;
+maven-model-builder/src/main/java/org/apache/maven/model/building/DefaultModelBuilder.java,28,import java.util.List;
+maven-model-builder/src/main/java/org/apache/maven/model/building/DefaultModelBuilder.java,29,import java.util.Map;
+maven-model-builder/src/main/java/org/apache/maven/model/building/DefaultModelBuilder.java,31,import java.util.Properties;
+maven-model-builder/src/main/java/org/apache/maven/model/building/DefaultModelBuilder.java,446,problems.setSource( modelSource.getLocation() );
+maven-model-builder/src/main/java/org/apache/maven/model/building/DefaultModelBuilder.java,525,model.setPomFile( pomFile );
+maven-model-builder/src/main/java/org/apache/maven/model/building/DefaultModelBuilder.java,527,problems.setSource( model );
+maven-model-builder/src/main/java/org/apache/maven/model/building/DefaultModelBuilder.java,528,modelValidator.validateRawModel( model, request, problems );
+maven-model-builder/src/main/java/org/apache/maven/model/building/DefaultModelBuilder.java,547,context.setProjectDirectory( ( request.getPomFile() != null ) ? request.getPomFile().getParentFile() : null );
+maven-core/src/main/java/org/apache/maven/execution/DefaultMavenExecutionRequestPopulator.java,48,throws MavenExecutionRequestPopulationException
+maven-core/src/main/java/org/apache/maven/execution/DefaultMavenExecutionRequestPopulator.java,52,return request;
+maven-core/src/main/java/org/apache/maven/execution/DefaultMavenExecutionRequestPopulator.java,55,request.setOffline( settings.isOffline() );
+maven-core/src/main/java/org/apache/maven/execution/DefaultMavenExecutionRequestPopulator.java,57,request.setInteractiveMode( settings.isInteractiveMode() );
+maven-core/src/main/java/org/apache/maven/execution/DefaultMavenExecutionRequestPopulator.java,59,request.setPluginGroups( settings.getPluginGroups() );
+maven-core/src/main/java/org/apache/maven/execution/DefaultMavenExecutionRequestPopulator.java,61,request.setLocalRepositoryPath( settings.getLocalRepository() );
+maven-core/src/main/java/org/apache/maven/execution/DefaultMavenExecutionRequestPopulator.java,65,server = server.clone();
+maven-core/src/main/java/org/apache/maven/execution/DefaultMavenExecutionRequestPopulator.java,67,request.addServer( server );
+maven-core/src/main/java/org/apache/maven/execution/DefaultMavenExecutionRequestPopulator.java,86,continue;
+maven-core/src/main/java/org/apache/maven/execution/DefaultMavenExecutionRequestPopulator.java,89,proxy = proxy.clone();
+maven-core/src/main/java/org/apache/maven/execution/DefaultMavenExecutionRequestPopulator.java,91,request.addProxy( proxy );
+maven-core/src/main/java/org/apache/maven/execution/DefaultMavenExecutionRequestPopulator.java,104,mirror = mirror.clone();
+maven-core/src/main/java/org/apache/maven/execution/DefaultMavenExecutionRequestPopulator.java,106,request.addMirror( mirror );
+maven-core/src/main/java/org/apache/maven/execution/DefaultMavenExecutionRequestPopulator.java,109,request.setActiveProfiles( settings.getActiveProfiles() );
+maven-core/src/main/java/org/apache/maven/execution/DefaultMavenExecutionRequestPopulator.java,113,request.addProfile( SettingsUtils.convertFromSettingsProfile( rawProfile ) );
+maven-core/src/main/java/org/apache/maven/execution/DefaultMavenExecutionRequestPopulator.java,116,return request;
+maven-core/src/main/java/org/apache/maven/execution/DefaultMavenExecutionRequestPopulator.java,177,throws MavenExecutionRequestPopulationException
+maven-core/src/main/java/org/apache/maven/plugin/internal/DefaultMavenPluginManager.java,271,PluginRealmCache.Key cacheKey =
+maven-core/src/main/java/org/apache/maven/plugin/internal/DefaultMavenPluginManager.java,273,session.getRepositorySession() );
+maven-core/src/main/java/org/apache/maven/plugin/internal/DefaultMavenPluginManager.java,275,PluginRealmCache.CacheRecord cacheRecord = pluginRealmCache.get( cacheKey );
+maven-core/src/main/java/org/apache/maven/plugin/internal/DefaultMavenPluginManager.java,279,pluginDescriptor.setClassRealm( cacheRecord.realm );
+maven-core/src/main/java/org/apache/maven/plugin/internal/DefaultMavenPluginManager.java,280,pluginDescriptor.setArtifacts( new ArrayList<Artifact>( cacheRecord.artifacts ) );
+maven-core/src/main/java/org/apache/maven/plugin/internal/DefaultMavenPluginManager.java,286,cacheRecord =
+maven-core/src/main/java/org/apache/maven/plugin/internal/DefaultMavenPluginManager.java,287,pluginRealmCache.put( cacheKey, pluginDescriptor.getClassRealm(), pluginDescriptor.getArtifacts() );
+maven-core/src/main/java/org/apache/maven/classrealm/DefaultClassRealmManager.java,154,artifactIds.add( getId( artifact ) );
+maven-core/src/main/java/org/apache/maven/classrealm/DefaultClassRealmManager.java,157,constituents.add( new ArtifactClassRealmConstituent( artifact ) );
+maven-core/src/main/java/org/apache/maven/plugin/internal/DefaultPluginDependenciesResolver.java,24,import org.apache.maven.ArtifactFilterManager;
+maven-core/src/main/java/org/apache/maven/plugin/internal/DefaultPluginDependenciesResolver.java,73,private ArtifactFilterManager artifactFilterManager;
+maven-core/src/main/java/org/apache/maven/execution/DefaultMavenExecutionRequestPopulator.java,35,import org.codehaus.plexus.component.annotations.Component;
+maven-core/src/main/java/org/apache/maven/execution/DefaultMavenExecutionRequestPopulator.java,36,import org.codehaus.plexus.component.annotations.Requirement;
+maven-core/src/main/java/org/apache/maven/execution/DefaultMavenExecutionRequestPopulator.java,45,private RepositorySystem repositorySystem;
+maven-core/src/main/java/org/apache/maven/toolchain/DefaultToolchainManagerPrivate.java,53,List<ToolchainModel> lst = pers.getToolchains();
+maven-core/src/main/java/org/apache/maven/toolchain/DefaultToolchainManagerPrivate.java,74,ToolchainPrivate tool = toolchainFactory.createDefaultToolchain();
+maven-core/src/main/java/org/apache/maven/execution/DefaultMavenExecutionResult.java,105,return ( buildSummaries != null ) ? buildSummaries.get( project ) : null;
+maven-core/src/main/java/org/apache/maven/execution/DefaultMavenExecutionResult.java,24,import java.util.IdentityHashMap;
+maven-core/src/main/java/org/apache/maven/execution/DefaultMavenExecutionResult.java,112,buildSummaries = new IdentityHashMap<MavenProject, BuildSummary>();
+maven-core/src/main/java/org/apache/maven/plugin/DefaultExtensionRealmCache.java,124,CacheRecord record = new CacheRecord( extensionRealm, extensionDescriptor );
+maven-core/src/main/java/org/apache/maven/plugin/internal/DefaultMavenPluginManager.java,313,DependencyFilter dependencyFilter = project.getExtensionDependencyFilter();
+maven-core/src/main/java/org/apache/maven/plugin/internal/DefaultMavenPluginManager.java,314,dependencyFilter = AndDependencyFilter.newInstance( dependencyFilter, filter );
+maven-core/src/main/java/org/apache/maven/plugin/internal/DefaultMavenPluginManager.java,316,DependencyNode root =
+maven-core/src/main/java/org/apache/maven/plugin/internal/DefaultMavenPluginManager.java,317,pluginDependenciesResolver.resolve( plugin, RepositoryUtils.toArtifact( pluginArtifact ), dependencyFilter,
+maven-core/src/main/java/org/apache/maven/plugin/internal/DefaultMavenPluginManager.java,318,project.getRemotePluginRepositories(), session.getRepositorySession() );
+maven-core/src/main/java/org/apache/maven/plugin/internal/DefaultMavenPluginManager.java,320,PreorderNodeListGenerator nlg = new PreorderNodeListGenerator();
+maven-core/src/main/java/org/apache/maven/plugin/internal/DefaultMavenPluginManager.java,321,root.accept( nlg );
+maven-core/src/main/java/org/apache/maven/plugin/internal/DefaultMavenPluginManager.java,323,List<Artifact> exposedPluginArtifacts = new ArrayList<Artifact>( nlg.getNodes().size() );
+maven-core/src/main/java/org/apache/maven/plugin/internal/DefaultMavenPluginManager.java,324,RepositoryUtils.toArtifacts( exposedPluginArtifacts, Collections.singleton( root ),
+maven-core/src/main/java/org/apache/maven/plugin/internal/DefaultMavenPluginManager.java,328,Artifact artifact = it.next();
+maven-core/src/main/java/org/apache/maven/plugin/internal/DefaultMavenPluginManager.java,331,it.remove();
+maven-core/src/main/java/org/apache/maven/plugin/internal/DefaultMavenPluginManager.java,340,pluginDescriptor.setArtifacts( exposedPluginArtifacts );
+maven-core/src/main/java/org/apache/maven/plugin/internal/DefaultMavenPluginManager.java,346,componentDescriptor.setRealm( pluginRealm );
+maven-core/src/main/java/org/apache/maven/plugin/internal/DefaultMavenPluginManager.java,347,container.addComponentDescriptor( componentDescriptor );
+maven-core/src/main/java/org/apache/maven/project/DefaultProjectBuildingHelper.java,22,import java.io.IOException;
+maven-core/src/main/java/org/apache/maven/project/DefaultProjectBuildingHelper.java,42,import org.apache.maven.plugin.PluginArtifactsCache;
+maven-core/src/main/java/org/apache/maven/project/DefaultProjectBuildingHelper.java,44,import org.apache.maven.plugin.internal.PluginDependenciesResolver;
+maven-core/src/main/java/org/apache/maven/project/DefaultProjectBuildingHelper.java,45,import org.apache.maven.plugin.version.DefaultPluginVersionRequest;
+maven-core/src/main/java/org/apache/maven/project/DefaultProjectBuildingHelper.java,46,import org.apache.maven.plugin.version.PluginVersionRequest;
+maven-core/src/main/java/org/apache/maven/project/DefaultProjectBuildingHelper.java,48,import org.apache.maven.plugin.version.PluginVersionResolver;
+maven-core/src/main/java/org/apache/maven/project/DefaultProjectBuildingHelper.java,84,private PluginArtifactsCache pluginArtifactsCache;
+maven-core/src/main/java/org/apache/maven/project/DefaultProjectBuildingHelper.java,87,private ExtensionRealmCache extensionRealmCache;
+maven-core/src/main/java/org/apache/maven/project/DefaultProjectBuildingHelper.java,96,private PluginVersionResolver pluginVersionResolver;
+maven-core/src/main/java/org/apache/maven/project/DefaultProjectBuildingHelper.java,99,private PluginDependenciesResolver pluginDependenciesResolver;
+maven-core/src/main/java/org/apache/maven/project/DefaultProjectBuildingHelper.java,101,private ExtensionDescriptorBuilder extensionDescriptorBuilder = new ExtensionDescriptorBuilder();
+maven-core/src/main/java/org/apache/maven/project/DefaultProjectBuildingHelper.java,165,throws PluginResolutionException, PluginVersionResolutionException
+maven-core/src/main/java/org/apache/maven/project/DefaultProjectBuildingHelper.java,215,PluginVersionRequest versionRequest =
+maven-core/src/main/java/org/apache/maven/project/DefaultProjectBuildingHelper.java,216,new DefaultPluginVersionRequest( plugin, request.getRepositorySession(),
+maven-core/src/main/java/org/apache/maven/project/DefaultProjectBuildingHelper.java,217,project.getRemotePluginRepositories() );
+maven-core/src/main/java/org/apache/maven/project/DefaultProjectBuildingHelper.java,218,plugin.setVersion( pluginVersionResolver.resolve( versionRequest ).getVersion() );
+maven-core/src/main/java/org/apache/maven/project/DefaultProjectBuildingHelper.java,221,List<Artifact> artifacts;
+maven-core/src/main/java/org/apache/maven/project/DefaultProjectBuildingHelper.java,223,PluginArtifactsCache.Key cacheKey =
+maven-core/src/main/java/org/apache/maven/project/DefaultProjectBuildingHelper.java,224,pluginArtifactsCache.createKey( plugin, null, project.getRemotePluginRepositories(),
+maven-core/src/main/java/org/apache/maven/project/DefaultProjectBuildingHelper.java,225,request.getRepositorySession() );
+maven-core/src/main/java/org/apache/maven/project/DefaultProjectBuildingHelper.java,227,PluginArtifactsCache.CacheRecord recordArtifacts = pluginArtifactsCache.get( cacheKey );
+maven-core/src/main/java/org/apache/maven/project/DefaultProjectBuildingHelper.java,231,artifacts = recordArtifacts.artifacts;
+maven-core/src/main/java/org/apache/maven/project/DefaultProjectBuildingHelper.java,233,else
+maven-core/src/main/java/org/apache/maven/project/DefaultProjectBuildingHelper.java,242,ClassRealm extensionRealm;
+maven-core/src/main/java/org/apache/maven/project/DefaultProjectBuildingHelper.java,243,ExtensionDescriptor extensionDescriptor = null;
+maven-core/src/main/java/org/apache/maven/project/DefaultProjectBuildingHelper.java,249,extensionRealm = recordRealm.realm;
+maven-core/src/main/java/org/apache/maven/project/DefaultProjectBuildingHelper.java,250,extensionDescriptor = recordRealm.desciptor;
+maven-core/src/main/java/org/apache/maven/project/DefaultProjectBuildingHelper.java,252,else
+maven-core/src/main/java/org/apache/maven/project/DefaultProjectBuildingHelper.java,254,extensionRealm = classRealmManager.createExtensionRealm( plugin, artifacts );
+maven-core/src/main/java/org/apache/maven/project/DefaultProjectBuildingHelper.java,256,try
+maven-core/src/main/java/org/apache/maven/project/DefaultProjectBuildingHelper.java,262,throw new IllegalStateException( "Failed to discover components in extension realm "
+maven-core/src/main/java/org/apache/maven/project/DefaultProjectBuildingHelper.java,263,+ extensionRealm.getId(), e );
+maven-core/src/main/java/org/apache/maven/project/DefaultProjectBuildingHelper.java,266,Artifact extensionArtifact = artifacts.get( 0 );
+maven-core/src/main/java/org/apache/maven/project/DefaultProjectBuildingHelper.java,267,try
+maven-core/src/main/java/org/apache/maven/project/DefaultProjectBuildingHelper.java,269,extensionDescriptor = extensionDescriptorBuilder.build( extensionArtifact.getFile() );
+maven-core/src/main/java/org/apache/maven/project/DefaultProjectBuildingHelper.java,273,String message = "Invalid extension descriptor for " + plugin.getId() + ": " + e.getMessage();
+maven-core/src/main/java/org/apache/maven/project/DefaultProjectBuildingHelper.java,276,logger.error( message, e );
+maven-core/src/main/java/org/apache/maven/project/DefaultProjectBuildingHelper.java,278,else
+maven-core/src/main/java/org/apache/maven/project/DefaultProjectBuildingHelper.java,280,logger.error( message );
+maven-core/src/main/java/org/apache/maven/project/DefaultProjectBuildingHelper.java,317,projectRealm = classRealmManager.createProjectRealm( model, publicArtifacts );
+maven-core/src/main/java/org/apache/maven/project/DefaultProjectBuildingHelper.java,362,private List<Artifact> resolveExtensionArtifacts( Plugin extensionPlugin, List<RemoteRepository> repositories,
+maven-core/src/main/java/org/apache/maven/project/DefaultProjectBuildingHelper.java,364,throws PluginResolutionException
+maven-core/src/main/java/org/apache/maven/project/DefaultProjectBuildingHelper.java,366,DependencyNode root =
+maven-core/src/main/java/org/apache/maven/project/DefaultProjectBuildingHelper.java,367,pluginDependenciesResolver.resolve( extensionPlugin, null, null, repositories,
+maven-core/src/main/java/org/apache/maven/project/DefaultProjectBuildingHelper.java,368,request.getRepositorySession() );
+maven-core/src/main/java/org/apache/maven/project/DefaultProjectBuildingHelper.java,370,PreorderNodeListGenerator nlg = new PreorderNodeListGenerator();
+maven-core/src/main/java/org/apache/maven/project/DefaultProjectBuildingHelper.java,371,root.accept( nlg );
+maven-core/src/main/java/org/apache/maven/project/DefaultProjectBuildingHelper.java,372,return nlg.getArtifacts( false );
+maven-core/src/main/java/org/apache/maven/project/ExtensionDescriptorBuilder.java,43,class ExtensionDescriptorBuilder
+maven-core/src/main/java/org/apache/maven/project/ProjectBuildingHelper.java,69,throws PluginResolutionException, PluginVersionResolutionException;
+maven-artifact/src/main/java/org/apache/maven/artifact/versioning/ComparableVersion.java,270,Item item = iterator.previous();
+maven-artifact/src/main/java/org/apache/maven/artifact/versioning/ComparableVersion.java,273,iterator.remove(); // remove null trailing items: 0, "", empty list
+maven-artifact/src/main/java/org/apache/maven/artifact/versioning/ComparableVersion.java,275,else
+maven-artifact/src/main/java/org/apache/maven/artifact/versioning/ComparableVersion.java,394,list.normalize(); // 1.0-* = 1-*
+maven-artifact/src/main/java/org/apache/maven/artifact/versioning/ComparableVersion.java,400,list.add( list = new ListItem() );
+maven-artifact/src/main/java/org/apache/maven/artifact/versioning/ComparableVersion.java,402,stack.push( list );
+maven-core/src/main/java/org/apache/maven/toolchain/DefaultToolchainManagerPrivate.java,58,ToolchainFactory fact = factories.get( toolchainModel.getType() );
+maven-core/src/main/java/org/apache/maven/toolchain/DefaultToolchainManagerPrivate.java,63,else
+maven-core/src/main/java/org/apache/maven/toolchain/DefaultToolchainManagerPrivate.java,66,+ ". Possibly caused by misconfigured project." );
+maven-core/src/main/java/org/apache/maven/DefaultProjectDependencyGraph.java,69,Collection<String> projectIds = new HashSet<String>();
+maven-core/src/main/java/org/apache/maven/DefaultProjectDependencyGraph.java,73,return getProjects( projectIds );
+maven-core/src/main/java/org/apache/maven/DefaultProjectDependencyGraph.java,97,Collection<String> projectIds = new HashSet<String>();
+maven-core/src/main/java/org/apache/maven/DefaultProjectDependencyGraph.java,101,return getProjects( projectIds );
+maven-core/src/main/java/org/apache/maven/DefaultProjectDependencyGraph.java,130,return projects;
+maven-core/src/main/java/org/apache/maven/plugin/DefaultExtensionRealmCache.java,24,import java.util.HashMap;
+maven-core/src/main/java/org/apache/maven/plugin/DefaultExtensionRealmCache.java,39,implements ExtensionRealmCache
+maven-core/src/main/java/org/apache/maven/plugin/DefaultExtensionRealmCache.java,42,private static class CacheKey
+maven-core/src/main/java/org/apache/maven/plugin/DefaultExtensionRealmCache.java,102,private final Map<CacheKey, CacheRecord> cache = new HashMap<CacheKey, CacheRecord>();
+maven-core/src/main/java/org/apache/maven/plugin/DefaultExtensionRealmCache.java,106,return cache.get( new CacheKey( extensionArtifacts ) );
+maven-core/src/main/java/org/apache/maven/plugin/DefaultExtensionRealmCache.java,109,public CacheRecord put( List<? extends Artifact> extensionArtifacts, ClassRealm extensionRealm,
+maven-core/src/main/java/org/apache/maven/plugin/DefaultExtensionRealmCache.java,117,CacheKey key = new CacheKey( extensionArtifacts );
+maven-core/src/main/java/org/apache/maven/plugin/DefaultExtensionRealmCache.java,121,throw new IllegalStateException( "Duplicate extension realm for extension " + extensionArtifacts );
+maven-core/src/main/java/org/apache/maven/plugin/DefaultPluginArtifactsCache.java,24,import java.util.HashMap;
+maven-core/src/main/java/org/apache/maven/plugin/DefaultPluginArtifactsCache.java,47,private static class CacheKey
+maven-core/src/main/java/org/apache/maven/plugin/DefaultPluginArtifactsCache.java,136,protected final Map<Key, CacheRecord> cache = new HashMap<Key, CacheRecord>();
+maven-core/src/main/java/org/apache/maven/plugin/ExtensionRealmCache.java,55,CacheRecord get( List<? extends Artifact> extensionArtifacts );
+maven-core/src/main/java/org/apache/maven/plugin/ExtensionRealmCache.java,57,CacheRecord put( List<? extends Artifact> extensionArtifacts, ClassRealm extensionRealm,
+maven-core/src/main/java/org/apache/maven/plugin/ExtensionRealmCache.java,58,ExtensionDescriptor extensionDescriptor );
+maven-core/src/main/java/org/apache/maven/plugin/ExtensionRealmCache.java,70,void register( MavenProject project, CacheRecord record );
+maven-core/src/main/java/org/apache/maven/plugin/PluginArtifactsCache.java,79,void register( MavenProject project, CacheRecord record );
+maven-core/src/main/java/org/apache/maven/plugin/PluginRealmCache.java,81,void register( MavenProject project, CacheRecord record );
+maven-core/src/main/java/org/apache/maven/plugin/internal/DefaultMavenPluginManager.java,290,pluginRealmCache.register( project, cacheRecord );
+maven-core/src/main/java/org/apache/maven/project/DefaultProjectBuildingHelper.java,240,pluginArtifactsCache.register( project, recordArtifacts );
+maven-core/src/main/java/org/apache/maven/project/DefaultProjectBuildingHelper.java,245,ExtensionRealmCache.CacheRecord recordRealm = extensionRealmCache.get( artifacts );
+maven-core/src/main/java/org/apache/maven/project/DefaultProjectBuildingHelper.java,284,recordRealm = extensionRealmCache.put( artifacts, extensionRealm, extensionDescriptor );
+maven-core/src/main/java/org/apache/maven/project/DefaultProjectBuildingHelper.java,287,extensionRealmCache.register( project, recordRealm );
+maven-core/src/main/java/org/apache/maven/project/DefaultProjectBuildingHelper.java,313,ProjectRealmCache.CacheRecord record = projectRealmCache.get( extensionRealms );
+maven-core/src/main/java/org/apache/maven/project/DefaultProjectBuildingHelper.java,354,record = projectRealmCache.put( extensionRealms, projectRealm, extensionArtifactFilter );
+maven-core/src/main/java/org/apache/maven/project/DefaultProjectBuildingHelper.java,357,projectRealmCache.register( project, record );
+maven-core/src/main/java/org/apache/maven/project/DefaultProjectRealmCache.java,23,import java.util.HashMap;
+maven-core/src/main/java/org/apache/maven/project/DefaultProjectRealmCache.java,36,implements ProjectRealmCache
+maven-core/src/main/java/org/apache/maven/project/DefaultProjectRealmCache.java,39,private static class CacheKey
+maven-core/src/main/java/org/apache/maven/project/DefaultProjectRealmCache.java,79,private final Map<CacheKey, CacheRecord> cache = new HashMap<CacheKey, CacheRecord>();
+maven-core/src/main/java/org/apache/maven/project/DefaultProjectRealmCache.java,83,return cache.get( new CacheKey( extensionRealms ) );
+maven-core/src/main/java/org/apache/maven/project/DefaultProjectRealmCache.java,86,public CacheRecord put( List<? extends ClassRealm> extensionRealms, ClassRealm projectRealm,
+maven-core/src/main/java/org/apache/maven/project/DefaultProjectRealmCache.java,94,CacheKey key = new CacheKey( extensionRealms );
+maven-core/src/main/java/org/apache/maven/project/DefaultProjectRealmCache.java,98,throw new IllegalStateException( "Duplicate project realm for extensions " + extensionRealms );
+maven-core/src/main/java/org/apache/maven/project/ProjectRealmCache.java,53,CacheRecord get( List<? extends ClassRealm> extensionRealms );
+maven-core/src/main/java/org/apache/maven/project/ProjectRealmCache.java,55,CacheRecord put( List<? extends ClassRealm> extensionRealms, ClassRealm projectRealm,
+maven-core/src/main/java/org/apache/maven/project/ProjectRealmCache.java,56,DependencyFilter extensionArtifactFilter );
+maven-core/src/main/java/org/apache/maven/project/ProjectRealmCache.java,68,void register( MavenProject project, CacheRecord record );
+maven-core/src/main/java/org/apache/maven/project/artifact/MavenMetadataSource.java,767,props.putAll( System.getProperties() );
+maven-core/src/main/java/org/apache/maven/settings/DefaultMavenSettingsBuilder.java,74,request.setSystemProperties( System.getProperties() );
+maven-embedder/src/main/java/org/apache/maven/cli/MavenCli.java,968,systemProperties.putAll( System.getProperties() );
+maven-settings-builder/src/main/java/org/apache/maven/settings/building/DefaultSettingsBuildingRequest.java,81,this.systemProperties.putAll( systemProperties );
+maven-aether-provider/src/main/java/org/apache/maven/repository/internal/DefaultModelResolver.java,83,this.repositories = original.repositories;
+maven-core/src/main/java/org/apache/maven/project/ProjectModelResolver.java,95,this.pomRepositories = original.pomRepositories;
+maven-core/src/main/java/org/apache/maven/project/ProjectModelResolver.java,97,this.repositories = original.repositories;
+maven-core/src/main/java/org/apache/maven/project/ProjectModelResolver.java,108,return;
+maven-model-builder/src/main/java/org/apache/maven/model/building/DefaultModelBuilder.java,567,modelResolver.addRepository( repository );
+maven-core/src/main/java/org/apache/maven/lifecycle/DefaultLifecycles.java,123,result.add( lifecycles.get( name ) );
+maven-artifact/src/main/java/org/apache/maven/artifact/versioning/DefaultArtifactVersion.java,200,String s = tok.nextToken();
+maven-artifact/src/main/java/org/apache/maven/artifact/versioning/DefaultArtifactVersion.java,203,throw new NumberFormatException( "Number part has a leading 0: '" + s + "'" );
+maven-artifact/src/main/java/org/apache/maven/artifact/versioning/DefaultArtifactVersion.java,205,return Integer.valueOf( s );
+maven-model-builder/src/main/java/org/apache/maven/model/profile/DefaultProfileSelector.java,111,return true;
+maven-model-builder/src/main/java/org/apache/maven/model/profile/DefaultProfileSelector.java,121,return false;
+maven-core/src/main/java/org/apache/maven/lifecycle/internal/LifecycleStarter.java,170,eventCatapult.fire( ExecutionEvent.Type.SessionEnded, session, null );
+maven-embedder/src/main/java/org/apache/maven/cli/CLIManager.java,116,options.addOption( OptionBuilder.withLongOpt( "update-snapshots" ).withDescription( "Forces a check for updated releases and snapshots on remote repositories" ).create( UPDATE_SNAPSHOTS ) );
+maven-core/src/main/java/org/apache/maven/DefaultMaven.java,58,import org.apache.maven.repository.DelegatingLocalArtifactRepository;
+maven-core/src/main/java/org/apache/maven/DefaultMaven.java,197,DelegatingLocalArtifactRepository delegatingLocalArtifactRepository =
+maven-core/src/main/java/org/apache/maven/DefaultMaven.java,198,new DelegatingLocalArtifactRepository( request.getLocalRepository() );
+maven-core/src/main/java/org/apache/maven/DefaultMaven.java,200,request.setLocalRepository( delegatingLocalArtifactRepository );
+maven-core/src/main/java/org/apache/maven/DefaultMaven.java,221,request.getProjectBuildingRequest().setRepositorySession( session.getRepositorySession() );
+maven-core/src/main/java/org/apache/maven/DefaultMaven.java,228,projects = getProjectsForMavenReactor( request );
+maven-core/src/main/java/org/apache/maven/DefaultMaven.java,235,session.setProjects( projects );
+maven-core/src/main/java/org/apache/maven/DefaultMaven.java,237,result.setTopologicallySortedProjects( session.getProjects() );
+maven-core/src/main/java/org/apache/maven/DefaultMaven.java,239,result.setProject( session.getTopLevelProject() );
+maven-core/src/main/java/org/apache/maven/DefaultMaven.java,243,Map<String, MavenProject> projectMap;
+maven-core/src/main/java/org/apache/maven/DefaultMaven.java,244,projectMap = getProjectMap( session.getProjects() );
+maven-core/src/main/java/org/apache/maven/DefaultMaven.java,251,ReactorReader reactorRepository = new ReactorReader( projectMap );
+maven-core/src/main/java/org/apache/maven/DefaultMaven.java,253,repoSession.setWorkspaceReader( ChainedWorkspaceReader.newInstance( reactorRepository,
+maven-core/src/main/java/org/apache/maven/DefaultMaven.java,254,repoSession.getWorkspaceReader() ) );
+maven-core/src/main/java/org/apache/maven/DefaultMaven.java,280,try
+maven-core/src/main/java/org/apache/maven/DefaultMaven.java,282,ProjectSorter projectSorter = new ProjectSorter( session.getProjects() );
+maven-core/src/main/java/org/apache/maven/DefaultMaven.java,284,ProjectDependencyGraph projectDependencyGraph = createDependencyGraph( projectSorter, request );
+maven-core/src/main/java/org/apache/maven/DefaultMaven.java,286,session.setProjects( projectDependencyGraph.getSortedProjects() );
+maven-core/src/main/java/org/apache/maven/DefaultMaven.java,288,session.setProjectDependencyGraph( projectDependencyGraph );
+maven-core/src/main/java/org/apache/maven/DefaultMaven.java,292,String message = "The projects in the reactor contain a cyclic reference: " + e.getMessage();
+maven-core/src/main/java/org/apache/maven/DefaultMaven.java,294,ProjectCycleException error = new ProjectCycleException( message, e );
+maven-core/src/main/java/org/apache/maven/DefaultMaven.java,311,return result;
+maven-core/src/main/java/org/apache/maven/DefaultMaven.java,540,List<MavenProject> projects =  new ArrayList<MavenProject>();
+maven-core/src/main/java/org/apache/maven/DefaultMaven.java,555,List<File> files = Arrays.asList( request.getPom().getAbsoluteFile() );
+maven-core/src/main/java/org/apache/maven/DefaultMaven.java,603,throws ProjectBuildingException
+maven-core/src/main/java/org/apache/maven/DefaultMaven.java,605,ProjectBuildingRequest projectBuildingRequest = request.getProjectBuildingRequest();
+maven-core/src/main/java/org/apache/maven/DefaultMaven.java,607,List<ProjectBuildingResult> results = projectBuilder.build( files, request.isRecursive(), projectBuildingRequest );
+maven-core/src/main/java/org/apache/maven/DefaultMaven.java,609,boolean problems = false;
+maven-core/src/main/java/org/apache/maven/DefaultMaven.java,613,projects.add( result.getProject() );
+maven-core/src/main/java/org/apache/maven/DefaultMaven.java,617,logger.warn( "" );
+maven-core/src/main/java/org/apache/maven/DefaultMaven.java,618,logger.warn( "Some problems were encountered while building the effective model for "
+maven-core/src/main/java/org/apache/maven/DefaultMaven.java,619,+ result.getProject().getId() );
+maven-core/src/main/java/org/apache/maven/DefaultMaven.java,623,String location = ModelProblemUtils.formatLocation( problem, result.getProjectId() );
+maven-core/src/main/java/org/apache/maven/DefaultMaven.java,624,logger.warn( problem.getMessage() + ( StringUtils.isNotEmpty( location ) ? " @ " + location : "" ) );
+maven-core/src/main/java/org/apache/maven/DefaultMaven.java,627,problems = true;
+maven-core/src/main/java/org/apache/maven/DefaultMaven.java,633,logger.warn( "" );
+maven-core/src/main/java/org/apache/maven/DefaultMaven.java,634,logger.warn( "It is highly recommended to fix these problems"
+maven-core/src/main/java/org/apache/maven/DefaultMaven.java,635,+ " because they threaten the stability of your build." );
+maven-core/src/main/java/org/apache/maven/DefaultMaven.java,636,logger.warn( "" );
+maven-core/src/main/java/org/apache/maven/DefaultMaven.java,637,logger.warn( "For this reason, future Maven versions might no"
+maven-core/src/main/java/org/apache/maven/DefaultMaven.java,638,+ " longer support building such malformed projects." );
+maven-core/src/main/java/org/apache/maven/DefaultMaven.java,639,logger.warn( "" );
+maven-core/src/main/java/org/apache/maven/DefaultMaven.java,668,throws MavenExecutionException
+maven-core/src/main/java/org/apache/maven/DefaultMaven.java,670,ProjectDependencyGraph graph = new DefaultProjectDependencyGraph( sorter );
+maven-core/src/main/java/org/apache/maven/project/MavenProject.java,382,return parent;
+maven-core/src/main/java/org/apache/maven/plugin/MojoExecution.java,60,private Source source;
+maven-core/src/main/java/org/apache/maven/DefaultArtifactFilterManager.java,83,artifacts.add( "org.sonatype.aether:aether-api" );
+maven-core/src/main/java/org/apache/maven/DefaultArtifactFilterManager.java,84,artifacts.add( "org.sonatype.aether:aether-spi" );
+maven-core/src/main/java/org/apache/maven/DefaultArtifactFilterManager.java,85,artifacts.add( "org.sonatype.aether:aether-impl" );
+maven-core/src/main/java/org/apache/maven/ReactorReader.java,22,import org.apache.maven.artifact.ArtifactUtils;
+maven-core/src/main/java/org/apache/maven/ReactorReader.java,23,import org.apache.maven.project.MavenProject;
+maven-core/src/main/java/org/apache/maven/ReactorReader.java,73,repository = new WorkspaceRepository( "reactor", new HashSet<String>( projectsByGAV.keySet() ) );
+maven-core/src/main/java/org/apache/maven/ReactorReader.java,83,org.apache.maven.artifact.Artifact projectArtifact = findMatchingArtifact( project, artifact );
+maven-core/src/main/java/org/apache/maven/ReactorReader.java,134,String requestedRepositoryConflictId = getConflictId( requestedArtifact );
+maven-core/src/main/java/org/apache/maven/ReactorReader.java,136,org.apache.maven.artifact.Artifact mainArtifact = project.getArtifact();
+maven-core/src/main/java/org/apache/maven/ReactorReader.java,142,Collection<org.apache.maven.artifact.Artifact> attachedArtifacts = project.getAttachedArtifacts();
+maven-core/src/main/java/org/apache/maven/ReactorReader.java,149,return attachedArtifact;
+maven-core/src/main/java/org/apache/maven/ReactorReader.java,167,StringBuilder buffer = new StringBuilder( 128 );
+maven-core/src/main/java/org/apache/maven/ReactorReader.java,168,buffer.append( artifact.getGroupId() );
+maven-core/src/main/java/org/apache/maven/ReactorReader.java,169,buffer.append( ':' ).append( artifact.getArtifactId() );
+maven-core/src/main/java/org/apache/maven/ReactorReader.java,172,buffer.append( ':' ).append( artifact.getArtifactHandler().getExtension() );
+maven-core/src/main/java/org/apache/maven/ReactorReader.java,174,else
+maven-core/src/main/java/org/apache/maven/ReactorReader.java,176,buffer.append( ':' ).append( artifact.getType() );
+maven-core/src/main/java/org/apache/maven/ReactorReader.java,180,buffer.append( ':' ).append( artifact.getClassifier() );
+maven-core/src/main/java/org/apache/maven/ReactorReader.java,182,return buffer.toString();
+maven-core/src/main/java/org/apache/maven/ReactorReader.java,187,StringBuilder buffer = new StringBuilder( 128 );
+maven-core/src/main/java/org/apache/maven/ReactorReader.java,188,buffer.append( artifact.getGroupId() );
+maven-core/src/main/java/org/apache/maven/ReactorReader.java,189,buffer.append( ':' ).append( artifact.getArtifactId() );
+maven-core/src/main/java/org/apache/maven/ReactorReader.java,190,buffer.append( ':' ).append( artifact.getExtension() );
+maven-core/src/main/java/org/apache/maven/ReactorReader.java,193,buffer.append( ':' ).append( artifact.getClassifier() );
+maven-core/src/main/java/org/apache/maven/ReactorReader.java,195,return buffer.toString();
+maven-core/src/main/java/org/apache/maven/ReactorReader.java,221,MavenProject project = projectsByGAV.get( projectKey );
+maven-core/src/main/java/org/apache/maven/ReactorReader.java,228,return null;
+maven-core/src/main/java/org/apache/maven/ReactorReader.java,235,List<MavenProject> projects = projectsByGA.get( key );
+maven-core/src/main/java/org/apache/maven/ReactorReader.java,238,return Collections.emptyList();
+maven-core/src/main/java/org/apache/maven/ReactorReader.java,241,List<String> versions = new ArrayList<String>();
+maven-core/src/main/java/org/apache/maven/ReactorReader.java,247,versions.add( project.getVersion() );
+maven-core/src/main/java/org/apache/maven/ReactorReader.java,251,return Collections.unmodifiableList( versions );
+maven-core/src/main/java/org/apache/maven/ReactorReader.java,256,return repository;
+maven-model-builder/src/main/java/org/apache/maven/model/validation/DefaultModelValidator.java,305,p.getKey(), p );
+maven-core/src/main/java/org/apache/maven/DefaultMaven.java,155,result = processResult( new DefaultMavenExecutionResult(), e );
+maven-core/src/main/java/org/apache/maven/DefaultMaven.java,159,result = processResult( new DefaultMavenExecutionResult(), e );
+maven-core/src/main/java/org/apache/maven/DefaultMaven.java,164,processResult( new DefaultMavenExecutionResult(),
+maven-core/src/main/java/org/apache/maven/DefaultMaven.java,165,new InternalErrorException( "Internal error: " + e, e ) );
+maven-core/src/main/java/org/apache/maven/DefaultMaven.java,194,return processResult( result, e );
+maven-core/src/main/java/org/apache/maven/DefaultMaven.java,216,return processResult( result, e );
+maven-core/src/main/java/org/apache/maven/DefaultMaven.java,232,return processResult( result, e );
+maven-core/src/main/java/org/apache/maven/DefaultMaven.java,258,return processResult( result, e );
+maven-core/src/main/java/org/apache/maven/DefaultMaven.java,273,return processResult( result, e );
+maven-core/src/main/java/org/apache/maven/DefaultMaven.java,296,return processResult( result, error );
+maven-core/src/main/java/org/apache/maven/DefaultMaven.java,300,return processResult( result, e );
+maven-core/src/main/java/org/apache/maven/DefaultMaven.java,304,return processResult( result, e );
+maven-core/src/main/java/org/apache/maven/DefaultMaven.java,320,return processResult( result, session.getResult().getExceptions().get( 0 ) );
+maven-core/src/main/java/org/apache/maven/lifecycle/internal/LifecycleThreadedBuilder.java,82,break;  // Why are we just ignoring this exception? Are exceptions are being used for flow control
+maven-model-builder/src/main/java/org/apache/maven/model/building/DefaultModelBuilder.java,263,ModelData resultData = new ModelData( inputModel );
+maven-model-builder/src/main/java/org/apache/maven/model/building/DefaultModelBuilder.java,264,ModelData superData = new ModelData( getSuperModel() );
+maven-model-builder/src/main/java/org/apache/maven/model/building/DefaultModelBuilder.java,308,currentData = readParent( tmpModel, request, problems );
+maven-model-builder/src/main/java/org/apache/maven/model/building/DefaultModelBuilder.java,648,private ModelData readParent( Model childModel, ModelBuildingRequest request,
+maven-model-builder/src/main/java/org/apache/maven/model/building/DefaultModelBuilder.java,666,parentData = readParentLocally( childModel, request, problems );
+maven-model-builder/src/main/java/org/apache/maven/model/building/DefaultModelBuilder.java,687,File expectedParentFile = getParentPomFile( childModel );
+maven-model-builder/src/main/java/org/apache/maven/model/building/DefaultModelBuilder.java,713,private ModelData readParentLocally( Model childModel, ModelBuildingRequest request,
+maven-model-builder/src/main/java/org/apache/maven/model/building/DefaultModelBuilder.java,717,File pomFile = getParentPomFile( childModel );
+maven-model-builder/src/main/java/org/apache/maven/model/building/DefaultModelBuilder.java,724,Model candidateModel = readModel( null, pomFile, request, problems );
+maven-model-builder/src/main/java/org/apache/maven/model/building/DefaultModelBuilder.java,762,ModelData parentData = new ModelData( candidateModel, groupId, artifactId, version );
+maven-model-builder/src/main/java/org/apache/maven/model/building/DefaultModelBuilder.java,769,File projectDirectory = childModel.getProjectDirectory();
+maven-model-builder/src/main/java/org/apache/maven/model/building/DefaultModelBuilder.java,783,parentPath = parentPath.replace( '\\', File.separatorChar ).replace( '/', File.separatorChar );
+maven-model-builder/src/main/java/org/apache/maven/model/building/DefaultModelBuilder.java,785,File pomFile = new File( new File( projectDirectory, parentPath ).toURI().normalize() );
+maven-model-builder/src/main/java/org/apache/maven/model/building/DefaultModelBuilder.java,789,pomFile = modelProcessor.locatePom( pomFile );
+maven-model-builder/src/main/java/org/apache/maven/model/building/DefaultModelBuilder.java,792,return pomFile;
+maven-model-builder/src/main/java/org/apache/maven/model/building/FileModelSource.java,33,implements ModelSource
+maven-model-builder/src/main/java/org/apache/maven/model/building/FileModelSource.java,36,private File pomFile;
+maven-model-builder/src/main/java/org/apache/maven/model/building/ModelCacheTag.java,86,return new ModelData( model, data.getGroupId(), data.getArtifactId(), data.getVersion() );
+maven-core/src/main/java/org/apache/maven/plugin/PluginParameterException.java,83,+ param.getName() + ">\n</configuration>" );
+maven-core/src/main/java/org/apache/maven/lifecycle/internal/BuilderCommon.java,123,public void handleBuildError( final ReactorContext buildContext, final MavenSession rootSession,
+maven-core/src/main/java/org/apache/maven/lifecycle/internal/LifecycleModuleBuilder.java,95,builderCommon.handleBuildError( reactorContext, rootSession, currentProject, e, buildStartTime );
+maven-core/src/main/java/org/apache/maven/lifecycle/internal/LifecycleWeaveBuilder.java,281,builderCommon.handleBuildError( reactorContext, rootSession, projectBuild.getProject(), e,
+maven-core/src/main/java/org/apache/maven/lifecycle/internal/LifecycleWeaveBuilder.java,282,buildStartTime );
+maven-core/src/main/java/org/apache/maven/plugin/internal/DefaultMavenPluginManager.java,449,( (Mojo) mojo ).setLog( new DefaultLog( logger ) );
+maven-core/src/main/java/org/apache/maven/project/DefaultProjectBuilder.java,303,ReactorModelCache modelCache = new ReactorModelCache();
+maven-model-builder/src/main/java/org/apache/maven/model/building/DefaultModelBuilder.java,232,return build( request, new LinkedHashSet<String>() );
+maven-model-builder/src/main/java/org/apache/maven/model/building/DefaultModelBuilder.java,236,throws ModelBuildingException
+maven-model-builder/src/main/java/org/apache/maven/model/building/DefaultModelBuilder.java,966,importResult = build( importRequest, importIds );
+maven-model-builder/src/main/java/org/apache/maven/model/validation/DefaultModelValidator.java,63,private static final String ID_REGEX = "[A-Za-z0-9_\\-.]+";
+maven-model-builder/src/main/java/org/apache/maven/model/validation/DefaultModelValidator.java,598,boolean match = id.matches( ID_REGEX );
+maven-core/src/main/java/org/apache/maven/project/MavenProject.java,507,list.add( getBuild().getOutputDirectory() );
+maven-core/src/main/java/org/apache/maven/project/MavenProject.java,583,list.add( getBuild().getTestOutputDirectory() );
+maven-core/src/main/java/org/apache/maven/project/MavenProject.java,585,list.add( getBuild().getOutputDirectory() );
+maven-core/src/main/java/org/apache/maven/project/MavenProject.java,647,list.add( getBuild().getOutputDirectory() );
+maven-core/src/main/java/org/apache/maven/project/MavenProject.java,720,list.add( getBuild().getOutputDirectory() );
+maven-embedder/src/main/java/org/apache/maven/cli/MavenCli.java,164,container( cliRequest );
+maven-core/src/main/java/org/apache/maven/project/MavenProject.java,1393,return getModel().getRepositories();
+maven-model-builder/src/main/java/org/apache/maven/model/building/DefaultModelBuilder.java,1041,&& message.contains( version );
+maven-compat/src/main/java/org/apache/maven/artifact/repository/DefaultArtifactRepositoryFactory.java,77,return injectSession( factory.createArtifactRepository( layoutId, url, layoutId, snapshots, releases ), true );
+maven-core/src/main/java/org/apache/maven/lifecycle/internal/LifecycleDependencyResolver.java,94,try
+maven-core/src/main/java/org/apache/maven/lifecycle/internal/LifecycleDependencyResolver.java,96,project.setDependencyArtifacts( project.createArtifacts( artifactFactory, null, null ) );
+maven-core/src/main/java/org/apache/maven/lifecycle/internal/LifecycleDependencyResolver.java,100,throw new LifecycleExecutionException( e );
+maven-core/src/main/java/org/apache/maven/lifecycle/internal/LifecycleDependencyResolver.java,104,Set<Artifact> artifacts =
+maven-core/src/main/java/org/apache/maven/lifecycle/internal/LifecycleDependencyResolver.java,105,getDependencies( project, scopesToCollect, scopesToResolve, session, aggregating, projectArtifacts );
+maven-core/src/main/java/org/apache/maven/lifecycle/internal/LifecycleDependencyResolver.java,107,project.setResolvedArtifacts( artifacts );
+maven-core/src/main/java/org/apache/maven/lifecycle/internal/LifecycleDependencyResolver.java,109,Map<String, Artifact> map = new HashMap<String, Artifact>();
+maven-core/src/main/java/org/apache/maven/lifecycle/internal/LifecycleDependencyResolver.java,112,map.put( artifact.getDependencyConflictId(), artifact );
+maven-core/src/main/java/org/apache/maven/lifecycle/internal/LifecycleDependencyResolver.java,118,Artifact resolved = map.get( artifact.getDependencyConflictId() );
+maven-core/src/main/java/org/apache/maven/lifecycle/internal/LifecycleDependencyResolver.java,121,artifact.setFile( resolved.getFile() );
+maven-core/src/main/java/org/apache/maven/lifecycle/internal/LifecycleDependencyResolver.java,122,artifact.setDependencyTrail( resolved.getDependencyTrail() );
+maven-core/src/main/java/org/apache/maven/lifecycle/internal/LifecycleDependencyResolver.java,123,artifact.setResolvedVersion( resolved.getVersion() );
+maven-core/src/main/java/org/apache/maven/lifecycle/internal/LifecycleDependencyResolver.java,124,artifact.setResolved( true );
+maven-core/src/main/java/org/apache/maven/project/DefaultProjectDependenciesResolver.java,87,String key = dependency.getManagementKey();
+maven-core/src/main/java/org/apache/maven/ReactorReader.java,225,return find( project, artifact );
+maven-core/src/main/java/org/apache/maven/DefaultMaven.java,345,session.setUpdatePolicy( request.isUpdateSnapshots() ? RepositoryPolicy.UPDATE_POLICY_ALWAYS : null );
+maven-compat/src/main/java/org/apache/maven/artifact/repository/DefaultArtifactRepository.java,181,sb.append( "   layout: " ).append( layout != null ? layout.getId() : "none" ).append( "\n" );
+maven-compat/src/main/java/org/apache/maven/repository/DefaultMirrorSelector.java,146,return matchesLayout( repository.getLayout().getId(), mirror.getMirrorOfLayouts() );
+maven-core/src/main/java/org/apache/maven/RepositoryUtils.java,200,result = new RemoteRepository( repo.getId(), repo.getLayout().getId(), repo.getUrl() );
+maven-core/src/main/java/org/apache/maven/artifact/repository/MavenArtifactRepository.java,137,sb.append( "   layout: " ).append( layout != null ? layout.getId() : "none" ).append( "\n" );
+maven-embedder/src/main/java/org/apache/maven/cli/ExecutionEventLogger.java,22,import java.text.DateFormat;
+maven-embedder/src/main/java/org/apache/maven/cli/ExecutionEventLogger.java,23,import java.text.SimpleDateFormat;
+maven-embedder/src/main/java/org/apache/maven/cli/ExecutionEventLogger.java,25,import java.util.TimeZone;
+maven-embedder/src/main/java/org/apache/maven/cli/ExecutionEventLogger.java,74,String pattern = "s.SSS's'";
+maven-embedder/src/main/java/org/apache/maven/cli/ExecutionEventLogger.java,78,pattern = "m:s" + pattern;
+maven-embedder/src/main/java/org/apache/maven/cli/ExecutionEventLogger.java,82,pattern = "H:m" + pattern;
+maven-embedder/src/main/java/org/apache/maven/cli/ExecutionEventLogger.java,86,DateFormat fmt = new SimpleDateFormat( pattern );
+maven-embedder/src/main/java/org/apache/maven/cli/ExecutionEventLogger.java,87,fmt.setTimeZone( TimeZone.getTimeZone( "UTC" ) );
+maven-embedder/src/main/java/org/apache/maven/cli/ExecutionEventLogger.java,89,return fmt.format( new Date( time ) );
+maven-core/src/main/java/org/apache/maven/plugin/DefaultBuildPluginManager.java,27,import org.codehaus.plexus.PlexusContainer;
+maven-core/src/main/java/org/apache/maven/plugin/DefaultBuildPluginManager.java,43,private PlexusContainer container;
+maven-core/src/main/java/org/apache/maven/plugin/internal/DefaultPluginManager.java,112,ClassRealm oldRealm = container.getLookupRealm();
+maven-core/src/main/java/org/apache/maven/plugin/internal/DefaultPluginManager.java,115,container.setLookupRealm( pluginDescriptor.getClassRealm() );
+maven-core/src/main/java/org/apache/maven/plugin/internal/DefaultPluginManager.java,121,container.setLookupRealm( oldRealm );
+maven-core/src/main/java/org/apache/maven/plugin/internal/DefaultPluginManager.java,144,ClassRealm oldRealm = container.getLookupRealm();
+maven-core/src/main/java/org/apache/maven/plugin/internal/DefaultPluginManager.java,147,container.setLookupRealm( pluginDescriptor.getClassRealm() );
+maven-core/src/main/java/org/apache/maven/plugin/internal/DefaultPluginManager.java,153,container.setLookupRealm( oldRealm );
+maven-compat/src/main/java/org/apache/maven/artifact/repository/DefaultArtifactRepositoryFactory.java,27,import org.apache.maven.execution.MavenExecutionRequest;
+maven-compat/src/main/java/org/apache/maven/artifact/repository/DefaultArtifactRepositoryFactory.java,28,import org.apache.maven.execution.MavenSession;
+maven-compat/src/main/java/org/apache/maven/artifact/repository/DefaultArtifactRepositoryFactory.java,100,MavenSession session = legacySupport.getSession();
+maven-compat/src/main/java/org/apache/maven/artifact/repository/DefaultArtifactRepositoryFactory.java,104,MavenExecutionRequest request = session.getRequest();
+maven-compat/src/main/java/org/apache/maven/artifact/repository/DefaultArtifactRepositoryFactory.java,107,List<ArtifactRepository> repositories = Arrays.asList( repository );
+maven-compat/src/main/java/org/apache/maven/artifact/repository/DefaultArtifactRepositoryFactory.java,111,repositorySystem.injectMirror( repositories, request.getMirrors() );
+maven-compat/src/main/java/org/apache/maven/artifact/repository/DefaultArtifactRepositoryFactory.java,114,repositorySystem.injectProxy( repositories, request.getProxies() );
+maven-compat/src/main/java/org/apache/maven/artifact/repository/DefaultArtifactRepositoryFactory.java,116,repositorySystem.injectAuthentication( repositories, request.getServers() );
+maven-compat/src/main/java/org/apache/maven/project/ProjectUtils.java,29,import org.apache.maven.execution.MavenExecutionRequest;
+maven-compat/src/main/java/org/apache/maven/project/ProjectUtils.java,78,MavenExecutionRequest executionRequest = er( c );
+maven-compat/src/main/java/org/apache/maven/project/ProjectUtils.java,84,repositorySystem.injectMirror( Arrays.asList( repository ), executionRequest.getMirrors() );
+maven-compat/src/main/java/org/apache/maven/project/ProjectUtils.java,85,repositorySystem.injectProxy( Arrays.asList( repository ), executionRequest.getProxies() );
+maven-compat/src/main/java/org/apache/maven/project/ProjectUtils.java,86,repositorySystem.injectAuthentication( Arrays.asList( repository ), executionRequest.getServers() );
+maven-compat/src/main/java/org/apache/maven/project/ProjectUtils.java,112,return legacySupport.getSession().getRequest();
+maven-compat/src/main/java/org/apache/maven/project/ProjectUtils.java,114,else
+maven-compat/src/main/java/org/apache/maven/project/ProjectUtils.java,116,return null;
+maven-compat/src/main/java/org/apache/maven/repository/legacy/LegacyRepositorySystem.java,602,return proxy;
+maven-compat/src/main/java/org/apache/maven/artifact/deployer/DefaultArtifactDeployer.java,45,import org.sonatype.aether.repository.LocalRepository;
+maven-compat/src/main/java/org/apache/maven/artifact/deployer/DefaultArtifactDeployer.java,47,import org.sonatype.aether.util.DefaultRepositorySystemSession;
+maven-compat/src/main/java/org/apache/maven/artifact/deployer/DefaultArtifactDeployer.java,82,DefaultRepositorySystemSession session =
+maven-compat/src/main/java/org/apache/maven/artifact/deployer/DefaultArtifactDeployer.java,83,new DefaultRepositorySystemSession( legacySupport.getRepositorySession() );
+maven-compat/src/main/java/org/apache/maven/artifact/deployer/DefaultArtifactDeployer.java,84,session.setLocalRepositoryManager( LegacyLocalRepositoryManager.wrap( localRepository, repoSystem ) );
+maven-compat/src/main/java/org/apache/maven/artifact/installer/DefaultArtifactInstaller.java,42,import org.sonatype.aether.repository.LocalRepository;
+maven-compat/src/main/java/org/apache/maven/artifact/installer/DefaultArtifactInstaller.java,43,import org.sonatype.aether.util.DefaultRepositorySystemSession;
+maven-compat/src/main/java/org/apache/maven/artifact/installer/DefaultArtifactInstaller.java,75,DefaultRepositorySystemSession session =
+maven-compat/src/main/java/org/apache/maven/artifact/installer/DefaultArtifactInstaller.java,76,new DefaultRepositorySystemSession( legacySupport.getRepositorySession() );
+maven-compat/src/main/java/org/apache/maven/artifact/installer/DefaultArtifactInstaller.java,77,session.setLocalRepositoryManager( LegacyLocalRepositoryManager.wrap( localRepository, repoSystem ) );
+maven-compat/src/main/java/org/apache/maven/artifact/resolver/DefaultArtifactResolver.java,61,import org.sonatype.aether.repository.LocalRepository;
+maven-compat/src/main/java/org/apache/maven/artifact/resolver/DefaultArtifactResolver.java,65,import org.sonatype.aether.util.DefaultRepositorySystemSession;
+maven-compat/src/main/java/org/apache/maven/artifact/resolver/DefaultArtifactResolver.java,132,MavenSession mavenSession = legacySupport.getSession();
+maven-compat/src/main/java/org/apache/maven/artifact/resolver/DefaultArtifactResolver.java,133,DefaultRepositorySystemSession session;
+maven-compat/src/main/java/org/apache/maven/artifact/resolver/DefaultArtifactResolver.java,136,session = new DefaultRepositorySystemSession( mavenSession.getRepositorySession() );
+maven-compat/src/main/java/org/apache/maven/artifact/resolver/DefaultArtifactResolver.java,138,else
+maven-compat/src/main/java/org/apache/maven/artifact/resolver/DefaultArtifactResolver.java,140,session = new DefaultRepositorySystemSession();
+maven-compat/src/main/java/org/apache/maven/artifact/resolver/DefaultArtifactResolver.java,144,session.setLocalRepositoryManager( LegacyLocalRepositoryManager.wrap( localRepository, repoSystem ) );
+maven-compat/src/main/java/org/apache/maven/artifact/resolver/DefaultArtifactResolver.java,146,return session;
+maven-compat/src/main/java/org/apache/maven/artifact/repository/LegacyLocalRepositoryManager.java,29,import org.apache.maven.artifact.repository.layout.DefaultRepositoryLayout;
+maven-compat/src/main/java/org/apache/maven/artifact/repository/LegacyLocalRepositoryManager.java,59,ArtifactRepositoryLayout layout = repository.getLayout();
+maven-compat/src/main/java/org/apache/maven/artifact/repository/LegacyLocalRepositoryManager.java,63,return system.newLocalRepositoryManager( new LocalRepository( repository.getBasedir() ) );
+maven-compat/src/main/java/org/apache/maven/artifact/repository/LegacyLocalRepositoryManager.java,66,return new LegacyLocalRepositoryManager( repository );
+maven-model-builder/src/main/java/org/apache/maven/model/inheritance/DefaultInheritanceAssembler.java,77,String childArtifactId = child.getArtifactId();
+maven-core/src/main/java/org/apache/maven/project/DefaultProjectBuilder.java,144,initProject( project, result, new HashMap<File, Boolean>() );
+maven-core/src/main/java/org/apache/maven/project/DefaultProjectBuilder.java,316,&& noErrors;
+maven-core/src/main/java/org/apache/maven/project/DefaultProjectBuilder.java,485,initProject( project, result, profilesXmls );
+maven-core/src/main/java/org/apache/maven/project/DefaultProjectBuilder.java,488,noErrors = build( results, modules, interimResult.modules, config, profilesXmls ) && noErrors;
+maven-core/src/main/java/org/apache/maven/project/DefaultProjectBuilder.java,306,build( results, interimResults, pomFiles, true, recursive, config, modelPool, modelCache );
+maven-core/src/main/java/org/apache/maven/project/DefaultProjectBuilder.java,332,List<File> pomFiles, boolean isRoot, boolean recursive, ProjectBuildingRequest config,
+maven-core/src/main/java/org/apache/maven/project/DefaultProjectBuilder.java,339,ModelBuildingRequest request = getModelBuildingRequest( config, reactorModelPool );
+maven-core/src/main/java/org/apache/maven/project/DefaultProjectBuilder.java,341,MavenProject project = new MavenProject( repositorySystem, this, config, logger );
+maven-core/src/main/java/org/apache/maven/project/DefaultProjectBuilder.java,343,request.setPomFile( pomFile );
+maven-core/src/main/java/org/apache/maven/project/DefaultProjectBuilder.java,344,request.setTwoPhaseBuilding( true );
+maven-core/src/main/java/org/apache/maven/project/DefaultProjectBuilder.java,345,request.setLocationTracking( true );
+maven-core/src/main/java/org/apache/maven/project/DefaultProjectBuilder.java,346,request.setModelCache( modelCache );
+maven-core/src/main/java/org/apache/maven/project/DefaultProjectBuilder.java,348,DefaultModelBuildingListener listener =
+maven-core/src/main/java/org/apache/maven/project/DefaultProjectBuilder.java,349,new DefaultModelBuildingListener( project, projectBuildingHelper, config );
+maven-core/src/main/java/org/apache/maven/project/DefaultProjectBuilder.java,350,request.setModelBuildingListener( listener );
+maven-core/src/main/java/org/apache/maven/project/DefaultProjectBuilder.java,352,try
+maven-core/src/main/java/org/apache/maven/project/DefaultProjectBuilder.java,354,ModelBuildingResult result = modelBuilder.build( request );
+maven-core/src/main/java/org/apache/maven/project/DefaultProjectBuilder.java,356,Model model = result.getEffectiveModel();
+maven-core/src/main/java/org/apache/maven/project/DefaultProjectBuilder.java,358,InterimResult interimResult = new InterimResult( pomFile, request, result, listener, isRoot );
+maven-core/src/main/java/org/apache/maven/project/DefaultProjectBuilder.java,359,interimResults.add( interimResult );
+maven-core/src/main/java/org/apache/maven/project/DefaultProjectBuilder.java,363,File basedir = pomFile.getParentFile();
+maven-core/src/main/java/org/apache/maven/project/DefaultProjectBuilder.java,365,List<File> moduleFiles = new ArrayList<File>();
+maven-core/src/main/java/org/apache/maven/project/DefaultProjectBuilder.java,371,continue;
+maven-core/src/main/java/org/apache/maven/project/DefaultProjectBuilder.java,374,module = module.replace( '\\', File.separatorChar ).replace( '/', File.separatorChar );
+maven-core/src/main/java/org/apache/maven/project/DefaultProjectBuilder.java,376,File moduleFile = new File( basedir, module );
+maven-core/src/main/java/org/apache/maven/project/DefaultProjectBuilder.java,380,moduleFile = modelProcessor.locatePom( moduleFile );
+maven-core/src/main/java/org/apache/maven/project/DefaultProjectBuilder.java,385,ModelProblem problem =
+maven-core/src/main/java/org/apache/maven/project/DefaultProjectBuilder.java,386,new DefaultModelProblem( "Child module " + moduleFile + " of " + pomFile
+maven-core/src/main/java/org/apache/maven/project/DefaultProjectBuilder.java,387,+ " does not exist", ModelProblem.Severity.ERROR, model, -1, -1, null );
+maven-core/src/main/java/org/apache/maven/project/DefaultProjectBuilder.java,388,result.getProblems().add( problem );
+maven-core/src/main/java/org/apache/maven/project/DefaultProjectBuilder.java,390,noErrors = false;
+maven-core/src/main/java/org/apache/maven/project/DefaultProjectBuilder.java,392,continue;
+maven-core/src/main/java/org/apache/maven/project/DefaultProjectBuilder.java,398,try
+maven-core/src/main/java/org/apache/maven/project/DefaultProjectBuilder.java,400,moduleFile = moduleFile.getCanonicalFile();
+maven-core/src/main/java/org/apache/maven/project/DefaultProjectBuilder.java,404,moduleFile = moduleFile.getAbsoluteFile();
+maven-core/src/main/java/org/apache/maven/project/DefaultProjectBuilder.java,407,else
+maven-core/src/main/java/org/apache/maven/project/DefaultProjectBuilder.java,409,moduleFile = new File( moduleFile.toURI().normalize() );
+maven-core/src/main/java/org/apache/maven/project/DefaultProjectBuilder.java,412,moduleFiles.add( moduleFile );
+maven-core/src/main/java/org/apache/maven/project/DefaultProjectBuilder.java,415,interimResult.modules = new ArrayList<InterimResult>();
+maven-core/src/main/java/org/apache/maven/project/DefaultProjectBuilder.java,417,if ( !build( results, interimResult.modules, moduleFiles, false, recursive, config,
+maven-core/src/main/java/org/apache/maven/project/DefaultProjectBuilder.java,426,results.add( new DefaultProjectBuildingResult( e.getModelId(), pomFile, e.getProblems() ) );
+maven-core/src/main/java/org/apache/maven/project/DefaultProjectBuilder.java,428,noErrors = false;
+maven-core/src/main/java/org/apache/maven/plugin/DefaultPluginRealmCache.java,61,private final List<String> parentImports;
+maven-core/src/main/java/org/apache/maven/plugin/DefaultPluginRealmCache.java,67,public CacheKey( Plugin plugin, ClassLoader parentRealm, List<String> parentImports,
+maven-core/src/main/java/org/apache/maven/plugin/DefaultPluginRealmCache.java,87,this.parentImports = ( parentImports != null ) ? parentImports : Collections.<String> emptyList();
+maven-core/src/main/java/org/apache/maven/plugin/DefaultPluginRealmCache.java,96,hash = hash * 31 + this.parentImports.hashCode();
+maven-core/src/main/java/org/apache/maven/plugin/DefaultPluginRealmCache.java,136,&& eq( parentImports, that.parentImports );
+maven-core/src/main/java/org/apache/maven/plugin/DefaultPluginRealmCache.java,148,public Key createKey( Plugin plugin, ClassLoader parentRealm, List<String> parentImports,
+maven-core/src/main/java/org/apache/maven/plugin/DefaultPluginRealmCache.java,152,return new CacheKey( plugin, parentRealm, parentImports, dependencyFilter, repositories, session );
+maven-core/src/main/java/org/apache/maven/plugin/PluginRealmCache.java,64,Key createKey( Plugin plugin, ClassLoader parentRealm, List<String> parentImports,
+maven-core/src/main/java/org/apache/maven/plugin/PluginRealmCache.java,65,DependencyFilter dependencyFilter, List<RemoteRepository> repositories, RepositorySystemSession session );
+maven-core/src/main/java/org/apache/maven/plugin/internal/DefaultMavenPluginManager.java,272,pluginRealmCache.createKey( plugin, parent, imports, filter, project.getRemotePluginRepositories(),
+maven-core/src/main/java/org/apache/maven/plugin/internal/DefaultMavenPluginManager.java,284,createPluginRealm( pluginDescriptor, session, parent, imports, filter );
+maven-core/src/main/java/org/apache/maven/DefaultMaven.java,672,Collection<MavenProject> activeProjects = sorter.getSortedProjects();
+maven-core/src/main/java/org/apache/maven/DefaultMaven.java,674,File reactorDirectory;
+maven-core/src/main/java/org/apache/maven/DefaultMaven.java,677,reactorDirectory = new File( request.getBaseDirectory() );
+maven-core/src/main/java/org/apache/maven/DefaultMaven.java,679,else
+maven-core/src/main/java/org/apache/maven/DefaultMaven.java,681,reactorDirectory = null;
+maven-core/src/main/java/org/apache/maven/DefaultMaven.java,686,List<MavenProject> selectedProjects = new ArrayList<MavenProject>( request.getSelectedProjects().size() );
+maven-core/src/main/java/org/apache/maven/DefaultMaven.java,690,MavenProject project = null;
+maven-core/src/main/java/org/apache/maven/DefaultMaven.java,696,project = activeProject;
+maven-core/src/main/java/org/apache/maven/DefaultMaven.java,703,selectedProjects.add( project );
+maven-core/src/main/java/org/apache/maven/DefaultMaven.java,708,+ selectedProject, request.getPom() );
+maven-core/src/main/java/org/apache/maven/DefaultMaven.java,712,activeProjects = selectedProjects;
+maven-core/src/main/java/org/apache/maven/DefaultMaven.java,738,activeProjects = new LinkedHashSet<MavenProject>( selectedProjects );
+maven-core/src/main/java/org/apache/maven/DefaultMaven.java,744,activeProjects.addAll( graph.getUpstreamProjects( selectedProject, true ) );
+maven-core/src/main/java/org/apache/maven/DefaultMaven.java,748,activeProjects.addAll( graph.getDownstreamProjects( selectedProject, true ) );
+maven-core/src/main/java/org/apache/maven/DefaultMaven.java,756,String selectedProject = request.getResumeFrom();
+maven-core/src/main/java/org/apache/maven/DefaultMaven.java,758,List<MavenProject> projects = new ArrayList<MavenProject>( activeProjects.size() );
+maven-core/src/main/java/org/apache/maven/DefaultMaven.java,771,projects.add( project );
+maven-core/src/main/java/org/apache/maven/DefaultMaven.java,777,throw new MavenExecutionException( "Could not find project to resume reactor build from: "
+maven-core/src/main/java/org/apache/maven/DefaultMaven.java,778,+ selectedProject + " vs " + activeProjects, request.getPom() );
+maven-core/src/main/java/org/apache/maven/DefaultMaven.java,781,activeProjects = projects;
+maven-core/src/main/java/org/apache/maven/DefaultMaven.java,786,graph = new FilteredProjectDependencyGraph( graph, activeProjects );
+maven-core/src/main/java/org/apache/maven/DefaultMaven.java,789,return graph;
+maven-model-builder/src/main/java/org/apache/maven/model/path/DefaultUrlNormalizer.java,40,result = result.replaceAll( "(?<![:/])/+", "/" );
+maven-model-builder/src/main/java/org/apache/maven/model/path/DefaultUrlNormalizer.java,49,int parent = result.lastIndexOf( '/', idx - 1 );
+maven-core/src/main/java/org/apache/maven/lifecycle/internal/DefaultLifecyclePluginAnalyzer.java,135,String goal = mojos[i].trim();
+maven-core/src/main/java/org/apache/maven/lifecycle/internal/DefaultLifecyclePluginAnalyzer.java,136,String[] p = StringUtils.split( goal, ":" );
+maven-core/src/main/java/org/apache/maven/lifecycle/internal/DefaultLifecyclePluginAnalyzer.java,138,PluginExecution execution = new PluginExecution();
+maven-core/src/main/java/org/apache/maven/lifecycle/internal/DefaultLifecyclePluginAnalyzer.java,139,execution.setId( "default-" + p[p.length - 1] );
+maven-core/src/main/java/org/apache/maven/lifecycle/internal/DefaultLifecyclePluginAnalyzer.java,140,execution.setPhase( phase );
+maven-core/src/main/java/org/apache/maven/lifecycle/internal/DefaultLifecyclePluginAnalyzer.java,141,execution.setPriority( i - mojos.length );
+maven-core/src/main/java/org/apache/maven/lifecycle/internal/DefaultLifecyclePluginAnalyzer.java,142,execution.getGoals().add( p[p.length - 1] );
+maven-core/src/main/java/org/apache/maven/lifecycle/internal/DefaultLifecyclePluginAnalyzer.java,144,Plugin plugin = new Plugin();
+maven-core/src/main/java/org/apache/maven/lifecycle/internal/DefaultLifecyclePluginAnalyzer.java,145,plugin.setGroupId( p[0] );
+maven-core/src/main/java/org/apache/maven/lifecycle/internal/DefaultLifecyclePluginAnalyzer.java,146,plugin.setArtifactId( p[1] );
+maven-core/src/main/java/org/apache/maven/lifecycle/internal/DefaultLifecyclePluginAnalyzer.java,149,plugin.setVersion( p[2] );
+maven-compat/src/main/java/org/apache/maven/execution/DefaultRuntimeInformation.java,27,import org.codehaus.plexus.util.IOUtil;
+maven-compat/src/main/java/org/apache/maven/execution/DefaultRuntimeInformation.java,29,import java.io.IOException;
+maven-compat/src/main/java/org/apache/maven/execution/DefaultRuntimeInformation.java,30,import java.io.InputStream;
+maven-compat/src/main/java/org/apache/maven/execution/DefaultRuntimeInformation.java,31,import java.util.Properties;
+maven-compat/src/main/java/org/apache/maven/execution/DefaultRuntimeInformation.java,44,private static final String MAVEN_GROUPID = "org.apache.maven";
+maven-compat/src/main/java/org/apache/maven/execution/DefaultRuntimeInformation.java,46,private static final String MAVEN_PROPERTIES = "META-INF/maven/" + MAVEN_GROUPID + "/maven-core/pom.properties";
+maven-compat/src/main/java/org/apache/maven/execution/DefaultRuntimeInformation.java,58,InputStream resourceAsStream = null;
+maven-compat/src/main/java/org/apache/maven/execution/DefaultRuntimeInformation.java,59,try
+maven-compat/src/main/java/org/apache/maven/execution/DefaultRuntimeInformation.java,61,Properties properties = new Properties();
+maven-compat/src/main/java/org/apache/maven/execution/DefaultRuntimeInformation.java,62,resourceAsStream = getClass().getClassLoader().getResourceAsStream( MAVEN_PROPERTIES );
+maven-compat/src/main/java/org/apache/maven/execution/DefaultRuntimeInformation.java,66,throw new IllegalStateException( "Unable to find Maven properties in classpath: " + MAVEN_PROPERTIES );
+maven-compat/src/main/java/org/apache/maven/execution/DefaultRuntimeInformation.java,68,properties.load( resourceAsStream );
+maven-compat/src/main/java/org/apache/maven/execution/DefaultRuntimeInformation.java,70,String property = properties.getProperty( "version" );
+maven-compat/src/main/java/org/apache/maven/execution/DefaultRuntimeInformation.java,73,throw new InitializationException( "maven-core properties did not include the version" );
+maven-compat/src/main/java/org/apache/maven/execution/DefaultRuntimeInformation.java,76,applicationVersion = new DefaultArtifactVersion( property );
+maven-compat/src/main/java/org/apache/maven/execution/DefaultRuntimeInformation.java,80,throw new InitializationException( "Unable to read properties file from maven-core", e );
+maven-compat/src/main/java/org/apache/maven/execution/DefaultRuntimeInformation.java,82,finally
+maven-compat/src/main/java/org/apache/maven/execution/DefaultRuntimeInformation.java,84,IOUtil.close( resourceAsStream );
+maven-core/src/main/java/org/apache/maven/plugin/internal/DefaultMavenPluginManager.java,136,Artifact pluginArtifact =
+maven-core/src/main/java/org/apache/maven/plugin/internal/DefaultMavenPluginManager.java,137,RepositoryUtils.toArtifact( pluginDependenciesResolver.resolve( plugin, repositories, session ) );
+maven-core/src/main/java/org/apache/maven/plugin/version/internal/DefaultPluginVersionResolver.java,45,import org.sonatype.aether.repository.LocalRepository;
+maven-core/src/main/java/org/apache/maven/plugin/version/internal/DefaultPluginVersionResolver.java,120,LocalRepository localRepo = request.getRepositorySession().getLocalRepository();
+maven-core/src/main/java/org/apache/maven/plugin/version/internal/DefaultPluginVersionResolver.java,137,result.setVersion( versions.releaseVersion );
+maven-core/src/main/java/org/apache/maven/plugin/version/internal/DefaultPluginVersionResolver.java,138,result.setRepository( ( versions.releaseRepository == null ) ? localRepo : versions.releaseRepository );
+maven-core/src/main/java/org/apache/maven/plugin/version/internal/DefaultPluginVersionResolver.java,142,result.setVersion( versions.latestVersion );
+maven-core/src/main/java/org/apache/maven/plugin/version/internal/DefaultPluginVersionResolver.java,143,result.setRepository( ( versions.latestRepository == null ) ? localRepo : versions.latestRepository );
+maven-core/src/main/java/org/apache/maven/plugin/version/internal/DefaultPluginVersionResolver.java,147,throw new PluginVersionResolutionException( request.getGroupId(), request.getArtifactId(), localRepo,
+maven-core/src/main/java/org/apache/maven/plugin/version/internal/DefaultPluginVersionResolver.java,152,return result;
+maven-compat/src/main/java/org/apache/maven/project/path/DefaultPathTranslator.java,214,String path = basedir.getPath();
+maven-compat/src/main/java/org/apache/maven/project/path/DefaultPathTranslator.java,217,directory = directory.substring( path.length() + 1 ).replace( '\\', '/' );
+maven-compat/src/main/java/org/apache/maven/project/path/DefaultPathTranslator.java,219,return directory;
+maven-aether-provider/src/main/java/org/apache/maven/repository/internal/MavenMetadata.java,28,import org.apache.maven.artifact.repository.metadata.Versioning;
+maven-aether-provider/src/main/java/org/apache/maven/repository/internal/MavenMetadata.java,86,Versioning versioning = recessive.getVersioning();
+maven-aether-provider/src/main/java/org/apache/maven/repository/internal/MavenMetadata.java,89,versioning.setLastUpdated( null );
+maven-aether-provider/src/main/java/org/apache/maven/repository/internal/MavenMetadata.java,92,Metadata dominant = metadata;
+maven-aether-provider/src/main/java/org/apache/maven/repository/internal/MavenMetadata.java,94,versioning = dominant.getVersioning();
+maven-aether-provider/src/main/java/org/apache/maven/repository/internal/MavenMetadata.java,97,versioning.updateTimestamp();
+maven-aether-provider/src/main/java/org/apache/maven/repository/internal/MavenMetadata.java,100,dominant.merge( recessive );
+maven-aether-provider/src/main/java/org/apache/maven/repository/internal/LocalSnapshotMetadata.java,36,private final Artifact artifact;
+maven-aether-provider/src/main/java/org/apache/maven/repository/internal/LocalSnapshotMetadata.java,40,super( createMetadata( artifact ), null );
+maven-aether-provider/src/main/java/org/apache/maven/repository/internal/LocalSnapshotMetadata.java,41,this.artifact = artifact;
+maven-aether-provider/src/main/java/org/apache/maven/repository/internal/LocalSnapshotMetadata.java,46,super( createMetadata( artifact ), file );
+maven-aether-provider/src/main/java/org/apache/maven/repository/internal/LocalSnapshotMetadata.java,47,this.artifact = artifact;
+maven-aether-provider/src/main/java/org/apache/maven/repository/internal/LocalSnapshotMetadata.java,68,return new LocalSnapshotMetadata( artifact, file );
+maven-aether-provider/src/main/java/org/apache/maven/repository/internal/LocalSnapshotMetadata.java,83,return artifact.getGroupId();
+maven-aether-provider/src/main/java/org/apache/maven/repository/internal/LocalSnapshotMetadata.java,88,return artifact.getArtifactId();
+maven-aether-provider/src/main/java/org/apache/maven/repository/internal/LocalSnapshotMetadata.java,93,return artifact.getBaseVersion();
+maven-aether-provider/src/main/java/org/apache/maven/repository/internal/LocalSnapshotMetadataGenerator.java,57,snapshotMetadata = new LocalSnapshotMetadata( artifact );
+maven-plugin-api/src/main/java/org/apache/maven/plugin/descriptor/PluginDescriptorBuilder.java,306,mojo.setMojoConfiguration( c.getChild( "configuration" ) );
+maven-core/src/main/java/org/apache/maven/plugin/DefaultBuildPluginManager.java,89,ClassRealm oldLookupRealm = container.getLookupRealm();
+maven-core/src/main/java/org/apache/maven/plugin/DefaultBuildPluginManager.java,98,Thread.currentThread().setContextClassLoader( pluginRealm );
+maven-core/src/main/java/org/apache/maven/plugin/DefaultBuildPluginManager.java,163,container.setLookupRealm( null );
+maven-core/src/main/java/org/apache/maven/project/MavenProject.java,1408,this.activeProfiles.addAll( activeProfiles );
+maven-model-builder/src/main/java/org/apache/maven/model/validation/DefaultModelValidator.java,750,return true;
+maven-model-builder/src/main/java/org/apache/maven/model/validation/DefaultModelValidator.java,753,addViolation( problems, severity, fieldName, sourceHint, "must be a valid version but is '" + string + "'.",
+maven-model-builder/src/main/java/org/apache/maven/model/validation/DefaultModelValidator.java,754,tracker );
+maven-model-builder/src/main/java/org/apache/maven/model/validation/DefaultModelValidator.java,756,return false;
+maven-model-builder/src/main/java/org/apache/maven/model/validation/DefaultModelValidator.java,763,Severity errOn30 = getSeverity( request, ModelBuildingRequest.VALIDATION_LEVEL_MAVEN_3_0 );
+maven-model-builder/src/main/java/org/apache/maven/model/validation/DefaultModelValidator.java,774,return true;
+maven-model-builder/src/main/java/org/apache/maven/model/validation/DefaultModelValidator.java,777,addViolation( problems, errOn30, fieldName, sourceHint, "must be a valid version but is '" + string + "'.",
+maven-model-builder/src/main/java/org/apache/maven/model/validation/DefaultModelValidator.java,778,tracker );
+maven-model-builder/src/main/java/org/apache/maven/model/validation/DefaultModelValidator.java,780,return false;
+maven-aether-provider/src/main/java/org/apache/maven/repository/internal/DefaultArtifactDescriptorReader.java,284,modelRequest.setSystemProperties( toProperties( session.getSystemProperties() ) );
+maven-aether-provider/src/main/java/org/apache/maven/repository/internal/DefaultArtifactDescriptorReader.java,285,modelRequest.setUserProperties( toProperties( session.getUserProperties() ) );
+maven-aether-provider/src/main/java/org/apache/maven/repository/internal/DefaultArtifactDescriptorReader.java,342,props.putAll( map );
+maven-core/src/main/java/org/apache/maven/DefaultMaven.java,334,session.setUserProps( request.getUserProperties() );
+maven-core/src/main/java/org/apache/maven/DefaultMaven.java,335,session.setSystemProps( request.getSystemProperties() );
+maven-core/src/main/java/org/apache/maven/DefaultMaven.java,341,session.setConfigProps( configProps );
+maven-aether-provider/src/main/java/org/apache/maven/repository/internal/DefaultArtifactDescriptorReader.java,267,missingDescriptor( session, artifact );
+maven-aether-provider/src/main/java/org/apache/maven/repository/internal/DefaultArtifactDescriptorReader.java,430,DefaultRepositoryEvent event = new DefaultRepositoryEvent( session, artifact );
+maven-aether-provider/src/main/java/org/apache/maven/repository/internal/DefaultArtifactDescriptorReader.java,440,DefaultRepositoryEvent event = new DefaultRepositoryEvent( session, artifact );
+maven-aether-provider/src/main/java/org/apache/maven/repository/internal/DefaultVersionRangeResolver.java,244,DefaultRepositoryEvent event = new DefaultRepositoryEvent( session, metadata );
+maven-aether-provider/src/main/java/org/apache/maven/repository/internal/DefaultVersionResolver.java,310,DefaultRepositoryEvent event = new DefaultRepositoryEvent( session, metadata );
+maven-core/src/main/java/org/apache/maven/plugin/prefix/internal/DefaultPluginPrefixResolver.java,279,DefaultRepositoryEvent event = new DefaultRepositoryEvent( session, metadata );
+maven-core/src/main/java/org/apache/maven/plugin/version/internal/DefaultPluginVersionResolver.java,181,DefaultRepositoryEvent event = new DefaultRepositoryEvent( session, metadata );
+maven-core/src/main/java/org/apache/maven/classrealm/ClassRealmManager.java,76,ClassRealm createPluginRealm( Plugin plugin, ClassLoader parent, List<String> imports, List<Artifact> artifacts );
+maven-core/src/main/java/org/apache/maven/classrealm/ClassRealmRequest.java,77,List<String> getImports();
+maven-core/src/main/java/org/apache/maven/classrealm/DefaultClassRealmManager.java,109,importMavenApi( mavenRealm );
+maven-core/src/main/java/org/apache/maven/classrealm/DefaultClassRealmManager.java,111,mavenRealm.setParentClassLoader( ClassLoader.getSystemClassLoader() );
+maven-core/src/main/java/org/apache/maven/classrealm/DefaultClassRealmManager.java,113,List<ClassRealmManagerDelegate> delegates = getDelegates();
+maven-core/src/main/java/org/apache/maven/classrealm/DefaultClassRealmManager.java,116,List<ClassRealmConstituent> constituents = new ArrayList<ClassRealmConstituent>();
+maven-core/src/main/java/org/apache/maven/classrealm/DefaultClassRealmManager.java,118,ClassRealmRequest request =
+maven-core/src/main/java/org/apache/maven/classrealm/DefaultClassRealmManager.java,119,new DefaultClassRealmRequest( RealmType.Core, null, new ArrayList<String>(), constituents );
+maven-core/src/main/java/org/apache/maven/classrealm/DefaultClassRealmManager.java,123,delegate.setupRealm( mavenRealm, request );
+maven-core/src/main/java/org/apache/maven/classrealm/DefaultClassRealmManager.java,126,populateRealm( mavenRealm, constituents );
+maven-core/src/main/java/org/apache/maven/classrealm/DefaultClassRealmManager.java,143,private ClassRealm createRealm( String baseRealmId, RealmType type, ClassLoader parent, List<String> imports,
+maven-core/src/main/java/org/apache/maven/classrealm/DefaultClassRealmManager.java,164,imports = new ArrayList<String>( imports );
+maven-core/src/main/java/org/apache/maven/classrealm/DefaultClassRealmManager.java,168,imports = new ArrayList<String>();
+maven-core/src/main/java/org/apache/maven/classrealm/DefaultClassRealmManager.java,171,ClassRealm classRealm = newRealm( baseRealmId );
+maven-core/src/main/java/org/apache/maven/classrealm/DefaultClassRealmManager.java,175,classRealm.setParentClassLoader( parent );
+maven-core/src/main/java/org/apache/maven/classrealm/DefaultClassRealmManager.java,179,classRealm.setParentRealm( getMavenRealm() );
+maven-core/src/main/java/org/apache/maven/classrealm/DefaultClassRealmManager.java,182,List<ClassRealmManagerDelegate> delegates = getDelegates();
+maven-core/src/main/java/org/apache/maven/classrealm/DefaultClassRealmManager.java,185,ClassRealmRequest request = new DefaultClassRealmRequest( type, parent, imports, constituents );
+maven-core/src/main/java/org/apache/maven/classrealm/DefaultClassRealmManager.java,189,delegate.setupRealm( classRealm, request );
+maven-core/src/main/java/org/apache/maven/classrealm/DefaultClassRealmManager.java,195,importXpp3Dom( classRealm );
+maven-core/src/main/java/org/apache/maven/classrealm/DefaultClassRealmManager.java,200,ClassLoader importedRealm = classRealm.getParentClassLoader();
+maven-core/src/main/java/org/apache/maven/classrealm/DefaultClassRealmManager.java,204,logger.debug( "Importing packages into class realm " + classRealm.getId() );
+maven-core/src/main/java/org/apache/maven/classrealm/DefaultClassRealmManager.java,211,logger.debug( "  Imported: " + imp );
+maven-core/src/main/java/org/apache/maven/classrealm/DefaultClassRealmManager.java,214,classRealm.importFrom( importedRealm, imp );
+maven-core/src/main/java/org/apache/maven/classrealm/DefaultClassRealmManager.java,242,ClassRealm coreRealm = getCoreRealm();
+maven-core/src/main/java/org/apache/maven/classrealm/DefaultClassRealmManager.java,244,importingRealm.importFrom( coreRealm, "org.codehaus.plexus.util.xml.Xpp3Dom" );
+maven-core/src/main/java/org/apache/maven/classrealm/DefaultClassRealmManager.java,245,importingRealm.importFrom( coreRealm, "org.codehaus.plexus.util.xml.pull.XmlPullParser" );
+maven-core/src/main/java/org/apache/maven/classrealm/DefaultClassRealmManager.java,246,importingRealm.importFrom( coreRealm, "org.codehaus.plexus.util.xml.pull.XmlPullParserException" );
+maven-core/src/main/java/org/apache/maven/classrealm/DefaultClassRealmManager.java,247,importingRealm.importFrom( coreRealm, "org.codehaus.plexus.util.xml.pull.XmlSerializer" );
+maven-core/src/main/java/org/apache/maven/classrealm/DefaultClassRealmManager.java,257,ClassRealm coreRealm = getCoreRealm();
+maven-core/src/main/java/org/apache/maven/classrealm/DefaultClassRealmManager.java,260,importingRealm.importFrom( coreRealm, "org.apache.maven" );
+maven-core/src/main/java/org/apache/maven/classrealm/DefaultClassRealmManager.java,263,importingRealm.importFrom( coreRealm, "org.sonatype.aether" );
+maven-core/src/main/java/org/apache/maven/classrealm/DefaultClassRealmManager.java,266,importingRealm.importFrom( coreRealm, "org.codehaus.plexus.classworlds" );
+maven-core/src/main/java/org/apache/maven/classrealm/DefaultClassRealmManager.java,269,importingRealm.importFrom( coreRealm, "org.codehaus.classworlds" );
+maven-core/src/main/java/org/apache/maven/classrealm/DefaultClassRealmManager.java,272,importingRealm.importFrom( coreRealm, "org.codehaus.plexus.component" );
+maven-core/src/main/java/org/apache/maven/classrealm/DefaultClassRealmManager.java,273,importingRealm.importFrom( coreRealm, "org.codehaus.plexus.configuration" );
+maven-core/src/main/java/org/apache/maven/classrealm/DefaultClassRealmManager.java,274,importingRealm.importFrom( coreRealm, "org.codehaus.plexus.container" );
+maven-core/src/main/java/org/apache/maven/classrealm/DefaultClassRealmManager.java,275,importingRealm.importFrom( coreRealm, "org.codehaus.plexus.context" );
+maven-core/src/main/java/org/apache/maven/classrealm/DefaultClassRealmManager.java,276,importingRealm.importFrom( coreRealm, "org.codehaus.plexus.lifecycle" );
+maven-core/src/main/java/org/apache/maven/classrealm/DefaultClassRealmManager.java,277,importingRealm.importFrom( coreRealm, "org.codehaus.plexus.logging" );
+maven-core/src/main/java/org/apache/maven/classrealm/DefaultClassRealmManager.java,278,importingRealm.importFrom( coreRealm, "org.codehaus.plexus.personality" );
+maven-core/src/main/java/org/apache/maven/classrealm/DefaultClassRealmManager.java,279,importingRealm.importFrom( coreRealm, "org.codehaus.plexus.ComponentRegistry" );
+maven-core/src/main/java/org/apache/maven/classrealm/DefaultClassRealmManager.java,280,importingRealm.importFrom( coreRealm, "org.codehaus.plexus.ContainerConfiguration" );
+maven-core/src/main/java/org/apache/maven/classrealm/DefaultClassRealmManager.java,281,importingRealm.importFrom( coreRealm, "org.codehaus.plexus.DefaultComponentRegistry" );
+maven-core/src/main/java/org/apache/maven/classrealm/DefaultClassRealmManager.java,282,importingRealm.importFrom( coreRealm, "org.codehaus.plexus.DefaultContainerConfiguration" );
+maven-core/src/main/java/org/apache/maven/classrealm/DefaultClassRealmManager.java,283,importingRealm.importFrom( coreRealm, "org.codehaus.plexus.DefaultPlexusContainer" );
+maven-core/src/main/java/org/apache/maven/classrealm/DefaultClassRealmManager.java,284,importingRealm.importFrom( coreRealm, "org.codehaus.plexus.DuplicateChildContainerException" );
+maven-core/src/main/java/org/apache/maven/classrealm/DefaultClassRealmManager.java,285,importingRealm.importFrom( coreRealm, "org.codehaus.plexus.MutablePlexusContainer" );
+maven-core/src/main/java/org/apache/maven/classrealm/DefaultClassRealmManager.java,286,importingRealm.importFrom( coreRealm, "org.codehaus.plexus.PlexusConstants" );
+maven-core/src/main/java/org/apache/maven/classrealm/DefaultClassRealmManager.java,287,importingRealm.importFrom( coreRealm, "org.codehaus.plexus.PlexusContainer" );
+maven-core/src/main/java/org/apache/maven/classrealm/DefaultClassRealmManager.java,288,importingRealm.importFrom( coreRealm, "org.codehaus.plexus.PlexusContainerException" );
+maven-core/src/main/java/org/apache/maven/classrealm/DefaultClassRealmManager.java,303,return createRealm( getKey( model ), RealmType.Project, null, null, false, artifacts );
+maven-core/src/main/java/org/apache/maven/classrealm/DefaultClassRealmManager.java,318,return createRealm( getKey( plugin, true ), RealmType.Extension, null, null, true, artifacts );
+maven-core/src/main/java/org/apache/maven/classrealm/DefaultClassRealmManager.java,321,public ClassRealm createPluginRealm( Plugin plugin, ClassLoader parent, List<String> imports,
+maven-core/src/main/java/org/apache/maven/classrealm/DefaultClassRealmManager.java,329,return createRealm( getKey( plugin, false ), RealmType.Plugin, parent, imports, true, artifacts );
+maven-core/src/main/java/org/apache/maven/classrealm/DefaultClassRealmManager.java,341,return getId( artifact.getGroupId(), artifact.getArtifactId(), artifact.getExtension(), artifact.getClassifier(),
+maven-core/src/main/java/org/apache/maven/classrealm/DefaultClassRealmManager.java,342,artifact.getBaseVersion() );
+maven-core/src/main/java/org/apache/maven/classrealm/DefaultClassRealmRequest.java,35,private final List<String> imports;
+maven-core/src/main/java/org/apache/maven/classrealm/DefaultClassRealmRequest.java,39,public DefaultClassRealmRequest( RealmType type, ClassLoader parent, List<String> imports,
+maven-core/src/main/java/org/apache/maven/classrealm/DefaultClassRealmRequest.java,44,this.imports = imports;
+maven-core/src/main/java/org/apache/maven/classrealm/DefaultClassRealmRequest.java,60,return imports;
+maven-core/src/main/java/org/apache/maven/plugin/DefaultBuildPluginManager.java,186,mavenPluginManager.setupPluginRealm( pluginDescriptor, session, session.getCurrentProject().getClassRealm(),
+maven-core/src/main/java/org/apache/maven/plugin/DefaultBuildPluginManager.java,187,null, null );
+maven-core/src/main/java/org/apache/maven/plugin/internal/DefaultMavenPluginManager.java,337,ClassRealm pluginRealm = classRealmManager.createPluginRealm( plugin, parent, imports, pluginArtifacts );
+maven-embedder/src/main/java/org/apache/maven/cli/CLIReportingUtils.java,167,resourceAsStream =
+maven-embedder/src/main/java/org/apache/maven/cli/CLIReportingUtils.java,168,MavenCli.class.getClassLoader().getResourceAsStream( "org/apache/maven/messages/build.properties" );
+maven-embedder/src/main/java/org/apache/maven/cli/MavenCli.java,98,private PrintStreamLogger logger;
+maven-embedder/src/main/java/org/apache/maven/cli/MavenCli.java,145,CliRequest cliRequest = new CliRequest( args, classWorld );
+maven-embedder/src/main/java/org/apache/maven/cli/MavenCli.java,146,cliRequest.workingDirectory = workingDirectory;
+maven-embedder/src/main/java/org/apache/maven/cli/MavenCli.java,147,cliRequest.stdout = stdout;
+maven-embedder/src/main/java/org/apache/maven/cli/MavenCli.java,148,cliRequest.stderr = stderr;
+maven-embedder/src/main/java/org/apache/maven/cli/MavenCli.java,150,return doMain( cliRequest );
+maven-embedder/src/main/java/org/apache/maven/cli/MavenCli.java,162,commands( cliRequest );
+maven-embedder/src/main/java/org/apache/maven/cli/MavenCli.java,198,cliRequest.stdout = System.out;
+maven-embedder/src/main/java/org/apache/maven/cli/MavenCli.java,202,cliRequest.stderr = System.err;
+maven-embedder/src/main/java/org/apache/maven/cli/MavenCli.java,207,logger = new PrintStreamLogger( cliRequest.stdout );
+maven-embedder/src/main/java/org/apache/maven/cli/MavenCli.java,209,else
+maven-embedder/src/main/java/org/apache/maven/cli/MavenCli.java,211,logger.setStream( cliRequest.stdout );
+maven-embedder/src/main/java/org/apache/maven/cli/MavenCli.java,257,logger.setThreshold( cliRequest.request.getLoggingLevel() );
+maven-embedder/src/main/java/org/apache/maven/cli/MavenCli.java,267,logger.setStream( cliRequest.fileStream );
+maven-embedder/src/main/java/org/apache/maven/cli/MavenCli.java,271,cliRequest.stderr.println( e );
+maven-embedder/src/main/java/org/apache/maven/cli/MavenCli.java,272,logger.setStream( cliRequest.stdout );
+maven-embedder/src/main/java/org/apache/maven/cli/MavenCli.java,275,else
+maven-embedder/src/main/java/org/apache/maven/cli/MavenCli.java,277,logger.setStream( cliRequest.stdout );
+maven-embedder/src/main/java/org/apache/maven/cli/MavenCli.java,280,cliRequest.request.setExecutionListener( new ExecutionEventLogger( logger ) );
+maven-embedder/src/main/java/org/apache/maven/cli/MavenCli.java,297,cliRequest.stderr.println( "Unable to parse command line options: " + e.getMessage() );
+maven-embedder/src/main/java/org/apache/maven/cli/MavenCli.java,298,cliManager.displayHelp( cliRequest.stdout );
+maven-embedder/src/main/java/org/apache/maven/cli/MavenCli.java,306,cliManager.displayHelp( cliRequest.stdout );
+maven-embedder/src/main/java/org/apache/maven/cli/MavenCli.java,312,CLIReportingUtils.showVersion( cliRequest.stdout );
+maven-embedder/src/main/java/org/apache/maven/cli/MavenCli.java,321,CLIReportingUtils.showVersion( cliRequest.stdout );
+maven-embedder/src/main/java/org/apache/maven/cli/MavenCli.java,367,container.getLoggerManager().setThresholds( cliRequest.request.getLoggingLevel() );
+maven-embedder/src/main/java/org/apache/maven/cli/MavenCli.java,404,cliRequest.stdout.println( cipher.encryptAndDecorate( passwd,
+maven-embedder/src/main/java/org/apache/maven/cli/MavenCli.java,405,DefaultSecDispatcher.SYSTEM_PROPERTY_SEC_LOCATION ) );
+maven-embedder/src/main/java/org/apache/maven/cli/MavenCli.java,437,cliRequest.stdout.println( cipher.encryptAndDecorate( passwd, masterPasswd ) );
+maven-embedder/src/main/java/org/apache/maven/cli/MavenCli.java,594,logger.debug( "Reading user settings from " + userSettingsFile );
+maven-embedder/src/main/java/org/apache/maven/cli/MavenCli.java,615,logger.debug( "Reading global settings from " + globalSettingsFile );
+maven-embedder/src/main/java/org/apache/maven/cli/MavenCli.java,649,boolean debug = cliRequest.debug;
+maven-embedder/src/main/java/org/apache/maven/cli/MavenCli.java,658,cliRequest.stdout.println( "[WARNING] Command line option -" + deprecatedOption
+maven-embedder/src/main/java/org/apache/maven/cli/MavenCli.java,780,transferListener = new ConsoleMavenTransferListener( cliRequest.stdout );
+maven-embedder/src/main/java/org/apache/maven/cli/MavenCli.java,784,transferListener = new BatchModeMavenTransferListener( cliRequest.stdout );
+maven-embedder/src/main/java/org/apache/maven/cli/MavenCli.java,793,int loggingLevel;
+maven-embedder/src/main/java/org/apache/maven/cli/MavenCli.java,797,loggingLevel = MavenExecutionRequest.LOGGING_LEVEL_DEBUG;
+maven-embedder/src/main/java/org/apache/maven/cli/MavenCli.java,803,loggingLevel = MavenExecutionRequest.LOGGING_LEVEL_ERROR;
+maven-embedder/src/main/java/org/apache/maven/cli/MavenCli.java,807,else
+maven-embedder/src/main/java/org/apache/maven/cli/MavenCli.java,809,loggingLevel = MavenExecutionRequest.LOGGING_LEVEL_INFO;
+maven-embedder/src/main/java/org/apache/maven/cli/MavenCli.java,831,.setLoggingLevel( loggingLevel ) // default: info
+maven-embedder/src/main/java/org/apache/maven/cli/MavenCli.java,1006,PrintStream stdout;
+maven-embedder/src/main/java/org/apache/maven/cli/MavenCli.java,1007,PrintStream stderr;
+maven-embedder/src/main/java/org/apache/maven/cli/PrintStreamLogger.java,37,private PrintStream out;
+maven-embedder/src/main/java/org/apache/maven/cli/PrintStreamLogger.java,63,this.out = out;
+maven-compat/src/main/java/org/apache/maven/repository/legacy/LegacyRepositorySystem.java,575,return new Authentication( auth.getUsername(), auth.getPassword() );
+maven-core/src/main/java/org/apache/maven/RepositoryUtils.java,224,result = new Authentication( auth.getUsername(), auth.getPassword() );
+maven-aether-provider/src/main/java/org/apache/maven/repository/internal/VersionsMetadata.java,55,versioning.setRelease( artifact.getVersion() );
+maven-embedder/src/main/java/org/apache/maven/cli/ConsoleMavenTransferListener.java,60,long complete = entry.getValue().longValue();
+maven-embedder/src/main/java/org/apache/maven/cli/ConsoleMavenTransferListener.java,62,buffer.append( getStatus( complete, total ) ).append( "  " );
+maven-core/src/main/java/org/apache/maven/plugin/internal/DefaultLegacySupport.java,40,private ThreadLocal<MavenSession> session = new InheritableThreadLocal<MavenSession>();
+maven-core/src/main/java/org/apache/maven/plugin/internal/DefaultLegacySupport.java,46,this.session.remove();
+maven-core/src/main/java/org/apache/maven/plugin/internal/DefaultLegacySupport.java,50,this.session.set( session );
+maven-core/src/main/java/org/apache/maven/plugin/internal/DefaultLegacySupport.java,56,return session.get();
+maven-core/src/main/java/org/apache/maven/lifecycle/internal/MojoDescriptorCreator.java,197,goal = tok.nextToken();
+maven-plugin-api/src/main/java/org/apache/maven/plugin/MojoNotFoundException.java,57,buffer.append( "Could not find goal " ).append( goal );
+maven-core/src/main/java/org/apache/maven/project/DependencyResolutionException.java,29,private DependencyResolutionResult result;
+maven-core/src/main/java/org/apache/maven/project/MavenProject.java,125,private List<Artifact> attachedArtifacts;
+maven-core/src/main/java/org/apache/maven/ReactorReader.java,104,return new File( project.getBuild().getOutputDirectory() );
+maven-core/src/main/java/org/apache/maven/plugin/internal/DefaultPluginDependenciesResolver.java,131,pluginSession.setDependencyGraphTransformer( transformer );
+maven-core/src/main/java/org/apache/maven/plugin/internal/PlexusUtilsInjector.java,1,package org.apache.maven.plugin.internal;
+maven-core/src/main/java/org/apache/maven/plugin/internal/PlexusUtilsInjector.java,38,class PlexusUtilsInjector
+maven-core/src/main/java/org/apache/maven/plugin/internal/PlexusUtilsInjector.java,39,implements DependencyGraphTransformer
+maven-core/src/main/java/org/apache/maven/plugin/internal/PlexusUtilsInjector.java,42,private static final String GID = "org.codehaus.plexus";
+maven-core/src/main/java/org/apache/maven/plugin/internal/PlexusUtilsInjector.java,44,private static final String AID = "plexus-utils";
+maven-core/src/main/java/org/apache/maven/plugin/internal/PlexusUtilsInjector.java,46,private static final String VER = "1.1";
+maven-core/src/main/java/org/apache/maven/plugin/internal/PlexusUtilsInjector.java,48,private static final String EXT = "jar";
+maven-core/src/main/java/org/apache/maven/plugin/internal/PlexusUtilsInjector.java,51,throws RepositoryException
+maven-core/src/main/java/org/apache/maven/plugin/internal/PlexusUtilsInjector.java,55,Artifact pu = new DefaultArtifact( GID, AID, null, EXT, VER );
+maven-core/src/main/java/org/apache/maven/plugin/internal/PlexusUtilsInjector.java,56,DefaultDependencyNode child = new DefaultDependencyNode( new Dependency( pu, JavaScopes.RUNTIME ) );
+maven-core/src/main/java/org/apache/maven/plugin/internal/PlexusUtilsInjector.java,57,child.setRepositories( node.getRepositories() );
+maven-core/src/main/java/org/apache/maven/plugin/internal/PlexusUtilsInjector.java,58,child.setRequestContext( node.getRequestContext() );
+maven-core/src/main/java/org/apache/maven/plugin/internal/PlexusUtilsInjector.java,59,node.getChildren().add( child );
+maven-core/src/main/java/org/apache/maven/plugin/internal/PlexusUtilsInjector.java,62,return node;
+maven-core/src/main/java/org/apache/maven/plugin/internal/PlexusUtilsInjector.java,67,Artifact artifact = node.getDependency().getArtifact();
+maven-core/src/main/java/org/apache/maven/plugin/internal/PlexusUtilsInjector.java,72,return node;
+maven-core/src/main/java/org/apache/maven/plugin/internal/PlexusUtilsInjector.java,77,DependencyNode result = findPlexusUtils( child );
+maven-core/src/main/java/org/apache/maven/plugin/internal/PlexusUtilsInjector.java,80,return result;
+maven-core/src/main/java/org/apache/maven/plugin/internal/PlexusUtilsInjector.java,84,return null;
+maven-core/src/main/java/org/apache/maven/project/DefaultProjectBuildingHelper.java,296,if ( !plugin.isExtensions() && artifacts.size() == 2 && artifacts.get( 0 ).getFile() != null
+maven-core/src/main/java/org/apache/maven/project/DefaultProjectBuildingHelper.java,304,publicArtifacts.add( artifacts.get( 0 ) );
+maven-artifact/src/main/java/org/apache/maven/artifact/versioning/ComparableVersion.java,290,Item first = get( 0 );
+maven-artifact/src/main/java/org/apache/maven/artifact/versioning/ComparableVersion.java,291,return first.compareTo( null );

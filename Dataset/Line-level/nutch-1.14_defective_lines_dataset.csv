@@ -1,0 +1,670 @@
+File,Line_number,SRC
+src/java/org/apache/nutch/parse/ParseUtil.java,153,else
+src/java/org/apache/nutch/parse/ParseUtil.java,154,parseResult = p.getParse(content);
+src/java/org/apache/nutch/parse/ParseUtil.java,98,else
+src/java/org/apache/nutch/parse/ParseUtil.java,99,parseResult = parsers[i].getParse(content);
+src/java/org/apache/nutch/parse/ParseUtil.java,175,LOG.warn("Error parsing " + content.getUrl() + " with " + p, e);
+src/java/org/apache/nutch/crawl/CrawlDbReader.java,510,stats.remove("T");
+src/java/org/apache/nutch/parse/ParserFactory.java,144,LOG.warn("ParserFactory:PluginRuntimeException when "
+src/java/org/apache/nutch/parse/ParserFactory.java,145,+ "initializing parser plugin "
+src/java/org/apache/nutch/parse/ParserFactory.java,146,+ ext.getDescriptor().getPluginId() + " instance in getParsers "
+src/java/org/apache/nutch/parse/ParserFactory.java,147,+ "function: attempting to continue instantiating parsers");
+src/plugin/urlnormalizer-basic/src/java/org/apache/nutch/net/urlnormalizer/basic/BasicURLNormalizer.java,67,private final static Charset utf8 = Charset.forName("UTF-8");
+src/plugin/urlnormalizer-basic/src/java/org/apache/nutch/net/urlnormalizer/basic/BasicURLNormalizer.java,161,urlString = new URL(protocol, host, port, file).toString();
+src/plugin/urlnormalizer-basic/src/java/org/apache/nutch/net/urlnormalizer/basic/BasicURLNormalizer.java,178,while (file.startsWith("/../", start)) {
+src/plugin/urlnormalizer-basic/src/java/org/apache/nutch/net/urlnormalizer/basic/BasicURLNormalizer.java,251,for (byte b: path.getBytes(utf8)) {
+src/plugin/urlnormalizer-basic/src/java/org/apache/nutch/net/urlnormalizer/basic/BasicURLNormalizer.java,253,if (b < 0x21 || b == 0x5B || b == 0x5D || b == 0x7B || b == 0x7D) {
+src/plugin/urlnormalizer-basic/src/java/org/apache/nutch/net/urlnormalizer/basic/BasicURLNormalizer.java,270,sb.append((char)b);
+src/java/org/apache/nutch/parse/ParserChecker.java,219,Parse parse = parseResult.get(turl);
+src/java/org/apache/nutch/parse/ParserChecker.java,220,if (parse == null) {
+src/java/org/apache/nutch/parse/ParserChecker.java,221,LOG.error("Failed to get parse from parse result");
+src/java/org/apache/nutch/parse/ParserChecker.java,222,LOG.error("Available parses in parse result (by URL key):");
+src/java/org/apache/nutch/parse/ParserChecker.java,223,for (Map.Entry<Text, Parse> entry : parseResult) {
+src/java/org/apache/nutch/parse/ParserChecker.java,224,LOG.error("  " + entry.getKey());
+src/java/org/apache/nutch/parse/ParserChecker.java,226,LOG.error("Parse result does not contain a parse for URL to be checked:");
+src/java/org/apache/nutch/parse/ParserChecker.java,227,LOG.error("  " + turl);
+src/java/org/apache/nutch/parse/ParserChecker.java,228,return -1;
+src/java/org/apache/nutch/parse/ParserChecker.java,232,try {
+src/java/org/apache/nutch/parse/ParserChecker.java,233,scfilters.passScoreAfterParsing(turl, content, parse);
+src/java/org/apache/nutch/parse/ParserChecker.java,235,if (LOG.isWarnEnabled()) {
+src/java/org/apache/nutch/parse/ParserChecker.java,236,LOG.warn("Couldn't pass score after parsing, url " + turl + " (" + e
+src/java/org/apache/nutch/parse/ParserChecker.java,237,+ ")");
+src/java/org/apache/nutch/parse/ParserChecker.java,238,LOG.warn(StringUtils.stringifyException(e));
+src/java/org/apache/nutch/parse/ParserChecker.java,242,for (Map.Entry<Text, Parse> entry : parseResult) {
+src/java/org/apache/nutch/parse/ParserChecker.java,243,parse = entry.getValue();
+src/plugin/parse-tika/src/java/org/apache/nutch/parse/tika/HTMLMetaProcessor.java,128,int idx = content.indexOf(';');
+src/plugin/parse-tika/src/java/org/apache/nutch/parse/tika/HTMLMetaProcessor.java,129,String time = null;
+src/plugin/parse-tika/src/java/org/apache/nutch/parse/tika/HTMLMetaProcessor.java,130,if (idx == -1) { // just the refresh time
+src/plugin/parse-tika/src/java/org/apache/nutch/parse/tika/HTMLMetaProcessor.java,131,time = content;
+src/plugin/parse-tika/src/java/org/apache/nutch/parse/tika/HTMLMetaProcessor.java,133,time = content.substring(0, idx);
+src/plugin/parse-tika/src/java/org/apache/nutch/parse/tika/HTMLMetaProcessor.java,134,try {
+src/plugin/parse-tika/src/java/org/apache/nutch/parse/tika/HTMLMetaProcessor.java,135,metaTags.setRefreshTime(Integer.parseInt(time));
+src/plugin/parse-tika/src/java/org/apache/nutch/parse/tika/HTMLMetaProcessor.java,137,metaTags.setRefresh(true);
+src/plugin/parse-tika/src/java/org/apache/nutch/parse/tika/HTMLMetaProcessor.java,139,;
+src/plugin/parse-tika/src/java/org/apache/nutch/parse/tika/HTMLMetaProcessor.java,141,URL refreshUrl = null;
+src/plugin/parse-tika/src/java/org/apache/nutch/parse/tika/HTMLMetaProcessor.java,142,if (metaTags.getRefresh() && idx != -1) { // set the URL
+src/plugin/parse-tika/src/java/org/apache/nutch/parse/tika/HTMLMetaProcessor.java,143,idx = content.toLowerCase().indexOf("url=");
+src/plugin/parse-tika/src/java/org/apache/nutch/parse/tika/HTMLMetaProcessor.java,144,if (idx == -1) { // assume a mis-formatted entry with just the
+src/plugin/parse-tika/src/java/org/apache/nutch/parse/tika/HTMLMetaProcessor.java,146,idx = content.indexOf(';') + 1;
+src/plugin/parse-tika/src/java/org/apache/nutch/parse/tika/HTMLMetaProcessor.java,148,idx += 4;
+src/plugin/parse-tika/src/java/org/apache/nutch/parse/tika/HTMLMetaProcessor.java,149,if (idx != -1) {
+src/plugin/parse-tika/src/java/org/apache/nutch/parse/tika/HTMLMetaProcessor.java,150,String url = content.substring(idx);
+src/plugin/parse-tika/src/java/org/apache/nutch/parse/tika/HTMLMetaProcessor.java,151,try {
+src/plugin/parse-tika/src/java/org/apache/nutch/parse/tika/HTMLMetaProcessor.java,152,refreshUrl = new URL(url);
+src/plugin/parse-tika/src/java/org/apache/nutch/parse/tika/HTMLMetaProcessor.java,160,try {
+src/plugin/parse-tika/src/java/org/apache/nutch/parse/tika/HTMLMetaProcessor.java,161,refreshUrl = new URL(currURL, url);
+src/plugin/parse-tika/src/java/org/apache/nutch/parse/tika/HTMLMetaProcessor.java,163,refreshUrl = null;
+src/plugin/parse-tika/src/java/org/apache/nutch/parse/tika/HTMLMetaProcessor.java,168,if (metaTags.getRefresh()) {
+src/plugin/parse-tika/src/java/org/apache/nutch/parse/tika/HTMLMetaProcessor.java,169,if (refreshUrl == null) {
+src/plugin/parse-tika/src/java/org/apache/nutch/parse/tika/HTMLMetaProcessor.java,172,refreshUrl = currURL;
+src/plugin/parse-tika/src/java/org/apache/nutch/parse/tika/HTMLMetaProcessor.java,174,metaTags.setRefreshHref(refreshUrl);
+src/plugin/lib-http/src/java/org/apache/nutch/protocol/http/api/HttpRobotRulesParser.java,177,if (redir != null && !redir.getHost().equalsIgnoreCase(url.getHost())) {
+src/java/org/apache/nutch/hostdb/UpdateHostDbReducer.java,266,if (value instanceof HostDatum) {
+src/java/org/apache/nutch/hostdb/UpdateHostDbReducer.java,301,if (value instanceof FloatWritable) {
+src/java/org/apache/nutch/hostdb/ReadHostDb.java,43,import org.apache.hadoop.mapreduce.Reducer;
+src/java/org/apache/nutch/hostdb/ReadHostDb.java,193,job.setJarByClass(ReadHostDb.class);
+src/java/org/apache/nutch/scoring/webgraph/LinkDumper.java,97,FileSystem fs = webGraphDb.getFileSystem(conf);
+src/java/org/apache/nutch/scoring/webgraph/LinkDumper.java,361,LOG.error(StringUtils.stringifyException(e));
+src/java/org/apache/nutch/scoring/webgraph/LinkDumper.java,383,LOG.error(StringUtils.stringifyException(e));
+src/java/org/apache/nutch/scoring/webgraph/LinkRank.java,117,LOG.error(StringUtils.stringifyException(e));
+src/java/org/apache/nutch/scoring/webgraph/LinkRank.java,125,FSDataInputStream readLinks = fs.open(new Path(numLinksPath, "part-00000"));
+src/java/org/apache/nutch/scoring/webgraph/LinkRank.java,177,LOG.error(StringUtils.stringifyException(e));
+src/java/org/apache/nutch/scoring/webgraph/LinkRank.java,222,LOG.error(StringUtils.stringifyException(e));
+src/java/org/apache/nutch/scoring/webgraph/LinkRank.java,276,LOG.error(StringUtils.stringifyException(e));
+src/java/org/apache/nutch/scoring/webgraph/LinkRank.java,320,public void close() {
+src/java/org/apache/nutch/scoring/webgraph/NodeDumper.java,317,LOG.error(StringUtils.stringifyException(e));
+src/java/org/apache/nutch/scoring/webgraph/ScoreUpdater.java,187,LOG.error(StringUtils.stringifyException(e));
+src/java/org/apache/nutch/scoring/webgraph/WebGraph.java,415,public void close() {
+src/java/org/apache/nutch/scoring/webgraph/WebGraph.java,451,public void close() {
+src/java/org/apache/nutch/scoring/webgraph/WebGraph.java,597,LockUtil.removeLockFile(fs, lock);
+src/java/org/apache/nutch/scoring/webgraph/WebGraph.java,598,if (fs.exists(tempOutlinkDb)) {
+src/java/org/apache/nutch/scoring/webgraph/WebGraph.java,599,fs.delete(tempOutlinkDb, true);
+src/java/org/apache/nutch/scoring/webgraph/WebGraph.java,601,LOG.error(StringUtils.stringifyException(e));
+src/java/org/apache/nutch/scoring/webgraph/WebGraph.java,636,LockUtil.removeLockFile(fs, lock);
+src/java/org/apache/nutch/scoring/webgraph/WebGraph.java,637,if (fs.exists(tempInlinkDb)) {
+src/java/org/apache/nutch/scoring/webgraph/WebGraph.java,638,fs.delete(tempInlinkDb, true);
+src/java/org/apache/nutch/scoring/webgraph/WebGraph.java,640,LOG.error(StringUtils.stringifyException(e));
+src/java/org/apache/nutch/scoring/webgraph/WebGraph.java,677,LockUtil.removeLockFile(fs, lock);
+src/java/org/apache/nutch/scoring/webgraph/WebGraph.java,678,if (fs.exists(tempNodeDb)) {
+src/java/org/apache/nutch/scoring/webgraph/WebGraph.java,679,fs.delete(tempNodeDb, true);
+src/java/org/apache/nutch/scoring/webgraph/WebGraph.java,681,LOG.error(StringUtils.stringifyException(e));
+src/java/org/apache/nutch/crawl/DeduplicationJob.java,278,String crawldb = args[0];
+src/java/org/apache/nutch/crawl/DeduplicationJob.java,301,+ "/dedup-temp-"
+src/java/org/apache/nutch/crawl/DeduplicationJob.java,306,job.setJobName("Deduplication on " + crawldb);
+src/java/org/apache/nutch/crawl/DeduplicationJob.java,310,FileInputFormat.addInputPath(job, new Path(crawldb, CrawlDb.CURRENT_NAME));
+src/java/org/apache/nutch/crawl/DeduplicationJob.java,343,Path dbPath = new Path(crawldb);
+src/java/org/apache/nutch/crawl/DeduplicationJob.java,355,CrawlDb.install(mergeJob, dbPath);
+src/java/org/apache/nutch/crawl/LinkDbReader.java,30,import org.apache.hadoop.conf.Configured;
+src/java/org/apache/nutch/crawl/LinkDbReader.java,51,private static final Partitioner<WritableComparable, Writable> PARTITIONER = new HashPartitioner<>();
+src/java/org/apache/nutch/crawl/LinkDbReader.java,53,private FileSystem fs;
+src/java/org/apache/nutch/crawl/LinkDbReader.java,67,this.fs = directory.getFileSystem(getConf());
+src/java/org/apache/nutch/segment/SegmentReader.java,72,import org.apache.nutch.util.NutchJob;
+src/java/org/apache/nutch/crawl/CrawlDbReader.java,100,FileSystem fs = crawlDbPath.getFileSystem(config);
+src/java/org/apache/nutch/fetcher/FetcherOutputFormat.java,52,if (fs == null) {
+src/java/org/apache/nutch/util/SitemapProcessor.java,319,FileSystem fs = FileSystem.get(getConf());
+src/java/org/apache/nutch/fetcher/FetcherThread.java,109,private int outlinksDepthDivisor;
+src/java/org/apache/nutch/fetcher/FetcherThread.java,198,LOG.error("Unknown partition mode : " + queueMode
+src/java/org/apache/nutch/fetcher/FetcherThread.java,199,+ " - forcing to byHost");
+src/java/org/apache/nutch/fetcher/FetcherThread.java,218,outlinksDepthDivisor = conf.getInt(
+src/java/org/apache/nutch/fetcher/FetcherThread.java,248,LOG.debug(getName() + " set to halted");
+src/java/org/apache/nutch/fetcher/FetcherThread.java,256,LOG.debug(getName() + " spin-waiting ...");
+src/java/org/apache/nutch/fetcher/FetcherThread.java,293,+ ((FetchItemQueues) fetchQueues).getFetchItemQueue(fit.queueID).crawlDelay
+src/java/org/apache/nutch/fetcher/FetcherThread.java,294,+ "ms)");
+src/java/org/apache/nutch/fetcher/FetcherThread.java,297,LOG.debug("redirectCount=" + redirectCount);
+src/java/org/apache/nutch/fetcher/FetcherThread.java,324,+ rules.getCrawlDelay() + "), skipping");
+src/java/org/apache/nutch/fetcher/FetcherThread.java,383,newUrl, refreshTime < Fetcher.PERM_REFRESH_TIME,
+src/java/org/apache/nutch/fetcher/FetcherThread.java,405,newUrl, temp, Fetcher.PROTOCOL_REDIR);
+src/java/org/apache/nutch/fetcher/FetcherThread.java,472,LOG.error("fetcher caught:" + e.toString());
+src/java/org/apache/nutch/fetcher/FetcherThread.java,479,+ activeThreads);
+src/java/org/apache/nutch/fetcher/FetcherThread.java,483,private Text handleRedirect(Text url, CrawlDatum datum, String urlString,
+src/java/org/apache/nutch/fetcher/FetcherThread.java,634,+ StringUtils.stringifyException(e));
+src/java/org/apache/nutch/fetcher/FetcherThread.java,760,int maxOutlinksByDepth = (int) Math.floor(outlinksDepthDivisor
+src/java/org/apache/nutch/fetcher/FetcherThread.java,761,/ (outlinkDepth + 1) * maxOutlinkDepthNumLinks);
+src/java/org/apache/nutch/fetcher/FetcherThread.java,809,LOG.error("fetcher caught:" + e.toString());
+src/java/org/apache/nutch/fetcher/FetcherThread.java,833,LOG.error("fetcher caught: {}", e.toString());
+src/java/org/apache/nutch/fetcher/QueueFeeder.java,84,LOG.debug("-feeding " + feed + " input urls ...");
+src/java/org/apache/nutch/fetcher/QueueFeeder.java,102,LOG.info("QueueFeeder finished: total " + cnt
+src/java/org/apache/nutch/crawl/Generator.java,285,public int getPartition(FloatWritable key, Writable value,
+src/java/org/apache/nutch/crawl/Generator.java,286,int numReduceTasks) {
+src/java/org/apache/nutch/crawl/Generator.java,287,return partitioner.getPartition(((SelectorEntry) value).url, key,
+src/java/org/apache/nutch/crawl/Generator.java,288,numReduceTasks);
+src/java/org/apache/nutch/hostdb/ReadHostDb.java,184,conf.set("mapred.textoutputformat.separator", "\t");
+src/java/org/apache/nutch/util/SitemapProcessor.java,428,System.err.println("\t-threads <threads>\tNumber of threads created per mapper to fetch sitemap urls");
+src/java/org/apache/nutch/util/SitemapProcessor.java,447,int threads = getConf().getInt("mapred.map.multithreadedrunner.threads", 8);
+src/java/org/apache/nutch/crawl/AbstractFetchSchedule.java,160,return datum.getFetchTime() - (long) datum.getFetchInterval() * 1000;
+src/java/org/apache/nutch/crawl/CrawlDb.java,122,FileSystem fs = crawlDb.getFileSystem(getConf());
+src/java/org/apache/nutch/crawl/CrawlDb.java,123,LockUtil.removeLockFile(fs, lock);
+src/java/org/apache/nutch/crawl/CrawlDb.java,124,Path outPath = FileOutputFormat.getOutputPath(job);
+src/java/org/apache/nutch/crawl/CrawlDb.java,126,fs.delete(outPath, true);
+src/java/org/apache/nutch/crawl/CrawlDbMerger.java,143,LockUtil.removeLockFile(getConf(), lock);
+src/java/org/apache/nutch/crawl/CrawlDbMerger.java,144,Path outPath = FileOutputFormat.getOutputPath(job);
+src/java/org/apache/nutch/crawl/CrawlDbMerger.java,145,FileSystem fs = outPath.getFileSystem(getConf());
+src/java/org/apache/nutch/crawl/CrawlDbMerger.java,147,fs.delete(outPath, true);
+src/java/org/apache/nutch/crawl/CrawlDbReader.java,399,FileSystem fileSystem = tmpFolder.getFileSystem(config);
+src/java/org/apache/nutch/crawl/CrawlDbReader.java,760,FileSystem fs = tempDir.getFileSystem(config);
+src/java/org/apache/nutch/crawl/DeduplicationJob.java,358,FileSystem fs = tempDir.getFileSystem(getConf());
+src/java/org/apache/nutch/crawl/Generator.java,731,LockUtil.removeLockFile(getConf(), lock);
+src/java/org/apache/nutch/crawl/Generator.java,732,fs.delete(tempDir, true);
+src/java/org/apache/nutch/crawl/Generator.java,787,LockUtil.removeLockFile(getConf(), lock);
+src/java/org/apache/nutch/crawl/Generator.java,788,fs.delete(tempDir, true);
+src/java/org/apache/nutch/crawl/Generator.java,789,fs.delete(tempDir2, true);
+src/java/org/apache/nutch/crawl/Injector.java,43,import org.apache.nutch.util.LockUtil;
+src/java/org/apache/nutch/crawl/Injector.java,423,cleanupAfterFailure(tempCrawlDb, lock, fs);
+src/java/org/apache/nutch/crawl/Injector.java,466,cleanupAfterFailure(tempCrawlDb, lock, fs);
+src/java/org/apache/nutch/crawl/Injector.java,467,throw e;
+src/java/org/apache/nutch/crawl/Injector.java,472,throws IOException {
+src/java/org/apache/nutch/crawl/Injector.java,473,try {
+src/java/org/apache/nutch/crawl/Injector.java,474,if (fs.exists(tempCrawlDb)) {
+src/java/org/apache/nutch/crawl/Injector.java,475,fs.delete(tempCrawlDb, true);
+src/java/org/apache/nutch/crawl/Injector.java,477,LockUtil.removeLockFile(fs, lock);
+src/java/org/apache/nutch/crawl/LinkDb.java,231,LockUtil.removeLockFile(fs, lock);
+src/java/org/apache/nutch/crawl/LinkDb.java,232,fs.delete(newLinkDb, true);
+src/java/org/apache/nutch/hostdb/UpdateHostDb.java,159,if (fs.exists(tempHostDb)) {
+src/java/org/apache/nutch/hostdb/UpdateHostDb.java,160,fs.delete(tempHostDb, true);
+src/java/org/apache/nutch/hostdb/UpdateHostDb.java,162,LockUtil.removeLockFile(fs, lock);
+src/java/org/apache/nutch/tools/warc/WARCExporter.java,296,LOG.error("Exception caught", e);
+src/java/org/apache/nutch/util/SitemapProcessor.java,367,cleanupAfterFailure(tempCrawlDb, lock, fs);
+src/java/org/apache/nutch/util/SitemapProcessor.java,399,cleanupAfterFailure(tempCrawlDb, lock, fs);
+src/java/org/apache/nutch/util/SitemapProcessor.java,400,throw e;
+src/java/org/apache/nutch/util/SitemapProcessor.java,405,throws IOException {
+src/java/org/apache/nutch/util/SitemapProcessor.java,406,try {
+src/java/org/apache/nutch/util/SitemapProcessor.java,407,if (fs.exists(tempCrawlDb)) {
+src/java/org/apache/nutch/util/SitemapProcessor.java,408,fs.delete(tempCrawlDb, true);
+src/java/org/apache/nutch/util/SitemapProcessor.java,410,LockUtil.removeLockFile(fs, lock);
+src/plugin/protocol-http/src/java/org/apache/nutch/protocol/http/HttpResponse.java,127,SSLSocketFactory factory = (SSLSocketFactory) SSLSocketFactory
+src/plugin/protocol-http/src/java/org/apache/nutch/protocol/http/HttpResponse.java,128,.getDefault();
+src/plugin/protocol-http/src/java/org/apache/nutch/protocol/http/HttpResponse.java,129,SSLSocket sslsocket = (SSLSocket) factory
+src/plugin/protocol-http/src/java/org/apache/nutch/protocol/http/HttpResponse.java,130,.createSocket(socket, sockHost, sockPort, true);
+src/plugin/protocol-http/src/java/org/apache/nutch/protocol/http/HttpResponse.java,131,sslsocket.setUseClientMode(true);
+src/plugin/protocol-http/src/java/org/apache/nutch/protocol/http/HttpResponse.java,134,Set<String> protocols = new HashSet<String>(
+src/plugin/protocol-http/src/java/org/apache/nutch/protocol/http/HttpResponse.java,135,Arrays.asList(sslsocket.getSupportedProtocols()));
+src/plugin/protocol-http/src/java/org/apache/nutch/protocol/http/HttpResponse.java,136,Set<String> ciphers = new HashSet<String>(
+src/plugin/protocol-http/src/java/org/apache/nutch/protocol/http/HttpResponse.java,137,Arrays.asList(sslsocket.getSupportedCipherSuites()));
+src/plugin/protocol-http/src/java/org/apache/nutch/protocol/http/HttpResponse.java,140,protocols.retainAll(http.getTlsPreferredProtocols());
+src/plugin/protocol-http/src/java/org/apache/nutch/protocol/http/HttpResponse.java,141,ciphers.retainAll(http.getTlsPreferredCipherSuites());
+src/plugin/protocol-http/src/java/org/apache/nutch/protocol/http/HttpResponse.java,143,sslsocket.setEnabledProtocols(
+src/plugin/protocol-http/src/java/org/apache/nutch/protocol/http/HttpResponse.java,144,protocols.toArray(new String[protocols.size()]));
+src/plugin/protocol-http/src/java/org/apache/nutch/protocol/http/HttpResponse.java,145,sslsocket.setEnabledCipherSuites(
+src/plugin/protocol-http/src/java/org/apache/nutch/protocol/http/HttpResponse.java,146,ciphers.toArray(new String[ciphers.size()]));
+src/plugin/protocol-http/src/java/org/apache/nutch/protocol/http/HttpResponse.java,148,sslsocket.startHandshake();
+src/java/org/apache/nutch/hostdb/UpdateHostDb.java,97,throw new Exception("domainblacklist-urlfilter must not be enabled");
+src/java/org/apache/nutch/hostdb/UpdateHostDb.java,102,throw new Exception("urlnormalizer-host must not be enabled");
+src/java/org/apache/nutch/util/SitemapProcessor.java,151,for(String sitemap: sitemaps) {
+src/java/org/apache/nutch/util/SitemapProcessor.java,153,generateSitemapUrlDatum(protocolFactory.getProtocol(sitemap), sitemap, context);
+src/java/org/apache/nutch/util/SitemapProcessor.java,255,for(AbstractSiteMap sitemap: sitemapUrls) {
+src/java/org/apache/nutch/crawl/LinkDb.java,20,import java.io.*;
+src/java/org/apache/nutch/crawl/LinkDb.java,23,import java.util.*;
+src/java/org/apache/nutch/crawl/LinkDb.java,24,import java.net.*;
+src/java/org/apache/nutch/crawl/LinkDb.java,29,import org.apache.hadoop.io.*;
+src/java/org/apache/nutch/crawl/LinkDb.java,30,import org.apache.hadoop.fs.*;
+src/java/org/apache/nutch/crawl/LinkDb.java,32,import org.apache.hadoop.conf.*;
+src/java/org/apache/nutch/crawl/LinkDb.java,34,import org.apache.hadoop.util.*;
+src/java/org/apache/nutch/crawl/LinkDb.java,38,import org.apache.nutch.parse.*;
+src/java/org/apache/nutch/crawl/LinkDb.java,51,.getLogger(MethodHandles.lookup().lookupClass());
+src/java/org/apache/nutch/crawl/LinkDb.java,172,HadoopFSUtil.getPassDirectoriesFilter(fs));
+src/java/org/apache/nutch/crawl/LinkDb.java,187,LOG.info("LinkDb: starting at " + sdf.format(start));
+src/java/org/apache/nutch/crawl/LinkDb.java,188,LOG.info("LinkDb: linkdb: " + linkDb);
+src/java/org/apache/nutch/crawl/LinkDb.java,189,LOG.info("LinkDb: URL normalize: " + normalize);
+src/java/org/apache/nutch/crawl/LinkDb.java,190,LOG.info("LinkDb: URL filter: " + filter);
+src/java/org/apache/nutch/crawl/LinkDb.java,201,+ "Nothing to do, actually. Exiting.");
+src/java/org/apache/nutch/crawl/LinkDb.java,208,LOG.info("LinkDb: adding segment: " + segments[i]);
+src/java/org/apache/nutch/crawl/LinkDb.java,211,ParseData.DIR_NAME));
+src/java/org/apache/nutch/crawl/LinkDb.java,221,LOG.info("LinkDb: merging with existing linkdb: " + linkDb);
+src/java/org/apache/nutch/crawl/LinkDb.java,240,LOG.info("LinkDb: finished at " + sdf.format(end) + ", elapsed: "
+src/java/org/apache/nutch/crawl/LinkDb.java,241,+ TimingUtil.elapsedTime(start, end));
+src/java/org/apache/nutch/crawl/LinkDb.java,247,Integer.toString(new Random().nextInt(Integer.MAX_VALUE)));
+src/java/org/apache/nutch/crawl/LinkDb.java,265,LOG.warn("LinkDb createJob: " + e);
+src/java/org/apache/nutch/crawl/LinkDb.java,304,.println("Usage: LinkDb <linkdb> (-dir <segmentsDir> | <seg1> <seg2> ...) [-force] [-noNormalize] [-noFilter]");
+src/java/org/apache/nutch/crawl/LinkDb.java,307,.println("\t-dir segmentsDir\tparent directory of several segments, OR");
+src/java/org/apache/nutch/crawl/LinkDb.java,310,.println("\t-force\tforce update even if LinkDb appears to be locked (CAUTION advised)");
+src/java/org/apache/nutch/crawl/LinkDb.java,321,if (args[i].equals("-dir")) {
+src/java/org/apache/nutch/crawl/LinkDb.java,325,HadoopFSUtil.getPassDirectoriesFilter(fs));
+src/java/org/apache/nutch/crawl/LinkDb.java,340,LOG.error("LinkDb: " + StringUtils.stringifyException(e));
+src/java/org/apache/nutch/crawl/LinkDb.java,393,HadoopFSUtil.getPassDirectoriesFilter(fs));
+src/java/org/apache/nutch/crawl/LinkDb.java,407,String segment_dir = crawlId+"/segments";
+src/java/org/apache/nutch/crawl/LinkDb.java,408,File dir = new File(segment_dir);
+src/java/org/apache/nutch/crawl/LinkDb.java,423,LOG.error("LinkDb: " + StringUtils.stringifyException(e));
+src/java/org/apache/nutch/segment/SegmentMerger.java,57,import org.apache.hadoop.util.Progressable;
+src/java/org/apache/nutch/segment/SegmentMerger.java,127,.getLogger(MethodHandles.lookup().lookupClass());
+src/java/org/apache/nutch/segment/SegmentMerger.java,143,SequenceFileInputFormat<Text, MetaWrapper> {
+src/java/org/apache/nutch/segment/SegmentMerger.java,148,throws IOException {
+src/java/org/apache/nutch/segment/SegmentMerger.java,211,FileOutputFormat<Text, MetaWrapper> {
+src/java/org/apache/nutch/segment/SegmentMerger.java,217,throws IOException {
+src/java/org/apache/nutch/segment/SegmentMerger.java,219,MapFile.Writer c_out = null;
+src/java/org/apache/nutch/segment/SegmentMerger.java,220,MapFile.Writer f_out = null;
+src/java/org/apache/nutch/segment/SegmentMerger.java,221,MapFile.Writer pd_out = null;
+src/java/org/apache/nutch/segment/SegmentMerger.java,222,MapFile.Writer pt_out = null;
+src/java/org/apache/nutch/segment/SegmentMerger.java,223,SequenceFile.Writer g_out = null;
+src/java/org/apache/nutch/segment/SegmentMerger.java,224,SequenceFile.Writer p_out = null;
+src/java/org/apache/nutch/segment/SegmentMerger.java,235,g_out = ensureSequenceFile(slice, CrawlDatum.GENERATE_DIR_NAME);
+src/java/org/apache/nutch/segment/SegmentMerger.java,236,g_out.append(key, o);
+src/java/org/apache/nutch/segment/SegmentMerger.java,238,f_out = ensureMapFile(slice, CrawlDatum.FETCH_DIR_NAME,
+src/java/org/apache/nutch/segment/SegmentMerger.java,239,CrawlDatum.class);
+src/java/org/apache/nutch/segment/SegmentMerger.java,240,f_out.append(key, o);
+src/java/org/apache/nutch/segment/SegmentMerger.java,242,p_out = ensureSequenceFile(slice, CrawlDatum.PARSE_DIR_NAME);
+src/java/org/apache/nutch/segment/SegmentMerger.java,243,p_out.append(key, o);
+src/java/org/apache/nutch/segment/SegmentMerger.java,246,+ sp.partName);
+src/java/org/apache/nutch/segment/SegmentMerger.java,249,c_out = ensureMapFile(slice, Content.DIR_NAME, Content.class);
+src/java/org/apache/nutch/segment/SegmentMerger.java,250,c_out.append(key, o);
+src/java/org/apache/nutch/segment/SegmentMerger.java,255,segmentName);
+src/java/org/apache/nutch/segment/SegmentMerger.java,258,segmentName + "-" + slice);
+src/java/org/apache/nutch/segment/SegmentMerger.java,260,pd_out = ensureMapFile(slice, ParseData.DIR_NAME, ParseData.class);
+src/java/org/apache/nutch/segment/SegmentMerger.java,261,pd_out.append(key, o);
+src/java/org/apache/nutch/segment/SegmentMerger.java,263,pt_out = ensureMapFile(slice, ParseText.DIR_NAME, ParseText.class);
+src/java/org/apache/nutch/segment/SegmentMerger.java,264,pt_out.append(key, o);
+src/java/org/apache/nutch/segment/SegmentMerger.java,270,String dirName) throws IOException {
+src/java/org/apache/nutch/segment/SegmentMerger.java,274,.get(slice + dirName);
+src/java/org/apache/nutch/segment/SegmentMerger.java,281,name);
+src/java/org/apache/nutch/segment/SegmentMerger.java,284,dirName), name);
+src/java/org/apache/nutch/segment/SegmentMerger.java,297,SequenceFile.Writer.keyClass(Text.class),
+src/java/org/apache/nutch/segment/SegmentMerger.java,298,SequenceFile.Writer.valueClass(CrawlDatum.class),
+src/java/org/apache/nutch/segment/SegmentMerger.java,299,SequenceFile.Writer.bufferSize(fs.getConf().getInt("io.file.buffer.size",4096)),
+src/java/org/apache/nutch/segment/SegmentMerger.java,300,SequenceFile.Writer.replication(fs.getDefaultReplication(wname)),
+src/java/org/apache/nutch/segment/SegmentMerger.java,301,SequenceFile.Writer.blockSize(1073741824),
+src/java/org/apache/nutch/segment/SegmentMerger.java,304,SequenceFile.Writer.metadata(new Metadata()));
+src/java/org/apache/nutch/segment/SegmentMerger.java,312,Class<? extends Writable> clazz) throws IOException {
+src/java/org/apache/nutch/segment/SegmentMerger.java,316,+ dirName);
+src/java/org/apache/nutch/segment/SegmentMerger.java,323,name);
+src/java/org/apache/nutch/segment/SegmentMerger.java,326,dirName), name);
+src/java/org/apache/nutch/segment/SegmentMerger.java,334,Option rKeyClassOpt = (Option) MapFile.Writer.keyClass(Text.class);
+src/java/org/apache/nutch/segment/SegmentMerger.java,340,rValClassOpt, rCompOpt, rProgressOpt);
+src/java/org/apache/nutch/segment/SegmentMerger.java,614,long slice) throws Exception {
+src/java/org/apache/nutch/segment/SegmentMerger.java,617,LOG.info("Merging " + segs.length + " segments to " + out + "/"
+src/java/org/apache/nutch/segment/SegmentMerger.java,618,+ segmentName);
+src/java/org/apache/nutch/segment/SegmentMerger.java,645,LOG.warn("Input dir " + segs[i] + " doesn't exist, skipping.");
+src/java/org/apache/nutch/segment/SegmentMerger.java,651,LOG.info("SegmentMerger:   adding " + segs[i]);
+src/java/org/apache/nutch/segment/SegmentMerger.java,668,LOG.info(segs[i] + " changed input dirs");
+src/java/org/apache/nutch/segment/SegmentMerger.java,673,StringBuffer sb = new StringBuffer();
+src/java/org/apache/nutch/segment/SegmentMerger.java,687,LOG.info("SegmentMerger: using segment data from:" + sb.toString());
+src/java/org/apache/nutch/segment/SegmentMerger.java,736,.println("SegmentMerger output_dir (-dir segments | seg1 seg2 ...) [-filter] [-slice NNNN]");
+src/java/org/apache/nutch/segment/SegmentMerger.java,738,.println("\toutput_dir\tname of the parent dir for output segment slice(s)");
+src/java/org/apache/nutch/segment/SegmentMerger.java,740,.println("\t-dir segments\tparent dir containing several segments");
+src/java/org/apache/nutch/segment/SegmentMerger.java,743,.println("\t-filter\t\tfilter out URL-s prohibited by current URLFilters");
+src/java/org/apache/nutch/segment/SegmentMerger.java,745,.println("\t-normalize\t\tnormalize URL via current URLNormalizers");
+src/java/org/apache/nutch/segment/SegmentMerger.java,747,.println("\t-slice NNNN\tcreate many output segments, each containing NNNN URLs");
+src/java/org/apache/nutch/segment/SegmentMerger.java,757,if (args[i].equals("-dir")) {
+src/java/org/apache/nutch/segment/SegmentMerger.java,761,HadoopFSUtil.getPassDirectoriesFilter(fs));
+src/java/org/apache/nutch/segment/SegmentMerger.java,775,if (segs.size() == 0) {
+src/java/org/apache/nutch/segment/SegmentMerger.java,781,sliceSize);
+src/java/org/apache/nutch/segment/SegmentMerger.java,787,new SegmentMerger(), args);
+src/plugin/lib-http/src/java/org/apache/nutch/protocol/http/api/HttpBase.java,164,this.acceptCharset = conf.get("http.accept.charset", accept).trim();
+src/plugin/scoring-similarity/src/java/org/apache/nutch/scoring/similarity/util/LuceneAnalyzerUtil.java,31,import org.apache.lucene.analysis.util.CharArraySet;
+src/plugin/scoring-similarity/src/java/org/apache/nutch/scoring/similarity/util/LuceneTokenizer.java,32,import org.apache.lucene.analysis.util.CharArraySet;
+src/java/org/apache/nutch/util/SitemapProcessor.java,191,if (!output.getStatus().isSuccess() && output.getStatus().isRedirect()) {
+src/java/org/apache/nutch/util/SitemapProcessor.java,193,url = stuff[0];
+src/java/org/apache/nutch/util/SitemapProcessor.java,195,if (normalizers != null) {
+src/java/org/apache/nutch/util/SitemapProcessor.java,196,url = normalizers.normalize(url, URLNormalizers.SCOPE_DEFAULT);
+src/java/org/apache/nutch/fetcher/FetcherOutputFormat.java,47,public void checkOutputSpecs(FileSystem fs, JobConf job) throws IOException {
+src/java/org/apache/nutch/fetcher/FetcherOutputFormat.java,53,fs = out.getFileSystem(job);
+src/java/org/apache/nutch/fetcher/FetcherOutputFormat.java,56,throw new IOException("Segment already fetched!");
+src/java/org/apache/nutch/parse/ParseOutputFormat.java,82,public void checkOutputSpecs(FileSystem fs, JobConf job) throws IOException {
+src/java/org/apache/nutch/parse/ParseOutputFormat.java,87,if (fs == null) {
+src/java/org/apache/nutch/parse/ParseOutputFormat.java,88,fs = out.getFileSystem(job);
+src/java/org/apache/nutch/parse/ParseOutputFormat.java,91,throw new IOException("Segment already parsed!");
+src/plugin/indexer-elastic-rest/src/java/org/apache/nutch/indexwriter/elasticrest/ElasticRestIndexWriter.java,59,import java.util.HashSet;
+src/java/org/apache/nutch/util/AbstractChecker.java,134,while (true) { // keep connection open until closes
+src/java/org/apache/nutch/util/AbstractChecker.java,135,readWrite();
+src/java/org/apache/nutch/util/AbstractChecker.java,138,readWrite();
+src/java/org/apache/nutch/util/AbstractChecker.java,148,protected void readWrite() {
+src/java/org/apache/nutch/util/AbstractChecker.java,153,try {
+src/java/org/apache/nutch/util/AbstractChecker.java,154,in = new BufferedReader(new InputStreamReader(client.getInputStream()));
+src/java/org/apache/nutch/util/AbstractChecker.java,156,LOG.error("in or out failed");
+src/java/org/apache/nutch/util/AbstractChecker.java,157,System.exit(-1);
+src/java/org/apache/nutch/util/AbstractChecker.java,160,try {
+src/java/org/apache/nutch/util/AbstractChecker.java,161,line = in.readLine();
+src/java/org/apache/nutch/util/AbstractChecker.java,162,StringBuilder output = new StringBuilder();
+src/java/org/apache/nutch/util/AbstractChecker.java,163,process(line, output);
+src/java/org/apache/nutch/util/AbstractChecker.java,165,client.getOutputStream().write(output.toString().getBytes(StandardCharsets.UTF_8));
+src/java/org/apache/nutch/util/AbstractChecker.java,167,LOG.error("Read/Write failed: " + e);
+src/java/org/apache/nutch/util/SitemapProcessor.java,256,if(sitemap.isIndex()) {
+src/java/org/apache/nutch/util/SitemapProcessor.java,257,generateSitemapUrlDatum(protocol, sitemap.getUrl().toString(), context);
+src/plugin/mimetype-filter/src/java/org/apache/nutch/indexer/filter/MimeTypeIndexingFilter.java,174,List rules = new ArrayList();
+src/java/org/apache/nutch/scoring/webgraph/LinkRank.java,124,LOG.info("Reading numlinks temp file");
+src/java/org/apache/nutch/scoring/webgraph/LinkRank.java,126,BufferedReader buffer = new BufferedReader(new InputStreamReader(readLinks));
+src/plugin/index-geoip/src/java/org/apache/nutch/indexer/geoip/GeoIPDocumentCreator.java,60,public GeoIPDocumentCreator() {
+src/plugin/index-geoip/src/java/org/apache/nutch/indexer/geoip/GeoIPDocumentCreator.java,66,doc.add("ip", serverIp);
+src/plugin/index-geoip/src/java/org/apache/nutch/indexer/geoip/GeoIPDocumentCreator.java,72,doc.add("cityName", city.getName()); // 'Minneapolis'
+src/plugin/index-geoip/src/java/org/apache/nutch/indexer/geoip/GeoIPDocumentCreator.java,73,doc.add("cityConfidence", city.getConfidence()); // 50
+src/plugin/index-geoip/src/java/org/apache/nutch/indexer/geoip/GeoIPDocumentCreator.java,74,doc.add("cityGeoNameId", city.getGeoNameId());
+src/plugin/index-geoip/src/java/org/apache/nutch/indexer/geoip/GeoIPDocumentCreator.java,77,doc.add("continentCode", continent.getCode());
+src/plugin/index-geoip/src/java/org/apache/nutch/indexer/geoip/GeoIPDocumentCreator.java,78,doc.add("continentGeoNameId", continent.getGeoNameId());
+src/plugin/index-geoip/src/java/org/apache/nutch/indexer/geoip/GeoIPDocumentCreator.java,79,doc.add("continentName", continent.getName());
+src/plugin/index-geoip/src/java/org/apache/nutch/indexer/geoip/GeoIPDocumentCreator.java,82,doc.add("countryIsoCode", country.getIsoCode()); // 'US'
+src/plugin/index-geoip/src/java/org/apache/nutch/indexer/geoip/GeoIPDocumentCreator.java,83,doc.add("countryName", country.getName()); // 'United States'
+src/plugin/index-geoip/src/java/org/apache/nutch/indexer/geoip/GeoIPDocumentCreator.java,84,doc.add("countryConfidence", country.getConfidence()); // 99
+src/plugin/index-geoip/src/java/org/apache/nutch/indexer/geoip/GeoIPDocumentCreator.java,85,doc.add("countryGeoName", country.getGeoNameId());
+src/plugin/index-geoip/src/java/org/apache/nutch/indexer/geoip/GeoIPDocumentCreator.java,88,doc.add("latLon", location.getLatitude() + "," + location.getLongitude()); // 44.9733,
+src/plugin/index-geoip/src/java/org/apache/nutch/indexer/geoip/GeoIPDocumentCreator.java,90,doc.add("accRadius", location.getAccuracyRadius()); // 3
+src/plugin/index-geoip/src/java/org/apache/nutch/indexer/geoip/GeoIPDocumentCreator.java,91,doc.add("timeZone", location.getTimeZone()); // 'America/Chicago'
+src/plugin/index-geoip/src/java/org/apache/nutch/indexer/geoip/GeoIPDocumentCreator.java,92,doc.add("metroCode", location.getMetroCode());
+src/plugin/index-geoip/src/java/org/apache/nutch/indexer/geoip/GeoIPDocumentCreator.java,95,doc.add("postalCode", postal.getCode()); // '55455'
+src/plugin/index-geoip/src/java/org/apache/nutch/indexer/geoip/GeoIPDocumentCreator.java,96,doc.add("postalConfidence", postal.getConfidence()); // 40
+src/plugin/index-geoip/src/java/org/apache/nutch/indexer/geoip/GeoIPDocumentCreator.java,99,doc.add("countryType", rCountry.getType());
+src/plugin/index-geoip/src/java/org/apache/nutch/indexer/geoip/GeoIPDocumentCreator.java,102,doc.add("subDivName", subdivision.getName()); // 'Minnesota'
+src/plugin/index-geoip/src/java/org/apache/nutch/indexer/geoip/GeoIPDocumentCreator.java,103,doc.add("subDivIdoCode", subdivision.getIsoCode()); // 'MN'
+src/plugin/index-geoip/src/java/org/apache/nutch/indexer/geoip/GeoIPDocumentCreator.java,104,doc.add("subDivConfidence", subdivision.getConfidence()); // 90
+src/plugin/index-geoip/src/java/org/apache/nutch/indexer/geoip/GeoIPDocumentCreator.java,105,doc.add("subDivGeoNameId", subdivision.getGeoNameId());
+src/plugin/index-geoip/src/java/org/apache/nutch/indexer/geoip/GeoIPDocumentCreator.java,108,doc.add("autonSystemNum", traits.getAutonomousSystemNumber());
+src/plugin/index-geoip/src/java/org/apache/nutch/indexer/geoip/GeoIPDocumentCreator.java,109,doc.add("autonSystemOrg", traits.getAutonomousSystemOrganization());
+src/plugin/index-geoip/src/java/org/apache/nutch/indexer/geoip/GeoIPDocumentCreator.java,110,doc.add("domain", traits.getDomain());
+src/plugin/index-geoip/src/java/org/apache/nutch/indexer/geoip/GeoIPDocumentCreator.java,111,doc.add("isp", traits.getIsp());
+src/plugin/index-geoip/src/java/org/apache/nutch/indexer/geoip/GeoIPDocumentCreator.java,112,doc.add("org", traits.getOrganization());
+src/plugin/index-geoip/src/java/org/apache/nutch/indexer/geoip/GeoIPDocumentCreator.java,113,doc.add("userType", traits.getUserType());
+src/plugin/index-geoip/src/java/org/apache/nutch/indexer/geoip/GeoIPDocumentCreator.java,114,doc.add("isAnonProxy", traits.isAnonymousProxy());
+src/plugin/index-geoip/src/java/org/apache/nutch/indexer/geoip/GeoIPDocumentCreator.java,139,doc.add("ip", serverIp);
+src/plugin/index-geoip/src/java/org/apache/nutch/indexer/geoip/GeoIPDocumentCreator.java,140,doc.add("autonSystemNum", response.getAutonomousSystemNumber());
+src/plugin/index-geoip/src/java/org/apache/nutch/indexer/geoip/GeoIPDocumentCreator.java,141,doc.add("autonSystemOrg", response.getAutonomousSystemOrganization());
+src/plugin/index-geoip/src/java/org/apache/nutch/indexer/geoip/GeoIPDocumentCreator.java,142,doc.add("isp", response.getIsp());
+src/plugin/index-geoip/src/java/org/apache/nutch/indexer/geoip/GeoIPDocumentCreator.java,143,doc.add("org", response.getOrganization());
+src/plugin/index-geoip/src/java/org/apache/nutch/indexer/geoip/GeoIPDocumentCreator.java,151,doc.add("ip", serverIp);
+src/plugin/index-geoip/src/java/org/apache/nutch/indexer/geoip/GeoIPDocumentCreator.java,152,doc.add("domain", response.getDomain());
+src/plugin/index-geoip/src/java/org/apache/nutch/indexer/geoip/GeoIPDocumentCreator.java,161,doc.add("ip", serverIp);
+src/plugin/index-geoip/src/java/org/apache/nutch/indexer/geoip/GeoIPDocumentCreator.java,162,doc.add("connType", response.getConnectionType().toString());
+src/plugin/index-geoip/src/java/org/apache/nutch/indexer/geoip/GeoIPDocumentCreator.java,169,doc.add("ip", serverIp);
+src/plugin/index-geoip/src/java/org/apache/nutch/indexer/geoip/GeoIPDocumentCreator.java,173,doc.add("cityName", city.getName()); // 'Minneapolis'
+src/plugin/index-geoip/src/java/org/apache/nutch/indexer/geoip/GeoIPDocumentCreator.java,174,doc.add("cityConfidence", city.getConfidence()); // 50
+src/plugin/index-geoip/src/java/org/apache/nutch/indexer/geoip/GeoIPDocumentCreator.java,175,doc.add("cityGeoNameId", city.getGeoNameId());
+src/plugin/index-geoip/src/java/org/apache/nutch/indexer/geoip/GeoIPDocumentCreator.java,178,doc.add("continentCode", continent.getCode());
+src/plugin/index-geoip/src/java/org/apache/nutch/indexer/geoip/GeoIPDocumentCreator.java,179,doc.add("continentGeoNameId", continent.getGeoNameId());
+src/plugin/index-geoip/src/java/org/apache/nutch/indexer/geoip/GeoIPDocumentCreator.java,180,doc.add("continentName", continent.getName());
+src/plugin/index-geoip/src/java/org/apache/nutch/indexer/geoip/GeoIPDocumentCreator.java,183,doc.add("countryIsoCode", country.getIsoCode()); // 'US'
+src/plugin/index-geoip/src/java/org/apache/nutch/indexer/geoip/GeoIPDocumentCreator.java,184,doc.add("countryName", country.getName()); // 'United States'
+src/plugin/index-geoip/src/java/org/apache/nutch/indexer/geoip/GeoIPDocumentCreator.java,185,doc.add("countryConfidence", country.getConfidence()); // 99
+src/plugin/index-geoip/src/java/org/apache/nutch/indexer/geoip/GeoIPDocumentCreator.java,186,doc.add("countryGeoName", country.getGeoNameId());
+src/plugin/index-geoip/src/java/org/apache/nutch/indexer/geoip/GeoIPDocumentCreator.java,189,doc.add("latLon", location.getLatitude() + "," + location.getLongitude()); // 44.9733,
+src/plugin/index-geoip/src/java/org/apache/nutch/indexer/geoip/GeoIPDocumentCreator.java,191,doc.add("accRadius", location.getAccuracyRadius()); // 3
+src/plugin/index-geoip/src/java/org/apache/nutch/indexer/geoip/GeoIPDocumentCreator.java,192,doc.add("timeZone", location.getTimeZone()); // 'America/Chicago'
+src/plugin/index-geoip/src/java/org/apache/nutch/indexer/geoip/GeoIPDocumentCreator.java,193,doc.add("metroCode", location.getMetroCode());
+src/plugin/index-geoip/src/java/org/apache/nutch/indexer/geoip/GeoIPDocumentCreator.java,196,doc.add("postalCode", postal.getCode()); // '55455'
+src/plugin/index-geoip/src/java/org/apache/nutch/indexer/geoip/GeoIPDocumentCreator.java,197,doc.add("postalConfidence", postal.getConfidence()); // 40
+src/plugin/index-geoip/src/java/org/apache/nutch/indexer/geoip/GeoIPDocumentCreator.java,200,doc.add("countryType", rCountry.getType());
+src/plugin/index-geoip/src/java/org/apache/nutch/indexer/geoip/GeoIPDocumentCreator.java,203,doc.add("subDivName", subdivision.getName()); // 'Minnesota'
+src/plugin/index-geoip/src/java/org/apache/nutch/indexer/geoip/GeoIPDocumentCreator.java,204,doc.add("subDivIdoCode", subdivision.getIsoCode()); // 'MN'
+src/plugin/index-geoip/src/java/org/apache/nutch/indexer/geoip/GeoIPDocumentCreator.java,205,doc.add("subDivConfidence", subdivision.getConfidence()); // 90
+src/plugin/index-geoip/src/java/org/apache/nutch/indexer/geoip/GeoIPDocumentCreator.java,206,doc.add("subDivGeoNameId", subdivision.getGeoNameId());
+src/plugin/index-geoip/src/java/org/apache/nutch/indexer/geoip/GeoIPIndexingFilter.java,121,private File geoDb = null;
+src/plugin/index-geoip/src/java/org/apache/nutch/indexer/geoip/GeoIPIndexingFilter.java,149,String use = conf.get("index.geoip.usage", "insightsService");
+src/plugin/index-geoip/src/java/org/apache/nutch/indexer/geoip/GeoIPIndexingFilter.java,150,LOG.debug("GeoIP usage medium set to: {}", use);
+src/plugin/index-geoip/src/java/org/apache/nutch/indexer/geoip/GeoIPIndexingFilter.java,151,if (use.equalsIgnoreCase("cityDatabase")) {
+src/plugin/index-geoip/src/java/org/apache/nutch/indexer/geoip/GeoIPIndexingFilter.java,152,try {
+src/plugin/index-geoip/src/java/org/apache/nutch/indexer/geoip/GeoIPIndexingFilter.java,153,geoDb = new File(conf.getResource("GeoIP2-City.mmdb").getFile());
+src/plugin/index-geoip/src/java/org/apache/nutch/indexer/geoip/GeoIPIndexingFilter.java,154,buildDb();
+src/plugin/index-geoip/src/java/org/apache/nutch/indexer/geoip/GeoIPIndexingFilter.java,156,LOG.error(org.apache.hadoop.util.StringUtils.stringifyException(e));
+src/plugin/index-geoip/src/java/org/apache/nutch/indexer/geoip/GeoIPIndexingFilter.java,159,try {
+src/plugin/index-geoip/src/java/org/apache/nutch/indexer/geoip/GeoIPIndexingFilter.java,161,.getFile());
+src/plugin/index-geoip/src/java/org/apache/nutch/indexer/geoip/GeoIPIndexingFilter.java,162,buildDb();
+src/plugin/index-geoip/src/java/org/apache/nutch/indexer/geoip/GeoIPIndexingFilter.java,164,LOG.error(org.apache.hadoop.util.StringUtils.stringifyException(e));
+src/plugin/index-geoip/src/java/org/apache/nutch/indexer/geoip/GeoIPIndexingFilter.java,167,try {
+src/plugin/index-geoip/src/java/org/apache/nutch/indexer/geoip/GeoIPIndexingFilter.java,168,geoDb = new File(conf.getResource("GeoIP2-Domain.mmdb").getFile());
+src/plugin/index-geoip/src/java/org/apache/nutch/indexer/geoip/GeoIPIndexingFilter.java,169,buildDb();
+src/plugin/index-geoip/src/java/org/apache/nutch/indexer/geoip/GeoIPIndexingFilter.java,171,LOG.error(org.apache.hadoop.util.StringUtils.stringifyException(e));
+src/plugin/index-geoip/src/java/org/apache/nutch/indexer/geoip/GeoIPIndexingFilter.java,174,try {
+src/plugin/index-geoip/src/java/org/apache/nutch/indexer/geoip/GeoIPIndexingFilter.java,175,geoDb = new File(conf.getResource("GeoIP2-ISP.mmdb").getFile());
+src/plugin/index-geoip/src/java/org/apache/nutch/indexer/geoip/GeoIPIndexingFilter.java,176,buildDb();
+src/plugin/index-geoip/src/java/org/apache/nutch/indexer/geoip/GeoIPIndexingFilter.java,178,LOG.error(org.apache.hadoop.util.StringUtils.stringifyException(e));
+src/plugin/index-geoip/src/java/org/apache/nutch/indexer/geoip/GeoIPIndexingFilter.java,181,client = new WebServiceClient.Builder(conf.getInt("index.geoip.userid",
+src/plugin/index-geoip/src/java/org/apache/nutch/indexer/geoip/GeoIPIndexingFilter.java,182,12345), conf.get("index.geoip.licensekey")).build();
+src/plugin/index-geoip/src/java/org/apache/nutch/indexer/geoip/GeoIPIndexingFilter.java,184,usage = use;
+src/plugin/index-geoip/src/java/org/apache/nutch/indexer/geoip/GeoIPIndexingFilter.java,187,private void buildDb() {
+src/plugin/index-geoip/src/java/org/apache/nutch/indexer/geoip/GeoIPIndexingFilter.java,191,LOG.error(org.apache.hadoop.util.StringUtils.stringifyException(e));
+src/plugin/index-geoip/src/java/org/apache/nutch/indexer/geoip/GeoIPIndexingFilter.java,210,if (conf.getBoolean("store.ip.address", false) == true) {
+src/plugin/index-geoip/src/java/org/apache/nutch/indexer/geoip/GeoIPIndexingFilter.java,212,String serverIp = data.getContentMeta().get("_ip_");
+src/plugin/index-geoip/src/java/org/apache/nutch/indexer/geoip/GeoIPIndexingFilter.java,213,if (serverIp != null) {
+src/plugin/index-geoip/src/java/org/apache/nutch/indexer/geoip/GeoIPIndexingFilter.java,214,if (usage.equalsIgnoreCase("cityDatabase")) {
+src/plugin/index-geoip/src/java/org/apache/nutch/indexer/geoip/GeoIPIndexingFilter.java,215,doc = GeoIPDocumentCreator.createDocFromCityDb(serverIp, doc,
+src/plugin/index-geoip/src/java/org/apache/nutch/indexer/geoip/GeoIPIndexingFilter.java,216,reader);
+src/plugin/index-geoip/src/java/org/apache/nutch/indexer/geoip/GeoIPIndexingFilter.java,218,doc = GeoIPDocumentCreator.createDocFromConnectionDb(serverIp, doc,
+src/plugin/index-geoip/src/java/org/apache/nutch/indexer/geoip/GeoIPIndexingFilter.java,219,reader);
+src/plugin/index-geoip/src/java/org/apache/nutch/indexer/geoip/GeoIPIndexingFilter.java,221,doc = GeoIPDocumentCreator.createDocFromDomainDb(serverIp, doc,
+src/plugin/index-geoip/src/java/org/apache/nutch/indexer/geoip/GeoIPIndexingFilter.java,222,reader);
+src/plugin/index-geoip/src/java/org/apache/nutch/indexer/geoip/GeoIPIndexingFilter.java,224,doc = GeoIPDocumentCreator
+src/plugin/index-geoip/src/java/org/apache/nutch/indexer/geoip/GeoIPIndexingFilter.java,225,.createDocFromIspDb(serverIp, doc, reader);
+src/plugin/index-geoip/src/java/org/apache/nutch/indexer/geoip/GeoIPIndexingFilter.java,227,doc = GeoIPDocumentCreator.createDocFromInsightsService(serverIp,
+src/plugin/index-geoip/src/java/org/apache/nutch/indexer/geoip/GeoIPIndexingFilter.java,228,doc, client);
+src/plugin/index-geoip/src/java/org/apache/nutch/indexer/geoip/GeoIPIndexingFilter.java,232,LOG.error(e.getMessage());
+src/plugin/index-geoip/src/java/org/apache/nutch/indexer/geoip/GeoIPIndexingFilter.java,233,e.printStackTrace();
+src/java/org/apache/nutch/crawl/TextProfileSignature.java,71,public byte[] calculate(Content content, Parse parse) {
+src/java/org/apache/nutch/crawl/TextProfileSignature.java,72,int MIN_TOKEN_LEN = getConf().getInt(
+src/java/org/apache/nutch/crawl/TextProfileSignature.java,74,float QUANT_RATE = getConf().getFloat(
+src/java/org/apache/nutch/crawl/TextProfileSignature.java,165,private static class TokenComparator implements Comparator<Token> {
+src/java/org/apache/nutch/crawl/TextProfileSignature.java,167,return t2.cnt - t1.cnt;
+src/java/org/apache/nutch/net/URLNormalizerChecker.java,46,+ "\n  -listen <port>\trun tool as Telnet server listening on <port>\n";
+src/java/org/apache/nutch/net/URLNormalizerChecker.java,82,output.append(normalizers.normalize(line, scope));
+src/plugin/indexer-solr/src/java/org/apache/nutch/indexwriter/solr/SolrIndexWriter.java,223,solrClient.deleteById(deleteIds);
+src/plugin/indexer-solr/src/java/org/apache/nutch/indexwriter/solr/SolrIndexWriter.java,21,import java.io.UnsupportedEncodingException;
+src/plugin/indexer-solr/src/java/org/apache/nutch/indexwriter/solr/SolrIndexWriter.java,104,try {
+src/plugin/indexer-solr/src/java/org/apache/nutch/indexwriter/solr/SolrIndexWriter.java,105,key = URLDecoder.decode(key, "UTF8");
+src/plugin/indexer-solr/src/java/org/apache/nutch/indexwriter/solr/SolrIndexWriter.java,107,LOG.error("Error decoding: " + key);
+src/plugin/indexer-solr/src/java/org/apache/nutch/indexwriter/solr/SolrIndexWriter.java,108,throw new IOException("UnsupportedEncodingException for " + key);
+src/plugin/protocol-htmlunit/src/java/org/apache/nutch/protocol/htmlunit/HttpResponse.java,265,if (httpHeaders != null) {
+src/java/org/apache/nutch/util/TrieStringMatcher.java,107,children = childrenList.toArray(new TrieNode[childrenList.size()]);
+src/java/org/apache/nutch/util/TrieStringMatcher.java,108,childrenList = null;
+src/java/org/apache/nutch/util/TrieStringMatcher.java,109,Arrays.sort(children);
+src/java/org/apache/nutch/util/PrefixStringMatcher.java,106,PrefixStringMatcher matcher = new PrefixStringMatcher(new String[] {
+src/plugin/parse-tika/src/java/org/apache/nutch/parse/tika/TikaParser.java,114,if (useBoilerpipe) {
+src/java/org/apache/nutch/segment/SegmentReader.java,118,fs.create(segmentDumpFile));
+src/java/org/apache/nutch/segment/SegmentReader.java,245,PrintWriter writer = null;
+src/java/org/apache/nutch/segment/SegmentReader.java,248,writer = new PrintWriter(
+src/java/org/apache/nutch/segment/SegmentReader.java,249,new BufferedWriter(new OutputStreamWriter(outFs.create(dumpFile))));
+src/java/org/apache/nutch/segment/SegmentReader.java,250,try {
+src/java/org/apache/nutch/segment/SegmentReader.java,265,writer.close();
+src/java/org/apache/nutch/segment/SegmentReader.java,277,try (BufferedReader reader = new BufferedReader(new InputStreamReader(
+src/java/org/apache/nutch/segment/SegmentReader.java,278,fs.open(src)))) {
+src/java/org/apache/nutch/segment/SegmentReader.java,657,segmentReader.list(dirs, new OutputStreamWriter(System.out, "UTF-8"));
+src/java/org/apache/nutch/segment/SegmentReader.java,673,System.out, "UTF-8"), new HashMap<>());
+src/java/org/apache/nutch/hostdb/HostDatum.java,35,protected int failures = 0;
+src/java/org/apache/nutch/hostdb/HostDatum.java,43,protected int dnsFailures = 0;
+src/java/org/apache/nutch/hostdb/HostDatum.java,46,protected int connectionFailures = 0;
+src/java/org/apache/nutch/hostdb/HostDatum.java,48,protected int unfetched = 0;
+src/java/org/apache/nutch/hostdb/HostDatum.java,49,protected int fetched = 0;
+src/java/org/apache/nutch/hostdb/HostDatum.java,50,protected int notModified = 0;
+src/java/org/apache/nutch/hostdb/HostDatum.java,51,protected int redirTemp = 0;
+src/java/org/apache/nutch/hostdb/HostDatum.java,52,protected int redirPerm = 0;
+src/java/org/apache/nutch/hostdb/HostDatum.java,53,protected int gone = 0;
+src/java/org/apache/nutch/hostdb/HostDatum.java,73,setDnsFailures(0);
+src/java/org/apache/nutch/hostdb/HostDatum.java,74,setConnectionFailures(0);
+src/java/org/apache/nutch/hostdb/HostDatum.java,77,public void setDnsFailures(Integer dnsFailures) {
+src/java/org/apache/nutch/hostdb/HostDatum.java,81,public void setConnectionFailures(Integer connectionFailures) {
+src/java/org/apache/nutch/hostdb/HostDatum.java,93,public Integer numFailures() {
+src/java/org/apache/nutch/hostdb/HostDatum.java,97,public Integer getDnsFailures() {
+src/java/org/apache/nutch/hostdb/HostDatum.java,101,public Integer getConnectionFailures() {
+src/java/org/apache/nutch/hostdb/HostDatum.java,125,public Integer numRecords() {
+src/java/org/apache/nutch/hostdb/HostDatum.java,145,public void setUnfetched(int val) {
+src/java/org/apache/nutch/hostdb/HostDatum.java,149,public int getUnfetched() {
+src/java/org/apache/nutch/hostdb/HostDatum.java,153,public void setFetched(int val) {
+src/java/org/apache/nutch/hostdb/HostDatum.java,157,public int getFetched() {
+src/java/org/apache/nutch/hostdb/HostDatum.java,161,public void setNotModified(int val) {
+src/java/org/apache/nutch/hostdb/HostDatum.java,165,public int getNotModified() {
+src/java/org/apache/nutch/hostdb/HostDatum.java,169,public void setRedirTemp(int val) {
+src/java/org/apache/nutch/hostdb/HostDatum.java,173,public int getRedirTemp() {
+src/java/org/apache/nutch/hostdb/HostDatum.java,177,public void setRedirPerm(int val) {
+src/java/org/apache/nutch/hostdb/HostDatum.java,181,public int getRedirPerm() {
+src/java/org/apache/nutch/hostdb/HostDatum.java,185,public void setGone(int val) {
+src/java/org/apache/nutch/hostdb/HostDatum.java,189,public int getGone() {
+src/java/org/apache/nutch/hostdb/HostDatum.java,254,dnsFailures = in.readInt();
+src/java/org/apache/nutch/hostdb/HostDatum.java,255,connectionFailures = in.readInt();
+src/java/org/apache/nutch/hostdb/HostDatum.java,257,unfetched= in.readInt();
+src/java/org/apache/nutch/hostdb/HostDatum.java,258,fetched= in.readInt();
+src/java/org/apache/nutch/hostdb/HostDatum.java,259,notModified= in.readInt();
+src/java/org/apache/nutch/hostdb/HostDatum.java,260,redirTemp= in.readInt();
+src/java/org/apache/nutch/hostdb/HostDatum.java,261,redirPerm = in.readInt();
+src/java/org/apache/nutch/hostdb/HostDatum.java,262,gone = in.readInt();
+src/java/org/apache/nutch/hostdb/HostDatum.java,274,out.writeInt(dnsFailures);
+src/java/org/apache/nutch/hostdb/HostDatum.java,275,out.writeInt(connectionFailures);
+src/java/org/apache/nutch/hostdb/HostDatum.java,277,out.writeInt(unfetched);
+src/java/org/apache/nutch/hostdb/HostDatum.java,278,out.writeInt(fetched);
+src/java/org/apache/nutch/hostdb/HostDatum.java,279,out.writeInt(notModified);
+src/java/org/apache/nutch/hostdb/HostDatum.java,280,out.writeInt(redirTemp);
+src/java/org/apache/nutch/hostdb/HostDatum.java,281,out.writeInt(redirPerm);
+src/java/org/apache/nutch/hostdb/HostDatum.java,282,out.writeInt(gone);
+src/java/org/apache/nutch/hostdb/HostDatum.java,290,buf.append(Integer.toString(getUnfetched()));
+src/java/org/apache/nutch/hostdb/HostDatum.java,292,buf.append(Integer.toString(getFetched()));
+src/java/org/apache/nutch/hostdb/HostDatum.java,294,buf.append(Integer.toString(getGone()));
+src/java/org/apache/nutch/hostdb/HostDatum.java,296,buf.append(Integer.toString(getRedirTemp()));
+src/java/org/apache/nutch/hostdb/HostDatum.java,298,buf.append(Integer.toString(getRedirPerm()));
+src/java/org/apache/nutch/hostdb/HostDatum.java,300,buf.append(Integer.toString(getNotModified()));
+src/java/org/apache/nutch/hostdb/HostDatum.java,302,buf.append(Integer.toString(numRecords()));
+src/java/org/apache/nutch/hostdb/HostDatum.java,304,buf.append(Integer.toString(getDnsFailures()));
+src/java/org/apache/nutch/hostdb/HostDatum.java,306,buf.append(Integer.toString(getConnectionFailures()));
+src/java/org/apache/nutch/hostdb/HostDatum.java,308,buf.append(Integer.toString(numFailures()));
+src/java/org/apache/nutch/hostdb/ResolverThread.java,76,datum.setDnsFailures(0);
+src/java/org/apache/nutch/hostdb/ResolverThread.java,91,datum.setDnsFailures(1);
+src/java/org/apache/nutch/hostdb/UpdateHostDbReducer.java,31,import org.apache.hadoop.io.IntWritable;
+src/java/org/apache/nutch/hostdb/UpdateHostDbReducer.java,121,Map<String,Map<String,Integer>> stringCounts = new HashMap<>();
+src/java/org/apache/nutch/hostdb/UpdateHostDbReducer.java,124,Map<String,Integer> counts = new HashMap<>(); // used to calc averages
+src/java/org/apache/nutch/hostdb/UpdateHostDbReducer.java,149,hostDatum.setUnfetched(hostDatum.getUnfetched() + 1);
+src/java/org/apache/nutch/hostdb/UpdateHostDbReducer.java,153,hostDatum.setFetched(hostDatum.getFetched() + 1);
+src/java/org/apache/nutch/hostdb/UpdateHostDbReducer.java,157,hostDatum.setGone(hostDatum.getGone() + 1);
+src/java/org/apache/nutch/hostdb/UpdateHostDbReducer.java,161,hostDatum.setRedirTemp(hostDatum.getRedirTemp() + 1);
+src/java/org/apache/nutch/hostdb/UpdateHostDbReducer.java,165,hostDatum.setRedirPerm(hostDatum.getRedirPerm() + 1);
+src/java/org/apache/nutch/hostdb/UpdateHostDbReducer.java,169,hostDatum.setNotModified(hostDatum.getNotModified() + 1);
+src/java/org/apache/nutch/hostdb/UpdateHostDbReducer.java,196,stringCounts.get(stringFields[i]).put(metadataValue, stringCounts.get(stringFields[i]).get(metadataValue) + 1);
+src/java/org/apache/nutch/hostdb/UpdateHostDbReducer.java,199,stringCounts.get(stringFields[i]).put(metadataValue, 1);
+src/java/org/apache/nutch/hostdb/UpdateHostDbReducer.java,250,counts.put(numericFields[i], counts.get(numericFields[i]) + 1);
+src/java/org/apache/nutch/hostdb/UpdateHostDbReducer.java,254,counts.put(numericFields[i], 1);
+src/java/org/apache/nutch/hostdb/UpdateHostDbReducer.java,313,for (Map.Entry<String, Map<String,Integer>> entry : stringCounts.entrySet()) {
+src/java/org/apache/nutch/hostdb/UpdateHostDbReducer.java,314,for (Map.Entry<String,Integer> subEntry : entry.getValue().entrySet()) {
+src/java/org/apache/nutch/hostdb/UpdateHostDbReducer.java,315,hostDatum.getMetaData().put(new Text(entry.getKey() + "." + subEntry.getKey()), new IntWritable(subEntry.getValue()));
+src/java/org/apache/nutch/hostdb/UpdateHostDbReducer.java,327,hostDatum.getMetaData().put(new Text("pct" + Integer.toString(percentiles[i]) + "." + entry.getKey()), new FloatWritable((float)entry.getValue().quantile(0.5)));
+src/plugin/index-more/src/java/org/apache/nutch/indexer/more/MoreIndexingFilter.java,272,patterns[0] = Pattern.compile("\\bfilename=['\"](.+)['\"]");
+src/java/org/apache/nutch/fetcher/Fetcher.java,27,import org.slf4j.Logger;
+src/java/org/apache/nutch/fetcher/Fetcher.java,28,import org.slf4j.LoggerFactory;
+src/java/org/apache/nutch/fetcher/Fetcher.java,93,public static class InputFormat extends
+src/java/org/apache/nutch/fetcher/Fetcher.java,94,SequenceFileInputFormat<Text, CrawlDatum> {
+src/java/org/apache/nutch/fetcher/Fetcher.java,102,(String[]) null);
+src/java/org/apache/nutch/util/MimeUtil.java,204,&& !magicType.equals(MimeTypes.PLAIN_TEXT) && retType != null
+src/java/org/apache/nutch/util/MimeUtil.java,205,&& !retType.equals(magicType)) {
+src/plugin/index-more/src/java/org/apache/nutch/indexer/more/MoreIndexingFilter.java,106,doc.add("lastModified", new Date(time));
+src/java/org/apache/nutch/scoring/webgraph/NodeDumper.java,267,Configuration conf = getConf();
+src/java/org/apache/nutch/scoring/webgraph/WebGraph.java,514,Configuration conf = getConf();
+src/java/org/apache/nutch/scoring/webgraph/WebGraph.java,515,FileSystem fs = webGraphDb.getFileSystem(conf);
+src/java/org/apache/nutch/scoring/webgraph/WebGraph.java,538,boolean deleteGone = conf.getBoolean("link.delete.gone", false);
+src/java/org/apache/nutch/scoring/webgraph/WebGraph.java,539,boolean preserveBackup = conf.getBoolean("db.preserve.backup", true);
+src/java/org/apache/nutch/scoring/webgraph/WebGraph.java,548,FileSystem sfs = segments[i].getFileSystem(conf);
+src/java/org/apache/nutch/util/CrawlCompletionStats.java,154,File completeInputPath = new File(new File(inputDirsSpecs[i]), "crawldb/current");
+src/java/org/apache/nutch/util/CrawlCompletionStats.java,155,FileInputFormat.addInputPath(job, new Path(completeInputPath.toString()));
+src/java/org/apache/nutch/util/ProtocolStatusStatistics.java,88,if (args.length > 3) {
+src/java/org/apache/nutch/util/ProtocolStatusStatistics.java,89,numOfReducers = Integer.parseInt(args[3]);
+src/java/org/apache/nutch/util/ProtocolStatusStatistics.java,106,File completeInputPath = new File(new File(inputDirsSpecs[i]), "current");
+src/java/org/apache/nutch/util/ProtocolStatusStatistics.java,107,FileInputFormat.addInputPath(job, new Path(completeInputPath.toString()));
+src/java/org/apache/nutch/util/domain/DomainStatistics.java,124,File completeInputPath = new File(new File(inputDirsSpecs[i]), "current");
+src/java/org/apache/nutch/util/domain/DomainStatistics.java,125,FileInputFormat.addInputPath(job, new Path(completeInputPath.toString()));
+src/plugin/parse-html/src/java/org/apache/nutch/parse/html/HTMLMetaProcessor.java,81,if ("robots".equals(name)) {
+src/plugin/parse-tika/src/java/org/apache/nutch/parse/tika/HTMLMetaProcessor.java,67,String attrName = attr.getNodeName().toLowerCase();
+src/plugin/parse-tika/src/java/org/apache/nutch/parse/tika/HTMLMetaProcessor.java,79,String name = nameNode.getNodeValue().toLowerCase();
+src/plugin/parse-tika/src/java/org/apache/nutch/parse/tika/HTMLMetaProcessor.java,81,if ("robots".equals(name)) {
+src/plugin/parse-tika/src/java/org/apache/nutch/parse/tika/HTMLMetaProcessor.java,119,String name = equivNode.getNodeValue().toLowerCase();
+src/plugin/parse-tika/src/java/org/apache/nutch/parse/tika/HTMLMetaProcessor.java,123,content = content.toLowerCase();
+src/plugin/parsefilter-regex/src/java/org/apache/nutch/parsefilter/regex/RegexParseFilter.java,134,String file = conf.get("parsefilter.regex.file");
+src/plugin/parsefilter-regex/src/java/org/apache/nutch/parsefilter/regex/RegexParseFilter.java,140,file = attributeFile;
+src/plugin/urlfilter-prefix/src/java/org/apache/nutch/urlfilter/prefix/PrefixURLFilter.java,148,String file = conf.get("urlfilter.prefix.file");
+src/plugin/urlfilter-suffix/src/java/org/apache/nutch/urlfilter/suffix/SuffixURLFilter.java,284,String file = conf.get("urlfilter.suffix.file");
+src/plugin/urlnormalizer-host/src/java/org/apache/nutch/net/urlnormalizer/host/HostURLNormalizer.java,126,String file = conf.get("urlnormalizer.hosts.file");
+src/plugin/urlnormalizer-host/src/java/org/apache/nutch/net/urlnormalizer/host/HostURLNormalizer.java,131,file = attributeFile;
+src/plugin/urlnormalizer-protocol/src/java/org/apache/nutch/net/urlnormalizer/protocol/ProtocolURLNormalizer.java,131,String file = conf.get("urlnormalizer.protocols.file");
+src/plugin/urlnormalizer-protocol/src/java/org/apache/nutch/net/urlnormalizer/protocol/ProtocolURLNormalizer.java,137,file = attributeFile;
+src/plugin/urlnormalizer-slash/src/java/org/apache/nutch/net/urlnormalizer/slash/SlashURLNormalizer.java,137,String file = conf.get("urlnormalizer.slashes.file");
+src/plugin/urlnormalizer-slash/src/java/org/apache/nutch/net/urlnormalizer/slash/SlashURLNormalizer.java,143,file = attributeFile;
+src/plugin/parsefilter-regex/src/java/org/apache/nutch/parsefilter/regex/RegexParseFilter.java,56,private String regexFile = null;
+src/plugin/parsefilter-regex/src/java/org/apache/nutch/parsefilter/regex/RegexParseFilter.java,65,public RegexParseFilter(String regexFile) {
+src/plugin/parsefilter-regex/src/java/org/apache/nutch/parsefilter/regex/RegexParseFilter.java,66,this.regexFile = regexFile;
+src/plugin/parsefilter-regex/src/java/org/apache/nutch/parsefilter/regex/RegexParseFilter.java,136,if (regexFile != null) {
+src/plugin/parsefilter-regex/src/java/org/apache/nutch/parsefilter/regex/RegexParseFilter.java,137,file = regexFile;
+src/plugin/parsefilter-regex/src/java/org/apache/nutch/parsefilter/regex/RegexParseFilter.java,139,else if (attributeFile != null) {
+src/plugin/urlfilter-domain/src/java/org/apache/nutch/urlfilter/domain/DomainURLFilter.java,85,private String domainFile = null;
+src/plugin/urlfilter-domain/src/java/org/apache/nutch/urlfilter/domain/DomainURLFilter.java,104,public DomainURLFilter() {
+src/plugin/urlfilter-domain/src/java/org/apache/nutch/urlfilter/domain/DomainURLFilter.java,114,public DomainURLFilter(String domainFile) {
+src/plugin/urlfilter-domain/src/java/org/apache/nutch/urlfilter/domain/DomainURLFilter.java,115,this.domainFile = domainFile;
+src/plugin/urlfilter-domain/src/java/org/apache/nutch/urlfilter/domain/DomainURLFilter.java,137,if (attributeFile != null && attributeFile.trim().equals("")) {
+src/plugin/urlfilter-domain/src/java/org/apache/nutch/urlfilter/domain/DomainURLFilter.java,142,if (LOG.isInfoEnabled()) {
+src/plugin/urlfilter-domain/src/java/org/apache/nutch/urlfilter/domain/DomainURLFilter.java,143,LOG.info("Attribute \"file\" is defined for plugin " + pluginName
+src/plugin/urlfilter-domain/src/java/org/apache/nutch/urlfilter/domain/DomainURLFilter.java,144,+ " as " + attributeFile);
+src/plugin/urlfilter-domain/src/java/org/apache/nutch/urlfilter/domain/DomainURLFilter.java,147,if (LOG.isWarnEnabled()) {
+src/plugin/urlfilter-domain/src/java/org/apache/nutch/urlfilter/domain/DomainURLFilter.java,148,LOG.warn("Attribute \"file\" is not defined in plugin.xml for plugin "
+src/plugin/urlfilter-domain/src/java/org/apache/nutch/urlfilter/domain/DomainURLFilter.java,149,+ pluginName);
+src/plugin/urlfilter-domain/src/java/org/apache/nutch/urlfilter/domain/DomainURLFilter.java,154,String file = conf.get("urlfilter.domain.file");
+src/plugin/urlfilter-domain/src/java/org/apache/nutch/urlfilter/domain/DomainURLFilter.java,156,if (domainFile != null) {
+src/plugin/urlfilter-domain/src/java/org/apache/nutch/urlfilter/domain/DomainURLFilter.java,157,file = domainFile;
+src/plugin/urlfilter-domain/src/java/org/apache/nutch/urlfilter/domain/DomainURLFilter.java,159,file = attributeFile;
+src/plugin/urlfilter-domain/src/java/org/apache/nutch/urlfilter/domain/DomainURLFilter.java,173,LOG.error(org.apache.hadoop.util.StringUtils.stringifyException(e));
+src/plugin/urlfilter-domainblacklist/src/java/org/apache/nutch/urlfilter/domainblacklist/DomainBlacklistURLFilter.java,85,private String domainFile = null;
+src/plugin/urlfilter-domainblacklist/src/java/org/apache/nutch/urlfilter/domainblacklist/DomainBlacklistURLFilter.java,104,public DomainBlacklistURLFilter() {
+src/plugin/urlfilter-domainblacklist/src/java/org/apache/nutch/urlfilter/domainblacklist/DomainBlacklistURLFilter.java,114,public DomainBlacklistURLFilter(String domainFile) {
+src/plugin/urlfilter-domainblacklist/src/java/org/apache/nutch/urlfilter/domainblacklist/DomainBlacklistURLFilter.java,115,this.domainFile = domainFile;
+src/plugin/urlfilter-domainblacklist/src/java/org/apache/nutch/urlfilter/domainblacklist/DomainBlacklistURLFilter.java,137,if (attributeFile != null && attributeFile.trim().equals("")) {
+src/plugin/urlfilter-domainblacklist/src/java/org/apache/nutch/urlfilter/domainblacklist/DomainBlacklistURLFilter.java,142,if (LOG.isInfoEnabled()) {
+src/plugin/urlfilter-domainblacklist/src/java/org/apache/nutch/urlfilter/domainblacklist/DomainBlacklistURLFilter.java,143,LOG.info("Attribute \"file\" is defined for plugin " + pluginName
+src/plugin/urlfilter-domainblacklist/src/java/org/apache/nutch/urlfilter/domainblacklist/DomainBlacklistURLFilter.java,144,+ " as " + attributeFile);
+src/plugin/urlfilter-domainblacklist/src/java/org/apache/nutch/urlfilter/domainblacklist/DomainBlacklistURLFilter.java,147,if (LOG.isWarnEnabled()) {
+src/plugin/urlfilter-domainblacklist/src/java/org/apache/nutch/urlfilter/domainblacklist/DomainBlacklistURLFilter.java,148,LOG.warn("Attribute \"file\" is not defined in plugin.xml for plugin "
+src/plugin/urlfilter-domainblacklist/src/java/org/apache/nutch/urlfilter/domainblacklist/DomainBlacklistURLFilter.java,149,+ pluginName);
+src/plugin/urlfilter-domainblacklist/src/java/org/apache/nutch/urlfilter/domainblacklist/DomainBlacklistURLFilter.java,154,String file = conf.get("urlfilter.domainblacklist.file");
+src/plugin/urlfilter-domainblacklist/src/java/org/apache/nutch/urlfilter/domainblacklist/DomainBlacklistURLFilter.java,156,if (domainFile != null) {
+src/plugin/urlfilter-domainblacklist/src/java/org/apache/nutch/urlfilter/domainblacklist/DomainBlacklistURLFilter.java,157,file = domainFile;
+src/plugin/urlfilter-domainblacklist/src/java/org/apache/nutch/urlfilter/domainblacklist/DomainBlacklistURLFilter.java,159,file = attributeFile;
+src/plugin/urlfilter-domainblacklist/src/java/org/apache/nutch/urlfilter/domainblacklist/DomainBlacklistURLFilter.java,173,LOG.error(org.apache.hadoop.util.StringUtils.stringifyException(e));
+src/plugin/urlfilter-prefix/src/java/org/apache/nutch/urlfilter/prefix/PrefixURLFilter.java,137,if (LOG.isInfoEnabled()) {
+src/plugin/urlfilter-prefix/src/java/org/apache/nutch/urlfilter/prefix/PrefixURLFilter.java,138,LOG.info("Attribute \"file\" is defined for plugin " + pluginName
+src/plugin/urlfilter-prefix/src/java/org/apache/nutch/urlfilter/prefix/PrefixURLFilter.java,139,+ " as " + attributeFile);
+src/plugin/urlfilter-prefix/src/java/org/apache/nutch/urlfilter/prefix/PrefixURLFilter.java,152,file = attributeFile;
+src/plugin/urlfilter-prefix/src/java/org/apache/nutch/urlfilter/prefix/PrefixURLFilter.java,166,if (LOG.isErrorEnabled()) {
+src/plugin/urlfilter-prefix/src/java/org/apache/nutch/urlfilter/prefix/PrefixURLFilter.java,167,LOG.error(e.getMessage());
+src/plugin/urlfilter-prefix/src/java/org/apache/nutch/urlfilter/prefix/PrefixURLFilter.java,170,throw new RuntimeException(e.getMessage(), e);
+src/plugin/urlfilter-suffix/src/java/org/apache/nutch/urlfilter/suffix/SuffixURLFilter.java,182,if (LOG.isWarnEnabled()) {
+src/plugin/urlfilter-suffix/src/java/org/apache/nutch/urlfilter/suffix/SuffixURLFilter.java,183,LOG.warn("Missing urlfilter.suffix.file, all URLs will be rejected!");
+src/plugin/urlfilter-suffix/src/java/org/apache/nutch/urlfilter/suffix/SuffixURLFilter.java,273,if (LOG.isInfoEnabled()) {
+src/plugin/urlfilter-suffix/src/java/org/apache/nutch/urlfilter/suffix/SuffixURLFilter.java,274,LOG.info("Attribute \"file\" is defined for plugin " + pluginName
+src/plugin/urlfilter-suffix/src/java/org/apache/nutch/urlfilter/suffix/SuffixURLFilter.java,275,+ " as " + attributeFile);
+src/plugin/urlfilter-suffix/src/java/org/apache/nutch/urlfilter/suffix/SuffixURLFilter.java,288,file = attributeFile;
+src/plugin/urlfilter-suffix/src/java/org/apache/nutch/urlfilter/suffix/SuffixURLFilter.java,299,if (LOG.isErrorEnabled()) {
+src/plugin/urlfilter-suffix/src/java/org/apache/nutch/urlfilter/suffix/SuffixURLFilter.java,300,LOG.error(e.getMessage());
+src/plugin/urlfilter-suffix/src/java/org/apache/nutch/urlfilter/suffix/SuffixURLFilter.java,302,throw new RuntimeException(e.getMessage(), e);
+src/plugin/urlnormalizer-host/src/java/org/apache/nutch/net/urlnormalizer/host/HostURLNormalizer.java,57,private String hostsFile = null;
+src/plugin/urlnormalizer-host/src/java/org/apache/nutch/net/urlnormalizer/host/HostURLNormalizer.java,60,public HostURLNormalizer() {
+src/plugin/urlnormalizer-host/src/java/org/apache/nutch/net/urlnormalizer/host/HostURLNormalizer.java,63,public HostURLNormalizer(String hostsFile) {
+src/plugin/urlnormalizer-host/src/java/org/apache/nutch/net/urlnormalizer/host/HostURLNormalizer.java,64,this.hostsFile = hostsFile;
+src/plugin/urlnormalizer-host/src/java/org/apache/nutch/net/urlnormalizer/host/HostURLNormalizer.java,128,if (hostsFile != null) {
+src/plugin/urlnormalizer-host/src/java/org/apache/nutch/net/urlnormalizer/host/HostURLNormalizer.java,129,file = hostsFile;
+src/plugin/urlnormalizer-host/src/java/org/apache/nutch/net/urlnormalizer/host/HostURLNormalizer.java,145,LOG.error(org.apache.hadoop.util.StringUtils.stringifyException(e));
+src/plugin/urlnormalizer-protocol/src/java/org/apache/nutch/net/urlnormalizer/protocol/ProtocolURLNormalizer.java,54,private String protocolsFile = null;
+src/plugin/urlnormalizer-protocol/src/java/org/apache/nutch/net/urlnormalizer/protocol/ProtocolURLNormalizer.java,60,public ProtocolURLNormalizer() {}
+src/plugin/urlnormalizer-protocol/src/java/org/apache/nutch/net/urlnormalizer/protocol/ProtocolURLNormalizer.java,62,public ProtocolURLNormalizer(String protocolsFile) {
+src/plugin/urlnormalizer-protocol/src/java/org/apache/nutch/net/urlnormalizer/protocol/ProtocolURLNormalizer.java,63,this.protocolsFile = protocolsFile;
+src/plugin/urlnormalizer-protocol/src/java/org/apache/nutch/net/urlnormalizer/protocol/ProtocolURLNormalizer.java,133,if (protocolsFile != null) {
+src/plugin/urlnormalizer-protocol/src/java/org/apache/nutch/net/urlnormalizer/protocol/ProtocolURLNormalizer.java,134,file = protocolsFile;
+src/plugin/urlnormalizer-protocol/src/java/org/apache/nutch/net/urlnormalizer/protocol/ProtocolURLNormalizer.java,136,else if (attributeFile != null) {
+src/plugin/urlnormalizer-protocol/src/java/org/apache/nutch/net/urlnormalizer/protocol/ProtocolURLNormalizer.java,152,LOG.error(org.apache.hadoop.util.StringUtils.stringifyException(e));
+src/plugin/urlnormalizer-slash/src/java/org/apache/nutch/net/urlnormalizer/slash/SlashURLNormalizer.java,56,private String slashesFile = null;
+src/plugin/urlnormalizer-slash/src/java/org/apache/nutch/net/urlnormalizer/slash/SlashURLNormalizer.java,64,public SlashURLNormalizer(String slashesFile) {
+src/plugin/urlnormalizer-slash/src/java/org/apache/nutch/net/urlnormalizer/slash/SlashURLNormalizer.java,65,this.slashesFile = slashesFile;
+src/plugin/urlnormalizer-slash/src/java/org/apache/nutch/net/urlnormalizer/slash/SlashURLNormalizer.java,139,if (slashesFile != null) {
+src/plugin/urlnormalizer-slash/src/java/org/apache/nutch/net/urlnormalizer/slash/SlashURLNormalizer.java,140,file = slashesFile;
+src/plugin/urlnormalizer-slash/src/java/org/apache/nutch/net/urlnormalizer/slash/SlashURLNormalizer.java,142,else if (attributeFile != null) {
+src/plugin/urlnormalizer-slash/src/java/org/apache/nutch/net/urlnormalizer/slash/SlashURLNormalizer.java,158,LOG.error(org.apache.hadoop.util.StringUtils.stringifyException(e));
+src/java/org/apache/nutch/crawl/LinkDbReader.java,165,.println("Usage: LinkDbReader <linkdb> (-dump <out_dir> [-regex <regex>]) | -url <url>");
+src/plugin/indexer-elastic/src/java/org/apache/nutch/indexwriter/elastic/ElasticIndexWriter.java,159,throw new RuntimeException(failure);
+src/plugin/indexer-elastic/src/java/org/apache/nutch/indexwriter/elastic/ElasticIndexWriter.java,165,LOG.warn("Failures occurred during bulk request");
+src/plugin/index-metadata/src/java/org/apache/nutch/indexer/metadata/MetadataIndexer.java,43,private Map<String, String> parseFieldnames;
+src/plugin/index-metadata/src/java/org/apache/nutch/indexer/metadata/MetadataIndexer.java,67,for (String metatag : parseFieldnames.keySet()) {
+src/plugin/index-metadata/src/java/org/apache/nutch/indexer/metadata/MetadataIndexer.java,91,parseFieldnames = new HashMap<String, String>();
+src/plugin/index-metadata/src/java/org/apache/nutch/indexer/metadata/MetadataIndexer.java,92,for (String metatag : conf.getStrings(parse_CONF_PROPERTY)) {
+src/plugin/index-metadata/src/java/org/apache/nutch/indexer/metadata/MetadataIndexer.java,93,parseFieldnames.put(metatag.toLowerCase(Locale.ROOT), metatag);
+src/java/org/apache/nutch/fetcher/FetcherThread.java,455,ProtocolStatus.STATUS_REDIR_EXCEEDED,
+src/java/org/apache/nutch/fetcher/FetcherThread.java,456,CrawlDatum.STATUS_FETCH_GONE);
+src/java/org/apache/nutch/fetcher/FetcherThread.java,560,throws ScoringFilterException {
+src/java/org/apache/nutch/fetcher/FetcherThread.java,561,CrawlDatum newDatum = new CrawlDatum(CrawlDatum.STATUS_DB_UNFETCHED,
+src/java/org/apache/nutch/fetcher/FetcherThread.java,562,fit.datum.getFetchInterval(), fit.datum.getScore());
+src/java/org/apache/nutch/fetcher/FetcherThread.java,565,scfilters.initialScore(redirUrl, newDatum);
+src/plugin/parse-metatags/src/java/org/apache/nutch/parse/metatags/MetaTagsParser.java,73,LOG.debug("Found meta tag: " + lcMetatag + "\t" + value);
+src/plugin/parse-metatags/src/java/org/apache/nutch/parse/metatags/MetaTagsParser.java,89,LOG.debug("Found meta tag: " + lcMetatag + "\t" + value);
+src/plugin/parse-metatags/src/java/org/apache/nutch/parse/metatags/MetaTagsParser.java,91,metadata.add("metatag." + lcMetatag, value);
+src/plugin/parse-metatags/src/java/org/apache/nutch/parse/metatags/MetaTagsParser.java,104,for (String mdName : metadata.names()) {
+src/plugin/parse-metatags/src/java/org/apache/nutch/parse/metatags/MetaTagsParser.java,105,addIndexedMetatags(metadata, mdName, metadata.getValues(mdName));
+src/java/org/apache/nutch/protocol/RobotRulesParser.java,136,LOG.info("robots.txt whitelist not configured.");
+src/java/org/apache/nutch/protocol/RobotRulesParser.java,318,conf.set("http.agent.name", agents);
+src/java/org/apache/nutch/protocol/RobotRulesParser.java,379,public TestRobotRulesParser(Configuration conf) {
+src/java/org/apache/nutch/protocol/RobotRulesParser.java,382,if (conf.get("http.agent.name") == null) {
+src/java/org/apache/nutch/protocol/RobotRulesParser.java,383,conf.set("http.agent.name", "*");
+src/java/org/apache/nutch/protocol/RobotRulesParser.java,385,setConf(conf);
+src/java/org/apache/nutch/protocol/RobotRulesParser.java,424,int res = ToolRunner.run(conf, new TestRobotRulesParser(conf), args);
+src/java/org/apache/nutch/net/protocols/HttpDateFormat.java,43,format.setTimeZone(TimeZone.getTimeZone("GMT"));

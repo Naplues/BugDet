@@ -1,0 +1,721 @@
+File,Line_number,SRC
+src/main/org/codehaus/groovy/classgen/AsmClassGenerator.java,324,private void generateCreateCallSiteArray() {
+src/main/org/codehaus/groovy/classgen/AsmClassGenerator.java,325,MethodVisitor mv = cv.visitMethod(ACC_PRIVATE+ACC_SYNTHETIC+ACC_STATIC,"$createCallSiteArray", "()Lorg/codehaus/groovy/runtime/callsite/CallSiteArray;", null, null);
+src/main/org/codehaus/groovy/classgen/AsmClassGenerator.java,326,mv.visitCode();
+src/main/org/codehaus/groovy/classgen/AsmClassGenerator.java,327,mv.visitTypeInsn(NEW, "org/codehaus/groovy/runtime/callsite/CallSiteArray");
+src/main/org/codehaus/groovy/classgen/AsmClassGenerator.java,328,mv.visitInsn(DUP);
+src/main/org/codehaus/groovy/classgen/AsmClassGenerator.java,329,mv.visitFieldInsn(GETSTATIC, internalClassName, "$ownClass", "Ljava/lang/Class;");
+src/main/org/codehaus/groovy/classgen/AsmClassGenerator.java,331,final int size = callSites.size();
+src/main/org/codehaus/groovy/classgen/AsmClassGenerator.java,332,mv.visitLdcInsn(size);
+src/main/org/codehaus/groovy/classgen/AsmClassGenerator.java,333,mv.visitTypeInsn(ANEWARRAY, "java/lang/String");
+src/main/org/codehaus/groovy/classgen/AsmClassGenerator.java,334,for (int i = 0; i < size; i++) {
+src/main/org/codehaus/groovy/classgen/AsmClassGenerator.java,335,mv.visitInsn(DUP);
+src/main/org/codehaus/groovy/classgen/AsmClassGenerator.java,336,mv.visitLdcInsn(i);
+src/main/org/codehaus/groovy/classgen/AsmClassGenerator.java,337,mv.visitLdcInsn(callSites.get(i));
+src/main/org/codehaus/groovy/classgen/AsmClassGenerator.java,338,mv.visitInsn(AASTORE);
+src/main/org/codehaus/groovy/classgen/AsmClassGenerator.java,341,mv.visitMethodInsn(INVOKESPECIAL, "org/codehaus/groovy/runtime/callsite/CallSiteArray", "<init>", "(Ljava/lang/Class;[Ljava/lang/String;)V");
+src/main/org/codehaus/groovy/classgen/AsmClassGenerator.java,342,mv.visitInsn(ARETURN);
+src/main/org/codehaus/groovy/classgen/AsmClassGenerator.java,343,mv.visitMaxs(0,0);
+src/main/org/codehaus/groovy/classgen/AsmClassGenerator.java,344,mv.visitEnd();
+src/main/org/codehaus/groovy/runtime/wrappers/Wrapper.java,267,return this.delegatingMetaClass;
+src/main/org/codehaus/groovy/runtime/callsite/AbstractCallSite.java,272,return createPogoGetPropertySite (aClass);
+src/main/groovy/lang/MetaClassImpl.java,1104,if(object instanceof Script) {
+src/main/groovy/lang/MetaClassImpl.java,1105,Object bindingVar = ((Script)object).getBinding().getVariables().get(methodName);
+src/main/groovy/lang/MetaClassImpl.java,1106,if(bindingVar != null) {
+src/main/groovy/lang/MetaClassImpl.java,1107,MetaClass bindingVarMC = ((MetaClassRegistryImpl)registry).getMetaClass(bindingVar);
+src/main/groovy/lang/MetaClassImpl.java,1108,return bindingVarMC.invokeMethod(bindingVar, CLOSURE_CALL_METHOD, originalArguments);
+src/main/groovy/lang/MetaClassImpl.java,1146,if (params==null) return false;
+src/main/groovy/lang/MetaClassImpl.java,1149,return false;
+src/main/groovy/lang/MetaClassImpl.java,1151,for (int i = params.length-1; i >= 0; i--) {
+src/main/groovy/lang/MetaClassImpl.java,1155,return false;
+src/main/groovy/lang/MetaClassImpl.java,1157,else
+src/main/groovy/lang/MetaClassImpl.java,1345,if(prop != null) {
+src/main/groovy/lang/MetaClassImpl.java,1346,MetaClass propMC = registry.getMetaClass(prop.getClass());
+src/main/groovy/lang/MetaClassImpl.java,1347,return propMC.invokeMethod(prop, CLOSURE_CALL_METHOD, arguments);
+src/main/groovy/lang/MetaClassImpl.java,1387,if(method == null && mse != null) {
+src/main/groovy/lang/MetaClassImpl.java,1388,throw mse;
+src/main/groovy/lang/MetaClassImpl.java,1870,private MetaMethod findPropertyMethod(Object methodOrList, boolean isGetter) {
+src/main/groovy/lang/MetaClassImpl.java,2136,if (methodName.length() < 4) continue;
+src/main/groovy/lang/MetaClassImpl.java,2138,boolean isGetter = methodName.startsWith("get");
+src/main/groovy/lang/MetaClassImpl.java,2142,MetaMethod propertyMethod = findPropertyMethod(isThis ? e.methods : e.methodsForSuper, isGetter);
+src/main/groovy/lang/MetaClassImpl.java,2159,String propName = java.beans.Introspector.decapitalize(methodName.substring(3));
+src/main/groovy/lang/MetaClassImpl.java,2329,if (!useSuper && !isStatic && GroovyCategorySupport.hasCategoryInCurrentThread()) {
+src/main/org/codehaus/groovy/tools/groovydoc/GroovyDocTool.java,46,this(resourceManager, sourcepaths, new String[]{}, new String[]{}, new String[]{classTemplate}, new ArrayList(), new Properties());
+src/main/org/codehaus/groovy/tools/groovydoc/GroovyRootDocBuilder.java,232,description = pruneTagFromFront(description, "p");
+src/main/org/codehaus/groovy/tools/groovydoc/GroovyRootDocBuilder.java,233,description = pruneTagFromEnd(description, "/p");
+src/main/org/codehaus/groovy/tools/groovydoc/GroovyRootDocBuilder.java,245,int index = Math.max(description.indexOf("<" + tag.toLowerCase() + ">"),
+src/main/org/codehaus/groovy/tools/groovydoc/GroovyRootDocBuilder.java,246,description.indexOf("<" + tag.toUpperCase() + ">"));
+src/main/org/codehaus/groovy/tools/groovydoc/SimpleGroovyClassDoc.java,541,if (tagname.equals("see") || tagname.equals("link")) {
+src/main/org/codehaus/groovy/tools/groovydoc/SimpleGroovyClassDoc.java,542,matcher.appendReplacement(sb, s1 + getDocUrl(encodeSpecialSymbols(matcher.group(2))) + s2);
+src/main/org/codehaus/groovy/tools/groovydoc/SimpleGroovyClassDoc.java,544,matcher.appendReplacement(sb, s1 + encodeSpecialSymbols(matcher.group(2)) + s2);
+src/main/groovy/time/BaseDuration.java,101,buffer.add(this.seconds + "." + DefaultGroovyMethods.padLeft("" + this.millis, new Integer(3), "0")  + " seconds");
+src/main/org/codehaus/groovy/transform/DelegateASTTransformation.java,140,method.getModifiers() & (~ACC_ABSTRACT),
+src/main/groovy/lang/ExpandoMetaClassCreationHandle.java,49,return super.create(theClass, registry);
+src/main/org/codehaus/groovy/runtime/MethodClosure.java,20,import java.lang.reflect.Method;
+src/main/org/codehaus/groovy/runtime/MethodClosure.java,21,import java.security.AccessController;
+src/main/org/codehaus/groovy/runtime/MethodClosure.java,22,import java.security.PrivilegedAction;
+src/main/org/codehaus/groovy/runtime/MethodClosure.java,45,Method[] methods = (Method[]) AccessController.doPrivileged(new  PrivilegedAction() {
+src/main/org/codehaus/groovy/runtime/MethodClosure.java,46,public Object run() {
+src/main/org/codehaus/groovy/runtime/MethodClosure.java,47,return clazz.getMethods();
+src/main/org/codehaus/groovy/runtime/MethodClosure.java,50,for (int j = 0; j < methods.length; j++) {
+src/main/org/codehaus/groovy/runtime/MethodClosure.java,51,if (method.equals(methods[j].getName()) && methods[j].getParameterTypes().length > maximumNumberOfParameters) {
+src/main/org/codehaus/groovy/runtime/MethodClosure.java,52,Class[] pt = methods[j].getParameterTypes();
+src/main/org/codehaus/groovy/runtime/MethodClosure.java,57,methods = (Method[]) AccessController.doPrivileged(new  PrivilegedAction() {
+src/main/org/codehaus/groovy/runtime/MethodClosure.java,58,public Object run() {
+src/main/org/codehaus/groovy/runtime/MethodClosure.java,59,return clazz.getDeclaredMethods();
+src/main/org/codehaus/groovy/runtime/MethodClosure.java,62,for (int j = 0; j < methods.length; j++) {
+src/main/org/codehaus/groovy/runtime/MethodClosure.java,63,if (method.equals(methods[j].getName()) && methods[j].getParameterTypes().length > maximumNumberOfParameters) {
+src/main/org/codehaus/groovy/runtime/MethodClosure.java,64,Class[] pt = methods[j].getParameterTypes();
+src/main/org/codehaus/groovy/runtime/MethodClosure.java,65,maximumNumberOfParameters = pt.length;
+src/main/org/codehaus/groovy/runtime/MethodClosure.java,66,parameterTypes = pt;
+src/main/org/codehaus/groovy/reflection/MixinInMetaClass.java,122,else {
+src/main/groovy/util/slurpersupport/Attributes.java,64,return new Attribute(Attributes.this.attributeName,
+src/main/org/codehaus/groovy/classgen/AsmClassGenerator.java,1082,mv.visitTryCatchBlock(tryStart, endOfAllCatches, catchAny, null);
+src/main/org/codehaus/groovy/tools/groovydoc/SimpleGroovyClassDocAssembler.java,453,return tt == CLASS_DEF || tt == INTERFACE_DEF || tt == METHOD_DEF || tt == ANNOTATION_DEF ||
+src/main/org/codehaus/groovy/groovydoc/GroovyRootDoc.java,30,Map getVisibleClasses(List importedClassesAndPackages);
+src/main/org/codehaus/groovy/tools/groovydoc/SimpleGroovyClassDoc.java,366,c = resolveExternalClass(name);
+src/main/org/codehaus/groovy/tools/groovydoc/SimpleGroovyClassDoc.java,382,if (importName.endsWith("/*")) {
+src/main/org/codehaus/groovy/tools/groovydoc/SimpleGroovyClassDoc.java,383,String candidate = importName.substring(0, importName.length() - 2).replace('/', '.') + "." + name;
+src/main/org/codehaus/groovy/tools/groovydoc/SimpleGroovyClassDoc.java,395,private Class resolveExternalClass(String name) {
+src/main/org/codehaus/groovy/tools/groovydoc/SimpleGroovyClassDocAssembler.java,275,GroovySourceAST gpn = getGrandParentNode();
+src/main/org/codehaus/groovy/tools/groovydoc/SimpleGroovyClassDocAssembler.java,276,return getParentNode() != null && gpn != null && (gpn.getType() == CLASS_DEF || gpn.getType() == INTERFACE_DEF);
+src/main/org/codehaus/groovy/tools/groovydoc/SimpleGroovyClassDocAssembler.java,468,if (typeName.indexOf(".") == -1) {
+src/main/org/codehaus/groovy/tools/groovydoc/SimpleGroovyClassDocAssembler.java,470,if (name.endsWith(typeName)) {
+src/main/org/codehaus/groovy/tools/groovydoc/SimpleGroovyClassDocAssembler.java,619,GroovySourceAST pn = getParentNode();
+src/main/org/codehaus/groovy/tools/groovydoc/SimpleGroovyClassDocAssembler.java,620,if (isTopLevelConstruct(pn)) return foundClasses.get(getIdentFor(pn));
+src/main/org/codehaus/groovy/tools/groovydoc/SimpleGroovyClassDocAssembler.java,621,GroovySourceAST gpn = getGrandParentNode();
+src/main/org/codehaus/groovy/tools/groovydoc/SimpleGroovyClassDocAssembler.java,622,if (isTopLevelConstruct(gpn)) return foundClasses.get(getIdentFor(gpn));
+src/main/org/codehaus/groovy/tools/groovydoc/SimpleGroovyClassDocAssembler.java,623,return null;
+src/main/org/codehaus/groovy/tools/groovydoc/SimpleGroovyDoc.java,107,String text = raw.replaceAll("(?m)^\\s*\\*", ""); // todo precompile regex
+src/main/org/codehaus/groovy/tools/groovydoc/SimpleGroovyDoc.java,122,return text.replaceAll("(?m)@([a-z]+\\s*.*)$", "");
+src/main/org/codehaus/groovy/tools/groovydoc/SimpleGroovyRootDoc.java,63,List<GroovyClassDoc> classDocValues = new ArrayList<GroovyClassDoc>(classDocs.values());
+src/main/org/codehaus/groovy/tools/groovydoc/SimpleGroovyRootDoc.java,64,Collections.sort(classDocValues); // todo - performance / maybe move into a sortMe() method
+src/main/org/codehaus/groovy/tools/groovydoc/SimpleGroovyRootDoc.java,89,List<GroovyPackageDoc> packageDocValues = new ArrayList<GroovyPackageDoc>(packageDocs.values());
+src/main/org/codehaus/groovy/tools/groovydoc/SimpleGroovyRootDoc.java,90,Collections.sort(packageDocValues);
+src/main/org/codehaus/groovy/tools/groovydoc/SimpleGroovyClassDoc.java,26,private static final Pattern TAG_REGEX = Pattern.compile("(?m)@([a-z]+)\\s+(.*$[^@]*)");
+src/main/org/codehaus/groovy/tools/groovydoc/SimpleGroovyClassDoc.java,27,private static final Pattern LINK_REGEX = Pattern.compile("(?m)[{]@(link)\\s+([^}]*)}");
+src/main/org/codehaus/groovy/tools/groovydoc/SimpleGroovyClassDoc.java,28,private static final Pattern CODE_REGEX = Pattern.compile("(?m)[{]@(code)\\s+([^}]*)}");
+src/main/org/codehaus/groovy/tools/groovydoc/SimpleGroovyClassDoc.java,322,return getDocUrl(type.substring(0, type.length() - 2), full) + "[]";
+src/main/org/codehaus/groovy/tools/groovydoc/SimpleGroovyClassDoc.java,325,if (type.indexOf('.') == -1) {
+src/main/org/codehaus/groovy/tools/groovydoc/SimpleGroovyClassDoc.java,348,private String buildUrl(String relativeRoot, String[] target, String shortClassName) {
+src/main/org/codehaus/groovy/tools/groovydoc/SimpleGroovyClassDoc.java,554,private String encodeSpecialSymbols(String text) {
+src/main/org/codehaus/groovy/tools/groovydoc/SimpleGroovyClassDoc.java,558,private String decodeSpecialSymbols(String text) {
+src/main/org/codehaus/groovy/ant/Groovydoc.java,153,public void setOverview(java.io.File file) {
+src/main/org/codehaus/groovy/tools/groovydoc/SimpleGroovyClassDoc.java,320,return "<a href='" + type + "'>" + type + "</a>";
+src/main/org/codehaus/groovy/tools/groovydoc/SimpleGroovyClassDoc.java,326,Class c = resolveExternalClassFromImport(type);
+src/main/org/codehaus/groovy/tools/groovydoc/SimpleGroovyClassDoc.java,335,String name = full ? target[0] : shortClassName;
+src/main/org/codehaus/groovy/tools/groovydoc/SimpleGroovyClassDoc.java,341,return buildUrl(link.getHref(), target, name);
+src/main/org/codehaus/groovy/tools/groovydoc/SimpleGroovyDoc.java,33,private String firstSentenceCommentText = "";
+src/main/org/codehaus/groovy/tools/groovydoc/SimpleGroovyDoc.java,68,return firstSentenceCommentText; // derived from rawCommentText
+src/main/org/codehaus/groovy/tools/groovydoc/SimpleGroovyDoc.java,73,setFirstSentenceCommentText(calculateFirstSentence(rawCommentText));
+src/main/org/codehaus/groovy/tools/groovydoc/SimpleGroovyDoc.java,118,return stripTags(text);
+src/main/org/codehaus/groovy/tools/groovydoc/SimpleGroovyDoc.java,121,private static String stripTags(String text) {
+src/main/org/codehaus/groovy/runtime/MetaClassHelper.java,304,objectDistance--;
+src/main/org/codehaus/groovy/runtime/DefaultGroovyMethods.java,5242,addTo.add(element);
+src/main/org/codehaus/groovy/reflection/ClassInfo.java,137,MetaClass answer;
+src/main/org/codehaus/groovy/reflection/ClassInfo.java,138,answer = getMetaClassForClass();
+src/main/org/codehaus/groovy/antlr/AntlrParserPlugin.java,438,output.addClass(classNode);
+src/main/org/codehaus/groovy/control/ResolveVisitor.java,251,return  resolveFromModule(type, testModuleImports) ||
+src/main/org/codehaus/groovy/classgen/ClassCompletionVerifier.java,62,checkMethodsForOverwritingFinal(node);
+src/main/org/codehaus/groovy/classgen/ClassCompletionVerifier.java,178,private void checkMethodsForOverwritingFinal(ClassNode cn) {
+src/main/org/codehaus/groovy/classgen/ClassCompletionVerifier.java,188,if (!Modifier.isFinal(superMethod.getModifiers())) return;
+src/main/org/codehaus/groovy/classgen/ClassCompletionVerifier.java,197,msg.append("You are not allowed to overwrite the final method ").append(method.getName());
+src/main/groovy/ui/SystemOutputInterceptor.java,43,super(System.out);
+src/main/groovy/ui/SystemOutputInterceptor.java,54,System.setOut(new PrintStream(this));
+src/main/groovy/ui/SystemOutputInterceptor.java,62,System.setOut((PrintStream) out);
+src/main/org/codehaus/groovy/reflection/stdclasses/FloatCachedClass.java,62,|| classToTransformFrom == Byte.TYPE;
+src/main/org/codehaus/groovy/control/ResolveVisitor.java,968,if (resolve(type, false, false, true)) continue;
+src/main/org/codehaus/groovy/control/ResolveVisitor.java,974,if (resolve(type, false, false, true)) continue;
+src/main/org/codehaus/groovy/control/StaticImportVisitor.java,127,boolean lookForPossibleStaticMethod = true;
+src/main/org/codehaus/groovy/control/StaticImportVisitor.java,128,if(this.currentMethod != null && !this.currentMethod.isStatic()) {
+src/main/org/codehaus/groovy/control/StaticImportVisitor.java,129,if(currentClass.hasPossibleMethod(methodName, args)) {
+src/main/org/codehaus/groovy/classgen/AsmClassGenerator.java,490,return methodName.startsWith("this$") ||
+src/main/org/codehaus/groovy/classgen/AsmClassGenerator.java,491,methodName.startsWith("super$");
+src/main/groovy/text/XmlTemplateEngine.java,128,out.print("out.print(\"");
+src/main/groovy/text/XmlTemplateEngine.java,133,out.print("\\n\");");
+src/main/org/codehaus/groovy/control/CompilationUnit.java,495,List classes = module.getClasses();
+src/main/org/codehaus/groovy/control/CompilationUnit.java,496,for (Iterator iter = classes.iterator(); iter.hasNext();) {
+src/main/org/codehaus/groovy/control/CompilationUnit.java,497,ClassNode start = (ClassNode) iter.next();
+src/main/org/codehaus/groovy/control/CompilationUnit.java,498,ClassNode cn = start;
+src/main/org/codehaus/groovy/control/CompilationUnit.java,499,Set parents = new HashSet();
+src/main/org/codehaus/groovy/control/CompilationUnit.java,500,do {
+src/main/org/codehaus/groovy/control/CompilationUnit.java,501,if (parents.contains(cn.getName())) {
+src/main/org/codehaus/groovy/control/CompilationUnit.java,502,getErrorCollector().addErrorAndContinue(
+src/main/org/codehaus/groovy/control/CompilationUnit.java,504,);
+src/main/org/codehaus/groovy/control/CompilationUnit.java,505,cn = null;
+src/main/org/codehaus/groovy/control/CompilationUnit.java,507,parents.add(cn.getName());
+src/main/org/codehaus/groovy/control/CompilationUnit.java,508,cn = cn.getSuperClass();
+src/main/org/codehaus/groovy/control/CompilationUnit.java,512,errorCollector.failIfErrors();
+src/main/org/codehaus/groovy/control/ResolveVisitor.java,991,if (sn != null) resolveOrFail(sn, node, true);
+src/main/org/codehaus/groovy/runtime/metaclass/MixinInstanceMetaMethod.java,38,final Object result = method.invoke(mixinInMetaClass.getMixinInstance(object), arguments);
+src/main/org/codehaus/groovy/runtime/metaclass/MixinInstanceMetaMethod.java,39,return result;
+src/main/org/codehaus/groovy/classgen/AsmClassGenerator.java,974,statement.getMessageExpression().visit(this);
+src/main/org/codehaus/groovy/classgen/Verifier.java,194,node.addSyntheticMethod(
+src/main/org/codehaus/groovy/classgen/Verifier.java,196,ACC_PUBLIC | ACC_SYNTHETIC,
+src/main/org/codehaus/groovy/classgen/Verifier.java,245,node.addSyntheticMethod(
+src/main/org/codehaus/groovy/classgen/Verifier.java,261,node.addSyntheticMethod(
+src/main/org/codehaus/groovy/classgen/Verifier.java,281,node.addSyntheticMethod(
+src/main/org/codehaus/groovy/classgen/Verifier.java,301,node.addSyntheticMethod(
+src/main/org/codehaus/groovy/runtime/CurriedClosure.java,32,super(uncurriedClosure);
+src/main/org/codehaus/groovy/control/CompilationUnit.java,461,for (Iterator it = phaseOperations[phase].iterator(); it.hasNext();) {
+src/main/org/codehaus/groovy/control/CompilationUnit.java,462,Object operation = it.next();
+src/main/org/codehaus/groovy/control/CompilationUnit.java,463,if (operation instanceof PrimaryClassNodeOperation) {
+src/main/org/codehaus/groovy/control/CompilationUnit.java,464,applyToPrimaryClassNodes((PrimaryClassNodeOperation) operation);
+src/main/org/codehaus/groovy/control/CompilationUnit.java,466,applyToSourceUnits((SourceUnitOperation) operation);
+src/main/org/codehaus/groovy/control/CompilationUnit.java,468,applyToGeneratedGroovyClasses((GroovyClassOperation) operation);
+src/main/org/codehaus/groovy/transform/ASTTransformationVisitor.java,182,LinkedHashMap<String, URL> globalTransformNames = new LinkedHashMap<String, URL>();
+src/main/org/codehaus/groovy/transform/ASTTransformationVisitor.java,199,if (globalTransformNames.containsKey(className)) {
+src/main/org/codehaus/groovy/transform/ASTTransformationVisitor.java,200,if (!service.equals(globalTransformNames.get(className))) {
+src/main/org/codehaus/groovy/transform/ASTTransformationVisitor.java,213,globalTransformNames.put(className, service);
+src/main/org/codehaus/groovy/transform/ASTTransformationVisitor.java,240,for (Map.Entry<String, URL> entry : globalTransformNames.entrySet()) {
+src/main/org/codehaus/groovy/transform/ASTTransformationVisitor.java,249,for (Map.Entry<String, URL> entry : globalTransformNames.entrySet()) {
+src/main/org/codehaus/groovy/transform/ASTTransformationVisitor.java,266,compilationUnit.addPhaseOperation(new CompilationUnit.SourceUnitOperation() {
+src/main/org/codehaus/groovy/reflection/ClassInfo.java,139,if (answer != null) return answer;
+src/main/org/codehaus/groovy/reflection/ClassInfo.java,143,.create(get(), metaClassRegistry);
+src/main/groovy/lang/GroovyClassLoader.java,216,return parseClass(text, "script" + System.currentTimeMillis() + ".groovy");
+src/main/org/codehaus/groovy/vmplugin/v5/JUnit4Utils.java,78,static Object realRunJUnit4Test(Class scriptClass) {
+src/main/org/codehaus/groovy/vmplugin/v5/JUnit4Utils.java,82,Object result = InvokerHelper.invokeStaticMethod("org.junit.runner.JUnitCore",
+src/main/org/codehaus/groovy/vmplugin/v5/TestNgUtils.java,76,static Object realRunTestNgTest(Class scriptClass) {
+src/main/org/codehaus/groovy/vmplugin/v5/TestNgUtils.java,80,Object testng = InvokerHelper.invokeConstructorOf("org.testng.TestNG", new Object[]{});
+src/main/org/codehaus/groovy/vmplugin/v5/TestNgUtils.java,82,Object listener = InvokerHelper.invokeConstructorOf("org.testng.TestListenerAdapter", new Object[]{});
+src/main/org/codehaus/groovy/antlr/AntlrParserPlugin.java,881,annotations.add(annotation(node));
+src/main/org/codehaus/groovy/classgen/AsmClassGenerator.java,1564,if (isStaticMethod() && !classNode.declaresInterface(ClassHelper.GENERATED_CLOSURE_Type)) {
+src/main/org/codehaus/groovy/classgen/AsmClassGenerator.java,238,interfaceClassLoadingClass = new InnerClassNode(owner, name, 4128, ClassHelper.OBJECT_TYPE);
+src/main/org/codehaus/groovy/classgen/AsmClassGenerator.java,296,MethodVisitor mv = cv.visitMethod(ACC_PRIVATE+ACC_SYNTHETIC+ACC_STATIC,"$getCallSiteArray", "()[Lorg/codehaus/groovy/runtime/callsite/CallSite;", null, null);
+src/main/org/codehaus/groovy/classgen/AsmClassGenerator.java,1846,mv.visitMethodInsn(INVOKESTATIC,internalClassName,"$getCallSiteArray","()[Lorg/codehaus/groovy/runtime/callsite/CallSite;");
+src/main/org/codehaus/groovy/classgen/AsmClassGenerator.java,1872,mv.visitMethodInsn(INVOKESTATIC,internalClassName,"$getCallSiteArray","()[Lorg/codehaus/groovy/runtime/callsite/CallSite;");
+src/main/org/codehaus/groovy/classgen/AsmClassGenerator.java,1916,mv.visitMethodInsn(INVOKESTATIC,internalClassName,"$getCallSiteArray","()[Lorg/codehaus/groovy/runtime/callsite/CallSite;");
+src/main/org/codehaus/groovy/classgen/AsmClassGenerator.java,2219,mv.visitMethodInsn(INVOKESTATIC,internalClassName,"$getCallSiteArray","()[Lorg/codehaus/groovy/runtime/callsite/CallSite;");
+src/main/org/codehaus/groovy/control/ResolveVisitor.java,173,ClassNode t = node.getType();
+src/main/org/codehaus/groovy/control/ResolveVisitor.java,174,resolveOrFail(t, node);
+src/main/groovy/sql/DataSet.java,113,Connection connection = createConnection();
+src/main/groovy/sql/DataSet.java,114,PreparedStatement statement = null;
+src/main/groovy/sql/DataSet.java,115,try {
+src/main/groovy/sql/DataSet.java,116,statement = connection.prepareStatement(buffer.toString());
+src/main/groovy/sql/DataSet.java,117,int i = 1;
+src/main/groovy/sql/DataSet.java,122,int answer = statement.executeUpdate();
+src/main/groovy/sql/DataSet.java,123,if (answer != 1) {
+src/main/groovy/sql/DataSet.java,127,catch (SQLException e) {
+src/main/groovy/sql/DataSet.java,129,throw e;
+src/main/groovy/sql/DataSet.java,131,finally {
+src/main/groovy/sql/DataSet.java,132,closeResources(connection, statement);
+src/main/groovy/sql/Sql.java,814,log.fine(sql);
+src/main/groovy/sql/Sql.java,912,log.fine(sql);
+src/main/groovy/sql/Sql.java,1026,log.fine(sql);
+src/main/org/codehaus/groovy/ast/ClassHelper.java,78,Annotation_TYPE = new ClassNode("java.lang.annotation.Annotation",0,OBJECT_TYPE);
+src/main/org/codehaus/groovy/vmplugin/v5/Java5.java,221,int bitmap = 0;
+src/main/org/codehaus/groovy/vmplugin/v5/Java5.java,225,node.setAllowedTargets(bitmap);
+src/main/org/codehaus/groovy/runtime/DefaultGroovyMethods.java,12274,public void run() {
+src/main/org/codehaus/groovy/runtime/DefaultGroovyMethods.java,12133,else
+src/main/org/codehaus/groovy/runtime/DefaultGroovyMethods.java,12150,else
+src/main/org/codehaus/groovy/runtime/DefaultGroovyMethods.java,12153,else
+src/main/org/codehaus/groovy/runtime/NullObject.java,55,public Object getProperty(String property) {
+src/main/org/codehaus/groovy/runtime/NullObject.java,65,public void setProperty(String property, Object newValue) {
+src/main/org/codehaus/groovy/runtime/callsite/NullCallSite.java,17,return InvokerHelper.invokeMethod(NullObject.getNullObject(), name, args);
+src/main/groovy/lang/Script.java,169,GroovyShell shell = new GroovyShell(binding);
+src/main/groovy/lang/Script.java,180,GroovyShell shell = new GroovyShell(binding);
+src/main/groovy/lang/Script.java,188,GroovyShell shell = new GroovyShell(binding);
+src/main/org/codehaus/groovy/classgen/Verifier.java,673,paramValues.add(parameter.getInitialExpression());
+src/main/org/codehaus/groovy/classgen/Verifier.java,685,arguments.addExpression(parameters[i].getInitialExpression());
+src/main/org/codehaus/groovy/classgen/Verifier.java,690,arguments.addExpression(new VariableExpression(parameters[i].getName()));
+src/main/org/codehaus/groovy/classgen/Verifier.java,695,arguments.addExpression(new VariableExpression(parameters[i].getName()));
+src/main/org/codehaus/groovy/jsr223/GroovyScriptEngineImpl.java,61,import java.io.ByteArrayInputStream;
+src/main/org/codehaus/groovy/jsr223/GroovyScriptEngineImpl.java,62,import java.io.IOException;
+src/main/org/codehaus/groovy/jsr223/GroovyScriptEngineImpl.java,63,import java.io.InputStream;
+src/main/org/codehaus/groovy/jsr223/GroovyScriptEngineImpl.java,64,import java.io.PrintWriter;
+src/main/org/codehaus/groovy/jsr223/GroovyScriptEngineImpl.java,65,import java.io.Reader;
+src/main/org/codehaus/groovy/jsr223/GroovyScriptEngineImpl.java,66,import java.io.Writer;
+src/main/org/codehaus/groovy/classgen/Verifier.java,406,Statement statement;
+src/main/org/codehaus/groovy/classgen/Verifier.java,416,statement = node.getCode();
+src/main/org/codehaus/groovy/classgen/Verifier.java,417,if (statement!=null) statement.visit(new VerifierCodeVisitor(this));
+src/main/org/codehaus/groovy/transform/CategoryASTTransformation.java,42,private static final VariableExpression THIS_EXPRESSION = new VariableExpression("$this");
+src/main/org/codehaus/groovy/transform/CategoryASTTransformation.java,67,public void visitMethod(MethodNode node) {
+src/main/org/codehaus/groovy/transform/CategoryASTTransformation.java,70,final Parameter[] params = node.getParameters();
+src/main/org/codehaus/groovy/control/StaticImportVisitor.java,190,boolean isExplicitThisOrSuper = false;
+src/main/org/codehaus/groovy/control/StaticImportVisitor.java,193,isExplicitThisOrSuper = !pe.isImplicitThis() && (ve.getName().equals("this") || ve.getName().equals("super"));
+src/main/org/codehaus/groovy/control/StaticImportVisitor.java,194,if (isExplicitThisOrSuper && currentMethod != null && currentMethod.isStatic()) {
+src/main/org/codehaus/groovy/control/StaticImportVisitor.java,195,addError("Non-static variable '" + ve.getName() + "' cannot be referenced from the static method " + currentMethod.getName() + ".", pe);
+src/main/org/codehaus/groovy/runtime/ScriptBytecodeAdapter.java,530,receiver.setProperty(messageName, messageArgument);
+src/main/org/codehaus/groovy/runtime/ScriptBytecodeAdapter.java,757,public static Object unaryPlus(Object value) {
+src/main/org/codehaus/groovy/runtime/ScriptBytecodeAdapter.java,758,return InvokerHelper.unaryPlus(value);
+src/main/org/codehaus/groovy/runtime/ScriptBytecodeAdapter.java,761,public static Object bitwiseNegate(Object value) {
+src/main/org/codehaus/groovy/runtime/ScriptBytecodeAdapter.java,762,return InvokerHelper.bitwiseNegate(value);
+src/main/org/codehaus/groovy/classgen/Verifier.java,399,if (s == null) return;
+src/main/org/codehaus/groovy/control/ResolveVisitor.java,1041,String name = type.getName();
+src/main/org/codehaus/groovy/control/CompilationUnit.java,557,GenericsVisitor genericsVisitor = new GenericsVisitor(source);
+src/main/org/codehaus/groovy/control/CompilationUnit.java,558,genericsVisitor.visitClass(node);
+src/main/org/codehaus/groovy/transform/DelegateASTTransformation.java,154,final ClassNode nonGen = ClassHelper.make(type.getName());
+src/main/org/codehaus/groovy/ant/Groovyc.java,635,for (Iterator i = javac.getRuntimeConfigurableWrapper().getAttributeMap().entrySet().iterator(); i.hasNext();) {
+src/main/org/codehaus/groovy/antlr/AntlrParserPlugin.java,1200,modifiers(node, annotations, 0);
+src/main/org/codehaus/groovy/runtime/DefaultGroovyMethods.java,11671,public static void consumeProcessErrorStream(Process self, StringBuffer error) {
+src/main/org/codehaus/groovy/runtime/DefaultGroovyMethods.java,11672,new Thread(new TextDumper(self.getErrorStream(), error)).start();
+src/main/org/codehaus/groovy/runtime/DefaultGroovyMethods.java,11685,public static void consumeProcessErrorStream(Process self, OutputStream err) {
+src/main/org/codehaus/groovy/runtime/DefaultGroovyMethods.java,11686,new Thread(new ByteDumper(self.getErrorStream(), err)).start();
+src/main/org/codehaus/groovy/runtime/DefaultGroovyMethods.java,11699,public static void consumeProcessErrorStream(Process self, Writer err) {
+src/main/org/codehaus/groovy/runtime/DefaultGroovyMethods.java,11700,new Thread(new TextDumper(self.getErrorStream(), err)).start();
+src/main/org/codehaus/groovy/runtime/DefaultGroovyMethods.java,11713,public static void consumeProcessOutputStream(Process self, StringBuffer output) {
+src/main/org/codehaus/groovy/runtime/DefaultGroovyMethods.java,11714,new Thread(new TextDumper(self.getInputStream(), output)).start();
+src/main/org/codehaus/groovy/runtime/DefaultGroovyMethods.java,11727,public static void consumeProcessOutputStream(Process self, OutputStream output) {
+src/main/org/codehaus/groovy/runtime/DefaultGroovyMethods.java,11728,new Thread(new ByteDumper(self.getInputStream(), output)).start();
+src/main/org/codehaus/groovy/runtime/DefaultGroovyMethods.java,11741,public static void consumeProcessOutputStream(Process self, Writer output) {
+src/main/org/codehaus/groovy/runtime/DefaultGroovyMethods.java,11742,new Thread(new TextDumper(self.getInputStream(), output)).start();
+src/main/org/codehaus/groovy/ast/ClassHelper.java,75,CLASS_Type = new ClassNode(Class.class),        METACLASS_TYPE = new ClassNode(MetaClass.class),
+src/main/org/codehaus/groovy/ast/ClassNode.java,311,addField("$ownClass", ACC_STATIC|ACC_PUBLIC|ACC_FINAL|ACC_SYNTHETIC, ClassHelper.CLASS_Type, new ClassExpression(this)).setSynthetic(true);
+src/main/org/codehaus/groovy/control/ResolveVisitor.java,223,if (type.isResolved() || type.isPrimaryClassNode()) return true;
+src/main/org/codehaus/groovy/control/ResolveVisitor.java,1094,genericsType.setResolved(true);
+src/main/org/codehaus/groovy/runtime/DefaultGroovyMethods.java,9258,public static Object splitEachLine(File self, String sep, Closure closure) throws IOException {
+src/main/org/codehaus/groovy/runtime/DefaultGroovyMethods.java,9259,return splitEachLine(newReader(self), sep, closure);
+src/main/org/codehaus/groovy/runtime/DefaultGroovyMethods.java,9275,public static Object splitEachLine(Reader self, String sep, Closure closure) throws IOException {
+src/main/org/codehaus/groovy/runtime/DefaultGroovyMethods.java,9290,List vals = Arrays.asList(line.split(sep));
+src/main/org/codehaus/groovy/tools/Utilities.java,50,private static String eol = System.getProperty( "line.separator", "\n" );
+src/main/org/codehaus/groovy/classgen/Verifier.java,587,new MethodNode(secondGetterName, node.getModifiers(), node.getType(), Parameter.EMPTY_ARRAY, ClassNode.EMPTY_ARRAY, getterBlock);
+src/main/org/codehaus/groovy/classgen/Verifier.java,570,(node.getModifiers()&ACC_FINAL)==0 &&
+src/main/org/codehaus/groovy/classgen/Verifier.java,579,new MethodNode(getterName, node.getModifiers(), node.getType(), Parameter.EMPTY_ARRAY, ClassNode.EMPTY_ARRAY, getterBlock);
+src/main/org/codehaus/groovy/classgen/Verifier.java,596,new MethodNode(setterName, node.getModifiers(), ClassHelper.VOID_TYPE, setterParameterTypes, ClassNode.EMPTY_ARRAY, setterBlock);
+src/main/org/codehaus/groovy/transform/ImmutableASTTransformation.java,139,cNode.addMethod(new MethodNode("hashCode", ACC_PUBLIC, ClassHelper.int_TYPE, Parameter.EMPTY_ARRAY, ClassNode.EMPTY_ARRAY, body));
+src/main/org/codehaus/groovy/transform/ImmutableASTTransformation.java,169,cNode.addMethod(new MethodNode("toString", ACC_PUBLIC, ClassHelper.STRING_TYPE, Parameter.EMPTY_ARRAY, ClassNode.EMPTY_ARRAY, body));
+src/main/org/codehaus/groovy/transform/ImmutableASTTransformation.java,222,cNode.addMethod(new MethodNode("equals", ACC_PUBLIC, ClassHelper.boolean_TYPE, params, ClassNode.EMPTY_ARRAY, body));
+src/main/org/codehaus/groovy/transform/ImmutableASTTransformation.java,490,return new BooleanExpression(new BinaryExpression(expr, COMPARE_EQUAL, new ConstantExpression(Integer.valueOf(0))));
+src/main/org/codehaus/groovy/transform/ImmutableASTTransformation.java,494,return new BooleanExpression(new BinaryExpression(expr, COMPARE_EQUAL, new ConstantExpression(Integer.valueOf(1))));
+src/main/groovy/time/DatumDependentDuration.java,21,import org.codehaus.groovy.runtime.TimeCategory;
+src/main/groovy/time/TimeDuration.java,75,final Calendar cal = Calendar.getInstance();
+src/main/groovy/lang/GroovyShell.java,242,try {
+src/main/groovy/lang/GroovyShell.java,243,if (Script.class.isAssignableFrom(scriptClass)) {
+src/main/groovy/lang/GroovyShell.java,245,Script script  = null;
+src/main/groovy/lang/GroovyShell.java,246,try {
+src/main/groovy/lang/GroovyShell.java,247,script = (Script) scriptClass.newInstance();
+src/main/groovy/lang/GroovyShell.java,253,if (script != null) {
+src/main/groovy/lang/GroovyShell.java,254,script.setBinding(context);
+src/main/groovy/lang/GroovyShell.java,255,script.setProperty("args", args);
+src/main/groovy/lang/GroovyShell.java,256,return script.run();
+src/main/org/codehaus/groovy/syntax/RuntimeParserException.java,33,super(message + ".\nNode: " + node.getClass().getName(), node);
+src/main/org/codehaus/groovy/runtime/InvokerHelper.java,321,String stringToCompare = toString(left);
+src/main/org/codehaus/groovy/jsr223/GroovyScriptEngineImpl.java,113,return eval(getScriptClass(script), ctx);
+src/main/org/codehaus/groovy/vmplugin/VMPluginFactory.java,33,ClassLoader.getSystemClassLoader().loadClass(JDK5_CLASSNAME_CHECK);
+src/main/org/codehaus/groovy/vmplugin/VMPluginFactory.java,35,.loadClass(JDK5_PLUGIN_NAME).newInstance();
+src/main/groovy/lang/MetaClassImpl.java,2367,field.setProperty(object, newValue);
+src/main/groovy/lang/MetaClassImpl.java,2368,return;
+src/main/org/codehaus/groovy/ast/ClassNode.java,699,public void addStaticInitializerStatements(List staticStatements, boolean fieldInit) {
+src/main/org/codehaus/groovy/classgen/Verifier.java,728,final boolean isEnumClassNode = isEnum(node);
+src/main/org/codehaus/groovy/classgen/Verifier.java,729,List initStmtsAfterEnumValuesInit = new ArrayList();
+src/main/org/codehaus/groovy/classgen/Verifier.java,731,if(isEnumClassNode) {
+src/main/org/codehaus/groovy/classgen/Verifier.java,741,(FieldNode) iter.next(), isEnumClassNode,
+src/main/org/codehaus/groovy/classgen/Verifier.java,770,if(isEnumClassNode) {
+src/main/org/codehaus/groovy/classgen/Verifier.java,778,node.addStaticInitializerStatements(initStmtsAfterEnumValuesInit, false);
+src/main/org/codehaus/groovy/classgen/Verifier.java,786,private boolean isEnum(ClassNode node) {
+src/main/org/codehaus/groovy/classgen/Verifier.java,787,return (node.getModifiers() & Opcodes.ACC_ENUM) != 0;
+src/main/org/codehaus/groovy/ast/ClassNode.java,1058,if (method.getParameters().length == count) {
+src/main/groovy/sql/Sql.java,485,configure(statement);
+src/main/groovy/sql/Sql.java,523,statement = getPreparedStatement(connection, sql);
+src/main/groovy/sql/Sql.java,524,setParameters(params, statement);
+src/main/groovy/sql/Sql.java,525,configure(statement);
+src/main/groovy/sql/Sql.java,574,configure(statement);
+src/main/groovy/sql/Sql.java,608,statement = getPreparedStatement(connection, sql);
+src/main/groovy/sql/Sql.java,609,setParameters(params, statement);
+src/main/groovy/sql/Sql.java,610,configure(statement);
+src/main/groovy/sql/Sql.java,676,configure(statement);
+src/main/groovy/sql/Sql.java,711,statement = getPreparedStatement(connection, sql);
+src/main/groovy/sql/Sql.java,712,setParameters(params, statement);
+src/main/groovy/sql/Sql.java,713,configure(statement);
+src/main/groovy/sql/Sql.java,786,configure(statement);
+src/main/groovy/sql/Sql.java,815,statement = getPreparedStatement(connection, sql);
+src/main/groovy/sql/Sql.java,816,setParameters(params, statement);
+src/main/groovy/sql/Sql.java,817,configure(statement);
+src/main/groovy/sql/Sql.java,861,configure(statement);
+src/main/groovy/sql/Sql.java,915,statement = getPreparedStatement(connection, sql, Statement.RETURN_GENERATED_KEYS);
+src/main/groovy/sql/Sql.java,916,setParameters(params, statement);
+src/main/groovy/sql/Sql.java,917,configure(statement);
+src/main/groovy/sql/Sql.java,1001,configure(statement);
+src/main/groovy/sql/Sql.java,1027,statement = getPreparedStatement(connection, sql);
+src/main/groovy/sql/Sql.java,1028,setParameters(params, statement);
+src/main/groovy/sql/Sql.java,1029,configure(statement);
+src/main/groovy/sql/Sql.java,1578,private synchronized void clearStatementCache() {
+src/main/groovy/sql/Sql.java,1579,if (!statementCache.isEmpty()) {
+src/main/groovy/sql/Sql.java,1581,try {
+src/main/groovy/sql/Sql.java,1582,((Statement) o).close();
+src/main/groovy/sql/Sql.java,1584,log.log(Level.FINEST, "Failed to close statement. Already closed?", e);
+src/main/groovy/sql/Sql.java,1590,private Statement getStatement(Connection connection, String sql) throws SQLException {
+src/main/groovy/sql/Sql.java,1593,stmt = statementCache.get(sql);
+src/main/groovy/sql/Sql.java,1594,if (stmt == null) {
+src/main/groovy/sql/Sql.java,1595,synchronized (statementCache) {
+src/main/groovy/sql/Sql.java,1596,stmt = createStatement(connection);
+src/main/groovy/sql/Sql.java,1601,stmt = createStatement(connection);
+src/main/groovy/sql/Sql.java,1606,private PreparedStatement getPreparedStatement(Connection connection, String sql, int returnGeneratedKeys) throws SQLException {
+src/main/groovy/sql/Sql.java,1607,PreparedStatement pStmt;
+src/main/groovy/sql/Sql.java,1608,if (cacheStatements) {
+src/main/groovy/sql/Sql.java,1609,pStmt = (PreparedStatement) statementCache.get(sql);
+src/main/groovy/sql/Sql.java,1610,if (pStmt == null) {
+src/main/groovy/sql/Sql.java,1611,synchronized (statementCache) {
+src/main/groovy/sql/Sql.java,1612,pStmt = createPreparedStatement(connection, sql, returnGeneratedKeys);
+src/main/groovy/sql/Sql.java,1613,statementCache.put(sql, pStmt);
+src/main/groovy/sql/Sql.java,1617,pStmt = createPreparedStatement(connection, sql, returnGeneratedKeys);
+src/main/groovy/sql/Sql.java,1619,return pStmt;
+src/main/groovy/sql/Sql.java,1622,private PreparedStatement createPreparedStatement(Connection connection, String sql, int returnGeneratedKeys) throws SQLException {
+src/main/groovy/sql/Sql.java,1623,if (returnGeneratedKeys != 0) {
+src/main/groovy/sql/Sql.java,1624,return connection.prepareStatement(sql, returnGeneratedKeys);
+src/main/groovy/sql/Sql.java,1626,return connection.prepareStatement(sql);
+src/main/groovy/sql/Sql.java,1630,private PreparedStatement getPreparedStatement(Connection connection, String sql) throws SQLException {
+src/main/groovy/sql/Sql.java,1631,return getPreparedStatement(connection, sql, 0);
+src/main/org/codehaus/groovy/runtime/metaclass/MemoryAwareConcurrentReadMap.java,554,head = new Entry(p.hash, p.key, p.value, head, queue);
+src/main/org/codehaus/groovy/classgen/AsmClassGenerator.java,4207,if (line >= 0) {
+src/main/org/codehaus/groovy/classgen/AsmClassGenerator.java,4208,lineNumber = line;
+src/main/org/codehaus/groovy/classgen/AsmClassGenerator.java,4209,columnNumber = col;
+src/main/org/codehaus/groovy/classgen/AsmClassGenerator.java,4211,if (line >= 0 && mv != null) {
+src/main/org/codehaus/groovy/binding/PropertyBinding.java,41,InvokerHelper.setProperty(bean, propertyName, newValue);
+src/main/org/codehaus/groovy/classgen/AsmClassGenerator.java,222,classNode.getModifiers(),
+src/main/org/codehaus/groovy/classgen/AsmClassGenerator.java,269,innerClass.getModifiers());
+src/main/org/codehaus/groovy/binding/BindingProxy.java,65,rebind();
+src/main/org/codehaus/groovy/binding/BindingProxy.java,66,update();
+src/main/groovy/lang/GroovyClassLoader.java,687,cls = recompile(source, name, cls);
+src/main/groovy/lang/GroovyClassLoader.java,780,private URL getSourceFile(String name) {
+src/main/groovy/lang/GroovyClassLoader.java,781,String filename = name.replace('.', '/') + config.getDefaultScriptExtension();
+src/main/groovy/lang/GroovyClassLoader.java,782,URL ret = getResource(filename);
+src/main/groovy/lang/GroovyClassLoader.java,783,if (ret != null && ret.getProtocol().equals("file")) {
+src/main/groovy/lang/GroovyClassLoader.java,784,String fileWithoutPackage = filename;
+src/main/groovy/lang/GroovyClassLoader.java,785,if (fileWithoutPackage.indexOf('/') != -1) {
+src/main/groovy/lang/GroovyClassLoader.java,786,int index = fileWithoutPackage.lastIndexOf('/');
+src/main/groovy/lang/GroovyClassLoader.java,787,fileWithoutPackage = fileWithoutPackage.substring(index + 1);
+src/main/groovy/lang/GroovyClassLoader.java,789,File path = new File(decodeFileName(ret.getFile())).getParentFile();
+src/main/groovy/lang/GroovyClassLoader.java,790,if (path.exists() && path.isDirectory()) {
+src/main/groovy/lang/GroovyClassLoader.java,791,File file = new File(path, fileWithoutPackage);
+src/main/groovy/lang/GroovyClassLoader.java,792,if (file.exists()) {
+src/main/groovy/lang/GroovyClassLoader.java,795,File parent = file.getParentFile();
+src/main/groovy/lang/GroovyClassLoader.java,796,String[] files = parent.list();
+src/main/groovy/lang/GroovyClassLoader.java,797,for (int j = 0; j < files.length; j++) {
+src/main/groovy/lang/GroovyClassLoader.java,798,if (files[j].equals(fileWithoutPackage)) return ret;
+src/main/groovy/lang/GroovyClassLoader.java,803,return null;
+src/main/groovy/lang/GroovyClassLoader.java,823,if (source.getProtocol().equals("file")) {
+src/main/org/codehaus/groovy/control/StaticImportVisitor.java,117,Expression ret = findStaticMethodImportFromModule(method, args);
+src/main/org/codehaus/groovy/control/StaticImportVisitor.java,118,if (ret != null) {
+src/main/org/codehaus/groovy/control/StaticImportVisitor.java,119,ret.setSourcePosition(mce);
+src/main/org/codehaus/groovy/control/StaticImportVisitor.java,120,return ret;
+src/main/groovy/util/FactoryBuilderSupport.java,574,registrationGroup.get(groupName).add("get" + methodNameBase);
+src/main/groovy/util/FactoryBuilderSupport.java,577,registrationGroup.get(groupName).add("set" + methodNameBase);
+src/main/groovy/util/FactoryBuilderSupport.java,589,registrationGroup.get(groupName).add(name);
+src/main/groovy/util/FactoryBuilderSupport.java,623,registrationGroup.get(groupName).add(theName);
+src/main/groovy/util/FactoryBuilderSupport.java,645,registrationGroup.get(groupName).add(name);
+src/main/org/codehaus/groovy/ast/ClassHelper.java,59,MAP_TYPE = new ClassNode(Map.class),         RANGE_TYPE = new ClassNode(Range.class),
+src/main/org/codehaus/groovy/runtime/DefaultGroovyMethods.java,3566,Object answer = map.get(key);
+src/main/org/codehaus/groovy/runtime/DefaultGroovyMethods.java,3567,if (answer == null) {
+src/main/org/codehaus/groovy/runtime/DefaultGroovyMethods.java,3568,answer = defaultValue;
+src/main/org/codehaus/groovy/runtime/DefaultGroovyMethods.java,3569,map.put(key, answer);
+src/main/org/codehaus/groovy/runtime/DefaultGroovyMethods.java,3571,return answer;
+src/main/groovy/text/XmlTemplateEngine.java,145,if (qn.getPrefix().equals("gsp")) {
+src/main/org/codehaus/groovy/ast/ClassNode.java,125,private final int modifiers;
+src/main/org/codehaus/groovy/ast/ClassNode.java,212,return redirect().isPrimaryNode || (componentType!= null && componentType.isPrimaryClassNode());
+src/main/org/codehaus/groovy/ast/ClassNode.java,526,return null;
+src/main/org/codehaus/groovy/ast/ClassNode.java,1139,Parameter[] parameters = method.getParameters();
+src/main/org/codehaus/groovy/ast/AnnotationNode.java,157,public static final String targetToName(int target) {
+src/main/org/codehaus/groovy/classgen/ExtendedVerifier.java,60,public void visitConstructor(ConstructorNode node) {
+src/main/org/codehaus/groovy/classgen/ExtendedVerifier.java,61,visitAnnotations(node, AnnotationNode.CONSTRUCTOR_TARGET);
+src/main/org/codehaus/groovy/classgen/ExtendedVerifier.java,69,visitAnnotations(node, AnnotationNode.METHOD_TARGET);
+src/main/org/codehaus/groovy/ant/Groovy.java,69,private Vector filesets = new Vector();
+src/main/org/codehaus/groovy/ant/Groovy.java,244,if (srcFile == null && command.length() == 0
+src/main/org/codehaus/groovy/ant/Groovy.java,245,&& filesets.isEmpty()) {
+src/main/org/codehaus/groovy/ant/Groovy.java,255,FileSet fs = (FileSet) filesets.elementAt(i);
+src/main/org/codehaus/groovy/ant/Groovy.java,478,for (int i = 0; i < strings.length; i++) {
+src/main/org/codehaus/groovy/ant/Groovy.java,479,String string = strings[i];
+src/main/org/codehaus/groovy/ant/Groovy.java,480,if (string.startsWith("-Dgroovy.home=")) {
+src/main/org/codehaus/groovy/ant/Groovy.java,481,groovyHome = string.substring("-Dgroovy.home=".length());
+src/main/org/codehaus/groovy/ant/Groovy.java,498,for (int i = 0; i < files.length; i++) {
+src/main/org/codehaus/groovy/ant/Groovy.java,499,File file = files[i];
+src/main/org/codehaus/groovy/ant/Groovy.java,519,for (int i = 0; i < commandline.length; i++) {
+src/main/org/codehaus/groovy/ant/Groovy.java,521,argument.setValue(commandline[i]);
+src/main/org/codehaus/groovy/ant/Groovy.java,536,name += getLocation().getFileName().replaceAll("[^\\w_\\.]", "_");
+src/main/org/codehaus/groovy/ant/Groovy.java,566,line = new StringBuffer();
+src/main/org/codehaus/groovy/tools/groovydoc/GroovyRootDocBuilder.java,192,if (filename.endsWith("package.html")) {
+src/main/org/codehaus/groovy/tools/groovydoc/GroovyRootDocBuilder.java,193,processHtmlPackage(src, packageDoc);
+src/main/org/codehaus/groovy/tools/groovydoc/GroovyRootDocBuilder.java,208,private void processHtmlPackage(String src, SimpleGroovyPackageDoc packageDoc) {
+src/main/org/codehaus/groovy/tools/groovydoc/GroovyRootDocBuilder.java,209,String description = calcThenSetPackageDescription(src, packageDoc);
+src/main/org/codehaus/groovy/tools/groovydoc/GroovyRootDocBuilder.java,213,private void calcThenSetSummary(String src, SimpleGroovyPackageDoc packageDoc) {
+src/main/org/codehaus/groovy/tools/groovydoc/GroovyRootDocBuilder.java,214,packageDoc.setSummary(SimpleGroovyDoc.calculateFirstSentence(src));
+src/main/org/codehaus/groovy/tools/groovydoc/GroovyRootDocBuilder.java,217,private String calcThenSetPackageDescription(String src, SimpleGroovyPackageDoc packageDoc) {
+src/main/org/codehaus/groovy/tools/groovydoc/GroovyRootDocBuilder.java,218,String description = scrubOffExcessiveTags(src);
+src/main/org/codehaus/groovy/classgen/Verifier.java,99,if (ret!=null) return ret;
+src/main/org/codehaus/groovy/classgen/Verifier.java,101,while (current!=null && current!=ClassHelper.OBJECT_TYPE) {
+src/main/org/codehaus/groovy/classgen/Verifier.java,104,if (ret==null) continue;
+src/main/org/codehaus/groovy/runtime/ConversionHandler.java,76,if (!isCoreObjectMethod(method)) {
+src/main/org/codehaus/groovy/runtime/ConversionHandler.java,148,return Object.class.equals(method.getDeclaringClass()) && !"toString".equals(method.getName());
+src/main/groovy/util/GroovyScriptEngine.java,30,import java.util.Iterator;
+src/main/groovy/util/GroovyScriptEngine.java,69,private Map scriptCache = Collections.synchronizedMap(new HashMap());
+src/main/groovy/util/GroovyScriptEngine.java,72,private static ThreadLocal currentCacheEntryHolder = new ThreadLocal();
+src/main/groovy/util/GroovyScriptEngine.java,78,private Map dependencies = new HashMap();
+src/main/groovy/util/GroovyScriptEngine.java,95,ScriptCacheEntry currentCacheEntry = (ScriptCacheEntry) currentCacheEntryHolder.get();
+src/main/groovy/util/GroovyScriptEngine.java,97,currentCacheEntry.dependencies.put(
+src/main/groovy/util/GroovyScriptEngine.java,98,dependentScriptConn.getURL(),
+src/main/groovy/util/GroovyScriptEngine.java,99,new Long(dependentScriptConn.getLastModified()));
+src/main/groovy/util/GroovyScriptEngine.java,130,groovyLoader =
+src/main/groovy/util/GroovyScriptEngine.java,131,(GroovyClassLoader) AccessController.doPrivileged(new PrivilegedAction() {
+src/main/groovy/util/GroovyScriptEngine.java,132,public Object run() {
+src/main/groovy/util/GroovyScriptEngine.java,133,ScriptClassLoader loader;
+src/main/groovy/util/GroovyScriptEngine.java,135,loader = new ScriptClassLoader((GroovyClassLoader)parentClassLoader);
+src/main/groovy/util/GroovyScriptEngine.java,136,else
+src/main/groovy/util/GroovyScriptEngine.java,137,loader = new ScriptClassLoader(parentClassLoader);
+src/main/groovy/util/GroovyScriptEngine.java,138,return loader;
+src/main/groovy/util/GroovyScriptEngine.java,157,for (int i = 0; i < roots.length; i++) {
+src/main/groovy/util/GroovyScriptEngine.java,160,scriptURL = new URL(roots[i], resourceName);
+src/main/groovy/util/GroovyScriptEngine.java,170,String message = "Malformed URL: " + roots[i] + ", " + resourceName;
+src/main/groovy/util/GroovyScriptEngine.java,216,if(urls[i].indexOf("://") != -1) {
+src/main/groovy/util/GroovyScriptEngine.java,312,throws ResourceException, ScriptException {
+src/main/groovy/util/GroovyScriptEngine.java,318,URLConnection groovyScriptConn = rc.getResourceConnection(scriptName);
+src/main/groovy/util/GroovyScriptEngine.java,321,long lastModified = groovyScriptConn.getLastModified();
+src/main/groovy/util/GroovyScriptEngine.java,323,entry = (ScriptCacheEntry) scriptCache.get(scriptName);
+src/main/groovy/util/GroovyScriptEngine.java,327,ScriptCacheEntry currentCacheEntry = new ScriptCacheEntry();
+src/main/groovy/util/GroovyScriptEngine.java,328,currentCacheEntryHolder.set(currentCacheEntry);
+src/main/groovy/util/GroovyScriptEngine.java,329,InputStream in = null;
+src/main/groovy/util/GroovyScriptEngine.java,331,try {
+src/main/groovy/util/GroovyScriptEngine.java,332,in = groovyScriptConn.getInputStream();
+src/main/groovy/util/GroovyScriptEngine.java,333,currentCacheEntry.scriptClass = groovyLoader.parseClass(in, scriptName);
+src/main/groovy/util/GroovyScriptEngine.java,335,throw new ScriptException("Could not parse scriptName: " + scriptName, e);
+src/main/groovy/util/GroovyScriptEngine.java,337,currentCacheEntryHolder.set(null);
+src/main/groovy/util/GroovyScriptEngine.java,338,try {
+src/main/groovy/util/GroovyScriptEngine.java,340,in.close();
+src/main/groovy/util/GroovyScriptEngine.java,346,currentCacheEntry.lastModified = lastModified;
+src/main/groovy/util/GroovyScriptEngine.java,347,scriptCache.put(scriptName, currentCacheEntry);
+src/main/groovy/util/GroovyScriptEngine.java,348,entry = currentCacheEntry;
+src/main/groovy/util/GroovyScriptEngine.java,349,currentCacheEntry = null;
+src/main/groovy/util/GroovyScriptEngine.java,355,private boolean dependencyOutOfDate(ScriptCacheEntry entry) {
+src/main/groovy/util/GroovyScriptEngine.java,356,if (entry != null) {
+src/main/groovy/util/GroovyScriptEngine.java,357,for (Iterator i = entry.dependencies.keySet().iterator(); i.hasNext();) {
+src/main/groovy/util/GroovyScriptEngine.java,359,URL url = (URL) i.next();
+src/main/groovy/util/GroovyScriptEngine.java,365,if (dependentLastModified > ((Long) entry.dependencies.get(url)).longValue()) {
+src/main/org/codehaus/groovy/transform/ImmutableASTTransformation.java,227,identicalExpr(new ClassExpression(cNode), new ClassExpression(other.getType())),
+src/main/org/codehaus/groovy/ant/Groovyc.java,530,for (int i = 0; i < list.length; i++) {
+src/main/org/codehaus/groovy/ant/Groovyc.java,531,File file = getProject().resolveFile(list[i]);
+src/main/org/codehaus/groovy/ant/Groovyc.java,625,for (int i = 0; i < compileList.length; ++i) {
+src/main/org/codehaus/groovy/ant/Groovyc.java,626,String filename = compileList[i].getAbsolutePath();
+src/main/org/codehaus/groovy/ant/Groovyc.java,627,log(filename);
+src/main/org/codehaus/groovy/ant/Groovyc.java,633,List jointOptions = new ArrayList();
+src/main/org/codehaus/groovy/ant/Groovyc.java,639,if (key.indexOf("debug") != -1) {
+src/main/org/codehaus/groovy/ant/Groovyc.java,651,) {
+src/main/org/codehaus/groovy/ant/Groovyc.java,652,jointOptions.add("-F" + key);
+src/main/org/codehaus/groovy/ant/Groovyc.java,661,|| (key.indexOf("depend") != -1)) {
+src/main/org/codehaus/groovy/ant/Groovyc.java,672,List commandLineList = new ArrayList();
+src/main/org/codehaus/groovy/ant/Groovyc.java,719,for (int i = 0; i < compileList.length; i++) {
+src/main/org/codehaus/groovy/ant/Groovyc.java,720,count += compileList[i].getPath().length();
+src/main/org/codehaus/groovy/ant/Groovyc.java,722,for (Iterator iter = commandLineList.iterator(); iter.hasNext();) {
+src/main/org/codehaus/groovy/ant/Groovyc.java,723,count += iter.next().toString().length();
+src/main/org/codehaus/groovy/ant/Groovyc.java,734,for (int i = 0; i < compileList.length; i++) {
+src/main/org/codehaus/groovy/ant/Groovyc.java,735,pw.println(compileList[i].getPath());
+src/main/org/codehaus/groovy/ant/Groovyc.java,743,for (int i = 0; i < compileList.length; i++) {
+src/main/org/codehaus/groovy/ant/Groovyc.java,744,commandLineList.add(compileList[i].getPath());
+src/main/org/codehaus/groovy/ant/Groovyc.java,749,commandLine[i] = (String) commandLineList.get(i);
+src/main/org/codehaus/groovy/ant/Groovyc.java,850,List classpath = configuration.getClasspath();
+src/main/org/codehaus/groovy/ant/Groovyc.java,856,for (Iterator iter = classpath.iterator(); iter.hasNext();) {
+src/main/org/codehaus/groovy/ant/Groovyc.java,857,String cpEntry = (String) iter.next();
+src/main/org/codehaus/groovy/ant/Groovyc.java,859,for (int i = 0; i < pathElm.length; i++) {
+src/main/org/codehaus/groovy/ant/Groovyc.java,860,if (cpEntry.equals(pathElm[i])) {
+src/main/org/codehaus/groovy/control/CompilerConfiguration.java,83,private LinkedList classpath;
+src/main/org/codehaus/groovy/control/CompilerConfiguration.java,126,private Map jointCompilationOptions;
+src/main/org/codehaus/groovy/control/CompilerConfiguration.java,197,setClasspathList(new LinkedList(configuration.getClasspath()));
+src/main/org/codehaus/groovy/control/CompilerConfiguration.java,209,Map jointCompilationOptions = configuration.getJointCompilationOptions();
+src/main/org/codehaus/groovy/control/CompilerConfiguration.java,210,if (jointCompilationOptions!=null) {
+src/main/org/codehaus/groovy/control/CompilerConfiguration.java,211,jointCompilationOptions = new HashMap(jointCompilationOptions);
+src/main/org/codehaus/groovy/control/CompilerConfiguration.java,484,public List getClasspath() {
+src/main/org/codehaus/groovy/control/CompilerConfiguration.java,493,this.classpath = new LinkedList();
+src/main/org/codehaus/groovy/control/CompilerConfiguration.java,505,public void setClasspathList(List l) {
+src/main/org/codehaus/groovy/control/CompilerConfiguration.java,506,this.classpath = new LinkedList(l);
+src/main/org/codehaus/groovy/control/CompilerConfiguration.java,650,public Map getJointCompilationOptions() {
+src/main/org/codehaus/groovy/control/CompilerConfiguration.java,659,public void setJointCompilationOptions(Map options) {
+src/main/org/codehaus/groovy/tools/FileSystemCompiler.java,75,System.err.println("Copyright 2003-2008 The Codehaus. http://groovy.codehaus.org/");
+src/main/org/codehaus/groovy/tools/FileSystemCompiler.java,82,for (int i = 0; i < filenames.length; ++i) {
+src/main/org/codehaus/groovy/tools/FileSystemCompiler.java,83,File file = new File(filenames[i]);
+src/main/org/codehaus/groovy/tools/FileSystemCompiler.java,185,List fileList = new ArrayList(filenames.length);
+src/main/org/codehaus/groovy/tools/FileSystemCompiler.java,187,for (int i = 0; i < filenames.length; i++) {
+src/main/org/codehaus/groovy/tools/FileSystemCompiler.java,188,if (filenames[i].startsWith("@")) {
+src/main/org/codehaus/groovy/tools/FileSystemCompiler.java,190,BufferedReader br = new BufferedReader(new FileReader(filenames[i].substring(1)));
+src/main/org/codehaus/groovy/tools/FileSystemCompiler.java,196,System.err.println("error: file not readable: " + filenames[i].substring(1));
+src/main/org/codehaus/groovy/tools/FileSystemCompiler.java,206,return (String[]) fileList.toArray(new String[fileList.size()]);
+src/main/org/codehaus/groovy/tools/FileSystemCompiler.java,230,Map compilerOptions = new HashMap();
+src/main/org/codehaus/groovy/tools/javac/JavaCompiler.java,27,void compile(List files, CompilationUnit cu);
+src/main/org/codehaus/groovy/tools/javac/JavacJavaCompiler.java,44,public void compile(List files, CompilationUnit cu) {
+src/main/org/codehaus/groovy/tools/javac/JavacJavaCompiler.java,46,StringWriter javacOutput=null;
+src/main/org/codehaus/groovy/tools/javac/JavacJavaCompiler.java,50,Method method=null;
+src/main/org/codehaus/groovy/tools/javac/JavacJavaCompiler.java,55,Object ret = method.invoke(null, new Object[]{javacParameters,writer});
+src/main/org/codehaus/groovy/tools/javac/JavacJavaCompiler.java,56,javacReturnValue = ((Integer) ret).intValue();
+src/main/org/codehaus/groovy/tools/javac/JavacJavaCompiler.java,58,if (method==null) {
+src/main/org/codehaus/groovy/tools/javac/JavacJavaCompiler.java,61,javacReturnValue = ((Integer) ret).intValue();
+src/main/org/codehaus/groovy/tools/javac/JavacJavaCompiler.java,69,if (javacReturnValue!=0) {
+src/main/org/codehaus/groovy/tools/javac/JavacJavaCompiler.java,71,case 1: addJavacError("Compile error during compilation with javac.",cu,javacOutput); break;
+src/main/org/codehaus/groovy/tools/javac/JavacJavaCompiler.java,72,case 2: addJavacError("Invalid commandline usage for javac.",cu,javacOutput); break;
+src/main/org/codehaus/groovy/tools/javac/JavacJavaCompiler.java,73,case 3: addJavacError("System error during compilation with javac.",cu,javacOutput); break;
+src/main/org/codehaus/groovy/tools/javac/JavacJavaCompiler.java,74,case 4: addJavacError("Abnormal termination of javac.",cu,javacOutput); break;
+src/main/org/codehaus/groovy/tools/javac/JavacJavaCompiler.java,75,default: addJavacError("unexpected return value by javac.",cu,javacOutput); break;
+src/main/org/codehaus/groovy/tools/javac/JavacJavaCompiler.java,81,if (msg!=null)  {
+src/main/org/codehaus/groovy/tools/javac/JavacJavaCompiler.java,82,header = header+"\n"+msg.getBuffer().toString();
+src/main/org/codehaus/groovy/tools/javac/JavacJavaCompiler.java,84,header = header+
+src/main/org/codehaus/groovy/tools/javac/JavacJavaCompiler.java,89,cu.getErrorCollector().addFatalError(new SimpleMessage(header,cu));
+src/main/org/codehaus/groovy/tools/javac/JavacJavaCompiler.java,93,private String[] makeParameters(List files, GroovyClassLoader parentClassLoader) {
+src/main/org/codehaus/groovy/tools/javac/JavacJavaCompiler.java,95,LinkedList paras = new LinkedList();
+src/main/org/codehaus/groovy/tools/javac/JavacJavaCompiler.java,109,for (int i = 0; i < flags.length; i++) {
+src/main/org/codehaus/groovy/tools/javac/JavacJavaCompiler.java,110,paras.add('-' + flags[i]);
+src/main/org/codehaus/groovy/tools/javac/JavacJavaCompiler.java,114,boolean hadClasspath=false;
+src/main/org/codehaus/groovy/tools/javac/JavacJavaCompiler.java,133,for (URL u : ((URLClassLoader)cl).getURLs()) {
+src/main/org/codehaus/groovy/tools/javac/JavacJavaCompiler.java,152,return (String[]) paras.toArray(new String[paras.size()]);
+src/main/groovy/lang/MetaClassImpl.java,2300,if (!isStatic && this.isMap) {
+src/main/groovy/lang/MetaClassImpl.java,2301,((Map) object).put(name, newValue);
+src/main/groovy/lang/MetaClassImpl.java,2302,return;
+src/main/groovy/lang/GroovyClassLoader.java,342,for (Enumeration<Permission> elements = myPerms.elements(); elements.hasMoreElements();) {
+src/main/groovy/lang/GroovyClassLoader.java,343,perms.add(elements.nextElement());
+src/main/groovy/lang/DelegatingMetaClass.java,211,public MetaMethod getMetaMethod(String name, Class[] argTypes) {
+src/main/groovy/lang/DelegatingMetaClass.java,212,return this.delegate.getMetaMethod(name, argTypes);
+src/main/org/codehaus/groovy/classgen/AsmClassGenerator.java,2280,if (classNode.getDeclaredField(methodName) == null) return false;
+src/main/org/codehaus/groovy/runtime/DefaultGroovyMethods.java,2689,int size = self.length();
+src/main/org/codehaus/groovy/runtime/DefaultGroovyMethods.java,2690,StringBuilder buffer = new StringBuilder(size);
+src/main/org/codehaus/groovy/runtime/DefaultGroovyMethods.java,2691,for (int i = size - 1; i >= 0; i--) {
+src/main/org/codehaus/groovy/runtime/DefaultGroovyMethods.java,2692,buffer.append(self.charAt(i));
+src/main/org/codehaus/groovy/runtime/DefaultGroovyMethods.java,2694,return buffer.toString();
+src/main/org/codehaus/groovy/runtime/metaclass/ClosureMetaClass.java,224,method = ((MetaClassImpl)delegateMetaClass).findMethodInClassHierarchy(getTheClass(), methodName, argClasses, this);
+src/main/org/codehaus/groovy/runtime/metaclass/ClosureMetaClass.java,384,if (CLOSURE_CALL_METHOD.equals(methodName)) {
+src/main/org/codehaus/groovy/runtime/metaclass/ClosureMetaClass.java,385,if (arguments.length==1 && arguments[0] instanceof Object[]) {
+src/main/org/codehaus/groovy/runtime/metaclass/ClosureMetaClass.java,386,return (Object[]) arguments[0];
+src/main/org/codehaus/groovy/runtime/metaclass/ClosureMetaClass.java,557,private void generateReflector() {
+src/main/org/codehaus/groovy/runtime/metaclass/ClosureMetaClass.java,681,private Object invokeConstructor(Class at, Object[] arguments) {
+src/main/org/codehaus/groovy/runtime/metaclass/ClosureMetaClass.java,682,throw new UnsupportedOperationException();
+src/main/org/codehaus/groovy/runtime/GroovyCategorySupport.java,201,public static Object use(Class categoryClass, Closure closure) {
+src/main/org/codehaus/groovy/runtime/GroovyCategorySupport.java,202,return threadInfo.get().use(categoryClass, closure);
+src/main/org/codehaus/groovy/runtime/GroovyCategorySupport.java,213,return threadInfo.get().use(categoryClasses, closure);
+src/main/org/codehaus/groovy/runtime/GroovyCategorySupport.java,217,return categoriesInUse.get() != 0 && threadInfo.get().level != 0;
+src/main/org/codehaus/groovy/runtime/GroovyCategorySupport.java,231,return threadInfo.get().getCategoryMethods(name);
+src/main/org/codehaus/groovy/runtime/GroovyCategorySupport.java,234,private static class MyThreadLocal extends ThreadLocal<ThreadCategoryInfo> {
+src/main/org/codehaus/groovy/runtime/GroovyCategorySupport.java,238,protected ThreadCategoryInfo initialValue() {
+src/main/org/codehaus/groovy/runtime/GroovyCategorySupport.java,239,return new ThreadCategoryInfo();
+src/main/org/codehaus/groovy/runtime/typehandling/DefaultTypeTransformation.java,127,throw new GroovyCastException(c,Integer.class);
+src/main/org/codehaus/groovy/runtime/typehandling/DefaultTypeTransformation.java,130,throw new GroovyCastException(object,Number.class);
+src/main/org/codehaus/groovy/runtime/typehandling/DefaultTypeTransformation.java,256,Number n = castToNumber(object);
+src/main/org/codehaus/groovy/binding/MutualPropertyBinding.java,18,import groovy.lang.MissingMethodException;
+src/main/org/codehaus/groovy/binding/MutualPropertyBinding.java,19,import org.codehaus.groovy.runtime.InvokerHelper;
+src/main/org/codehaus/groovy/binding/MutualPropertyBinding.java,21,import java.beans.PropertyChangeEvent;
+src/main/org/codehaus/groovy/binding/MutualPropertyBinding.java,22,import java.beans.PropertyChangeListener;
+src/main/org/codehaus/groovy/binding/MutualPropertyBinding.java,31,public class MutualPropertyBinding extends AbstractFullBinding implements PropertyChangeListener {
+src/main/org/codehaus/groovy/binding/MutualPropertyBinding.java,35,Object sourceBoundBean;
+src/main/org/codehaus/groovy/binding/MutualPropertyBinding.java,36,String sourceBoundProperty;
+src/main/org/codehaus/groovy/binding/MutualPropertyBinding.java,37,boolean sourceBoundToProperty;
+src/main/org/codehaus/groovy/binding/MutualPropertyBinding.java,38,Object targetBoundBean;
+src/main/org/codehaus/groovy/binding/MutualPropertyBinding.java,39,String targetBoundProperty;
+src/main/org/codehaus/groovy/binding/MutualPropertyBinding.java,40,boolean targetBoundToProperty;
+src/main/org/codehaus/groovy/binding/MutualPropertyBinding.java,42,MutualPropertyBinding(SourceBinding source, TargetBinding target) {
+src/main/org/codehaus/groovy/binding/MutualPropertyBinding.java,43,setSourceBinding(source);
+src/main/org/codehaus/groovy/binding/MutualPropertyBinding.java,47,public void propertyChange(PropertyChangeEvent event) {
+src/main/org/codehaus/groovy/binding/MutualPropertyBinding.java,48,if (event.getSource() == targetBoundBean) {
+src/main/org/codehaus/groovy/binding/MutualPropertyBinding.java,49,if (sourceBoundToProperty || event.getPropertyName().equals(sourceBoundProperty)) {
+src/main/org/codehaus/groovy/binding/MutualPropertyBinding.java,50,update();
+src/main/org/codehaus/groovy/binding/MutualPropertyBinding.java,53,if (targetBoundToProperty || event.getPropertyName().equals(targetBoundProperty)) {
+src/main/org/codehaus/groovy/binding/MutualPropertyBinding.java,54,reverseUpdate();
+src/main/org/codehaus/groovy/binding/MutualPropertyBinding.java,60,if (sourceBinding instanceof PropertyBinding) {
+src/main/org/codehaus/groovy/binding/MutualPropertyBinding.java,61,if (bound && sourceBoundBean != null) {
+src/main/org/codehaus/groovy/binding/MutualPropertyBinding.java,62,unbindProperty(sourceBoundBean, sourceBoundToProperty ? sourceBoundProperty : (String) null, this);
+src/main/org/codehaus/groovy/binding/MutualPropertyBinding.java,63,sourceBoundBean = null;
+src/main/org/codehaus/groovy/binding/MutualPropertyBinding.java,64,sourceBoundProperty = null;
+src/main/org/codehaus/groovy/binding/MutualPropertyBinding.java,66,super.setSourceBinding(sourceBinding);
+src/main/org/codehaus/groovy/binding/MutualPropertyBinding.java,67,if (bound) {
+src/main/org/codehaus/groovy/binding/MutualPropertyBinding.java,68,sourceBoundBean = ((PropertyBinding)sourceBinding).bean;
+src/main/org/codehaus/groovy/binding/MutualPropertyBinding.java,69,sourceBoundProperty = bindProperty(sourceBoundBean, ((PropertyBinding)sourceBinding).propertyName, this);
+src/main/org/codehaus/groovy/binding/MutualPropertyBinding.java,70,sourceBoundToProperty = sourceBoundProperty != null;
+src/main/org/codehaus/groovy/binding/MutualPropertyBinding.java,73,throw new RuntimeException("Only PropertyBindings can be set in a Mutual Property Binding");
+src/main/org/codehaus/groovy/binding/MutualPropertyBinding.java,78,if (targetBinding instanceof PropertyBinding) {
+src/main/org/codehaus/groovy/binding/MutualPropertyBinding.java,79,if (bound && targetBoundBean != null) {
+src/main/org/codehaus/groovy/binding/MutualPropertyBinding.java,80,unbindProperty(targetBoundBean, targetBoundToProperty ? targetBoundProperty : (String) null, this);
+src/main/org/codehaus/groovy/binding/MutualPropertyBinding.java,81,targetBoundBean = null;
+src/main/org/codehaus/groovy/binding/MutualPropertyBinding.java,82,targetBoundProperty = null;
+src/main/org/codehaus/groovy/binding/MutualPropertyBinding.java,84,super.setTargetBinding(targetBinding);
+src/main/org/codehaus/groovy/binding/MutualPropertyBinding.java,85,if (bound) {
+src/main/org/codehaus/groovy/binding/MutualPropertyBinding.java,86,targetBoundBean = ((PropertyBinding)targetBinding).bean;
+src/main/org/codehaus/groovy/binding/MutualPropertyBinding.java,87,targetBoundProperty = bindProperty(targetBoundBean, ((PropertyBinding)targetBinding).propertyName, this);
+src/main/org/codehaus/groovy/binding/MutualPropertyBinding.java,88,targetBoundToProperty = targetBoundProperty != null;
+src/main/org/codehaus/groovy/binding/MutualPropertyBinding.java,91,throw new RuntimeException("Only PropertyBindings can be set in a Mutual Property Binding");
+src/main/org/codehaus/groovy/binding/MutualPropertyBinding.java,95,public static String bindProperty(Object bean, String propertyName, PropertyChangeListener that) {
+src/main/org/codehaus/groovy/binding/MutualPropertyBinding.java,96,try {
+src/main/org/codehaus/groovy/binding/MutualPropertyBinding.java,97,InvokerHelper.invokeMethodSafe(bean, "addPropertyChangeListener", new Object[] {propertyName, that});
+src/main/org/codehaus/groovy/binding/MutualPropertyBinding.java,98,return propertyName;
+src/main/org/codehaus/groovy/binding/MutualPropertyBinding.java,100,try {
+src/main/org/codehaus/groovy/binding/MutualPropertyBinding.java,101,InvokerHelper.invokeMethodSafe(bean, "addPropertyChangeListener", new Object[] {that});
+src/main/org/codehaus/groovy/binding/MutualPropertyBinding.java,102,return null;
+src/main/org/codehaus/groovy/binding/MutualPropertyBinding.java,104,throw new RuntimeException("Properties in beans of type " + bean.getClass().getName() + " are not observable in any capacity (no PropertyChangeListener support).");
+src/main/org/codehaus/groovy/binding/MutualPropertyBinding.java,109,public static void unbindProperty(Object bean, String propertyName, PropertyChangeListener that) {
+src/main/org/codehaus/groovy/binding/MutualPropertyBinding.java,110,if (propertyName != null) {
+src/main/org/codehaus/groovy/binding/MutualPropertyBinding.java,111,try {
+src/main/org/codehaus/groovy/binding/MutualPropertyBinding.java,112,InvokerHelper.invokeMethodSafe(bean, "removePropertyChangeListener", new Object[] {propertyName, that});
+src/main/org/codehaus/groovy/binding/MutualPropertyBinding.java,117,try {
+src/main/org/codehaus/groovy/binding/MutualPropertyBinding.java,118,InvokerHelper.invokeMethodSafe(bean, "removePropertyChangeListener", new Object[] {that});
+src/main/org/codehaus/groovy/binding/MutualPropertyBinding.java,128,if (sourceBinding != null) {
+src/main/org/codehaus/groovy/binding/MutualPropertyBinding.java,129,sourceBoundBean = ((PropertyBinding)sourceBinding).bean;
+src/main/org/codehaus/groovy/binding/MutualPropertyBinding.java,130,sourceBoundProperty = bindProperty(sourceBoundBean, ((PropertyBinding)sourceBinding).propertyName, this);
+src/main/org/codehaus/groovy/binding/MutualPropertyBinding.java,131,sourceBoundToProperty = sourceBoundProperty != null;
+src/main/org/codehaus/groovy/binding/MutualPropertyBinding.java,134,if (targetBinding != null) {
+src/main/org/codehaus/groovy/binding/MutualPropertyBinding.java,135,targetBoundBean = ((PropertyBinding)targetBinding).bean;
+src/main/org/codehaus/groovy/binding/MutualPropertyBinding.java,136,targetBoundProperty = bindProperty(targetBoundBean, ((PropertyBinding)targetBinding).propertyName, this);
+src/main/org/codehaus/groovy/binding/MutualPropertyBinding.java,137,targetBoundToProperty = targetBoundProperty != null;
+src/main/org/codehaus/groovy/binding/MutualPropertyBinding.java,144,if (sourceBoundBean != null) {
+src/main/org/codehaus/groovy/binding/MutualPropertyBinding.java,145,unbindProperty(sourceBoundBean, sourceBoundToProperty ? sourceBoundProperty : (String) null, this);
+src/main/org/codehaus/groovy/binding/MutualPropertyBinding.java,146,sourceBoundBean = null;
+src/main/org/codehaus/groovy/binding/MutualPropertyBinding.java,147,sourceBoundProperty = null;
+src/main/org/codehaus/groovy/binding/MutualPropertyBinding.java,150,if (targetBoundBean != null) {
+src/main/org/codehaus/groovy/binding/MutualPropertyBinding.java,151,unbindProperty(targetBoundBean, targetBoundToProperty ? targetBoundProperty : (String) null, this);
+src/main/org/codehaus/groovy/binding/MutualPropertyBinding.java,152,targetBoundBean = null;
+src/main/org/codehaus/groovy/binding/MutualPropertyBinding.java,153,targetBoundProperty = null;
+src/main/org/codehaus/groovy/runtime/callsite/CallSiteArray.java,18,import groovy.lang.GroovyRuntimeException;
+src/main/org/codehaus/groovy/runtime/callsite/CallSiteArray.java,24,import org.codehaus.groovy.runtime.NullObject;
+src/main/org/codehaus/groovy/runtime/callsite/CallSiteArray.java,25,import org.codehaus.groovy.runtime.ScriptBytecodeAdapter;
+src/main/org/codehaus/groovy/runtime/callsite/CallSiteArray.java,134,return new PogoInterceptableSite(callSite);
+src/main/org/codehaus/groovy/classgen/Verifier.java,430,newBlock.addStatements(filterStatements(((BlockStatement)statement).getStatements()));
+src/main/org/codehaus/groovy/classgen/Verifier.java,432,newBlock.addStatement(filterStatement(statement));
+src/main/org/codehaus/groovy/classgen/Verifier.java,508,return new BlockStatement(filterStatements(list),block.getVariableScope());
+src/main/org/codehaus/groovy/classgen/Verifier.java,878,protected List filterStatements(List list) {
+src/main/org/codehaus/groovy/classgen/Verifier.java,879,List answer = new ArrayList(list.size());
+src/main/org/codehaus/groovy/classgen/Verifier.java,880,for (Iterator iter = list.iterator(); iter.hasNext();) {
+src/main/org/codehaus/groovy/classgen/Verifier.java,881,answer.add(filterStatement((Statement) iter.next()));
+src/main/org/codehaus/groovy/classgen/Verifier.java,883,return answer;
+src/main/org/codehaus/groovy/classgen/Verifier.java,886,protected Statement filterStatement(Statement statement) {
+src/main/org/codehaus/groovy/classgen/Verifier.java,887,if (statement instanceof ExpressionStatement) {
+src/main/org/codehaus/groovy/classgen/Verifier.java,888,ExpressionStatement expStmt = (ExpressionStatement) statement;
+src/main/org/codehaus/groovy/classgen/Verifier.java,889,Expression expression = expStmt.getExpression();
+src/main/org/codehaus/groovy/classgen/Verifier.java,890,if (expression instanceof ClosureExpression) {
+src/main/org/codehaus/groovy/classgen/Verifier.java,891,ClosureExpression closureExp = (ClosureExpression) expression;
+src/main/org/codehaus/groovy/classgen/Verifier.java,892,if (!closureExp.isParameterSpecified()) {
+src/main/org/codehaus/groovy/classgen/Verifier.java,893,return closureExp.getCode();
+src/main/org/codehaus/groovy/classgen/Verifier.java,897,return statement;
+src/main/org/codehaus/groovy/transform/NewifyASTTransformation.java,43,if (!(nodes[0] instanceof AnnotationNode) || !(nodes[1] instanceof AnnotatedNode)) {
+src/main/org/codehaus/groovy/transform/NewifyASTTransformation.java,44,internalError("Transformation called with wrong types: $node.class / $parent.class");
+src/main/org/codehaus/groovy/reflection/ClassInfo.java,357,LocalMap recentThreadMap;
+src/main/org/codehaus/groovy/reflection/ClassInfo.java,359,protected LocalMap initialValue() {
+src/main/org/codehaus/groovy/reflection/ClassInfo.java,360,return new LocalMap();
+src/main/org/codehaus/groovy/reflection/ClassInfo.java,363,public LocalMap get() {
+src/main/org/codehaus/groovy/reflection/ClassInfo.java,364,LocalMap recent = recentThreadMap;
+src/main/org/codehaus/groovy/reflection/ClassInfo.java,366,return recent;
+src/main/org/codehaus/groovy/reflection/ClassInfo.java,367,else {
+src/main/org/codehaus/groovy/reflection/ClassInfo.java,368,final LocalMap res = super.get();
+src/main/org/codehaus/groovy/reflection/ClassInfo.java,369,recentThreadMap = res;
+src/main/org/codehaus/groovy/reflection/ClassInfo.java,370,return res;
+src/main/org/codehaus/groovy/tools/xml/DomToGroovy.java,43,private List keywords = Arrays.asList(new String[]{
+src/main/org/codehaus/groovy/tools/xml/DomToGroovy.java,286,buffer.append(".");
+src/main/org/codehaus/groovy/tools/xml/DomToGroovy.java,318,return keywords.contains(localName) || localName.indexOf("-") != -1;
+src/main/org/codehaus/groovy/ant/Groovydoc.java,39,private static final String TEMPLATE_BASEDIR = "org/codehaus/groovy/tools/groovydoc/gstring-templates/";
+src/main/org/codehaus/groovy/ant/Groovydoc.java,348,TEMPLATE_BASEDIR + "top-level/index.html",
+src/main/org/codehaus/groovy/ant/Groovydoc.java,349,TEMPLATE_BASEDIR + "top-level/overview-frame.html", // needs all package names
+src/main/org/codehaus/groovy/ant/Groovydoc.java,350,TEMPLATE_BASEDIR + "top-level/allclasses-frame.html", // needs all packages / class names
+src/main/org/codehaus/groovy/ant/Groovydoc.java,351,TEMPLATE_BASEDIR + "top-level/overview-summary.html", // needs all packages
+src/main/org/codehaus/groovy/ant/Groovydoc.java,352,TEMPLATE_BASEDIR + "top-level/help-doc.html",
+src/main/org/codehaus/groovy/ant/Groovydoc.java,353,TEMPLATE_BASEDIR + "top-level/index-all.html",
+src/main/org/codehaus/groovy/ant/Groovydoc.java,354,TEMPLATE_BASEDIR + "top-level/deprecated-list.html",
+src/main/org/codehaus/groovy/ant/Groovydoc.java,355,TEMPLATE_BASEDIR + "top-level/stylesheet.css",
+src/main/org/codehaus/groovy/ant/Groovydoc.java,356,TEMPLATE_BASEDIR + "top-level/inherit.gif",
+src/main/org/codehaus/groovy/ant/Groovydoc.java,360,TEMPLATE_BASEDIR + "package-level/package-frame.html",
+src/main/org/codehaus/groovy/ant/Groovydoc.java,361,TEMPLATE_BASEDIR + "package-level/package-summary.html"
+src/main/org/codehaus/groovy/ant/Groovydoc.java,364,TEMPLATE_BASEDIR + "class-level/classDocName.html"
+src/main/org/codehaus/groovy/reflection/ClassInfo.java,92,return localMap.get().get(cls);
+src/main/org/codehaus/groovy/reflection/ClassInfo.java,356,private static final ThreadLocal<LocalMap> localMap = new ThreadLocal<LocalMap> () {
+src/main/org/codehaus/groovy/runtime/callsite/AbstractCallSite.java,310,final MetaClass metaClass = receiver.getMetaClass();
+src/main/org/codehaus/groovy/runtime/callsite/AbstractCallSite.java,312,if (metaClass.getTheClass() != receiver.getClass()) {
+src/main/org/codehaus/groovy/runtime/callsite/AbstractCallSite.java,314,return new PogoGetPropertySite(this, metaClass.getTheClass());
+src/main/org/codehaus/groovy/antlr/AntlrParserPlugin.java,502,ClassNode enumClass = EnumHelper.makeEnumNode(dot(getPackageName(),name),modifiers,interfaces,classNode);
+src/main/groovy/lang/ExpandoMetaClass.java,205,if (noParam == null) {
+src/main/org/codehaus/groovy/binding/AbstractFullBinding.java,40,Object validation = getValidator().call();
+src/main/org/codehaus/groovy/control/CompilationUnit.java,72,protected List generatedClasses;    // The classes generated during classgen.
+src/main/org/codehaus/groovy/control/CompilationUnit.java,76,protected boolean debug;      // Controls behaviour of classgen() and other routines.
+src/main/org/codehaus/groovy/control/CompilationUnit.java,859,int count = 0;
+src/main/org/codehaus/groovy/control/CompilationUnit.java,861,while (element != null) {
+src/main/org/codehaus/groovy/control/CompilationUnit.java,862,count++;
+src/main/org/codehaus/groovy/control/CompilationUnit.java,863,element = element.getSuperClass();
+src/main/org/codehaus/groovy/control/CompilationUnit.java,866,indexInterface[i] = count;
+src/main/org/codehaus/groovy/control/CompilationUnit.java,869,indexClass[i] = count;
