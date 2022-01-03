@@ -13,3 +13,5 @@ Extracting bug line information from code repository.
 #### label_bug_version.py
 
 Labeling the version of a bug.
+
+- [`BugDet/dataset/`](https://github.com/Naplues/BugDet/tree/master/Dataset) This folder stores all 19 projects in datasets.
