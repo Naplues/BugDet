@@ -1,0 +1,836 @@
+File,Line_number,SRC
+src/java/org/apache/cassandra/service/StorageService.java,2124,return stringify(tokenMetadata.getBootstrapTokens().values());
+src/java/org/apache/cassandra/service/StorageService.java,1953,currentReplicaEndpoints.put(range, Table.open(table).getReplicationStrategy().calculateNaturalEndpoints(range.right, tokenMetadata.cloneOnlyTokenMap()));
+src/java/org/apache/cassandra/tools/NodeProbe.java,63,private static final String fmtUrl = "service:jmx:rmi:///jndi/rmi://%s:%d/jmxrmi";
+src/java/org/apache/cassandra/utils/ByteBufferUtil.java,77,private static final Charset UTF_8 = Charset.forName("UTF-8");
+src/java/org/apache/cassandra/utils/ByteBufferUtil.java,124,return string(buffer, UTF_8);
+src/java/org/apache/cassandra/utils/ByteBufferUtil.java,138,return string(buffer, position, length, UTF_8);
+src/java/org/apache/cassandra/utils/ByteBufferUtil.java,231,return ByteBuffer.wrap(s.getBytes(UTF_8));
+src/java/org/apache/cassandra/thrift/CustomTThreadPoolServer.java,100,Thread.sleep(100);
+src/java/org/apache/cassandra/thrift/CustomTThreadPoolServer.java,221,activeClients.decrementAndGet();
+src/java/org/apache/cassandra/thrift/CustomTThreadPoolServer.java,228,inputTransport.close();
+src/java/org/apache/cassandra/thrift/CustomTThreadPoolServer.java,233,outputTransport.close();
+src/java/org/apache/cassandra/db/commitlog/CommitLogSegment.java,62,private final HashMap<UUID, Integer> cfLastWrite = new HashMap<UUID, Integer>();
+src/java/org/apache/cassandra/db/commitlog/CommitLogSegment.java,334,return cfLastWrite.keySet();
+src/java/org/apache/cassandra/db/ColumnFamilyStore.java,1366,DecoratedKey dk = new DecoratedKey(partitioner.getToken(ByteBuffer.wrap(key.getBytes())), ByteBuffer.wrap(key.getBytes()));
+src/java/org/apache/cassandra/tools/NodeCmd.java,269,Map<String, Map<InetAddress, Float>> perDcOwnerships = Maps.newLinkedHashMap();
+src/java/org/apache/cassandra/tools/NodeCmd.java,273,String dc = probe.getEndpointSnitchInfoProxy().getDatacenter(ownership.getKey().getHostAddress());
+src/java/org/apache/cassandra/tools/NodeCmd.java,275,perDcOwnerships.put(dc, new LinkedHashMap<InetAddress, Float>());
+src/java/org/apache/cassandra/tools/NodeCmd.java,276,perDcOwnerships.get(dc).put(ownership.getKey(), ownership.getValue());
+src/java/org/apache/cassandra/tools/NodeCmd.java,313,tokens.addAll(endpointsToTokens.get(entry.getKey().getHostAddress()));
+src/java/org/apache/cassandra/tools/NodeCmd.java,315,totalReplicas += entry.getValue();
+src/java/org/apache/cassandra/tools/NodeCmd.java,400,throws UnknownHostException
+src/java/org/apache/cassandra/tools/NodeCmd.java,403,EndpointSnitchInfoMBean epSnitchInfo = probe.getEndpointSnitchInfoProxy();
+src/java/org/apache/cassandra/tools/NodeCmd.java,413,return ownershipByDc;
+src/java/org/apache/cassandra/tools/NodeCmd.java,439,boolean hasEffectiveOwns, boolean isTokenPerNode) throws UnknownHostException
+src/java/org/apache/cassandra/tools/NodeCmd.java,463,int tokens = probe.getTokens(endpoint).size();
+src/java/org/apache/cassandra/tools/NodeCmd.java,331,String endpoint = entry.getKey().getHostAddress();
+src/java/org/apache/cassandra/tools/NodeCmd.java,334,String rack;
+src/java/org/apache/cassandra/tools/NodeCmd.java,335,try
+src/java/org/apache/cassandra/tools/NodeCmd.java,337,rack = probe.getEndpointSnitchInfoProxy().getRack(endpoint);
+src/java/org/apache/cassandra/tools/NodeCmd.java,341,rack = "Unknown";
+src/java/org/apache/cassandra/tools/NodeCmd.java,345,? "Up"
+src/java/org/apache/cassandra/tools/NodeCmd.java,347,? "Down"
+src/java/org/apache/cassandra/tools/NodeCmd.java,348,: "?";
+src/java/org/apache/cassandra/tools/NodeCmd.java,350,String state = "Normal";
+src/java/org/apache/cassandra/tools/NodeCmd.java,353,state = "Joining";
+src/java/org/apache/cassandra/tools/NodeCmd.java,355,state = "Leaving";
+src/java/org/apache/cassandra/tools/NodeCmd.java,357,state = "Moving";
+src/java/org/apache/cassandra/tools/NodeCmd.java,361,: "?";
+src/java/org/apache/cassandra/tools/NodeCmd.java,362,String owns = new DecimalFormat("##0.00%").format(entry.getValue());
+src/java/org/apache/cassandra/tools/NodeCmd.java,363,outs.printf(format, endpoint, rack, status, state, load, owns, token);
+src/java/org/apache/cassandra/service/StorageService.java,570,FBUtilities.waitOnFutures(flushes);
+src/java/org/apache/cassandra/db/DataTracker.java,392,int count = 0;
+src/java/org/apache/cassandra/db/DataTracker.java,395,sum += sstable.getEstimatedColumnCount().mean();
+src/java/org/apache/cassandra/db/DataTracker.java,396,count++;
+src/java/org/apache/cassandra/metrics/ColumnFamilyMetrics.java,216,sum += sstable.getEstimatedRowSize().mean();
+src/java/org/apache/cassandra/metrics/ColumnFamilyMetrics.java,217,count++;
+src/java/org/apache/cassandra/service/MigrationManager.java,158,return MessagingService.instance().getVersion(endpoint) >= MessagingService.VERSION_117
+src/java/org/apache/cassandra/service/MigrationManager.java,159,&& MessagingService.instance().getVersion(endpoint) <= MessagingService.current_version
+src/java/org/apache/cassandra/service/MigrationManager.java,160,&& !Gossiper.instance.isFatClient(endpoint);
+src/java/org/apache/cassandra/service/StorageService.java,2357,logger.info("adding secondary index {} to operation", si.getIndexName());
+src/java/org/apache/cassandra/service/StorageService.java,2358,valid.add(si.getIndexCfs());
+src/java/org/apache/cassandra/service/MigrationManager.java,53,public class MigrationManager implements IEndpointStateChangeSubscriber
+src/java/org/apache/cassandra/service/MigrationManager.java,85,return;
+src/java/org/apache/cassandra/service/MigrationManager.java,87,maybeScheduleSchemaPull(UUID.fromString(value.value), endpoint);
+src/java/org/apache/cassandra/service/MigrationManager.java,165,return ((ThreadPoolExecutor) StageManager.getStage(Stage.MIGRATION)).getActiveCount() == 0;
+src/java/org/apache/cassandra/service/StorageService.java,187,private final MigrationManager migrationManager = MigrationManager.instance;
+src/java/org/apache/cassandra/service/StorageService.java,376,Gossiper.instance.unregister(migrationManager);
+src/java/org/apache/cassandra/service/StorageService.java,464,Gossiper.instance.register(migrationManager);
+src/java/org/apache/cassandra/service/StorageService.java,620,Gossiper.instance.register(migrationManager);
+src/java/org/apache/cassandra/streaming/IncomingStreamReader.java,122,SSTableReader reader = streamIn(dis, localFile, remoteFile);
+src/java/org/apache/cassandra/streaming/IncomingStreamReader.java,123,session.finished(remoteFile, reader);
+src/java/org/apache/cassandra/streaming/IncomingStreamReader.java,144,private SSTableReader streamIn(DataInput input, PendingFile localFile, PendingFile remoteFile) throws IOException
+src/java/org/apache/cassandra/streaming/IncomingStreamReader.java,200,return writer.closeAndOpenReader();
+src/java/org/apache/cassandra/streaming/StreamInSession.java,50,private final List<SSTableReader> readers = new ArrayList<SSTableReader>();
+src/java/org/apache/cassandra/streaming/StreamInSession.java,109,public void finished(PendingFile remoteFile, SSTableReader reader) throws IOException
+src/java/org/apache/cassandra/streaming/StreamInSession.java,114,assert reader != null;
+src/java/org/apache/cassandra/streaming/StreamInSession.java,115,readers.add(reader);
+src/java/org/apache/cassandra/cql3/QueryProcessor.java,23,import com.google.common.primitives.Ints;
+src/java/org/apache/cassandra/cql3/QueryProcessor.java,26,import com.googlecode.concurrentlinkedhashmap.EntryWeigher;
+src/java/org/apache/cassandra/cql3/QueryProcessor.java,28,import org.github.jamm.MemoryMeter;
+src/java/org/apache/cassandra/cql3/QueryProcessor.java,48,private static final MemoryMeter meter = new MemoryMeter();
+src/java/org/apache/cassandra/cql3/QueryProcessor.java,49,private static final long MAX_CACHE_PREPARED_MEMORY = Runtime.getRuntime().maxMemory() / 256;
+src/java/org/apache/cassandra/cql3/QueryProcessor.java,209,throws InvalidRequestException
+src/java/org/apache/cassandra/cql3/QueryProcessor.java,217,throw new InvalidRequestException(String.format("Prepared statement of size %d bytes is larger than allowed maximum of %d bytes.",
+src/java/org/apache/cassandra/cql3/QueryProcessor.java,218,statementSize,
+src/java/org/apache/cassandra/cql3/QueryProcessor.java,219,MAX_CACHE_PREPARED_MEMORY));
+src/java/org/apache/cassandra/cql3/QueryProcessor.java,235,statementId,
+src/java/org/apache/cassandra/gms/Gossiper.java,599,return !isDeadState(epState) && !epState.isAlive() && !StorageService.instance.getTokenMetadata().isMember(endpoint);
+src/java/org/apache/cassandra/service/StorageService.java,1387,tokenMetadata.updateHostId(hostId, endpoint);
+src/java/org/apache/cassandra/service/StorageService.java,1390,Set<Token> tokensToUpdateInMetadata = new HashSet<Token>();
+src/java/org/apache/cassandra/service/StorageService.java,1391,Set<Token> tokensToUpdateInSystemTable = new HashSet<Token>();
+src/java/org/apache/cassandra/service/StorageService.java,1392,Set<Token> localTokensToRemove = new HashSet<Token>();
+src/java/org/apache/cassandra/service/StorageService.java,1393,Set<InetAddress> endpointsToRemove = new HashSet<InetAddress>();
+src/java/org/apache/cassandra/net/OutboundTcpConnection.java,45,import org.apache.cassandra.config.Config;
+src/java/org/apache/cassandra/net/OutboundTcpConnection.java,46,import org.apache.cassandra.config.DatabaseDescriptor;
+src/java/org/apache/cassandra/net/OutboundTcpConnection.java,338,logger.debug("Target max version is {}; no version information yet, will retry", maxTargetVersion);
+src/java/org/apache/cassandra/net/OutboundTcpConnection.java,339,disconnect();
+src/java/org/apache/cassandra/service/StorageService.java,1637,addExpireTimeIfFound(endpoint, extractExpireTime(pieces, MessagingService.instance().getVersion(endpoint)));
+src/java/org/apache/cassandra/gms/FailureDetector.java,285,private final double MAX_INTERVAL_IN_MS = DatabaseDescriptor.getRpcTimeout();
+src/java/org/apache/cassandra/net/MessagingService.java,669,public void waitForStreaming() throws InterruptedException
+src/java/org/apache/cassandra/net/MessagingService.java,674,e.shutdown();
+src/java/org/apache/cassandra/net/MessagingService.java,679,logger.error("Stream took more than 24H to complete; skipping");
+src/java/org/apache/cassandra/service/StorageService.java,3419,setMode(Mode.DRAINING, "waiting for streaming", false);
+src/java/org/apache/cassandra/service/StorageService.java,3420,MessagingService.instance().waitForStreaming();
+src/java/org/apache/cassandra/thrift/CustomTHsHaServer.java,33,import org.apache.cassandra.utils.FBUtilities;
+src/java/org/apache/cassandra/service/StorageService.java,2313,return table.getColumnFamilyStores();
+src/java/org/apache/cassandra/service/StorageService.java,2316,Set<ColumnFamilyStore> valid = new HashSet<ColumnFamilyStore>();
+src/java/org/apache/cassandra/service/StorageService.java,1242,case STATUS:
+src/java/org/apache/cassandra/service/StorageService.java,1243,String apStateValue = value.value;
+src/java/org/apache/cassandra/service/StorageService.java,1244,String[] pieces = apStateValue.split(VersionedValue.DELIMITER_STR, -1);
+src/java/org/apache/cassandra/service/StorageService.java,1245,assert (pieces.length > 0);
+src/java/org/apache/cassandra/service/StorageService.java,1247,String moveName = pieces[0];
+src/java/org/apache/cassandra/service/StorageService.java,1250,handleStateBootstrap(endpoint, pieces);
+src/java/org/apache/cassandra/service/StorageService.java,1252,handleStateNormal(endpoint, pieces);
+src/java/org/apache/cassandra/service/StorageService.java,1254,handleStateRemoving(endpoint, pieces);
+src/java/org/apache/cassandra/service/StorageService.java,1256,handleStateLeaving(endpoint, pieces);
+src/java/org/apache/cassandra/service/StorageService.java,1258,handleStateLeft(endpoint, pieces);
+src/java/org/apache/cassandra/service/StorageService.java,1260,handleStateMoving(endpoint, pieces);
+src/java/org/apache/cassandra/service/StorageService.java,1262,handleStateRelocating(endpoint, pieces);
+src/java/org/apache/cassandra/service/StorageService.java,1263,break;
+src/java/org/apache/cassandra/service/StorageService.java,1264,case RELEASE_VERSION:
+src/java/org/apache/cassandra/service/StorageService.java,1265,SystemTable.updatePeerInfo(endpoint, "release_version", quote(value.value));
+src/java/org/apache/cassandra/service/StorageService.java,1266,break;
+src/java/org/apache/cassandra/service/StorageService.java,1267,case DC:
+src/java/org/apache/cassandra/service/StorageService.java,1268,SystemTable.updatePeerInfo(endpoint, "data_center", quote(value.value));
+src/java/org/apache/cassandra/service/StorageService.java,1269,break;
+src/java/org/apache/cassandra/service/StorageService.java,1270,case RACK:
+src/java/org/apache/cassandra/service/StorageService.java,1271,SystemTable.updatePeerInfo(endpoint, "rack", quote(value.value));
+src/java/org/apache/cassandra/service/StorageService.java,1272,break;
+src/java/org/apache/cassandra/service/StorageService.java,1273,case RPC_ADDRESS:
+src/java/org/apache/cassandra/service/StorageService.java,1274,SystemTable.updatePeerInfo(endpoint, "rpc_address", quote(value.value));
+src/java/org/apache/cassandra/service/StorageService.java,1275,break;
+src/java/org/apache/cassandra/service/StorageService.java,1276,case SCHEMA:
+src/java/org/apache/cassandra/service/StorageService.java,1277,SystemTable.updatePeerInfo(endpoint, "schema_version", value.value);
+src/java/org/apache/cassandra/service/StorageService.java,1278,break;
+src/java/org/apache/cassandra/service/StorageService.java,1279,case HOST_ID:
+src/java/org/apache/cassandra/service/StorageService.java,1280,SystemTable.updatePeerInfo(endpoint, "host_id", value.value);
+src/java/org/apache/cassandra/service/StorageService.java,1281,break;
+src/java/org/apache/cassandra/service/StorageProxy.java,422,TokenMetadata.Topology topology = StorageService.instance.getTokenMetadata().cloneOnlyTokenMap().getTopology();
+src/java/org/apache/cassandra/locator/AbstractReplicationStrategy.java,106,endpoints = new ArrayList<InetAddress>(calculateNaturalEndpoints(searchToken, tokenMetadataClone));
+src/java/org/apache/cassandra/hadoop/pig/CassandraStorage.java,520,writeColumnsFromBag(key, (DefaultDataBag) t.get(1));
+src/java/org/apache/cassandra/hadoop/pig/CassandraStorage.java,533,writeColumnsFromBag(key, (DefaultDataBag) t.get(i));
+src/java/org/apache/cassandra/hadoop/pig/CassandraStorage.java,579,private void writeColumnsFromBag(ByteBuffer key, DefaultDataBag bag) throws IOException
+src/java/org/apache/cassandra/cache/AutoSavingCache.java,310,logger.warn("Failed to delete {}", file.getAbsolutePath());
+src/java/org/apache/cassandra/cache/AutoSavingCache.java,316,logger.warn("Failed to delete {}", file.getAbsolutePath());
+src/java/org/apache/cassandra/service/StorageService.java,1394,Multimap<InetAddress, Token> epToTokenCopy = getTokenMetadata().getEndpointToTokenMapForReading();
+src/java/org/apache/cassandra/locator/AbstractReplicationStrategy.java,66,this.tokenMetadata.register(this);
+src/java/org/apache/cassandra/locator/AbstractReplicationStrategy.java,76,return cachedEndpoints.get(t);
+src/java/org/apache/cassandra/locator/AbstractReplicationStrategy.java,81,cachedEndpoints.put(t, addr);
+src/java/org/apache/cassandra/locator/AbstractReplicationStrategy.java,86,logger.debug("clearing cached endpoints");
+src/java/org/apache/cassandra/locator/AbstractReplicationStrategy.java,87,cachedEndpoints.clear();
+src/java/org/apache/cassandra/locator/AbstractReplicationStrategy.java,104,TokenMetadata tokenMetadataClone = tokenMetadata.cloneOnlyTokenMap();
+src/java/org/apache/cassandra/locator/AbstractReplicationStrategy.java,105,keyToken = TokenMetadata.firstToken(tokenMetadataClone.sortedTokens(), searchToken);
+src/java/org/apache/cassandra/locator/AbstractReplicationStrategy.java,107,cacheEndpoint(keyToken, endpoints);
+src/java/org/apache/cassandra/locator/AbstractReplicationStrategy.java,209,clearEndpointCache();
+src/java/org/apache/cassandra/locator/TokenMetadata.java,25,import java.util.concurrent.CopyOnWriteArrayList;
+src/java/org/apache/cassandra/locator/TokenMetadata.java,31,import org.apache.cassandra.utils.BiMultiValMap;
+src/java/org/apache/cassandra/locator/TokenMetadata.java,32,import org.apache.cassandra.utils.Pair;
+src/java/org/apache/cassandra/locator/TokenMetadata.java,33,import org.apache.cassandra.utils.SortedBiMultiValMap;
+src/java/org/apache/cassandra/locator/TokenMetadata.java,100,private final CopyOnWriteArrayList<AbstractReplicationStrategy> subscribers = new CopyOnWriteArrayList<AbstractReplicationStrategy>();
+src/java/org/apache/cassandra/locator/TokenMetadata.java,431,invalidateCaches();
+src/java/org/apache/cassandra/locator/TokenMetadata.java,459,invalidateCaches();
+src/java/org/apache/cassandra/locator/TokenMetadata.java,976,subscriber.invalidateCachedTokenEndpointValues();
+src/java/org/apache/cassandra/locator/TokenMetadata.java,982,subscribers.add(subscriber);
+src/java/org/apache/cassandra/locator/TokenMetadata.java,987,subscribers.remove(subscriber);
+src/java/org/apache/cassandra/gms/FailureDetector.java,198,heartbeatWindow.add(now);
+src/java/org/apache/cassandra/gms/FailureDetector.java,280,private final double PHI_FACTOR = 1.0 / Math.log(10.0);
+src/java/org/apache/cassandra/gms/FailureDetector.java,294,double interArrivalTime;
+src/java/org/apache/cassandra/gms/FailureDetector.java,297,interArrivalTime = (value - tLast);
+src/java/org/apache/cassandra/gms/FailureDetector.java,301,interArrivalTime = Gossiper.intervalInMillis / 2;
+src/java/org/apache/cassandra/gms/FailureDetector.java,304,arrivalIntervals.add(interArrivalTime);
+src/java/org/apache/cassandra/gms/FailureDetector.java,305,else
+src/java/org/apache/cassandra/gms/FailureDetector.java,306,logger.debug("Ignoring interval time of {}", interArrivalTime);
+src/java/org/apache/cassandra/gms/FailureDetector.java,323,int size = arrivalIntervals.size();
+src/java/org/apache/cassandra/gms/FailureDetector.java,327,: 0.0;
+src/java/org/apache/cassandra/db/Memtable.java,500,logger.warn("setting live ratio to minimum of {} instead of {}", MIN_SANE_LIVE_RATIO, newRatio);
+src/java/org/apache/cassandra/db/ConsistencyLevel.java,278,case LOCAL_QUORUM:
+src/java/org/apache/cassandra/db/ConsistencyLevel.java,279,case LOCAL_ONE:
+src/java/org/apache/cassandra/db/ConsistencyLevel.java,280,requireNetworkTopologyStrategy(table);
+src/java/org/apache/cassandra/db/ConsistencyLevel.java,281,break;
+src/java/org/apache/cassandra/db/ConsistencyLevel.java,291,case LOCAL_QUORUM:
+src/java/org/apache/cassandra/db/ConsistencyLevel.java,292,case EACH_QUORUM:
+src/java/org/apache/cassandra/db/ConsistencyLevel.java,293,case LOCAL_ONE:
+src/java/org/apache/cassandra/db/ConsistencyLevel.java,294,requireNetworkTopologyStrategy(table);
+src/java/org/apache/cassandra/db/ConsistencyLevel.java,295,break;
+src/java/org/apache/cassandra/net/MessagingService.java,262,private final NonBlockingHashMap<InetAddress, OutboundTcpConnectionPool> connectionManagers = new NonBlockingHashMap<InetAddress, OutboundTcpConnectionPool>();
+src/java/org/apache/cassandra/net/MessagingService.java,487,connectionManagers.putIfAbsent(to, new OutboundTcpConnectionPool(to));
+src/java/org/apache/cassandra/net/MessagingService.java,488,cp = connectionManagers.get(to);
+src/java/org/apache/cassandra/hadoop/cql3/CqlPagingRecordReader.java,138,String location = getLocation();
+src/java/org/apache/cassandra/hadoop/cql3/CqlPagingRecordReader.java,140,int port = ConfigHelper.getInputRpcPort(conf);
+src/java/org/apache/cassandra/hadoop/cql3/CqlPagingRecordReader.java,141,client = CqlPagingInputFormat.createAuthenticatedClient(location, port, conf);
+src/java/org/apache/cassandra/hadoop/cql3/CqlPagingRecordReader.java,232,return location;
+src/java/org/apache/cassandra/hadoop/cql3/CqlPagingRecordReader.java,236,return split.getLocations()[0];
+src/java/org/apache/cassandra/hadoop/cql3/CqlPagingRecordReader.java,437,? partitionKey + "," + columns
+src/java/org/apache/cassandra/hadoop/cql3/CqlPagingRecordReader.java,438,: partitionKey + "," + clusterKey + "," + columns;
+src/java/org/apache/cassandra/db/SystemTable.java,318,forceBlockingFlush(PEERS_CF);
+src/java/org/apache/cassandra/db/SystemTable.java,375,forceBlockingFlush(PEERS_CF);
+src/java/org/apache/cassandra/db/SystemTable.java,626,forceBlockingFlush(INDEX_CF);
+src/java/org/apache/cassandra/db/SystemTable.java,634,forceBlockingFlush(INDEX_CF);
+src/java/org/apache/cassandra/io/sstable/SSTableReader.java,170,sstable.loadForBatch();
+src/java/org/apache/cassandra/io/sstable/SSTableReader.java,415,private void loadForBatch() throws IOException
+src/java/org/apache/cassandra/io/sstable/SSTableReader.java,417,SegmentedFile.Builder ibuilder = new BufferedSegmentedFile.Builder();
+src/java/org/apache/cassandra/io/sstable/SSTableReader.java,418,SegmentedFile.Builder dbuilder = compression
+src/java/org/apache/cassandra/io/sstable/SSTableReader.java,420,: new BufferedSegmentedFile.Builder();
+src/java/org/apache/cassandra/io/sstable/SSTableReader.java,423,IndexSummaryBuilder summaryBuilder = new IndexSummaryBuilder(1);
+src/java/org/apache/cassandra/io/sstable/SSTableReader.java,424,RandomAccessReader in = RandomAccessReader.open(new File(descriptor.filenameFor(Component.PRIMARY_INDEX)), true);
+src/java/org/apache/cassandra/io/sstable/SSTableReader.java,425,try
+src/java/org/apache/cassandra/io/sstable/SSTableReader.java,427,ByteBuffer key = ByteBufferUtil.readWithShortLength(in);
+src/java/org/apache/cassandra/io/sstable/SSTableReader.java,428,first = decodeKey(partitioner, descriptor, key);
+src/java/org/apache/cassandra/io/sstable/SSTableReader.java,429,summaryBuilder.maybeAddEntry(first, 0);
+src/java/org/apache/cassandra/io/sstable/SSTableReader.java,430,indexSummary = summaryBuilder.build(partitioner);
+src/java/org/apache/cassandra/io/sstable/SSTableReader.java,432,finally
+src/java/org/apache/cassandra/io/sstable/SSTableReader.java,434,FileUtils.closeQuietly(in);
+src/java/org/apache/cassandra/io/sstable/SSTableReader.java,437,last = null; // shouldn't need this for batch operations
+src/java/org/apache/cassandra/io/sstable/SSTableReader.java,439,ifile = ibuilder.complete(descriptor.filenameFor(Component.PRIMARY_INDEX));
+src/java/org/apache/cassandra/io/sstable/SSTableReader.java,440,dfile = dbuilder.complete(descriptor.filenameFor(Component.DATA));
+src/java/org/apache/cassandra/utils/FBUtilities.java,428,throw new ConfigurationException(String.format("Unable to find %s class '%s'", readable, classname));
+src/java/org/apache/cassandra/utils/FBUtilities.java,432,throw new ConfigurationException(String.format("Unable to find %s class '%s'", readable, classname));
+src/java/org/apache/cassandra/db/RowMutation.java,131,int ttl = Integer.MAX_VALUE;
+src/java/org/apache/cassandra/hadoop/pig/AbstractCassandraStorage.java,410,return (ByteBuffer)o;
+src/java/org/apache/cassandra/db/HintedHandOffManager.java,231,while (!gossiper.getEndpointStateForEndpoint(endpoint).getApplicationState(ApplicationState.SCHEMA).value.equals(
+src/java/org/apache/cassandra/service/MigrationManager.java,130,VersionedValue value = Gossiper.instance.getEndpointStateForEndpoint(endpoint).getApplicationState(ApplicationState.SCHEMA);
+src/java/org/apache/cassandra/gms/EndpointState.java,21,import java.util.Map;
+src/java/org/apache/cassandra/gms/Gossiper.java,714,int localHbVersion = epState.getHeartBeatState().getHeartBeatVersion();
+src/java/org/apache/cassandra/net/MessageIn.java,80,IVersionedSerializer<T2> serializer = (IVersionedSerializer<T2>) MessagingService.verbSerializers.get(verb);
+src/java/org/apache/cassandra/thrift/CassandraServer.java,1880,state().getQueryState().createTracingSession();
+src/java/org/apache/cassandra/net/MessagingService.java,328,getConnectionPool(expiredCallbackInfo.target).incrementTimeout();
+src/java/org/apache/cassandra/config/DatabaseDescriptor.java,70,private static IInternodeAuthenticator internodeAuthenticator;
+src/java/org/apache/cassandra/locator/ReconnectableSnitchHelper.java,54,reconnect(publicAddress, InetAddress.getByName(localAddressValue.value));
+src/java/org/apache/cassandra/locator/ReconnectableSnitchHelper.java,68,MessagingService.instance().getConnectionPool(publicAddress).reset(localAddress);
+src/java/org/apache/cassandra/net/MessagingService.java,379,getConnectionPool(ep).reset();
+src/java/org/apache/cassandra/net/MessagingService.java,495,return getConnectionPool(to).getConnection(msg);
+src/java/org/apache/cassandra/net/OutboundTcpConnection.java,299,targetVersion = MessagingService.instance().getVersion(poolReference.endPoint());
+src/java/org/apache/cassandra/net/OutboundTcpConnectionPool.java,169,metrics.release();
+src/java/org/apache/cassandra/db/commitlog/CommitLog.java,113,return CommitLogDescriptor.isValid(name) && !instance.allocator.manages(name);
+src/java/org/apache/cassandra/utils/ByteBufferUtil.java,342,assert 0 <= length && length <= FBUtilities.MAX_UNSIGNED_SHORT : length;
+src/java/org/apache/cassandra/locator/TokenMetadata.java,701,map = HashMultimap.create();
+src/java/org/apache/cassandra/locator/TokenMetadata.java,704,map = priorMap;
+src/java/org/apache/cassandra/locator/TokenMetadata.java,955,sb.append(System.getProperty("line.separator"));
+src/java/org/apache/cassandra/locator/TokenMetadata.java,1000,endpoints.addAll(entry.getValue());
+src/java/org/apache/cassandra/locator/TokenMetadata.java,1003,return endpoints;
+src/java/org/apache/cassandra/net/MessagingService.java,699,th.close();
+src/java/org/apache/cassandra/net/MessagingService.java,915,server.close();
+src/java/org/apache/cassandra/locator/PropertyFileSnitch.java,60,reloadConfiguration();
+src/java/org/apache/cassandra/locator/PropertyFileSnitch.java,69,reloadConfiguration();
+src/java/org/apache/cassandra/locator/PropertyFileSnitch.java,131,public void reloadConfiguration() throws ConfigurationException
+src/java/org/apache/cassandra/utils/FBUtilities.java,368,waitOnFuture(f);
+src/java/org/apache/cassandra/tools/NodeCmd.java,1187,probe.decommission();
+src/java/org/apache/cassandra/db/commitlog/CommitLog.java,155,recover(new File(path));
+src/java/org/apache/cassandra/db/commitlog/CommitLogReplayer.java,94,recover(file);
+src/java/org/apache/cassandra/db/commitlog/CommitLogReplayer.java,100,logger.info(String.format("Skipped %d mutations from unknown (probably removed) CF with id %s", entry.getValue().intValue(), entry.getKey()));
+src/java/org/apache/cassandra/db/commitlog/CommitLogReplayer.java,114,public void recover(File file) throws IOException
+src/java/org/apache/cassandra/gms/TokenSerializer.java,40,byte[] bintoken = partitioner.getTokenFactory().toByteArray(token).array();
+src/java/org/apache/cassandra/utils/Hex.java,68,char[] c = new char[bytes.length * 2];
+src/java/org/apache/cassandra/utils/Hex.java,71,int bint = bytes[i];
+src/java/org/apache/cassandra/db/compaction/Scrubber.java,49,private SSTableReader newSstable;
+src/java/org/apache/cassandra/db/compaction/Scrubber.java,50,private SSTableReader newInOrderSstable;
+src/java/org/apache/cassandra/db/compaction/Scrubber.java,294,return newSstable;
+src/java/org/apache/cassandra/db/compaction/Scrubber.java,299,return newInOrderSstable;
+src/java/org/apache/cassandra/gms/Gossiper.java,875,return true;
+src/java/org/apache/cassandra/gms/Gossiper.java,877,return false;
+src/java/org/apache/cassandra/gms/Gossiper.java,868,String value = epState.getApplicationState(ApplicationState.STATUS).value;
+src/java/org/apache/cassandra/gms/Gossiper.java,869,String[] pieces = value.split(VersionedValue.DELIMITER_STR, -1);
+src/java/org/apache/cassandra/gms/Gossiper.java,870,assert (pieces.length > 0);
+src/java/org/apache/cassandra/gms/Gossiper.java,871,String state = pieces[0];
+src/java/org/apache/cassandra/service/CacheService.java,391,RowIndexEntry entry = CacheService.instance.keyCache.get(key);
+src/java/org/apache/cassandra/db/commitlog/CommitLogArchiver.java,58,public final long restorePointInTime;
+src/java/org/apache/cassandra/transport/Server.java,338,server.connectionTracker.send(Event.StatusChange.nodeUp(getRpcAddress(endpoint), server.socket.getPort()));
+src/java/org/apache/cassandra/transport/Server.java,343,server.connectionTracker.send(Event.StatusChange.nodeDown(getRpcAddress(endpoint), server.socket.getPort()));
+src/java/org/apache/cassandra/db/compaction/PrecompactedRow.java,182,DataOutputBuffer buffer = new DataOutputBuffer();
+src/java/org/apache/cassandra/db/compaction/PrecompactedRow.java,183,try
+src/java/org/apache/cassandra/db/compaction/PrecompactedRow.java,185,DeletionTime.serializer.serialize(compactedCf.deletionInfo().getTopLevelDeletion(), buffer);
+src/java/org/apache/cassandra/db/compaction/PrecompactedRow.java,191,throw new RuntimeException(e);
+src/java/org/apache/cassandra/metrics/ConnectionMetrics.java,67,address = ip.getHostAddress().replaceAll(":", ".");
+src/java/org/apache/cassandra/metrics/StreamingMetrics.java,55,MetricNameFactory factory = new DefaultNameFactory("Streaming", peer.getHostAddress().replaceAll(":", "."));
+src/java/org/apache/cassandra/net/MessageOut.java,131,TypeSizes.NATIVE.sizeof(entry.getKey());
+src/java/org/apache/cassandra/net/MessageOut.java,132,TypeSizes.NATIVE.sizeof(entry.getValue().length);
+examples/hadoop_cql3_word_count/src/WordCount.java,29,import org.apache.cassandra.hadoop.cql3.CqlPagingInputFormat;
+examples/hadoop_cql3_word_count/src/WordCountCounters.java,28,import org.apache.cassandra.hadoop.cql3.CqlPagingInputFormat;
+src/java/org/apache/cassandra/hadoop/pig/CqlStorage.java,80,DEFAULT_INPUT_FORMAT = "org.apache.cassandra.hadoop.cql3.CqlPagingInputFormat";
+src/java/org/apache/cassandra/db/commitlog/CommitLog.java,104,archiver.maybeRestoreArchive();
+src/java/org/apache/cassandra/db/RowIndexEntry.java,48,return TypeSizes.NATIVE.sizeof(position) + promotedSize();
+src/java/org/apache/cassandra/concurrent/DebuggableThreadPoolExecutor.java,183,logExceptionsAfterExecute(r, t);
+src/java/org/apache/cassandra/tools/SSTableExport.java,40,import static org.apache.cassandra.utils.ByteBufferUtil.bytesToHex;
+src/java/org/apache/cassandra/tools/SSTableExport.java,41,import static org.apache.cassandra.utils.ByteBufferUtil.hexToBytes;
+src/java/org/apache/cassandra/tools/SSTableExport.java,323,public static void export(Descriptor desc, PrintStream outs, Collection<String> toExport, String[] excludes) throws IOException
+src/java/org/apache/cassandra/tools/SSTableExport.java,342,DecoratedKey decoratedKey = partitioner.decorateKey(hexToBytes(key));
+src/java/org/apache/cassandra/tools/SSTableExport.java,373,static void export(SSTableReader reader, PrintStream outs, String[] excludes) throws IOException
+src/java/org/apache/cassandra/tools/SSTableExport.java,420,public static void export(Descriptor desc, PrintStream outs, String[] excludes) throws IOException
+src/java/org/apache/cassandra/tools/SSTableExport.java,422,export(SSTableReader.open(desc), outs, excludes);
+src/java/org/apache/cassandra/tools/SSTableExport.java,433,public static void export(Descriptor desc, String[] excludes) throws IOException
+src/java/org/apache/cassandra/tools/SSTableExport.java,435,export(desc, System.out, excludes);
+src/java/org/apache/cassandra/tools/SSTableImport.java,20,import static org.apache.cassandra.utils.ByteBufferUtil.hexToBytes;
+src/java/org/apache/cassandra/tools/SSTableImport.java,347,decoratedKeys.put(partitioner.decorateKey(hexToBytes((String)rowAsMap.get("key"))), rowAsMap);
+src/java/org/apache/cassandra/tools/SSTableImport.java,423,DecoratedKey currentKey = partitioner.decorateKey(hexToBytes((String) row.get("key")));
+src/java/org/apache/cassandra/tools/SSTableImport.java,572,return (type == BytesType.instance) ? hexToBytes(content) : type.fromString(content);
+src/java/org/apache/cassandra/service/GCInspector.java,77,return;
+src/java/org/apache/cassandra/service/GCInspector.java,82,logGCResults();
+src/java/org/apache/cassandra/service/GCInspector.java,85,StorageService.scheduledTasks.scheduleWithFixedDelay(t, INTERVAL_IN_MS, INTERVAL_IN_MS, TimeUnit.MILLISECONDS);
+src/java/org/apache/cassandra/service/GCInspector.java,92,Long previousTotal = gctimes.get(gc.getName());
+src/java/org/apache/cassandra/service/GCInspector.java,93,Long total = gc.getCollectionTime();
+src/java/org/apache/cassandra/service/GCInspector.java,95,previousTotal = 0L;
+src/java/org/apache/cassandra/service/GCInspector.java,97,continue;
+src/java/org/apache/cassandra/service/GCInspector.java,98,gctimes.put(gc.getName(), total);
+src/java/org/apache/cassandra/service/GCInspector.java,99,Long duration = total - previousTotal; // may be zero for a really fast collection
+src/java/org/apache/cassandra/service/GCInspector.java,101,Long previousCount = gccounts.get(gc.getName());
+src/java/org/apache/cassandra/service/GCInspector.java,102,Long count = gc.getCollectionCount();
+src/java/org/apache/cassandra/service/GCInspector.java,105,previousCount = 0L;
+src/java/org/apache/cassandra/service/GCInspector.java,107,continue;
+src/java/org/apache/cassandra/service/GCInspector.java,109,gccounts.put(gc.getName(), count);
+src/java/org/apache/cassandra/service/GCInspector.java,111,MemoryUsage mu = membean.getHeapMemoryUsage();
+src/java/org/apache/cassandra/service/GCInspector.java,112,long memoryUsed = mu.getUsed();
+src/java/org/apache/cassandra/service/GCInspector.java,113,long memoryMax = mu.getMax();
+src/java/org/apache/cassandra/service/GCInspector.java,115,String st = String.format("GC for %s: %s ms for %s collections, %s used; max is %s",
+src/java/org/apache/cassandra/service/GCInspector.java,116,gc.getName(), duration, count - previousCount, memoryUsed, memoryMax);
+src/java/org/apache/cassandra/service/GCInspector.java,117,long durationPerCollection = duration / (count - previousCount);
+src/java/org/apache/cassandra/service/GCInspector.java,119,logger.info(st);
+src/java/org/apache/cassandra/service/GCInspector.java,121,logger.debug(st);
+src/java/org/apache/cassandra/service/GCInspector.java,124,StatusLogger.log();
+src/java/org/apache/cassandra/service/GCInspector.java,129,SSTableDeletingTask.rescheduleFailedTasks();
+src/java/org/apache/cassandra/transport/messages/ExecuteMessage.java,105,throw new PreparedQueryNotFoundException(statementId);
+src/java/org/apache/cassandra/locator/DynamicEndpointSnitch.java,329,return maxMerged < maxL1 + maxL2;
+src/java/org/apache/cassandra/config/Config.java,109,public Integer in_memory_compaction_limit_in_mb = 64;
+src/java/org/apache/cassandra/config/DatabaseDescriptor.java,902,return conf.in_memory_compaction_limit_in_mb * 1024 * 1024;
+src/java/org/apache/cassandra/config/DatabaseDescriptor.java,907,conf.in_memory_compaction_limit_in_mb = sizeInMB;
+src/java/org/apache/cassandra/thrift/CassandraServer.java,487,pageSize = Math.min(COUNT_PAGE_SIZE, DatabaseDescriptor.getInMemoryCompactionLimit() / averageColumnSize);
+src/java/org/apache/cassandra/cql3/statements/Selection.java,44,private final List<CFDefinition.Name> columnsList;
+src/java/org/apache/cassandra/cql3/statements/Selection.java,51,this.columnsList = columnsList;
+src/java/org/apache/cassandra/cql3/statements/Selection.java,208,return columnsList;
+src/java/org/apache/cassandra/cql3/statements/Selection.java,242,this.timestamps = collectTimestamps ? new long[columnsList.size()] : null;
+src/java/org/apache/cassandra/cql3/statements/Selection.java,243,this.ttls = collectTTLs ? new int[columnsList.size()] : null;
+src/java/org/apache/cassandra/cql3/statements/Selection.java,276,current = new ArrayList<ByteBuffer>(columnsList.size());
+src/java/org/apache/cassandra/cql3/statements/Selection.java,427,super(columnsList, metadata, collectTimestamps, collectTTLs);
+src/java/org/apache/cassandra/db/marshal/AbstractCompositeType.java,36,int length = (bb.get() & 0xFF) << 8;
+src/java/org/apache/cassandra/db/marshal/AbstractCompositeType.java,37,return length | (bb.get() & 0xFF);
+src/java/org/apache/cassandra/db/marshal/AbstractCompositeType.java,43,bb.put((byte) ((length >> 8) & 0xFF));
+src/java/org/apache/cassandra/db/marshal/AbstractCompositeType.java,44,bb.put((byte) (length & 0xFF));
+src/java/org/apache/cassandra/db/marshal/AbstractCompositeType.java,50,ByteBuffer copy = bb.duplicate();
+src/java/org/apache/cassandra/db/marshal/AbstractCompositeType.java,51,copy.limit(copy.position() + length);
+src/java/org/apache/cassandra/db/marshal/AbstractCompositeType.java,52,bb.position(bb.position() + length);
+src/java/org/apache/cassandra/db/marshal/AbstractCompositeType.java,53,return copy;
+src/java/org/apache/cassandra/db/marshal/AbstractCompositeType.java,59,int length = getShortLength(bb);
+src/java/org/apache/cassandra/db/marshal/AbstractCompositeType.java,60,return getBytes(bb, length);
+src/java/org/apache/cassandra/db/marshal/AbstractCompositeType.java,78,ByteBuffer value1 = getWithShortLength(bb1);
+src/java/org/apache/cassandra/db/marshal/AbstractCompositeType.java,79,ByteBuffer value2 = getWithShortLength(bb2);
+src/java/org/apache/cassandra/db/marshal/AbstractCompositeType.java,126,l.add(getWithShortLength(bb));
+src/java/org/apache/cassandra/db/marshal/AbstractCompositeType.java,154,ByteBuffer value = getWithShortLength(bb);
+src/java/org/apache/cassandra/db/marshal/AbstractCompositeType.java,226,ByteBuffer value = getWithShortLength(bb);
+src/java/org/apache/cassandra/db/marshal/AbstractCompositeType.java,273,putShortLength(bb, component.remaining());
+src/java/org/apache/cassandra/db/marshal/AbstractCompositeType.java,297,int length = getShortLength(bb);
+src/java/org/apache/cassandra/db/marshal/AbstractCompositeType.java,301,ByteBuffer value = getBytes(bb, length);
+src/java/org/apache/cassandra/db/marshal/CollectionType.java,65,throw new UnsupportedOperationException("CollectionType should not be use directly as a comparator");
+src/java/org/apache/cassandra/db/marshal/CollectionType.java,118,int length = (bb.get() & 0xFF) << 8;
+src/java/org/apache/cassandra/db/marshal/CollectionType.java,119,return length | (bb.get() & 0xFF);
+src/java/org/apache/cassandra/db/marshal/CompositeType.java,134,ByteBuffer c = getWithShortLength(bb);
+src/java/org/apache/cassandra/db/marshal/CompositeType.java,224,putShortLength(out, bb.remaining());
+src/java/org/apache/cassandra/db/marshal/DynamicCompositeType.java,80,int header = getShortLength(bb);
+src/java/org/apache/cassandra/db/marshal/DynamicCompositeType.java,83,String name = ByteBufferUtil.string(getBytes(bb, header));
+src/java/org/apache/cassandra/db/marshal/DynamicCompositeType.java,142,int header = getShortLength(bb);
+src/java/org/apache/cassandra/db/marshal/DynamicCompositeType.java,145,String name = ByteBufferUtil.string(getBytes(bb, header));
+src/java/org/apache/cassandra/db/marshal/DynamicCompositeType.java,179,int header = getShortLength(bb);
+src/java/org/apache/cassandra/db/marshal/DynamicCompositeType.java,185,ByteBuffer value = getBytes(bb, header);
+src/java/org/apache/cassandra/db/marshal/DynamicCompositeType.java,303,putShortLength(bb, header);
+src/java/org/apache/cassandra/service/CassandraDaemon.java,225,: String.format("Directory %s is not accessible.", dataDir);
+src/java/org/apache/cassandra/db/commitlog/CommitLogArchiver.java,115,String command = archiveCommand.replace("%name", name);
+src/java/org/apache/cassandra/db/commitlog/CommitLogArchiver.java,116,command = command.replace("%path", path);
+src/java/org/apache/cassandra/db/commitlog/CommitLogArchiver.java,163,File toFile = new File(DatabaseDescriptor.getCommitLogLocation(), new CommitLogDescriptor(CommitLogSegment.getNextId()).fileName());
+src/java/org/apache/cassandra/db/commitlog/CommitLogReplayer.java,55,private final Checksum checksum;
+src/java/org/apache/cassandra/db/commitlog/CommitLogSegment.java,55,private final static long idBase = System.currentTimeMillis();
+src/java/org/apache/cassandra/db/commitlog/CommitLogSegment.java,59,static final int ENTRY_OVERHEAD_SIZE = 4 + 8 + 8;
+src/java/org/apache/cassandra/config/CFMetaData.java,699,public static CFMetaData fromThrift(org.apache.cassandra.thrift.CfDef cf_def) throws InvalidRequestException, ConfigurationException
+src/java/org/apache/cassandra/config/CFMetaData.java,711,CFMetaData newCFMD = new CFMetaData(cf_def.keyspace,
+src/java/org/apache/cassandra/config/CFMetaData.java,717,if (cf_def.isSetGc_grace_seconds()) { newCFMD.gcGraceSeconds(cf_def.gc_grace_seconds); }
+src/java/org/apache/cassandra/config/CFMetaData.java,718,if (cf_def.isSetMin_compaction_threshold()) { newCFMD.minCompactionThreshold(cf_def.min_compaction_threshold); }
+src/java/org/apache/cassandra/config/CFMetaData.java,719,if (cf_def.isSetMax_compaction_threshold()) { newCFMD.maxCompactionThreshold(cf_def.max_compaction_threshold); }
+src/java/org/apache/cassandra/config/CFMetaData.java,723,newCFMD.compactionStrategyClass = createCompactionStrategy(cf_def.compaction_strategy);
+src/java/org/apache/cassandra/config/CFMetaData.java,737,CompressionParameters cp = CompressionParameters.create(cf_def.compression_options);
+src/java/org/apache/cassandra/config/CFMetaData.java,744,.compressionParameters(cp);
+src/java/org/apache/cassandra/service/StorageService.java,2704,org.apache.log4j.Logger.getLogger(classQualifier).setLevel(level);
+src/java/org/apache/cassandra/service/StorageService.java,2705,logger.info("set log level to " + level + " for classes under '" + classQualifier + "' (if the level doesn't look like '" + rawLevel + "' then log4j couldn't parse '" + rawLevel + "')");
+src/java/org/apache/cassandra/db/compaction/SSTableSplitter.java,71,return new SplitController(cfs, toCompact);
+src/java/org/apache/cassandra/locator/DynamicEndpointSnitch.java,309,StorageService.instance.reportSeverity(severity);
+src/java/org/apache/cassandra/service/StorageProxy.java,701,MessagingService.instance().sendRR(cm.makeMutationMessage(), endpoint, responseHandler);
+tools/stress/src/org/apache/cassandra/stress/operations/CqlReader.java,26,import java.util.ArrayList;
+src/java/org/apache/cassandra/db/DeletionInfo.java,25,import java.util.*;
+src/java/org/apache/cassandra/db/RangeTombstoneList.java,36,import org.slf4j.Logger;
+src/java/org/apache/cassandra/db/RangeTombstoneList.java,37,import org.slf4j.LoggerFactory;
+src/java/org/apache/cassandra/io/compress/CompressedRandomAccessReader.java,85,decompressChunk(metadata.chunkFor(current));
+src/java/org/apache/cassandra/io/compress/CompressedRandomAccessReader.java,89,throw new CorruptSSTableException(e, getPath());
+src/java/org/apache/cassandra/io/compress/CompressedRandomAccessReader.java,93,throw new FSReadError(e, getPath());
+src/java/org/apache/cassandra/io/compress/CompressedRandomAccessReader.java,97,private void decompressChunk(CompressionMetadata.Chunk chunk) throws IOException
+src/java/org/apache/cassandra/io/compress/CompressedRandomAccessReader.java,100,channel.position(chunk.offset);
+src/java/org/apache/cassandra/io/compress/CompressedRandomAccessReader.java,103,compressed = ByteBuffer.wrap(new byte[chunk.length]);
+src/java/org/apache/cassandra/io/compress/CompressedRandomAccessReader.java,104,else
+src/java/org/apache/cassandra/io/compress/CompressedRandomAccessReader.java,105,compressed.clear();
+src/java/org/apache/cassandra/io/compress/CompressedRandomAccessReader.java,106,compressed.limit(chunk.length);
+src/java/org/apache/cassandra/io/compress/CompressedRandomAccessReader.java,109,throw new CorruptBlockException(getPath(), chunk);
+src/java/org/apache/cassandra/io/compress/CompressedRandomAccessReader.java,113,compressed.flip();
+src/java/org/apache/cassandra/io/compress/CompressedRandomAccessReader.java,114,try
+src/java/org/apache/cassandra/io/compress/CompressedRandomAccessReader.java,116,validBufferBytes = metadata.compressor().uncompress(compressed.array(), 0, chunk.length, buffer, 0);
+src/java/org/apache/cassandra/io/compress/CompressedRandomAccessReader.java,120,throw new CorruptBlockException(getPath(), chunk);
+src/java/org/apache/cassandra/io/compress/CompressedRandomAccessReader.java,128,throw new CorruptBlockException(getPath(), chunk);
+src/java/org/apache/cassandra/io/compress/CompressedRandomAccessReader.java,131,checksum.reset();
+src/java/org/apache/cassandra/io/compress/CompressedRandomAccessReader.java,135,bufferOffset = current & ~(buffer.length - 1);
+src/java/org/apache/cassandra/io/compress/CompressedThrottledReader.java,44,limiter.acquire(buffer.length);
+src/java/org/apache/cassandra/io/util/AbstractDataInput.java,24,protected abstract void seekInternal(int position);
+src/java/org/apache/cassandra/io/util/AbstractDataInput.java,25,protected abstract int getPosition();
+src/java/org/apache/cassandra/io/util/AbstractDataInput.java,28,!! DataInput methods below are copied from the implementation in Apache Harmony RandomAccessFile.
+src/java/org/apache/cassandra/io/util/AbstractDataInput.java,217,int unreadPosition = 0;
+src/java/org/apache/cassandra/io/util/AbstractDataInput.java,225,seekInternal(unreadPosition);
+src/java/org/apache/cassandra/io/util/AbstractDataInput.java,236,seekInternal(unreadPosition);
+src/java/org/apache/cassandra/io/util/MappedFileDataInput.java,27,public class MappedFileDataInput extends AbstractDataInput implements FileDataInput
+src/java/org/apache/cassandra/io/util/MappedFileDataInput.java,55,position = pos;
+src/java/org/apache/cassandra/io/util/MappedFileDataInput.java,66,seekInternal((int) inSegmentPos);
+src/java/org/apache/cassandra/io/util/MappedFileDataInput.java,71,return segmentOffset + (long)position;
+src/java/org/apache/cassandra/io/util/MappedFileDataInput.java,76,return position;
+src/java/org/apache/cassandra/io/util/MappedFileDataInput.java,88,seekInternal(((MappedFileDataInputMark) mark).position);
+src/java/org/apache/cassandra/io/util/MappedFileDataInput.java,164,public int skipBytes(int n) throws IOException
+src/java/org/apache/cassandra/io/util/MappedFileDataInput.java,166,assert n >= 0 : "skipping negative bytes is illegal: " + n;
+src/java/org/apache/cassandra/io/util/MappedFileDataInput.java,168,return 0;
+src/java/org/apache/cassandra/io/util/MappedFileDataInput.java,169,int oldPosition = position;
+src/java/org/apache/cassandra/io/util/MappedFileDataInput.java,170,assert ((long)oldPosition) + n <= Integer.MAX_VALUE;
+src/java/org/apache/cassandra/io/util/MappedFileDataInput.java,171,position = Math.min(buffer.capacity(), position + n);
+src/java/org/apache/cassandra/io/util/MappedFileDataInput.java,172,return position - oldPosition;
+src/java/org/apache/cassandra/io/util/MemoryInputStream.java,25,public class MemoryInputStream extends AbstractDataInput
+src/java/org/apache/cassandra/io/util/MemoryInputStream.java,48,position = pos;
+src/java/org/apache/cassandra/io/util/MemoryInputStream.java,56,public int skipBytes(int n) throws IOException
+src/java/org/apache/cassandra/io/util/MemoryInputStream.java,58,seekInternal(getPosition() + n);
+src/java/org/apache/cassandra/io/util/MemoryInputStream.java,59,return position;
+src/java/org/apache/cassandra/io/util/RandomAccessReader.java,29,public class RandomAccessReader extends RandomAccessFile implements FileDataInput
+src/java/org/apache/cassandra/io/util/RandomAccessReader.java,40,protected byte[] buffer;
+src/java/org/apache/cassandra/io/util/RandomAccessReader.java,45,protected long bufferOffset, current = 0, markedPointer;
+src/java/org/apache/cassandra/io/util/RandomAccessReader.java,48,protected int validBufferBytes = 0;
+src/java/org/apache/cassandra/io/util/RandomAccessReader.java,67,super(file, "r");
+src/java/org/apache/cassandra/io/util/RandomAccessReader.java,71,channel = super.getChannel();
+src/java/org/apache/cassandra/io/util/RandomAccessReader.java,77,buffer = new byte[bufferSize];
+src/java/org/apache/cassandra/io/util/RandomAccessReader.java,99,validBufferBytes = -1; // that will trigger reBuffer() on demand by read/seek operations
+src/java/org/apache/cassandra/io/util/RandomAccessReader.java,141,resetBuffer();
+src/java/org/apache/cassandra/io/util/RandomAccessReader.java,146,return;
+src/java/org/apache/cassandra/io/util/RandomAccessReader.java,150,int read = 0;
+src/java/org/apache/cassandra/io/util/RandomAccessReader.java,154,int n = super.read(buffer, read, buffer.length - read);
+src/java/org/apache/cassandra/io/util/RandomAccessReader.java,157,read += n;
+src/java/org/apache/cassandra/io/util/RandomAccessReader.java,160,validBufferBytes = read;
+src/java/org/apache/cassandra/io/util/RandomAccessReader.java,181,return current;
+src/java/org/apache/cassandra/io/util/RandomAccessReader.java,196,long bytes = current - markedPointer;
+src/java/org/apache/cassandra/io/util/RandomAccessReader.java,203,markedPointer = current;
+src/java/org/apache/cassandra/io/util/RandomAccessReader.java,216,long bytes = current - ((BufferedRandomAccessFileMark) mark).pointer;
+src/java/org/apache/cassandra/io/util/RandomAccessReader.java,236,return (int) (current - bufferOffset);
+src/java/org/apache/cassandra/io/util/RandomAccessReader.java,241,bufferOffset = current;
+src/java/org/apache/cassandra/io/util/RandomAccessReader.java,242,validBufferBytes = 0;
+src/java/org/apache/cassandra/io/util/RandomAccessReader.java,272,super.close();
+src/java/org/apache/cassandra/io/util/RandomAccessReader.java,305,if (newPosition > length()) // it is save to call length() in read-only mode
+src/java/org/apache/cassandra/io/util/RandomAccessReader.java,306,throw new IllegalArgumentException(String.format("unable to seek to position %d in %s (%d bytes) in read-only mode",
+src/java/org/apache/cassandra/io/util/RandomAccessReader.java,309,current = newPosition;
+src/java/org/apache/cassandra/io/util/RandomAccessReader.java,312,reBuffer();
+src/java/org/apache/cassandra/io/util/RandomAccessReader.java,329,assert current >= bufferOffset && current < bufferOffset + validBufferBytes;
+src/java/org/apache/cassandra/io/util/RandomAccessReader.java,331,return ((int) buffer[(int) (current++ - bufferOffset)]) & 0xff;
+src/java/org/apache/cassandra/io/util/RandomAccessReader.java,357,assert current >= bufferOffset && current < bufferOffset + validBufferBytes
+src/java/org/apache/cassandra/io/util/RandomAccessReader.java,358,: String.format("File (%s), current offset %d, buffer offset %d, buffer limit %d",
+src/java/org/apache/cassandra/io/util/RandomAccessReader.java,359,getPath(),
+src/java/org/apache/cassandra/io/util/RandomAccessReader.java,360,current,
+src/java/org/apache/cassandra/io/util/RandomAccessReader.java,361,bufferOffset,
+src/java/org/apache/cassandra/io/util/RandomAccessReader.java,362,validBufferBytes);
+src/java/org/apache/cassandra/io/util/RandomAccessReader.java,364,int toCopy = Math.min(length, validBufferBytes - bufferCursor());
+src/java/org/apache/cassandra/io/util/RandomAccessReader.java,366,System.arraycopy(buffer, bufferCursor(), buff, offset, toCopy);
+src/java/org/apache/cassandra/io/util/RandomAccessReader.java,367,current += toCopy;
+src/java/org/apache/cassandra/io/util/RandomAccessReader.java,376,byte[] buff = new byte[length];
+src/java/org/apache/cassandra/io/util/RandomAccessReader.java,380,readFully(buff); // reading data buffer
+src/java/org/apache/cassandra/io/util/RandomAccessReader.java,391,return ByteBuffer.wrap(buff);
+src/java/org/apache/cassandra/io/util/RandomAccessReader.java,403,throw new UnsupportedOperationException();
+src/java/org/apache/cassandra/io/util/RandomAccessReader.java,409,throw new UnsupportedOperationException();
+src/java/org/apache/cassandra/io/util/RandomAccessReader.java,415,throw new UnsupportedOperationException();
+src/java/org/apache/cassandra/io/util/ThrottledReader.java,41,limiter.acquire(buffer.length);
+src/java/org/apache/cassandra/utils/vint/EncodedDataInputStream.java,31,public class EncodedDataInputStream extends AbstractDataInput
+src/java/org/apache/cassandra/db/filter/ColumnCounter.java,101,boolean isSameGroup = true;
+src/java/org/apache/cassandra/db/filter/ColumnCounter.java,106,isSameGroup = false;
+src/java/org/apache/cassandra/db/filter/ColumnCounter.java,107,break;
+src/java/org/apache/cassandra/config/CFMetaData.java,222,+ "data blob"
+src/java/org/apache/cassandra/db/BatchlogManager.java,67,private static final int VERSION = MessagingService.VERSION_12;
+src/java/org/apache/cassandra/service/StorageService.java,2409,new Thread(createRepairTask(cmd, keyspace, ranges, isSequential, isLocal, columnFamilies)).start();
+src/java/org/apache/cassandra/hadoop/AbstractColumnFamilyInputFormat.java,140,logger.warn("ignoring jobKeyRange specified without start_key");
+src/java/org/apache/cassandra/hadoop/AbstractColumnFamilyInputFormat.java,142,else
+src/java/org/apache/cassandra/hadoop/AbstractColumnFamilyInputFormat.java,150,jobRange = new Range<Token>(partitioner.getToken(jobKeyRange.start_key),
+src/java/org/apache/cassandra/hadoop/AbstractColumnFamilyInputFormat.java,151,partitioner.getToken(jobKeyRange.end_key),
+src/java/org/apache/cassandra/hadoop/AbstractColumnFamilyInputFormat.java,152,partitioner);
+src/java/org/apache/cassandra/db/MeteredFlusher.java,41,long flushingBytes = Memtable.activelyMeasuring == null
+src/java/org/apache/cassandra/db/MeteredFlusher.java,42,? 0
+src/java/org/apache/cassandra/db/MeteredFlusher.java,43,: Memtable.activelyMeasuring.getMemtableThreadSafe().getLiveSize();
+src/java/org/apache/cassandra/service/StorageProxy.java,1197,ReadCallback<RangeSliceReply, Iterable<Row>> handler = new ReadCallback(resolver, consistency_level, nodeCmd, filteredEndpoints);
+src/java/org/apache/cassandra/service/StorageProxy.java,1583,return !Gossiper.instance.getUnreachableMembers().isEmpty();
+src/java/org/apache/cassandra/service/StorageProxy.java,103,mbs.registerMBean(new StorageProxy(), new ObjectName(MBEAN_NAME));
+src/java/org/apache/cassandra/config/Schema.java,26,import com.google.common.collect.*;
+src/java/org/apache/cassandra/config/Schema.java,35,import org.apache.cassandra.tracing.Tracing;
+src/java/org/apache/cassandra/config/Schema.java,61,private final BiMap<Pair<String, String>, UUID> cfIdMap = HashBiMap.create();
+src/java/org/apache/cassandra/hadoop/BulkOutputFormat.java,63,return new BulkRecordWriter(job, new Progressable(progress));
+src/java/org/apache/cassandra/hadoop/BulkRecordWriter.java,85,this.progress = new Progressable(context);
+src/java/org/apache/cassandra/hadoop/BulkRecordWriter.java,203,progress.progress();
+src/java/org/apache/cassandra/hadoop/BulkRecordWriter.java,234,progress.progress();
+src/java/org/apache/cassandra/hadoop/ColumnFamilyOutputFormat.java,54,return new ColumnFamilyRecordWriter(job, new Progressable(progress));
+src/java/org/apache/cassandra/hadoop/ColumnFamilyRecordWriter.java,64,this.progressable = new Progressable(context);
+src/java/org/apache/cassandra/hadoop/Progressable.java,1,package org.apache.cassandra.hadoop;
+src/java/org/apache/cassandra/hadoop/Progressable.java,24,import org.apache.hadoop.mapreduce.TaskAttemptContext;
+src/java/org/apache/cassandra/hadoop/Progressable.java,27,public class Progressable
+src/java/org/apache/cassandra/hadoop/Progressable.java,29,private TaskAttemptContext context;
+src/java/org/apache/cassandra/hadoop/Progressable.java,30,private org.apache.hadoop.util.Progressable progressable;
+src/java/org/apache/cassandra/hadoop/Progressable.java,34,this.context = context;
+src/java/org/apache/cassandra/hadoop/Progressable.java,39,this.progressable = progressable;
+src/java/org/apache/cassandra/hadoop/Progressable.java,45,context.progress();
+src/java/org/apache/cassandra/hadoop/Progressable.java,46,else
+src/java/org/apache/cassandra/hadoop/Progressable.java,47,progressable.progress();
+src/java/org/apache/cassandra/hadoop/cql3/CqlOutputFormat.java,29,import org.apache.cassandra.hadoop.Progressable;
+src/java/org/apache/cassandra/hadoop/cql3/CqlOutputFormat.java,63,return new CqlRecordWriter(job, new Progressable(progress));
+src/java/org/apache/cassandra/hadoop/cql3/CqlRecordWriter.java,42,import org.apache.cassandra.hadoop.Progressable;
+src/java/org/apache/cassandra/hadoop/cql3/CqlRecordWriter.java,91,this.progressable = new Progressable(context);
+src/java/org/apache/cassandra/hadoop/cql3/CqlRecordWriter.java,185,progressable.progress();
+src/java/org/apache/cassandra/hadoop/pig/CqlStorage.java,27,import org.apache.cassandra.cql3.ColumnIdentifier;
+src/java/org/apache/cassandra/locator/DynamicEndpointSnitch.java,161,Double first = scores.get(addresses.get(0));
+src/java/org/apache/cassandra/locator/DynamicEndpointSnitch.java,163,return;
+src/java/org/apache/cassandra/locator/DynamicEndpointSnitch.java,166,Double next = scores.get(addr);
+src/java/org/apache/cassandra/db/ColumnFamilyStore.java,1320,assert !key.isMinimum();
+src/java/org/apache/cassandra/db/ColumnFamilyStore.java,1280,abstract class AbstractViewSSTableFinder
+src/java/org/apache/cassandra/db/ColumnFamilyStore.java,1282,abstract List<SSTableReader> findSSTables(DataTracker.View view);
+src/java/org/apache/cassandra/db/ColumnFamilyStore.java,1285,RowPosition stopInTree = rowBounds.right.isMinimum() ? view.intervalTree.max() : rowBounds.right;
+src/java/org/apache/cassandra/db/ColumnFamilyStore.java,1286,return view.intervalTree.search(Interval.<RowPosition, SSTableReader>create(rowBounds.left, stopInTree));
+src/java/org/apache/cassandra/db/ColumnFamilyStore.java,1305,sstables = finder.findSSTables(view);
+src/java/org/apache/cassandra/db/ColumnFamilyStore.java,1357,sstables.addAll(sstablesForRowBounds(rowBounds, view));
+src/java/org/apache/cassandra/hadoop/AbstractColumnFamilyInputFormat.java,115,Configuration conf = context.getConfiguration();
+src/java/org/apache/cassandra/hadoop/AbstractColumnFamilyInputFormat.java,122,keyspace = ConfigHelper.getInputKeyspace(context.getConfiguration());
+src/java/org/apache/cassandra/hadoop/AbstractColumnFamilyInputFormat.java,123,cfName = ConfigHelper.getInputColumnFamily(context.getConfiguration());
+src/java/org/apache/cassandra/hadoop/AbstractColumnFamilyInputFormat.java,124,partitioner = ConfigHelper.getInputPartitioner(context.getConfiguration());
+src/java/org/apache/cassandra/hadoop/AbstractColumnFamilyInputFormat.java,341,TaskAttemptContext tac = new TaskAttemptContext(jobConf, new TaskAttemptID());
+src/java/org/apache/cassandra/hadoop/AbstractColumnFamilyOutputFormat.java,75,checkOutputSpecs(context.getConfiguration());
+src/java/org/apache/cassandra/hadoop/BulkOutputFormat.java,35,checkOutputSpecs(context.getConfiguration());
+src/java/org/apache/cassandra/hadoop/BulkRecordWriter.java,84,this(context.getConfiguration());
+src/java/org/apache/cassandra/hadoop/ColumnFamilyInputFormat.java,62,reporter.progress();
+src/java/org/apache/cassandra/hadoop/ColumnFamilyRecordReader.java,134,Configuration conf = context.getConfiguration();
+src/java/org/apache/cassandra/hadoop/ColumnFamilyRecordWriter.java,63,this(context.getConfiguration());
+src/java/org/apache/cassandra/hadoop/cql3/CqlPagingInputFormat.java,66,reporter.progress();
+src/java/org/apache/cassandra/hadoop/cql3/CqlPagingRecordReader.java,111,Configuration conf = context.getConfiguration();
+src/java/org/apache/cassandra/hadoop/cql3/CqlPagingRecordReader.java,130,partitioner = ConfigHelper.getInputPartitioner(context.getConfiguration());
+src/java/org/apache/cassandra/hadoop/cql3/CqlRecordWriter.java,90,this(context.getConfiguration());
+src/java/org/apache/cassandra/hadoop/pig/CassandraStorage.java,284,conf = job.getConfiguration();
+src/java/org/apache/cassandra/hadoop/pig/CassandraStorage.java,341,conf = job.getConfiguration();
+src/java/org/apache/cassandra/hadoop/pig/CqlStorage.java,201,conf = job.getConfiguration();
+src/java/org/apache/cassandra/hadoop/pig/CqlStorage.java,260,conf = job.getConfiguration();
+src/java/org/apache/cassandra/utils/EstimatedHistogram.java,46,private long[] bucketOffsets;
+src/java/org/apache/cassandra/utils/EstimatedHistogram.java,58,makeOffsets(bucketCount);
+src/java/org/apache/cassandra/utils/EstimatedHistogram.java,71,bucketOffsets = new long[size];
+src/java/org/apache/cassandra/utils/EstimatedHistogram.java,73,bucketOffsets[0] = last;
+src/java/org/apache/cassandra/utils/EstimatedHistogram.java,79,bucketOffsets[i] = next;
+src/java/org/apache/cassandra/utils/EstimatedHistogram.java,122,long[] rv = new long[buckets.length()];
+src/java/org/apache/cassandra/utils/EstimatedHistogram.java,124,rv[i] = buckets.get(i);
+src/java/org/apache/cassandra/utils/EstimatedHistogram.java,128,buckets.set(i, 0L);
+src/java/org/apache/cassandra/utils/EstimatedHistogram.java,203,elements += buckets.get(i);
+src/java/org/apache/cassandra/utils/EstimatedHistogram.java,204,sum += buckets.get(i) * bucketOffsets[i];
+src/java/org/apache/cassandra/io/util/Memory.java,20,import sun.misc.Unsafe;
+src/java/org/apache/cassandra/io/util/Memory.java,79,unsafe.putLong(peer + offset, l);
+src/java/org/apache/cassandra/io/util/Memory.java,117,return unsafe.getLong(peer + offset);
+src/java/org/apache/cassandra/io/sstable/Descriptor.java,247,return fromFilename(file.getParentFile(), file.getName()).left;
+src/java/org/apache/cassandra/io/sstable/Descriptor.java,287,String component = st.nextToken();
+src/java/org/apache/cassandra/transport/Server.java,96,isRunning.set(true);
+src/java/org/apache/cassandra/locator/DynamicEndpointSnitch.java,231,long maxPenalty = 1;
+src/java/org/apache/cassandra/locator/DynamicEndpointSnitch.java,242,timePenalty = timePenalty > UPDATE_INTERVAL_IN_MS ? UPDATE_INTERVAL_IN_MS : timePenalty;
+src/java/org/apache/cassandra/locator/DynamicEndpointSnitch.java,244,penalties.put(entry.getKey(), timePenalty);
+src/java/org/apache/cassandra/locator/DynamicEndpointSnitch.java,246,maxPenalty = timePenalty;
+src/java/org/apache/cassandra/locator/DynamicEndpointSnitch.java,253,score += penalties.get(entry.getKey()) / ((double) maxPenalty);
+src/java/org/apache/cassandra/locator/DynamicEndpointSnitch.java,254,else
+src/java/org/apache/cassandra/locator/DynamicEndpointSnitch.java,256,score += 1; // maxPenalty / maxPenalty
+src/java/org/apache/cassandra/db/ColumnFamilyStore.java,1627,directories.clearSnapshot(snapshotName);
+src/java/org/apache/cassandra/tools/BulkLoader.java,207,Cassandra.Client client = createThriftClient(host.getHostAddress(), rpcPort, this.user, this.passwd);
+src/java/org/apache/cassandra/tools/BulkLoader.java,243,private static Cassandra.Client createThriftClient(String host, int port, String user, String passwd) throws Exception
+src/java/org/apache/cassandra/tools/BulkLoader.java,245,TSocket socket = new TSocket(host, port);
+src/java/org/apache/cassandra/tools/BulkLoader.java,246,TTransport trans = new TFramedTransport(socket);
+src/java/org/apache/cassandra/tools/BulkLoader.java,247,trans.open();
+src/java/org/apache/cassandra/hadoop/pig/AbstractCassandraStorage.java,86,protected static final Logger logger = LoggerFactory.getLogger(AbstractCassandraStorage.class);
+src/java/org/apache/cassandra/hadoop/pig/AbstractCassandraStorage.java,640,logger.debug("name: {}, type: {} ", key, type);
+src/java/org/apache/cassandra/hadoop/pig/AbstractCassandraStorage.java,641,keys.add(key);
+src/java/org/apache/cassandra/hadoop/pig/AbstractCassandraStorage.java,644,else
+src/java/org/apache/cassandra/db/compaction/CompactionManager.java,1089,private final SSTableScanner scanner;
+src/java/org/apache/cassandra/hadoop/pig/AbstractCassandraStorage.java,631,List<String> keys = FBUtilities.fromJsonList(keyAliases);
+src/java/org/apache/cassandra/hadoop/pig/AbstractCassandraStorage.java,635,CFDefinition cfDefinition = getCfDefinition(keyspace, column_family, client);
+src/java/org/apache/cassandra/hadoop/pig/AbstractCassandraStorage.java,638,String key = column.toString();
+src/java/org/apache/cassandra/hadoop/pig/AbstractCassandraStorage.java,639,String type = cfDefinition.keys.get(column).type.toString();
+src/java/org/apache/cassandra/db/Directories.java,35,import org.apache.cassandra.db.compaction.LeveledManifest;
+src/java/org/apache/cassandra/db/compaction/ParallelCompactionIterable.java,60,this(type, scanners, controller, DatabaseDescriptor.getInMemoryCompactionLimit() / scanners.size());
+src/java/org/apache/cassandra/io/sstable/IndexSummaryBuilder.java,20,import java.util.ArrayList;
+src/java/org/apache/cassandra/io/sstable/IndexSummaryBuilder.java,52,positions = new ArrayList<Long>((int)expectedEntries);
+src/java/org/apache/cassandra/io/sstable/IndexSummaryBuilder.java,53,keys = new ArrayList<byte[]>((int)expectedEntries);
+src/java/org/apache/cassandra/io/sstable/IndexSummaryBuilder.java,61,positions.add(indexPosition);
+src/java/org/apache/cassandra/io/sstable/SSTableReader.java,356,ifile.cleanup();
+src/java/org/apache/cassandra/io/sstable/SSTableReader.java,357,dfile.cleanup();
+src/java/org/apache/cassandra/io/sstable/SSTableReader.java,359,bf.close();
+src/java/org/apache/cassandra/io/sstable/SSTableReader.java,532,summariesFile.delete();
+src/java/org/apache/cassandra/io/sstable/SSTableReader.java,550,summariesFile.delete();
+src/java/org/apache/cassandra/io/sstable/SSTableReader.java,567,int index = indexSummary.binarySearch(key);
+src/java/org/apache/cassandra/io/sstable/SSTableReader.java,572,int greaterThan = (index + 1) * -1;
+src/java/org/apache/cassandra/io/sstable/SSTableReader.java,575,return indexSummary.getPosition(greaterThan - 1);
+src/java/org/apache/cassandra/io/sstable/SSTableReader.java,579,return indexSummary.getPosition(index);
+src/java/org/apache/cassandra/io/sstable/SSTableReader.java,847,long sampledPosition = getIndexScanPosition(key);
+src/java/org/apache/cassandra/io/sstable/SSTableReader.java,856,sampledPosition = 0;
+src/java/org/apache/cassandra/io/sstable/SSTableReader.java,858,else
+src/java/org/apache/cassandra/io/sstable/SSTableReader.java,860,Tracing.trace("Partition summary allows skipping sstable {}", descriptor.generation);
+src/java/org/apache/cassandra/io/sstable/SSTableReader.java,996,deletingTask.schedule();
+src/java/org/apache/cassandra/db/Memtable.java,432,writer.append((DecoratedKey)entry.getKey(), cf);
+src/java/org/apache/cassandra/tools/NodeCmd.java,308,float totalReplicas = 0f;
+src/java/org/apache/cassandra/tools/NodeCmd.java,320,outs.print("Replicas: " + (int) totalReplicas + "\n\n");
+src/java/org/apache/cassandra/net/MessagingService.java,889,Socket socket = server.accept();
+src/java/org/apache/cassandra/net/MessagingService.java,898,logger.info("MessagingService shutting down server thread.");
+src/java/org/apache/cassandra/net/MessagingService.java,903,logger.debug("MessagingService server thread already closed.");
+src/java/org/apache/cassandra/net/MessagingService.java,908,throw new RuntimeException(e);
+src/java/org/apache/cassandra/gms/Gossiper.java,162,logger.trace("Performing status check ...");
+src/java/org/apache/cassandra/config/CFMetaData.java,386,.gcGraceSeconds(0);
+src/java/org/apache/cassandra/db/compaction/PrecompactedRow.java,181,assert compactedCf != null;
+src/java/org/apache/cassandra/service/CacheService.java,28,import java.util.Set;
+src/java/org/apache/cassandra/service/CacheService.java,54,import org.apache.cassandra.io.sstable.SSTableReader.Operator;
+src/java/org/apache/cassandra/service/CacheService.java,405,ByteBuffer key = ByteBufferUtil.readWithLength(input);
+src/java/org/apache/cassandra/config/Config.java,112,public Boolean multithreaded_compaction = false;
+src/java/org/apache/cassandra/config/DatabaseDescriptor.java,917,return conf.multithreaded_compaction;
+src/java/org/apache/cassandra/db/ColumnIndex.java,144,public ColumnIndex build(Iterable<OnDiskAtom> columns) throws IOException
+src/java/org/apache/cassandra/db/compaction/CompactionController.java,30,import org.apache.cassandra.config.DatabaseDescriptor;
+src/java/org/apache/cassandra/db/compaction/CompactionController.java,113,return false;
+src/java/org/apache/cassandra/db/compaction/CompactionController.java,115,return false;
+src/java/org/apache/cassandra/db/compaction/CompactionController.java,118,return true;
+src/java/org/apache/cassandra/db/compaction/CompactionController.java,149,long rowSize = 0;
+src/java/org/apache/cassandra/db/compaction/CompactionController.java,151,rowSize += row.dataSize;
+src/java/org/apache/cassandra/db/compaction/CompactionController.java,155,String keyString = cfs.metadata.getKeyValidator().getString(rows.get(0).getKey().key);
+src/java/org/apache/cassandra/db/compaction/CompactionController.java,156,logger.info(String.format("Compacting large row %s/%s:%s (%d bytes) incrementally",
+src/java/org/apache/cassandra/db/compaction/CompactionController.java,158,return new LazilyCompactedRow(this, rows);
+src/java/org/apache/cassandra/db/compaction/CompactionController.java,160,return new PrecompactedRow(this, rows);
+src/java/org/apache/cassandra/db/compaction/CompactionController.java,166,return getCompactedRow(Collections.singletonList(row));
+src/java/org/apache/cassandra/db/compaction/CompactionIterable.java,59,protected final List<SSTableIdentityIterator> rows = new ArrayList<SSTableIdentityIterator>();
+src/java/org/apache/cassandra/db/compaction/CompactionIterable.java,63,rows.add((SSTableIdentityIterator) current);
+src/java/org/apache/cassandra/db/compaction/CompactionIterable.java,76,return controller.getCompactedRow(new ArrayList<SSTableIdentityIterator>(rows));
+src/java/org/apache/cassandra/db/compaction/CompactionManager.java,938,return true;
+src/java/org/apache/cassandra/db/compaction/LazilyCompactedRow.java,35,import org.apache.cassandra.db.marshal.AbstractType;
+src/java/org/apache/cassandra/db/compaction/LazilyCompactedRow.java,53,public class LazilyCompactedRow extends AbstractCompactedRow implements Iterable<OnDiskAtom>
+src/java/org/apache/cassandra/db/compaction/LazilyCompactedRow.java,59,private final boolean shouldPurge;
+src/java/org/apache/cassandra/db/compaction/LazilyCompactedRow.java,60,private ColumnFamily emptyColumnFamily;
+src/java/org/apache/cassandra/db/compaction/LazilyCompactedRow.java,61,private Reducer reducer;
+src/java/org/apache/cassandra/db/compaction/LazilyCompactedRow.java,80,maxDelTimestamp = Math.max(maxDelTimestamp, cf.deletionInfo().maxTimestamp());
+src/java/org/apache/cassandra/db/compaction/LazilyCompactedRow.java,83,emptyColumnFamily = cf;
+src/java/org/apache/cassandra/db/compaction/LazilyCompactedRow.java,85,emptyColumnFamily.delete(cf);
+src/java/org/apache/cassandra/db/compaction/LazilyCompactedRow.java,87,this.shouldPurge = controller.shouldPurge(key, maxDelTimestamp);
+src/java/org/apache/cassandra/db/compaction/LazilyCompactedRow.java,101,reducer == null ? maxDelTimestamp : Math.max(maxDelTimestamp, reducer.maxTimestampSeen),
+src/java/org/apache/cassandra/db/compaction/LazilyCompactedRow.java,105,reducer = null;
+src/java/org/apache/cassandra/db/compaction/LazilyCompactedRow.java,160,Iterator<OnDiskAtom> iter = iterator();
+src/java/org/apache/cassandra/db/compaction/LazilyCompactedRow.java,163,iter.next().updateDigest(digest);
+src/java/org/apache/cassandra/db/compaction/LazilyCompactedRow.java,186,return emptyColumnFamily.getComparator();
+src/java/org/apache/cassandra/db/compaction/LazilyCompactedRow.java,193,reducer = new Reducer();
+src/java/org/apache/cassandra/db/compaction/LazilyCompactedRow.java,194,Iterator<OnDiskAtom> iter = MergeIterator.get(rows, getComparator().onDiskAtomComparator, reducer);
+src/java/org/apache/cassandra/db/compaction/LazilyCompactedRow.java,195,return Iterators.filter(iter, Predicates.notNull());
+src/java/org/apache/cassandra/db/compaction/LazilyCompactedRow.java,285,ColumnFamily purged = PrecompactedRow.removeDeletedAndOldShards(key, shouldPurge, controller, container);
+src/java/org/apache/cassandra/db/compaction/ParallelCompactionIterable.java,18,package org.apache.cassandra.db.compaction;
+src/java/org/apache/cassandra/db/compaction/ParallelCompactionIterable.java,20,import java.io.IOException;
+src/java/org/apache/cassandra/db/compaction/ParallelCompactionIterable.java,21,import java.util.ArrayList;
+src/java/org/apache/cassandra/db/compaction/ParallelCompactionIterable.java,22,import java.util.Comparator;
+src/java/org/apache/cassandra/db/compaction/ParallelCompactionIterable.java,23,import java.util.Iterator;
+src/java/org/apache/cassandra/db/compaction/ParallelCompactionIterable.java,24,import java.util.List;
+src/java/org/apache/cassandra/db/compaction/ParallelCompactionIterable.java,25,import java.util.concurrent.*;
+src/java/org/apache/cassandra/db/compaction/ParallelCompactionIterable.java,28,import com.google.common.collect.AbstractIterator;
+src/java/org/apache/cassandra/db/compaction/ParallelCompactionIterable.java,29,import org.slf4j.Logger;
+src/java/org/apache/cassandra/db/compaction/ParallelCompactionIterable.java,30,import org.slf4j.LoggerFactory;
+src/java/org/apache/cassandra/db/compaction/ParallelCompactionIterable.java,32,import org.apache.cassandra.concurrent.DebuggableThreadPoolExecutor;
+src/java/org/apache/cassandra/db/compaction/ParallelCompactionIterable.java,33,import org.apache.cassandra.concurrent.NamedThreadFactory;
+src/java/org/apache/cassandra/db/compaction/ParallelCompactionIterable.java,34,import org.apache.cassandra.config.DatabaseDescriptor;
+src/java/org/apache/cassandra/db/compaction/ParallelCompactionIterable.java,35,import org.apache.cassandra.db.*;
+src/java/org/apache/cassandra/db/compaction/ParallelCompactionIterable.java,37,import org.apache.cassandra.io.sstable.SSTableIdentityIterator;
+src/java/org/apache/cassandra/db/compaction/ParallelCompactionIterable.java,38,import org.apache.cassandra.utils.*;
+src/java/org/apache/cassandra/db/compaction/ParallelCompactionIterable.java,52,public class ParallelCompactionIterable extends AbstractCompactionIterable
+src/java/org/apache/cassandra/db/compaction/ParallelCompactionIterable.java,54,private static final Logger logger = LoggerFactory.getLogger(ParallelCompactionIterable.class);
+src/java/org/apache/cassandra/db/compaction/ParallelCompactionIterable.java,56,private final int maxInMemorySize;
+src/java/org/apache/cassandra/db/compaction/ParallelCompactionIterable.java,65,super(controller, type, scanners);
+src/java/org/apache/cassandra/db/compaction/ParallelCompactionIterable.java,66,this.maxInMemorySize = maxInMemorySize;
+src/java/org/apache/cassandra/db/compaction/ParallelCompactionIterable.java,71,List<CloseableIterator<RowContainer>> sources = new ArrayList<CloseableIterator<RowContainer>>(scanners.size());
+src/java/org/apache/cassandra/db/compaction/ParallelCompactionIterable.java,73,sources.add(new Deserializer(scanner, maxInMemorySize));
+src/java/org/apache/cassandra/db/compaction/ParallelCompactionIterable.java,74,return new Unwrapper(MergeIterator.get(sources, RowContainer.comparator, new Reducer()));
+src/java/org/apache/cassandra/db/compaction/ParallelCompactionIterable.java,77,private static class Unwrapper extends AbstractIterator<AbstractCompactedRow> implements CloseableIterator<AbstractCompactedRow>
+src/java/org/apache/cassandra/db/compaction/ParallelCompactionIterable.java,79,private final CloseableIterator<CompactedRowContainer> reducer;
+src/java/org/apache/cassandra/db/compaction/ParallelCompactionIterable.java,83,this.reducer = reducer;
+src/java/org/apache/cassandra/db/compaction/ParallelCompactionIterable.java,89,return endOfData();
+src/java/org/apache/cassandra/db/compaction/ParallelCompactionIterable.java,91,CompactedRowContainer container = reducer.next();
+src/java/org/apache/cassandra/db/compaction/ParallelCompactionIterable.java,92,AbstractCompactedRow compactedRow;
+src/java/org/apache/cassandra/db/compaction/ParallelCompactionIterable.java,108,return compactedRow;
+src/java/org/apache/cassandra/db/compaction/ParallelCompactionIterable.java,111,public void close() throws IOException
+src/java/org/apache/cassandra/db/compaction/ParallelCompactionIterable.java,113,reducer.close();
+src/java/org/apache/cassandra/db/compaction/ParallelCompactionIterable.java,117,private class Reducer extends MergeIterator.Reducer<RowContainer, CompactedRowContainer>
+src/java/org/apache/cassandra/db/compaction/ParallelCompactionIterable.java,119,private final List<RowContainer> rows = new ArrayList<RowContainer>();
+src/java/org/apache/cassandra/db/compaction/ParallelCompactionIterable.java,121,private final ThreadPoolExecutor executor = new DebuggableThreadPoolExecutor(FBUtilities.getAvailableProcessors(),
+src/java/org/apache/cassandra/db/compaction/ParallelCompactionIterable.java,122,Integer.MAX_VALUE,
+src/java/org/apache/cassandra/db/compaction/ParallelCompactionIterable.java,123,TimeUnit.MILLISECONDS,
+src/java/org/apache/cassandra/db/compaction/ParallelCompactionIterable.java,124,new SynchronousQueue<Runnable>(),
+src/java/org/apache/cassandra/db/compaction/ParallelCompactionIterable.java,125,new NamedThreadFactory("CompactionReducer"));
+src/java/org/apache/cassandra/db/compaction/ParallelCompactionIterable.java,129,rows.add(current);
+src/java/org/apache/cassandra/db/compaction/ParallelCompactionIterable.java,134,assert rows.size() > 0;
+src/java/org/apache/cassandra/db/compaction/ParallelCompactionIterable.java,136,ParallelCompactionIterable.this.updateCounterFor(rows.size());
+src/java/org/apache/cassandra/db/compaction/ParallelCompactionIterable.java,137,CompactedRowContainer compacted = getCompactedRow(rows);
+src/java/org/apache/cassandra/db/compaction/ParallelCompactionIterable.java,138,rows.clear();
+src/java/org/apache/cassandra/db/compaction/ParallelCompactionIterable.java,139,long n = 0;
+src/java/org/apache/cassandra/db/compaction/ParallelCompactionIterable.java,141,n += scanner.getCurrentPosition();
+src/java/org/apache/cassandra/db/compaction/ParallelCompactionIterable.java,142,bytesRead = n;
+src/java/org/apache/cassandra/db/compaction/ParallelCompactionIterable.java,143,return compacted;
+src/java/org/apache/cassandra/db/compaction/ParallelCompactionIterable.java,148,boolean inMemory = true;
+src/java/org/apache/cassandra/db/compaction/ParallelCompactionIterable.java,153,inMemory = false;
+src/java/org/apache/cassandra/db/compaction/ParallelCompactionIterable.java,154,break;
+src/java/org/apache/cassandra/db/compaction/ParallelCompactionIterable.java,161,List<Row> rawRows = new ArrayList<Row>(rows.size());
+src/java/org/apache/cassandra/db/compaction/ParallelCompactionIterable.java,163,rawRows.add(rowContainer.row);
+src/java/org/apache/cassandra/db/compaction/ParallelCompactionIterable.java,164,return new CompactedRowContainer(rows.get(0).getKey(), executor.submit(new MergeTask(rawRows)));
+src/java/org/apache/cassandra/db/compaction/ParallelCompactionIterable.java,169,iterators.add(container.row == null ? container.wrapper : new DeserializedColumnIterator(container.row));
+src/java/org/apache/cassandra/db/compaction/ParallelCompactionIterable.java,170,return new CompactedRowContainer(new LazilyCompactedRow(controller, iterators));
+src/java/org/apache/cassandra/db/compaction/ParallelCompactionIterable.java,175,executor.shutdown();
+src/java/org/apache/cassandra/db/compaction/ParallelCompactionIterable.java,181,private class MergeTask implements Callable<ColumnFamily>
+src/java/org/apache/cassandra/db/compaction/ParallelCompactionIterable.java,183,private final List<Row> rows;
+src/java/org/apache/cassandra/db/compaction/ParallelCompactionIterable.java,187,this.rows = rows;
+src/java/org/apache/cassandra/db/compaction/ParallelCompactionIterable.java,190,public ColumnFamily call() throws Exception
+src/java/org/apache/cassandra/db/compaction/ParallelCompactionIterable.java,197,returnCF.delete(row.cf);
+src/java/org/apache/cassandra/db/compaction/ParallelCompactionIterable.java,198,data.add(FBUtilities.closeableIterator(row.cf.iterator()));
+src/java/org/apache/cassandra/db/compaction/ParallelCompactionIterable.java,201,PrecompactedRow.merge(returnCF, data, controller.cfs.indexManager.updaterFor(rows.get(0).key));
+src/java/org/apache/cassandra/db/compaction/ParallelCompactionIterable.java,202,return PrecompactedRow.removeDeletedAndOldShards(rows.get(0).key, controller, returnCF);
+src/java/org/apache/cassandra/db/compaction/ParallelCompactionIterable.java,208,private final Row row;
+src/java/org/apache/cassandra/db/compaction/ParallelCompactionIterable.java,213,this.row = row;
+src/java/org/apache/cassandra/db/compaction/ParallelCompactionIterable.java,214,iter = row.cf.iterator();
+src/java/org/apache/cassandra/db/compaction/ParallelCompactionIterable.java,219,return row.cf;
+src/java/org/apache/cassandra/db/compaction/ParallelCompactionIterable.java,224,return row.key;
+src/java/org/apache/cassandra/db/compaction/ParallelCompactionIterable.java,237,public void close() throws IOException {}
+src/java/org/apache/cassandra/db/compaction/ParallelCompactionIterable.java,241,return iter.hasNext();
+src/java/org/apache/cassandra/db/compaction/ParallelCompactionIterable.java,246,return iter.next();
+src/java/org/apache/cassandra/db/compaction/ParallelCompactionIterable.java,251,throw new UnsupportedOperationException();
+src/java/org/apache/cassandra/db/compaction/ParallelCompactionIterable.java,256,private static class Deserializer extends AbstractIterator<RowContainer> implements CloseableIterator<RowContainer>
+src/java/org/apache/cassandra/db/compaction/ParallelCompactionIterable.java,258,private final LinkedBlockingQueue<RowContainer> queue = new LinkedBlockingQueue<RowContainer>(1);
+src/java/org/apache/cassandra/db/compaction/ParallelCompactionIterable.java,259,private static final RowContainer finished = new RowContainer((Row) null);
+src/java/org/apache/cassandra/db/compaction/ParallelCompactionIterable.java,261,private final ICompactionScanner scanner;
+src/java/org/apache/cassandra/db/compaction/ParallelCompactionIterable.java,265,this.scanner = ssts;
+src/java/org/apache/cassandra/db/compaction/ParallelCompactionIterable.java,268,protected void runMayThrow() throws Exception
+src/java/org/apache/cassandra/db/compaction/ParallelCompactionIterable.java,273,condition.await();
+src/java/org/apache/cassandra/db/compaction/ParallelCompactionIterable.java,277,queue.put(finished);
+src/java/org/apache/cassandra/db/compaction/ParallelCompactionIterable.java,278,break;
+src/java/org/apache/cassandra/db/compaction/ParallelCompactionIterable.java,281,SSTableIdentityIterator iter = (SSTableIdentityIterator) scanner.next();
+src/java/org/apache/cassandra/db/compaction/ParallelCompactionIterable.java,285,condition = new SimpleCondition();
+src/java/org/apache/cassandra/db/compaction/ParallelCompactionIterable.java,286,queue.put(new RowContainer(new NotifyingSSTableIdentityIterator(iter, condition)));
+src/java/org/apache/cassandra/db/compaction/ParallelCompactionIterable.java,288,else
+src/java/org/apache/cassandra/db/compaction/ParallelCompactionIterable.java,296,new Thread(runnable, "Deserialize " + scanner.getBackingFiles()).start();
+src/java/org/apache/cassandra/db/compaction/ParallelCompactionIterable.java,301,RowContainer container;
+src/java/org/apache/cassandra/db/compaction/ParallelCompactionIterable.java,302,try
+src/java/org/apache/cassandra/db/compaction/ParallelCompactionIterable.java,304,container = queue.take();
+src/java/org/apache/cassandra/db/compaction/ParallelCompactionIterable.java,308,throw new AssertionError(e);
+src/java/org/apache/cassandra/db/compaction/ParallelCompactionIterable.java,310,return container == finished ? endOfData() : container;
+src/java/org/apache/cassandra/db/compaction/ParallelCompactionIterable.java,313,public void close() throws IOException
+src/java/org/apache/cassandra/db/compaction/ParallelCompactionIterable.java,315,scanner.close();
+src/java/org/apache/cassandra/db/compaction/ParallelCompactionIterable.java,324,private final SSTableIdentityIterator wrapped;
+src/java/org/apache/cassandra/db/compaction/ParallelCompactionIterable.java,329,this.wrapped = wrapped;
+src/java/org/apache/cassandra/db/compaction/ParallelCompactionIterable.java,330,this.condition = condition;
+src/java/org/apache/cassandra/db/compaction/ParallelCompactionIterable.java,335,return wrapped.getColumnFamily();
+src/java/org/apache/cassandra/db/compaction/ParallelCompactionIterable.java,340,return wrapped.getKey();
+src/java/org/apache/cassandra/db/compaction/ParallelCompactionIterable.java,353,public void close() throws IOException
+src/java/org/apache/cassandra/db/compaction/ParallelCompactionIterable.java,361,return wrapped.hasNext();
+src/java/org/apache/cassandra/db/compaction/ParallelCompactionIterable.java,366,return wrapped.next();
+src/java/org/apache/cassandra/db/compaction/ParallelCompactionIterable.java,371,throw new UnsupportedOperationException();
+src/java/org/apache/cassandra/db/compaction/ParallelCompactionIterable.java,375,private static class RowContainer
+src/java/org/apache/cassandra/db/compaction/ParallelCompactionIterable.java,378,public final Row row;
+src/java/org/apache/cassandra/db/compaction/ParallelCompactionIterable.java,379,public final NotifyingSSTableIdentityIterator wrapper;
+src/java/org/apache/cassandra/db/compaction/ParallelCompactionIterable.java,384,return o1.getKey().compareTo(o2.getKey());
+src/java/org/apache/cassandra/db/compaction/ParallelCompactionIterable.java,390,this.row = row;
+src/java/org/apache/cassandra/db/compaction/ParallelCompactionIterable.java,391,wrapper = null;
+src/java/org/apache/cassandra/db/compaction/ParallelCompactionIterable.java,396,this.wrapper = wrapper;
+src/java/org/apache/cassandra/db/compaction/ParallelCompactionIterable.java,397,row = null;
+src/java/org/apache/cassandra/db/compaction/ParallelCompactionIterable.java,402,return row == null ? wrapper.getKey() : row.key;
+src/java/org/apache/cassandra/db/compaction/ParallelCompactionIterable.java,406,private static class CompactedRowContainer
+src/java/org/apache/cassandra/db/compaction/ParallelCompactionIterable.java,408,public final DecoratedKey key;
+src/java/org/apache/cassandra/db/compaction/ParallelCompactionIterable.java,410,public final Future<ColumnFamily> future;
+src/java/org/apache/cassandra/db/compaction/ParallelCompactionIterable.java,411,public final LazilyCompactedRow row;
+src/java/org/apache/cassandra/db/compaction/ParallelCompactionIterable.java,415,this.key = key;
+src/java/org/apache/cassandra/db/compaction/ParallelCompactionIterable.java,416,this.future = future;
+src/java/org/apache/cassandra/db/compaction/ParallelCompactionIterable.java,417,row = null;
+src/java/org/apache/cassandra/db/compaction/ParallelCompactionIterable.java,422,this.row = row;
+src/java/org/apache/cassandra/db/compaction/ParallelCompactionIterable.java,423,future = null;
+src/java/org/apache/cassandra/db/compaction/ParallelCompactionIterable.java,424,key = null;
+src/java/org/apache/cassandra/db/compaction/PrecompactedRow.java,18,package org.apache.cassandra.db.compaction;
+src/java/org/apache/cassandra/db/compaction/PrecompactedRow.java,20,import java.io.DataOutput;
+src/java/org/apache/cassandra/db/compaction/PrecompactedRow.java,21,import java.io.IOException;
+src/java/org/apache/cassandra/db/compaction/PrecompactedRow.java,22,import java.security.MessageDigest;
+src/java/org/apache/cassandra/db/compaction/PrecompactedRow.java,23,import java.util.ArrayList;
+src/java/org/apache/cassandra/db/compaction/PrecompactedRow.java,24,import java.util.Comparator;
+src/java/org/apache/cassandra/db/compaction/PrecompactedRow.java,25,import java.util.Iterator;
+src/java/org/apache/cassandra/db/compaction/PrecompactedRow.java,26,import java.util.List;
+src/java/org/apache/cassandra/db/compaction/PrecompactedRow.java,28,import org.apache.cassandra.db.*;
+src/java/org/apache/cassandra/db/compaction/PrecompactedRow.java,29,import org.apache.cassandra.db.columniterator.IdentityQueryFilter;
+src/java/org/apache/cassandra/db/compaction/PrecompactedRow.java,30,import org.apache.cassandra.db.filter.IDiskAtomFilter;
+src/java/org/apache/cassandra/db/compaction/PrecompactedRow.java,31,import org.apache.cassandra.db.index.SecondaryIndexManager;
+src/java/org/apache/cassandra/db/compaction/PrecompactedRow.java,32,import org.apache.cassandra.io.sstable.ColumnStats;
+src/java/org/apache/cassandra/db/compaction/PrecompactedRow.java,33,import org.apache.cassandra.io.sstable.SSTableIdentityIterator;
+src/java/org/apache/cassandra/db/compaction/PrecompactedRow.java,34,import org.apache.cassandra.io.util.DataOutputBuffer;
+src/java/org/apache/cassandra/db/compaction/PrecompactedRow.java,35,import org.apache.cassandra.utils.CloseableIterator;
+src/java/org/apache/cassandra/db/compaction/PrecompactedRow.java,36,import org.apache.cassandra.utils.FBUtilities;
+src/java/org/apache/cassandra/db/compaction/PrecompactedRow.java,37,import org.apache.cassandra.utils.MergeIterator;
+src/java/org/apache/cassandra/db/compaction/PrecompactedRow.java,42,public class PrecompactedRow extends AbstractCompactedRow
+src/java/org/apache/cassandra/db/compaction/PrecompactedRow.java,44,private final ColumnFamily compactedCf;
+src/java/org/apache/cassandra/db/compaction/PrecompactedRow.java,50,super(key);
+src/java/org/apache/cassandra/db/compaction/PrecompactedRow.java,51,compactedCf = cf;
+src/java/org/apache/cassandra/db/compaction/PrecompactedRow.java,56,assert key != null;
+src/java/org/apache/cassandra/db/compaction/PrecompactedRow.java,57,assert controller != null;
+src/java/org/apache/cassandra/db/compaction/PrecompactedRow.java,58,assert cf != null;
+src/java/org/apache/cassandra/db/compaction/PrecompactedRow.java,64,Boolean shouldPurge = null;
+src/java/org/apache/cassandra/db/compaction/PrecompactedRow.java,67,shouldPurge = controller.shouldPurge(key, cf.maxTimestamp());
+src/java/org/apache/cassandra/db/compaction/PrecompactedRow.java,72,ColumnFamily compacted = ColumnFamilyStore.removeDeleted(cf, shouldPurge != null && shouldPurge ? controller.gcBefore : Integer.MIN_VALUE);
+src/java/org/apache/cassandra/db/compaction/PrecompactedRow.java,77,shouldPurge = controller.shouldPurge(key, cf.deletionInfo().maxTimestamp());
+src/java/org/apache/cassandra/db/compaction/PrecompactedRow.java,79,CounterColumn.mergeAndRemoveOldShards(key, compacted, controller.gcBefore, controller.mergeShardBefore);
+src/java/org/apache/cassandra/db/compaction/PrecompactedRow.java,82,return compacted;
+src/java/org/apache/cassandra/db/compaction/PrecompactedRow.java,88,ColumnFamily compacted = ColumnFamilyStore.removeDeleted(cf,
+src/java/org/apache/cassandra/db/compaction/PrecompactedRow.java,89,shouldPurge ? controller.gcBefore : Integer.MIN_VALUE,
+src/java/org/apache/cassandra/db/compaction/PrecompactedRow.java,90,controller.cfs.indexManager.updaterFor(key));
+src/java/org/apache/cassandra/db/compaction/PrecompactedRow.java,92,CounterColumn.mergeAndRemoveOldShards(key, compacted, controller.gcBefore, controller.mergeShardBefore);
+src/java/org/apache/cassandra/db/compaction/PrecompactedRow.java,93,return compacted;
+src/java/org/apache/cassandra/db/compaction/PrecompactedRow.java,98,this(rows.get(0).getKey(),
+src/java/org/apache/cassandra/db/compaction/PrecompactedRow.java,99,removeDeletedAndOldShards(rows.get(0).getKey(), controller, merge(rows, controller)));
+src/java/org/apache/cassandra/db/compaction/PrecompactedRow.java,104,assert !rows.isEmpty();
+src/java/org/apache/cassandra/db/compaction/PrecompactedRow.java,124,merge(returnCF, data, controller.cfs.indexManager.updaterFor(rows.get(0).getKey()));
+src/java/org/apache/cassandra/db/compaction/PrecompactedRow.java,126,return returnCF;
+src/java/org/apache/cassandra/db/compaction/PrecompactedRow.java,132,IDiskAtomFilter filter = new IdentityQueryFilter();
+src/java/org/apache/cassandra/db/compaction/PrecompactedRow.java,137,ColumnFamily container = returnCF.cloneMeShallow();
+src/java/org/apache/cassandra/db/compaction/PrecompactedRow.java,141,container.addColumn(column);
+src/java/org/apache/cassandra/db/compaction/PrecompactedRow.java,146,indexer.remove(column);
+src/java/org/apache/cassandra/db/compaction/PrecompactedRow.java,153,container.clear();
+src/java/org/apache/cassandra/db/compaction/PrecompactedRow.java,154,return c;
+src/java/org/apache/cassandra/db/compaction/PrecompactedRow.java,187,digest.update(buffer.getData(), 0, buffer.getLength());
+src/java/org/apache/cassandra/db/compaction/PrecompactedRow.java,193,compactedCf.updateDigest(digest);
+src/java/org/apache/cassandra/db/compaction/PrecompactedRow.java,203,return compactedCf.getColumnStats();
+src/java/org/apache/cassandra/db/compaction/PrecompactedRow.java,214,return compactedCf;
+src/java/org/apache/cassandra/db/compaction/PrecompactedRow.java,230,public void close() { }
+src/java/org/apache/cassandra/db/compaction/SSTableSplitter.java,102,return false;
+src/java/org/apache/cassandra/db/compaction/Scrubber.java,65,private final Set<AbstractCompactedRow> outOfOrderRows = new TreeSet<AbstractCompactedRow>(acrComparator);
+src/java/org/apache/cassandra/db/compaction/Scrubber.java,104,outputHandler.output("Scrubbing " + sstable);
+src/java/org/apache/cassandra/db/compaction/Scrubber.java,117,AbstractCompactedRow prevRow = null;
+src/java/org/apache/cassandra/db/compaction/Scrubber.java,173,AbstractCompactedRow compactedRow = controller.getCompactedRow(row);
+src/java/org/apache/cassandra/db/compaction/Scrubber.java,209,AbstractCompactedRow compactedRow = controller.getCompactedRow(row);
+src/java/org/apache/cassandra/db/compaction/Scrubber.java,272,inOrderWriter.append(row);
+src/java/org/apache/cassandra/db/compaction/Scrubber.java,356,return false;
+src/java/org/apache/cassandra/db/compaction/Upgrader.java,163,return false;
+src/java/org/apache/cassandra/db/ColumnIndex.java,147,add(c);
+src/java/org/apache/cassandra/gms/FailureDetector.java,191,long now = System.currentTimeMillis();
+src/java/org/apache/cassandra/gms/FailureDetector.java,208,long now = System.currentTimeMillis();
+src/java/org/apache/cassandra/gms/FailureDetector.java,273,private double tLast = 0L;
+src/java/org/apache/cassandra/gms/FailureDetector.java,324,double t = tnow - tLast;
+src/java/org/apache/cassandra/utils/BoundedStatsDeque.java,27,public class BoundedStatsDeque implements Iterable<Double>
+src/java/org/apache/cassandra/utils/BoundedStatsDeque.java,29,protected final LinkedBlockingDeque<Double> deque;
+src/java/org/apache/cassandra/utils/BoundedStatsDeque.java,33,deque = new LinkedBlockingDeque<Double>(size);

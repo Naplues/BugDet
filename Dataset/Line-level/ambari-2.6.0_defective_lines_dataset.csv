@@ -1,0 +1,1104 @@
+File,Line_number,SRC
+contrib/views/wfmanager/src/main/java/org/apache/oozie/ambari/view/OozieProxyImpersonator.java,157,return Response.ok(viewContext.getUsername()).build();
+contrib/views/hive-next/src/main/java/org/apache/ambari/view/hive2/actor/JdbcConnector.java,326,statementExecutor = getStatementExecutor();
+contrib/views/hive-next/src/main/java/org/apache/ambari/view/hive2/actor/JdbcConnector.java,381,statementExecutor = getStatementExecutor();
+contrib/views/hive-next/src/main/java/org/apache/ambari/view/hive2/actor/JdbcConnector.java,385,private ActorRef getStatementExecutor() {
+contrib/views/hive-next/src/main/java/org/apache/ambari/view/hive2/actor/LogAggregator.java,47,private final Logger LOG = LoggerFactory.getLogger(getClass());
+contrib/views/hive-next/src/main/java/org/apache/ambari/view/hive2/actor/LogAggregator.java,56,private boolean hasStartedFetching = false;
+contrib/views/hive-next/src/main/java/org/apache/ambari/view/hive2/actor/LogAggregator.java,57,private boolean shouldFetchMore = true;
+contrib/views/hive-next/src/main/java/org/apache/ambari/view/hive2/actor/LogAggregator.java,73,try {
+contrib/views/hive-next/src/main/java/org/apache/ambari/view/hive2/actor/LogAggregator.java,74,getMoreLogs();
+contrib/views/hive-next/src/main/java/org/apache/ambari/view/hive2/actor/LogAggregator.java,76,LOG.error("SQL Error while getting logs. Tried writing to: {}. Exception: {}", logFile, e);
+contrib/views/hive-next/src/main/java/org/apache/ambari/view/hive2/actor/LogAggregator.java,78,LOG.warn("HDFS Error while getting writing logs to {}. Exception: {}", logFile, e);
+contrib/views/hive-next/src/main/java/org/apache/ambari/view/hive2/actor/LogAggregator.java,86,hasStartedFetching = false;
+contrib/views/hive-next/src/main/java/org/apache/ambari/view/hive2/actor/LogAggregator.java,87,shouldFetchMore = true;
+contrib/views/hive-next/src/main/java/org/apache/ambari/view/hive2/actor/LogAggregator.java,92,if (!(moreLogsScheduler == null || moreLogsScheduler.isCancelled())) {
+contrib/views/hive-next/src/main/java/org/apache/ambari/view/hive2/actor/LogAggregator.java,93,moreLogsScheduler.cancel();
+contrib/views/hive-next/src/main/java/org/apache/ambari/view/hive2/actor/LogAggregator.java,96,Duration.Zero(), Duration.create(AGGREGATION_INTERVAL, TimeUnit.MILLISECONDS),
+contrib/views/hive-next/src/main/java/org/apache/ambari/view/hive2/actor/LogAggregator.java,97,this.getSelf(), new GetMoreLogs(), getContext().dispatcher(), null);
+contrib/views/hive-next/src/main/java/org/apache/ambari/view/hive2/actor/LogAggregator.java,100,private void getMoreLogs() throws SQLException, HdfsApiException {
+contrib/views/hive-next/src/main/java/org/apache/ambari/view/hive2/actor/LogAggregator.java,101,List<String> logs = statement.getQueryLog();
+contrib/views/hive-next/src/main/java/org/apache/ambari/view/hive2/actor/LogAggregator.java,102,if (logs.size() > 0 && shouldFetchMore) {
+contrib/views/hive-next/src/main/java/org/apache/ambari/view/hive2/actor/LogAggregator.java,103,allLogs = allLogs + "\n" + Joiner.on("\n").skipNulls().join(logs);
+contrib/views/hive-next/src/main/java/org/apache/ambari/view/hive2/actor/LogAggregator.java,104,HdfsUtil.putStringToFile(hdfsApi, logFile, allLogs);
+contrib/views/hive-next/src/main/java/org/apache/ambari/view/hive2/actor/LogAggregator.java,105,if(!statement.hasMoreLogs()) {
+contrib/views/hive-next/src/main/java/org/apache/ambari/view/hive2/actor/LogAggregator.java,106,shouldFetchMore = false;
+contrib/views/hive-next/src/main/java/org/apache/ambari/view/hive2/actor/LogAggregator.java,110,if(!shouldFetchMore) {
+contrib/views/hive-next/src/main/java/org/apache/ambari/view/hive2/actor/LogAggregator.java,111,moreLogsScheduler.cancel();
+contrib/views/hive-next/src/main/java/org/apache/ambari/view/hive2/actor/LogAggregator.java,112,parent.tell(new LogAggregationFinished(), ActorRef.noSender());
+contrib/views/hive-next/src/main/java/org/apache/ambari/view/hive2/actor/StatementExecutor.java,129,private void stopLogAggregation() {
+contrib/views/hive-next/src/main/java/org/apache/ambari/view/hive2/actor/StatementExecutor.java,130,if (logAggregator != null) {
+contrib/views/hive-next/src/main/java/org/apache/ambari/view/hive2/actor/StatementExecutor.java,131,getContext().stop(logAggregator);
+contrib/views/hive-next/src/main/java/org/apache/ambari/view/hive2/actor/StatementExecutor.java,133,logAggregator = null;
+contrib/views/hive-next/src/main/java/org/apache/ambari/view/hive2/actor/StatementExecutor.java,138,stopLogAggregation();
+contrib/views/hive20/src/main/java/org/apache/ambari/view/hive20/actor/JdbcConnector.java,357,statementExecutor = getStatementExecutor();
+contrib/views/hive20/src/main/java/org/apache/ambari/view/hive20/actor/JdbcConnector.java,412,statementExecutor = getStatementExecutor();
+contrib/views/hive20/src/main/java/org/apache/ambari/view/hive20/actor/JdbcConnector.java,422,statementExecutor = getStatementExecutor();
+contrib/views/hive20/src/main/java/org/apache/ambari/view/hive20/actor/JdbcConnector.java,426,private ActorRef getStatementExecutor() {
+contrib/views/hive20/src/main/java/org/apache/ambari/view/hive20/actor/JdbcConnector.java,428,.withDispatcher("akka.actor.result-dispatcher"),
+contrib/views/hive20/src/main/java/org/apache/ambari/view/hive20/actor/LogAggregator.java,26,import org.apache.ambari.view.hive20.actor.message.LogAggregationFinished;
+contrib/views/hive20/src/main/java/org/apache/ambari/view/hive20/actor/LogAggregator.java,29,import org.apache.ambari.view.utils.hdfs.HdfsApiException;
+contrib/views/hive20/src/main/java/org/apache/ambari/view/hive20/actor/LogAggregator.java,33,import org.slf4j.Logger;
+contrib/views/hive20/src/main/java/org/apache/ambari/view/hive20/actor/LogAggregator.java,34,import org.slf4j.LoggerFactory;
+contrib/views/hive20/src/main/java/org/apache/ambari/view/hive20/actor/LogAggregator.java,37,import java.sql.SQLException;
+contrib/views/hive20/src/main/java/org/apache/ambari/view/hive20/actor/LogAggregator.java,46,private final Logger LOG = LoggerFactory.getLogger(getClass());
+contrib/views/hive20/src/main/java/org/apache/ambari/view/hive20/actor/LogAggregator.java,55,private boolean hasStartedFetching = false;
+contrib/views/hive20/src/main/java/org/apache/ambari/view/hive20/actor/LogAggregator.java,56,private boolean shouldFetchMore = true;
+contrib/views/hive20/src/main/java/org/apache/ambari/view/hive20/actor/LogAggregator.java,72,try {
+contrib/views/hive20/src/main/java/org/apache/ambari/view/hive20/actor/LogAggregator.java,73,getMoreLogs();
+contrib/views/hive20/src/main/java/org/apache/ambari/view/hive20/actor/LogAggregator.java,75,LOG.warn("SQL Error while getting logs. Tried writing to: {}. Exception: {}", logFile, e.getMessage());
+contrib/views/hive20/src/main/java/org/apache/ambari/view/hive20/actor/LogAggregator.java,77,LOG.warn("HDFS Error while writing logs to {}. Exception: {}", logFile, e.getMessage());
+contrib/views/hive20/src/main/java/org/apache/ambari/view/hive20/actor/LogAggregator.java,86,hasStartedFetching = false;
+contrib/views/hive20/src/main/java/org/apache/ambari/view/hive20/actor/LogAggregator.java,87,shouldFetchMore = true;
+contrib/views/hive20/src/main/java/org/apache/ambari/view/hive20/actor/LogAggregator.java,92,if (!(moreLogsScheduler == null || moreLogsScheduler.isCancelled())) {
+contrib/views/hive20/src/main/java/org/apache/ambari/view/hive20/actor/LogAggregator.java,93,moreLogsScheduler.cancel();
+contrib/views/hive20/src/main/java/org/apache/ambari/view/hive20/actor/LogAggregator.java,96,Duration.Zero(), Duration.create(AGGREGATION_INTERVAL, TimeUnit.MILLISECONDS),
+contrib/views/hive20/src/main/java/org/apache/ambari/view/hive20/actor/LogAggregator.java,97,this.getSelf(), new GetMoreLogs(), getContext().dispatcher(), null);
+contrib/views/hive20/src/main/java/org/apache/ambari/view/hive20/actor/LogAggregator.java,100,private void getMoreLogs() throws SQLException, HdfsApiException {
+contrib/views/hive20/src/main/java/org/apache/ambari/view/hive20/actor/LogAggregator.java,101,List<String> logs = statement.getQueryLog();
+contrib/views/hive20/src/main/java/org/apache/ambari/view/hive20/actor/LogAggregator.java,102,if (logs.size() > 0 && shouldFetchMore) {
+contrib/views/hive20/src/main/java/org/apache/ambari/view/hive20/actor/LogAggregator.java,103,allLogs = allLogs + "\n" + Joiner.on("\n").skipNulls().join(logs);
+contrib/views/hive20/src/main/java/org/apache/ambari/view/hive20/actor/LogAggregator.java,104,HdfsUtil.putStringToFile(hdfsApi, logFile, allLogs);
+contrib/views/hive20/src/main/java/org/apache/ambari/view/hive20/actor/LogAggregator.java,105,if(!statement.hasMoreLogs()) {
+contrib/views/hive20/src/main/java/org/apache/ambari/view/hive20/actor/LogAggregator.java,106,shouldFetchMore = false;
+contrib/views/hive20/src/main/java/org/apache/ambari/view/hive20/actor/LogAggregator.java,110,if(!shouldFetchMore) {
+contrib/views/hive20/src/main/java/org/apache/ambari/view/hive20/actor/LogAggregator.java,111,moreLogsScheduler.cancel();
+contrib/views/hive20/src/main/java/org/apache/ambari/view/hive20/actor/LogAggregator.java,112,parent.tell(new LogAggregationFinished(), ActorRef.noSender());
+contrib/views/hive20/src/main/java/org/apache/ambari/view/hive20/actor/StatementExecutor.java,133,private void stopLogAggregation() {
+contrib/views/hive20/src/main/java/org/apache/ambari/view/hive20/actor/StatementExecutor.java,134,if (logAggregator != null) {
+contrib/views/hive20/src/main/java/org/apache/ambari/view/hive20/actor/StatementExecutor.java,135,getContext().stop(logAggregator);
+contrib/views/hive20/src/main/java/org/apache/ambari/view/hive20/actor/StatementExecutor.java,137,logAggregator = null;
+contrib/views/hive20/src/main/java/org/apache/ambari/view/hive20/actor/StatementExecutor.java,142,stopLogAggregation();
+ambari-server/src/main/java/org/apache/ambari/server/view/ViewExtractor.java,161,return getArchiveClassLoader(viewConfig, archiveDir);
+ambari-server/src/main/java/org/apache/ambari/server/view/ViewExtractor.java,205,File   libDir  = archiveUtility.getFile(libPath);
+ambari-server/src/main/java/org/apache/ambari/server/view/ViewExtractor.java,218,urlList.add(archiveDir.toURI().toURL());
+ambari-server/src/main/java/org/apache/ambari/server/view/ViewExtractor.java,220,return new ViewClassLoader(viewConfig, urlList.toArray(new URL[urlList.size()]));
+ambari-server/src/main/java/org/apache/ambari/server/view/ViewRegistry.java,1806,ClassLoader cl = extractor.extractViewArchive(viewDefinition, archiveFile, extractedArchiveDirFile);
+ambari-server/src/main/java/org/apache/ambari/server/view/ViewRegistry.java,2114,classLoader = extractor.extractViewArchive(viewDefinition, archiveFile, extractedArchiveDirFile);
+ambari-server/src/main/java/org/apache/ambari/server/checks/DatabaseConsistencyCheckHelper.java,54,import org.apache.ambari.server.orm.entities.ConfigGroupConfigMappingEntity;
+ambari-server/src/main/java/org/apache/ambari/server/checks/DatabaseConsistencyCheckHelper.java,63,import org.apache.ambari.server.state.Config;
+ambari-server/src/main/java/org/apache/ambari/server/checks/DatabaseConsistencyCheckHelper.java,64,import org.apache.ambari.server.state.DesiredConfig;
+ambari-server/src/main/java/org/apache/ambari/server/checks/DatabaseConsistencyCheckHelper.java,1307,LOG.info("Deleting config group {} with id {} for deleted service {}",
+ambari-server/src/main/java/org/apache/ambari/server/checks/DatabaseConsistencyCheckHelper.java,1308,configGroup.getName(), id, configGroup.getServiceName());
+ambari-server/src/main/java/org/apache/ambari/server/checks/DatabaseConsistencyCheckHelper.java,1309,try {
+ambari-server/src/main/java/org/apache/ambari/server/checks/DatabaseConsistencyCheckHelper.java,1310,Cluster cluster = clusters.getCluster(configGroup.getClusterName());
+ambari-server/src/main/java/org/apache/ambari/server/checks/DatabaseConsistencyCheckHelper.java,1311,cluster.deleteConfigGroup(id);
+ambari-server/src/main/java/org/apache/ambari/server/controller/internal/HostStackVersionResourceProvider.java,440,ActionExecutionContext actionContext = new ActionExecutionContext(
+ambari-server/src/main/java/org/apache/ambari/server/controller/internal/HostStackVersionResourceProvider.java,441,cluster.getClusterName(), INSTALL_PACKAGES_ACTION,
+ambari-server/src/main/java/org/apache/ambari/server/controller/internal/HostStackVersionResourceProvider.java,442,Collections.singletonList(filter),
+ambari-server/src/main/java/org/apache/ambari/server/controller/internal/HostStackVersionResourceProvider.java,443,roleParams);
+ambari-server/src/main/java/org/apache/ambari/server/controller/internal/HostStackVersionResourceProvider.java,444,actionContext.setTimeout(Short.valueOf(configuration.getDefaultAgentTaskTimeout(true)));
+ambari-server/src/main/java/org/apache/ambari/server/controller/internal/HostStackVersionResourceProvider.java,463,Stage stage = stageFactory.createNew(req.getId(),
+ambari-server/src/main/java/org/apache/ambari/server/controller/internal/HostStackVersionResourceProvider.java,465,cluster.getClusterName(),
+ambari-server/src/main/java/org/apache/ambari/server/controller/internal/HostStackVersionResourceProvider.java,466,cluster.getClusterId(),
+ambari-server/src/main/java/org/apache/ambari/server/controller/internal/HostStackVersionResourceProvider.java,467,caption,
+ambari-server/src/main/java/org/apache/ambari/server/controller/internal/HostStackVersionResourceProvider.java,469,StageUtils.getGson().toJson(hostLevelParams));
+ambari-server/src/main/java/org/apache/ambari/server/controller/internal/HostStackVersionResourceProvider.java,471,long stageId = req.getLastStageId() + 1;
+ambari-server/src/main/java/org/apache/ambari/server/controller/internal/HostStackVersionResourceProvider.java,472,if (0L == stageId) {
+ambari-server/src/main/java/org/apache/ambari/server/controller/internal/HostStackVersionResourceProvider.java,473,stageId = 1L;
+ambari-server/src/main/java/org/apache/ambari/server/controller/internal/HostStackVersionResourceProvider.java,475,stage.setStageId(stageId);
+ambari-server/src/main/java/org/apache/ambari/server/controller/internal/HostStackVersionResourceProvider.java,476,req.setClusterHostInfo(clusterHostInfoJson);
+ambari-server/src/main/java/org/apache/ambari/server/controller/internal/HostStackVersionResourceProvider.java,477,req.addStages(Collections.singletonList(stage));
+ambari-server/src/main/java/org/apache/ambari/server/controller/internal/HostStackVersionResourceProvider.java,479,try {
+ambari-server/src/main/java/org/apache/ambari/server/controller/internal/HostStackVersionResourceProvider.java,480,actionExecutionHelper.get().addExecutionCommandsToStage(actionContext, stage, null, !forceInstallOnNonMemberHost);
+ambari-server/src/main/java/org/apache/ambari/server/controller/internal/HostStackVersionResourceProvider.java,482,throw new SystemException("Can not modify stage", e);
+ambari-server/src/main/java/org/apache/ambari/server/controller/internal/HostStackVersionResourceProvider.java,485,if (forceInstallOnNonMemberHost) {
+ambari-server/src/main/java/org/apache/ambari/server/controller/internal/HostStackVersionResourceProvider.java,486,addSelectStackStage(desiredRepoVersion, forceInstallOnNonMemberHost, cluster, filter, caption, req,
+ambari-server/src/main/java/org/apache/ambari/server/controller/internal/HostStackVersionResourceProvider.java,487,hostLevelParams, clusterHostInfoJson);
+ambari-server/src/main/java/org/apache/ambari/server/controller/internal/HostStackVersionResourceProvider.java,502,private void addSelectStackStage(String desiredRepoVersion, boolean forceInstallOnNonMemberHost, Cluster cluster,
+ambari-server/src/main/java/org/apache/ambari/server/controller/internal/HostStackVersionResourceProvider.java,503,RequestResourceFilter filter, String caption, RequestStageContainer req, Map<String, String> hostLevelParams, String clusterHostInfoJson) throws SystemException {
+ambari-server/src/main/java/org/apache/ambari/server/controller/internal/HostStackVersionResourceProvider.java,504,Stage stage;
+ambari-server/src/main/java/org/apache/ambari/server/controller/internal/HostStackVersionResourceProvider.java,505,long stageId;
+ambari-server/src/main/java/org/apache/ambari/server/controller/internal/HostStackVersionResourceProvider.java,506,ActionExecutionContext actionContext;
+ambari-server/src/main/java/org/apache/ambari/server/controller/internal/HostStackVersionResourceProvider.java,507,Map<String, String> commandParams = new HashMap<>();
+ambari-server/src/main/java/org/apache/ambari/server/controller/internal/HostStackVersionResourceProvider.java,508,commandParams.put("version", desiredRepoVersion);
+ambari-server/src/main/java/org/apache/ambari/server/controller/internal/HostStackVersionResourceProvider.java,510,stage = stageFactory.createNew(req.getId(),
+ambari-server/src/main/java/org/apache/ambari/server/controller/internal/HostStackVersionResourceProvider.java,515,StageUtils.getGson().toJson(commandParams),
+ambari-server/src/main/java/org/apache/ambari/server/controller/internal/HostStackVersionResourceProvider.java,516,StageUtils.getGson().toJson(hostLevelParams));
+ambari-server/src/main/java/org/apache/ambari/server/controller/internal/HostStackVersionResourceProvider.java,518,stageId = req.getLastStageId() + 1;
+ambari-server/src/main/java/org/apache/ambari/server/controller/internal/HostStackVersionResourceProvider.java,526,actionContext = new ActionExecutionContext(
+ambari-server/src/main/java/org/apache/ambari/server/controller/internal/HostStackVersionResourceProvider.java,527,cluster.getClusterName(), STACK_SELECT_ACTION,
+ambari-server/src/main/java/org/apache/ambari/server/controller/internal/HostStackVersionResourceProvider.java,528,Collections.singletonList(filter),
+ambari-server/src/main/java/org/apache/ambari/server/controller/internal/HostStackVersionResourceProvider.java,529,Collections.<String, String>emptyMap());
+ambari-server/src/main/java/org/apache/ambari/server/controller/internal/HostStackVersionResourceProvider.java,530,actionContext.setTimeout(Short.valueOf(configuration.getDefaultAgentTaskTimeout(true)));
+ambari-server/src/main/java/org/apache/ambari/server/controller/internal/HostStackVersionResourceProvider.java,533,actionExecutionHelper.get().addExecutionCommandsToStage(actionContext, stage, null, !forceInstallOnNonMemberHost);
+contrib/views/hive20/src/main/java/org/apache/ambari/view/hive20/internal/query/generators/InsertFromQueryGenerator.java,50,insertQuery.append("set hive.exec.dynamic.partition.mode=nonstrict;").append("\n");
+ambari-server/src/main/java/org/apache/ambari/server/controller/AmbariManagementControllerImpl.java,331,final private static String JDK_RESOURCE_LOCATION =
+ambari-server/src/main/java/org/apache/ambari/server/controller/AmbariServer.java,487,ServletHolder resources = new ServletHolder(ServletContainer.class);
+ambari-server/src/main/java/org/apache/ambari/server/controller/AmbariServer.java,488,resources.setInitParameter("com.sun.jersey.config.property.resourceConfigClass",
+ambari-server/src/main/java/org/apache/ambari/server/controller/AmbariServer.java,490,resources.setInitParameter("com.sun.jersey.config.property.packages",
+ambari-server/src/main/java/org/apache/ambari/server/state/stack/upgrade/Grouping.java,228,if (m_grouping.parallelScheduler != null && m_grouping.parallelScheduler.maxDegreeOfParallelism > 0) {
+ambari-server/src/main/java/org/apache/ambari/server/state/stack/upgrade/Grouping.java,229,hostSets = SetUtils.split(tw.getHosts(), m_grouping.parallelScheduler.maxDegreeOfParallelism);
+ambari-server/src/main/java/org/apache/ambari/server/state/stack/upgrade/ParallelScheduler.java,27,public static int DEFAULT_MAX_DEGREE_OF_PARALLELISM = 100;
+contrib/views/hive20/src/main/java/org/apache/ambari/view/hive20/resources/uploads/UploadService.java,468,private PreviewData generatePreview(Boolean isFirstRowHeader, String inputFileType, CSVParams csvParams, InputStream uploadedInputStream) throws Exception {
+contrib/views/hive20/src/main/java/org/apache/ambari/view/hive20/resources/uploads/UploadService.java,486,DataParser dataParser = new DataParser(new InputStreamReader(uploadedInputStream), parseOptions);
+contrib/views/hive20/src/main/java/org/apache/ambari/view/hive20/resources/uploads/UploadService.java,532,DataParser dataParser = new DataParser(new InputStreamReader(uploadedInputStream), parseOptions);
+ambari-server/src/main/java/org/apache/ambari/server/state/repository/VersionDefinitionXml.java,75,import jline.internal.Log;
+ambari-server/src/main/java/org/apache/ambari/server/state/repository/VersionDefinitionXml.java,360,Log.warn("Unable to deserialize the stack packages JSON, assuming no service dependencies",
+ambari-logsearch/ambari-logsearch-portal/src/main/java/org/apache/ambari/logsearch/common/ExternalServerClient.java,29,import org.apache.commons.httpclient.auth.InvalidCredentialsException;
+ambari-logsearch/ambari-logsearch-portal/src/main/java/org/apache/ambari/logsearch/solr/metrics/SolrAmsClient.java,20,package org.apache.ambari.logsearch.solr.metrics;
+ambari-logsearch/ambari-logsearch-portal/src/main/java/org/apache/ambari/logsearch/solr/metrics/SolrAmsClient.java,22,import org.apache.hadoop.metrics2.sink.timeline.AbstractTimelineMetricsSink;
+ambari-logsearch/ambari-logsearch-portal/src/main/java/org/apache/ambari/logsearch/solr/metrics/SolrAmsClient.java,23,import org.apache.hadoop.metrics2.sink.timeline.TimelineMetrics;
+ambari-logsearch/ambari-logsearch-portal/src/main/java/org/apache/ambari/logsearch/solr/metrics/SolrAmsClient.java,25,import java.util.Collection;
+ambari-logsearch/ambari-logsearch-portal/src/main/java/org/apache/ambari/logsearch/solr/metrics/SolrAmsClient.java,28,public class SolrAmsClient extends AbstractTimelineMetricsSink {
+ambari-logsearch/ambari-logsearch-portal/src/main/java/org/apache/ambari/logsearch/solr/metrics/SolrAmsClient.java,29,private final String collectorHost;
+ambari-logsearch/ambari-logsearch-portal/src/main/java/org/apache/ambari/logsearch/solr/metrics/SolrAmsClient.java,31,public SolrAmsClient(String collectorHost) {
+ambari-logsearch/ambari-logsearch-portal/src/main/java/org/apache/ambari/logsearch/solr/metrics/SolrAmsClient.java,32,this.collectorHost = collectorHost;
+ambari-logsearch/ambari-logsearch-portal/src/main/java/org/apache/ambari/logsearch/solr/metrics/SolrAmsClient.java,36,public String getCollectorUri(String host) {
+ambari-logsearch/ambari-logsearch-portal/src/main/java/org/apache/ambari/logsearch/solr/metrics/SolrAmsClient.java,37,return collectorHost;
+ambari-logsearch/ambari-logsearch-portal/src/main/java/org/apache/ambari/logsearch/solr/metrics/SolrAmsClient.java,41,protected int getTimeoutSeconds() {
+ambari-logsearch/ambari-logsearch-portal/src/main/java/org/apache/ambari/logsearch/solr/metrics/SolrAmsClient.java,42,return 10;
+ambari-logsearch/ambari-logsearch-portal/src/main/java/org/apache/ambari/logsearch/solr/metrics/SolrAmsClient.java,46,protected String getZookeeperQuorum() {
+ambari-logsearch/ambari-logsearch-portal/src/main/java/org/apache/ambari/logsearch/solr/metrics/SolrAmsClient.java,47,return null;
+ambari-logsearch/ambari-logsearch-portal/src/main/java/org/apache/ambari/logsearch/solr/metrics/SolrAmsClient.java,51,protected Collection<String> getConfiguredCollectorHosts() {
+ambari-logsearch/ambari-logsearch-portal/src/main/java/org/apache/ambari/logsearch/solr/metrics/SolrAmsClient.java,52,return null;
+ambari-logsearch/ambari-logsearch-portal/src/main/java/org/apache/ambari/logsearch/solr/metrics/SolrAmsClient.java,56,protected String getHostname() {
+ambari-logsearch/ambari-logsearch-portal/src/main/java/org/apache/ambari/logsearch/solr/metrics/SolrAmsClient.java,57,return null;
+ambari-logsearch/ambari-logsearch-portal/src/main/java/org/apache/ambari/logsearch/solr/metrics/SolrAmsClient.java,61,protected boolean emitMetrics(TimelineMetrics metrics) {
+ambari-logsearch/ambari-logsearch-portal/src/main/java/org/apache/ambari/logsearch/solr/metrics/SolrAmsClient.java,62,return super.emitMetrics(metrics);
+ambari-logsearch/ambari-logsearch-portal/src/main/java/org/apache/ambari/logsearch/solr/metrics/SolrAmsClient.java,66,protected String getCollectorProtocol() {
+ambari-logsearch/ambari-logsearch-portal/src/main/java/org/apache/ambari/logsearch/solr/metrics/SolrAmsClient.java,67,return null;
+ambari-logsearch/ambari-logsearch-portal/src/main/java/org/apache/ambari/logsearch/solr/metrics/SolrAmsClient.java,71,protected String getCollectorPort() {
+ambari-logsearch/ambari-logsearch-portal/src/main/java/org/apache/ambari/logsearch/solr/metrics/SolrAmsClient.java,72,return null;
+ambari-logsearch/ambari-logsearch-portal/src/main/java/org/apache/ambari/logsearch/util/JSONUtil.java,33,import org.codehaus.jackson.JsonParseException;
+ambari-logsearch/ambari-logsearch-portal/src/main/java/org/apache/ambari/logsearch/util/JSONUtil.java,34,import org.codehaus.jackson.map.JsonMappingException;
+ambari-logsearch/ambari-logsearch-portal/src/main/java/org/apache/ambari/logsearch/util/JSONUtil.java,35,import org.codehaus.jackson.map.ObjectMapper;
+ambari-logsearch/ambari-logsearch-portal/src/main/java/org/apache/ambari/logsearch/util/JSONUtil.java,36,import org.codehaus.jackson.type.TypeReference;
+ambari-metrics/ambari-metrics-timelineservice/src/main/java/org/apache/hadoop/yarn/server/applicationhistoryservice/metrics/timeline/PhoenixHBaseAccessor.java,1199,String metricRegEx;
+ambari-metrics/ambari-metrics-timelineservice/src/main/java/org/apache/hadoop/yarn/server/applicationhistoryservice/metrics/timeline/PhoenixHBaseAccessor.java,1203,if (metricNameEntry.contains("*") || metricNameEntry.contains("__%")) {
+ambari-metrics/ambari-metrics-timelineservice/src/main/java/org/apache/hadoop/yarn/server/applicationhistoryservice/metrics/timeline/PhoenixHBaseAccessor.java,1204,String metricNameWithEscSeq = metricNameEntry.replace("*", "\\*").replace("__%", "..%");
+ambari-metrics/ambari-metrics-timelineservice/src/main/java/org/apache/hadoop/yarn/server/applicationhistoryservice/metrics/timeline/PhoenixHBaseAccessor.java,1205,metricRegEx = metricNameWithEscSeq.replace("%", ".*");
+ambari-metrics/ambari-metrics-timelineservice/src/main/java/org/apache/hadoop/yarn/server/applicationhistoryservice/metrics/timeline/PhoenixHBaseAccessor.java,1207,metricRegEx = metricNameEntry.replace("%", ".*");
+ambari-metrics/ambari-metrics-timelineservice/src/main/java/org/apache/hadoop/yarn/server/applicationhistoryservice/metrics/timeline/aggregators/AbstractTimelineAggregator.java,432,LOG.debug("Downsampler Query issued...");
+ambari-metrics/ambari-metrics-timelineservice/src/main/java/org/apache/hadoop/yarn/server/applicationhistoryservice/metrics/timeline/aggregators/AbstractTimelineAggregator.java,436,LOG.info(rows + " row(s) updated in downsampling.");
+ambari-metrics/ambari-metrics-timelineservice/src/main/java/org/apache/hadoop/yarn/server/applicationhistoryservice/metrics/timeline/aggregators/DownSamplerUtils.java,27,import java.util.Arrays;
+ambari-metrics/ambari-metrics-timelineservice/src/main/java/org/apache/hadoop/yarn/server/applicationhistoryservice/metrics/timeline/aggregators/DownSamplerUtils.java,41,public static final String topNDownSampler = "topn";
+ambari-metrics/ambari-metrics-timelineservice/src/main/java/org/apache/hadoop/yarn/server/applicationhistoryservice/metrics/timeline/aggregators/DownSamplerUtils.java,111,if (StringUtils.isNotEmpty(type) && type.equalsIgnoreCase(topNDownSampler)) {
+ambari-metrics/ambari-metrics-timelineservice/src/main/java/org/apache/hadoop/yarn/server/applicationhistoryservice/metrics/timeline/aggregators/TimelineMetricReadHelper.java,75,value = rs.getDouble("METRIC_SUM") / rs.getInt("METRIC_COUNT");
+ambari-metrics/ambari-metrics-timelineservice/src/main/java/org/apache/hadoop/yarn/server/applicationhistoryservice/metrics/timeline/aggregators/TopNDownSampler.java,42,String metricPatterns = conf.get(DownSamplerUtils.downSamplerConfigPrefix + "topn." +
+ambari-server/src/main/java/org/apache/ambari/server/state/cluster/ClusterImpl.java,1314,if (configGroup.getServiceName().equalsIgnoreCase(serviceName)) {
+ambari-server/src/main/java/org/apache/ambari/server/configuration/Configuration.java,397,AmbariPath.getPath("/usr/lib/python2.6/site-packages/ambari_server/setupAgent.py"));
+ambari-server/src/main/java/org/apache/ambari/server/controller/utilities/state/DefaultServiceCalculatedState.java,120,if (isInMaintenance & !componentInfo.isClient()) {
+ambari-server/src/main/java/org/apache/ambari/server/topology/AsyncCallableService.java,94,timeLeft = timeout - (System.currentTimeMillis() - startTime);
+ambari-server/src/main/java/org/apache/ambari/server/topology/AsyncCallableService.java,97,if (timeLeft < retryDelay) {
+ambari-server/src/main/java/org/apache/ambari/server/topology/tasks/ConfigureClusterTask.java,74,LOG.info("Some host groups require more hosts, cluster configuration cannot begin");
+ambari-server/src/main/java/org/apache/ambari/server/topology/tasks/ConfigureClusterTask.java,75,throw new AsyncCallableService.RetryTaskSilently();
+ambari-server/src/main/java/org/apache/ambari/server/controller/internal/HostComponentResourceProvider.java,798,int retriesRemaining = 100;
+ambari-server/src/main/java/org/apache/ambari/server/controller/internal/HostComponentResourceProvider.java,799,do {
+ambari-server/src/main/java/org/apache/ambari/server/controller/internal/HostComponentResourceProvider.java,800,try {
+ambari-server/src/main/java/org/apache/ambari/server/controller/internal/HostComponentResourceProvider.java,801,stageContainer = updateHostComponents(stages, requests, request.getRequestInfoProperties(),
+ambari-server/src/main/java/org/apache/ambari/server/controller/internal/HostComponentResourceProvider.java,802,runSmokeTest);
+ambari-server/src/main/java/org/apache/ambari/server/controller/internal/HostComponentResourceProvider.java,804,if (--retriesRemaining == 0) {
+ambari-server/src/main/java/org/apache/ambari/server/controller/internal/HostComponentResourceProvider.java,805,LOG.info("Caught an exception while updating host components, will not try again: {}", e.getMessage(), e);
+ambari-server/src/main/java/org/apache/ambari/server/controller/internal/HostComponentResourceProvider.java,807,if (IllegalArgumentException.class.isInstance(e)) {
+ambari-server/src/main/java/org/apache/ambari/server/controller/internal/HostComponentResourceProvider.java,808,throw (IllegalArgumentException) e;
+ambari-server/src/main/java/org/apache/ambari/server/controller/internal/HostComponentResourceProvider.java,810,throw new RuntimeException("Update Host request submission failed: " + e, e);
+ambari-server/src/main/java/org/apache/ambari/server/controller/internal/HostComponentResourceProvider.java,813,LOG.info("Caught an exception while updating host components, retrying : " + e);
+ambari-server/src/main/java/org/apache/ambari/server/controller/internal/HostComponentResourceProvider.java,814,try {
+ambari-server/src/main/java/org/apache/ambari/server/controller/internal/HostComponentResourceProvider.java,815,Thread.sleep(250);
+ambari-server/src/main/java/org/apache/ambari/server/controller/internal/HostComponentResourceProvider.java,817,Thread.currentThread().interrupt();
+ambari-server/src/main/java/org/apache/ambari/server/controller/internal/HostComponentResourceProvider.java,818,throw new RuntimeException("Update Host request submission failed: " + e, e);
+ambari-server/src/main/java/org/apache/ambari/server/controller/internal/RequestResourceProvider.java,26,import java.util.Arrays;
+ambari-server/src/main/java/org/apache/ambari/server/controller/internal/RequestResourceProvider.java,130,protected static final String EXLUSIVE_ID = "exclusive";
+ambari-server/src/main/java/org/apache/ambari/server/controller/internal/RequestResourceProvider.java,132,private static Set<String> pkPropertyIds =
+ambari-server/src/main/java/org/apache/ambari/server/controller/internal/RequestResourceProvider.java,133,new HashSet<String>(Arrays.asList(new String[]{
+ambari-server/src/main/java/org/apache/ambari/server/controller/internal/RequestResourceProvider.java,134,REQUEST_ID_PROPERTY_ID}));
+ambari-server/src/main/java/org/apache/ambari/server/controller/internal/RequestResourceProvider.java,421,return pkPropertyIds;
+ambari-server/src/main/java/org/apache/ambari/server/controller/internal/RequestResourceProvider.java,479,if (requestInfoProperties.containsKey(EXLUSIVE_ID)) {
+ambari-server/src/main/java/org/apache/ambari/server/controller/internal/RequestResourceProvider.java,480,exclusive = Boolean.valueOf(requestInfoProperties.get(EXLUSIVE_ID).trim());
+ambari-server/src/main/java/org/apache/ambari/server/controller/internal/RequestResourceProvider.java,754,setResourceProperty(resource, REQUEST_CONTEXT_ID, entity.getRequestContext(), requestedPropertyIds);
+ambari-server/src/main/java/org/apache/ambari/server/controller/internal/RequestResourceProvider.java,810,if (logicalRequest.getHostRequests().isEmpty()) {
+ambari-server/src/main/java/org/apache/ambari/server/controller/internal/RequestResourceProvider.java,811,status = CalculatedStatus.COMPLETED;
+ambari-server/src/main/java/org/apache/ambari/server/controller/internal/RequestResourceProvider.java,813,status = CalculatedStatus.PENDING;
+ambari-server/src/main/java/org/apache/ambari/server/orm/entities/TopologyHostRequestEntity.java,23,import javax.persistence.GeneratedValue;
+ambari-server/src/main/java/org/apache/ambari/server/orm/entities/TopologyHostRequestEntity.java,24,import javax.persistence.GenerationType;
+ambari-server/src/main/java/org/apache/ambari/server/orm/entities/TopologyHostRequestEntity.java,32,import javax.persistence.TableGenerator;
+ambari-server/src/main/java/org/apache/ambari/server/orm/entities/TopologyHostRequestEntity.java,33,import java.util.Collection;
+ambari-server/src/main/java/org/apache/ambari/server/topology/AsyncCallableService.java,59,public AsyncCallableService(Callable<T> task, long timeout, long retryDelay, String taskName) {
+ambari-server/src/main/java/org/apache/ambari/server/topology/AsyncCallableService.java,60,this(task, timeout, retryDelay, taskName, Executors.newScheduledThreadPool(1));
+ambari-server/src/main/java/org/apache/ambari/server/topology/AsyncCallableService.java,63,public AsyncCallableService(Callable<T> task, long timeout, long retryDelay, String taskName, ScheduledExecutorService executorService) {
+ambari-server/src/main/java/org/apache/ambari/server/topology/AsyncCallableService.java,90,Throwable cause = e.getCause();
+ambari-server/src/main/java/org/apache/ambari/server/topology/HostOfferResponse.java,25,import org.apache.ambari.server.topology.tasks.TopologyTask;
+ambari-server/src/main/java/org/apache/ambari/server/topology/HostOfferResponse.java,43,private final List<TopologyTask> tasks;
+ambari-server/src/main/java/org/apache/ambari/server/topology/HostOfferResponse.java,45,static HostOfferResponse createAcceptedResponse(long hostRequestId, String hostGroupName, List<TopologyTask> tasks) {
+ambari-server/src/main/java/org/apache/ambari/server/topology/HostOfferResponse.java,53,private HostOfferResponse(Answer answer, long hostRequestId, String hostGroupName, List<TopologyTask> tasks) {
+ambari-server/src/main/java/org/apache/ambari/server/topology/HostOfferResponse.java,81,for (TopologyTask task : tasks) {
+ambari-server/src/main/java/org/apache/ambari/server/topology/HostOfferResponse.java,82,LOG.info("Running task for accepted host offer for hostname = {}, task = {}", hostName, task.getType());
+ambari-server/src/main/java/org/apache/ambari/server/topology/HostOfferResponse.java,83,task.run();
+ambari-server/src/main/java/org/apache/ambari/server/topology/HostRequest.java,80,private List<TopologyTask> topologyTasks = new ArrayList<TopologyTask>();
+ambari-server/src/main/java/org/apache/ambari/server/topology/HostRequest.java,310,public List<TopologyTask> getTopologyTasks() {
+ambari-server/src/main/java/org/apache/ambari/server/topology/TopologyManager.java,46,import org.apache.ambari.server.controller.ShortTaskStatus;
+ambari-server/src/main/java/org/apache/ambari/server/topology/TopologyManager.java,340,addClusterConfigRequest(topology, new ClusterConfigurationRequest(ambariContext, topology, true,
+ambari-server/src/main/java/org/apache/ambari/server/topology/TopologyManager.java,1051,LOG.info("TopologyManager.replayRequests: no config with TOPOLOGY_RESOLVED found, adding cluster config request");
+ambari-server/src/main/java/org/apache/ambari/server/topology/TopologyManager.java,1052,addClusterConfigRequest(topology, new ClusterConfigurationRequest(
+ambari-server/src/main/java/org/apache/ambari/server/topology/TopologyManager.java,1053,ambariContext, topology, false, stackAdvisorBlueprintProcessor));
+ambari-server/src/main/java/org/apache/ambari/server/topology/TopologyManager.java,1065,if(logicalRequest != null) {
+ambari-server/src/main/java/org/apache/ambari/server/topology/TopologyManager.java,1066,boolean completed = true;
+ambari-server/src/main/java/org/apache/ambari/server/topology/TopologyManager.java,1067,for(ShortTaskStatus ts : logicalRequest.getRequestStatus().getTasks()) {
+ambari-server/src/main/java/org/apache/ambari/server/topology/TopologyManager.java,1068,if(!HostRoleStatus.valueOf(ts.getStatus()).isCompletedState()) {
+ambari-server/src/main/java/org/apache/ambari/server/topology/TopologyManager.java,1069,completed = false;
+ambari-server/src/main/java/org/apache/ambari/server/topology/TopologyManager.java,1072,return completed;
+ambari-server/src/main/java/org/apache/ambari/server/topology/TopologyManager.java,1074,return false;
+ambari-server/src/main/java/org/apache/ambari/server/topology/TopologyManager.java,1083,if(logicalRequest != null) {
+ambari-server/src/main/java/org/apache/ambari/server/topology/TopologyManager.java,1084,for(ShortTaskStatus ts : logicalRequest.getRequestStatus().getTasks()) {
+ambari-server/src/main/java/org/apache/ambari/server/topology/TopologyManager.java,1085,if(HostRoleStatus.valueOf(ts.getStatus()) != HostRoleStatus.COMPLETED) {
+ambari-server/src/main/java/org/apache/ambari/server/topology/TopologyManager.java,1086,return false;
+ambari-server/src/main/java/org/apache/ambari/server/topology/TopologyManager.java,1090,return true;
+ambari-server/src/main/java/org/apache/ambari/server/topology/TopologyManager.java,1121,private void addClusterConfigRequest(ClusterTopology topology, ClusterConfigurationRequest configurationRequest) {
+ambari-server/src/main/java/org/apache/ambari/server/topology/TopologyManager.java,1123,executor.submit(new AsyncCallableService<>(task, task.getTimeout(), task.getRepeatDelay(),"ConfigureClusterTask"));
+ambari-server/src/main/java/org/apache/ambari/server/topology/tasks/TopologyTask.java,29,public enum Type {
+ambari-server/src/main/java/org/apache/ambari/server/topology/tasks/TopologyTask.java,33,START
+ambari-server/src/main/java/org/apache/ambari/server/topology/tasks/TopologyTask.java,41,public Type getType();
+ambari-server/src/main/java/org/apache/ambari/server/topology/TopologyManager.java,974,private ExecutorService getOrCreateTopologyTaskExecutor(Long clusterId) {
+ambari-server/src/main/java/org/apache/ambari/server/configuration/Configuration.java,3193,properties.load(inputStream);
+ambari-server/src/main/java/org/apache/ambari/server/upgrade/UpgradeCatalog252.java,152,dbAccessor.addColumn(CLUSTERCONFIG_TABLE,
+ambari-server/src/main/java/org/apache/ambari/server/upgrade/UpgradeCatalog252.java,153,new DBColumnInfo(SERVICE_DELETED_COLUMN, Short.class, null, 0, false));
+ambari-server/src/main/java/org/apache/ambari/server/api/services/AmbariMetaInfo.java,1093,long clusterId = cluster.getClusterId();
+ambari-server/src/main/java/org/apache/ambari/server/api/services/AmbariMetaInfo.java,1101,Map<String, Service> clusterServiceMap = cluster.getServices();
+ambari-server/src/main/java/org/apache/ambari/server/api/services/AmbariMetaInfo.java,1102,Set<String> clusterServiceNames = clusterServiceMap.keySet();
+ambari-server/src/main/java/org/apache/ambari/server/api/services/AmbariMetaInfo.java,1184,List<AlertDefinition> agentDefinitions = ambariServiceAlertDefinitions.getAgentDefinitions();
+ambari-server/src/main/java/org/apache/ambari/server/api/services/AmbariMetaInfo.java,1185,for (AlertDefinition agentDefinition : agentDefinitions) {
+ambari-server/src/main/java/org/apache/ambari/server/api/services/AmbariMetaInfo.java,1186,AlertDefinitionEntity entity = mappedEntities.get(agentDefinition.getName());
+ambari-server/src/main/java/org/apache/ambari/server/api/services/AmbariMetaInfo.java,1189,if (null == entity) {
+ambari-server/src/main/java/org/apache/ambari/server/api/services/AmbariMetaInfo.java,1190,entity = alertDefinitionFactory.coerce(clusterId, agentDefinition);
+ambari-server/src/main/java/org/apache/ambari/server/api/services/AmbariMetaInfo.java,1191,persist.add(entity);
+ambari-server/src/main/java/org/apache/ambari/server/api/services/AmbariMetaInfo.java,1196,List<AlertDefinition> serverDefinitions = ambariServiceAlertDefinitions.getServerDefinitions();
+ambari-server/src/main/java/org/apache/ambari/server/api/services/AmbariMetaInfo.java,1197,for (AlertDefinition serverDefinition : serverDefinitions) {
+ambari-server/src/main/java/org/apache/ambari/server/api/services/AmbariMetaInfo.java,1198,AlertDefinitionEntity entity = mappedEntities.get(serverDefinition.getName());
+ambari-server/src/main/java/org/apache/ambari/server/api/services/AmbariMetaInfo.java,1201,if (null == entity) {
+ambari-server/src/main/java/org/apache/ambari/server/api/services/AmbariMetaInfo.java,1202,entity = alertDefinitionFactory.coerce(clusterId, serverDefinition);
+ambari-server/src/main/java/org/apache/ambari/server/api/services/AmbariMetaInfo.java,1203,persist.add(entity);
+ambari-server/src/main/java/org/apache/ambari/server/api/services/AmbariMetaInfo.java,1240,StackId stackId = cluster.getService(serviceName).getDesiredStackId();
+ambari-server/src/main/java/org/apache/ambari/server/api/services/AmbariMetaInfo.java,1243,LOG.info(
+ambari-server/src/main/java/org/apache/ambari/server/api/services/AmbariMetaInfo.java,1245,serviceName, stackId, definition.getDefinitionName());
+ambari-server/src/main/java/org/apache/ambari/server/api/services/AmbariMetaInfo.java,1249,&& !stackComponentMap.containsKey(componentName)) {
+ambari-server/src/main/java/org/apache/ambari/server/api/services/AmbariMetaInfo.java,1250,LOG.info(
+ambari-server/src/main/java/org/apache/ambari/server/api/services/AmbariMetaInfo.java,1252,serviceName, componentName, stackId,
+ambari-server/src/main/java/org/apache/ambari/server/api/services/AmbariMetaInfo.java,1253,definition.getDefinitionName());
+ambari-server/src/main/java/org/apache/ambari/server/controller/KerberosHelperImpl.java,3979,return null;
+ambari-server/src/main/java/org/apache/ambari/server/controller/KerberosHelperImpl.java,3984,return null;
+ambari-server/src/main/java/org/apache/ambari/server/controller/KerberosHelperImpl.java,3989,return null;
+ambari-server/src/main/java/org/apache/ambari/server/agent/ExecutionCommand.java,460,String SOURCE_STACK = "source_stack";
+ambari-server/src/main/java/org/apache/ambari/server/agent/ExecutionCommand.java,461,String TARGET_STACK = "target_stack";
+ambari-server/src/main/java/org/apache/ambari/server/serveraction/upgrades/UpgradeUserKerberosDescriptor.java,29,import org.apache.ambari.server.agent.ExecutionCommand.KeyNames;
+ambari-server/src/main/java/org/apache/ambari/server/serveraction/upgrades/UpgradeUserKerberosDescriptor.java,104,StackId targetStackId = getStackIdFromCommandParams(KeyNames.TARGET_STACK);
+ambari-server/src/main/java/org/apache/ambari/server/serveraction/upgrades/UpgradeUserKerberosDescriptor.java,131,if (newDescriptor == null) {
+ambari-server/src/main/java/org/apache/ambari/server/serveraction/upgrades/UpgradeUserKerberosDescriptor.java,175,private StackId getStackIdFromCommandParams(String commandParamKey) {
+ambari-server/src/main/java/org/apache/ambari/server/serveraction/upgrades/UpgradeUserKerberosDescriptor.java,176,String stackId = getCommandParameterValue(commandParamKey);
+ambari-server/src/main/java/org/apache/ambari/server/serveraction/upgrades/UpgradeUserKerberosDescriptor.java,177,if (stackId == null) {
+ambari-server/src/main/java/org/apache/ambari/server/serveraction/upgrades/UpgradeUserKerberosDescriptor.java,178,return null;
+ambari-server/src/main/java/org/apache/ambari/server/serveraction/upgrades/UpgradeUserKerberosDescriptor.java,180,return new StackId(stackId);
+ambari-server/src/main/java/org/apache/ambari/server/controller/internal/UpgradeResourceProvider.java,20,import static org.apache.ambari.server.agent.ExecutionCommand.KeyNames.HOOKS_FOLDER;
+ambari-server/src/main/java/org/apache/ambari/server/controller/internal/UpgradeResourceProvider.java,21,import static org.apache.ambari.server.agent.ExecutionCommand.KeyNames.SERVICE_PACKAGE_FOLDER;
+ambari-server/src/main/java/org/apache/ambari/server/controller/internal/UpgradeResourceProvider.java,85,import org.apache.ambari.server.state.ServiceInfo;
+ambari-server/src/main/java/org/apache/ambari/server/controller/internal/UpgradeResourceProvider.java,87,import org.apache.ambari.server.state.StackInfo;
+ambari-server/src/main/java/org/apache/ambari/server/controller/internal/UpgradeResourceProvider.java,765,StackId configurationPackSourceStackId = upgradeContext.getSourceVersions().values().iterator().next().getStackId();
+ambari-server/src/main/java/org/apache/ambari/server/controller/internal/UpgradeResourceProvider.java,772,ConfigUpgradePack configUpgradePack = ConfigurationPackBuilder.build(pack,
+ambari-server/src/main/java/org/apache/ambari/server/controller/internal/UpgradeResourceProvider.java,773,configurationPackSourceStackId);
+ambari-server/src/main/java/org/apache/ambari/server/controller/internal/UpgradeResourceProvider.java,1579,public static ConfigUpgradePack build(UpgradePack upgradePack, StackId sourceStackId) {
+ambari-server/src/main/java/org/apache/ambari/server/controller/internal/UpgradeResourceProvider.java,1582,sourceStackId.getStackName(), sourceStackId.getStackVersion());
+ambari-server/src/main/java/org/apache/ambari/server/controller/internal/UpgradeResourceProvider.java,1592,sourceStackId.getStackName(), intermediateStack.version);
+ambari-server/src/main/java/org/apache/ambari/server/api/services/AmbariMetaInfo.java,143,private Map<String, VersionDefinitionXml> versionDefinitions = null;
+ambari-server/src/main/java/org/apache/ambari/server/api/services/AmbariMetaInfo.java,1431,for (VersionDefinitionXml definition : stack.getVersionDefinitions()) {
+ambari-server/src/main/java/org/apache/ambari/server/api/services/AmbariMetaInfo.java,1432,versionDefinitions.put(String.format("%s-%s-%s", stack.getName(),
+ambari-server/src/main/java/org/apache/ambari/server/api/services/AmbariMetaInfo.java,1433,stack.getVersion(), definition.release.version), definition);
+ambari-logsearch/ambari-logsearch-logfeeder/src/main/java/org/apache/ambari/logfeeder/mapper/MapperDate.java,22,import java.text.SimpleDateFormat;
+ambari-logsearch/ambari-logsearch-logfeeder/src/main/java/org/apache/ambari/logfeeder/mapper/MapperDate.java,37,private SimpleDateFormat targetDateFormatter = null;
+ambari-logsearch/ambari-logsearch-logfeeder/src/main/java/org/apache/ambari/logfeeder/mapper/MapperDate.java,39,private SimpleDateFormat srcDateFormatter=null;
+ambari-logsearch/ambari-logsearch-logfeeder/src/main/java/org/apache/ambari/logfeeder/mapper/MapperDate.java,64,targetDateFormatter = new SimpleDateFormat(targetDateFormat);
+ambari-logsearch/ambari-logsearch-logfeeder/src/main/java/org/apache/ambari/logfeeder/mapper/MapperDate.java,66,srcDateFormatter = new SimpleDateFormat(srcDateFormat);
+ambari-logsearch/ambari-logsearch-logfeeder/src/main/java/org/apache/ambari/logfeeder/mapper/MapperDate.java,89,if (!srcDateFormatter.toPattern().contains("yy")) {
+ambari-server/src/main/java/org/apache/ambari/server/agent/ExecutionCommand.java,32,import org.apache.ambari.server.state.Service;
+ambari-server/src/main/java/org/apache/ambari/server/agent/ExecutionCommand.java,33,import org.apache.ambari.server.state.ServiceComponent;
+ambari-server/src/main/java/org/apache/ambari/server/agent/ExecutionCommand.java,537,Map<String, Map<String, String>> componentVersionMap = new HashMap<>();
+ambari-server/src/main/java/org/apache/ambari/server/agent/ExecutionCommand.java,539,for (Service service : cluster.getServices().values()) {
+ambari-server/src/main/java/org/apache/ambari/server/agent/ExecutionCommand.java,540,Map<String, String> componentMap = new HashMap<>();
+ambari-server/src/main/java/org/apache/ambari/server/agent/ExecutionCommand.java,542,boolean shouldSet = false;
+ambari-server/src/main/java/org/apache/ambari/server/agent/ExecutionCommand.java,543,for (ServiceComponent component : service.getServiceComponents().values()) {
+ambari-server/src/main/java/org/apache/ambari/server/agent/ExecutionCommand.java,544,if (component.isVersionAdvertised()) {
+ambari-server/src/main/java/org/apache/ambari/server/agent/ExecutionCommand.java,545,shouldSet = true;
+ambari-server/src/main/java/org/apache/ambari/server/agent/ExecutionCommand.java,546,componentMap.put(component.getName(), component.getDesiredVersion());
+ambari-server/src/main/java/org/apache/ambari/server/agent/ExecutionCommand.java,550,if (shouldSet) {
+ambari-server/src/main/java/org/apache/ambari/server/agent/ExecutionCommand.java,551,componentVersionMap.put(service.getName(), componentMap);
+ambari-server/src/main/java/org/apache/ambari/server/agent/ExecutionCommand.java,555,this.componentVersionMap = componentVersionMap;
+ambari-logsearch/ambari-logsearch-logfeeder/src/main/java/org/apache/ambari/logfeeder/filter/Filter.java,39,public abstract class Filter extends ConfigBlock {
+ambari-logsearch/ambari-logsearch-logfeeder/src/main/java/org/apache/ambari/logfeeder/filter/FilterGrok.java,170,if (!"{}".equals(jsonStr)) {
+ambari-logsearch/ambari-logsearch-logfeeder/src/main/java/org/apache/ambari/logfeeder/filter/FilterGrok.java,212,if ("{}".equals(jsonStr)) {
+ambari-server/src/main/java/org/apache/ambari/server/checks/RequiredServicesInRepositoryCheck.java,21,import java.util.Map;
+ambari-server/src/main/java/org/apache/ambari/server/checks/RequiredServicesInRepositoryCheck.java,69,Map<String, Set<String>> missingDependencies = xml.getMissingDependencies(cluster);
+ambari-server/src/main/java/org/apache/ambari/server/checks/RequiredServicesInRepositoryCheck.java,74,StringBuilder message = new StringBuilder();
+ambari-server/src/main/java/org/apache/ambari/server/checks/RequiredServicesInRepositoryCheck.java,75,for (String failedService : missingDependencies.keySet()) {
+ambari-server/src/main/java/org/apache/ambari/server/checks/RequiredServicesInRepositoryCheck.java,76,Set<String> servicesRequired = missingDependencies.get(failedService);
+ambari-server/src/main/java/org/apache/ambari/server/checks/RequiredServicesInRepositoryCheck.java,78,message.append(String.format(
+ambari-server/src/main/java/org/apache/ambari/server/checks/RequiredServicesInRepositoryCheck.java,80,failedService, StringUtils.join(servicesRequired, ','))).append(System.lineSeparator());
+ambari-server/src/main/java/org/apache/ambari/server/checks/RequiredServicesInRepositoryCheck.java,83,prerequisiteCheck.setFailedOn(new LinkedHashSet<>(missingDependencies.keySet()));
+ambari-server/src/main/java/org/apache/ambari/server/checks/RequiredServicesInRepositoryCheck.java,85,prerequisiteCheck.setFailReason(String.format(failReasonTemplate, message.toString()));
+ambari-server/src/main/java/org/apache/ambari/server/controller/internal/ClusterStackVersionResourceProvider.java,462,Map<String, Set<String>> missingDependencies = desiredVersionDefinition.getMissingDependencies(cluster);
+ambari-server/src/main/java/org/apache/ambari/server/controller/internal/ClusterStackVersionResourceProvider.java,465,StringBuilder message = new StringBuilder(
+ambari-server/src/main/java/org/apache/ambari/server/controller/internal/ClusterStackVersionResourceProvider.java,467,System.lineSeparator());
+ambari-server/src/main/java/org/apache/ambari/server/controller/internal/ClusterStackVersionResourceProvider.java,469,for (String failedService : missingDependencies.keySet()) {
+ambari-server/src/main/java/org/apache/ambari/server/controller/internal/ClusterStackVersionResourceProvider.java,470,message.append(String.format("%s requires the following services: %s", failedService,
+ambari-server/src/main/java/org/apache/ambari/server/controller/internal/ClusterStackVersionResourceProvider.java,471,StringUtils.join(missingDependencies.get(failedService), ','))).append(
+ambari-server/src/main/java/org/apache/ambari/server/controller/internal/ClusterStackVersionResourceProvider.java,472,System.lineSeparator());
+ambari-server/src/main/java/org/apache/ambari/server/state/repository/VersionDefinitionXml.java,33,import java.util.TreeMap;
+ambari-server/src/main/java/org/apache/ambari/server/state/repository/VersionDefinitionXml.java,338,Map<String, Set<String>> missingDependencies = new TreeMap<>();
+ambari-server/src/main/java/org/apache/ambari/server/state/repository/VersionDefinitionXml.java,389,if (!servicesInRepository.contains(serviceRequired)) {
+ambari-server/src/main/java/org/apache/ambari/server/state/repository/VersionDefinitionXml.java,390,missingDependencies.put(serviceInUpgrade, Sets.newTreeSet(servicesRequired));
+ambari-server/src/main/java/org/apache/ambari/server/state/repository/VersionDefinitionXml.java,391,break;
+ambari-server/src/main/java/org/apache/ambari/server/controller/AmbariManagementControllerImpl.java,4614,RepositoryInfo repositoryInfo = ambariMetaInfo.getRepository(request.getStackName(), request.getStackVersion(), request.getOsType(), request.getRepoId());
+ambari-server/src/main/java/org/apache/ambari/server/controller/AmbariManagementControllerImpl.java,4615,String repoName = repositoryInfo.getRepoName();
+ambari-server/src/main/java/org/apache/ambari/server/controller/RepositoryRequest.java,28,public RepositoryRequest(String stackName, String stackVersion, String osType, String repoId) {
+ambari-server/src/main/java/org/apache/ambari/server/controller/RepositoryRequest.java,93,+ getStackName() + "]";
+ambari-server/src/main/java/org/apache/ambari/server/controller/internal/RepositoryResourceProvider.java,244,(String) properties.get(REPOSITORY_REPO_ID_PROPERTY_ID));
+ambari-server/src/main/java/org/apache/ambari/server/controller/internal/HostResourceProvider.java,1000,private String getHostNameFromProperties(Map<String, Object> properties) {
+ambari-server/src/main/java/org/apache/ambari/server/controller/internal/ScaleClusterRequest.java,122,String hostName = getHostNameFromProperties(properties);
+ambari-server/src/main/java/org/apache/ambari/server/controller/internal/ScaleClusterRequest.java,219,private String getHostNameFromProperties(Map<String, Object> properties) {
+ambari-server/src/main/java/org/apache/ambari/server/controller/internal/ScaleClusterRequest.java,220,String hostName = (String) properties.get(HostResourceProvider.HOST_HOST_NAME_PROPERTY_ID);
+ambari-server/src/main/java/org/apache/ambari/server/controller/internal/ScaleClusterRequest.java,222,return hostName;
+ambari-server/src/main/java/org/apache/ambari/server/controller/internal/UpgradeResourceProvider.java,959,private void applyRepositoryAssociatedParameters(StageWrapper wrapper, StackId effectiveStackId,
+ambari-server/src/main/java/org/apache/ambari/server/controller/internal/UpgradeResourceProvider.java,960,Map<String, String> commandParams) throws AmbariException {
+ambari-server/src/main/java/org/apache/ambari/server/controller/internal/UpgradeResourceProvider.java,962,&& wrapper.getTasks().get(0).getService() != null) {
+ambari-server/src/main/java/org/apache/ambari/server/controller/internal/UpgradeResourceProvider.java,964,AmbariMetaInfo ambariMetaInfo = s_metaProvider.get();
+ambari-server/src/main/java/org/apache/ambari/server/controller/internal/UpgradeResourceProvider.java,966,StackInfo stackInfo = ambariMetaInfo.getStack(effectiveStackId.getStackName(),
+ambari-server/src/main/java/org/apache/ambari/server/controller/internal/UpgradeResourceProvider.java,967,effectiveStackId.getStackVersion());
+ambari-server/src/main/java/org/apache/ambari/server/controller/internal/UpgradeResourceProvider.java,969,String serviceName = wrapper.getTasks().get(0).getService();
+ambari-server/src/main/java/org/apache/ambari/server/controller/internal/UpgradeResourceProvider.java,970,ServiceInfo serviceInfo = ambariMetaInfo.getService(effectiveStackId.getStackName(),
+ambari-server/src/main/java/org/apache/ambari/server/controller/internal/UpgradeResourceProvider.java,971,effectiveStackId.getStackVersion(), serviceName);
+ambari-server/src/main/java/org/apache/ambari/server/controller/internal/UpgradeResourceProvider.java,973,commandParams.put(SERVICE_PACKAGE_FOLDER, serviceInfo.getServicePackageFolder());
+ambari-server/src/main/java/org/apache/ambari/server/controller/internal/UpgradeResourceProvider.java,974,commandParams.put(HOOKS_FOLDER, stackInfo.getStackHooksFolder());
+ambari-server/src/main/java/org/apache/ambari/server/controller/internal/UpgradeResourceProvider.java,1054,applyRepositoryAssociatedParameters(wrapper, effectiveRepositoryVersion.getStackId(), params);
+ambari-server/src/main/java/org/apache/ambari/server/controller/internal/UpgradeResourceProvider.java,1203,applyRepositoryAssociatedParameters(wrapper, effectiveRepositoryVersion.getStackId(),
+ambari-server/src/main/java/org/apache/ambari/server/controller/internal/UpgradeResourceProvider.java,1204,commandParams);
+ambari-logsearch/ambari-logsearch-logfeeder/src/main/java/org/apache/ambari/logfeeder/filter/FilterKeyValue.java,133,return nv.split(splitPattern);
+ambari-logsearch/ambari-logsearch-logfeeder/src/main/java/org/apache/ambari/logfeeder/filter/FilterKeyValue.java,140,input.getShortDescription() + ". First upto 100 characters=" + StringUtils.abbreviate(inputStr, 100), null, LOG,
+ambari-server/src/main/java/org/apache/ambari/server/stack/ExtensionHelper.java,65,public static void validateCreateLink(StackInfo stack, ExtensionInfo extension) throws AmbariException {
+ambari-server/src/main/java/org/apache/ambari/server/stack/ExtensionHelper.java,67,validateServiceDuplication(stack, extension);
+ambari-server/src/main/java/org/apache/ambari/server/stack/ExtensionHelper.java,91,private static void validateServiceDuplication(StackInfo stack, ExtensionInfo extension) throws AmbariException {
+contrib/views/utils/src/main/java/org/apache/ambari/view/utils/hdfs/HdfsUtil.java,41,public static void putStringToFile(HdfsApi hdfs, String filePath, String content) throws HdfsApiException {
+contrib/views/utils/src/main/java/org/apache/ambari/view/utils/hdfs/HdfsUtil.java,42,FSDataOutputStream stream;
+contrib/views/utils/src/main/java/org/apache/ambari/view/utils/hdfs/HdfsUtil.java,45,stream = hdfs.create(filePath, true);
+contrib/views/utils/src/main/java/org/apache/ambari/view/utils/hdfs/HdfsUtil.java,46,stream.write(content.getBytes());
+contrib/views/utils/src/main/java/org/apache/ambari/view/utils/hdfs/HdfsUtil.java,47,stream.close();
+ambari-server/src/main/java/org/apache/ambari/server/controller/AmbariCustomCommandExecutionHelper.java,60,import org.apache.ambari.annotations.Experimental;
+ambari-server/src/main/java/org/apache/ambari/server/controller/AmbariCustomCommandExecutionHelper.java,61,import org.apache.ambari.annotations.ExperimentalFeature;
+ambari-server/src/main/java/org/apache/ambari/server/controller/AmbariCustomCommandExecutionHelper.java,69,import org.apache.ambari.server.agent.CommandRepository;
+ambari-server/src/main/java/org/apache/ambari/server/controller/AmbariCustomCommandExecutionHelper.java,79,import org.apache.ambari.server.orm.entities.OperatingSystemEntity;
+ambari-server/src/main/java/org/apache/ambari/server/controller/AmbariCustomCommandExecutionHelper.java,80,import org.apache.ambari.server.orm.entities.RepositoryEntity;
+ambari-server/src/main/java/org/apache/ambari/server/controller/AmbariCustomCommandExecutionHelper.java,81,import org.apache.ambari.server.orm.entities.RepositoryVersionEntity;
+ambari-server/src/main/java/org/apache/ambari/server/controller/AmbariCustomCommandExecutionHelper.java,96,import org.apache.ambari.server.state.RepositoryInfo;
+ambari-server/src/main/java/org/apache/ambari/server/controller/AmbariCustomCommandExecutionHelper.java,112,import com.google.common.base.Function;
+ambari-server/src/main/java/org/apache/ambari/server/controller/AmbariCustomCommandExecutionHelper.java,113,import com.google.common.collect.ListMultimap;
+ambari-server/src/main/java/org/apache/ambari/server/controller/AmbariCustomCommandExecutionHelper.java,115,import com.google.gson.JsonArray;
+ambari-server/src/main/java/org/apache/ambari/server/controller/AmbariCustomCommandExecutionHelper.java,116,import com.google.gson.JsonElement;
+ambari-server/src/main/java/org/apache/ambari/server/controller/AmbariCustomCommandExecutionHelper.java,117,import com.google.gson.JsonObject;
+ambari-server/src/main/java/org/apache/ambari/server/upgrade/UpgradeCatalog260.java,194,int currentVersionID = getCurrentVersionID();
+ambari-server/src/main/java/org/apache/ambari/server/upgrade/UpgradeCatalog260.java,363,private void updateServiceDesiredStateTable(int currentRepoID) throws SQLException {
+ambari-server/src/main/java/org/apache/ambari/server/upgrade/UpgradeCatalog260.java,416,private void updateServiceComponentDesiredStateTable(int currentRepoID) throws SQLException {
+ambari-server/src/main/java/org/apache/ambari/server/upgrade/UpgradeCatalog260.java,506,public int getCurrentVersionID() throws AmbariException, SQLException {
+ambari-server/src/main/java/org/apache/ambari/server/upgrade/UpgradeCatalog260.java,510,throw new AmbariException("Unable to find any CURRENT repositories.");
+ambari-server/src/main/java/org/apache/ambari/server/controller/internal/BlueprintResourceProvider.java,21,import com.google.common.base.Preconditions;
+ambari-server/src/main/java/org/apache/ambari/server/controller/internal/BlueprintResourceProvider.java,22,import com.google.common.base.Strings;
+ambari-server/src/main/java/org/apache/ambari/server/controller/internal/BlueprintResourceProvider.java,23,import com.google.gson.Gson;
+ambari-server/src/main/java/org/apache/ambari/server/controller/internal/BlueprintResourceProvider.java,24,import org.apache.ambari.server.orm.entities.BlueprintSettingEntity;
+ambari-server/src/main/java/org/apache/ambari/server/controller/internal/BlueprintResourceProvider.java,25,import org.apache.ambari.server.utils.SecretReference;
+ambari-server/src/main/java/org/apache/ambari/server/controller/internal/BlueprintResourceProvider.java,48,import org.apache.ambari.server.state.StackInfo;
+ambari-server/src/main/java/org/apache/ambari/server/controller/internal/BlueprintResourceProvider.java,56,import java.util.ArrayList;
+ambari-server/src/main/java/org/apache/ambari/server/controller/internal/BlueprintResourceProvider.java,57,import java.util.Arrays;
+ambari-server/src/main/java/org/apache/ambari/server/controller/internal/BlueprintResourceProvider.java,58,import java.util.Collection;
+ambari-server/src/main/java/org/apache/ambari/server/controller/internal/BlueprintResourceProvider.java,59,import java.util.Collections;
+ambari-server/src/main/java/org/apache/ambari/server/controller/internal/BlueprintResourceProvider.java,60,import java.util.HashMap;
+ambari-server/src/main/java/org/apache/ambari/server/controller/internal/BlueprintResourceProvider.java,61,import java.util.HashSet;
+ambari-server/src/main/java/org/apache/ambari/server/controller/internal/BlueprintResourceProvider.java,62,import java.util.LinkedHashMap;
+ambari-server/src/main/java/org/apache/ambari/server/controller/internal/BlueprintResourceProvider.java,63,import java.util.List;
+ambari-server/src/main/java/org/apache/ambari/server/controller/internal/BlueprintResourceProvider.java,64,import java.util.Map;
+ambari-server/src/main/java/org/apache/ambari/server/controller/internal/BlueprintResourceProvider.java,65,import java.util.Set;
+ambari-server/src/main/java/org/apache/ambari/server/topology/Blueprint.java,21,import org.apache.ambari.server.controller.internal.Stack;
+ambari-server/src/main/java/org/apache/ambari/server/topology/Blueprint.java,22,import org.apache.ambari.server.orm.entities.BlueprintEntity;
+ambari-server/src/main/java/org/apache/ambari/server/topology/Blueprint.java,37,public String getName();
+ambari-server/src/main/java/org/apache/ambari/server/topology/Blueprint.java,43,public Map<String, HostGroup> getHostGroups();
+ambari-server/src/main/java/org/apache/ambari/server/topology/Blueprint.java,52,public HostGroup getHostGroup(String name);
+ambari-server/src/main/java/org/apache/ambari/server/topology/Blueprint.java,62,public Configuration getConfiguration();
+ambari-server/src/main/java/org/apache/ambari/server/topology/Blueprint.java,71,public Setting getSetting();
+ambari-server/src/main/java/org/apache/ambari/server/topology/Blueprint.java,78,public Collection<String> getServices();
+ambari-server/src/main/java/org/apache/ambari/server/topology/Blueprint.java,87,public Collection<String> getComponents(String service);
+ambari-server/src/main/java/org/apache/ambari/server/topology/Blueprint.java,97,public String getRecoveryEnabled(String serviceName, String componentName);
+ambari-server/src/main/java/org/apache/ambari/server/topology/Blueprint.java,106,public String getCredentialStoreEnabled(String serviceName);
+ambari-server/src/main/java/org/apache/ambari/server/topology/Blueprint.java,112,public boolean shouldSkipFailure();
+ambari-server/src/main/java/org/apache/ambari/server/topology/Blueprint.java,119,public Stack getStack();
+ambari-server/src/main/java/org/apache/ambari/server/topology/Blueprint.java,129,public Collection<HostGroup> getHostGroupsForService(String service);
+ambari-server/src/main/java/org/apache/ambari/server/topology/Blueprint.java,138,public Collection<HostGroup> getHostGroupsForComponent(String component);
+ambari-server/src/main/java/org/apache/ambari/server/topology/Blueprint.java,140,public SecurityConfiguration getSecurity();
+ambari-server/src/main/java/org/apache/ambari/server/topology/Blueprint.java,147,public void validateTopology() throws InvalidTopologyException;
+ambari-server/src/main/java/org/apache/ambari/server/topology/Blueprint.java,154,public void validateRequiredProperties() throws InvalidTopologyException;
+ambari-server/src/main/java/org/apache/ambari/server/topology/Blueprint.java,169,public BlueprintEntity toEntity();
+ambari-server/src/main/java/org/apache/ambari/server/topology/BlueprintImpl.java,22,import com.google.gson.Gson;
+ambari-server/src/main/java/org/apache/ambari/server/topology/BlueprintImpl.java,39,import java.util.ArrayList;
+ambari-server/src/main/java/org/apache/ambari/server/topology/BlueprintImpl.java,40,import java.util.Collection;
+ambari-server/src/main/java/org/apache/ambari/server/topology/BlueprintImpl.java,41,import java.util.HashMap;
+ambari-server/src/main/java/org/apache/ambari/server/topology/BlueprintImpl.java,42,import java.util.HashSet;
+ambari-server/src/main/java/org/apache/ambari/server/topology/BlueprintImpl.java,43,import java.util.Map;
+ambari-server/src/main/java/org/apache/ambari/server/topology/BlueprintImpl.java,44,import java.util.Set;
+ambari-server/src/main/java/org/apache/ambari/server/topology/BlueprintImpl.java,354,public void validateRequiredProperties() throws InvalidTopologyException {
+ambari-server/src/main/java/org/apache/ambari/server/topology/BlueprintValidator.java,32,public void validateTopology() throws InvalidTopologyException;
+ambari-server/src/main/java/org/apache/ambari/server/topology/BlueprintValidator.java,40,public void validateRequiredProperties() throws InvalidTopologyException;
+ambari-server/src/main/java/org/apache/ambari/server/topology/BlueprintValidatorImpl.java,83,public void validateRequiredProperties() throws InvalidTopologyException {
+ambari-logsearch/ambari-logsearch-logfeeder/src/main/java/org/apache/ambari/logfeeder/metrics/MetricsManager.java,50,amsClient = new LogFeederAMSClient();
+ambari-server/src/main/java/org/apache/ambari/server/agent/CommandRepository.java,55,private CommandRepositoryFeature feature = new CommandRepositoryFeature();
+ambari-server/src/main/java/org/apache/ambari/server/controller/ActionExecutionContext.java,269,public static interface ExecutionCommandVisitor {
+ambari-server/src/main/java/org/apache/ambari/server/controller/ActionExecutionContext.java,270,public void visit(ExecutionCommand command);
+ambari-server/src/main/java/org/apache/ambari/server/controller/AmbariActionExecutionHelper.java,25,import static org.apache.ambari.server.agent.ExecutionCommand.KeyNames.REPO_INFO;
+ambari-server/src/main/java/org/apache/ambari/server/controller/AmbariActionExecutionHelper.java,28,import static org.apache.ambari.server.agent.ExecutionCommand.KeyNames.STACK_NAME;
+ambari-server/src/main/java/org/apache/ambari/server/controller/AmbariActionExecutionHelper.java,29,import static org.apache.ambari.server.agent.ExecutionCommand.KeyNames.STACK_VERSION;
+ambari-server/src/main/java/org/apache/ambari/server/controller/AmbariActionExecutionHelper.java,51,import org.apache.ambari.server.orm.entities.RepositoryEntity;
+ambari-server/src/main/java/org/apache/ambari/server/controller/AmbariActionExecutionHelper.java,67,import com.google.gson.JsonArray;
+ambari-server/src/main/java/org/apache/ambari/server/controller/AmbariActionExecutionHelper.java,68,import com.google.gson.JsonObject;
+ambari-server/src/main/java/org/apache/ambari/server/controller/AmbariActionExecutionHelper.java,419,commandParams.put(SCRIPT, actionName + ".py");
+ambari-server/src/main/java/org/apache/ambari/server/controller/AmbariActionExecutionHelper.java,467,addRepoInfoToHostLevelParams(actionContext, service.getDesiredRepositoryVersion(),
+ambari-server/src/main/java/org/apache/ambari/server/controller/AmbariActionExecutionHelper.java,470,addRepoInfoToHostLevelParams(actionContext, null, hostLevelParams, hostName);
+ambari-server/src/main/java/org/apache/ambari/server/controller/AmbariActionExecutionHelper.java,533,private void addRepoInfoToHostLevelParams(ActionExecutionContext actionContext,
+ambari-server/src/main/java/org/apache/ambari/server/controller/AmbariActionExecutionHelper.java,534,RepositoryVersionEntity repositoryVersion, Map<String, String> hostLevelParams,
+ambari-server/src/main/java/org/apache/ambari/server/controller/AmbariActionExecutionHelper.java,535,String hostName) throws AmbariException {
+ambari-server/src/main/java/org/apache/ambari/server/controller/AmbariActionExecutionHelper.java,539,if (null == repositoryVersion) {
+ambari-server/src/main/java/org/apache/ambari/server/controller/AmbariActionExecutionHelper.java,541,if (null != actionContext.getRepositoryVersion()) {
+ambari-server/src/main/java/org/apache/ambari/server/controller/AmbariActionExecutionHelper.java,542,StackId stackId = actionContext.getRepositoryVersion().getStackId();
+ambari-server/src/main/java/org/apache/ambari/server/controller/AmbariActionExecutionHelper.java,543,hostLevelParams.put(STACK_NAME, stackId.getStackName());
+ambari-server/src/main/java/org/apache/ambari/server/controller/AmbariActionExecutionHelper.java,544,hostLevelParams.put(STACK_VERSION, stackId.getStackVersion());
+ambari-server/src/main/java/org/apache/ambari/server/controller/AmbariActionExecutionHelper.java,547,return;
+ambari-server/src/main/java/org/apache/ambari/server/controller/AmbariActionExecutionHelper.java,549,StackId stackId = repositoryVersion.getStackId();
+ambari-server/src/main/java/org/apache/ambari/server/controller/AmbariActionExecutionHelper.java,550,hostLevelParams.put(STACK_NAME, stackId.getStackName());
+ambari-server/src/main/java/org/apache/ambari/server/controller/AmbariActionExecutionHelper.java,551,hostLevelParams.put(STACK_VERSION, stackId.getStackVersion());
+ambari-server/src/main/java/org/apache/ambari/server/controller/AmbariActionExecutionHelper.java,554,JsonObject rootJsonObject = new JsonObject();
+ambari-server/src/main/java/org/apache/ambari/server/controller/AmbariActionExecutionHelper.java,555,JsonArray repositories = new JsonArray();
+ambari-server/src/main/java/org/apache/ambari/server/controller/AmbariActionExecutionHelper.java,557,String hostOsFamily = clusters.getHost(hostName).getOsFamily();
+ambari-server/src/main/java/org/apache/ambari/server/controller/AmbariActionExecutionHelper.java,558,for (OperatingSystemEntity operatingSystemEntity : repositoryVersion.getOperatingSystems()) {
+ambari-server/src/main/java/org/apache/ambari/server/controller/AmbariActionExecutionHelper.java,561,if (operatingSystemEntity.getOsType().equals(hostOsFamily)) {
+ambari-server/src/main/java/org/apache/ambari/server/controller/AmbariActionExecutionHelper.java,562,for (RepositoryEntity repositoryEntity : operatingSystemEntity.getRepositories()) {
+ambari-server/src/main/java/org/apache/ambari/server/controller/AmbariActionExecutionHelper.java,563,JsonObject repositoryInfo = new JsonObject();
+ambari-server/src/main/java/org/apache/ambari/server/controller/AmbariActionExecutionHelper.java,564,repositoryInfo.addProperty("base_url", repositoryEntity.getBaseUrl());
+ambari-server/src/main/java/org/apache/ambari/server/controller/AmbariActionExecutionHelper.java,565,repositoryInfo.addProperty("repo_name", repositoryEntity.getName());
+ambari-server/src/main/java/org/apache/ambari/server/controller/AmbariActionExecutionHelper.java,566,repositoryInfo.addProperty("repo_id", repositoryEntity.getRepositoryId());
+ambari-server/src/main/java/org/apache/ambari/server/controller/AmbariActionExecutionHelper.java,568,repositories.add(repositoryInfo);
+ambari-server/src/main/java/org/apache/ambari/server/controller/AmbariActionExecutionHelper.java,570,rootJsonObject.add("repositories", repositories);
+ambari-server/src/main/java/org/apache/ambari/server/controller/AmbariActionExecutionHelper.java,573,hostLevelParams.put(REPO_INFO, rootJsonObject.toString());
+ambari-server/src/main/java/org/apache/ambari/server/controller/AmbariCustomCommandExecutionHelper.java,417,hostLevelParams.put(REPO_INFO, getRepoInfo(cluster, component, host));
+ambari-server/src/main/java/org/apache/ambari/server/controller/AmbariCustomCommandExecutionHelper.java,515,execCmd.setRepositoryFile(getCommandRepository(cluster, component, host));
+ambari-server/src/main/java/org/apache/ambari/server/controller/AmbariCustomCommandExecutionHelper.java,840,final RequestResourceFilter resourceFilter, Stage stage, ExecuteCommandJson executeCommandJson) throws AmbariException {
+ambari-server/src/main/java/org/apache/ambari/server/controller/AmbariCustomCommandExecutionHelper.java,1137,Stage stage, Map<String, String> requestParams, ExecuteCommandJson executeCommandJson) throws AmbariException {
+ambari-server/src/main/java/org/apache/ambari/server/controller/AmbariCustomCommandExecutionHelper.java,1213,public String getRepoInfo(Cluster cluster, ServiceComponent component, Host host) throws AmbariException {
+ambari-server/src/main/java/org/apache/ambari/server/controller/AmbariCustomCommandExecutionHelper.java,1215,Function<List<RepositoryInfo>, JsonArray> function = new Function<List<RepositoryInfo>, JsonArray>() {
+ambari-server/src/main/java/org/apache/ambari/server/controller/AmbariCustomCommandExecutionHelper.java,1217,public JsonArray apply(List<RepositoryInfo> input) {
+ambari-server/src/main/java/org/apache/ambari/server/controller/AmbariCustomCommandExecutionHelper.java,1218,return null == input ? null : (JsonArray) gson.toJsonTree(input);
+ambari-server/src/main/java/org/apache/ambari/server/controller/AmbariCustomCommandExecutionHelper.java,1222,final JsonArray gsonList = getBaseUrls(cluster, component, host, function);
+ambari-server/src/main/java/org/apache/ambari/server/controller/AmbariCustomCommandExecutionHelper.java,1224,if (null == gsonList) {
+ambari-server/src/main/java/org/apache/ambari/server/controller/AmbariCustomCommandExecutionHelper.java,1225,return "";
+ambari-server/src/main/java/org/apache/ambari/server/controller/AmbariCustomCommandExecutionHelper.java,1228,BaseUrlUpdater<JsonArray> updater = new BaseUrlUpdater<JsonArray>(gsonList) {
+ambari-server/src/main/java/org/apache/ambari/server/controller/AmbariCustomCommandExecutionHelper.java,1230,public JsonArray apply(final RepositoryVersionEntity rve) {
+ambari-server/src/main/java/org/apache/ambari/server/controller/AmbariCustomCommandExecutionHelper.java,1232,JsonArray result = new JsonArray();
+ambari-server/src/main/java/org/apache/ambari/server/controller/AmbariCustomCommandExecutionHelper.java,1234,for (JsonElement e : gsonList) {
+ambari-server/src/main/java/org/apache/ambari/server/controller/AmbariCustomCommandExecutionHelper.java,1235,JsonObject obj = e.getAsJsonObject();
+ambari-server/src/main/java/org/apache/ambari/server/controller/AmbariCustomCommandExecutionHelper.java,1237,String repoId = obj.has("repoId") ? obj.get("repoId").getAsString() : null;
+ambari-server/src/main/java/org/apache/ambari/server/controller/AmbariCustomCommandExecutionHelper.java,1238,String repoName = obj.has("repoName") ? obj.get("repoName").getAsString() : null;
+ambari-server/src/main/java/org/apache/ambari/server/controller/AmbariCustomCommandExecutionHelper.java,1239,String baseUrl = obj.has("baseUrl") ? obj.get("baseUrl").getAsString() : null;
+ambari-server/src/main/java/org/apache/ambari/server/controller/AmbariCustomCommandExecutionHelper.java,1240,String osType = obj.has("osType") ? obj.get("osType").getAsString() : null;
+ambari-server/src/main/java/org/apache/ambari/server/controller/AmbariCustomCommandExecutionHelper.java,1242,if (null == repoId || null == baseUrl || null == osType || null == repoName) {
+ambari-server/src/main/java/org/apache/ambari/server/controller/AmbariCustomCommandExecutionHelper.java,1243,continue;
+ambari-server/src/main/java/org/apache/ambari/server/controller/AmbariCustomCommandExecutionHelper.java,1246,for (OperatingSystemEntity ose : rve.getOperatingSystems()) {
+ambari-server/src/main/java/org/apache/ambari/server/controller/AmbariCustomCommandExecutionHelper.java,1247,if (ose.getOsType().equals(osType) && ose.isAmbariManagedRepos()) {
+ambari-server/src/main/java/org/apache/ambari/server/controller/AmbariCustomCommandExecutionHelper.java,1248,for (RepositoryEntity re : ose.getRepositories()) {
+ambari-server/src/main/java/org/apache/ambari/server/controller/AmbariCustomCommandExecutionHelper.java,1249,if (re.getName().equals(repoName) &&
+ambari-server/src/main/java/org/apache/ambari/server/controller/AmbariCustomCommandExecutionHelper.java,1250,!re.getBaseUrl().equals(baseUrl)) {
+ambari-server/src/main/java/org/apache/ambari/server/controller/AmbariCustomCommandExecutionHelper.java,1251,obj.addProperty("baseUrl", re.getBaseUrl());
+ambari-server/src/main/java/org/apache/ambari/server/controller/AmbariCustomCommandExecutionHelper.java,1254,result.add(e);
+ambari-server/src/main/java/org/apache/ambari/server/controller/AmbariCustomCommandExecutionHelper.java,1259,return result;
+ambari-server/src/main/java/org/apache/ambari/server/controller/AmbariCustomCommandExecutionHelper.java,1263,return updateBaseUrls(cluster, component, updater).toString();
+ambari-server/src/main/java/org/apache/ambari/server/controller/AmbariCustomCommandExecutionHelper.java,1276,public CommandRepository getCommandRepository(final Cluster cluster, ServiceComponent component, final Host host) throws AmbariException {
+ambari-server/src/main/java/org/apache/ambari/server/controller/AmbariCustomCommandExecutionHelper.java,1278,final CommandRepository commandRepo = new CommandRepository();
+ambari-server/src/main/java/org/apache/ambari/server/controller/AmbariCustomCommandExecutionHelper.java,1279,boolean sysPreppedHost = configs.areHostsSysPrepped().equalsIgnoreCase("true");
+ambari-server/src/main/java/org/apache/ambari/server/controller/AmbariCustomCommandExecutionHelper.java,1280,StackId stackId = component.getDesiredStackId();
+ambari-server/src/main/java/org/apache/ambari/server/controller/AmbariCustomCommandExecutionHelper.java,1281,commandRepo.setRepositories(Collections.<RepositoryInfo>emptyList());
+ambari-server/src/main/java/org/apache/ambari/server/controller/AmbariCustomCommandExecutionHelper.java,1282,commandRepo.setStackName(stackId.getStackName());
+ambari-server/src/main/java/org/apache/ambari/server/controller/AmbariCustomCommandExecutionHelper.java,1283,commandRepo.getFeature().setPreInstalled(configs.areHostsSysPrepped());
+ambari-server/src/main/java/org/apache/ambari/server/controller/AmbariCustomCommandExecutionHelper.java,1284,commandRepo.getFeature().setIsScoped(!sysPreppedHost);
+ambari-server/src/main/java/org/apache/ambari/server/controller/AmbariCustomCommandExecutionHelper.java,1285,final ListMultimap<String, RepositoryInfo> stackReposByOs =
+ambari-server/src/main/java/org/apache/ambari/server/controller/AmbariCustomCommandExecutionHelper.java,1286,ambariMetaInfo.getStack(stackId.getStackName(), stackId.getStackVersion()).getRepositoriesByOs();
+ambari-server/src/main/java/org/apache/ambari/server/controller/AmbariCustomCommandExecutionHelper.java,1290,final BaseUrlUpdater<Void> updater = new BaseUrlUpdater<Void>(null) {
+ambari-server/src/main/java/org/apache/ambari/server/controller/AmbariCustomCommandExecutionHelper.java,1292,public Void apply(RepositoryVersionEntity rve) {
+ambari-server/src/main/java/org/apache/ambari/server/controller/AmbariCustomCommandExecutionHelper.java,1293,commandRepo.setRepositoryVersionId(rve.getId());
+ambari-server/src/main/java/org/apache/ambari/server/controller/AmbariCustomCommandExecutionHelper.java,1294,commandRepo.setRepositoryVersion(rve.getVersion());
+ambari-server/src/main/java/org/apache/ambari/server/controller/AmbariCustomCommandExecutionHelper.java,1295,commandRepo.setResolved(rve.isResolved());
+ambari-server/src/main/java/org/apache/ambari/server/controller/AmbariCustomCommandExecutionHelper.java,1296,commandRepo.setStackName(rve.getStackName());
+ambari-server/src/main/java/org/apache/ambari/server/controller/AmbariCustomCommandExecutionHelper.java,1302,for (OperatingSystemEntity osEntity : rve.getOperatingSystems()) {
+ambari-server/src/main/java/org/apache/ambari/server/controller/AmbariCustomCommandExecutionHelper.java,1303,String osEntityFamily = os_family.find(osEntity.getOsType());
+ambari-server/src/main/java/org/apache/ambari/server/controller/AmbariCustomCommandExecutionHelper.java,1304,if (osEntityFamily.equals(host.getOsFamily())) {
+ambari-server/src/main/java/org/apache/ambari/server/controller/AmbariCustomCommandExecutionHelper.java,1306,commandRepo.setRepositories(osEntity.getOsType(), osEntity.getRepositories());
+ambari-server/src/main/java/org/apache/ambari/server/controller/AmbariCustomCommandExecutionHelper.java,1307,for(CommandRepository.Repository repo : commandRepo.getRepositories()) {
+ambari-server/src/main/java/org/apache/ambari/server/controller/AmbariCustomCommandExecutionHelper.java,1308,List<String> applicableServices = repo.getApplicableServices();
+ambari-server/src/main/java/org/apache/ambari/server/controller/AmbariCustomCommandExecutionHelper.java,1309,if(applicableServices == null || applicableServices.isEmpty()) {
+ambari-server/src/main/java/org/apache/ambari/server/controller/AmbariCustomCommandExecutionHelper.java,1310,List<RepositoryInfo> stackRepos = stackReposByOs.get(osEntity.getOsType());
+ambari-server/src/main/java/org/apache/ambari/server/controller/AmbariCustomCommandExecutionHelper.java,1311,for(RepositoryInfo stackRepo : stackRepos) {
+ambari-server/src/main/java/org/apache/ambari/server/controller/AmbariCustomCommandExecutionHelper.java,1312,if(stackRepo.getRepoName().equals(repo.getRepoName()) && stackRepo.getRepoId().equals(repo.getRepoId())) {
+ambari-server/src/main/java/org/apache/ambari/server/controller/AmbariCustomCommandExecutionHelper.java,1313,repo.setApplicableServices(stackRepo.getApplicableServices());
+ambari-server/src/main/java/org/apache/ambari/server/controller/AmbariCustomCommandExecutionHelper.java,1319,if (!osEntity.isAmbariManagedRepos()) {
+ambari-server/src/main/java/org/apache/ambari/server/controller/AmbariCustomCommandExecutionHelper.java,1320,commandRepo.setNonManaged();
+ambari-server/src/main/java/org/apache/ambari/server/controller/AmbariCustomCommandExecutionHelper.java,1322,if (rve.isLegacy()){
+ambari-server/src/main/java/org/apache/ambari/server/controller/AmbariCustomCommandExecutionHelper.java,1323,commandRepo.setLegacyRepoId(rve.getVersion());
+ambari-server/src/main/java/org/apache/ambari/server/controller/AmbariCustomCommandExecutionHelper.java,1324,commandRepo.setLegacyRepoFileName(rve.getStackName(), rve.getVersion());
+ambari-server/src/main/java/org/apache/ambari/server/controller/AmbariCustomCommandExecutionHelper.java,1325,commandRepo.getFeature().setIsScoped(false);
+ambari-server/src/main/java/org/apache/ambari/server/controller/AmbariCustomCommandExecutionHelper.java,1327,commandRepo.setRepoFileName(rve.getStackName(), rve.getId());
+ambari-server/src/main/java/org/apache/ambari/server/controller/AmbariCustomCommandExecutionHelper.java,1328,commandRepo.setUniqueSuffix(String.format("-repo-%s", rve.getId()));
+ambari-server/src/main/java/org/apache/ambari/server/controller/AmbariCustomCommandExecutionHelper.java,1334,return null;
+ambari-server/src/main/java/org/apache/ambari/server/controller/AmbariCustomCommandExecutionHelper.java,1338,updateBaseUrls(cluster, component, updater);
+ambari-server/src/main/java/org/apache/ambari/server/controller/AmbariCustomCommandExecutionHelper.java,1340,if (configs.arePackagesLegacyOverridden()) {
+ambari-server/src/main/java/org/apache/ambari/server/controller/AmbariCustomCommandExecutionHelper.java,1341,LOG.warn("Legacy override option is turned on, disabling CommandRepositoryFeature.scoped feature");
+ambari-server/src/main/java/org/apache/ambari/server/controller/AmbariCustomCommandExecutionHelper.java,1342,commandRepo.getFeature().setIsScoped(false);
+ambari-server/src/main/java/org/apache/ambari/server/controller/AmbariCustomCommandExecutionHelper.java,1345,return commandRepo;
+ambari-server/src/main/java/org/apache/ambari/server/controller/AmbariCustomCommandExecutionHelper.java,1360,private <T> T getBaseUrls(Cluster cluster, ServiceComponent component, Host host,
+ambari-server/src/main/java/org/apache/ambari/server/controller/AmbariCustomCommandExecutionHelper.java,1361,Function<List<RepositoryInfo>, T> function) throws AmbariException {
+ambari-server/src/main/java/org/apache/ambari/server/controller/AmbariCustomCommandExecutionHelper.java,1363,String hostOsType = host.getOsType();
+ambari-server/src/main/java/org/apache/ambari/server/controller/AmbariCustomCommandExecutionHelper.java,1364,String hostOsFamily = host.getOsFamily();
+ambari-server/src/main/java/org/apache/ambari/server/controller/AmbariCustomCommandExecutionHelper.java,1365,String hostName = host.getHostName();
+ambari-server/src/main/java/org/apache/ambari/server/controller/AmbariCustomCommandExecutionHelper.java,1367,StackId stackId = component.getDesiredStackId();
+ambari-server/src/main/java/org/apache/ambari/server/controller/AmbariCustomCommandExecutionHelper.java,1369,Map<String, List<RepositoryInfo>> repos = ambariMetaInfo.getRepository(
+ambari-server/src/main/java/org/apache/ambari/server/controller/AmbariCustomCommandExecutionHelper.java,1370,stackId.getStackName(), stackId.getStackVersion());
+ambari-server/src/main/java/org/apache/ambari/server/controller/AmbariCustomCommandExecutionHelper.java,1372,String family = os_family.find(hostOsType);
+ambari-server/src/main/java/org/apache/ambari/server/controller/AmbariCustomCommandExecutionHelper.java,1373,if (null == family) {
+ambari-server/src/main/java/org/apache/ambari/server/controller/AmbariCustomCommandExecutionHelper.java,1374,family = hostOsFamily;
+ambari-server/src/main/java/org/apache/ambari/server/controller/AmbariCustomCommandExecutionHelper.java,1377,final List<RepositoryInfo> repoInfos;
+ambari-server/src/main/java/org/apache/ambari/server/controller/AmbariCustomCommandExecutionHelper.java,1380,if (repos.containsKey(hostOsType)) {
+ambari-server/src/main/java/org/apache/ambari/server/controller/AmbariCustomCommandExecutionHelper.java,1381,repoInfos = repos.get(hostOsType);
+ambari-server/src/main/java/org/apache/ambari/server/controller/AmbariCustomCommandExecutionHelper.java,1383,repoInfos = repos.get(family);
+ambari-server/src/main/java/org/apache/ambari/server/controller/AmbariCustomCommandExecutionHelper.java,1385,repoInfos = null;
+ambari-server/src/main/java/org/apache/ambari/server/controller/AmbariCustomCommandExecutionHelper.java,1386,LOG.warn("Could not retrieve repo information for host"
+ambari-server/src/main/java/org/apache/ambari/server/controller/AmbariCustomCommandExecutionHelper.java,1387,+ ", hostname=" + hostName
+ambari-server/src/main/java/org/apache/ambari/server/controller/AmbariCustomCommandExecutionHelper.java,1389,+ ", stackInfo=" + stackId.getStackId());
+ambari-server/src/main/java/org/apache/ambari/server/controller/AmbariCustomCommandExecutionHelper.java,1393,return function.apply(repoInfos);
+ambari-server/src/main/java/org/apache/ambari/server/controller/AmbariCustomCommandExecutionHelper.java,1403,private <T> T updateBaseUrls(Cluster cluster, ServiceComponent component, BaseUrlUpdater<T> function) throws AmbariException {
+ambari-server/src/main/java/org/apache/ambari/server/controller/AmbariCustomCommandExecutionHelper.java,1405,RepositoryVersionEntity repositoryEntity = null;
+ambari-server/src/main/java/org/apache/ambari/server/controller/AmbariCustomCommandExecutionHelper.java,1408,if (null != component) {
+ambari-server/src/main/java/org/apache/ambari/server/controller/AmbariCustomCommandExecutionHelper.java,1409,repositoryEntity = component.getDesiredRepositoryVersion();
+ambari-server/src/main/java/org/apache/ambari/server/controller/AmbariCustomCommandExecutionHelper.java,1411,LOG.info("Service component not passed in, attempt to resolve the repository for cluster {}",
+ambari-server/src/main/java/org/apache/ambari/server/controller/AmbariCustomCommandExecutionHelper.java,1412,cluster.getClusterName());
+ambari-server/src/main/java/org/apache/ambari/server/controller/AmbariCustomCommandExecutionHelper.java,1415,if (null == repositoryEntity && null != component) {
+ambari-server/src/main/java/org/apache/ambari/server/controller/AmbariCustomCommandExecutionHelper.java,1416,Service service = cluster.getService(component.getServiceName());
+ambari-server/src/main/java/org/apache/ambari/server/controller/AmbariCustomCommandExecutionHelper.java,1418,repositoryEntity = service.getDesiredRepositoryVersion();
+ambari-server/src/main/java/org/apache/ambari/server/controller/AmbariCustomCommandExecutionHelper.java,1421,if (null == repositoryEntity) {
+ambari-server/src/main/java/org/apache/ambari/server/controller/AmbariCustomCommandExecutionHelper.java,1422,LOG.info("Cluster {} has no specific Repository Versions.  Using stack-defined values", cluster.getClusterName());
+ambari-server/src/main/java/org/apache/ambari/server/controller/AmbariCustomCommandExecutionHelper.java,1423,return function.getDefault();
+ambari-server/src/main/java/org/apache/ambari/server/controller/AmbariCustomCommandExecutionHelper.java,1426,return function.apply(repositoryEntity);
+ambari-server/src/main/java/org/apache/ambari/server/controller/AmbariCustomCommandExecutionHelper.java,1672,abstract static class BaseUrlUpdater<T> implements Function<RepositoryVersionEntity, T> {
+ambari-server/src/main/java/org/apache/ambari/server/controller/AmbariCustomCommandExecutionHelper.java,1673,private T m_default;
+ambari-server/src/main/java/org/apache/ambari/server/controller/AmbariCustomCommandExecutionHelper.java,1675,private BaseUrlUpdater(T defaultValue) {
+ambari-server/src/main/java/org/apache/ambari/server/controller/AmbariCustomCommandExecutionHelper.java,1676,m_default = defaultValue;
+ambari-server/src/main/java/org/apache/ambari/server/controller/AmbariCustomCommandExecutionHelper.java,1679,private T getDefault() {
+ambari-server/src/main/java/org/apache/ambari/server/controller/AmbariCustomCommandExecutionHelper.java,1680,return m_default;
+ambari-server/src/main/java/org/apache/ambari/server/controller/AmbariManagementControllerImpl.java,2446,String repoInfo = customCommandExecutionHelper.getRepoInfo(cluster, component, host);
+ambari-server/src/main/java/org/apache/ambari/server/controller/AmbariManagementControllerImpl.java,2548,execCmd.setRepositoryFile(customCommandExecutionHelper.getCommandRepository(cluster, component, host));
+ambari-server/src/main/java/org/apache/ambari/server/controller/internal/ClusterStackVersionResourceProvider.java,723,OperatingSystemEntity osEntity = null;
+ambari-server/src/main/java/org/apache/ambari/server/controller/internal/ClusterStackVersionResourceProvider.java,724,for (OperatingSystemEntity os : repoVersion.getOperatingSystems()) {
+ambari-server/src/main/java/org/apache/ambari/server/controller/internal/ClusterStackVersionResourceProvider.java,725,if (os.getOsType().equals(osFamily)) {
+ambari-server/src/main/java/org/apache/ambari/server/controller/internal/ClusterStackVersionResourceProvider.java,726,osEntity = os;
+ambari-server/src/main/java/org/apache/ambari/server/controller/internal/ClusterStackVersionResourceProvider.java,727,break;
+ambari-server/src/main/java/org/apache/ambari/server/controller/internal/ClusterStackVersionResourceProvider.java,731,if (null == osEntity || CollectionUtils.isEmpty(osEntity.getRepositories())) {
+ambari-server/src/main/java/org/apache/ambari/server/controller/internal/ClusterStackVersionResourceProvider.java,732,throw new SystemException(String.format("Repositories for os type %s are " +
+ambari-server/src/main/java/org/apache/ambari/server/state/stack/upgrade/RepositoryVersionHelper.java,340,boolean sysPreppedHost = configuration.get().areHostsSysPrepped().equalsIgnoreCase("true");
+ambari-server/src/main/java/org/apache/ambari/server/state/stack/upgrade/RepositoryVersionHelper.java,341,StackId stackId = repoVersion.getStackId();
+ambari-server/src/main/java/org/apache/ambari/server/state/stack/upgrade/RepositoryVersionHelper.java,342,ListMultimap<String, RepositoryInfo> stackReposByOs = null;
+ambari-server/src/main/java/org/apache/ambari/server/state/stack/upgrade/RepositoryVersionHelper.java,344,stackReposByOs =
+ambari-server/src/main/java/org/apache/ambari/server/state/stack/upgrade/RepositoryVersionHelper.java,345,ami.get().getStack(stackId.getStackName(), stackId.getStackVersion()).getRepositoriesByOs();
+ambari-server/src/main/java/org/apache/ambari/server/state/stack/upgrade/RepositoryVersionHelper.java,352,if(applicableServices == null || applicableServices.isEmpty() && stackReposByOs != null) {
+ambari-server/src/main/java/org/apache/ambari/server/controller/AmbariCustomCommandExecutionHelper.java,1439,Cluster cluster, RepositoryVersionEntity repositoryVersion) throws AmbariException {
+ambari-server/src/main/java/org/apache/ambari/server/controller/AmbariCustomCommandExecutionHelper.java,1446,StackId stackId = null;
+ambari-server/src/main/java/org/apache/ambari/server/controller/AmbariCustomCommandExecutionHelper.java,1447,if (null != repositoryVersion) {
+ambari-server/src/main/java/org/apache/ambari/server/controller/AmbariCustomCommandExecutionHelper.java,1448,stackId = repositoryVersion.getStackId();
+ambari-server/src/main/java/org/apache/ambari/server/controller/AmbariCustomCommandExecutionHelper.java,1455,hostParamsStage = createDefaultHostParams(cluster, repositoryVersion);
+ambari-server/src/main/java/org/apache/ambari/server/controller/AmbariCustomCommandExecutionHelper.java,1464,if (serviceName != null && componentName != null && null != stackId) {
+ambari-server/src/main/java/org/apache/ambari/server/controller/AmbariCustomCommandExecutionHelper.java,1507,Map<String, String> createDefaultHostParams(Cluster cluster, RepositoryVersionEntity repositoryVersion) throws AmbariException {
+ambari-server/src/main/java/org/apache/ambari/server/controller/AmbariCustomCommandExecutionHelper.java,1508,StackId stackId = (null == repositoryVersion) ? cluster.getDesiredStackVersion() : repositoryVersion.getStackId();
+ambari-server/src/main/java/org/apache/ambari/server/controller/AmbariCustomCommandExecutionHelper.java,1509,return createDefaultHostParams(cluster, stackId);
+ambari-server/src/main/java/org/apache/ambari/server/controller/AmbariManagementControllerImpl.java,2827,customCommandExecutionHelper.createDefaultHostParams(cluster, repositoryVersion)));
+ambari-server/src/main/java/org/apache/ambari/server/controller/AmbariManagementControllerImpl.java,3176,cluster, scHost.getServiceComponent().getDesiredRepositoryVersion());
+ambari-server/src/main/java/org/apache/ambari/server/controller/AmbariManagementControllerImpl.java,4175,RepositoryVersionEntity desiredRepositoryVersion = null;
+ambari-server/src/main/java/org/apache/ambari/server/controller/AmbariManagementControllerImpl.java,4177,RequestOperationLevel operationLevel = actionExecContext.getOperationLevel();
+ambari-server/src/main/java/org/apache/ambari/server/controller/AmbariManagementControllerImpl.java,4178,if (null != operationLevel && StringUtils.isNotBlank(operationLevel.getServiceName())) {
+ambari-server/src/main/java/org/apache/ambari/server/controller/AmbariManagementControllerImpl.java,4179,Service service = cluster.getService(operationLevel.getServiceName());
+ambari-server/src/main/java/org/apache/ambari/server/controller/AmbariManagementControllerImpl.java,4180,if (null != service) {
+ambari-server/src/main/java/org/apache/ambari/server/controller/AmbariManagementControllerImpl.java,4181,desiredRepositoryVersion = service.getDesiredRepositoryVersion();
+ambari-server/src/main/java/org/apache/ambari/server/controller/AmbariManagementControllerImpl.java,4185,if (null == desiredRepositoryVersion && CollectionUtils.isNotEmpty(actionExecContext.getResourceFilters())) {
+ambari-server/src/main/java/org/apache/ambari/server/controller/AmbariManagementControllerImpl.java,4186,Set<RepositoryVersionEntity> versions = new HashSet<>();
+ambari-server/src/main/java/org/apache/ambari/server/controller/AmbariManagementControllerImpl.java,4188,for (RequestResourceFilter filter : actionExecContext.getResourceFilters()) {
+ambari-server/src/main/java/org/apache/ambari/server/controller/AmbariManagementControllerImpl.java,4189,RepositoryVersionEntity repoVersion = null;
+ambari-server/src/main/java/org/apache/ambari/server/controller/AmbariManagementControllerImpl.java,4191,if (StringUtils.isNotBlank(filter.getServiceName())) {
+ambari-server/src/main/java/org/apache/ambari/server/controller/AmbariManagementControllerImpl.java,4192,Service service = cluster.getService(filter.getServiceName());
+ambari-server/src/main/java/org/apache/ambari/server/controller/AmbariManagementControllerImpl.java,4194,if (StringUtils.isNotBlank(filter.getComponentName())) {
+ambari-server/src/main/java/org/apache/ambari/server/controller/AmbariManagementControllerImpl.java,4195,ServiceComponent serviceComponent = service.getServiceComponent(filter.getComponentName());
+ambari-server/src/main/java/org/apache/ambari/server/controller/AmbariManagementControllerImpl.java,4197,repoVersion = serviceComponent.getDesiredRepositoryVersion();
+ambari-server/src/main/java/org/apache/ambari/server/controller/AmbariManagementControllerImpl.java,4200,if (null == repoVersion) {
+ambari-server/src/main/java/org/apache/ambari/server/controller/AmbariManagementControllerImpl.java,4201,repoVersion = service.getDesiredRepositoryVersion();
+ambari-server/src/main/java/org/apache/ambari/server/controller/AmbariManagementControllerImpl.java,4205,if (null != repoVersion) {
+ambari-server/src/main/java/org/apache/ambari/server/controller/AmbariManagementControllerImpl.java,4206,versions.add(repoVersion);
+ambari-server/src/main/java/org/apache/ambari/server/controller/AmbariManagementControllerImpl.java,4210,if (1 == versions.size()) {
+ambari-server/src/main/java/org/apache/ambari/server/controller/AmbariManagementControllerImpl.java,4211,desiredRepositoryVersion = versions.iterator().next();
+ambari-server/src/main/java/org/apache/ambari/server/controller/AmbariManagementControllerImpl.java,4213,Set<String> errors = new HashSet<>();
+ambari-server/src/main/java/org/apache/ambari/server/controller/AmbariManagementControllerImpl.java,4214,for (RepositoryVersionEntity version : versions) {
+ambari-server/src/main/java/org/apache/ambari/server/controller/AmbariManagementControllerImpl.java,4215,errors.add(String.format("%s/%s", version.getStackId(), version.getVersion()));
+ambari-server/src/main/java/org/apache/ambari/server/controller/AmbariManagementControllerImpl.java,4217,throw new IllegalArgumentException(String.format("More than one repository is resolved with this Action: %s",
+ambari-server/src/main/java/org/apache/ambari/server/controller/AmbariManagementControllerImpl.java,4218,StringUtils.join(errors, ';')));
+ambari-server/src/main/java/org/apache/ambari/server/controller/AmbariManagementControllerImpl.java,4222,ExecuteCommandJson jsons = customCommandExecutionHelper.getCommandJson(actionExecContext, cluster, desiredRepositoryVersion);
+ambari-server/src/main/java/org/apache/ambari/server/controller/internal/UpgradeResourceProvider.java,1071,cluster, effectiveRepositoryVersion);
+ambari-server/src/main/java/org/apache/ambari/server/controller/internal/UpgradeResourceProvider.java,1153,cluster, effectiveRepositoryVersion);
+ambari-server/src/main/java/org/apache/ambari/server/controller/internal/UpgradeResourceProvider.java,1218,cluster, effectiveRepositoryVersion);
+ambari-server/src/main/java/org/apache/ambari/server/controller/internal/UpgradeResourceProvider.java,1359,cluster, context.getRepositoryVersion());
+ambari-server/src/main/java/org/apache/ambari/server/events/listeners/alerts/AlertMaintenanceModeListener.java,107,updateMaintenanceState(currentAlert, newMaintenanceState);
+ambari-server/src/main/java/org/apache/ambari/server/events/listeners/alerts/AlertMaintenanceModeListener.java,114,updateMaintenanceState(currentAlert, newMaintenanceState);
+ambari-server/src/main/java/org/apache/ambari/server/events/listeners/alerts/AlertMaintenanceModeListener.java,126,updateMaintenanceState(currentAlert, newMaintenanceState);
+ambari-server/src/main/java/org/apache/ambari/server/events/listeners/alerts/AlertMaintenanceModeListener.java,148,private void updateMaintenanceState(AlertCurrentEntity currentAlert,
+ambari-server/src/main/java/org/apache/ambari/server/events/listeners/alerts/AlertMaintenanceModeListener.java,149,MaintenanceState maintenanceState) {
+ambari-server/src/main/java/org/apache/ambari/server/events/listeners/alerts/AlertMaintenanceModeListener.java,156,return;
+ambari-server/src/main/java/org/apache/ambari/server/events/listeners/alerts/AlertMaintenanceModeListener.java,161,return;
+ambari-logsearch/ambari-logsearch-logfeeder/src/main/java/org/apache/ambari/logfeeder/output/OutputManager.java,88,if (jsonObj.get("type") == null) {
+ambari-logsearch/ambari-logsearch-logfeeder/src/main/java/org/apache/ambari/logfeeder/output/OutputManager.java,89,jsonObj.put("type", input.getStringValue("type"));
+ambari-logsearch/ambari-logsearch-logfeeder/src/main/java/org/apache/ambari/logfeeder/output/OutputManager.java,91,if (jsonObj.get("path") == null && input.getFilePath() != null) {
+ambari-logsearch/ambari-logsearch-logfeeder/src/main/java/org/apache/ambari/logfeeder/output/OutputManager.java,92,jsonObj.put("path", input.getFilePath());
+ambari-logsearch/ambari-logsearch-logfeeder/src/main/java/org/apache/ambari/logfeeder/output/OutputManager.java,94,if (jsonObj.get("path") == null && input.getStringValue("path") != null) {
+ambari-logsearch/ambari-logsearch-logfeeder/src/main/java/org/apache/ambari/logfeeder/output/OutputManager.java,95,jsonObj.put("path", input.getStringValue("path"));
+ambari-logsearch/ambari-logsearch-logfeeder/src/main/java/org/apache/ambari/logfeeder/output/OutputManager.java,97,if (jsonObj.get("host") == null && LogFeederUtil.hostName != null) {
+ambari-logsearch/ambari-logsearch-logfeeder/src/main/java/org/apache/ambari/logfeeder/output/OutputManager.java,98,jsonObj.put("host", LogFeederUtil.hostName);
+ambari-logsearch/ambari-logsearch-logfeeder/src/main/java/org/apache/ambari/logfeeder/output/OutputManager.java,100,if (jsonObj.get("ip") == null && LogFeederUtil.ipAddress != null) {
+ambari-logsearch/ambari-logsearch-logfeeder/src/main/java/org/apache/ambari/logfeeder/output/OutputManager.java,101,jsonObj.put("ip", LogFeederUtil.ipAddress);
+ambari-logsearch/ambari-logsearch-portal/src/main/java/org/apache/ambari/logsearch/conf/SecurityConfig.java,43,import org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter;
+ambari-logsearch/ambari-logsearch-portal/src/main/java/org/apache/ambari/logsearch/web/authenticate/LogsearchLogoutSuccessHandler.java,39,response.sendRedirect("/index.html");
+ambari-logsearch/ambari-logsearch-portal/src/main/java/org/apache/ambari/logsearch/web/filters/LogsearchAuthenticationEntryPoint.java,47,response.sendRedirect(this.getLoginFormUrl() + ((request.getQueryString() != null) ? "?" + request.getQueryString() : ""));
+ambari-server/src/main/java/org/apache/ambari/server/agent/ExecutionCommand.java,335,return serviceType;
+ambari-server/src/main/java/org/apache/ambari/server/agent/ExecutionCommand.java,339,this.serviceType = serviceType;
+ambari-server/src/main/java/org/apache/ambari/server/controller/internal/ClusterStackVersionResourceProvider.java,766,repoVersionHelper.addCommandRepository(actionContext, repoVersion, osEntity);
+ambari-server/src/main/java/org/apache/ambari/server/controller/internal/HostStackVersionResourceProvider.java,446,repoVersionHelper.addCommandRepository(actionContext, repoVersionEnt, osEntity);
+ambari-server/src/main/java/org/apache/ambari/server/state/repository/ServiceVersionSummary.java,29,private String m_displayName;
+ambari-server/src/main/java/org/apache/ambari/server/state/repository/ServiceVersionSummary.java,40,ServiceVersionSummary(String displayName) {
+ambari-server/src/main/java/org/apache/ambari/server/state/repository/ServiceVersionSummary.java,41,m_displayName = displayName;
+ambari-server/src/main/java/org/apache/ambari/server/state/repository/VersionDefinitionXml.java,303,ServiceVersionSummary summary = new ServiceVersionSummary(service.getDisplayName());
+ambari-server/src/main/java/org/apache/ambari/server/state/stack/upgrade/RepositoryVersionHelper.java,336,public void addCommandRepository(ActionExecutionContext context,
+ambari-server/src/main/java/org/apache/ambari/server/state/stack/upgrade/RepositoryVersionHelper.java,337,RepositoryVersionEntity repoVersion, OperatingSystemEntity osEntity) throws SystemException {
+ambari-server/src/main/java/org/apache/ambari/server/controller/internal/UpgradeResourceProvider.java,760,if (pack.getType() == UpgradeType.ROLLING) {
+ambari-server/src/main/java/org/apache/ambari/server/controller/internal/ClusterStackVersionResourceProvider.java,92,import org.apache.commons.lang.math.NumberUtils;
+ambari-server/src/main/java/org/apache/ambari/server/controller/internal/ClusterStackVersionResourceProvider.java,263,return compareVersions(o1.getVersion(), o2.getVersion());
+ambari-server/src/main/java/org/apache/ambari/server/controller/internal/ClusterStackVersionResourceProvider.java,518,int compare = compareVersions(hostRepoVersion.getVersion(), desiredRepoVersion);
+ambari-server/src/main/java/org/apache/ambari/server/controller/internal/ClusterStackVersionResourceProvider.java,830,private static int compareVersions(String version1, String version2) {
+ambari-server/src/main/java/org/apache/ambari/server/controller/internal/ClusterStackVersionResourceProvider.java,831,version1 = (null == version1) ? "0" : version1;
+ambari-server/src/main/java/org/apache/ambari/server/controller/internal/ClusterStackVersionResourceProvider.java,832,version2 = (null == version2) ? "0" : version2;
+ambari-server/src/main/java/org/apache/ambari/server/controller/internal/ClusterStackVersionResourceProvider.java,835,if (StringUtils.equals(version1, version2)) {
+ambari-server/src/main/java/org/apache/ambari/server/controller/internal/ClusterStackVersionResourceProvider.java,836,return 0;
+ambari-server/src/main/java/org/apache/ambari/server/controller/internal/ClusterStackVersionResourceProvider.java,839,int compare = VersionUtils.compareVersions(version1, version2);
+ambari-server/src/main/java/org/apache/ambari/server/controller/internal/ClusterStackVersionResourceProvider.java,840,if (0 != compare) {
+ambari-server/src/main/java/org/apache/ambari/server/controller/internal/ClusterStackVersionResourceProvider.java,841,return compare;
+ambari-server/src/main/java/org/apache/ambari/server/controller/internal/ClusterStackVersionResourceProvider.java,844,int v1 = 0;
+ambari-server/src/main/java/org/apache/ambari/server/controller/internal/ClusterStackVersionResourceProvider.java,845,int v2 = 0;
+ambari-server/src/main/java/org/apache/ambari/server/controller/internal/ClusterStackVersionResourceProvider.java,846,if (version1.indexOf('-') > -1) {
+ambari-server/src/main/java/org/apache/ambari/server/controller/internal/ClusterStackVersionResourceProvider.java,847,v1 = NumberUtils.toInt(version1.substring(version1.indexOf('-')), 0);
+ambari-server/src/main/java/org/apache/ambari/server/controller/internal/ClusterStackVersionResourceProvider.java,850,if (version2.indexOf('-') > -1) {
+ambari-server/src/main/java/org/apache/ambari/server/controller/internal/ClusterStackVersionResourceProvider.java,851,v2 = NumberUtils.toInt(version2.substring(version2.indexOf('-')), 0);
+ambari-server/src/main/java/org/apache/ambari/server/controller/internal/ClusterStackVersionResourceProvider.java,854,compare = v2 - v1;
+ambari-server/src/main/java/org/apache/ambari/server/controller/internal/ClusterStackVersionResourceProvider.java,856,return Integer.compare(compare, 0);
+ambari-server/src/main/java/org/apache/ambari/server/state/repository/VersionDefinitionXml.java,311,summary.setVersions(manifest.version, StringUtils.isEmpty(manifest.releaseVersion) ?
+ambari-server/src/main/java/org/apache/ambari/server/state/repository/VersionDefinitionXml.java,312,release.version : manifest.releaseVersion);
+ambari-server/src/main/java/org/apache/ambari/server/state/repository/VersionDefinitionXml.java,316,if (VersionUtils.compareVersions(summary.getReleaseVersion(), serviceVersion, 4) > 0) {
+ambari-server/src/main/java/org/apache/ambari/server/utils/VersionUtils.java,89,List<Integer> stack1Parts = new ArrayList<Integer>();
+ambari-server/src/main/java/org/apache/ambari/server/utils/VersionUtils.java,90,List<Integer> stack2Parts = new ArrayList<Integer>();
+ambari-server/src/main/java/org/apache/ambari/server/controller/AmbariManagementControllerImpl.java,911,Service svc = cluster.getService(service);
+ambari-server/src/main/java/org/apache/ambari/server/controller/AmbariManagementControllerImpl.java,912,stackId = svc.getDesiredStackId();
+ambari-server/src/main/java/org/apache/ambari/server/serveraction/upgrades/FinalizeUpgradeAction.java,199,finalizeHostRepositoryVersions(cluster);
+ambari-server/src/main/java/org/apache/ambari/server/serveraction/upgrades/FinalizeUpgradeAction.java,280,if (upgradeContext.isPatchRevert()) {
+ambari-server/src/main/java/org/apache/ambari/server/serveraction/upgrades/FinalizeUpgradeAction.java,281,finalizeHostRepositoryVersions(cluster);
+ambari-server/src/main/java/org/apache/ambari/server/serveraction/upgrades/FinalizeUpgradeAction.java,284,Map<String, RepositoryVersionEntity> targetVersionsByService = upgradeContext.getTargetVersions();
+ambari-server/src/main/java/org/apache/ambari/server/serveraction/upgrades/FinalizeUpgradeAction.java,285,Set<RepositoryVersionEntity> targetRepositoryVersions = new HashSet<>();
+ambari-server/src/main/java/org/apache/ambari/server/serveraction/upgrades/FinalizeUpgradeAction.java,286,for (String service : targetVersionsByService.keySet()) {
+ambari-server/src/main/java/org/apache/ambari/server/serveraction/upgrades/FinalizeUpgradeAction.java,287,targetRepositoryVersions.add(targetVersionsByService.get(service));
+ambari-server/src/main/java/org/apache/ambari/server/serveraction/upgrades/FinalizeUpgradeAction.java,290,for (RepositoryVersionEntity targetRepositoryVersion : targetRepositoryVersions) {
+ambari-server/src/main/java/org/apache/ambari/server/serveraction/upgrades/FinalizeUpgradeAction.java,292,List<HostVersionEntity> hostVersions = hostVersionDAO.findHostVersionByClusterAndRepository(
+ambari-server/src/main/java/org/apache/ambari/server/serveraction/upgrades/FinalizeUpgradeAction.java,293,cluster.getClusterId(), targetRepositoryVersion);
+ambari-server/src/main/java/org/apache/ambari/server/serveraction/upgrades/FinalizeUpgradeAction.java,295,outSB.append(String.format("Finalizing %d host(s) back to %s", hostVersions.size(),
+ambari-server/src/main/java/org/apache/ambari/server/serveraction/upgrades/FinalizeUpgradeAction.java,296,targetRepositoryVersion.getVersion())).append(System.lineSeparator());
+ambari-server/src/main/java/org/apache/ambari/server/serveraction/upgrades/FinalizeUpgradeAction.java,298,for (HostVersionEntity hostVersion : hostVersions) {
+ambari-server/src/main/java/org/apache/ambari/server/serveraction/upgrades/FinalizeUpgradeAction.java,299,if (hostVersion.getState() != RepositoryVersionState.CURRENT) {
+ambari-server/src/main/java/org/apache/ambari/server/serveraction/upgrades/FinalizeUpgradeAction.java,300,hostVersion.setState(RepositoryVersionState.CURRENT);
+ambari-server/src/main/java/org/apache/ambari/server/serveraction/upgrades/FinalizeUpgradeAction.java,301,hostVersionDAO.merge(hostVersion);
+ambari-server/src/main/java/org/apache/ambari/server/serveraction/upgrades/FinalizeUpgradeAction.java,304,List<HostComponentStateEntity> hostComponentStates = hostComponentStateDAO.findByHost(
+ambari-server/src/main/java/org/apache/ambari/server/serveraction/upgrades/FinalizeUpgradeAction.java,305,hostVersion.getHostName());
+ambari-server/src/main/java/org/apache/ambari/server/serveraction/upgrades/FinalizeUpgradeAction.java,307,for (HostComponentStateEntity hostComponentState : hostComponentStates) {
+ambari-server/src/main/java/org/apache/ambari/server/serveraction/upgrades/FinalizeUpgradeAction.java,308,hostComponentState.setUpgradeState(UpgradeState.NONE);
+ambari-server/src/main/java/org/apache/ambari/server/serveraction/upgrades/FinalizeUpgradeAction.java,309,hostComponentStateDAO.merge(hostComponentState);
+ambari-server/src/main/java/org/apache/ambari/server/serveraction/upgrades/FinalizeUpgradeAction.java,405,private void finalizeHostRepositoryVersions(Cluster cluster) throws AmbariException {
+ambari-server/src/main/java/org/apache/ambari/server/security/authentication/AmbariBasicAuthenticationFilter.java,28,import org.apache.ambari.server.audit.event.AuditEvent;
+ambari-server/src/main/java/org/apache/ambari/server/security/authentication/AmbariBasicAuthenticationFilter.java,32,import org.apache.ambari.server.security.authorization.AuthorizationHelper;
+ambari-server/src/main/java/org/apache/ambari/server/security/authentication/AmbariBasicAuthenticationFilter.java,117,HttpServletRequest httpServletRequest = (HttpServletRequest) servletRequest;
+ambari-server/src/main/java/org/apache/ambari/server/security/authentication/AmbariBasicAuthenticationFilter.java,119,if (auditLogger.isEnabled() && shouldApply(httpServletRequest) && (AuthorizationHelper.getAuthenticatedName() == null)) {
+ambari-server/src/main/java/org/apache/ambari/server/security/authentication/AmbariBasicAuthenticationFilter.java,125,.build();
+ambari-server/src/main/java/org/apache/ambari/server/security/authentication/AmbariBasicAuthenticationFilter.java,126,auditLogger.log(loginFailedAuditEvent);
+ambari-server/src/main/java/org/apache/ambari/server/controller/AmbariManagementControllerImpl.java,793,ConfigurationRequest request) throws AmbariException, AuthorizationException {
+ambari-server/src/main/java/org/apache/ambari/server/controller/AmbariManagementControllerImpl.java,918,request.getVersionTag(), propertiesAttributes);
+ambari-server/src/main/java/org/apache/ambari/server/controller/AmbariManagementControllerImpl.java,930,String versionTag, Map<String, Map<String, String>> propertiesAttributes) {
+ambari-server/src/main/java/org/apache/ambari/server/controller/AmbariManagementControllerImpl.java,932,Config config = configFactory.createNew(stackId, cluster, type, versionTag, properties,
+ambari-server/src/main/java/org/apache/ambari/server/controller/AmbariManagementControllerImpl.java,933,propertiesAttributes);
+ambari-server/src/main/java/org/apache/ambari/server/controller/AmbariManagementControllerImpl.java,1507,response = updateCluster(request, requestProperties);
+ambari-server/src/main/java/org/apache/ambari/server/controller/AmbariManagementControllerImpl.java,1755,configurationResponses.add(createConfiguration(cr));
+ambari-server/src/main/java/org/apache/ambari/server/state/ConfigImpl.java,110,this(cluster.getDesiredStackVersion(), cluster, type, tag, properties, propertiesAttributes,
+ambari-server/src/main/java/org/apache/ambari/server/state/ConfigImpl.java,111,clusterDAO, stackDAO, gson, eventPublisher, lockFactory);
+ambari-server/src/main/java/org/apache/ambari/server/state/ConfigImpl.java,116,ConfigImpl(@Assisted StackId stackId, @Assisted Cluster cluster, @Assisted("type") String type,
+ambari-server/src/main/java/org/apache/ambari/server/state/ConfigImpl.java,121,Gson gson, AmbariEventPublisher eventPublisher, LockFactory lockFactory) {
+ambari-server/src/main/java/org/apache/ambari/server/state/ConfigImpl.java,163,persist(entity);
+ambari-server/src/main/java/org/apache/ambari/server/state/ConfigImpl.java,348,private void persist(ClusterConfigEntity entity) {
+ambari-server/src/main/java/org/apache/ambari/server/state/ConfigImpl.java,355,cluster.refresh();
+ambari-server/src/main/java/org/apache/ambari/server/state/ConfigImpl.java,397,clusterDAO.merge(clusterEntity, true);
+ambari-server/src/main/java/org/apache/ambari/server/state/cluster/ClusterImpl.java,1936,clusterEntity = clusterDAO.merge(clusterEntity);
+ambari-server/src/main/java/org/apache/ambari/server/state/cluster/ClusterImpl.java,2420,clusterEntity = clusterDAO.merge(clusterEntity, true);
+ambari-server/src/main/java/org/apache/ambari/server/state/cluster/ClusterImpl.java,2501,clusterEntity = clusterDAO.merge(clusterEntity, true);
+ambari-server/src/main/java/org/apache/ambari/server/state/configgroup/ConfigGroupImpl.java,432,config = configFactory.createNew(stackId, cluster, config.getType(),
+ambari-server/src/main/java/org/apache/ambari/server/state/configgroup/ConfigGroupImpl.java,433,config.getTag(), config.getProperties(), config.getPropertiesAttributes());
+ambari-server/src/main/java/org/apache/ambari/server/topology/AmbariContext.java,530,getController().updateClusters(Collections.singleton(clusterRequest), null);
+ambari-server/src/main/java/org/apache/ambari/server/upgrade/UpgradeCatalog252.java,316,clusterDAO.merge(clusterEntity);
+ambari-server/src/main/java/org/apache/ambari/server/controller/ActionExecutionContext.java,42,private Short timeout;
+ambari-server/src/main/java/org/apache/ambari/server/controller/ActionExecutionContext.java,64,Short timeout, String expectedServiceName,
+ambari-server/src/main/java/org/apache/ambari/server/controller/ActionExecutionContext.java,109,public Short getTimeout() {
+ambari-server/src/main/java/org/apache/ambari/server/controller/ActionExecutionContext.java,113,public void setTimeout(Short timeout) {
+ambari-server/src/main/java/org/apache/ambari/server/controller/AmbariCustomCommandExecutionHelper.java,452,int commandTimeout = Short.valueOf(configs.getDefaultAgentTaskTimeout(isInstallCommand)).intValue();
+ambari-server/src/main/java/org/apache/ambari/server/controller/internal/ClusterStackVersionResourceProvider.java,764,actionContext.setTimeout(Short.valueOf(configuration.getDefaultAgentTaskTimeout(true)));
+ambari-server/src/main/java/org/apache/ambari/server/controller/internal/UpgradeResourceProvider.java,1351,actionContext.setTimeout(Short.valueOf((short) -1));
+ambari-server/src/main/java/org/apache/ambari/server/customactions/ActionDefinition.java,39,private Short defaultTimeout;
+ambari-server/src/main/java/org/apache/ambari/server/customactions/ActionDefinition.java,57,TargetHostType targetType, Short defaultTimeout, Set<RoleAuthorization> permissions) {
+ambari-server/src/main/java/org/apache/ambari/server/customactions/ActionDefinition.java,125,public Short getDefaultTimeout() {
+ambari-server/src/main/java/org/apache/ambari/server/customactions/ActionDefinition.java,129,public void setDefaultTimeout(Short defaultTimeout) {
+ambari-server/src/main/java/org/apache/ambari/server/customactions/ActionDefinitionManager.java,46,public static final Short MIN_TIMEOUT = 60;
+ambari-server/src/main/java/org/apache/ambari/server/customactions/ActionDefinitionManager.java,51,private static final Short MAX_TIMEOUT = Short.MAX_VALUE-1;
+ambari-server/src/main/java/org/apache/ambari/server/customactions/ActionDefinitionManager.java,114,Short defaultTimeout = MIN_TIMEOUT;
+ambari-server/src/main/java/org/apache/ambari/server/customactions/ActionDefinitionManager.java,116,defaultTimeout = Short.parseShort(ad.getDefaultTimeout());
+ambari-server/src/main/java/org/apache/ambari/server/customactions/ActionDefinitionManager.java,140,Short defaultTimeout, StringBuilder reason) {
+ambari-server/src/main/java/org/apache/ambari/server/state/stack/upgrade/StageWrapper.java,193,public Short getMaxTimeout(Configuration configuration) {
+ambari-server/src/main/java/org/apache/ambari/server/state/stack/upgrade/StageWrapper.java,202,Short defaultTimeout = Short.valueOf(configuration.getDefaultAgentTaskTimeout(false));
+ambari-server/src/main/java/org/apache/ambari/server/state/stack/upgrade/StageWrapper.java,208,Short timeout = null;
+ambari-server/src/main/java/org/apache/ambari/server/state/stack/upgrade/StageWrapper.java,215,Short configTimeout = Short.valueOf(configValue);
+ambari-server/src/main/java/org/apache/ambari/server/api/services/ResultStatus.java,134,m_msg = e.toString();
+ambari-logsearch/ambari-logsearch-logfeeder/src/main/java/org/apache/ambari/logfeeder/logconfig/LogFeederFilter.java,28,import org.codehaus.jackson.annotate.JsonAutoDetect;
+ambari-logsearch/ambari-logsearch-logfeeder/src/main/java/org/apache/ambari/logfeeder/logconfig/LogFeederFilter.java,29,import org.codehaus.jackson.annotate.JsonAutoDetect.Visibility;
+ambari-logsearch/ambari-logsearch-logfeeder/src/main/java/org/apache/ambari/logfeeder/logconfig/LogFeederFilter.java,30,import org.codehaus.jackson.map.annotate.JsonSerialize;
+ambari-logsearch/ambari-logsearch-logfeeder/src/main/java/org/apache/ambari/logfeeder/logconfig/LogFeederFilterWrapper.java,27,import org.codehaus.jackson.annotate.JsonAutoDetect;
+ambari-logsearch/ambari-logsearch-logfeeder/src/main/java/org/apache/ambari/logfeeder/logconfig/LogFeederFilterWrapper.java,28,import org.codehaus.jackson.annotate.JsonAutoDetect.Visibility;
+ambari-logsearch/ambari-logsearch-logfeeder/src/main/java/org/apache/ambari/logfeeder/logconfig/LogFeederFilterWrapper.java,29,import org.codehaus.jackson.map.annotate.JsonSerialize;
+ambari-logsearch/ambari-logsearch-logfeeder/src/main/java/org/apache/ambari/logfeeder/util/FileUtil.java,35,import org.codehaus.jackson.map.ObjectMapper;
+ambari-logsearch/ambari-logsearch-logfeeder/src/main/java/org/apache/ambari/logfeeder/util/FileUtil.java,36,import org.codehaus.jackson.type.TypeReference;
+ambari-logsearch/ambari-logsearch-solr-client/src/main/java/org/apache/ambari/logsearch/solr/commands/AbstractStateFileZkCommand.java,23,import org.codehaus.jackson.JsonNode;
+ambari-logsearch/ambari-logsearch-solr-client/src/main/java/org/apache/ambari/logsearch/solr/commands/AbstractStateFileZkCommand.java,24,import org.codehaus.jackson.map.ObjectMapper;
+ambari-logsearch/ambari-logsearch-solr-client/src/main/java/org/apache/ambari/logsearch/solr/commands/UpdateStateFileZkCommand.java,26,import org.codehaus.jackson.map.ObjectMapper;
+ambari-server/src/main/java/org/apache/ambari/server/agent/AgentEnv.java,21,import org.codehaus.jackson.map.annotate.JsonSerialize;
+ambari-server/src/main/java/org/apache/ambari/server/agent/AgentEnv.java,22,import org.codehaus.jackson.map.annotate.JsonSerialize.Inclusion;
+ambari-server/src/main/java/org/apache/ambari/server/agent/CommandReport.java,22,import org.codehaus.jackson.annotate.JsonProperty;
+ambari-server/src/main/java/org/apache/ambari/server/agent/ComponentRecoveryReport.java,20,import org.codehaus.jackson.annotate.JsonProperty;
+ambari-server/src/main/java/org/apache/ambari/server/agent/ComponentsResponse.java,23,import org.codehaus.jackson.annotate.JsonProperty;
+ambari-server/src/main/java/org/apache/ambari/server/agent/DiskInfo.java,21,import org.codehaus.jackson.annotate.JsonProperty;
+ambari-server/src/main/java/org/apache/ambari/server/agent/HeartBeat.java,25,import org.codehaus.jackson.annotate.JsonProperty;
+ambari-server/src/main/java/org/apache/ambari/server/agent/HostInfo.java,24,import org.codehaus.jackson.annotate.JsonProperty;
+ambari-server/src/main/java/org/apache/ambari/server/agent/HostStatus.java,20,import org.codehaus.jackson.annotate.JsonProperty;
+ambari-server/src/main/java/org/apache/ambari/server/agent/RecoveryReport.java,20,import org.codehaus.jackson.annotate.JsonProperty;
+ambari-server/src/main/java/org/apache/ambari/server/agent/Register.java,21,import org.codehaus.jackson.annotate.JsonProperty;
+ambari-server/src/main/java/org/apache/ambari/server/agent/RegistrationResponse.java,25,import org.codehaus.jackson.annotate.JsonProperty;
+ambari-server/src/main/java/org/apache/ambari/server/api/query/render/AlertStateSummary.java,21,import org.codehaus.jackson.annotate.JsonProperty;
+ambari-server/src/main/java/org/apache/ambari/server/api/query/render/AlertStateValues.java,20,import org.codehaus.jackson.annotate.JsonProperty;
+ambari-server/src/main/java/org/apache/ambari/server/api/query/render/AlertStateValues.java,21,import org.codehaus.jackson.map.annotate.JsonSerialize;
+ambari-server/src/main/java/org/apache/ambari/server/api/query/render/AlertSummaryGroupedRenderer.java,36,import org.codehaus.jackson.annotate.JsonProperty;
+ambari-server/src/main/java/org/apache/ambari/server/api/services/parsers/JsonRequestBodyParser.java,34,import org.codehaus.jackson.JsonNode;
+ambari-server/src/main/java/org/apache/ambari/server/api/services/parsers/JsonRequestBodyParser.java,35,import org.codehaus.jackson.map.ObjectMapper;
+ambari-server/src/main/java/org/apache/ambari/server/api/services/parsers/JsonRequestBodyParser.java,60,Iterator<JsonNode> iterator = root.getElements();
+ambari-server/src/main/java/org/apache/ambari/server/api/services/parsers/JsonRequestBodyParser.java,115,Iterator<String> iterator = node.getFieldNames();
+ambari-server/src/main/java/org/apache/ambari/server/api/services/parsers/JsonRequestBodyParser.java,121,Iterator<JsonNode>       arrayIter = child.getElements();
+ambari-server/src/main/java/org/apache/ambari/server/api/services/serializers/JsonSerializer.java,24,import org.apache.ambari.server.api.services.Result;
+ambari-server/src/main/java/org/apache/ambari/server/api/services/serializers/JsonSerializer.java,27,import org.apache.ambari.server.api.util.TreeNode;
+ambari-server/src/main/java/org/apache/ambari/server/api/services/serializers/JsonSerializer.java,28,import org.codehaus.jackson.JsonFactory;
+ambari-server/src/main/java/org/apache/ambari/server/api/services/serializers/JsonSerializer.java,29,import org.codehaus.jackson.JsonGenerator;
+ambari-server/src/main/java/org/apache/ambari/server/api/services/serializers/JsonSerializer.java,30,import org.codehaus.jackson.map.ObjectMapper;
+ambari-server/src/main/java/org/apache/ambari/server/api/services/serializers/JsonSerializer.java,31,import org.codehaus.jackson.util.DefaultPrettyPrinter;
+ambari-server/src/main/java/org/apache/ambari/server/api/services/serializers/JsonSerializer.java,33,import java.io.*;
+ambari-server/src/main/java/org/apache/ambari/server/api/services/serializers/JsonSerializer.java,34,import java.nio.charset.Charset;
+ambari-server/src/main/java/org/apache/ambari/server/api/services/serializers/JsonSerializer.java,35,import java.util.LinkedHashMap;
+ambari-server/src/main/java/org/apache/ambari/server/api/services/serializers/JsonSerializer.java,36,import java.util.Map;
+ambari-server/src/main/java/org/apache/ambari/server/api/services/serializers/JsonSerializer.java,100,p.indentArraysWith(new DefaultPrettyPrinter.Lf2SpacesIndenter());
+ambari-server/src/main/java/org/apache/ambari/server/api/services/serializers/JsonSerializer.java,251,p.indentArraysWith(new DefaultPrettyPrinter.Lf2SpacesIndenter());
+ambari-server/src/main/java/org/apache/ambari/server/api/services/stackadvisor/StackAdvisorResponse.java,21,import org.codehaus.jackson.annotate.JsonProperty;
+ambari-server/src/main/java/org/apache/ambari/server/api/services/stackadvisor/commands/StackAdvisorCommand.java,56,import org.codehaus.jackson.JsonNode;
+ambari-server/src/main/java/org/apache/ambari/server/api/services/stackadvisor/commands/StackAdvisorCommand.java,57,import org.codehaus.jackson.map.ObjectMapper;
+ambari-server/src/main/java/org/apache/ambari/server/api/services/stackadvisor/commands/StackAdvisorCommand.java,58,import org.codehaus.jackson.map.SerializationConfig;
+ambari-server/src/main/java/org/apache/ambari/server/api/services/stackadvisor/commands/StackAdvisorCommand.java,59,import org.codehaus.jackson.node.ArrayNode;
+ambari-server/src/main/java/org/apache/ambari/server/api/services/stackadvisor/commands/StackAdvisorCommand.java,60,import org.codehaus.jackson.node.ObjectNode;
+ambari-server/src/main/java/org/apache/ambari/server/api/services/stackadvisor/commands/StackAdvisorCommand.java,61,import org.codehaus.jackson.node.TextNode;
+ambari-server/src/main/java/org/apache/ambari/server/api/services/stackadvisor/commands/StackAdvisorCommand.java,118,this.mapper.configure(SerializationConfig.Feature.INDENT_OUTPUT, true);
+ambari-server/src/main/java/org/apache/ambari/server/api/services/stackadvisor/commands/StackAdvisorCommand.java,233,Iterator<JsonNode> servicesIter = services.getElements();
+ambari-server/src/main/java/org/apache/ambari/server/api/services/stackadvisor/commands/StackAdvisorCommand.java,238,Iterator<JsonNode> componentsIter = components.getElements();
+ambari-server/src/main/java/org/apache/ambari/server/api/services/stackadvisor/commands/StackAdvisorCommand.java,243,String componentName = componentInfo.get(COMPONENT_NAME_PROPERTY).getTextValue();
+ambari-server/src/main/java/org/apache/ambari/server/api/services/stackadvisor/commands/StackAdvisorCommand.java,258,Iterator<JsonNode> servicesIter = services.getElements();
+ambari-server/src/main/java/org/apache/ambari/server/api/services/stackadvisor/commands/StackAdvisorCommand.java,267,String serviceName = serviceVersion.get("service_name").getTextValue();
+ambari-server/src/main/java/org/apache/ambari/server/api/services/stackadvisor/commands/StackAdvisorCommand.java,399,Iterator<JsonNode> iterator = root.get("items").getElements();
+ambari-server/src/main/java/org/apache/ambari/server/api/services/stackadvisor/commands/StackAdvisorCommand.java,402,String hostName = next.get("Hosts").get("host_name").getTextValue();
+ambari-server/src/main/java/org/apache/ambari/server/api/services/stackadvisor/recommendations/RecommendationResponse.java,28,import org.codehaus.jackson.annotate.JsonProperty;
+ambari-server/src/main/java/org/apache/ambari/server/api/services/stackadvisor/recommendations/RecommendationResponse.java,29,import org.codehaus.jackson.map.annotate.JsonSerialize;
+ambari-server/src/main/java/org/apache/ambari/server/api/services/stackadvisor/validations/ValidationResponse.java,24,import org.codehaus.jackson.annotate.JsonProperty;
+ambari-server/src/main/java/org/apache/ambari/server/controller/AlertDefinitionResponse.java,22,import org.codehaus.jackson.annotate.JsonProperty;
+ambari-server/src/main/java/org/apache/ambari/server/controller/ServiceConfigVersionResponse.java,23,import java.util.Objects;
+ambari-server/src/main/java/org/apache/ambari/server/controller/ServiceConfigVersionResponse.java,33,import org.codehaus.jackson.annotate.JsonProperty;
+ambari-server/src/main/java/org/apache/ambari/server/controller/ServiceConfigVersionResponse.java,34,import org.codehaus.jackson.map.annotate.JsonSerialize;
+ambari-server/src/main/java/org/apache/ambari/server/controller/WidgetResponse.java,21,import org.codehaus.jackson.annotate.JsonProperty;
+ambari-server/src/main/java/org/apache/ambari/server/controller/internal/RequestResourceFilter.java,20,import org.codehaus.jackson.annotate.JsonProperty;
+ambari-server/src/main/java/org/apache/ambari/server/controller/internal/RequestResourceFilter.java,21,import org.codehaus.jackson.map.annotate.JsonSerialize;
+ambari-server/src/main/java/org/apache/ambari/server/controller/internal/TaskResourceProvider.java,46,import org.codehaus.jackson.map.ObjectMapper;
+ambari-server/src/main/java/org/apache/ambari/server/controller/internal/UpgradeResourceProvider.java,108,import org.codehaus.jackson.annotate.JsonProperty;
+ambari-server/src/main/java/org/apache/ambari/server/controller/internal/VersionDefinitionResourceProvider.java,73,import org.codehaus.jackson.node.ArrayNode;
+ambari-server/src/main/java/org/apache/ambari/server/controller/internal/VersionDefinitionResourceProvider.java,74,import org.codehaus.jackson.node.JsonNodeFactory;
+ambari-server/src/main/java/org/apache/ambari/server/controller/internal/VersionDefinitionResourceProvider.java,75,import org.codehaus.jackson.node.ObjectNode;
+ambari-server/src/main/java/org/apache/ambari/server/controller/logging/HostComponentLoggingInfo.java,22,import org.codehaus.jackson.annotate.JsonProperty;
+ambari-server/src/main/java/org/apache/ambari/server/controller/logging/LogFileDefinitionInfo.java,22,import org.codehaus.jackson.annotate.JsonProperty;
+ambari-server/src/main/java/org/apache/ambari/server/controller/logging/LogLevelQueryResponse.java,20,import org.codehaus.jackson.annotate.JsonIgnoreProperties;
+ambari-server/src/main/java/org/apache/ambari/server/controller/logging/LogLevelQueryResponse.java,21,import org.codehaus.jackson.annotate.JsonProperty;
+ambari-server/src/main/java/org/apache/ambari/server/controller/logging/LogLineResult.java,21,import org.codehaus.jackson.annotate.JsonIgnoreProperties;
+ambari-server/src/main/java/org/apache/ambari/server/controller/logging/LogLineResult.java,22,import org.codehaus.jackson.annotate.JsonProperty;
+ambari-server/src/main/java/org/apache/ambari/server/controller/logging/LogQueryResponse.java,21,import org.codehaus.jackson.annotate.JsonIgnoreProperties;
+ambari-server/src/main/java/org/apache/ambari/server/controller/logging/LogQueryResponse.java,22,import org.codehaus.jackson.annotate.JsonProperty;
+ambari-server/src/main/java/org/apache/ambari/server/controller/logging/LogQueryResponse.java,23,import org.codehaus.jackson.map.util.JSONPObject;
+ambari-server/src/main/java/org/apache/ambari/server/controller/logging/LogQueryResponse.java,25,import java.util.LinkedList;
+ambari-server/src/main/java/org/apache/ambari/server/controller/logging/LoggingRequestHelperImpl.java,58,import org.codehaus.jackson.map.AnnotationIntrospector;
+ambari-server/src/main/java/org/apache/ambari/server/controller/logging/LoggingRequestHelperImpl.java,59,import org.codehaus.jackson.map.ObjectMapper;
+ambari-server/src/main/java/org/apache/ambari/server/controller/logging/LoggingRequestHelperImpl.java,60,import org.codehaus.jackson.map.ObjectReader;
+ambari-server/src/main/java/org/apache/ambari/server/controller/logging/LoggingRequestHelperImpl.java,61,import org.codehaus.jackson.map.annotate.JsonSerialize;
+ambari-server/src/main/java/org/apache/ambari/server/controller/logging/LoggingRequestHelperImpl.java,62,import org.codehaus.jackson.map.introspect.JacksonAnnotationIntrospector;
+ambari-server/src/main/java/org/apache/ambari/server/controller/logging/LoggingRequestHelperImpl.java,433,mapper.getSerializationConfig().setSerializationInclusion(JsonSerialize.Inclusion.NON_NULL);
+ambari-server/src/main/java/org/apache/ambari/server/controller/logging/NameValuePair.java,20,import org.codehaus.jackson.annotate.JsonProperty;
+ambari-server/src/main/java/org/apache/ambari/server/controller/metrics/ganglia/GangliaMetric.java,25,import org.codehaus.jackson.annotate.JsonIgnoreProperties;
+ambari-server/src/main/java/org/apache/ambari/server/controller/metrics/ganglia/GangliaReportPropertyProvider.java,31,import org.codehaus.jackson.map.ObjectMapper;
+ambari-server/src/main/java/org/apache/ambari/server/controller/metrics/ganglia/GangliaReportPropertyProvider.java,32,import org.codehaus.jackson.type.TypeReference;
+ambari-server/src/main/java/org/apache/ambari/server/controller/metrics/timeline/MetricsRequestHelper.java,27,import org.codehaus.jackson.map.AnnotationIntrospector;
+ambari-server/src/main/java/org/apache/ambari/server/controller/metrics/timeline/MetricsRequestHelper.java,28,import org.codehaus.jackson.map.ObjectMapper;
+ambari-server/src/main/java/org/apache/ambari/server/controller/metrics/timeline/MetricsRequestHelper.java,29,import org.codehaus.jackson.map.ObjectReader;
+ambari-server/src/main/java/org/apache/ambari/server/controller/metrics/timeline/MetricsRequestHelper.java,30,import org.codehaus.jackson.map.annotate.JsonSerialize;
+ambari-server/src/main/java/org/apache/ambari/server/controller/metrics/timeline/MetricsRequestHelper.java,31,import org.codehaus.jackson.xc.JaxbAnnotationIntrospector;
+ambari-server/src/main/java/org/apache/ambari/server/controller/metrics/timeline/MetricsRequestHelper.java,60,mapper = new ObjectMapper();
+ambari-server/src/main/java/org/apache/ambari/server/controller/metrics/timeline/MetricsRequestHelper.java,64,mapper.getSerializationConfig().setSerializationInclusion(JsonSerialize.Inclusion.NON_NULL);
+ambari-server/src/main/java/org/apache/ambari/server/controller/utilities/PropertyHelper.java,39,import org.codehaus.jackson.map.ObjectMapper;
+ambari-server/src/main/java/org/apache/ambari/server/controller/utilities/PropertyHelper.java,40,import org.codehaus.jackson.type.TypeReference;
+ambari-server/src/main/java/org/apache/ambari/server/hooks/users/UserHookService.java,48,import org.codehaus.jackson.map.ObjectMapper;
+ambari-server/src/main/java/org/apache/ambari/server/serveraction/users/PostUserCreationHookServerAction.java,37,import org.apache.ambari.server.topology.AsyncCallableService;
+ambari-server/src/main/java/org/apache/ambari/server/serveraction/users/PostUserCreationHookServerAction.java,39,import org.codehaus.jackson.map.ObjectMapper;
+ambari-server/src/main/java/org/apache/ambari/server/stack/QuickLinksConfigurationModule.java,23,import org.codehaus.jackson.map.ObjectMapper;
+ambari-server/src/main/java/org/apache/ambari/server/stack/ServiceDirectory.java,30,import org.codehaus.jackson.map.ObjectMapper;
+ambari-server/src/main/java/org/apache/ambari/server/stack/ServiceDirectory.java,31,import org.codehaus.jackson.type.TypeReference;
+ambari-server/src/main/java/org/apache/ambari/server/stack/StackDirectory.java,38,import org.codehaus.jackson.map.ObjectMapper;
+ambari-server/src/main/java/org/apache/ambari/server/stack/StackDirectory.java,39,import org.codehaus.jackson.type.TypeReference;
+ambari-server/src/main/java/org/apache/ambari/server/stack/ThemeModule.java,23,import org.codehaus.jackson.map.ObjectMapper;
+ambari-server/src/main/java/org/apache/ambari/server/state/Alert.java,21,import org.codehaus.jackson.annotate.JsonProperty;
+ambari-server/src/main/java/org/apache/ambari/server/state/ChangedConfigInfo.java,21,import org.codehaus.jackson.annotate.JsonProperty;
+ambari-server/src/main/java/org/apache/ambari/server/state/ClusterHealthReport.java,21,import org.codehaus.jackson.annotate.JsonProperty;
+ambari-server/src/main/java/org/apache/ambari/server/state/DesiredConfig.java,25,import org.codehaus.jackson.annotate.JsonProperty;
+ambari-server/src/main/java/org/apache/ambari/server/state/DesiredConfig.java,26,import org.codehaus.jackson.map.annotate.JsonSerialize;
+ambari-server/src/main/java/org/apache/ambari/server/state/DesiredConfig.java,27,import org.codehaus.jackson.map.annotate.JsonSerialize.Inclusion;
+ambari-server/src/main/java/org/apache/ambari/server/state/HostConfig.java,23,import org.codehaus.jackson.annotate.JsonProperty;
+ambari-server/src/main/java/org/apache/ambari/server/state/HostConfig.java,24,import org.codehaus.jackson.map.annotate.JsonSerialize;
+ambari-server/src/main/java/org/apache/ambari/server/state/ServiceComponentHostEvent.java,24,import org.apache.ambari.server.state.svccomphost.*;
+ambari-server/src/main/java/org/apache/ambari/server/state/ServiceComponentHostEvent.java,25,import org.codehaus.jackson.annotate.JsonCreator;
+ambari-server/src/main/java/org/apache/ambari/server/state/ServiceComponentHostEvent.java,26,import org.codehaus.jackson.annotate.JsonProperty;
+ambari-server/src/main/java/org/apache/ambari/server/state/ServiceInfo.java,32,import org.codehaus.jackson.annotate.JsonIgnore;
+ambari-server/src/main/java/org/apache/ambari/server/state/ServiceInfo.java,33,import org.codehaus.jackson.map.annotate.JsonFilter;
+ambari-server/src/main/java/org/apache/ambari/server/state/UserGroupInfo.java,24,import org.codehaus.jackson.map.annotate.JsonSerialize;
+ambari-server/src/main/java/org/apache/ambari/server/state/ValueAttributesInfo.java,21,import org.codehaus.jackson.annotate.JsonProperty;
+ambari-server/src/main/java/org/apache/ambari/server/state/ValueAttributesInfo.java,22,import org.codehaus.jackson.map.annotate.JsonSerialize;
+ambari-server/src/main/java/org/apache/ambari/server/state/ValueEntryInfo.java,21,import org.codehaus.jackson.map.annotate.JsonSerialize;
+ambari-server/src/main/java/org/apache/ambari/server/state/alert/AlertGroup.java,20,import org.codehaus.jackson.annotate.JsonProperty;
+ambari-server/src/main/java/org/apache/ambari/server/state/alert/AlertTarget.java,23,import org.codehaus.jackson.annotate.JsonProperty;
+ambari-server/src/main/java/org/apache/ambari/server/state/quicklinks/Check.java,21,import org.codehaus.jackson.annotate.JsonIgnoreProperties;
+ambari-server/src/main/java/org/apache/ambari/server/state/quicklinks/Check.java,22,import org.codehaus.jackson.annotate.JsonProperty;
+ambari-server/src/main/java/org/apache/ambari/server/state/quicklinks/Check.java,23,import org.codehaus.jackson.map.annotate.JsonSerialize;
+ambari-server/src/main/java/org/apache/ambari/server/state/quicklinks/Link.java,21,import java.util.ArrayList;
+ambari-server/src/main/java/org/apache/ambari/server/state/quicklinks/Link.java,26,import org.codehaus.jackson.annotate.JsonIgnoreProperties;
+ambari-server/src/main/java/org/apache/ambari/server/state/quicklinks/Link.java,27,import org.codehaus.jackson.annotate.JsonProperty;
+ambari-server/src/main/java/org/apache/ambari/server/state/quicklinks/Link.java,28,import org.codehaus.jackson.map.annotate.JsonSerialize;
+ambari-server/src/main/java/org/apache/ambari/server/state/quicklinks/Port.java,21,import org.codehaus.jackson.annotate.JsonIgnoreProperties;
+ambari-server/src/main/java/org/apache/ambari/server/state/quicklinks/Port.java,22,import org.codehaus.jackson.annotate.JsonProperty;
+ambari-server/src/main/java/org/apache/ambari/server/state/quicklinks/Port.java,23,import org.codehaus.jackson.map.annotate.JsonSerialize;
+ambari-server/src/main/java/org/apache/ambari/server/state/quicklinks/Protocol.java,21,import org.codehaus.jackson.annotate.JsonIgnoreProperties;
+ambari-server/src/main/java/org/apache/ambari/server/state/quicklinks/Protocol.java,22,import org.codehaus.jackson.annotate.JsonProperty;
+ambari-server/src/main/java/org/apache/ambari/server/state/quicklinks/Protocol.java,23,import org.codehaus.jackson.map.annotate.JsonSerialize;
+ambari-server/src/main/java/org/apache/ambari/server/state/quicklinks/QuickLinks.java,21,import org.codehaus.jackson.annotate.JsonIgnoreProperties;
+ambari-server/src/main/java/org/apache/ambari/server/state/quicklinks/QuickLinks.java,22,import org.codehaus.jackson.annotate.JsonProperty;
+ambari-server/src/main/java/org/apache/ambari/server/state/quicklinks/QuickLinks.java,23,import org.codehaus.jackson.map.annotate.JsonSerialize;
+ambari-server/src/main/java/org/apache/ambari/server/state/quicklinks/QuickLinksConfiguration.java,21,import org.codehaus.jackson.annotate.JsonIgnoreProperties;
+ambari-server/src/main/java/org/apache/ambari/server/state/quicklinks/QuickLinksConfiguration.java,22,import org.codehaus.jackson.annotate.JsonProperty;
+ambari-server/src/main/java/org/apache/ambari/server/state/quicklinks/QuickLinksConfiguration.java,23,import org.codehaus.jackson.map.annotate.JsonSerialize;
+ambari-server/src/main/java/org/apache/ambari/server/state/quicklinksprofile/Component.java,23,import org.codehaus.jackson.annotate.JsonIgnoreProperties;
+ambari-server/src/main/java/org/apache/ambari/server/state/quicklinksprofile/Component.java,24,import org.codehaus.jackson.annotate.JsonProperty;
+ambari-server/src/main/java/org/apache/ambari/server/state/quicklinksprofile/Component.java,25,import org.codehaus.jackson.map.annotate.JsonSerialize;
+ambari-server/src/main/java/org/apache/ambari/server/state/quicklinksprofile/Filter.java,22,import org.codehaus.jackson.annotate.JsonIgnoreProperties;
+ambari-server/src/main/java/org/apache/ambari/server/state/quicklinksprofile/Filter.java,23,import org.codehaus.jackson.annotate.JsonProperty;
+ambari-server/src/main/java/org/apache/ambari/server/state/quicklinksprofile/Filter.java,24,import org.codehaus.jackson.map.annotate.JsonSerialize;
+ambari-server/src/main/java/org/apache/ambari/server/state/quicklinksprofile/LinkAttributeFilter.java,24,import org.codehaus.jackson.annotate.JsonProperty;
+ambari-server/src/main/java/org/apache/ambari/server/state/quicklinksprofile/LinkNameFilter.java,24,import org.codehaus.jackson.annotate.JsonProperty;
+ambari-server/src/main/java/org/apache/ambari/server/state/quicklinksprofile/QuickLinksProfile.java,23,import org.codehaus.jackson.annotate.JsonIgnoreProperties;
+ambari-server/src/main/java/org/apache/ambari/server/state/quicklinksprofile/QuickLinksProfile.java,24,import org.codehaus.jackson.annotate.JsonProperty;
+ambari-server/src/main/java/org/apache/ambari/server/state/quicklinksprofile/QuickLinksProfile.java,25,import org.codehaus.jackson.map.annotate.JsonSerialize;
+ambari-server/src/main/java/org/apache/ambari/server/state/quicklinksprofile/QuickLinksProfileParser.java,26,import org.codehaus.jackson.JsonParseException;
+ambari-server/src/main/java/org/apache/ambari/server/state/quicklinksprofile/QuickLinksProfileParser.java,27,import org.codehaus.jackson.JsonParser;
+ambari-server/src/main/java/org/apache/ambari/server/state/quicklinksprofile/QuickLinksProfileParser.java,28,import org.codehaus.jackson.JsonProcessingException;
+ambari-server/src/main/java/org/apache/ambari/server/state/quicklinksprofile/QuickLinksProfileParser.java,29,import org.codehaus.jackson.Version;
+ambari-server/src/main/java/org/apache/ambari/server/state/quicklinksprofile/QuickLinksProfileParser.java,30,import org.codehaus.jackson.map.DeserializationContext;
+ambari-server/src/main/java/org/apache/ambari/server/state/quicklinksprofile/QuickLinksProfileParser.java,31,import org.codehaus.jackson.map.ObjectMapper;
+ambari-server/src/main/java/org/apache/ambari/server/state/quicklinksprofile/QuickLinksProfileParser.java,32,import org.codehaus.jackson.map.deser.std.StdDeserializer;
+ambari-server/src/main/java/org/apache/ambari/server/state/quicklinksprofile/QuickLinksProfileParser.java,33,import org.codehaus.jackson.map.module.SimpleModule;
+ambari-server/src/main/java/org/apache/ambari/server/state/quicklinksprofile/QuickLinksProfileParser.java,34,import org.codehaus.jackson.node.ObjectNode;
+ambari-server/src/main/java/org/apache/ambari/server/state/quicklinksprofile/QuickLinksProfileParser.java,94,ObjectNode root = (ObjectNode) mapper.readTree(parser);
+ambari-server/src/main/java/org/apache/ambari/server/state/quicklinksprofile/QuickLinksProfileParser.java,97,for (String fieldName: ImmutableList.copyOf(root.getFieldNames())) {
+ambari-server/src/main/java/org/apache/ambari/server/state/quicklinksprofile/QuickLinksProfileParser.java,101,throw new JsonParseException(PARSE_ERROR_MESSAGE_AMBIGUOUS_FILTER, parser.getCurrentLocation());
+ambari-server/src/main/java/org/apache/ambari/server/state/quicklinksprofile/QuickLinksProfileParser.java,107,throw new JsonParseException(PARSE_ERROR_MESSAGE_AMBIGUOUS_FILTER, parser.getCurrentLocation());
+ambari-server/src/main/java/org/apache/ambari/server/state/quicklinksprofile/QuickLinksProfileParser.java,119,throw new JsonParseException(PARSE_ERROR_MESSAGE_INVALID_JSON_TAG + invalidAttributes,
+ambari-server/src/main/java/org/apache/ambari/server/state/quicklinksprofile/QuickLinksProfileParser.java,125,return mapper.readValue(root, filterClass);
+ambari-server/src/main/java/org/apache/ambari/server/state/quicklinksprofile/Service.java,23,import org.codehaus.jackson.annotate.JsonIgnoreProperties;
+ambari-server/src/main/java/org/apache/ambari/server/state/quicklinksprofile/Service.java,24,import org.codehaus.jackson.annotate.JsonProperty;
+ambari-server/src/main/java/org/apache/ambari/server/state/quicklinksprofile/Service.java,25,import org.codehaus.jackson.map.annotate.JsonSerialize;
+ambari-server/src/main/java/org/apache/ambari/server/state/repository/AvailableService.java,23,import org.codehaus.jackson.annotate.JsonProperty;
+ambari-server/src/main/java/org/apache/ambari/server/state/repository/AvailableService.java,24,import org.codehaus.jackson.map.annotate.JsonSerialize;
+ambari-server/src/main/java/org/apache/ambari/server/state/repository/AvailableService.java,25,import org.codehaus.jackson.map.annotate.JsonSerialize.Inclusion;
+ambari-server/src/main/java/org/apache/ambari/server/state/repository/AvailableVersion.java,22,import org.codehaus.jackson.annotate.JsonProperty;
+ambari-server/src/main/java/org/apache/ambari/server/state/repository/AvailableVersion.java,23,import org.codehaus.jackson.map.annotate.JsonSerialize;
+ambari-server/src/main/java/org/apache/ambari/server/state/repository/AvailableVersion.java,24,import org.codehaus.jackson.map.annotate.JsonSerialize.Inclusion;
+ambari-server/src/main/java/org/apache/ambari/server/state/repository/ClusterVersionSummary.java,24,import org.codehaus.jackson.annotate.JsonIgnore;
+ambari-server/src/main/java/org/apache/ambari/server/state/repository/ClusterVersionSummary.java,25,import org.codehaus.jackson.annotate.JsonProperty;
+ambari-server/src/main/java/org/apache/ambari/server/state/repository/ManifestServiceInfo.java,22,import org.codehaus.jackson.annotate.JsonProperty;
+ambari-server/src/main/java/org/apache/ambari/server/state/repository/ServiceVersionSummary.java,20,import org.codehaus.jackson.annotate.JsonIgnore;
+ambari-server/src/main/java/org/apache/ambari/server/state/repository/ServiceVersionSummary.java,21,import org.codehaus.jackson.annotate.JsonProperty;
+ambari-server/src/main/java/org/apache/ambari/server/state/scheduler/Batch.java,20,import org.codehaus.jackson.annotate.JsonProperty;
+ambari-server/src/main/java/org/apache/ambari/server/state/scheduler/Batch.java,21,import org.codehaus.jackson.map.annotate.JsonSerialize;
+ambari-server/src/main/java/org/apache/ambari/server/state/scheduler/BatchRequest.java,20,import org.codehaus.jackson.annotate.JsonProperty;
+ambari-server/src/main/java/org/apache/ambari/server/state/scheduler/BatchRequest.java,21,import org.codehaus.jackson.map.annotate.JsonSerialize;
+ambari-server/src/main/java/org/apache/ambari/server/state/scheduler/BatchSettings.java,20,import org.codehaus.jackson.annotate.JsonProperty;
+ambari-server/src/main/java/org/apache/ambari/server/state/scheduler/BatchSettings.java,21,import org.codehaus.jackson.map.annotate.JsonSerialize;
+ambari-server/src/main/java/org/apache/ambari/server/state/scheduler/Schedule.java,20,import org.codehaus.jackson.annotate.JsonIgnore;
+ambari-server/src/main/java/org/apache/ambari/server/state/scheduler/Schedule.java,21,import org.codehaus.jackson.annotate.JsonProperty;
+ambari-server/src/main/java/org/apache/ambari/server/state/scheduler/Schedule.java,22,import org.codehaus.jackson.map.annotate.JsonSerialize;
+ambari-server/src/main/java/org/apache/ambari/server/state/services/MetricsRetrievalService.java,42,import org.codehaus.jackson.map.DeserializationConfig;
+ambari-server/src/main/java/org/apache/ambari/server/state/services/MetricsRetrievalService.java,43,import org.codehaus.jackson.map.ObjectMapper;
+ambari-server/src/main/java/org/apache/ambari/server/state/services/MetricsRetrievalService.java,44,import org.codehaus.jackson.map.ObjectReader;
+ambari-server/src/main/java/org/apache/ambari/server/state/services/MetricsRetrievalService.java,184,jmxObjectMapper.configure(DeserializationConfig.Feature.USE_ANNOTATIONS, false);
+ambari-server/src/main/java/org/apache/ambari/server/state/stack/MetricDefinition.java,21,import org.codehaus.jackson.annotate.JsonIgnore;
+ambari-server/src/main/java/org/apache/ambari/server/state/stack/MetricDefinition.java,22,import org.codehaus.jackson.annotate.JsonProperty;
+ambari-server/src/main/java/org/apache/ambari/server/state/stack/WidgetLayout.java,21,import org.codehaus.jackson.annotate.JsonProperty;
+ambari-server/src/main/java/org/apache/ambari/server/state/stack/WidgetLayoutInfo.java,21,import org.codehaus.jackson.annotate.JsonProperty;
+ambari-server/src/main/java/org/apache/ambari/server/state/theme/ConfigCondition.java,22,import org.codehaus.jackson.annotate.JsonIgnoreProperties;
+ambari-server/src/main/java/org/apache/ambari/server/state/theme/ConfigCondition.java,23,import org.codehaus.jackson.annotate.JsonProperty;
+ambari-server/src/main/java/org/apache/ambari/server/state/theme/ConfigCondition.java,24,import org.codehaus.jackson.map.annotate.JsonSerialize;
+ambari-server/src/main/java/org/apache/ambari/server/state/theme/ConfigPlacement.java,22,import org.codehaus.jackson.annotate.JsonIgnoreProperties;
+ambari-server/src/main/java/org/apache/ambari/server/state/theme/ConfigPlacement.java,23,import org.codehaus.jackson.annotate.JsonProperty;
+ambari-server/src/main/java/org/apache/ambari/server/state/theme/ConfigPlacement.java,24,import org.codehaus.jackson.map.annotate.JsonSerialize;
+ambari-server/src/main/java/org/apache/ambari/server/state/theme/Layout.java,23,import org.codehaus.jackson.annotate.JsonIgnoreProperties;
+ambari-server/src/main/java/org/apache/ambari/server/state/theme/Layout.java,24,import org.codehaus.jackson.annotate.JsonProperty;
+ambari-server/src/main/java/org/apache/ambari/server/state/theme/Layout.java,25,import org.codehaus.jackson.map.annotate.JsonSerialize;
+ambari-server/src/main/java/org/apache/ambari/server/state/theme/Placement.java,22,import org.codehaus.jackson.annotate.JsonIgnoreProperties;
+ambari-server/src/main/java/org/apache/ambari/server/state/theme/Placement.java,23,import org.codehaus.jackson.annotate.JsonProperty;
+ambari-server/src/main/java/org/apache/ambari/server/state/theme/Placement.java,24,import org.codehaus.jackson.map.annotate.JsonSerialize;
+ambari-server/src/main/java/org/apache/ambari/server/state/theme/Section.java,22,import org.codehaus.jackson.annotate.JsonIgnoreProperties;
+ambari-server/src/main/java/org/apache/ambari/server/state/theme/Section.java,23,import org.codehaus.jackson.annotate.JsonProperty;
+ambari-server/src/main/java/org/apache/ambari/server/state/theme/Section.java,24,import org.codehaus.jackson.map.annotate.JsonSerialize;
+ambari-server/src/main/java/org/apache/ambari/server/state/theme/Subsection.java,22,import org.codehaus.jackson.annotate.JsonIgnoreProperties;
+ambari-server/src/main/java/org/apache/ambari/server/state/theme/Subsection.java,23,import org.codehaus.jackson.annotate.JsonProperty;
+ambari-server/src/main/java/org/apache/ambari/server/state/theme/Subsection.java,24,import org.codehaus.jackson.map.annotate.JsonSerialize;
+ambari-server/src/main/java/org/apache/ambari/server/state/theme/Tab.java,23,import org.codehaus.jackson.annotate.JsonIgnoreProperties;
+ambari-server/src/main/java/org/apache/ambari/server/state/theme/Tab.java,24,import org.codehaus.jackson.annotate.JsonProperty;
+ambari-server/src/main/java/org/apache/ambari/server/state/theme/Tab.java,25,import org.codehaus.jackson.map.annotate.JsonSerialize;
+ambari-server/src/main/java/org/apache/ambari/server/state/theme/TabLayout.java,23,import org.codehaus.jackson.annotate.JsonIgnoreProperties;
+ambari-server/src/main/java/org/apache/ambari/server/state/theme/TabLayout.java,24,import org.codehaus.jackson.annotate.JsonProperty;
+ambari-server/src/main/java/org/apache/ambari/server/state/theme/TabLayout.java,25,import org.codehaus.jackson.map.annotate.JsonSerialize;
+ambari-server/src/main/java/org/apache/ambari/server/state/theme/Theme.java,22,import org.codehaus.jackson.annotate.JsonIgnoreProperties;
+ambari-server/src/main/java/org/apache/ambari/server/state/theme/Theme.java,23,import org.codehaus.jackson.annotate.JsonProperty;
+ambari-server/src/main/java/org/apache/ambari/server/state/theme/Theme.java,24,import org.codehaus.jackson.map.annotate.JsonSerialize;
+ambari-server/src/main/java/org/apache/ambari/server/state/theme/ThemeConfiguration.java,22,import org.codehaus.jackson.annotate.JsonIgnoreProperties;
+ambari-server/src/main/java/org/apache/ambari/server/state/theme/ThemeConfiguration.java,23,import org.codehaus.jackson.annotate.JsonProperty;
+ambari-server/src/main/java/org/apache/ambari/server/state/theme/ThemeConfiguration.java,24,import org.codehaus.jackson.map.annotate.JsonSerialize;
+ambari-server/src/main/java/org/apache/ambari/server/state/theme/Unit.java,22,import org.codehaus.jackson.annotate.JsonIgnoreProperties;
+ambari-server/src/main/java/org/apache/ambari/server/state/theme/Unit.java,23,import org.codehaus.jackson.annotate.JsonProperty;
+ambari-server/src/main/java/org/apache/ambari/server/state/theme/Unit.java,24,import org.codehaus.jackson.map.annotate.JsonSerialize;
+ambari-server/src/main/java/org/apache/ambari/server/state/theme/Widget.java,22,import org.codehaus.jackson.annotate.JsonIgnoreProperties;
+ambari-server/src/main/java/org/apache/ambari/server/state/theme/Widget.java,23,import org.codehaus.jackson.annotate.JsonProperty;
+ambari-server/src/main/java/org/apache/ambari/server/state/theme/Widget.java,24,import org.codehaus.jackson.map.annotate.JsonSerialize;
+ambari-server/src/main/java/org/apache/ambari/server/state/theme/WidgetEntry.java,23,import org.codehaus.jackson.annotate.JsonIgnoreProperties;
+ambari-server/src/main/java/org/apache/ambari/server/state/theme/WidgetEntry.java,24,import org.codehaus.jackson.annotate.JsonProperty;
+ambari-server/src/main/java/org/apache/ambari/server/state/theme/WidgetEntry.java,25,import org.codehaus.jackson.map.annotate.JsonSerialize;
+ambari-server/src/main/java/org/apache/ambari/server/utils/StageUtils.java,61,import org.codehaus.jackson.JsonGenerationException;
+ambari-server/src/main/java/org/apache/ambari/server/utils/StageUtils.java,62,import org.codehaus.jackson.map.JsonMappingException;
+ambari-server/src/main/java/org/apache/ambari/server/utils/StageUtils.java,63,import org.codehaus.jackson.map.ObjectMapper;
+ambari-server/src/main/java/org/apache/ambari/server/utils/StageUtils.java,64,import org.codehaus.jackson.map.SerializationConfig;
+ambari-server/src/main/java/org/apache/ambari/server/utils/StageUtils.java,257,mapper.configure(SerializationConfig.Feature.INDENT_OUTPUT, true);
+ambari-server/src/main/java/org/apache/ambari/server/utils/StageUtils.java,258,mapper.configure(SerializationConfig.Feature.USE_ANNOTATIONS, true);
+contrib/views/hive-next/src/main/java/org/apache/ambari/view/hive2/resources/uploads/UploadService.java,50,import org.codehaus.jackson.map.ObjectMapper;
+contrib/views/hive-next/src/main/java/org/apache/ambari/view/hive2/resources/uploads/UploadService.java,51,import org.codehaus.jackson.type.TypeReference;
+contrib/views/hive20/src/main/java/org/apache/ambari/view/hive20/resources/uploads/UploadService.java,53,import org.codehaus.jackson.map.ObjectMapper;
+contrib/views/hive20/src/main/java/org/apache/ambari/view/hive20/resources/uploads/UploadService.java,54,import org.codehaus.jackson.type.TypeReference;
+contrib/views/slider/src/main/java/org/apache/ambari/view/slider/SliderAppsViewControllerImpl.java,84,import org.codehaus.jackson.map.ObjectMapper;
+contrib/views/slider/src/main/java/org/apache/ambari/view/slider/SliderAppsViewControllerImpl.java,85,import org.codehaus.jackson.type.TypeReference;
+contrib/views/slider/src/main/java/org/apache/ambari/view/slider/rest/client/Metric.java,21,import org.codehaus.jackson.annotate.JsonIgnore;
+contrib/views/slider/src/main/java/org/apache/ambari/view/slider/rest/client/Metric.java,22,import org.codehaus.jackson.annotate.JsonIgnoreProperties;
+contrib/views/slider/src/main/java/org/apache/ambari/view/slider/rest/client/SliderAppJmxHelper.java,22,import org.codehaus.jackson.map.DeserializationConfig;
+contrib/views/slider/src/main/java/org/apache/ambari/view/slider/rest/client/SliderAppJmxHelper.java,23,import org.codehaus.jackson.map.ObjectMapper;
+contrib/views/slider/src/main/java/org/apache/ambari/view/slider/rest/client/SliderAppJmxHelper.java,24,import org.codehaus.jackson.map.ObjectReader;
+contrib/views/slider/src/main/java/org/apache/ambari/view/slider/rest/client/SliderAppJmxHelper.java,74,jmxObjectMapper.configure(DeserializationConfig.Feature.USE_ANNOTATIONS, false);
+contrib/views/slider/src/main/java/org/apache/ambari/view/slider/rest/client/SliderAppMetricsHelper.java,33,import org.codehaus.jackson.map.AnnotationIntrospector;
+contrib/views/slider/src/main/java/org/apache/ambari/view/slider/rest/client/SliderAppMetricsHelper.java,34,import org.codehaus.jackson.map.ObjectMapper;
+contrib/views/slider/src/main/java/org/apache/ambari/view/slider/rest/client/SliderAppMetricsHelper.java,35,import org.codehaus.jackson.map.ObjectReader;
+contrib/views/slider/src/main/java/org/apache/ambari/view/slider/rest/client/SliderAppMetricsHelper.java,36,import org.codehaus.jackson.map.annotate.JsonSerialize.Inclusion;
+contrib/views/slider/src/main/java/org/apache/ambari/view/slider/rest/client/SliderAppMetricsHelper.java,37,import org.codehaus.jackson.xc.JaxbAnnotationIntrospector;
+contrib/views/slider/src/main/java/org/apache/ambari/view/slider/rest/client/SliderAppMetricsHelper.java,56,mapper.getSerializationConfig().setSerializationInclusion(
+contrib/views/slider/src/main/java/org/apache/ambari/view/slider/rest/client/SliderAppMetricsHelper.java,57,Inclusion.NON_NULL);
+ambari-server/src/main/java/org/apache/ambari/server/api/services/ViewInstanceService.java,218,throw new IllegalArgumentException("A view instance " +
+ambari-server/src/main/java/org/apache/ambari/server/api/services/ViewInstanceService.java,219,viewName + "/" + instanceName + " can not be found.");
+ambari-server/src/main/java/org/apache/ambari/server/api/services/ViewInstanceService.java,225,throw new IllegalArgumentException("A resource type " + resources + " for view instance " +
+ambari-server/src/main/java/org/apache/ambari/server/api/services/ViewInstanceService.java,226,viewName + "/" + instanceName + " can not be found.");
+ambari-server/src/main/java/org/apache/ambari/server/controller/AmbariCustomCommandExecutionHelper.java,560,Set<String> candidateHosts;
+ambari-server/src/main/java/org/apache/ambari/server/controller/AmbariCustomCommandExecutionHelper.java,561,final Map<String, ServiceComponentHost> serviceHostComponents;
+ambari-server/src/main/java/org/apache/ambari/server/controller/AmbariCustomCommandExecutionHelper.java,564,serviceHostComponents = cluster.getService(serviceName).getServiceComponent(componentName).getServiceComponentHosts();
+ambari-server/src/main/java/org/apache/ambari/server/controller/AmbariCustomCommandExecutionHelper.java,566,if (serviceHostComponents.isEmpty()) {
+ambari-server/src/main/java/org/apache/ambari/server/controller/AmbariCustomCommandExecutionHelper.java,567,throw new AmbariException(MessageFormat.format("No hosts found for service: {0}, component: {1} in cluster: {2}",
+ambari-server/src/main/java/org/apache/ambari/server/controller/AmbariCustomCommandExecutionHelper.java,568,serviceName, componentName, clusterName));
+ambari-server/src/main/java/org/apache/ambari/server/controller/AmbariCustomCommandExecutionHelper.java,573,List<String> candidateHostsList = resourceFilter.getHostNames();
+ambari-server/src/main/java/org/apache/ambari/server/controller/AmbariCustomCommandExecutionHelper.java,574,if (candidateHostsList != null && !candidateHostsList.isEmpty()) {
+ambari-server/src/main/java/org/apache/ambari/server/controller/AmbariCustomCommandExecutionHelper.java,575,candidateHosts = new HashSet<>(candidateHostsList);
+ambari-server/src/main/java/org/apache/ambari/server/controller/AmbariCustomCommandExecutionHelper.java,578,candidateHosts.retainAll(serviceHostComponents.keySet());
+ambari-server/src/main/java/org/apache/ambari/server/controller/AmbariCustomCommandExecutionHelper.java,580,if (candidateHosts.isEmpty()) {
+ambari-server/src/main/java/org/apache/ambari/server/controller/AmbariCustomCommandExecutionHelper.java,581,throw new AmbariException(MessageFormat.format("The resource filter for hosts does not contain components for " +
+ambari-server/src/main/java/org/apache/ambari/server/controller/AmbariCustomCommandExecutionHelper.java,585,candidateHosts = serviceHostComponents.keySet();
+ambari-server/src/main/java/org/apache/ambari/server/controller/AmbariCustomCommandExecutionHelper.java,592,Iterator<String> serviceComponentNameIterator = serviceComponents.keySet().iterator();
+ambari-server/src/main/java/org/apache/ambari/server/controller/AmbariCustomCommandExecutionHelper.java,593,while (serviceComponentNameIterator.hasNext()){
+ambari-server/src/main/java/org/apache/ambari/server/controller/AmbariCustomCommandExecutionHelper.java,594,String componentToCheck = serviceComponentNameIterator.next();
+ambari-server/src/main/java/org/apache/ambari/server/controller/AmbariCustomCommandExecutionHelper.java,595,if (serviceComponents.get(componentToCheck).getServiceComponentHosts().isEmpty()){
+ambari-server/src/main/java/org/apache/ambari/server/controller/AmbariCustomCommandExecutionHelper.java,596,serviceComponentNameIterator.remove();
+ambari-server/src/main/java/org/apache/ambari/server/controller/AmbariCustomCommandExecutionHelper.java,600,if (serviceComponents.isEmpty()) {
+ambari-server/src/main/java/org/apache/ambari/server/controller/AmbariCustomCommandExecutionHelper.java,601,throw new AmbariException(MessageFormat.format("Did not find any hosts with components for service: {0} in cluster: {1}",
+ambari-server/src/main/java/org/apache/ambari/server/controller/AmbariCustomCommandExecutionHelper.java,602,serviceName, clusterName));
+ambari-server/src/main/java/org/apache/ambari/server/controller/AmbariCustomCommandExecutionHelper.java,606,ServiceComponent serviceComponent = serviceComponents.values().iterator().next();
+ambari-server/src/main/java/org/apache/ambari/server/controller/AmbariCustomCommandExecutionHelper.java,607,serviceHostComponents = serviceComponent.getServiceComponentHosts();
+ambari-server/src/main/java/org/apache/ambari/server/controller/AmbariCustomCommandExecutionHelper.java,608,candidateHosts = serviceHostComponents.keySet();
+ambari-server/src/main/java/org/apache/ambari/server/controller/AmbariCustomCommandExecutionHelper.java,613,ServiceComponentHost serviceComponentHost = serviceHostComponents.get(candidateHostName);
+ambari-server/src/main/java/org/apache/ambari/server/controller/AmbariCustomCommandExecutionHelper.java,615,if (serviceComponentHost == null) {
+ambari-server/src/main/java/org/apache/ambari/server/controller/AmbariCustomCommandExecutionHelper.java,627,ServiceComponentHost serviceComponentHost = serviceHostComponents.get(candidateHostName);
+ambari-server/src/main/java/org/apache/ambari/server/controller/AmbariCustomCommandExecutionHelper.java,628,Host host = serviceComponentHost.getHost();
+ambari-server/src/main/java/org/apache/ambari/server/controller/internal/UpgradeResourceProvider.java,1192,filters.add(new RequestResourceFilter(tw.getService(), "", Collections.<String> emptyList()));
+ambari-server/src/main/java/org/apache/ambari/server/state/UpgradeContext.java,1253,hostsFromRequest.addAll(hostOrderItem.getActionItems());
+ambari-server/src/main/java/org/apache/ambari/server/state/UpgradeContext.java,1325,hostOrderItems.add(new HostOrderItem(HostOrderActionType.HOST_UPGRADE, hosts));
+ambari-server/src/main/java/org/apache/ambari/server/state/UpgradeContext.java,1329,hostOrderItems.add(new HostOrderItem(HostOrderActionType.SERVICE_CHECK, serviceChecks));
+ambari-server/src/main/java/org/apache/ambari/server/state/stack/upgrade/HostOrderGrouping.java,116,wrappers.addAll(buildHosts(upgradeContext, orderItem.getActionItems()));
+ambari-server/src/main/java/org/apache/ambari/server/state/stack/upgrade/HostOrderGrouping.java,119,wrappers.addAll(buildServiceChecks(upgradeContext, orderItem.getActionItems()));
+ambari-server/src/main/java/org/apache/ambari/server/state/stack/upgrade/HostOrderGrouping.java,298,private List<StageWrapper> buildServiceChecks(UpgradeContext upgradeContext, List<String> serviceChecks) {
+ambari-server/src/main/java/org/apache/ambari/server/state/stack/upgrade/HostOrderGrouping.java,320,StageWrapper wrapper = new StageWrapper(StageWrapper.Type.SERVICE_CHECK,
+ambari-server/src/main/java/org/apache/ambari/server/state/stack/upgrade/HostOrderGrouping.java,321,String.format("Service Check %s", upgradeContext.getServiceDisplay(serviceName)),
+ambari-server/src/main/java/org/apache/ambari/server/state/stack/upgrade/HostOrderGrouping.java,322,new TaskWrapper(serviceName, "", Collections.<String>emptySet(), new ServiceCheckTask()));
+ambari-server/src/main/java/org/apache/ambari/server/state/stack/upgrade/HostOrderGrouping.java,324,wrappers.add(wrapper);
+ambari-server/src/main/java/org/apache/ambari/server/state/stack/upgrade/HostOrderItem.java,61,private final List<String> m_actionItems;
+ambari-server/src/main/java/org/apache/ambari/server/state/stack/upgrade/HostOrderItem.java,69,public HostOrderItem(HostOrderActionType type, List<String> actionItems) {
+ambari-server/src/main/java/org/apache/ambari/server/state/stack/upgrade/HostOrderItem.java,71,m_actionItems = actionItems;
+ambari-server/src/main/java/org/apache/ambari/server/state/stack/upgrade/HostOrderItem.java,89,public List<String> getActionItems() {
+ambari-server/src/main/java/org/apache/ambari/server/state/stack/upgrade/HostOrderItem.java,90,return m_actionItems;
+ambari-server/src/main/java/org/apache/ambari/server/state/stack/upgrade/HostOrderItem.java,98,return Objects.toStringHelper(this).add("type", m_type).add("items",
+ambari-server/src/main/java/org/apache/ambari/server/state/stack/upgrade/HostOrderItem.java,99,StringUtils.join(m_actionItems, ", ")).omitNullValues().toString();
+contrib/views/utils/src/main/java/org/apache/ambari/view/utils/ambari/ValidatorUtils.java,32,String[] schemes = {"webhdfs", "hdfs", "s3", "wasb", "swebhdfs", "adl"};
+contrib/fast-hdfs-resource/src/main/java/org/apache/ambari/fast_hdfs_resource/Runner.java,34,throws IOException, URISyntaxException {
+contrib/fast-hdfs-resource/src/main/java/org/apache/ambari/fast_hdfs_resource/Runner.java,109,dfs.close();
+ambari-server/src/main/java/org/apache/ambari/server/checks/ServicesMapReduceDistributedCacheCheck.java,50,static final String DFS_PROTOCOLS_REGEX_DEFAULT = "^([^:]*dfs|wasb|ecs):.*";
+ambari-server/src/main/java/org/apache/ambari/server/checks/ServicesTezDistributedCacheCheck.java,52,static final String DFS_PROTOCOLS_REGEX_DEFAULT = "^([^:]*dfs|wasb|ecs):.*";

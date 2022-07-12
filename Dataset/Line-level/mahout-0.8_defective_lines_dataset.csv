@@ -1,0 +1,845 @@
+File,Line_number,SRC
+integration/src/main/java/org/apache/mahout/text/MailArchivesClusteringAnalyzer.java,19,import java.io.IOException;
+integration/src/main/java/org/apache/mahout/text/MailArchivesClusteringAnalyzer.java,20,import java.io.Reader;
+integration/src/main/java/org/apache/mahout/text/MailArchivesClusteringAnalyzer.java,21,import java.util.Arrays;
+integration/src/main/java/org/apache/mahout/text/MailArchivesClusteringAnalyzer.java,22,import java.util.regex.Matcher;
+integration/src/main/java/org/apache/mahout/text/MailArchivesClusteringAnalyzer.java,23,import java.util.regex.Pattern;
+integration/src/main/java/org/apache/mahout/text/MailArchivesClusteringAnalyzer.java,119,protected TokenStreamComponents createComponents(String fieldName, Reader reader) {
+integration/src/main/java/org/apache/mahout/text/wikipedia/WikipediaAnalyzer.java,20,import java.io.Reader;
+integration/src/main/java/org/apache/mahout/text/wikipedia/WikipediaAnalyzer.java,44,protected TokenStreamComponents createComponents(String fieldName, Reader reader) {
+integration/src/main/java/org/apache/mahout/text/wikipedia/WikipediaAnalyzer.java,45,Tokenizer tokenizer = new WikipediaTokenizer(reader);
+integration/src/main/java/org/apache/mahout/utils/vectors/lucene/AbstractLuceneIterator.java,116,TermsEnum te = termFreqVector.iterator(null);
+integration/src/main/java/org/apache/mahout/utils/vectors/lucene/CachedTermInfo.java,45,TermsEnum te = t.iterator(null);
+integration/src/main/java/org/apache/mahout/utils/vectors/lucene/ClusterLabels.java,48,import org.apache.lucene.index.DocsEnum;
+integration/src/main/java/org/apache/mahout/utils/vectors/lucene/ClusterLabels.java,59,import org.apache.lucene.util.OpenBitSet;
+integration/src/main/java/org/apache/mahout/utils/vectors/lucene/ClusterLabels.java,160,Directory dir = FSDirectory.open(new File(this.indexDir));
+integration/src/main/java/org/apache/mahout/utils/vectors/lucene/ClusterLabels.java,176,OpenBitSet clusterDocBitset = getClusterDocBitset(reader, idSet, this.idField);
+integration/src/main/java/org/apache/mahout/utils/vectors/lucene/ClusterLabels.java,190,TermsEnum te = t.iterator(null);
+integration/src/main/java/org/apache/mahout/utils/vectors/lucene/ClusterLabels.java,198,OpenBitSet termBitset = new OpenBitSet(reader.maxDoc());
+integration/src/main/java/org/apache/mahout/utils/vectors/lucene/ClusterLabels.java,199,DocsEnum docsEnum = MultiFields.getTermDocsEnum(reader, null, contentField, term);
+integration/src/main/java/org/apache/mahout/utils/vectors/lucene/ClusterLabels.java,241,private static OpenBitSet getClusterDocBitset(IndexReader reader,
+integration/src/main/java/org/apache/mahout/utils/vectors/lucene/ClusterLabels.java,246,OpenBitSet bitset = new OpenBitSet(numDocs);
+integration/src/main/java/org/apache/mahout/utils/vectors/lucene/Driver.java,89,Directory dir = FSDirectory.open(file);
+math/src/main/java/org/apache/mahout/math/AbstractMatrix.java,63,private int slice;
+math/src/main/java/org/apache/mahout/math/AbstractMatrix.java,66,if (slice >= numSlices()) {
+math/src/main/java/org/apache/mahout/math/AbstractMatrix.java,69,int i = slice++;
+math/src/main/java/org/apache/mahout/math/SparseColumnMatrix.java,34,public SparseColumnMatrix(int rows, int columns, RandomAccessSparseVector[] columnVectors) {
+math/src/main/java/org/apache/mahout/math/SparseColumnMatrix.java,36,this.columnVectors = columnVectors.clone();
+math/src/main/java/org/apache/mahout/math/SparseColumnMatrix.java,37,for (int col = 0; col < columnSize(); col++) {
+math/src/main/java/org/apache/mahout/math/SparseColumnMatrix.java,38,this.columnVectors[col] = this.columnVectors[col].clone();
+math/src/main/java/org/apache/mahout/math/SparseMatrix.java,40,public SparseMatrix(int rows, int columns, Map<Integer, RandomAccessSparseVector> rowVectors) {
+math/src/main/java/org/apache/mahout/math/SparseMatrix.java,43,for (Map.Entry<Integer, RandomAccessSparseVector> entry : rowVectors.entrySet()) {
+math/src/main/java/org/apache/mahout/math/SparseMatrix.java,44,this.rowVectors.put(entry.getKey(), entry.getValue().clone());
+math/src/main/java/org/apache/mahout/math/SparseMatrix.java,67,public Iterator<MatrixSlice> iterator() {
+math/src/main/java/org/apache/mahout/math/VectorView.java,125,Element decorated = vector.getElement(el.index());
+math/src/main/java/org/apache/mahout/math/QRDecomposition.java,151,Matrix x = B.like(columns, cols);
+integration/src/main/java/org/apache/mahout/utils/vectors/VectorDumper.java,20,import java.io.File;
+integration/src/main/java/org/apache/mahout/utils/vectors/VectorDumper.java,21,import java.io.IOException;
+integration/src/main/java/org/apache/mahout/utils/vectors/VectorDumper.java,22,import java.io.OutputStreamWriter;
+integration/src/main/java/org/apache/mahout/utils/vectors/VectorDumper.java,23,import java.io.Writer;
+integration/src/main/java/org/apache/mahout/utils/vectors/VectorDumper.java,24,import java.util.Iterator;
+integration/src/main/java/org/apache/mahout/utils/vectors/VectorDumper.java,25,import java.util.Set;
+integration/src/main/java/org/apache/mahout/utils/vectors/VectorDumper.java,58,private VectorDumper() {}
+integration/src/main/java/org/apache/mahout/utils/vectors/VectorDumper.java,87,+ " conjunction with -sort", false);
+integration/src/main/java/org/apache/mahout/utils/vectors/VectorDumper.java,88,addOption(buildOption("filter", "fi", "Only dump out those vectors whose name matches the filter."
+integration/src/main/java/org/apache/mahout/utils/vectors/VectorDumper.java,89,+ "  Multiple items may be specified by repeating the argument.", true, 1, Integer.MAX_VALUE, false, null));
+integration/src/main/java/org/apache/mahout/utils/vectors/VectorDumper.java,123,if ("text".equals(dictionaryType)) {
+integration/src/main/java/org/apache/mahout/utils/vectors/VectorDumper.java,124,dictionary = VectorHelper.loadTermDictionary(new File(dictFile));
+integration/src/main/java/org/apache/mahout/utils/vectors/VectorDumper.java,126,dictionary = VectorHelper.loadTermDictionary(conf, dictFile);
+integration/src/main/java/org/apache/mahout/utils/vectors/VectorDumper.java,129,throw new IOException("Invalid dictionary type: " + dictionaryType);
+integration/src/main/java/org/apache/mahout/utils/vectors/VectorDumper.java,177,: Integer.MAX_VALUE;
+integration/src/main/java/org/apache/mahout/utils/vectors/VectorDumper.java,203,(transposeKeyValue ? keyWritable : valueWritable)).get();
+integration/src/main/java/org/apache/mahout/utils/vectors/VectorDumper.java,206,instanceof WeightedPropertyVectorWritable) {
+integration/src/main/java/org/apache/mahout/utils/vectors/VectorDumper.java,214,if (filters != null
+integration/src/main/java/org/apache/mahout/utils/vectors/VectorDumper.java,215,&& vector instanceof NamedVector
+integration/src/main/java/org/apache/mahout/utils/vectors/VectorDumper.java,216,&& !filters.contains(((NamedVector) vector).getName())) {
+integration/src/main/java/org/apache/mahout/utils/vectors/VectorDumper.java,218,continue;
+integration/src/main/java/org/apache/mahout/utils/vectors/VectorDumper.java,220,if (sizeOnly) {
+integration/src/main/java/org/apache/mahout/utils/vectors/VectorDumper.java,221,if (vector instanceof NamedVector) {
+integration/src/main/java/org/apache/mahout/utils/vectors/VectorDumper.java,222,writer.write(((NamedVector) vector).getName());
+integration/src/main/java/org/apache/mahout/utils/vectors/VectorDumper.java,223,writer.write(":");
+integration/src/main/java/org/apache/mahout/utils/vectors/VectorDumper.java,225,writer.write(String.valueOf(i++));
+integration/src/main/java/org/apache/mahout/utils/vectors/VectorDumper.java,226,writer.write(":");
+integration/src/main/java/org/apache/mahout/utils/vectors/VectorDumper.java,228,writer.write(String.valueOf(vector.size()));
+integration/src/main/java/org/apache/mahout/utils/vectors/VectorDumper.java,229,writer.write('\n');
+integration/src/main/java/org/apache/mahout/utils/vectors/VectorDumper.java,231,if (vector instanceof NamedVector) {
+integration/src/main/java/org/apache/mahout/utils/vectors/VectorDumper.java,232,writer.write(((NamedVector) vector).getName());
+integration/src/main/java/org/apache/mahout/utils/vectors/VectorDumper.java,236,String fmtStr;
+integration/src/main/java/org/apache/mahout/utils/vectors/VectorDumper.java,237,if (useCSV) {
+integration/src/main/java/org/apache/mahout/utils/vectors/VectorDumper.java,238,fmtStr = VectorHelper.vectorToCSVString(vector, namesAsComments);
+integration/src/main/java/org/apache/mahout/utils/vectors/VectorDumper.java,240,fmtStr = VectorHelper.vectorToJson(vector, dictionary, maxIndexesPerVector,
+integration/src/main/java/org/apache/mahout/utils/vectors/VectorDumper.java,241,sortVectors);
+integration/src/main/java/org/apache/mahout/utils/vectors/VectorDumper.java,243,writer.write(fmtStr);
+integration/src/main/java/org/apache/mahout/utils/vectors/VectorDumper.java,244,writer.write('\n');
+integration/src/main/java/org/apache/mahout/utils/vectors/VectorDumper.java,246,itemCount++;
+math/src/main/java/org/apache/mahout/math/AbstractMatrix.java,764,while (it.hasNext()) {
+math/src/main/java/org/apache/mahout/math/AbstractMatrix.java,766,s.append("  ").append(next.index()).append("  =>\t").append(next.vector()).append('\n');
+math/src/main/java/org/apache/mahout/math/AbstractMatrix.java,768,s.append("}");
+math/src/main/java/org/apache/mahout/math/AbstractMatrix.java,769,return s.toString();
+integration/src/main/java/org/apache/mahout/utils/ConcatenateVectorsJob.java,111,Preconditions.checkArgument(paths.length == 0, path.getName() + " is a file, should be a directory");
+integration/src/main/java/org/apache/mahout/utils/ConcatenateVectorsJob.java,116,reader = new SequenceFile.Reader(fs, file, fs.getConf());
+math/src/main/java/org/apache/mahout/math/MatrixVectorView.java,129,return iterator();
+examples/src/main/java/org/apache/mahout/classifier/sgd/RunAdaptiveLogistic.java,79,out.write(idColumn + ",target,score");
+examples/src/main/java/org/apache/mahout/classifier/sgd/RunAdaptiveLogistic.java,80,out.newLine();
+examples/src/main/java/org/apache/mahout/classifier/sgd/RunAdaptiveLogistic.java,82,String line = in.readLine();
+examples/src/main/java/org/apache/mahout/classifier/sgd/RunAdaptiveLogistic.java,83,csv.firstLine(line);
+examples/src/main/java/org/apache/mahout/classifier/sgd/RunAdaptiveLogistic.java,84,line = in.readLine();
+examples/src/main/java/org/apache/mahout/classifier/sgd/RunAdaptiveLogistic.java,85,Map<String, Double> results = new HashMap<String, Double>();
+examples/src/main/java/org/apache/mahout/classifier/sgd/RunAdaptiveLogistic.java,86,int k = 0;
+examples/src/main/java/org/apache/mahout/classifier/sgd/RunAdaptiveLogistic.java,87,while (line != null) {
+examples/src/main/java/org/apache/mahout/classifier/sgd/RunAdaptiveLogistic.java,88,Vector v = new SequentialAccessSparseVector(lmp.getNumFeatures());
+examples/src/main/java/org/apache/mahout/classifier/sgd/RunAdaptiveLogistic.java,89,csv.processLine(line, v, false);
+examples/src/main/java/org/apache/mahout/classifier/sgd/RunAdaptiveLogistic.java,90,Vector scores = learner.classifyFull(v);
+examples/src/main/java/org/apache/mahout/classifier/sgd/RunAdaptiveLogistic.java,91,results.clear();
+examples/src/main/java/org/apache/mahout/classifier/sgd/RunAdaptiveLogistic.java,92,if (maxScoreOnly) {
+examples/src/main/java/org/apache/mahout/classifier/sgd/RunAdaptiveLogistic.java,93,results.put(csv.getTargetLabel(scores.maxValueIndex()),
+examples/src/main/java/org/apache/mahout/classifier/sgd/RunAdaptiveLogistic.java,96,for (int i = 0; i < scores.size(); i++) {
+examples/src/main/java/org/apache/mahout/classifier/sgd/RunAdaptiveLogistic.java,97,results.put(csv.getTargetLabel(i), scores.get(i));
+examples/src/main/java/org/apache/mahout/classifier/sgd/RunAdaptiveLogistic.java,101,for (Map.Entry<String,Double> entry : results.entrySet()) {
+examples/src/main/java/org/apache/mahout/classifier/sgd/RunAdaptiveLogistic.java,102,out.write(csv.getIdString(line) + ',' + entry.getKey() + ',' + entry.getValue());
+examples/src/main/java/org/apache/mahout/classifier/sgd/RunAdaptiveLogistic.java,103,out.newLine();
+examples/src/main/java/org/apache/mahout/classifier/sgd/RunAdaptiveLogistic.java,105,k++;
+examples/src/main/java/org/apache/mahout/classifier/sgd/RunAdaptiveLogistic.java,106,if (k % 100 == 0) {
+examples/src/main/java/org/apache/mahout/classifier/sgd/RunAdaptiveLogistic.java,107,output.println(k + " records processed");
+examples/src/main/java/org/apache/mahout/classifier/sgd/RunAdaptiveLogistic.java,109,line = in.readLine();
+examples/src/main/java/org/apache/mahout/classifier/sgd/RunAdaptiveLogistic.java,111,out.flush();
+examples/src/main/java/org/apache/mahout/classifier/sgd/RunAdaptiveLogistic.java,112,out.close();
+math/src/main/java/org/apache/mahout/math/decomposer/lanczos/LanczosState.java,50,protected void intitializeBasisAndSingularVectors() {
+integration/src/main/java/org/apache/mahout/text/LuceneStorageConfiguration.java,96,setQuery(DEFAULT_QUERY);
+integration/src/main/java/org/apache/mahout/text/LuceneStorageConfiguration.java,97,setMaxHits(DEFAULT_MAX_HITS);
+integration/src/main/java/org/apache/mahout/text/LuceneStorageConfiguration.java,239,if (idField != null ? !idField.equals(that.idField) : that.idField != null) {
+integration/src/main/java/org/apache/mahout/text/LuceneStorageConfiguration.java,240,return false;
+integration/src/main/java/org/apache/mahout/text/LuceneStorageConfiguration.java,242,if (indexPaths != null ? !indexPaths.equals(that.indexPaths) : that.indexPaths != null) {
+integration/src/main/java/org/apache/mahout/text/LuceneStorageConfiguration.java,243,return false;
+integration/src/main/java/org/apache/mahout/text/LuceneStorageConfiguration.java,245,if (query != null ? !query.equals(that.query) : that.query != null) {
+integration/src/main/java/org/apache/mahout/text/LuceneStorageConfiguration.java,246,return false;
+integration/src/main/java/org/apache/mahout/text/LuceneStorageConfiguration.java,248,if (sequenceFilesOutputPath != null
+integration/src/main/java/org/apache/mahout/text/LuceneStorageConfiguration.java,250,: that.sequenceFilesOutputPath != null) {
+integration/src/main/java/org/apache/mahout/text/LuceneStorageConfiguration.java,251,return false;
+integration/src/main/java/org/apache/mahout/text/LuceneStorageConfiguration.java,254,return true;
+math/src/main/java/org/apache/mahout/math/set/OpenHashSet.java,369,protected void setUp(int initialCapacity, double minLoadFactor, double maxLoadFactor) {
+math/src/main/java/org/apache/mahout/math/set/OpenHashSet.java,539,public <T> T[] toArray(T[] a) {
+math/src/main/java/org/apache/mahout/math/solver/ConjugateGradientSolver.java,82,return solve(a, b, null, b.size(), DEFAULT_MAX_ERROR);
+math/src/main/java/org/apache/mahout/math/solver/ConjugateGradientSolver.java,99,return solve(a, b, precond, b.size(), DEFAULT_MAX_ERROR);
+math/src/main/java/org/apache/mahout/math/SparseRowMatrix.java,42,? new RandomAccessSparseVector[rows]
+math/src/main/java/org/apache/mahout/math/SparseRowMatrix.java,43,: new SequentialAccessSparseVector[rows],
+math/src/main/java/org/apache/mahout/math/SparseRowMatrix.java,44,true,
+math/src/main/java/org/apache/mahout/math/SparseRowMatrix.java,45,randomAccess);
+examples/src/main/java/org/apache/mahout/cf/taste/example/bookcrossing/BookCrossingBooleanRecommender.java,57,public List<RecommendedItem> recommend(long userID, int howMany, IDRescorer rescorer) throws TasteException {
+examples/src/main/java/org/apache/mahout/cf/taste/example/bookcrossing/BookCrossingBooleanRecommender.java,58,return recommender.recommend(userID, howMany, rescorer);
+examples/src/main/java/org/apache/mahout/cf/taste/example/bookcrossing/BookCrossingRecommender.java,57,return recommender.recommend(userID, howMany, rescorer);
+examples/src/main/java/org/apache/mahout/cf/taste/example/kddcup/track1/Track1Recommender.java,50,return recommender.recommend(userID, howMany, rescorer);
+examples/src/main/java/org/apache/mahout/cf/taste/example/kddcup/track2/Track2Recommender.java,56,return recommender.recommend(userID, howMany, rescorer);
+core/src/main/java/org/apache/mahout/common/IOUtils.java,29,import org.apache.hadoop.mapred.lib.MultipleOutputs;
+core/src/main/java/org/apache/mahout/common/IOUtils.java,145,throw (Error) lastThr;
+core/src/main/java/org/apache/mahout/common/IOUtils.java,149,.initCause(lastThr);
+core/src/main/java/org/apache/mahout/common/IOUtils.java,193,mo.close();
+integration/src/main/java/org/apache/mahout/utils/SequenceFileDumper.java,34,import org.apache.hadoop.mapred.Utils.OutputFileUtils.OutputFilesFilter;
+integration/src/main/java/org/apache/mahout/utils/SequenceFileDumper.java,68,pathArr = FileUtil.stat2Paths(fs.listStatus(input, new OutputFilesFilter()));
+integration/src/main/java/org/apache/mahout/utils/SplitInputJob.java,30,import org.apache.hadoop.mapred.JobConf;
+integration/src/main/java/org/apache/mahout/utils/SplitInputJob.java,31,import org.apache.hadoop.mapred.OutputCollector;
+integration/src/main/java/org/apache/mahout/utils/SplitInputJob.java,32,import org.apache.hadoop.mapred.lib.MultipleOutputs;
+integration/src/main/java/org/apache/mahout/utils/SplitInputJob.java,55,private static final String DOWNSAMPLING_FACTOR =
+integration/src/main/java/org/apache/mahout/utils/SplitInputJob.java,57,private static final String RANDOM_SELECTION_PCT =
+integration/src/main/java/org/apache/mahout/utils/SplitInputJob.java,62,private SplitInputJob() {
+integration/src/main/java/org/apache/mahout/utils/SplitInputJob.java,108,JobConf oldApiJob = new JobConf(initialConf);
+integration/src/main/java/org/apache/mahout/utils/SplitInputJob.java,109,MultipleOutputs.addNamedOutput(oldApiJob, TRAINING_TAG,
+integration/src/main/java/org/apache/mahout/utils/SplitInputJob.java,110,org.apache.hadoop.mapred.SequenceFileOutputFormat.class,
+integration/src/main/java/org/apache/mahout/utils/SplitInputJob.java,111,keyClass, valueClass);
+integration/src/main/java/org/apache/mahout/utils/SplitInputJob.java,112,MultipleOutputs.addNamedOutput(oldApiJob, TEST_TAG,
+integration/src/main/java/org/apache/mahout/utils/SplitInputJob.java,113,org.apache.hadoop.mapred.SequenceFileOutputFormat.class,
+integration/src/main/java/org/apache/mahout/utils/SplitInputJob.java,114,keyClass, valueClass);
+integration/src/main/java/org/apache/mahout/utils/SplitInputJob.java,117,Job job = new Job(oldApiJob);
+integration/src/main/java/org/apache/mahout/utils/SplitInputJob.java,145,public void setup(Context context) {
+integration/src/main/java/org/apache/mahout/utils/SplitInputJob.java,146,downsamplingFactor =
+integration/src/main/java/org/apache/mahout/utils/SplitInputJob.java,147,context.getConfiguration().getInt(DOWNSAMPLING_FACTOR, 1);
+integration/src/main/java/org/apache/mahout/utils/SplitInputJob.java,176,private OutputCollector<WritableComparable<?>, Writable> trainingCollector = null;
+integration/src/main/java/org/apache/mahout/utils/SplitInputJob.java,177,private OutputCollector<WritableComparable<?>, Writable> testCollector = null;
+integration/src/main/java/org/apache/mahout/utils/SplitInputJob.java,183,protected void setup(Context context) throws IOException {
+integration/src/main/java/org/apache/mahout/utils/SplitInputJob.java,184,randomSelectionPercent =
+integration/src/main/java/org/apache/mahout/utils/SplitInputJob.java,185,context.getConfiguration().getFloat(RANDOM_SELECTION_PCT, 0);
+integration/src/main/java/org/apache/mahout/utils/SplitInputJob.java,186,multipleOutputs =
+integration/src/main/java/org/apache/mahout/utils/SplitInputJob.java,187,new MultipleOutputs(new JobConf(context.getConfiguration()));
+integration/src/main/java/org/apache/mahout/utils/SplitInputJob.java,188,trainingCollector = multipleOutputs.getCollector(TRAINING_TAG, null);
+integration/src/main/java/org/apache/mahout/utils/SplitInputJob.java,189,testCollector = multipleOutputs.getCollector(TEST_TAG, null);
+integration/src/main/java/org/apache/mahout/utils/SplitInputJob.java,201,testCollector.collect(key, value);
+integration/src/main/java/org/apache/mahout/utils/SplitInputJob.java,203,trainingCollector.collect(key, value);
+integration/src/main/java/org/apache/mahout/utils/SplitInputJob.java,211,multipleOutputs.close();
+integration/src/main/java/org/apache/mahout/utils/vectors/VectorDumper.java,37,import org.apache.hadoop.mapred.Utils.OutputFileUtils.OutputFilesFilter;
+integration/src/main/java/org/apache/mahout/utils/vectors/VectorDumper.java,101,pathArr = FileUtil.stat2Paths(fs.listStatus(input, new OutputFilesFilter()));
+core/src/main/java/org/apache/mahout/common/mapreduce/TransposeMapper.java,34,RandomAccessSparseVector tmp = new RandomAccessSparseVector(Integer.MAX_VALUE, 1);
+core/src/main/java/org/apache/mahout/math/hadoop/DistributedRowMatrix.java,237,Configuration conf = TransposeJob.buildTransposeJobConf(initialConf, rowPath, outputPath, numRows);
+core/src/main/java/org/apache/mahout/math/hadoop/DistributedRowMatrix.java,238,JobClient.runJob(new JobConf(conf));
+core/src/main/java/org/apache/mahout/math/hadoop/DistributedRowMatrix.java,248,Path outputVectorTmpPath = new Path(outputTmpBasePath,
+core/src/main/java/org/apache/mahout/math/hadoop/DistributedRowMatrix.java,249,new Path(Long.toString(System.nanoTime())));
+core/src/main/java/org/apache/mahout/math/hadoop/DistributedRowMatrix.java,250,Configuration conf =
+core/src/main/java/org/apache/mahout/math/hadoop/DistributedRowMatrix.java,251,TimesSquaredJob.createTimesJobConf(initialConf,
+core/src/main/java/org/apache/mahout/math/hadoop/DistributedRowMatrix.java,252,v,
+core/src/main/java/org/apache/mahout/math/hadoop/DistributedRowMatrix.java,253,numRows,
+core/src/main/java/org/apache/mahout/math/hadoop/DistributedRowMatrix.java,254,rowPath,
+core/src/main/java/org/apache/mahout/math/hadoop/DistributedRowMatrix.java,255,outputVectorTmpPath);
+core/src/main/java/org/apache/mahout/math/hadoop/DistributedRowMatrix.java,256,JobClient.runJob(new JobConf(conf));
+core/src/main/java/org/apache/mahout/math/hadoop/DistributedRowMatrix.java,257,Vector result = TimesSquaredJob.retrieveTimesSquaredOutputVector(conf);
+core/src/main/java/org/apache/mahout/math/hadoop/DistributedRowMatrix.java,272,Path outputVectorTmpPath = new Path(outputTmpBasePath,
+core/src/main/java/org/apache/mahout/math/hadoop/DistributedRowMatrix.java,273,new Path(Long.toString(System.nanoTime())));
+core/src/main/java/org/apache/mahout/math/hadoop/DistributedRowMatrix.java,274,Configuration conf =
+core/src/main/java/org/apache/mahout/math/hadoop/DistributedRowMatrix.java,275,TimesSquaredJob.createTimesSquaredJobConf(initialConf,
+core/src/main/java/org/apache/mahout/math/hadoop/DistributedRowMatrix.java,276,v,
+core/src/main/java/org/apache/mahout/math/hadoop/DistributedRowMatrix.java,277,rowPath,
+core/src/main/java/org/apache/mahout/math/hadoop/DistributedRowMatrix.java,278,outputVectorTmpPath);
+core/src/main/java/org/apache/mahout/math/hadoop/DistributedRowMatrix.java,279,JobClient.runJob(new JobConf(conf));
+core/src/main/java/org/apache/mahout/math/hadoop/DistributedRowMatrix.java,280,Vector result = TimesSquaredJob.retrieveTimesSquaredOutputVector(conf);
+core/src/main/java/org/apache/mahout/math/hadoop/TimesSquaredJob.java,28,import org.apache.hadoop.io.Writable;
+core/src/main/java/org/apache/mahout/math/hadoop/TimesSquaredJob.java,30,import org.apache.hadoop.mapred.FileInputFormat;
+core/src/main/java/org/apache/mahout/math/hadoop/TimesSquaredJob.java,31,import org.apache.hadoop.mapred.FileOutputFormat;
+core/src/main/java/org/apache/mahout/math/hadoop/TimesSquaredJob.java,32,import org.apache.hadoop.mapred.JobConf;
+core/src/main/java/org/apache/mahout/math/hadoop/TimesSquaredJob.java,33,import org.apache.hadoop.mapred.MapReduceBase;
+core/src/main/java/org/apache/mahout/math/hadoop/TimesSquaredJob.java,34,import org.apache.hadoop.mapred.Mapper;
+core/src/main/java/org/apache/mahout/math/hadoop/TimesSquaredJob.java,35,import org.apache.hadoop.mapred.OutputCollector;
+core/src/main/java/org/apache/mahout/math/hadoop/TimesSquaredJob.java,36,import org.apache.hadoop.mapred.Reducer;
+core/src/main/java/org/apache/mahout/math/hadoop/TimesSquaredJob.java,37,import org.apache.hadoop.mapred.Reporter;
+core/src/main/java/org/apache/mahout/math/hadoop/TimesSquaredJob.java,38,import org.apache.hadoop.mapred.SequenceFileInputFormat;
+core/src/main/java/org/apache/mahout/math/hadoop/TimesSquaredJob.java,39,import org.apache.hadoop.mapred.SequenceFileOutputFormat;
+core/src/main/java/org/apache/mahout/math/hadoop/TimesSquaredJob.java,52,import java.util.Iterator;
+core/src/main/java/org/apache/mahout/math/hadoop/TimesSquaredJob.java,66,return createTimesSquaredJobConf(new Configuration(), v, matrixInputPath, outputVectorPath);
+core/src/main/java/org/apache/mahout/math/hadoop/TimesSquaredJob.java,69,public static Configuration createTimesSquaredJobConf(Configuration initialConf,
+core/src/main/java/org/apache/mahout/math/hadoop/TimesSquaredJob.java,70,Vector v,
+core/src/main/java/org/apache/mahout/math/hadoop/TimesSquaredJob.java,71,Path matrixInputPath,
+core/src/main/java/org/apache/mahout/math/hadoop/TimesSquaredJob.java,72,Path outputVectorPath) throws IOException {
+core/src/main/java/org/apache/mahout/math/hadoop/TimesSquaredJob.java,73,return createTimesSquaredJobConf(initialConf,
+core/src/main/java/org/apache/mahout/math/hadoop/TimesSquaredJob.java,74,v,
+core/src/main/java/org/apache/mahout/math/hadoop/TimesSquaredJob.java,75,matrixInputPath,
+core/src/main/java/org/apache/mahout/math/hadoop/TimesSquaredJob.java,76,outputVectorPath,
+core/src/main/java/org/apache/mahout/math/hadoop/TimesSquaredJob.java,77,TimesSquaredMapper.class,
+core/src/main/java/org/apache/mahout/math/hadoop/TimesSquaredJob.java,78,VectorSummingReducer.class);
+core/src/main/java/org/apache/mahout/math/hadoop/TimesSquaredJob.java,81,public static Configuration createTimesJobConf(Vector v,
+core/src/main/java/org/apache/mahout/math/hadoop/TimesSquaredJob.java,82,int outDim,
+core/src/main/java/org/apache/mahout/math/hadoop/TimesSquaredJob.java,83,Path matrixInputPath,
+core/src/main/java/org/apache/mahout/math/hadoop/TimesSquaredJob.java,84,Path outputVectorPath) throws IOException {
+core/src/main/java/org/apache/mahout/math/hadoop/TimesSquaredJob.java,85,return createTimesJobConf(new Configuration(), v, outDim, matrixInputPath, outputVectorPath);
+core/src/main/java/org/apache/mahout/math/hadoop/TimesSquaredJob.java,88,public static Configuration createTimesJobConf(Configuration initialConf,
+core/src/main/java/org/apache/mahout/math/hadoop/TimesSquaredJob.java,89,Vector v,
+core/src/main/java/org/apache/mahout/math/hadoop/TimesSquaredJob.java,90,int outDim,
+core/src/main/java/org/apache/mahout/math/hadoop/TimesSquaredJob.java,91,Path matrixInputPath,
+core/src/main/java/org/apache/mahout/math/hadoop/TimesSquaredJob.java,92,Path outputVectorPath) throws IOException {
+core/src/main/java/org/apache/mahout/math/hadoop/TimesSquaredJob.java,93,return createTimesSquaredJobConf(initialConf,
+core/src/main/java/org/apache/mahout/math/hadoop/TimesSquaredJob.java,94,v,
+core/src/main/java/org/apache/mahout/math/hadoop/TimesSquaredJob.java,95,outDim,
+core/src/main/java/org/apache/mahout/math/hadoop/TimesSquaredJob.java,96,matrixInputPath,
+core/src/main/java/org/apache/mahout/math/hadoop/TimesSquaredJob.java,97,outputVectorPath,
+core/src/main/java/org/apache/mahout/math/hadoop/TimesSquaredJob.java,98,TimesMapper.class,
+core/src/main/java/org/apache/mahout/math/hadoop/TimesSquaredJob.java,99,VectorSummingReducer.class);
+core/src/main/java/org/apache/mahout/math/hadoop/TimesSquaredJob.java,102,public static Configuration createTimesSquaredJobConf(Vector v,
+core/src/main/java/org/apache/mahout/math/hadoop/TimesSquaredJob.java,103,Path matrixInputPath,
+core/src/main/java/org/apache/mahout/math/hadoop/TimesSquaredJob.java,104,Path outputVectorPathBase,
+core/src/main/java/org/apache/mahout/math/hadoop/TimesSquaredJob.java,105,Class<? extends TimesSquaredMapper> mapClass,
+core/src/main/java/org/apache/mahout/math/hadoop/TimesSquaredJob.java,107,throws IOException {
+core/src/main/java/org/apache/mahout/math/hadoop/TimesSquaredJob.java,108,return createTimesSquaredJobConf(new Configuration(), v, matrixInputPath, outputVectorPathBase, mapClass, redClass);
+core/src/main/java/org/apache/mahout/math/hadoop/TimesSquaredJob.java,111,public static Configuration createTimesSquaredJobConf(Configuration initialConf,
+core/src/main/java/org/apache/mahout/math/hadoop/TimesSquaredJob.java,112,Vector v,
+core/src/main/java/org/apache/mahout/math/hadoop/TimesSquaredJob.java,113,Path matrixInputPath,
+core/src/main/java/org/apache/mahout/math/hadoop/TimesSquaredJob.java,114,Path outputVectorPathBase,
+core/src/main/java/org/apache/mahout/math/hadoop/TimesSquaredJob.java,115,Class<? extends TimesSquaredMapper> mapClass,
+core/src/main/java/org/apache/mahout/math/hadoop/TimesSquaredJob.java,117,throws IOException {
+core/src/main/java/org/apache/mahout/math/hadoop/TimesSquaredJob.java,118,return createTimesSquaredJobConf(initialConf,
+core/src/main/java/org/apache/mahout/math/hadoop/TimesSquaredJob.java,119,v,
+core/src/main/java/org/apache/mahout/math/hadoop/TimesSquaredJob.java,120,v.size(),
+core/src/main/java/org/apache/mahout/math/hadoop/TimesSquaredJob.java,121,matrixInputPath,
+core/src/main/java/org/apache/mahout/math/hadoop/TimesSquaredJob.java,122,outputVectorPathBase,
+core/src/main/java/org/apache/mahout/math/hadoop/TimesSquaredJob.java,123,mapClass,
+core/src/main/java/org/apache/mahout/math/hadoop/TimesSquaredJob.java,124,redClass);
+core/src/main/java/org/apache/mahout/math/hadoop/TimesSquaredJob.java,127,public static Configuration createTimesSquaredJobConf(Vector v,
+core/src/main/java/org/apache/mahout/math/hadoop/TimesSquaredJob.java,128,int outputVectorDim,
+core/src/main/java/org/apache/mahout/math/hadoop/TimesSquaredJob.java,129,Path matrixInputPath,
+core/src/main/java/org/apache/mahout/math/hadoop/TimesSquaredJob.java,130,Path outputVectorPathBase,
+core/src/main/java/org/apache/mahout/math/hadoop/TimesSquaredJob.java,131,Class<? extends TimesSquaredMapper> mapClass,
+core/src/main/java/org/apache/mahout/math/hadoop/TimesSquaredJob.java,133,throws IOException {
+core/src/main/java/org/apache/mahout/math/hadoop/TimesSquaredJob.java,135,return createTimesSquaredJobConf(new Configuration(),
+core/src/main/java/org/apache/mahout/math/hadoop/TimesSquaredJob.java,136,v,
+core/src/main/java/org/apache/mahout/math/hadoop/TimesSquaredJob.java,137,outputVectorDim,
+core/src/main/java/org/apache/mahout/math/hadoop/TimesSquaredJob.java,138,matrixInputPath,
+core/src/main/java/org/apache/mahout/math/hadoop/TimesSquaredJob.java,139,outputVectorPathBase,
+core/src/main/java/org/apache/mahout/math/hadoop/TimesSquaredJob.java,140,mapClass,
+core/src/main/java/org/apache/mahout/math/hadoop/TimesSquaredJob.java,141,redClass);
+core/src/main/java/org/apache/mahout/math/hadoop/TimesSquaredJob.java,144,public static Configuration createTimesSquaredJobConf(Configuration initialConf,
+core/src/main/java/org/apache/mahout/math/hadoop/TimesSquaredJob.java,145,Vector v,
+core/src/main/java/org/apache/mahout/math/hadoop/TimesSquaredJob.java,146,int outputVectorDim,
+core/src/main/java/org/apache/mahout/math/hadoop/TimesSquaredJob.java,147,Path matrixInputPath,
+core/src/main/java/org/apache/mahout/math/hadoop/TimesSquaredJob.java,148,Path outputVectorPathBase,
+core/src/main/java/org/apache/mahout/math/hadoop/TimesSquaredJob.java,149,Class<? extends TimesSquaredMapper> mapClass,
+core/src/main/java/org/apache/mahout/math/hadoop/TimesSquaredJob.java,151,throws IOException {
+core/src/main/java/org/apache/mahout/math/hadoop/TimesSquaredJob.java,152,JobConf conf = new JobConf(initialConf, TimesSquaredJob.class);
+core/src/main/java/org/apache/mahout/math/hadoop/TimesSquaredJob.java,153,conf.setJobName("TimesSquaredJob: " + matrixInputPath);
+core/src/main/java/org/apache/mahout/math/hadoop/TimesSquaredJob.java,154,FileSystem fs = FileSystem.get(matrixInputPath.toUri(), conf);
+core/src/main/java/org/apache/mahout/math/hadoop/TimesSquaredJob.java,160,SequenceFile.Writer inputVectorPathWriter = new SequenceFile.Writer(fs,
+core/src/main/java/org/apache/mahout/math/hadoop/TimesSquaredJob.java,161,conf, inputVectorPath, NullWritable.class, VectorWritable.class);
+core/src/main/java/org/apache/mahout/math/hadoop/TimesSquaredJob.java,162,Writable inputVW = new VectorWritable(v);
+core/src/main/java/org/apache/mahout/math/hadoop/TimesSquaredJob.java,163,inputVectorPathWriter.append(NullWritable.get(), inputVW);
+core/src/main/java/org/apache/mahout/math/hadoop/TimesSquaredJob.java,164,Closeables.close(inputVectorPathWriter, false);
+core/src/main/java/org/apache/mahout/math/hadoop/TimesSquaredJob.java,166,DistributedCache.setCacheFiles(new URI[] {ivpURI}, conf);
+core/src/main/java/org/apache/mahout/math/hadoop/TimesSquaredJob.java,171,FileInputFormat.addInputPath(conf, matrixInputPath);
+core/src/main/java/org/apache/mahout/math/hadoop/TimesSquaredJob.java,172,conf.setInputFormat(SequenceFileInputFormat.class);
+core/src/main/java/org/apache/mahout/math/hadoop/TimesSquaredJob.java,173,FileOutputFormat.setOutputPath(conf, new Path(outputVectorPathBase, OUTPUT_VECTOR_FILENAME));
+core/src/main/java/org/apache/mahout/math/hadoop/TimesSquaredJob.java,174,conf.setMapperClass(mapClass);
+core/src/main/java/org/apache/mahout/math/hadoop/TimesSquaredJob.java,175,conf.setMapOutputKeyClass(NullWritable.class);
+core/src/main/java/org/apache/mahout/math/hadoop/TimesSquaredJob.java,176,conf.setMapOutputValueClass(VectorWritable.class);
+core/src/main/java/org/apache/mahout/math/hadoop/TimesSquaredJob.java,177,conf.setReducerClass(redClass);
+core/src/main/java/org/apache/mahout/math/hadoop/TimesSquaredJob.java,178,conf.setCombinerClass(redClass);
+core/src/main/java/org/apache/mahout/math/hadoop/TimesSquaredJob.java,179,conf.setOutputFormat(SequenceFileOutputFormat.class);
+core/src/main/java/org/apache/mahout/math/hadoop/TimesSquaredJob.java,180,conf.setOutputKeyClass(NullWritable.class);
+core/src/main/java/org/apache/mahout/math/hadoop/TimesSquaredJob.java,181,conf.setOutputValueClass(VectorWritable.class);
+core/src/main/java/org/apache/mahout/math/hadoop/TimesSquaredJob.java,182,return conf;
+core/src/main/java/org/apache/mahout/math/hadoop/TimesSquaredJob.java,185,public static Vector retrieveTimesSquaredOutputVector(Configuration conf) throws IOException {
+core/src/main/java/org/apache/mahout/math/hadoop/TimesSquaredJob.java,186,Path outputPath = FileOutputFormat.getOutputPath(new JobConf(conf));
+core/src/main/java/org/apache/mahout/math/hadoop/TimesSquaredJob.java,187,Path outputFile = new Path(outputPath, "part-00000");
+core/src/main/java/org/apache/mahout/math/hadoop/TimesSquaredJob.java,197,public static class TimesSquaredMapper<T extends WritableComparable> extends MapReduceBase
+core/src/main/java/org/apache/mahout/math/hadoop/TimesSquaredJob.java,198,implements Mapper<T,VectorWritable, NullWritable,VectorWritable> {
+core/src/main/java/org/apache/mahout/math/hadoop/TimesSquaredJob.java,201,private OutputCollector<NullWritable,VectorWritable> out;
+core/src/main/java/org/apache/mahout/math/hadoop/TimesSquaredJob.java,208,void setOut(OutputCollector<NullWritable,VectorWritable> out) {
+core/src/main/java/org/apache/mahout/math/hadoop/TimesSquaredJob.java,209,this.out = out;
+core/src/main/java/org/apache/mahout/math/hadoop/TimesSquaredJob.java,213,public void configure(JobConf conf) {
+core/src/main/java/org/apache/mahout/math/hadoop/TimesSquaredJob.java,232,: new DenseVector(outDim);
+core/src/main/java/org/apache/mahout/math/hadoop/TimesSquaredJob.java,239,public void map(T rowNum,
+core/src/main/java/org/apache/mahout/math/hadoop/TimesSquaredJob.java,240,VectorWritable v,
+core/src/main/java/org/apache/mahout/math/hadoop/TimesSquaredJob.java,241,OutputCollector<NullWritable,VectorWritable> out,
+core/src/main/java/org/apache/mahout/math/hadoop/TimesSquaredJob.java,242,Reporter rep) throws IOException {
+core/src/main/java/org/apache/mahout/math/hadoop/TimesSquaredJob.java,243,setOut(out);
+core/src/main/java/org/apache/mahout/math/hadoop/TimesSquaredJob.java,257,public void close() throws IOException {
+core/src/main/java/org/apache/mahout/math/hadoop/TimesSquaredJob.java,258,if (out != null) {
+core/src/main/java/org/apache/mahout/math/hadoop/TimesSquaredJob.java,259,out.collect(NullWritable.get(), new VectorWritable(outputVector));
+core/src/main/java/org/apache/mahout/math/hadoop/TimesSquaredJob.java,267,public void map(IntWritable rowNum,
+core/src/main/java/org/apache/mahout/math/hadoop/TimesSquaredJob.java,268,VectorWritable v,
+core/src/main/java/org/apache/mahout/math/hadoop/TimesSquaredJob.java,269,OutputCollector<NullWritable,VectorWritable> out,
+core/src/main/java/org/apache/mahout/math/hadoop/TimesSquaredJob.java,270,Reporter rep) {
+core/src/main/java/org/apache/mahout/math/hadoop/TimesSquaredJob.java,271,setOut(out);
+core/src/main/java/org/apache/mahout/math/hadoop/TimesSquaredJob.java,279,public static class VectorSummingReducer extends MapReduceBase
+core/src/main/java/org/apache/mahout/math/hadoop/TimesSquaredJob.java,280,implements Reducer<NullWritable,VectorWritable,NullWritable,VectorWritable> {
+core/src/main/java/org/apache/mahout/math/hadoop/TimesSquaredJob.java,285,public void configure(JobConf conf) {
+core/src/main/java/org/apache/mahout/math/hadoop/TimesSquaredJob.java,293,public void reduce(NullWritable n,
+core/src/main/java/org/apache/mahout/math/hadoop/TimesSquaredJob.java,294,Iterator<VectorWritable> vectors,
+core/src/main/java/org/apache/mahout/math/hadoop/TimesSquaredJob.java,295,OutputCollector<NullWritable,VectorWritable> out,
+core/src/main/java/org/apache/mahout/math/hadoop/TimesSquaredJob.java,296,Reporter reporter) throws IOException {
+core/src/main/java/org/apache/mahout/math/hadoop/TimesSquaredJob.java,297,while (vectors.hasNext()) {
+core/src/main/java/org/apache/mahout/math/hadoop/TimesSquaredJob.java,298,VectorWritable v = vectors.next();
+core/src/main/java/org/apache/mahout/math/hadoop/TimesSquaredJob.java,303,out.collect(NullWritable.get(), new VectorWritable(outputVector));
+core/src/main/java/org/apache/mahout/math/hadoop/TransposeJob.java,21,import org.apache.hadoop.fs.FileSystem;
+core/src/main/java/org/apache/mahout/math/hadoop/TransposeJob.java,24,import org.apache.hadoop.io.WritableComparable;
+core/src/main/java/org/apache/mahout/math/hadoop/TransposeJob.java,25,import org.apache.hadoop.mapred.FileInputFormat;
+core/src/main/java/org/apache/mahout/math/hadoop/TransposeJob.java,26,import org.apache.hadoop.mapred.FileOutputFormat;
+core/src/main/java/org/apache/mahout/math/hadoop/TransposeJob.java,27,import org.apache.hadoop.mapred.JobConf;
+core/src/main/java/org/apache/mahout/math/hadoop/TransposeJob.java,28,import org.apache.hadoop.mapred.MapReduceBase;
+core/src/main/java/org/apache/mahout/math/hadoop/TransposeJob.java,29,import org.apache.hadoop.mapred.Mapper;
+core/src/main/java/org/apache/mahout/math/hadoop/TransposeJob.java,30,import org.apache.hadoop.mapred.OutputCollector;
+core/src/main/java/org/apache/mahout/math/hadoop/TransposeJob.java,31,import org.apache.hadoop.mapred.Reducer;
+core/src/main/java/org/apache/mahout/math/hadoop/TransposeJob.java,32,import org.apache.hadoop.mapred.Reporter;
+core/src/main/java/org/apache/mahout/math/hadoop/TransposeJob.java,33,import org.apache.hadoop.mapred.SequenceFileInputFormat;
+core/src/main/java/org/apache/mahout/math/hadoop/TransposeJob.java,34,import org.apache.hadoop.mapred.SequenceFileOutputFormat;
+core/src/main/java/org/apache/mahout/math/hadoop/TransposeJob.java,37,import org.apache.mahout.math.RandomAccessSparseVector;
+core/src/main/java/org/apache/mahout/math/hadoop/TransposeJob.java,38,import org.apache.mahout.math.SequentialAccessSparseVector;
+core/src/main/java/org/apache/mahout/math/hadoop/TransposeJob.java,39,import org.apache.mahout.math.Vector;
+core/src/main/java/org/apache/mahout/math/hadoop/TransposeJob.java,43,import java.util.Iterator;
+core/src/main/java/org/apache/mahout/math/hadoop/TransposeJob.java,52,public static final String NUM_ROWS_KEY = "SparseRowMatrix.numRows";
+core/src/main/java/org/apache/mahout/math/hadoop/TransposeJob.java,78,public static Configuration buildTransposeJobConf(Path matrixInputPath,
+core/src/main/java/org/apache/mahout/math/hadoop/TransposeJob.java,79,Path matrixOutputPath,
+core/src/main/java/org/apache/mahout/math/hadoop/TransposeJob.java,80,int numInputRows) throws IOException {
+core/src/main/java/org/apache/mahout/math/hadoop/TransposeJob.java,81,return buildTransposeJobConf(new Configuration(), matrixInputPath, matrixOutputPath, numInputRows);
+core/src/main/java/org/apache/mahout/math/hadoop/TransposeJob.java,84,public static Configuration buildTransposeJobConf(Configuration initialConf,
+core/src/main/java/org/apache/mahout/math/hadoop/TransposeJob.java,85,Path matrixInputPath,
+core/src/main/java/org/apache/mahout/math/hadoop/TransposeJob.java,86,Path matrixOutputPath,
+core/src/main/java/org/apache/mahout/math/hadoop/TransposeJob.java,87,int numInputRows) throws IOException {
+core/src/main/java/org/apache/mahout/math/hadoop/TransposeJob.java,88,JobConf conf = new JobConf(initialConf, TransposeJob.class);
+core/src/main/java/org/apache/mahout/math/hadoop/TransposeJob.java,89,conf.setJobName("TransposeJob: " + matrixInputPath + " transpose -> " + matrixOutputPath);
+core/src/main/java/org/apache/mahout/math/hadoop/TransposeJob.java,90,FileSystem fs = FileSystem.get(matrixInputPath.toUri(), conf);
+core/src/main/java/org/apache/mahout/math/hadoop/TransposeJob.java,91,matrixInputPath = fs.makeQualified(matrixInputPath);
+core/src/main/java/org/apache/mahout/math/hadoop/TransposeJob.java,92,matrixOutputPath = fs.makeQualified(matrixOutputPath);
+core/src/main/java/org/apache/mahout/math/hadoop/TransposeJob.java,93,conf.setInt(NUM_ROWS_KEY, numInputRows);
+core/src/main/java/org/apache/mahout/math/hadoop/TransposeJob.java,95,FileInputFormat.addInputPath(conf, matrixInputPath);
+core/src/main/java/org/apache/mahout/math/hadoop/TransposeJob.java,96,conf.setInputFormat(SequenceFileInputFormat.class);
+core/src/main/java/org/apache/mahout/math/hadoop/TransposeJob.java,97,FileOutputFormat.setOutputPath(conf, matrixOutputPath);
+core/src/main/java/org/apache/mahout/math/hadoop/TransposeJob.java,98,conf.setMapperClass(TransposeMapper.class);
+core/src/main/java/org/apache/mahout/math/hadoop/TransposeJob.java,99,conf.setMapOutputKeyClass(IntWritable.class);
+core/src/main/java/org/apache/mahout/math/hadoop/TransposeJob.java,100,conf.setMapOutputValueClass(VectorWritable.class);
+core/src/main/java/org/apache/mahout/math/hadoop/TransposeJob.java,101,conf.setCombinerClass(MergeVectorsCombiner.class);
+core/src/main/java/org/apache/mahout/math/hadoop/TransposeJob.java,102,conf.setReducerClass(MergeVectorsReducer.class);
+core/src/main/java/org/apache/mahout/math/hadoop/TransposeJob.java,103,conf.setOutputFormat(SequenceFileOutputFormat.class);
+core/src/main/java/org/apache/mahout/math/hadoop/TransposeJob.java,104,conf.setOutputKeyClass(IntWritable.class);
+core/src/main/java/org/apache/mahout/math/hadoop/TransposeJob.java,105,conf.setOutputValueClass(VectorWritable.class);
+core/src/main/java/org/apache/mahout/math/hadoop/TransposeJob.java,106,return conf;
+core/src/main/java/org/apache/mahout/math/hadoop/TransposeJob.java,109,public static class TransposeMapper extends MapReduceBase
+core/src/main/java/org/apache/mahout/math/hadoop/TransposeJob.java,110,implements Mapper<IntWritable, VectorWritable, IntWritable, VectorWritable> {
+core/src/main/java/org/apache/mahout/math/hadoop/TransposeJob.java,112,private int newNumCols;
+core/src/main/java/org/apache/mahout/math/hadoop/TransposeJob.java,115,public void configure(JobConf conf) {
+core/src/main/java/org/apache/mahout/math/hadoop/TransposeJob.java,116,newNumCols = conf.getInt(NUM_ROWS_KEY, Integer.MAX_VALUE);
+core/src/main/java/org/apache/mahout/math/hadoop/TransposeJob.java,120,public void map(IntWritable r, VectorWritable v, OutputCollector<IntWritable, VectorWritable> out,
+core/src/main/java/org/apache/mahout/math/hadoop/TransposeJob.java,121,Reporter reporter) throws IOException {
+core/src/main/java/org/apache/mahout/math/hadoop/TransposeJob.java,122,int row = r.get();
+core/src/main/java/org/apache/mahout/math/hadoop/TransposeJob.java,123,for (Vector.Element e : v.get().nonZeroes()) {
+core/src/main/java/org/apache/mahout/math/hadoop/TransposeJob.java,124,RandomAccessSparseVector tmp = new RandomAccessSparseVector(newNumCols, 1);
+core/src/main/java/org/apache/mahout/math/hadoop/TransposeJob.java,125,tmp.setQuick(row, e.get());
+core/src/main/java/org/apache/mahout/math/hadoop/TransposeJob.java,126,r.set(e.index());
+core/src/main/java/org/apache/mahout/math/hadoop/TransposeJob.java,127,out.collect(r, new VectorWritable(tmp));
+core/src/main/java/org/apache/mahout/math/hadoop/TransposeJob.java,132,public static class MergeVectorsCombiner extends MapReduceBase
+core/src/main/java/org/apache/mahout/math/hadoop/TransposeJob.java,133,implements Reducer<WritableComparable<?>, VectorWritable, WritableComparable<?>, VectorWritable> {
+core/src/main/java/org/apache/mahout/math/hadoop/TransposeJob.java,136,public void reduce(WritableComparable<?> key,
+core/src/main/java/org/apache/mahout/math/hadoop/TransposeJob.java,137,Iterator<VectorWritable> vectors,
+core/src/main/java/org/apache/mahout/math/hadoop/TransposeJob.java,138,OutputCollector<WritableComparable<?>,VectorWritable> out,
+core/src/main/java/org/apache/mahout/math/hadoop/TransposeJob.java,139,Reporter reporter) throws IOException {
+core/src/main/java/org/apache/mahout/math/hadoop/TransposeJob.java,140,out.collect(key, VectorWritable.merge(vectors));
+core/src/main/java/org/apache/mahout/math/hadoop/TransposeJob.java,144,public static class MergeVectorsReducer extends MapReduceBase
+core/src/main/java/org/apache/mahout/math/hadoop/TransposeJob.java,145,implements Reducer<WritableComparable<?>, VectorWritable, WritableComparable<?>, VectorWritable> {
+core/src/main/java/org/apache/mahout/math/hadoop/TransposeJob.java,148,public void reduce(WritableComparable<?> key,
+core/src/main/java/org/apache/mahout/math/hadoop/TransposeJob.java,149,Iterator<VectorWritable> vectors,
+core/src/main/java/org/apache/mahout/math/hadoop/TransposeJob.java,150,OutputCollector<WritableComparable<?>, VectorWritable> out,
+core/src/main/java/org/apache/mahout/math/hadoop/TransposeJob.java,151,Reporter reporter) throws IOException {
+core/src/main/java/org/apache/mahout/math/hadoop/TransposeJob.java,152,Vector merged = VectorWritable.merge(vectors).get();
+core/src/main/java/org/apache/mahout/math/hadoop/TransposeJob.java,153,out.collect(key, new VectorWritable(new SequentialAccessSparseVector(merged)));
+core/src/main/java/org/apache/mahout/math/MatrixWritable.java,34,private static final int NUM_FLAGS = 3;
+core/src/main/java/org/apache/mahout/math/MatrixWritable.java,38,public MatrixWritable() {
+core/src/main/java/org/apache/mahout/math/MatrixWritable.java,114,Matrix r;
+core/src/main/java/org/apache/mahout/math/MatrixWritable.java,116,r = new DenseMatrix(rows, columns);
+core/src/main/java/org/apache/mahout/math/MatrixWritable.java,118,r = new SparseRowMatrix(rows, columns, !sequential);
+core/src/main/java/org/apache/mahout/math/MatrixWritable.java,121,for (int row = 0; row < rows; row++) {
+core/src/main/java/org/apache/mahout/math/MatrixWritable.java,122,r.viewRow(row).assign(VectorWritable.readVector(in));
+core/src/main/java/org/apache/mahout/math/MatrixWritable.java,130,r.setColumnLabelBindings(columnLabelBindings);
+core/src/main/java/org/apache/mahout/math/MatrixWritable.java,133,r.setRowLabelBindings(rowLabelBindings);
+core/src/main/java/org/apache/mahout/math/MatrixWritable.java,137,return r;
+core/src/main/java/org/apache/mahout/math/MatrixWritable.java,141,public static void writeMatrix(DataOutput out, Matrix matrix) throws IOException {
+core/src/main/java/org/apache/mahout/math/MatrixWritable.java,144,if (row.isDense()) {
+core/src/main/java/org/apache/mahout/math/MatrixWritable.java,158,for (int i = 0; i < matrix.rowSize(); i++) {
+core/src/main/java/org/apache/mahout/math/MatrixWritable.java,159,VectorWritable.writeVector(out, matrix.viewRow(i), false);
+math/src/main/java/org/apache/mahout/math/RandomAccessSparseVector.java,68,return new SparseRowMatrix(rows, columns);
+math/src/main/java/org/apache/mahout/math/SequentialAccessSparseVector.java,113,return new SparseRowMatrix(rows, columns);
+math/src/main/java/org/apache/mahout/math/SparseMatrix.java,115,for (Vector vectorEntry : rowVectors.values()) {
+math/src/main/java/org/apache/mahout/math/SparseMatrix.java,116,result[COL] = Math.max(result[COL], vectorEntry
+math/src/main/java/org/apache/mahout/math/SparseMatrix.java,117,.getNumNondefaultElements());
+core/src/main/java/org/apache/mahout/clustering/topdown/postprocessor/ClusterOutputPostProcessorDriver.java,78,private ClusterOutputPostProcessorDriver() {
+core/src/main/java/org/apache/mahout/clustering/spectral/kmeans/SpectralKMeansDriver.java,99,HadoopUtil.delete(conf, output);
+examples/src/main/java/org/apache/mahout/clustering/display/DisplaySpectralKMeans.java,86,plotClusteredSampleData((Graphics2D) g, new Path(OUTPUT));
+core/src/main/java/org/apache/mahout/clustering/classify/ClusterClassifier.java,237,writer.close();
+core/src/main/java/org/apache/mahout/classifier/df/split/OptIgSplit.java,18,package org.apache.mahout.classifier.df.split;
+core/src/main/java/org/apache/mahout/classifier/df/split/OptIgSplit.java,20,import org.apache.commons.lang3.ArrayUtils;
+core/src/main/java/org/apache/mahout/classifier/df/split/OptIgSplit.java,21,import org.apache.mahout.classifier.df.data.Data;
+core/src/main/java/org/apache/mahout/classifier/df/split/OptIgSplit.java,22,import org.apache.mahout.classifier.df.data.DataUtils;
+core/src/main/java/org/apache/mahout/classifier/df/split/OptIgSplit.java,23,import org.apache.mahout.classifier.df.data.Dataset;
+core/src/main/java/org/apache/mahout/classifier/df/split/OptIgSplit.java,24,import org.apache.mahout.classifier.df.data.Instance;
+core/src/main/java/org/apache/mahout/classifier/df/split/OptIgSplit.java,26,import java.util.Arrays;
+core/src/main/java/org/apache/mahout/classifier/df/split/OptIgSplit.java,32,public class OptIgSplit extends IgSplit {
+core/src/main/java/org/apache/mahout/classifier/df/split/OptIgSplit.java,34,private int[][] counts;
+core/src/main/java/org/apache/mahout/classifier/df/split/OptIgSplit.java,36,private int[] countAll;
+core/src/main/java/org/apache/mahout/classifier/df/split/OptIgSplit.java,38,private int[] countLess;
+core/src/main/java/org/apache/mahout/classifier/df/split/OptIgSplit.java,41,public Split computeSplit(Data data, int attr) {
+core/src/main/java/org/apache/mahout/classifier/df/split/OptIgSplit.java,42,if (data.getDataset().isNumerical(attr)) {
+core/src/main/java/org/apache/mahout/classifier/df/split/OptIgSplit.java,43,return numericalSplit(data, attr);
+core/src/main/java/org/apache/mahout/classifier/df/split/OptIgSplit.java,45,return categoricalSplit(data, attr);
+core/src/main/java/org/apache/mahout/classifier/df/split/OptIgSplit.java,52,private static Split categoricalSplit(Data data, int attr) {
+core/src/main/java/org/apache/mahout/classifier/df/split/OptIgSplit.java,53,double[] values = data.values(attr);
+core/src/main/java/org/apache/mahout/classifier/df/split/OptIgSplit.java,54,int[][] counts = new int[values.length][data.getDataset().nblabels()];
+core/src/main/java/org/apache/mahout/classifier/df/split/OptIgSplit.java,55,int[] countAll = new int[data.getDataset().nblabels()];
+core/src/main/java/org/apache/mahout/classifier/df/split/OptIgSplit.java,57,Dataset dataset = data.getDataset();
+core/src/main/java/org/apache/mahout/classifier/df/split/OptIgSplit.java,60,for (int index = 0; index < data.size(); index++) {
+core/src/main/java/org/apache/mahout/classifier/df/split/OptIgSplit.java,61,Instance instance = data.get(index);
+core/src/main/java/org/apache/mahout/classifier/df/split/OptIgSplit.java,62,counts[ArrayUtils.indexOf(values, instance.get(attr))][(int) dataset.getLabel(instance)]++;
+core/src/main/java/org/apache/mahout/classifier/df/split/OptIgSplit.java,63,countAll[(int) dataset.getLabel(instance)]++;
+core/src/main/java/org/apache/mahout/classifier/df/split/OptIgSplit.java,66,int size = data.size();
+core/src/main/java/org/apache/mahout/classifier/df/split/OptIgSplit.java,69,double invDataSize = 1.0 / size;
+core/src/main/java/org/apache/mahout/classifier/df/split/OptIgSplit.java,71,for (int index = 0; index < values.length; index++) {
+core/src/main/java/org/apache/mahout/classifier/df/split/OptIgSplit.java,72,size = DataUtils.sum(counts[index]);
+core/src/main/java/org/apache/mahout/classifier/df/split/OptIgSplit.java,73,hyx += size * invDataSize * entropy(counts[index], size);
+core/src/main/java/org/apache/mahout/classifier/df/split/OptIgSplit.java,76,double ig = hy - hyx;
+core/src/main/java/org/apache/mahout/classifier/df/split/OptIgSplit.java,77,return new Split(attr, ig);
+core/src/main/java/org/apache/mahout/classifier/df/split/OptIgSplit.java,83,private static double[] sortedValues(Data data, int attr) {
+core/src/main/java/org/apache/mahout/classifier/df/split/OptIgSplit.java,84,double[] values = data.values(attr);
+core/src/main/java/org/apache/mahout/classifier/df/split/OptIgSplit.java,85,Arrays.sort(values);
+core/src/main/java/org/apache/mahout/classifier/df/split/OptIgSplit.java,87,return values;
+core/src/main/java/org/apache/mahout/classifier/df/split/OptIgSplit.java,93,void initCounts(Data data, double[] values) {
+core/src/main/java/org/apache/mahout/classifier/df/split/OptIgSplit.java,94,counts = new int[values.length][data.getDataset().nblabels()];
+core/src/main/java/org/apache/mahout/classifier/df/split/OptIgSplit.java,95,countAll = new int[data.getDataset().nblabels()];
+core/src/main/java/org/apache/mahout/classifier/df/split/OptIgSplit.java,96,countLess = new int[data.getDataset().nblabels()];
+core/src/main/java/org/apache/mahout/classifier/df/split/OptIgSplit.java,99,void computeFrequencies(Data data, int attr, double[] values) {
+core/src/main/java/org/apache/mahout/classifier/df/split/OptIgSplit.java,100,Dataset dataset = data.getDataset();
+core/src/main/java/org/apache/mahout/classifier/df/split/OptIgSplit.java,102,for (int index = 0; index < data.size(); index++) {
+core/src/main/java/org/apache/mahout/classifier/df/split/OptIgSplit.java,103,Instance instance = data.get(index);
+core/src/main/java/org/apache/mahout/classifier/df/split/OptIgSplit.java,104,counts[ArrayUtils.indexOf(values, instance.get(attr))][(int) dataset.getLabel(instance)]++;
+core/src/main/java/org/apache/mahout/classifier/df/split/OptIgSplit.java,105,countAll[(int) dataset.getLabel(instance)]++;
+core/src/main/java/org/apache/mahout/classifier/df/split/OptIgSplit.java,112,Split numericalSplit(Data data, int attr) {
+core/src/main/java/org/apache/mahout/classifier/df/split/OptIgSplit.java,113,double[] values = sortedValues(data, attr);
+core/src/main/java/org/apache/mahout/classifier/df/split/OptIgSplit.java,115,initCounts(data, values);
+core/src/main/java/org/apache/mahout/classifier/df/split/OptIgSplit.java,117,computeFrequencies(data, attr, values);
+core/src/main/java/org/apache/mahout/classifier/df/split/OptIgSplit.java,119,int size = data.size();
+core/src/main/java/org/apache/mahout/classifier/df/split/OptIgSplit.java,120,double hy = entropy(countAll, size);
+core/src/main/java/org/apache/mahout/classifier/df/split/OptIgSplit.java,121,double invDataSize = 1.0 / size;
+core/src/main/java/org/apache/mahout/classifier/df/split/OptIgSplit.java,123,int best = -1;
+core/src/main/java/org/apache/mahout/classifier/df/split/OptIgSplit.java,124,double bestIg = -1.0;
+core/src/main/java/org/apache/mahout/classifier/df/split/OptIgSplit.java,127,for (int index = 0; index < values.length; index++) {
+core/src/main/java/org/apache/mahout/classifier/df/split/OptIgSplit.java,128,double ig = hy;
+core/src/main/java/org/apache/mahout/classifier/df/split/OptIgSplit.java,131,size = DataUtils.sum(countLess);
+core/src/main/java/org/apache/mahout/classifier/df/split/OptIgSplit.java,132,ig -= size * invDataSize * entropy(countLess, size);
+core/src/main/java/org/apache/mahout/classifier/df/split/OptIgSplit.java,135,size = DataUtils.sum(countAll);
+core/src/main/java/org/apache/mahout/classifier/df/split/OptIgSplit.java,136,ig -= size * invDataSize * entropy(countAll, size);
+core/src/main/java/org/apache/mahout/classifier/df/split/OptIgSplit.java,138,if (ig > bestIg) {
+core/src/main/java/org/apache/mahout/classifier/df/split/OptIgSplit.java,139,bestIg = ig;
+core/src/main/java/org/apache/mahout/classifier/df/split/OptIgSplit.java,140,best = index;
+core/src/main/java/org/apache/mahout/classifier/df/split/OptIgSplit.java,143,DataUtils.add(countLess, counts[index]);
+core/src/main/java/org/apache/mahout/classifier/df/split/OptIgSplit.java,144,DataUtils.dec(countAll, counts[index]);
+core/src/main/java/org/apache/mahout/classifier/df/split/OptIgSplit.java,147,if (best == -1) {
+core/src/main/java/org/apache/mahout/classifier/df/split/OptIgSplit.java,148,throw new IllegalStateException("no best split found !");
+core/src/main/java/org/apache/mahout/classifier/df/split/OptIgSplit.java,150,return new Split(attr, bestIg, values[best]);
+core/src/main/java/org/apache/mahout/classifier/df/split/OptIgSplit.java,159,private static double entropy(int[] counts, int dataSize) {
+core/src/main/java/org/apache/mahout/classifier/df/split/OptIgSplit.java,160,if (dataSize == 0) {
+core/src/main/java/org/apache/mahout/classifier/df/split/OptIgSplit.java,161,return 0.0;
+core/src/main/java/org/apache/mahout/classifier/df/split/OptIgSplit.java,164,double entropy = 0.0;
+core/src/main/java/org/apache/mahout/classifier/df/split/OptIgSplit.java,165,double invDataSize = 1.0 / dataSize;
+core/src/main/java/org/apache/mahout/classifier/df/split/OptIgSplit.java,167,for (int count : counts) {
+core/src/main/java/org/apache/mahout/classifier/df/split/OptIgSplit.java,168,if (count == 0) {
+core/src/main/java/org/apache/mahout/classifier/df/split/OptIgSplit.java,169,continue; // otherwise we get a NaN
+core/src/main/java/org/apache/mahout/classifier/df/split/OptIgSplit.java,171,double p = count * invDataSize;
+core/src/main/java/org/apache/mahout/classifier/df/split/OptIgSplit.java,172,entropy += -p * Math.log(p) / LOG2;
+core/src/main/java/org/apache/mahout/classifier/df/split/OptIgSplit.java,175,return entropy;
+core/src/main/java/org/apache/mahout/classifier/df/mapreduce/partial/Step1Mapper.java,130,int nbTrees = numTrees / numMaps;
+core/src/main/java/org/apache/mahout/classifier/df/mapreduce/partial/Step1Mapper.java,131,if (partition == 0) {
+core/src/main/java/org/apache/mahout/classifier/df/mapreduce/partial/Step1Mapper.java,132,nbTrees += numTrees - nbTrees * numMaps;
+core/src/main/java/org/apache/mahout/classifier/df/mapreduce/partial/Step1Mapper.java,135,return nbTrees;
+math/src/main/java/org/apache/mahout/math/SparseMatrix.java,58,SparseMatrix clone = (SparseMatrix) super.clone();
+math/src/main/java/org/apache/mahout/math/SparseMatrix.java,59,clone.rowVectors = rowVectors.clone();
+math/src/main/java/org/apache/mahout/math/SparseMatrix.java,60,for (int i = 0; i < numRows(); i++) {
+math/src/main/java/org/apache/mahout/math/SparseMatrix.java,61,clone.rowVectors.put(i, rowVectors.get(i).clone());
+core/src/main/java/org/apache/mahout/clustering/classify/ClusterClassificationDriver.java,45,import org.apache.mahout.common.iterator.sequencefile.SequenceFileDirValueIterable;
+core/src/main/java/org/apache/mahout/clustering/classify/ClusterClassificationDriver.java,202,for (VectorWritable vw : new SequenceFileDirValueIterable<VectorWritable>(input, PathType.LIST,
+core/src/main/java/org/apache/mahout/clustering/classify/ClusterClassificationDriver.java,204,Vector pdfPerCluster = clusterClassifier.classify(vw.get());
+core/src/main/java/org/apache/mahout/clustering/classify/ClusterClassificationDriver.java,206,classifyAndWrite(clusterModels, clusterClassificationThreshold, emitMostLikely, writer, vw, pdfPerCluster);
+core/src/main/java/org/apache/mahout/clustering/classify/ClusterClassificationDriver.java,227,WeightedVectorWritable wvw = new WeightedVectorWritable(pdf.get(), vw.get());
+core/src/main/java/org/apache/mahout/clustering/classify/ClusterClassificationDriver.java,234,private static void write(List<Cluster> clusterModels, SequenceFile.Writer writer, WeightedVectorWritable wvw,
+core/src/main/java/org/apache/mahout/clustering/classify/ClusterClassificationDriver.java,237,writer.append(new IntWritable(cluster.getId()), wvw);
+core/src/main/java/org/apache/mahout/clustering/classify/ClusterClassificationMapper.java,83,Vector pdfPerCluster = clusterClassifier.classify(vw.get());
+core/src/main/java/org/apache/mahout/clustering/classify/ClusterClassificationMapper.java,87,write(vw, context, maxValueIndex, 1.0);
+core/src/main/java/org/apache/mahout/clustering/classify/ClusterClassificationMapper.java,89,writeAllAboveThreshold(vw, context, pdfPerCluster);
+math/src/main/java/org/apache/mahout/math/MatrixVectorView.java,41,if (row < 0 || row > matrix.rowSize()) {
+math/src/main/java/org/apache/mahout/math/MatrixVectorView.java,44,if (column < 0 || column > matrix.columnSize()) {
+core/src/main/java/org/apache/mahout/classifier/sgd/TPrior.java,20,import org.apache.commons.math.special.Gamma;
+core/src/main/java/org/apache/mahout/clustering/streaming/mapreduce/StreamingKMeansDriver.java,442,SequenceFile.Writer writer = SequenceFile.createWriter(FileSystem.get(conf), conf, output, IntWritable.class,
+math/src/main/java/org/apache/mahout/math/SingularValueDecomposition.java,292,if (Math.abs(e[k]) <= eps * (Math.abs(s[k]) + Math.abs(s[k + 1]))) {
+math/src/main/java/org/apache/mahout/math/SingularValueDecomposition.java,306,double t = (ks == p ? 0.0 : Math.abs(e[ks])) + (ks == k + 1 ? 0.0 : Math.abs(e[ks - 1]));
+math/src/main/java/org/apache/mahout/math/SingularValueDecomposition.java,307,if (Math.abs(s[ks]) <= eps * t) {
+core/src/main/java/org/apache/mahout/classifier/naivebayes/training/TrainNaiveBayesJob.java,96,boolean trainComplementary = Boolean.parseBoolean(getOption(TRAIN_COMPLEMENTARY));
+core/src/main/java/org/apache/mahout/common/HadoopUtil.java,355,boolean bContainsFiles = false;
+core/src/main/java/org/apache/mahout/common/HadoopUtil.java,362,bContainsFiles = true;
+core/src/main/java/org/apache/mahout/common/HadoopUtil.java,366,if (bContainsFiles) {
+integration/src/main/java/org/apache/mahout/text/SequenceFilesFromDirectory.java,54,private static final String[] FILE_FILTER_CLASS_OPTION = {"fileFilterClass", "filter"};
+integration/src/main/java/org/apache/mahout/text/SequenceFilesFromDirectory.java,110,new Class[]{Configuration.class, String.class, Map.class, ChunkedWriter.class, Charset.class, FileSystem.class},
+integration/src/main/java/org/apache/mahout/text/SequenceFilesFromDirectory.java,111,new Object[]{conf, keyPrefix, options, writer, charset, fs});
+integration/src/main/java/org/apache/mahout/text/SequenceFilesFromDirectory.java,141,String inputDirList = HadoopUtil.buildDirList(fs, fsFileStatus);
+integration/src/main/java/org/apache/mahout/text/WholeFileRecordReader.java,49,throws IOException {
+integration/src/main/java/org/apache/mahout/text/WholeFileRecordReader.java,51,fileSplit.getLength(idx), fileSplit.getLocations());
+integration/src/main/java/org/apache/mahout/text/WholeFileRecordReader.java,84,try {
+integration/src/main/java/org/apache/mahout/text/WholeFileRecordReader.java,85,if (!fs.isFile(file)) {
+integration/src/main/java/org/apache/mahout/text/WholeFileRecordReader.java,86,return false;
+integration/src/main/java/org/apache/mahout/text/WholeFileRecordReader.java,88,in = fs.open(file);
+integration/src/main/java/org/apache/mahout/text/WholeFileRecordReader.java,89,IOUtils.readFully(in, contents, 0, contents.length);
+integration/src/main/java/org/apache/mahout/text/WholeFileRecordReader.java,90,value.setCapacity(contents.length);
+integration/src/main/java/org/apache/mahout/text/WholeFileRecordReader.java,91,value.set(contents, 0, contents.length);
+integration/src/main/java/org/apache/mahout/text/WholeFileRecordReader.java,93,Closeables.close(in, false);
+integration/src/main/java/org/apache/mahout/text/WholeFileRecordReader.java,95,processed = true;
+integration/src/main/java/org/apache/mahout/text/WholeFileRecordReader.java,96,return true;
+integration/src/main/java/org/apache/mahout/utils/vectors/arff/ARFFIterator.java,34,private static final Pattern COMMA_PATTERN = Pattern.compile(",(?=([^\"]*\"[^\"]*\")*[^\"]*$)");
+integration/src/main/java/org/apache/mahout/utils/vectors/arff/ARFFIterator.java,67,if (line.startsWith(ARFFModel.ARFF_SPARSE)) {
+integration/src/main/java/org/apache/mahout/utils/vectors/arff/ARFFIterator.java,68,line = line.substring(1, line.indexOf(ARFFModel.ARFF_SPARSE_END));
+integration/src/main/java/org/apache/mahout/utils/vectors/arff/ARFFIterator.java,69,String[] splits = COMMA_PATTERN.split(line);
+integration/src/main/java/org/apache/mahout/utils/vectors/arff/ARFFIterator.java,72,split = split.trim();
+integration/src/main/java/org/apache/mahout/utils/vectors/arff/ARFFIterator.java,82,String[] splits = COMMA_PATTERN.split(line);
+integration/src/main/java/org/apache/mahout/utils/vectors/arff/ARFFVectorIterable.java,34,import java.util.regex.Pattern;
+integration/src/main/java/org/apache/mahout/utils/vectors/arff/ARFFVectorIterable.java,52,private static final Pattern COMMA_PATTERN = Pattern.compile(",");
+integration/src/main/java/org/apache/mahout/utils/vectors/arff/ARFFVectorIterable.java,53,private static final Pattern SPACE_PATTERN = Pattern.compile(" ");
+integration/src/main/java/org/apache/mahout/utils/vectors/arff/ARFFVectorIterable.java,83,String lower = line.toLowerCase(Locale.ENGLISH);
+integration/src/main/java/org/apache/mahout/utils/vectors/arff/ARFFVectorIterable.java,84,Integer labelNumInt = labelNumber;
+core/src/main/java/org/apache/mahout/classifier/df/data/Dataset.java,348,Map<String, Object> attribute = null;
+core/src/main/java/org/apache/mahout/classifier/df/data/Dataset.java,400,nominalValues[i] = array;
+core/src/main/java/org/apache/mahout/clustering/streaming/mapreduce/StreamingKMeansDriver.java,428,for (FileStatus status : HadoopUtil.listStatus(FileSystem.get(conf), input)) {
+examples/src/main/java/org/apache/mahout/clustering/streaming/tools/ClusterQualitySummarizer.java,5,import java.io.OutputStreamWriter;
+examples/src/main/java/org/apache/mahout/clustering/streaming/tools/ClusterQualitySummarizer.java,33,public class ClusterQualitySummarizer {
+examples/src/main/java/org/apache/mahout/clustering/streaming/tools/ClusterQualitySummarizer.java,57,System.out.printf("Cluster %d is empty\n", i);
+examples/src/main/java/org/apache/mahout/clustering/streaming/tools/ClusterQualitySummarizer.java,78,public void run(String[] args) {
+examples/src/main/java/org/apache/mahout/clustering/streaming/tools/ClusterQualitySummarizer.java,80,return;
+examples/src/main/java/org/apache/mahout/clustering/streaming/tools/ClusterQualitySummarizer.java,85,Configuration.dumpConfiguration(conf, new OutputStreamWriter(System.out));
+examples/src/main/java/org/apache/mahout/clustering/streaming/tools/ClusterQualitySummarizer.java,148,System.out.printf(" Second: %f\n",
+examples/src/main/java/org/apache/mahout/clustering/streaming/tools/ClusterQualitySummarizer.java,149,ClusteringUtils.dunnIndex(centroidsCompare, distanceMeasure, compareSummaries));
+examples/src/main/java/org/apache/mahout/clustering/streaming/tools/ClusterQualitySummarizer.java,162,if (outputFile != null) {
+examples/src/main/java/org/apache/mahout/clustering/streaming/tools/ClusterQualitySummarizer.java,163,fileOut.close();
+examples/src/main/java/org/apache/mahout/clustering/streaming/tools/ClusterQualitySummarizer.java,263,public static void main(String[] args) {
+integration/src/main/java/org/apache/mahout/utils/vectors/VectorHelper.java,201,String[] dictionary = new String[dict.size()];
+core/src/main/java/org/apache/mahout/clustering/classify/ClusterClassificationDriver.java,216,WeightedVectorWritable wvw = new WeightedVectorWritable(pdfPerCluster.maxValue(), vw.get());
+core/src/main/java/org/apache/mahout/clustering/classify/ClusterClassificationDriver.java,217,write(clusterModels, writer, wvw, maxValueIndex);
+core/src/main/java/org/apache/mahout/clustering/classify/ClusterClassificationDriver.java,269,job.setOutputValueClass(WeightedVectorWritable.class);
+core/src/main/java/org/apache/mahout/clustering/classify/ClusterClassificationMapper.java,109,context.write(clusterId, new WeightedVectorWritable(weight, vw.get()));
+integration/src/main/java/org/apache/mahout/utils/clustering/AbstractClusterWriter.java,31,import org.apache.mahout.clustering.classify.WeightedVectorWritable;
+integration/src/main/java/org/apache/mahout/utils/clustering/AbstractClusterWriter.java,49,protected final Map<Integer, List<WeightedVectorWritable>> clusterIdToPoints;
+integration/src/main/java/org/apache/mahout/utils/clustering/AbstractClusterWriter.java,60,protected AbstractClusterWriter(Writer writer, Map<Integer, List<WeightedVectorWritable>> clusterIdToPoints,
+integration/src/main/java/org/apache/mahout/utils/clustering/AbstractClusterWriter.java,71,protected Map<Integer, List<WeightedVectorWritable>> getClusterIdToPoints() {
+integration/src/main/java/org/apache/mahout/utils/clustering/CSVClusterWriter.java,21,import org.apache.mahout.clustering.classify.WeightedVectorWritable;
+integration/src/main/java/org/apache/mahout/utils/clustering/CSVClusterWriter.java,42,public CSVClusterWriter(Writer writer, Map<Integer, List<WeightedVectorWritable>> clusterIdToPoints,
+integration/src/main/java/org/apache/mahout/utils/clustering/CSVClusterWriter.java,52,List<WeightedVectorWritable> points = getClusterIdToPoints().get(cluster.getId());
+integration/src/main/java/org/apache/mahout/utils/clustering/CSVClusterWriter.java,54,for (WeightedVectorWritable point : points) {
+integration/src/main/java/org/apache/mahout/utils/clustering/ClusterDumper.java,34,import org.apache.mahout.clustering.classify.WeightedVectorWritable;
+integration/src/main/java/org/apache/mahout/utils/clustering/ClusterDumper.java,85,private Map<Integer, List<WeightedVectorWritable>> clusterIdToPoints;
+integration/src/main/java/org/apache/mahout/utils/clustering/ClusterDumper.java,267,public Map<Integer, List<WeightedVectorWritable>> getClusterIdToPoints() {
+integration/src/main/java/org/apache/mahout/utils/clustering/ClusterDumper.java,296,public static Map<Integer, List<WeightedVectorWritable>> readPoints(Path pointsPathDir, long maxPointsPerCluster,
+integration/src/main/java/org/apache/mahout/utils/clustering/ClusterDumper.java,299,for (Pair<IntWritable, WeightedVectorWritable> record
+integration/src/main/java/org/apache/mahout/utils/clustering/ClusterDumper.java,300,: new SequenceFileDirIterable<IntWritable, WeightedVectorWritable>(pointsPathDir, PathType.LIST,
+integration/src/main/java/org/apache/mahout/utils/clustering/ClusterDumper.java,307,List<WeightedVectorWritable> pointList = result.get(keyValue);
+integration/src/main/java/org/apache/mahout/utils/clustering/ClusterDumperWriter.java,24,import org.apache.mahout.clustering.classify.WeightedVectorWritable;
+integration/src/main/java/org/apache/mahout/utils/clustering/ClusterDumperWriter.java,43,public ClusterDumperWriter(Writer writer, Map<Integer,List<WeightedVectorWritable>> clusterIdToPoints,
+integration/src/main/java/org/apache/mahout/utils/clustering/ClusterDumperWriter.java,72,Map<Integer,List<WeightedVectorWritable>> clusterIdToPoints = getClusterIdToPoints();
+integration/src/main/java/org/apache/mahout/utils/clustering/ClusterDumperWriter.java,73,List<WeightedVectorWritable> points = clusterIdToPoints.get(clusterWritable.getValue().getId());
+integration/src/main/java/org/apache/mahout/utils/clustering/ClusterDumperWriter.java,76,for (Iterator<WeightedVectorWritable> iterator = points.iterator(); iterator.hasNext();) {
+integration/src/main/java/org/apache/mahout/utils/clustering/ClusterDumperWriter.java,77,WeightedVectorWritable point = iterator.next();
+integration/src/main/java/org/apache/mahout/utils/clustering/ClusterDumperWriter.java,79,if (point instanceof WeightedPropertyVectorWritable) {
+integration/src/main/java/org/apache/mahout/utils/clustering/ClusterDumperWriter.java,80,WeightedPropertyVectorWritable tmp = (WeightedPropertyVectorWritable) point;
+integration/src/main/java/org/apache/mahout/utils/clustering/ClusterDumperWriter.java,81,Map<Text,Text> map = tmp.getProperties();
+integration/src/main/java/org/apache/mahout/utils/clustering/ClusterDumperWriter.java,83,writer.write(" : [");
+integration/src/main/java/org/apache/mahout/utils/clustering/ClusterDumperWriter.java,84,if (map != null) {
+integration/src/main/java/org/apache/mahout/utils/clustering/ClusterDumperWriter.java,85,for (Map.Entry<Text,Text> entry : map.entrySet()) {
+integration/src/main/java/org/apache/mahout/utils/clustering/ClusterDumperWriter.java,86,writer.write(entry.getKey().toString());
+integration/src/main/java/org/apache/mahout/utils/clustering/ClusterDumperWriter.java,87,writer.write("=");
+integration/src/main/java/org/apache/mahout/utils/clustering/ClusterDumperWriter.java,88,writer.write(entry.getValue().toString());
+integration/src/main/java/org/apache/mahout/utils/clustering/ClusterDumperWriter.java,91,writer.write("]");
+integration/src/main/java/org/apache/mahout/utils/clustering/GraphMLClusterWriter.java,53,public GraphMLClusterWriter(Writer writer, Map<Integer, List<WeightedVectorWritable>> clusterIdToPoints,
+integration/src/main/java/org/apache/mahout/utils/clustering/GraphMLClusterWriter.java,118,List<WeightedVectorWritable> points = clusterIdToPoints.get(cluster.getId());
+integration/src/main/java/org/apache/mahout/utils/vectors/lucene/ClusterLabels.java,60,import org.apache.mahout.clustering.classify.WeightedVectorWritable;
+integration/src/main/java/org/apache/mahout/utils/vectors/lucene/ClusterLabels.java,90,private final Map<Integer, List<WeightedVectorWritable>> clusterIdToPoints;
+integration/src/main/java/org/apache/mahout/utils/vectors/lucene/ClusterLabels.java,118,for (Map.Entry<Integer, List<WeightedVectorWritable>> integerListEntry : clusterIdToPoints.entrySet()) {
+integration/src/main/java/org/apache/mahout/utils/vectors/lucene/ClusterLabels.java,119,List<WeightedVectorWritable> wvws = integerListEntry.getValue();
+integration/src/main/java/org/apache/mahout/utils/vectors/lucene/ClusterLabels.java,120,List<TermInfoClusterInOut> termInfos = getClusterLabels(integerListEntry.getKey(), wvws);
+integration/src/main/java/org/apache/mahout/utils/vectors/lucene/ClusterLabels.java,126,writer.write(String.valueOf(wvws.size()));
+integration/src/main/java/org/apache/mahout/utils/vectors/lucene/ClusterLabels.java,152,Collection<WeightedVectorWritable> wvws) throws IOException {
+integration/src/main/java/org/apache/mahout/utils/vectors/lucene/ClusterLabels.java,154,if (wvws.size() < minNumIds) {
+integration/src/main/java/org/apache/mahout/utils/vectors/lucene/ClusterLabels.java,155,log.info("Skipping small cluster {} with size: {}", integer, wvws.size());
+integration/src/main/java/org/apache/mahout/utils/vectors/lucene/ClusterLabels.java,159,log.info("Processing Cluster {} with {} documents", integer, wvws.size());
+integration/src/main/java/org/apache/mahout/utils/vectors/lucene/ClusterLabels.java,167,for (WeightedVectorWritable wvw : wvws) {
+integration/src/main/java/org/apache/mahout/utils/vectors/lucene/ClusterLabels.java,168,Vector vector = wvw.getVector();
+integration/src/main/java/org/apache/mahout/utils/vectors/lucene/ClusterLabels.java,220,int clusterSize = wvws.size();
+examples/src/main/java/org/apache/mahout/clustering/streaming/tools/ClusterQualitySummarizer.java,56,if (summarizer.getCount() == 0) {
+examples/src/main/java/org/apache/mahout/clustering/streaming/tools/ClusterQualitySummarizer.java,58,continue;
+examples/src/main/java/org/apache/mahout/clustering/streaming/tools/ClusterQualitySummarizer.java,60,maxDistance = Math.max(maxDistance, summarizer.getMax());
+examples/src/main/java/org/apache/mahout/clustering/streaming/tools/ClusterQualitySummarizer.java,61,System.out.printf("Average distance in cluster %d [%d]: %f\n", i, summarizer.getCount(), summarizer.getMean());
+examples/src/main/java/org/apache/mahout/clustering/streaming/tools/ClusterQualitySummarizer.java,64,boolean moreThanOne = summarizer.getCount() > 1;
+examples/src/main/java/org/apache/mahout/clustering/streaming/tools/ClusterQualitySummarizer.java,65,if (fileOut != null) {
+examples/src/main/java/org/apache/mahout/clustering/streaming/tools/ClusterQualitySummarizer.java,66,fileOut.printf("%d,%f,%f,%f,%f,%f,%f,%f,%d,%s\n", i, summarizer.getMean(),
+examples/src/main/java/org/apache/mahout/clustering/streaming/tools/ClusterQualitySummarizer.java,67,summarizer.getSD(),
+examples/src/main/java/org/apache/mahout/clustering/streaming/tools/ClusterQualitySummarizer.java,68,summarizer.getQuartile(0),
+examples/src/main/java/org/apache/mahout/clustering/streaming/tools/ClusterQualitySummarizer.java,69,moreThanOne ? summarizer.getQuartile(1) : summarizer.getQuartile(0),
+examples/src/main/java/org/apache/mahout/clustering/streaming/tools/ClusterQualitySummarizer.java,70,moreThanOne ? summarizer.getQuartile(2) : summarizer.getQuartile(0),
+examples/src/main/java/org/apache/mahout/clustering/streaming/tools/ClusterQualitySummarizer.java,71,moreThanOne ? summarizer.getQuartile(3) : summarizer.getQuartile(0),
+examples/src/main/java/org/apache/mahout/clustering/streaming/tools/ClusterQualitySummarizer.java,72,summarizer.getQuartile(4), summarizer.getCount(), type);
+math/src/main/java/org/apache/mahout/math/stats/OnlineSummarizer.java,20,import org.apache.mahout.math.list.DoubleArrayList;
+math/src/main/java/org/apache/mahout/math/stats/OnlineSummarizer.java,43,private boolean sorted = true;
+math/src/main/java/org/apache/mahout/math/stats/OnlineSummarizer.java,46,private DoubleArrayList starter = new DoubleArrayList(100);
+math/src/main/java/org/apache/mahout/math/stats/OnlineSummarizer.java,49,private final double[] q = new double[5];
+math/src/main/java/org/apache/mahout/math/stats/OnlineSummarizer.java,59,sorted = false;
+math/src/main/java/org/apache/mahout/math/stats/OnlineSummarizer.java,67,if (n < 100) {
+math/src/main/java/org/apache/mahout/math/stats/OnlineSummarizer.java,68,starter.add(sample);
+math/src/main/java/org/apache/mahout/math/stats/OnlineSummarizer.java,71,starter.add(sample);
+math/src/main/java/org/apache/mahout/math/stats/OnlineSummarizer.java,72,for (int i = 0; i <= 4; i++) {
+math/src/main/java/org/apache/mahout/math/stats/OnlineSummarizer.java,73,q[i] = getQuartile(i);
+math/src/main/java/org/apache/mahout/math/stats/OnlineSummarizer.java,77,starter = null;
+math/src/main/java/org/apache/mahout/math/stats/OnlineSummarizer.java,80,q[0] = Math.min(sample, q[0]);
+math/src/main/java/org/apache/mahout/math/stats/OnlineSummarizer.java,81,q[4] = Math.max(sample, q[4]);
+math/src/main/java/org/apache/mahout/math/stats/OnlineSummarizer.java,83,double rate = 2 * (q[3] - q[1]) / n;
+math/src/main/java/org/apache/mahout/math/stats/OnlineSummarizer.java,84,q[1] += (Math.signum(sample - q[1]) - 0.5) * rate;
+math/src/main/java/org/apache/mahout/math/stats/OnlineSummarizer.java,85,q[2] += Math.signum(sample - q[2]) * rate;
+math/src/main/java/org/apache/mahout/math/stats/OnlineSummarizer.java,86,q[3] += (Math.signum(sample - q[3]) + 0.5) * rate;
+math/src/main/java/org/apache/mahout/math/stats/OnlineSummarizer.java,88,if (q[1] < q[0]) {
+math/src/main/java/org/apache/mahout/math/stats/OnlineSummarizer.java,89,q[1] = q[0];
+math/src/main/java/org/apache/mahout/math/stats/OnlineSummarizer.java,92,if (q[3] > q[4]) {
+math/src/main/java/org/apache/mahout/math/stats/OnlineSummarizer.java,93,q[3] = q[4];
+math/src/main/java/org/apache/mahout/math/stats/OnlineSummarizer.java,114,private void sort() {
+math/src/main/java/org/apache/mahout/math/stats/OnlineSummarizer.java,115,if (!sorted && starter != null) {
+math/src/main/java/org/apache/mahout/math/stats/OnlineSummarizer.java,116,starter.sort();
+math/src/main/java/org/apache/mahout/math/stats/OnlineSummarizer.java,117,sorted = true;
+math/src/main/java/org/apache/mahout/math/stats/OnlineSummarizer.java,126,if (n > 100 || starter == null) {
+math/src/main/java/org/apache/mahout/math/stats/OnlineSummarizer.java,127,return q[i];
+math/src/main/java/org/apache/mahout/math/stats/OnlineSummarizer.java,129,sort();
+math/src/main/java/org/apache/mahout/math/stats/OnlineSummarizer.java,130,switch (i) {
+math/src/main/java/org/apache/mahout/math/stats/OnlineSummarizer.java,131,case 0:
+math/src/main/java/org/apache/mahout/math/stats/OnlineSummarizer.java,132,if (n == 0) {
+math/src/main/java/org/apache/mahout/math/stats/OnlineSummarizer.java,133,throw new IllegalArgumentException("Must have at least one sample to estimate minimum value");
+math/src/main/java/org/apache/mahout/math/stats/OnlineSummarizer.java,135,return starter.get(0);
+math/src/main/java/org/apache/mahout/math/stats/OnlineSummarizer.java,136,case 1:
+math/src/main/java/org/apache/mahout/math/stats/OnlineSummarizer.java,137,case 2:
+math/src/main/java/org/apache/mahout/math/stats/OnlineSummarizer.java,138,case 3:
+math/src/main/java/org/apache/mahout/math/stats/OnlineSummarizer.java,139,if (n >= 2) {
+math/src/main/java/org/apache/mahout/math/stats/OnlineSummarizer.java,140,double x = i * (n - 1) / 4.0;
+math/src/main/java/org/apache/mahout/math/stats/OnlineSummarizer.java,141,int k = (int) Math.floor(x);
+math/src/main/java/org/apache/mahout/math/stats/OnlineSummarizer.java,142,double u = x - k;
+math/src/main/java/org/apache/mahout/math/stats/OnlineSummarizer.java,143,return starter.get(k) * (1 - u) + starter.get(k + 1) * u;
+math/src/main/java/org/apache/mahout/math/stats/OnlineSummarizer.java,145,throw new IllegalArgumentException("Must have at least two samples to estimate quartiles");
+math/src/main/java/org/apache/mahout/math/stats/OnlineSummarizer.java,147,case 4:
+math/src/main/java/org/apache/mahout/math/stats/OnlineSummarizer.java,148,if (n == 0) {
+math/src/main/java/org/apache/mahout/math/stats/OnlineSummarizer.java,149,throw new IllegalArgumentException("Must have at least one sample to estimate maximum value");
+math/src/main/java/org/apache/mahout/math/stats/OnlineSummarizer.java,151,return starter.get(starter.size() - 1);
+math/src/main/java/org/apache/mahout/math/stats/OnlineSummarizer.java,152,default:
+math/src/main/java/org/apache/mahout/math/stats/OnlineSummarizer.java,153,throw new IllegalArgumentException("Quartile number must be in the range [0..4] not " + i);
+integration/src/main/java/org/apache/mahout/text/wikipedia/WikipediaXmlSplitter.java,195,int filenumber = 0;
+integration/src/main/java/org/apache/mahout/text/wikipedia/WikipediaXmlSplitter.java,213,filenumber++;
+integration/src/main/java/org/apache/mahout/text/wikipedia/WikipediaXmlSplitter.java,214,String filename = outputDirPath + "/chunk-" + decimalFormatter.format(filenumber) + ".xml";
+integration/src/main/java/org/apache/mahout/text/wikipedia/WikipediaXmlSplitter.java,222,if (filenumber >= numChunks) {
+core/src/main/java/org/apache/mahout/math/neighborhood/LocalitySensitiveHashSearch.java,174,List<WeightedThing<Vector>> results = Lists.newArrayListWithExpectedSize(limit);
+core/src/main/java/org/apache/mahout/math/neighborhood/LocalitySensitiveHashSearch.java,175,while (limit > 0 && top.size() != 0) {
+integration/src/main/java/org/apache/mahout/utils/vectors/arff/ARFFVectorIterable.java,85,if (lower.startsWith(ARFFModel.ARFF_COMMENT)) {
+integration/src/main/java/org/apache/mahout/utils/vectors/arff/ARFFVectorIterable.java,86,continue;
+integration/src/main/java/org/apache/mahout/utils/vectors/arff/ARFFVectorIterable.java,88,model.setRelation(ARFFType.removeQuotes(line.substring(ARFFModel.RELATION.length())));
+integration/src/main/java/org/apache/mahout/utils/vectors/arff/ARFFVectorIterable.java,90,String label;
+integration/src/main/java/org/apache/mahout/utils/vectors/arff/ARFFVectorIterable.java,91,ARFFType type;
+integration/src/main/java/org/apache/mahout/utils/vectors/arff/ARFFVectorIterable.java,92,if (lower.contains(ARFFType.NUMERIC.getIndicator())) {
+integration/src/main/java/org/apache/mahout/utils/vectors/arff/ARFFVectorIterable.java,93,label = ARFFType.NUMERIC.getLabel(lower);
+integration/src/main/java/org/apache/mahout/utils/vectors/arff/ARFFVectorIterable.java,94,type = ARFFType.NUMERIC;
+integration/src/main/java/org/apache/mahout/utils/vectors/arff/ARFFVectorIterable.java,96,label = ARFFType.INTEGER.getLabel(lower);
+integration/src/main/java/org/apache/mahout/utils/vectors/arff/ARFFVectorIterable.java,97,type = ARFFType.INTEGER;
+integration/src/main/java/org/apache/mahout/utils/vectors/arff/ARFFVectorIterable.java,99,label = ARFFType.REAL.getLabel(lower);
+integration/src/main/java/org/apache/mahout/utils/vectors/arff/ARFFVectorIterable.java,100,type = ARFFType.REAL;
+integration/src/main/java/org/apache/mahout/utils/vectors/arff/ARFFVectorIterable.java,102,label = ARFFType.STRING.getLabel(lower);
+integration/src/main/java/org/apache/mahout/utils/vectors/arff/ARFFVectorIterable.java,103,type = ARFFType.STRING;
+integration/src/main/java/org/apache/mahout/utils/vectors/arff/ARFFVectorIterable.java,105,label = ARFFType.NOMINAL.getLabel(lower);
+integration/src/main/java/org/apache/mahout/utils/vectors/arff/ARFFVectorIterable.java,106,type = ARFFType.NOMINAL;
+integration/src/main/java/org/apache/mahout/utils/vectors/arff/ARFFVectorIterable.java,108,int classIdx = lower.indexOf(ARFFType.NOMINAL.getIndicator());
+integration/src/main/java/org/apache/mahout/utils/vectors/arff/ARFFVectorIterable.java,109,String[] classes = COMMA_PATTERN.split(line.substring(classIdx + 1, line.length() - 1));
+integration/src/main/java/org/apache/mahout/utils/vectors/arff/ARFFVectorIterable.java,110,for (int i = 0; i < classes.length; i++) {
+integration/src/main/java/org/apache/mahout/utils/vectors/arff/ARFFVectorIterable.java,111,model.addNominal(label, ARFFType.removeQuotes(classes[i]), i + 1);
+integration/src/main/java/org/apache/mahout/utils/vectors/arff/ARFFVectorIterable.java,114,label = ARFFType.DATE.getLabel(lower);
+integration/src/main/java/org/apache/mahout/utils/vectors/arff/ARFFVectorIterable.java,115,type = ARFFType.DATE;
+integration/src/main/java/org/apache/mahout/utils/vectors/arff/ARFFVectorIterable.java,117,DateFormat format = new SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss", Locale.ENGLISH);
+integration/src/main/java/org/apache/mahout/utils/vectors/arff/ARFFVectorIterable.java,118,int idx = lower.lastIndexOf(ARFFType.DATE.getIndicator());
+integration/src/main/java/org/apache/mahout/utils/vectors/arff/ARFFVectorIterable.java,119,String[] split = SPACE_PATTERN.split(line);
+integration/src/main/java/org/apache/mahout/utils/vectors/arff/ARFFVectorIterable.java,120,if (split.length >= 4) { //we have a date format
+integration/src/main/java/org/apache/mahout/utils/vectors/arff/ARFFVectorIterable.java,121,String formStr = line.substring(idx + ARFFType.DATE.getIndicator().length()).trim();
+integration/src/main/java/org/apache/mahout/utils/vectors/arff/ARFFVectorIterable.java,122,if (formStr.startsWith("\"")) {
+integration/src/main/java/org/apache/mahout/utils/vectors/arff/ARFFVectorIterable.java,123,formStr = formStr.substring(1, formStr.length() - 1);
+integration/src/main/java/org/apache/mahout/utils/vectors/arff/ARFFVectorIterable.java,125,format = new SimpleDateFormat(formStr, Locale.ENGLISH);
+integration/src/main/java/org/apache/mahout/utils/vectors/arff/ARFFVectorIterable.java,127,model.addDateFormat(labelNumInt, format);
+integration/src/main/java/org/apache/mahout/utils/vectors/arff/ARFFVectorIterable.java,130,throw new UnsupportedOperationException("Invalid attribute: " + line);
+integration/src/main/java/org/apache/mahout/utils/vectors/arff/ARFFVectorIterable.java,132,model.addLabel(label, labelNumInt);
+integration/src/main/java/org/apache/mahout/utils/vectors/arff/ARFFVectorIterable.java,133,model.addType(labelNumInt, type);
+integration/src/main/java/org/apache/mahout/utils/vectors/arff/ARFFVectorIterable.java,134,labelNumber++;
+integration/src/main/java/org/apache/mahout/utils/vectors/arff/ARFFVectorIterable.java,137,break; //skip it
+integration/src/main/java/org/apache/mahout/utils/vectors/arff/MapBackedARFFModel.java,146,return Double.parseDouble(data);
+core/src/main/java/org/apache/mahout/cf/taste/hadoop/TasteHadoopUtils.java,57,return 0x7FFFFFFF & Longs.hashCode(id);
+core/src/main/java/org/apache/mahout/cf/taste/impl/recommender/AllSimilarItemsCandidateItemsStrategy.java,39,FastIDSet doGetCandidateItems(long[] preferredItemIDs, DataModel dataModel) throws TasteException {
+core/src/main/java/org/apache/mahout/cf/taste/impl/recommender/AbstractCandidateItemsStrategy.java,47,abstract FastIDSet doGetCandidateItems(long[] preferredItemIDs, DataModel dataModel) throws TasteException;
+core/src/main/java/org/apache/mahout/cf/taste/hadoop/als/ParallelALSFactorizationJob.java,326,int iterationNumber = currentIteration + 1;
+core/src/main/java/org/apache/mahout/cf/taste/hadoop/als/ParallelALSFactorizationJob.java,332,name = "Recompute " + matrixName + ", iteration (" + (iterationNumber + 1) + '/' + numIterations + "), "
+core/src/main/java/org/apache/mahout/cf/taste/hadoop/als/ParallelALSFactorizationJob.java,336,name = "Recompute " + matrixName + ", iteration (" + (iterationNumber + 1) + '/' + numIterations + "), "
+core/src/main/java/org/apache/mahout/clustering/streaming/mapreduce/StreamingKMeansThread.java,38,private final Iterable<Centroid> datapoints;
+core/src/main/java/org/apache/mahout/clustering/streaming/mapreduce/StreamingKMeansThread.java,45,public StreamingKMeansThread(Iterable<Centroid> datapoints, Configuration conf) {
+core/src/main/java/org/apache/mahout/clustering/streaming/mapreduce/StreamingKMeansThread.java,46,this.datapoints = datapoints;
+core/src/main/java/org/apache/mahout/clustering/streaming/mapreduce/StreamingKMeansThread.java,57,Iterator<Centroid> datapointsIterator = datapoints.iterator();
+core/src/main/java/org/apache/mahout/clustering/streaming/mapreduce/StreamingKMeansThread.java,60,while (datapointsIterator.hasNext() && estimatePoints.size() < NUM_ESTIMATE_POINTS) {
+core/src/main/java/org/apache/mahout/clustering/streaming/mapreduce/StreamingKMeansThread.java,61,estimatePoints.add(datapointsIterator.next());
+core/src/main/java/org/apache/mahout/clustering/streaming/mapreduce/StreamingKMeansThread.java,66,StreamingKMeans clusterer = new StreamingKMeans(searcher, numClusters, estimateDistanceCutoff);
+core/src/main/java/org/apache/mahout/clustering/streaming/mapreduce/StreamingKMeansThread.java,67,while (datapointsIterator.hasNext()) {
+core/src/main/java/org/apache/mahout/clustering/streaming/mapreduce/StreamingKMeansThread.java,68,clusterer.cluster(datapointsIterator.next());
+core/src/main/java/org/apache/mahout/clustering/streaming/mapreduce/StreamingKMeansThread.java,70,clusterer.reindexCentroids();
+core/src/main/java/org/apache/mahout/clustering/streaming/mapreduce/StreamingKMeansThread.java,72,return clusterer;
+integration/src/main/java/org/apache/mahout/text/LuceneSeqFileHelper.java,50,theValue.set(nullSafe(valueBuilder.toString()));
+integration/src/main/java/org/apache/mahout/text/LuceneSeqFileHelper.java,53,public static String nullSafe(String value) {
+integration/src/main/java/org/apache/mahout/text/LuceneSeqFileHelper.java,54,if (value == null) {
+integration/src/main/java/org/apache/mahout/text/LuceneSeqFileHelper.java,55,return "";
+integration/src/main/java/org/apache/mahout/text/LuceneSeqFileHelper.java,57,return value;
+integration/src/main/java/org/apache/mahout/text/SequenceFilesFromLuceneStorage.java,109,Text theKey = new Text(LuceneSeqFileHelper.nullSafe(doc.get(lucene2seqConf.getIdField())));
+integration/src/main/java/org/apache/mahout/text/SequenceFilesFromLuceneStorageMapper.java,45,Text theKey = new Text(LuceneSeqFileHelper.nullSafe(document.get(l2sConf.getIdField())));
+core/src/main/java/org/apache/mahout/vectorizer/encoders/InteractionValueEncoder.java,22,import java.util.Arrays;
+core/src/main/java/org/apache/mahout/vectorizer/encoders/InteractionValueEncoder.java,23,import java.util.Locale;
+core/src/main/java/org/apache/mahout/vectorizer/encoders/InteractionValueEncoder.java,89,trace(String.format("%s:%s", Arrays.toString(originalForm1), Arrays.toString(originalForm2)), n);
+core/src/main/java/org/apache/mahout/cf/taste/hadoop/als/MultithreadedSharingMapper.java,37,private static final String MAPPER_CLASS = "mapred.map.multithreadedrunner.class";
+core/src/main/java/org/apache/mahout/cf/taste/hadoop/als/MultithreadedSharingMapper.java,44,Class<? extends SharingMapper<K1,V1,K2,V2, ?>> mapperClass =
+core/src/main/java/org/apache/mahout/cf/taste/hadoop/als/MultithreadedSharingMapper.java,45,(Class<SharingMapper<K1,V1,K2,V2, ?>>) conf.getClass(MAPPER_CLASS, SharingMapper.class);
+core/src/main/java/org/apache/mahout/cf/taste/hadoop/als/MultithreadedSharingMapper.java,47,SharingMapper<K1,V1,K2,V2, ?> mapper = ReflectionUtils.newInstance(mapperClass, conf);
+integration/src/main/java/org/apache/mahout/text/SequenceFilesFromMailArchives.java,41,import java.io.FileFilter;
+integration/src/main/java/org/apache/mahout/text/SequenceFilesFromMailArchives.java,79,PrefixAdditionFilter filter = new PrefixAdditionFilter(processor, writer);
+integration/src/main/java/org/apache/mahout/text/SequenceFilesFromMailArchives.java,81,log.info("Parsed {} messages from {}", filter.getMessageCount(), options.getInput().getAbsolutePath());
+integration/src/main/java/org/apache/mahout/text/SequenceFilesFromMailArchives.java,93,public class PrefixAdditionFilter implements FileFilter {
+integration/src/main/java/org/apache/mahout/text/SequenceFilesFromMailArchives.java,94,private final MailProcessor processor;
+integration/src/main/java/org/apache/mahout/text/SequenceFilesFromMailArchives.java,96,private long messageCount;
+integration/src/main/java/org/apache/mahout/text/SequenceFilesFromMailArchives.java,98,public PrefixAdditionFilter(MailProcessor processor, ChunkedWriter writer) {
+integration/src/main/java/org/apache/mahout/text/SequenceFilesFromMailArchives.java,99,this.processor = processor;
+integration/src/main/java/org/apache/mahout/text/SequenceFilesFromMailArchives.java,101,this.messageCount = 0;
+integration/src/main/java/org/apache/mahout/text/SequenceFilesFromMailArchives.java,105,return messageCount;
+integration/src/main/java/org/apache/mahout/text/SequenceFilesFromMailArchives.java,109,public boolean accept(File current) {
+integration/src/main/java/org/apache/mahout/text/SequenceFilesFromMailArchives.java,110,if (current.isDirectory()) {
+integration/src/main/java/org/apache/mahout/text/SequenceFilesFromMailArchives.java,112,PrefixAdditionFilter nested = new PrefixAdditionFilter(
+integration/src/main/java/org/apache/mahout/text/SequenceFilesFromMailArchives.java,114,+ File.separator + current.getName(), writer), writer);
+integration/src/main/java/org/apache/mahout/text/SequenceFilesFromMailArchives.java,116,long dirCount = nested.getMessageCount();
+integration/src/main/java/org/apache/mahout/text/SequenceFilesFromMailArchives.java,117,log.info("Parsed {} messages from directory {}", dirCount, current.getAbsolutePath());
+integration/src/main/java/org/apache/mahout/text/SequenceFilesFromMailArchives.java,118,messageCount += dirCount;
+integration/src/main/java/org/apache/mahout/text/SequenceFilesFromMailArchives.java,120,try {
+integration/src/main/java/org/apache/mahout/text/SequenceFilesFromMailArchives.java,121,messageCount += processor.parseMboxLineByLine(current);
+integration/src/main/java/org/apache/mahout/text/SequenceFilesFromMailArchives.java,123,throw new IllegalStateException("Error processing " + current, e);
+integration/src/main/java/org/apache/mahout/text/SequenceFilesFromMailArchives.java,126,return false;
+integration/src/main/java/org/apache/mahout/text/SequenceFilesFromMailArchives.java,80,options.getInput().listFiles(filter);
+integration/src/main/java/org/apache/mahout/text/SequenceFilesFromMailArchives.java,115,current.listFiles(nested);
+core/src/main/java/org/apache/mahout/math/hadoop/stochasticsvd/SSVDHelper.java,22,import java.util.Comparator;
+core/src/main/java/org/apache/mahout/math/hadoop/stochasticsvd/SSVDHelper.java,23,import java.util.List;
+core/src/main/java/org/apache/mahout/math/hadoop/stochasticsvd/SSVDHelper.java,34,import org.apache.mahout.common.iterator.sequencefile.PathFilters;
+core/src/main/java/org/apache/mahout/math/hadoop/stochasticsvd/SSVDHelper.java,35,import org.apache.mahout.common.iterator.sequencefile.PathType;
+core/src/main/java/org/apache/mahout/math/hadoop/stochasticsvd/SSVDHelper.java,36,import org.apache.mahout.common.iterator.sequencefile.SequenceFileDirValueIterator;
+core/src/main/java/org/apache/mahout/math/hadoop/stochasticsvd/SSVDHelper.java,37,import org.apache.mahout.common.iterator.sequencefile.SequenceFileValueIterable;
+core/src/main/java/org/apache/mahout/math/hadoop/stochasticsvd/SSVDHelper.java,155,+ o1.getPath());
+core/src/main/java/org/apache/mahout/math/hadoop/stochasticsvd/SSVDHelper.java,161,+ o2.getPath());
+core/src/main/java/org/apache/mahout/math/hadoop/stochasticsvd/SSVDHelper.java,182,public static double[][] loadDistributedRowMatrix(FileSystem fs, Path glob, Configuration conf) throws IOException {
+core/src/main/java/org/apache/mahout/math/hadoop/stochasticsvd/SSVDHelper.java,184,FileStatus[] files = fs.globStatus(glob);
+core/src/main/java/org/apache/mahout/math/hadoop/stochasticsvd/SSVDHelper.java,185,if (files == null) {
+core/src/main/java/org/apache/mahout/math/hadoop/stochasticsvd/SSVDHelper.java,186,return null;
+core/src/main/java/org/apache/mahout/math/hadoop/stochasticsvd/SSVDHelper.java,189,List<double[]> denseData = Lists.newArrayList();
+core/src/main/java/org/apache/mahout/math/hadoop/stochasticsvd/SSVDHelper.java,195,Arrays.sort(files, PARTITION_COMPARATOR);
+core/src/main/java/org/apache/mahout/math/hadoop/stochasticsvd/SSVDHelper.java,197,for (FileStatus fstat : files) {
+core/src/main/java/org/apache/mahout/math/hadoop/stochasticsvd/SSVDHelper.java,198,for (VectorWritable value : new SequenceFileValueIterable<VectorWritable>(fstat.getPath(),
+core/src/main/java/org/apache/mahout/math/hadoop/stochasticsvd/SSVDHelper.java,199,true,
+core/src/main/java/org/apache/mahout/math/hadoop/stochasticsvd/SSVDHelper.java,200,conf)) {
+core/src/main/java/org/apache/mahout/math/hadoop/stochasticsvd/SSVDHelper.java,201,Vector v = value.get();
+core/src/main/java/org/apache/mahout/math/hadoop/stochasticsvd/SSVDHelper.java,202,int size = v.size();
+core/src/main/java/org/apache/mahout/math/hadoop/stochasticsvd/SSVDHelper.java,203,double[] row = new double[size];
+core/src/main/java/org/apache/mahout/math/hadoop/stochasticsvd/SSVDHelper.java,204,for (int i = 0; i < size; i++) {
+core/src/main/java/org/apache/mahout/math/hadoop/stochasticsvd/SSVDHelper.java,205,row[i] = v.get(i);
+core/src/main/java/org/apache/mahout/math/hadoop/stochasticsvd/SSVDHelper.java,208,denseData.add(row);
+core/src/main/java/org/apache/mahout/math/hadoop/stochasticsvd/SSVDHelper.java,212,return denseData.toArray(new double[denseData.size()][]);
+core/src/main/java/org/apache/mahout/math/hadoop/stochasticsvd/SSVDSolver.java,395,long seed = rnd.nextLong();
+core/src/main/java/org/apache/mahout/math/hadoop/stochasticsvd/SSVDSolver.java,415,Omega omega = new Omega(seed, k + p);
+core/src/main/java/org/apache/mahout/math/hadoop/stochasticsvd/SSVDSolver.java,418,SSVDHelper.saveVector(s_b0, sbPath =
+core/src/main/java/org/apache/mahout/math/hadoop/stochasticsvd/SSVDSolver.java,419,new Path(pcaBasePath, "somega.seq"), conf);
+core/src/main/java/org/apache/mahout/math/hadoop/stochasticsvd/SSVDSolver.java,422,if (overwrite) {
+core/src/main/java/org/apache/mahout/math/hadoop/stochasticsvd/SSVDSolver.java,423,fs.delete(outputPath, true);
+core/src/main/java/org/apache/mahout/math/hadoop/stochasticsvd/SSVDSolver.java,439,seed,
+core/src/main/java/org/apache/mahout/math/hadoop/stochasticsvd/UJob.java,147,uHat = new DenseMatrix(SSVDHelper.loadDistributedRowMatrix(fs,
+core/src/main/java/org/apache/mahout/math/hadoop/stochasticsvd/UJob.java,148,uHatPath, context.getConfiguration()));
+core/src/main/java/org/apache/mahout/math/hadoop/stochasticsvd/VJob.java,104,uHat =
+core/src/main/java/org/apache/mahout/math/hadoop/stochasticsvd/VJob.java,105,new DenseMatrix(SSVDHelper.loadDistributedRowMatrix(fs, uHatPath, conf));
+math/src/main/java/org/apache/mahout/math/RandomAccessSparseVector.java,78,StringBuilder result = new StringBuilder();
+math/src/main/java/org/apache/mahout/math/RandomAccessSparseVector.java,79,result.append('{');
+math/src/main/java/org/apache/mahout/math/RandomAccessSparseVector.java,80,Iterator<Element> it = iterateNonZero();
+math/src/main/java/org/apache/mahout/math/RandomAccessSparseVector.java,81,boolean first = true;
+math/src/main/java/org/apache/mahout/math/RandomAccessSparseVector.java,82,while (it.hasNext()) {
+math/src/main/java/org/apache/mahout/math/RandomAccessSparseVector.java,83,if (first) {
+math/src/main/java/org/apache/mahout/math/RandomAccessSparseVector.java,84,first = false;
+math/src/main/java/org/apache/mahout/math/RandomAccessSparseVector.java,86,result.append(',');
+math/src/main/java/org/apache/mahout/math/RandomAccessSparseVector.java,88,Element e = it.next();
+math/src/main/java/org/apache/mahout/math/RandomAccessSparseVector.java,89,result.append(e.index());
+math/src/main/java/org/apache/mahout/math/RandomAccessSparseVector.java,90,result.append(':');
+math/src/main/java/org/apache/mahout/math/RandomAccessSparseVector.java,91,result.append(e.get());
+math/src/main/java/org/apache/mahout/math/RandomAccessSparseVector.java,93,result.append('}');
+math/src/main/java/org/apache/mahout/math/RandomAccessSparseVector.java,94,return result.toString();
+math/src/main/java/org/apache/mahout/math/SequentialAccessSparseVector.java,129,StringBuilder result = new StringBuilder();
+math/src/main/java/org/apache/mahout/math/SequentialAccessSparseVector.java,130,result.append('{');
+math/src/main/java/org/apache/mahout/math/SequentialAccessSparseVector.java,131,Iterator<Element> it = iterateNonZero();
+math/src/main/java/org/apache/mahout/math/SequentialAccessSparseVector.java,132,while (it.hasNext()) {
+math/src/main/java/org/apache/mahout/math/SequentialAccessSparseVector.java,133,Element e = it.next();
+math/src/main/java/org/apache/mahout/math/SequentialAccessSparseVector.java,134,result.append(e.index());
+math/src/main/java/org/apache/mahout/math/SequentialAccessSparseVector.java,135,result.append(':');
+math/src/main/java/org/apache/mahout/math/SequentialAccessSparseVector.java,136,result.append(e.get());
+math/src/main/java/org/apache/mahout/math/SequentialAccessSparseVector.java,137,result.append(',');
+math/src/main/java/org/apache/mahout/math/SequentialAccessSparseVector.java,139,result.append('}');
+math/src/main/java/org/apache/mahout/math/SequentialAccessSparseVector.java,140,return result.toString();
+core/src/main/java/org/apache/mahout/classifier/sgd/CsvRecordFactory.java,20,import com.google.common.base.CharMatcher;
+core/src/main/java/org/apache/mahout/classifier/sgd/CsvRecordFactory.java,23,import com.google.common.base.Splitter;
+core/src/main/java/org/apache/mahout/classifier/sgd/CsvRecordFactory.java,73,private static final Splitter COMMA = Splitter.on(',').trimResults(CharMatcher.is('"'));
+core/src/main/java/org/apache/mahout/classifier/sgd/CsvRecordFactory.java,169,variableNames = Lists.newArrayList(COMMA.split(line));
+core/src/main/java/org/apache/mahout/classifier/sgd/CsvRecordFactory.java,243,List<String> values = Lists.newArrayList(COMMA.split(line));
+core/src/main/java/org/apache/mahout/classifier/sgd/CsvRecordFactory.java,274,List<String> values = Lists.newArrayList(COMMA.split(line));
+core/src/main/java/org/apache/mahout/classifier/sgd/CsvRecordFactory.java,296,List<String> values = Lists.newArrayList(COMMA.split(line));
+core/src/main/java/org/apache/mahout/classifier/sgd/CsvRecordFactory.java,321,List<String> values = Lists.newArrayList(COMMA.split(line));

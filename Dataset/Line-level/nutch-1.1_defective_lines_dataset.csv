@@ -1,0 +1,825 @@
+File,Line_number,SRC
+src/plugin/protocol-ftp/src/java/org/apache/nutch/protocol/ftp/Ftp.java,128,u = new URL(response.getHeader("Location"));
+src/plugin/lib-http/src/java/org/apache/nutch/protocol/http/api/HttpBase.java,447,if (agentVersion != null) {
+src/java/org/apache/nutch/net/URLFilterChecker.java,94,URLFilters filters = new URLFilters(this.conf);
+src/java/org/apache/nutch/metadata/Metadata.java,175,Metadata other = null;
+src/java/org/apache/nutch/metadata/Metadata.java,176,try {
+src/java/org/apache/nutch/metadata/Metadata.java,177,other = (Metadata) o;
+src/java/org/apache/nutch/plugin/PluginManifestParser.java,96,LOG.warn(e.toString());
+src/java/org/apache/nutch/plugin/PluginManifestParser.java,98,LOG.warn(e.toString());
+src/java/org/apache/nutch/plugin/PluginManifestParser.java,100,LOG.warn(e.toString());
+src/java/org/apache/nutch/plugin/PluginManifestParser.java,102,LOG.warn(e.toString());
+src/plugin/protocol-http/src/java/org/apache/nutch/protocol/http/HttpResponse.java,227,int length = 0;                           // read content
+src/plugin/protocol-file/src/java/org/apache/nutch/protocol/file/File.java,84,throw new FileException("Too many redirects: " + url);
+src/java/org/apache/nutch/util/MimeUtil.java,130,try {
+src/java/org/apache/nutch/util/MimeUtil.java,131,cleanedMimeType = MimeUtil.cleanMimeType(typeName) != null ? this.mimeTypes
+src/java/org/apache/nutch/util/MimeUtil.java,133,: null;
+src/java/org/apache/nutch/util/MimeUtil.java,139,try {
+src/java/org/apache/nutch/util/MimeUtil.java,141,: null;
+src/java/org/apache/nutch/util/MimeUtil.java,143,type = null;
+src/plugin/protocol-http/src/java/org/apache/nutch/protocol/http/HttpResponse.java,158,readPlainContent(in);
+src/plugin/urlfilter-validator/src/java/org/apache/nutch/urlfilter/validator/UrlValidator.java,72,private static final Pattern URL_PATTERN =
+src/plugin/urlfilter-validator/src/java/org/apache/nutch/urlfilter/validator/UrlValidator.java,73,Pattern.compile("^(([^:/?#]+):)?(//([^/?#]*))?([^?#]*)" +
+src/plugin/urlfilter-validator/src/java/org/apache/nutch/urlfilter/validator/UrlValidator.java,93,private static final Pattern SCHEME_PATTERN =
+src/plugin/urlfilter-validator/src/java/org/apache/nutch/urlfilter/validator/UrlValidator.java,94,Pattern.compile("^[" + SCHEME_CHARS + "]+");
+src/plugin/urlfilter-validator/src/java/org/apache/nutch/urlfilter/validator/UrlValidator.java,96,private static final Pattern AUTHORITY_PATTERN =
+src/plugin/urlfilter-validator/src/java/org/apache/nutch/urlfilter/validator/UrlValidator.java,97,Pattern.compile("^([" + AUTHORITY_CHARS + "]*)(:\\d*)?(.*)?");
+src/plugin/urlfilter-validator/src/java/org/apache/nutch/urlfilter/validator/UrlValidator.java,108,private static final Pattern PATH_PATTERN =
+src/plugin/urlfilter-validator/src/java/org/apache/nutch/urlfilter/validator/UrlValidator.java,109,Pattern.compile("^(/[-\\w:@&?=+,.!/~*'%$_;\\(\\)]*)?$");
+src/plugin/urlfilter-validator/src/java/org/apache/nutch/urlfilter/validator/UrlValidator.java,113,private static final Pattern LEGAL_ASCII_PATTERN =
+src/plugin/urlfilter-validator/src/java/org/apache/nutch/urlfilter/validator/UrlValidator.java,114,Pattern.compile("^[\\x21-\\x7E]+$");
+src/plugin/urlfilter-validator/src/java/org/apache/nutch/urlfilter/validator/UrlValidator.java,116,private static final Pattern IP_V4_DOMAIN_PATTERN =
+src/plugin/urlfilter-validator/src/java/org/apache/nutch/urlfilter/validator/UrlValidator.java,117,Pattern.compile("^(\\d{1,3})[.](\\d{1,3})[.](\\d{1,3})[.](\\d{1,3})$");
+src/plugin/urlfilter-validator/src/java/org/apache/nutch/urlfilter/validator/UrlValidator.java,119,private static final Pattern DOMAIN_PATTERN =
+src/plugin/urlfilter-validator/src/java/org/apache/nutch/urlfilter/validator/UrlValidator.java,120,Pattern.compile("^" + ATOM + "(\\." + ATOM + ")*$");
+src/plugin/urlfilter-validator/src/java/org/apache/nutch/urlfilter/validator/UrlValidator.java,122,private static final Pattern PORT_PATTERN =
+src/plugin/urlfilter-validator/src/java/org/apache/nutch/urlfilter/validator/UrlValidator.java,123,Pattern.compile("^:(\\d{1,5})$");
+src/plugin/urlfilter-validator/src/java/org/apache/nutch/urlfilter/validator/UrlValidator.java,125,private static final Pattern ATOM_PATTERN =
+src/plugin/urlfilter-validator/src/java/org/apache/nutch/urlfilter/validator/UrlValidator.java,126,Pattern.compile("(" + ATOM + ")");
+src/plugin/urlfilter-validator/src/java/org/apache/nutch/urlfilter/validator/UrlValidator.java,128,private static final Pattern ALPHA_PATTERN =
+src/plugin/urlfilter-validator/src/java/org/apache/nutch/urlfilter/validator/UrlValidator.java,129,Pattern.compile("^[" + ALPHA_CHARS + "]");
+src/plugin/urlfilter-validator/src/java/org/apache/nutch/urlfilter/validator/UrlValidator.java,254,for(int i=0; i<chars.length; i++) {
+src/plugin/urlfilter-validator/src/java/org/apache/nutch/urlfilter/validator/UrlValidator.java,255,if(chars[i] == '.') {
+src/plugin/urlfilter-validator/src/java/org/apache/nutch/urlfilter/validator/UrlValidator.java,267,hostIP = (segLen >= hostIP.length()) ? ""
+src/plugin/urlfilter-validator/src/java/org/apache/nutch/urlfilter/validator/UrlValidator.java,268,: hostIP.substring(segLen);
+src/plugin/urlfilter-validator/src/java/org/apache/nutch/urlfilter/validator/UrlValidator.java,272,if (topLevel.length() < 2 || topLevel.length() > 4) {
+src/java/org/apache/nutch/plugin/Extension.java,38,private PluginRepository pluginRepository;
+src/java/org/apache/nutch/plugin/Extension.java,57,this.pluginRepository = pluginRepository;
+src/java/org/apache/nutch/plugin/Extension.java,154,try {
+src/java/org/apache/nutch/plugin/Extension.java,155,PluginClassLoader loader = fDescriptor.getClassLoader();
+src/java/org/apache/nutch/plugin/Extension.java,159,this.pluginRepository.getPluginInstance(getDescriptor());
+src/java/org/apache/nutch/plugin/PluginRepository.java,67,this.conf = conf;
+src/java/org/apache/nutch/plugin/PluginRepository.java,70,PluginManifestParser manifestParser = new PluginManifestParser(conf, this);
+src/java/org/apache/nutch/plugin/PluginRepository.java,265,PluginClassLoader loader = pDescriptor.getClassLoader();
+src/java/org/apache/nutch/plugin/PluginRepository.java,294,shotDownActivatedPlugins();
+src/java/org/apache/nutch/plugin/PluginRepository.java,302,private void shotDownActivatedPlugins() throws PluginRuntimeException {
+src/java/org/apache/nutch/crawl/AbstractFetchSchedule.java,102,long prevFetchTime, long prevModifiedTime, long fetchTime) {
+src/java/org/apache/nutch/protocol/ProtocolFactory.java,66,public Protocol getProtocol(String urlString) throws ProtocolNotFound {
+src/java/org/apache/nutch/protocol/ProtocolFactory.java,71,String cacheId = Protocol.X_POINT_ID + protocolName;
+src/java/org/apache/nutch/protocol/ProtocolFactory.java,75,if (objectCache.getObject(cacheId) != null) {
+src/java/org/apache/nutch/protocol/ProtocolFactory.java,76,return (Protocol) objectCache.getObject(cacheId);
+src/java/org/apache/nutch/protocol/ProtocolFactory.java,78,Extension extension = findExtension(protocolName);
+src/java/org/apache/nutch/protocol/ProtocolFactory.java,79,if (extension == null) {
+src/java/org/apache/nutch/protocol/ProtocolFactory.java,80,throw new ProtocolNotFound(protocolName);
+src/java/org/apache/nutch/protocol/ProtocolFactory.java,83,Protocol protocol = (Protocol) extension.getExtensionInstance();
+src/java/org/apache/nutch/protocol/ProtocolFactory.java,85,objectCache.setObject(cacheId, protocol);
+src/java/org/apache/nutch/protocol/ProtocolFactory.java,110,boolean contains(String what, String where){
+src/java/org/apache/nutch/protocol/ProtocolFactory.java,111,String parts[]=where.split("[, ]");
+src/java/org/apache/nutch/protocol/ProtocolFactory.java,112,for(int i=0;i<parts.length;i++) {
+src/java/org/apache/nutch/protocol/ProtocolFactory.java,113,if(parts[i].equals(what)) return true;
+src/java/org/apache/nutch/util/EncodingDetector.java,169,&& data.length > MIN_LENGTH) {
+src/java/org/apache/nutch/util/EncodingDetector.java,176,if (data.length > MIN_LENGTH) {
+src/java/org/apache/nutch/util/EncodingDetector.java,177,detector.setText(data);
+src/java/org/apache/nutch/util/EncodingDetector.java,178,matches = detector.detectAll();
+src/java/org/apache/nutch/util/StringUtil.java,75,StringBuffer res = new StringBuffer(buf.length * 2);
+src/java/org/apache/nutch/util/StringUtil.java,76,for (int i = 0; i < buf.length; i++) {
+src/java/org/apache/nutch/util/StringUtil.java,77,int b = buf[i];
+src/java/org/apache/nutch/util/StringUtil.java,80,if (i > 0 && (i % lineLen) == 0) res.append('\n');
+src/java/org/apache/nutch/util/StringUtil.java,81,else if (sep != null && i < lineLen - 1) res.append(sep);
+src/java/org/apache/nutch/metadata/Nutch.java,38,public static final String SEGMENT_NAME_KEY = "nutch.segment.name";
+src/java/org/apache/nutch/protocol/Content.java,254,String usage = "Content (-local | -dfs <namenode:port>) recno segment";
+src/java/org/apache/nutch/protocol/Content.java,273,Path file = new Path(segment, DIR_NAME);
+src/java/org/apache/nutch/util/URLUtil.java,129,public static String[] getHostSegments(URL url) {
+src/java/org/apache/nutch/util/URLUtil.java,140,public static String[] getHostSegments(String url) throws MalformedURLException {
+src/java/org/apache/nutch/util/URLUtil.java,141,return getHostSegments(new URL(url));
+src/plugin/index-basic/src/java/org/apache/nutch/indexer/basic/BasicIndexingFilter.java,70,doc.add("site", host);
+src/plugin/urlnormalizer-basic/src/java/org/apache/nutch/net/urlnormalizer/basic/BasicURLNormalizer.java,100,if ("http".equals(protocol) || "ftp".equals(protocol)) {
+src/java/org/apache/nutch/util/MimeUtil.java,160,MimeType magicType = this.mimeTypes.getMimeType(data);
+src/java/org/apache/nutch/util/MimeUtil.java,163,&& type != null && !type.getName().equals(magicType.getName())) {
+src/java/org/apache/nutch/util/MimeUtil.java,166,type = magicType;
+src/java/org/apache/nutch/util/MimeUtil.java,171,if (type == null) {
+src/java/org/apache/nutch/util/MimeUtil.java,173,type = this.mimeTypes.forName(MimeTypes.OCTET_STREAM);
+src/java/org/apache/nutch/util/MimeUtil.java,179,return type.getName();
+src/java/org/apache/nutch/util/MimeUtil.java,192,public MimeType getMimeType(String url) {
+src/java/org/apache/nutch/util/MimeUtil.java,193,return this.mimeTypes.getMimeType(url);
+src/java/org/apache/nutch/util/MimeUtil.java,205,public MimeType forName(String name) {
+src/java/org/apache/nutch/util/MimeUtil.java,207,return this.mimeTypes.forName(name);
+src/java/org/apache/nutch/util/MimeUtil.java,224,public MimeType getMimeType(File f) {
+src/java/org/apache/nutch/util/MimeUtil.java,225,return this.mimeTypes.getMimeType(f);
+src/plugin/index-more/src/java/org/apache/nutch/indexer/more/MoreIndexingFilter.java,52,import java.text.SimpleDateFormat;
+src/plugin/index-more/src/java/org/apache/nutch/indexer/more/MoreIndexingFilter.java,55,import java.util.TimeZone;
+src/plugin/index-more/src/java/org/apache/nutch/indexer/more/MoreIndexingFilter.java,199,MimeType mimeType = null;
+src/plugin/protocol-file/src/java/org/apache/nutch/protocol/file/FileResponse.java,212,MimeType mimeType = MIME.getMimeType(f);
+src/plugin/protocol-file/src/java/org/apache/nutch/protocol/file/FileResponse.java,213,String mimeTypeString = mimeType != null ? mimeType.getName() : "";
+src/java/org/apache/nutch/util/domain/DomainStatistics.java,22,import java.util.Iterator;
+src/java/org/apache/nutch/util/domain/DomainStatistics.java,32,import org.apache.hadoop.mapred.JobClient;
+src/java/org/apache/nutch/util/domain/DomainStatistics.java,36,import org.apache.hadoop.mapred.OutputCollector;
+src/java/org/apache/nutch/util/domain/DomainStatistics.java,38,import org.apache.hadoop.mapred.Reporter;
+src/java/org/apache/nutch/parse/ParserFactory.java,346,if (extensions[i].getAttribute("contentType") != null
+src/java/org/apache/nutch/parse/ParserFactory.java,347,&& extensions[i].getAttribute("contentType").equals(
+src/java/org/apache/nutch/parse/ParserFactory.java,348,contentType)) {
+src/java/org/apache/nutch/parse/ParserFactory.java,349,extList.add(extensions[i]);
+src/java/org/apache/nutch/parse/ParserFactory.java,381,private boolean match(Extension extension, String id, String type) {
+src/java/org/apache/nutch/parse/ParserFactory.java,382,return ((id.equals(extension.getId())) &&
+src/java/org/apache/nutch/parse/ParserFactory.java,384,type.equals(DEFAULT_PLUGIN)));
+src/plugin/protocol-http/src/java/org/apache/nutch/protocol/http/HttpResponse.java,216,contentLength = Integer.parseInt(contentLengthString);
+src/plugin/index-basic/src/java/org/apache/nutch/indexer/basic/BasicIndexingFilter.java,81,doc.add("title", title);
+src/java/org/apache/nutch/util/EncodingDetector.java,312,String canonicalName = new String(Charset.forName(encoding).name());
+src/java/org/apache/nutch/util/EncodingDetector.java,314,: canonicalName;
+src/java/org/apache/nutch/indexer/solr/SolrWriter.java,61,if (inputDocs.size() > commitSize) {
+src/java/org/apache/nutch/indexer/solr/SolrDeleteDuplicates.java,122,tstamp = (Long)doc.getFieldValue(SolrConstants.TIMESTAMP_FIELD);
+src/plugin/urlfilter-domain/src/java/org/apache/nutch/urlfilter/domain/DomainURLFilter.java,173,String suffix = URLUtil.getDomainSuffix(url).getDomain();
+src/plugin/languageidentifier/src/java/org/apache/nutch/analysis/lang/LanguageIndexingFilter.java,89,if (lang == null) {
+src/plugin/protocol-httpclient/src/java/org/apache/nutch/protocol/httpclient/HttpResponse.java,137,in.close();
+src/plugin/lib-http/src/java/org/apache/nutch/protocol/http/api/HttpBase.java,21,import java.net.InetAddress;
+src/plugin/lib-http/src/java/org/apache/nutch/protocol/http/api/HttpBase.java,23,import java.net.UnknownHostException;
+src/plugin/lib-http/src/java/org/apache/nutch/protocol/http/api/HttpBase.java,76,protected int maxDelays = 3;
+src/plugin/lib-http/src/java/org/apache/nutch/protocol/http/api/HttpBase.java,88,protected long serverDelay = 1000;
+src/plugin/lib-http/src/java/org/apache/nutch/protocol/http/api/HttpBase.java,128,private boolean byIP = true;
+src/plugin/lib-http/src/java/org/apache/nutch/protocol/http/api/HttpBase.java,134,protected long maxCrawlDelay = -1L;
+src/plugin/lib-http/src/java/org/apache/nutch/protocol/http/api/HttpBase.java,137,protected boolean checkBlocking = true;
+src/plugin/lib-http/src/java/org/apache/nutch/protocol/http/api/HttpBase.java,140,protected boolean checkRobots = true;
+src/plugin/lib-http/src/java/org/apache/nutch/protocol/http/api/HttpBase.java,193,if (checkRobots) {
+src/plugin/lib-http/src/java/org/apache/nutch/protocol/http/api/HttpBase.java,194,try {
+src/plugin/lib-http/src/java/org/apache/nutch/protocol/http/api/HttpBase.java,195,if (!robots.isAllowed(this, u)) {
+src/plugin/lib-http/src/java/org/apache/nutch/protocol/http/api/HttpBase.java,200,if (logger.isTraceEnabled()) {
+src/plugin/lib-http/src/java/org/apache/nutch/protocol/http/api/HttpBase.java,201,logger.trace("Exception checking robot rules for " + url + ": " + e);
+src/plugin/lib-http/src/java/org/apache/nutch/protocol/http/api/HttpBase.java,208,if (checkBlocking && maxCrawlDelay >= 0 && delay > maxCrawlDelay) {
+src/plugin/lib-http/src/java/org/apache/nutch/protocol/http/api/HttpBase.java,210,LOGGER.info("Skipping: " + u + " exceeds fetcher.max.crawl.delay, max="
+src/plugin/lib-http/src/java/org/apache/nutch/protocol/http/api/HttpBase.java,215,if (checkBlocking) {
+src/plugin/lib-http/src/java/org/apache/nutch/protocol/http/api/HttpBase.java,216,try {
+src/plugin/lib-http/src/java/org/apache/nutch/protocol/http/api/HttpBase.java,217,host = blockAddr(u, delay);
+src/plugin/lib-http/src/java/org/apache/nutch/protocol/http/api/HttpBase.java,222,Response response;
+src/plugin/lib-http/src/java/org/apache/nutch/protocol/http/api/HttpBase.java,223,try {
+src/plugin/lib-http/src/java/org/apache/nutch/protocol/http/api/HttpBase.java,226,if (checkBlocking) unblockAddr(host, delay);
+src/plugin/lib-http/src/java/org/apache/nutch/protocol/http/api/HttpBase.java,316,public int getMaxDelays() {
+src/plugin/lib-http/src/java/org/apache/nutch/protocol/http/api/HttpBase.java,317,return maxDelays;
+src/plugin/lib-http/src/java/org/apache/nutch/protocol/http/api/HttpBase.java,320,public int getMaxThreadsPerHost() {
+src/plugin/lib-http/src/java/org/apache/nutch/protocol/http/api/HttpBase.java,321,return maxThreadsPerHost;
+src/plugin/lib-http/src/java/org/apache/nutch/protocol/http/api/HttpBase.java,324,public long getServerDelay() {
+src/plugin/lib-http/src/java/org/apache/nutch/protocol/http/api/HttpBase.java,325,return serverDelay;
+src/plugin/lib-http/src/java/org/apache/nutch/protocol/http/api/HttpBase.java,343,private String blockAddr(URL url, long crawlDelay) throws ProtocolException {
+src/plugin/lib-http/src/java/org/apache/nutch/protocol/http/api/HttpBase.java,345,String host;
+src/plugin/lib-http/src/java/org/apache/nutch/protocol/http/api/HttpBase.java,346,if (byIP) {
+src/plugin/lib-http/src/java/org/apache/nutch/protocol/http/api/HttpBase.java,347,try {
+src/plugin/lib-http/src/java/org/apache/nutch/protocol/http/api/HttpBase.java,348,InetAddress addr = InetAddress.getByName(url.getHost());
+src/plugin/lib-http/src/java/org/apache/nutch/protocol/http/api/HttpBase.java,349,host = addr.getHostAddress();
+src/plugin/lib-http/src/java/org/apache/nutch/protocol/http/api/HttpBase.java,352,throw new HttpException(e);
+src/plugin/lib-http/src/java/org/apache/nutch/protocol/http/api/HttpBase.java,355,host = url.getHost();
+src/plugin/lib-http/src/java/org/apache/nutch/protocol/http/api/HttpBase.java,357,throw new HttpException("Unknown host for url: " + url);
+src/plugin/lib-http/src/java/org/apache/nutch/protocol/http/api/HttpBase.java,358,host = host.toLowerCase();
+src/plugin/lib-http/src/java/org/apache/nutch/protocol/http/api/HttpBase.java,361,int delays = 0;
+src/plugin/lib-http/src/java/org/apache/nutch/protocol/http/api/HttpBase.java,362,while (true) {
+src/plugin/lib-http/src/java/org/apache/nutch/protocol/http/api/HttpBase.java,363,cleanExpiredServerBlocks();                 // free held addresses
+src/plugin/lib-http/src/java/org/apache/nutch/protocol/http/api/HttpBase.java,365,Long time;
+src/plugin/lib-http/src/java/org/apache/nutch/protocol/http/api/HttpBase.java,366,synchronized (BLOCKED_ADDR_TO_TIME) {
+src/plugin/lib-http/src/java/org/apache/nutch/protocol/http/api/HttpBase.java,368,if (time == null) {                       // address is free
+src/plugin/lib-http/src/java/org/apache/nutch/protocol/http/api/HttpBase.java,372,int count = (counter == null) ? 0 : counter.intValue();
+src/plugin/lib-http/src/java/org/apache/nutch/protocol/http/api/HttpBase.java,374,count++;                              // increment & store
+src/plugin/lib-http/src/java/org/apache/nutch/protocol/http/api/HttpBase.java,375,THREADS_PER_HOST_COUNT.put(host, new Integer(count));
+src/plugin/lib-http/src/java/org/apache/nutch/protocol/http/api/HttpBase.java,377,if (count >= maxThreadsPerHost) {
+src/plugin/lib-http/src/java/org/apache/nutch/protocol/http/api/HttpBase.java,378,BLOCKED_ADDR_TO_TIME.put(host, new Long(0)); // block it
+src/plugin/lib-http/src/java/org/apache/nutch/protocol/http/api/HttpBase.java,380,return host;
+src/plugin/lib-http/src/java/org/apache/nutch/protocol/http/api/HttpBase.java,385,throw new BlockedException("Exceeded http.max.delays: retry later.");
+src/plugin/lib-http/src/java/org/apache/nutch/protocol/http/api/HttpBase.java,387,long done = time.longValue();
+src/plugin/lib-http/src/java/org/apache/nutch/protocol/http/api/HttpBase.java,388,long now = System.currentTimeMillis();
+src/plugin/lib-http/src/java/org/apache/nutch/protocol/http/api/HttpBase.java,389,long sleep = 0;
+src/plugin/lib-http/src/java/org/apache/nutch/protocol/http/api/HttpBase.java,390,if (done == 0) {                            // address is still in use
+src/plugin/lib-http/src/java/org/apache/nutch/protocol/http/api/HttpBase.java,391,sleep = crawlDelay;                      // wait at least delay
+src/plugin/lib-http/src/java/org/apache/nutch/protocol/http/api/HttpBase.java,394,sleep = done - now;                       // wait until its free
+src/plugin/lib-http/src/java/org/apache/nutch/protocol/http/api/HttpBase.java,397,try {
+src/plugin/lib-http/src/java/org/apache/nutch/protocol/http/api/HttpBase.java,398,Thread.sleep(sleep);
+src/plugin/lib-http/src/java/org/apache/nutch/protocol/http/api/HttpBase.java,400,delays++;
+src/plugin/lib-http/src/java/org/apache/nutch/protocol/http/api/HttpBase.java,404,private void unblockAddr(String host, long crawlDelay) {
+src/plugin/lib-http/src/java/org/apache/nutch/protocol/http/api/HttpBase.java,405,synchronized (BLOCKED_ADDR_TO_TIME) {
+src/plugin/lib-http/src/java/org/apache/nutch/protocol/http/api/HttpBase.java,407,if (addrCount == 1) {
+src/plugin/lib-http/src/java/org/apache/nutch/protocol/http/api/HttpBase.java,408,THREADS_PER_HOST_COUNT.remove(host);
+src/plugin/lib-http/src/java/org/apache/nutch/protocol/http/api/HttpBase.java,409,BLOCKED_ADDR_QUEUE.addFirst(host);
+src/plugin/lib-http/src/java/org/apache/nutch/protocol/http/api/HttpBase.java,410,BLOCKED_ADDR_TO_TIME.put
+src/plugin/lib-http/src/java/org/apache/nutch/protocol/http/api/HttpBase.java,413,THREADS_PER_HOST_COUNT.put(host, new Integer(addrCount - 1));
+src/plugin/lib-http/src/java/org/apache/nutch/protocol/http/api/HttpBase.java,418,private static void cleanExpiredServerBlocks() {
+src/plugin/lib-http/src/java/org/apache/nutch/protocol/http/api/HttpBase.java,419,synchronized (BLOCKED_ADDR_TO_TIME) {
+src/plugin/lib-http/src/java/org/apache/nutch/protocol/http/api/HttpBase.java,420,for (int i = BLOCKED_ADDR_QUEUE.size() - 1; i >= 0; i--) {
+src/plugin/lib-http/src/java/org/apache/nutch/protocol/http/api/HttpBase.java,423,if (time <= System.currentTimeMillis()) {
+src/plugin/lib-http/src/java/org/apache/nutch/protocol/http/api/HttpBase.java,424,BLOCKED_ADDR_TO_TIME.remove(host);
+src/plugin/lib-http/src/java/org/apache/nutch/protocol/http/api/HttpBase.java,425,BLOCKED_ADDR_QUEUE.remove(i);
+src/plugin/lib-http/src/java/org/apache/nutch/protocol/http/api/HttpBase.java,484,logger.info(Protocol.CHECK_BLOCKING + " = " + checkBlocking);
+src/plugin/lib-http/src/java/org/apache/nutch/protocol/http/api/HttpBase.java,485,logger.info(Protocol.CHECK_ROBOTS + " = " + checkRobots);
+src/plugin/lib-http/src/java/org/apache/nutch/protocol/http/api/HttpBase.java,486,if (checkBlocking) {
+src/plugin/lib-http/src/java/org/apache/nutch/protocol/http/api/HttpBase.java,487,logger.info("fetcher.server.delay = " + serverDelay);
+src/plugin/lib-http/src/java/org/apache/nutch/protocol/http/api/HttpBase.java,488,logger.info("http.max.delays = " + maxDelays);
+src/plugin/scoring-opic/src/java/org/apache/nutch/scoring/opic/OPICScoringFilter.java,58,private float scoreInjected;
+src/plugin/scoring-opic/src/java/org/apache/nutch/scoring/opic/OPICScoringFilter.java,70,scoreInjected = conf.getFloat("db.score.injected", 1.0f);
+src/java/org/apache/nutch/crawl/Injector.java,123,if (customScore != -1) datum.setScore(customScore);
+src/java/org/apache/nutch/crawl/Injector.java,124,else {
+src/java/org/apache/nutch/crawl/Injector.java,125,datum.setScore(scoreInjected);
+src/java/org/apache/nutch/crawl/Injector.java,126,try {
+src/java/org/apache/nutch/crawl/Injector.java,127,scfilters.injectedScore(value, datum);
+src/java/org/apache/nutch/crawl/Injector.java,129,if (LOG.isWarnEnabled()) {
+src/java/org/apache/nutch/crawl/Injector.java,130,LOG.warn("Cannot filter injected score for url " + url
+src/java/org/apache/nutch/crawl/Injector.java,131,+ ", using default (" + e.getMessage() + ")");
+src/java/org/apache/nutch/crawl/Injector.java,133,datum.setScore(scoreInjected);
+src/java/org/apache/nutch/parse/ParseUtil.java,91,return null;
+src/java/org/apache/nutch/parse/ParseUtil.java,135,return null;
+src/java/org/apache/nutch/indexer/solr/SolrDeleteDuplicates.java,326,SolrRecord recordToKeep = values.next();
+src/java/org/apache/nutch/indexer/solr/SolrDeleteDuplicates.java,333,recordToKeep = solrRecord;
+src/java/org/apache/nutch/crawl/MD5Signature.java,36,StringBuilder buf = new StringBuilder().append(data).append(parse.getText());
+src/java/org/apache/nutch/crawl/MD5Signature.java,37,return MD5Hash.digest(buf.toString().getBytes()).getDigest();
+src/plugin/parse-tika/src/java/org/apache/nutch/parse/tika/DOMContentUtils.java,203,URL getBase(Node node) {
+src/plugin/parse-tika/src/java/org/apache/nutch/parse/tika/DOMContentUtils.java,225,try {
+src/plugin/parse-tika/src/java/org/apache/nutch/parse/tika/DOMContentUtils.java,226,return new URL(attr.getNodeValue());
+src/java/org/apache/nutch/crawl/CrawlDbReader.java,171,LongWritable val = new LongWritable();
+src/java/org/apache/nutch/crawl/CrawlDbReader.java,177,throws IOException {
+src/java/org/apache/nutch/crawl/CrawlDbReader.java,178,val.set(0L);
+src/java/org/apache/nutch/crawl/CrawlDbReader.java,181,while (values.hasNext()) {
+src/java/org/apache/nutch/crawl/CrawlDbReader.java,183,val.set(val.get() + cnt.get());
+src/java/org/apache/nutch/crawl/CrawlDbReader.java,210,if (k.equals("T")) {
+src/java/org/apache/nutch/crawl/CrawlDbReader.java,219,LongWritable cnt = new LongWritable();
+src/java/org/apache/nutch/crawl/CrawlDbReader.java,220,while (values.hasNext()) {
+src/java/org/apache/nutch/crawl/CrawlDbReader.java,222,cnt.set(cnt.get() + val.get());
+src/java/org/apache/nutch/crawl/CrawlDbReader.java,226,LongWritable cnt = new LongWritable(Long.MIN_VALUE);
+src/java/org/apache/nutch/crawl/CrawlDbReader.java,227,while (values.hasNext()) {
+src/java/org/apache/nutch/crawl/CrawlDbReader.java,233,LongWritable cnt = new LongWritable(Long.MAX_VALUE);
+src/java/org/apache/nutch/crawl/CrawlDbReader.java,240,LongWritable cnt = new LongWritable();
+src/java/org/apache/nutch/crawl/CrawlDbReader.java,243,cnt.set(cnt.get() + val.get());
+src/java/org/apache/nutch/indexer/IndexerMapReduce.java,130,if (url != null) {
+src/java/org/apache/nutch/crawl/URLPartitioner.java,67,int hashCode = urlString.hashCode();
+src/java/org/apache/nutch/crawl/URLPartitioner.java,71,hashCode = url.getHost().hashCode();
+src/java/org/apache/nutch/crawl/URLPartitioner.java,78,else if (mode.equals(PARTITION_MODE_IP)) {
+src/java/org/apache/nutch/crawl/CrawlDbReader.java,351,stats.remove("T");
+src/java/org/apache/nutch/parse/ParserFactory.java,140,LOG.warn("ParserFactory:PluginRuntimeException when "
+src/plugin/parse-tika/src/java/org/apache/nutch/parse/tika/HTMLMetaProcessor.java,130,int idx = content.indexOf(';');
+src/plugin/parse-tika/src/java/org/apache/nutch/parse/tika/HTMLMetaProcessor.java,131,String time = null;
+src/plugin/parse-tika/src/java/org/apache/nutch/parse/tika/HTMLMetaProcessor.java,132,if (idx == -1) { // just the refresh time
+src/plugin/parse-tika/src/java/org/apache/nutch/parse/tika/HTMLMetaProcessor.java,133,time = content;
+src/plugin/parse-tika/src/java/org/apache/nutch/parse/tika/HTMLMetaProcessor.java,135,try {
+src/plugin/parse-tika/src/java/org/apache/nutch/parse/tika/HTMLMetaProcessor.java,136,metaTags.setRefreshTime(Integer.parseInt(time));
+src/plugin/parse-tika/src/java/org/apache/nutch/parse/tika/HTMLMetaProcessor.java,138,metaTags.setRefresh(true);
+src/plugin/parse-tika/src/java/org/apache/nutch/parse/tika/HTMLMetaProcessor.java,140,;
+src/plugin/parse-tika/src/java/org/apache/nutch/parse/tika/HTMLMetaProcessor.java,142,URL refreshUrl = null;
+src/plugin/parse-tika/src/java/org/apache/nutch/parse/tika/HTMLMetaProcessor.java,143,if (metaTags.getRefresh() && idx != -1) { // set the URL
+src/plugin/parse-tika/src/java/org/apache/nutch/parse/tika/HTMLMetaProcessor.java,144,idx = content.toLowerCase().indexOf("url=");
+src/plugin/parse-tika/src/java/org/apache/nutch/parse/tika/HTMLMetaProcessor.java,146,idx = content.indexOf(';') + 1;
+src/plugin/parse-tika/src/java/org/apache/nutch/parse/tika/HTMLMetaProcessor.java,148,if (idx != -1) {
+src/plugin/parse-tika/src/java/org/apache/nutch/parse/tika/HTMLMetaProcessor.java,149,String url = content.substring(idx);
+src/plugin/parse-tika/src/java/org/apache/nutch/parse/tika/HTMLMetaProcessor.java,150,try {
+src/plugin/parse-tika/src/java/org/apache/nutch/parse/tika/HTMLMetaProcessor.java,151,refreshUrl = new URL(url);
+src/plugin/parse-tika/src/java/org/apache/nutch/parse/tika/HTMLMetaProcessor.java,159,try {
+src/plugin/parse-tika/src/java/org/apache/nutch/parse/tika/HTMLMetaProcessor.java,160,refreshUrl = new URL(currURL, url);
+src/plugin/parse-tika/src/java/org/apache/nutch/parse/tika/HTMLMetaProcessor.java,162,refreshUrl = null;
+src/plugin/parse-tika/src/java/org/apache/nutch/parse/tika/HTMLMetaProcessor.java,167,if (metaTags.getRefresh()) {
+src/plugin/parse-tika/src/java/org/apache/nutch/parse/tika/HTMLMetaProcessor.java,168,if (refreshUrl == null) {
+src/plugin/parse-tika/src/java/org/apache/nutch/parse/tika/HTMLMetaProcessor.java,171,refreshUrl = currURL;
+src/plugin/parse-tika/src/java/org/apache/nutch/parse/tika/HTMLMetaProcessor.java,173,metaTags.setRefreshHref(refreshUrl);
+src/java/org/apache/nutch/scoring/webgraph/LinkDumper.java,385,LOG.error(StringUtils.stringifyException(e));
+src/java/org/apache/nutch/scoring/webgraph/LinkDumper.java,408,LOG.error(StringUtils.stringifyException(e));
+src/java/org/apache/nutch/scoring/webgraph/LinkRank.java,113,LOG.error(StringUtils.stringifyException(e));
+src/java/org/apache/nutch/scoring/webgraph/LinkRank.java,121,FSDataInputStream readLinks = fs.open(new Path(numLinksPath, "part-00000"));
+src/java/org/apache/nutch/scoring/webgraph/LinkRank.java,170,LOG.error(StringUtils.stringifyException(e));
+src/java/org/apache/nutch/scoring/webgraph/LinkRank.java,221,LOG.error(StringUtils.stringifyException(e));
+src/java/org/apache/nutch/scoring/webgraph/LinkRank.java,269,LOG.error(StringUtils.stringifyException(e));
+src/java/org/apache/nutch/scoring/webgraph/LinkRank.java,315,public void close() {
+src/java/org/apache/nutch/scoring/webgraph/NodeDumper.java,193,LOG.error(StringUtils.stringifyException(e));
+src/java/org/apache/nutch/scoring/webgraph/ScoreUpdater.java,183,LOG.error(StringUtils.stringifyException(e));
+src/java/org/apache/nutch/scoring/webgraph/WebGraph.java,505,LockUtil.removeLockFile(fs, lock);
+src/java/org/apache/nutch/scoring/webgraph/WebGraph.java,506,if (fs.exists(tempOutlinkDb)) {
+src/java/org/apache/nutch/scoring/webgraph/WebGraph.java,507,fs.delete(tempOutlinkDb, true);
+src/java/org/apache/nutch/scoring/webgraph/WebGraph.java,509,LOG.error(StringUtils.stringifyException(e));
+src/java/org/apache/nutch/scoring/webgraph/WebGraph.java,543,LockUtil.removeLockFile(fs, lock);
+src/java/org/apache/nutch/scoring/webgraph/WebGraph.java,544,if (fs.exists(tempInlinkDb)) {
+src/java/org/apache/nutch/scoring/webgraph/WebGraph.java,545,fs.delete(tempInlinkDb, true);
+src/java/org/apache/nutch/scoring/webgraph/WebGraph.java,547,LOG.error(StringUtils.stringifyException(e));
+src/java/org/apache/nutch/scoring/webgraph/WebGraph.java,583,LockUtil.removeLockFile(fs, lock);
+src/java/org/apache/nutch/scoring/webgraph/WebGraph.java,584,if (fs.exists(tempNodeDb)) {
+src/java/org/apache/nutch/scoring/webgraph/WebGraph.java,585,fs.delete(tempNodeDb, true);
+src/java/org/apache/nutch/scoring/webgraph/WebGraph.java,587,LOG.error(StringUtils.stringifyException(e));
+src/java/org/apache/nutch/crawl/LinkDbReader.java,26,import org.apache.hadoop.conf.Configured;
+src/java/org/apache/nutch/crawl/LinkDbReader.java,45,private FileSystem fs;
+src/java/org/apache/nutch/segment/SegmentReader.java,71,import org.apache.nutch.util.NutchJob;
+src/java/org/apache/nutch/crawl/CrawlDb.java,96,LockUtil.removeLockFile(fs, lock);
+src/java/org/apache/nutch/crawl/CrawlDb.java,97,Path outPath = FileOutputFormat.getOutputPath(job);
+src/java/org/apache/nutch/crawl/Generator.java,579,fs.delete(tempDir, true);
+src/java/org/apache/nutch/crawl/Generator.java,580,fs.delete(tempDir2, true);
+src/java/org/apache/nutch/crawl/LinkDb.java,187,LockUtil.removeLockFile(fs, lock);
+src/java/org/apache/nutch/crawl/LinkDb.java,188,fs.delete(newLinkDb, true);
+src/java/org/apache/nutch/crawl/LinkDb.java,20,import java.io.*;
+src/java/org/apache/nutch/crawl/LinkDb.java,21,import java.util.*;
+src/java/org/apache/nutch/crawl/LinkDb.java,22,import java.net.*;
+src/java/org/apache/nutch/crawl/LinkDb.java,28,import org.apache.hadoop.io.*;
+src/java/org/apache/nutch/crawl/LinkDb.java,29,import org.apache.hadoop.fs.*;
+src/java/org/apache/nutch/crawl/LinkDb.java,31,import org.apache.hadoop.conf.*;
+src/java/org/apache/nutch/crawl/LinkDb.java,33,import org.apache.hadoop.util.*;
+src/java/org/apache/nutch/crawl/LinkDb.java,37,import org.apache.nutch.parse.*;
+src/java/org/apache/nutch/crawl/LinkDb.java,158,LOG.info("LinkDb: linkdb: " + linkDb);
+src/java/org/apache/nutch/crawl/LinkDb.java,159,LOG.info("LinkDb: URL normalize: " + normalize);
+src/java/org/apache/nutch/crawl/LinkDb.java,160,LOG.info("LinkDb: URL filter: " + filter);
+src/java/org/apache/nutch/crawl/LinkDb.java,165,LOG.info("LinkDb: adding segment: " + segments[i]);
+src/java/org/apache/nutch/crawl/LinkDb.java,177,LOG.info("LinkDb: merging with existing linkdb: " + linkDb);
+src/java/org/apache/nutch/crawl/LinkDb.java,218,LOG.warn("LinkDb createJob: " + e);
+src/java/org/apache/nutch/crawl/LinkDb.java,271,if (args[i].equals("-dir")) {
+src/java/org/apache/nutch/segment/SegmentMerger.java,203,MapFile.Writer c_out = null;
+src/java/org/apache/nutch/segment/SegmentMerger.java,204,MapFile.Writer f_out = null;
+src/java/org/apache/nutch/segment/SegmentMerger.java,205,MapFile.Writer pd_out = null;
+src/java/org/apache/nutch/segment/SegmentMerger.java,206,MapFile.Writer pt_out = null;
+src/java/org/apache/nutch/segment/SegmentMerger.java,207,SequenceFile.Writer g_out = null;
+src/java/org/apache/nutch/segment/SegmentMerger.java,208,SequenceFile.Writer p_out = null;
+src/java/org/apache/nutch/segment/SegmentMerger.java,219,g_out = ensureSequenceFile(slice, CrawlDatum.GENERATE_DIR_NAME);
+src/java/org/apache/nutch/segment/SegmentMerger.java,220,g_out.append(key, o);
+src/java/org/apache/nutch/segment/SegmentMerger.java,223,f_out.append(key, o);
+src/java/org/apache/nutch/segment/SegmentMerger.java,225,p_out = ensureSequenceFile(slice, CrawlDatum.PARSE_DIR_NAME);
+src/java/org/apache/nutch/segment/SegmentMerger.java,226,p_out.append(key, o);
+src/java/org/apache/nutch/segment/SegmentMerger.java,231,c_out = ensureMapFile(slice, Content.DIR_NAME, Content.class);
+src/java/org/apache/nutch/segment/SegmentMerger.java,232,c_out.append(key, o);
+src/java/org/apache/nutch/segment/SegmentMerger.java,240,pd_out = ensureMapFile(slice, ParseData.DIR_NAME, ParseData.class);
+src/java/org/apache/nutch/segment/SegmentMerger.java,241,pd_out.append(key, o);
+src/java/org/apache/nutch/segment/SegmentMerger.java,243,pt_out = ensureMapFile(slice, ParseText.DIR_NAME, ParseText.class);
+src/java/org/apache/nutch/segment/SegmentMerger.java,244,pt_out.append(key, o);
+src/java/org/apache/nutch/segment/SegmentMerger.java,560,LOG.warn("Input dir " + segs[i] + " doesn't exist, skipping.");
+src/java/org/apache/nutch/segment/SegmentMerger.java,566,LOG.info("SegmentMerger:   adding " + segs[i]);
+src/java/org/apache/nutch/segment/SegmentMerger.java,581,StringBuffer sb = new StringBuffer();
+src/java/org/apache/nutch/segment/SegmentMerger.java,589,LOG.info("SegmentMerger: using segment data from:" + sb.toString());
+src/java/org/apache/nutch/segment/SegmentMerger.java,652,if (args[i].equals("-dir")) {
+src/java/org/apache/nutch/segment/SegmentMerger.java,654,HadoopFSUtil.getPassDirectoriesFilter(fs));
+src/java/org/apache/nutch/segment/SegmentMerger.java,668,if (segs.size() == 0) {
+src/java/org/apache/nutch/fetcher/FetcherOutputFormat.java,47,public void checkOutputSpecs(FileSystem fs, JobConf job) throws IOException {
+src/java/org/apache/nutch/parse/ParseOutputFormat.java,77,public void checkOutputSpecs(FileSystem fs, JobConf job) throws IOException {
+src/java/org/apache/nutch/scoring/webgraph/LinkRank.java,120,LOG.info("Reading numlinks temp file");
+src/java/org/apache/nutch/scoring/webgraph/LinkRank.java,122,BufferedReader buffer = new BufferedReader(new InputStreamReader(readLinks));
+src/java/org/apache/nutch/crawl/TextProfileSignature.java,66,public byte[] calculate(Content content, Parse parse) {
+src/java/org/apache/nutch/crawl/TextProfileSignature.java,151,private static class TokenComparator implements Comparator<Token> {
+src/java/org/apache/nutch/crawl/TextProfileSignature.java,153,return t2.cnt - t1.cnt;
+src/java/org/apache/nutch/util/TrieStringMatcher.java,112,Arrays.sort(children);
+src/java/org/apache/nutch/segment/SegmentReader.java,235,PrintWriter writer = null;
+src/java/org/apache/nutch/segment/SegmentReader.java,239,try {
+src/java/org/apache/nutch/segment/SegmentReader.java,253,writer.close();
+src/java/org/apache/nutch/scoring/webgraph/NodeDumper.java,168,Configuration conf = getConf();
+src/java/org/apache/nutch/scoring/webgraph/WebGraph.java,445,Configuration conf = getConf();
+src/plugin/parse-tika/src/java/org/apache/nutch/parse/tika/HTMLMetaProcessor.java,68,String attrName = attr.getNodeName().toLowerCase();
+src/plugin/parse-tika/src/java/org/apache/nutch/parse/tika/HTMLMetaProcessor.java,82,if ("robots".equals(name)) {
+src/plugin/parse-tika/src/java/org/apache/nutch/parse/tika/HTMLMetaProcessor.java,121,String name = equivNode.getNodeValue().toLowerCase();
+src/plugin/parse-tika/src/java/org/apache/nutch/parse/tika/HTMLMetaProcessor.java,125,content = content.toLowerCase();
+src/plugin/urlfilter-prefix/src/java/org/apache/nutch/urlfilter/prefix/PrefixURLFilter.java,146,String file = conf.get("urlfilter.prefix.file");
+src/plugin/urlfilter-suffix/src/java/org/apache/nutch/urlfilter/suffix/SuffixURLFilter.java,271,String file = conf.get("urlfilter.suffix.file");
+src/plugin/urlfilter-domain/src/java/org/apache/nutch/urlfilter/domain/DomainURLFilter.java,69,private String domainFile = null;
+src/plugin/urlfilter-domain/src/java/org/apache/nutch/urlfilter/domain/DomainURLFilter.java,89,public DomainURLFilter() {
+src/plugin/urlfilter-domain/src/java/org/apache/nutch/urlfilter/domain/DomainURLFilter.java,100,public DomainURLFilter(String domainFile) {
+src/plugin/urlfilter-domain/src/java/org/apache/nutch/urlfilter/domain/DomainURLFilter.java,101,this.domainFile = domainFile;
+src/plugin/urlfilter-domain/src/java/org/apache/nutch/urlfilter/domain/DomainURLFilter.java,123,if (attributeFile != null && attributeFile.trim().equals("")) {
+src/plugin/urlfilter-domain/src/java/org/apache/nutch/urlfilter/domain/DomainURLFilter.java,128,if (LOG.isInfoEnabled()) {
+src/plugin/urlfilter-domain/src/java/org/apache/nutch/urlfilter/domain/DomainURLFilter.java,129,LOG.info("Attribute \"file\" is defined for plugin " + pluginName
+src/plugin/urlfilter-domain/src/java/org/apache/nutch/urlfilter/domain/DomainURLFilter.java,134,if (LOG.isWarnEnabled()) {
+src/plugin/urlfilter-domain/src/java/org/apache/nutch/urlfilter/domain/DomainURLFilter.java,135,LOG.warn("Attribute \"file\" is not defined in plugin.xml for plugin "
+src/plugin/urlfilter-domain/src/java/org/apache/nutch/urlfilter/domain/DomainURLFilter.java,142,if (domainFile != null) {
+src/plugin/urlfilter-domain/src/java/org/apache/nutch/urlfilter/domain/DomainURLFilter.java,143,file = domainFile;
+src/plugin/urlfilter-domain/src/java/org/apache/nutch/urlfilter/domain/DomainURLFilter.java,159,LOG.error(org.apache.hadoop.util.StringUtils.stringifyException(e));
+src/plugin/urlfilter-prefix/src/java/org/apache/nutch/urlfilter/prefix/PrefixURLFilter.java,135,if (LOG.isInfoEnabled()) {
+src/plugin/urlfilter-prefix/src/java/org/apache/nutch/urlfilter/prefix/PrefixURLFilter.java,136,LOG.info("Attribute \"file\" is defined for plugin " + pluginName
+src/plugin/urlfilter-prefix/src/java/org/apache/nutch/urlfilter/prefix/PrefixURLFilter.java,137,+ " as " + attributeFile);
+src/plugin/urlfilter-prefix/src/java/org/apache/nutch/urlfilter/prefix/PrefixURLFilter.java,149,file = attributeFile;
+src/plugin/urlfilter-prefix/src/java/org/apache/nutch/urlfilter/prefix/PrefixURLFilter.java,160,throw new RuntimeException(e.getMessage(), e);
+src/plugin/urlfilter-suffix/src/java/org/apache/nutch/urlfilter/suffix/SuffixURLFilter.java,174,if (LOG.isWarnEnabled()) {
+src/plugin/urlfilter-suffix/src/java/org/apache/nutch/urlfilter/suffix/SuffixURLFilter.java,175,LOG.warn("Missing urlfilter.suffix.file, all URLs will be rejected!");
+src/plugin/urlfilter-suffix/src/java/org/apache/nutch/urlfilter/suffix/SuffixURLFilter.java,261,if (LOG.isInfoEnabled()) {
+src/plugin/urlfilter-suffix/src/java/org/apache/nutch/urlfilter/suffix/SuffixURLFilter.java,280,throw new RuntimeException(e.getMessage(), e);
+src/java/org/apache/nutch/searcher/DistributedSegmentBean.java,187,detailsList[segmentMap.get(details.getValue("segment"))].add(details);
+src/java/org/apache/nutch/searcher/NutchBean.java,189,for (int rawHitNum = 0; rawHitNum < hits.getTotal(); rawHitNum++) {
+src/java/org/apache/nutch/searcher/NutchBean.java,191,if (rawHitNum >= hits.getLength()) {
+src/java/org/apache/nutch/searcher/OpenSearchServlet.java,274,Element child = doc.createElement(name);
+src/java/org/apache/nutch/searcher/OpenSearchServlet.java,281,Element child = doc.createElement(name);
+src/java/org/apache/nutch/searcher/OpenSearchServlet.java,288,Element child = doc.createElementNS(NS_MAP.get(ns), ns+":"+name);
+src/plugin/scoring-link/src/java/org/apache/nutch/scoring/link/LinkAnalysisScoringFilter.java,39,private float scoreInjected = 0.001f;
+src/plugin/scoring-link/src/java/org/apache/nutch/scoring/link/LinkAnalysisScoringFilter.java,53,scoreInjected = conf.getFloat("link.analyze.injected.score", 1.00f);
+src/plugin/scoring-link/src/java/org/apache/nutch/scoring/link/LinkAnalysisScoringFilter.java,81,datum.setScore(scoreInjected);
+src/plugin/scoring-opic/src/java/org/apache/nutch/scoring/opic/OPICScoringFilter.java,79,datum.setScore(scoreInjected);
+src/java/org/apache/nutch/indexer/IndexerMapReduce.java,155,doc.setScore(boost);
+src/java/org/apache/nutch/indexer/NutchDocument.java,22,import java.util.ArrayList;
+src/java/org/apache/nutch/indexer/NutchDocument.java,26,import java.util.List;
+src/java/org/apache/nutch/indexer/NutchDocument.java,38,implements Writable, Iterable<Entry<String, List<String>>> {
+src/java/org/apache/nutch/indexer/NutchDocument.java,40,public static final byte VERSION = 1;
+src/java/org/apache/nutch/indexer/NutchDocument.java,42,private Map<String, List<String>> fields;
+src/java/org/apache/nutch/indexer/NutchDocument.java,46,private float score;
+src/java/org/apache/nutch/indexer/NutchDocument.java,49,fields = new HashMap<String, List<String>>();
+src/java/org/apache/nutch/indexer/NutchDocument.java,51,score = 0.0f;
+src/java/org/apache/nutch/indexer/NutchDocument.java,54,public void add(String name, String value) {
+src/java/org/apache/nutch/indexer/NutchDocument.java,55,List<String> fieldValues = fields.get(name);
+src/java/org/apache/nutch/indexer/NutchDocument.java,56,if (fieldValues == null) {
+src/java/org/apache/nutch/indexer/NutchDocument.java,57,fieldValues = new ArrayList<String>();
+src/java/org/apache/nutch/indexer/NutchDocument.java,59,fieldValues.add(value);
+src/java/org/apache/nutch/indexer/NutchDocument.java,60,fields.put(name, fieldValues);
+src/java/org/apache/nutch/indexer/NutchDocument.java,63,private void addFieldUnprotected(String name, String value) {
+src/java/org/apache/nutch/indexer/NutchDocument.java,64,fields.get(name).add(value);
+src/java/org/apache/nutch/indexer/NutchDocument.java,67,public String getFieldValue(String name) {
+src/java/org/apache/nutch/indexer/NutchDocument.java,68,List<String> fieldValues = fields.get(name);
+src/java/org/apache/nutch/indexer/NutchDocument.java,69,if (fieldValues == null) {
+src/java/org/apache/nutch/indexer/NutchDocument.java,72,if (fieldValues.size() == 0) {
+src/java/org/apache/nutch/indexer/NutchDocument.java,75,return fieldValues.get(0);
+src/java/org/apache/nutch/indexer/NutchDocument.java,78,public List<String> getFieldValues(String name) {
+src/java/org/apache/nutch/indexer/NutchDocument.java,82,public List<String> removeField(String name) {
+src/java/org/apache/nutch/indexer/NutchDocument.java,91,public Iterator<Entry<String, List<String>>> iterator() {
+src/java/org/apache/nutch/indexer/NutchDocument.java,95,public float getScore() {
+src/java/org/apache/nutch/indexer/NutchDocument.java,96,return score;
+src/java/org/apache/nutch/indexer/NutchDocument.java,99,public void setScore(float score) {
+src/java/org/apache/nutch/indexer/NutchDocument.java,100,this.score = score;
+src/java/org/apache/nutch/indexer/NutchDocument.java,115,int numValues = WritableUtils.readVInt(in);
+src/java/org/apache/nutch/indexer/NutchDocument.java,116,fields.put(name, new ArrayList<String>());
+src/java/org/apache/nutch/indexer/NutchDocument.java,117,for (int j = 0; j < numValues; j++) {
+src/java/org/apache/nutch/indexer/NutchDocument.java,118,String value = Text.readString(in);
+src/java/org/apache/nutch/indexer/NutchDocument.java,119,addFieldUnprotected(name, value);
+src/java/org/apache/nutch/indexer/NutchDocument.java,122,score = in.readFloat();
+src/java/org/apache/nutch/indexer/NutchDocument.java,129,for (Map.Entry<String, List<String>> entry : fields.entrySet()) {
+src/java/org/apache/nutch/indexer/NutchDocument.java,131,List<String> values = entry.getValue();
+src/java/org/apache/nutch/indexer/NutchDocument.java,132,WritableUtils.writeVInt(out, values.size());
+src/java/org/apache/nutch/indexer/NutchDocument.java,133,for (String value : values) {
+src/java/org/apache/nutch/indexer/NutchDocument.java,134,Text.writeString(out, value);
+src/java/org/apache/nutch/indexer/NutchDocument.java,137,out.writeFloat(score);
+src/java/org/apache/nutch/indexer/lucene/LuceneWriter.java,81,out.setBoost(doc.getScore());
+src/java/org/apache/nutch/indexer/lucene/LuceneWriter.java,84,for (final Entry<String, List<String>> entry : doc) {
+src/java/org/apache/nutch/indexer/lucene/LuceneWriter.java,135,for (final String fieldValue : entry.getValue()) {
+src/java/org/apache/nutch/indexer/lucene/LuceneWriter.java,136,out.add(new Field(fieldName, fieldValue, store, index, vector));
+src/java/org/apache/nutch/indexer/solr/SolrWriter.java,50,for(final Entry<String, List<String>> e : doc) {
+src/java/org/apache/nutch/indexer/solr/SolrWriter.java,51,for (final String val : e.getValue()) {
+src/java/org/apache/nutch/indexer/solr/SolrWriter.java,52,inputDoc.addField(solrMapping.mapKey(e.getKey()), val);
+src/java/org/apache/nutch/indexer/solr/SolrWriter.java,55,inputDoc.addField(sCopy, val);
+src/java/org/apache/nutch/indexer/solr/SolrWriter.java,59,inputDoc.setDocumentBoost(doc.getScore());
+src/plugin/tld/src/java/org/apache/nutch/scoring/tld/TLDScoringFilter.java,55,List<String> tlds = doc.getFieldValues("tld");
+src/plugin/tld/src/java/org/apache/nutch/scoring/tld/TLDScoringFilter.java,59,for(String tld : tlds) {
+src/plugin/tld/src/java/org/apache/nutch/scoring/tld/TLDScoringFilter.java,60,DomainSuffix entry = tldEntries.get(tld);
+src/java/org/apache/nutch/searcher/DistributedSearchBean.java,286,for (SearchBean bean : beans) {
+src/java/org/apache/nutch/searcher/DistributedSearchBean.java,287,bean.close();
+src/java/org/apache/nutch/searcher/DistributedSegmentBean.java,169,for (SegmentBean bean : beans) {
+src/java/org/apache/nutch/searcher/DistributedSegmentBean.java,170,bean.close();
+src/java/org/apache/nutch/net/protocols/HttpDateFormat.java,43,format.setTimeZone(TimeZone.getTimeZone("GMT"));
+src/java/org/apache/nutch/crawl/Generator.java,494,if ("local".equals(job.get("mapred.job.tracker")) && numLists != 1) {
+src/java/org/apache/nutch/crawl/Generator.java,496,LOG.info("Generator: jobtracker is 'local', generating exactly one partition.");
+src/java/org/apache/nutch/util/domain/DomainStatistics.java,98,FileInputFormat.addInputPath(job, new Path(inputDirsSpecs[i]));
+src/plugin/protocol-httpclient/src/java/org/apache/nutch/protocol/httpclient/Http.java,172,params.setMaxTotalConnections(maxThreadsTotal);
+src/java/org/apache/nutch/segment/SegmentReader.java,458,for (int i = 0; i < readers.length; i++) {
+src/java/org/apache/nutch/segment/SegmentReader.java,460,readers[i].close();
+src/java/org/apache/nutch/segment/SegmentReader.java,462,stats.generated = cnt;
+src/java/org/apache/nutch/segment/SegmentReader.java,463,Path fetchDir = new Path(segment, CrawlDatum.FETCH_DIR_NAME);
+src/java/org/apache/nutch/segment/SegmentReader.java,464,if (fs.exists(fetchDir) && fs.getFileStatus(fetchDir).isDir()) {
+src/java/org/apache/nutch/segment/SegmentReader.java,465,cnt = 0L;
+src/java/org/apache/nutch/segment/SegmentReader.java,466,long start = Long.MAX_VALUE;
+src/java/org/apache/nutch/segment/SegmentReader.java,467,long end = Long.MIN_VALUE;
+src/java/org/apache/nutch/segment/SegmentReader.java,468,CrawlDatum value = new CrawlDatum();
+src/java/org/apache/nutch/segment/SegmentReader.java,470,for (int i = 0; i < mreaders.length; i++) {
+src/java/org/apache/nutch/segment/SegmentReader.java,471,while (mreaders[i].next(key, value)) {
+src/java/org/apache/nutch/segment/SegmentReader.java,476,mreaders[i].close();
+src/java/org/apache/nutch/segment/SegmentReader.java,478,stats.start = start;
+src/java/org/apache/nutch/segment/SegmentReader.java,479,stats.end = end;
+src/java/org/apache/nutch/segment/SegmentReader.java,480,stats.fetched = cnt;
+src/java/org/apache/nutch/segment/SegmentReader.java,482,Path parseDir = new Path(segment, ParseData.DIR_NAME);
+src/java/org/apache/nutch/segment/SegmentReader.java,484,cnt = 0L;
+src/java/org/apache/nutch/segment/SegmentReader.java,485,long errors = 0L;
+src/java/org/apache/nutch/segment/SegmentReader.java,486,ParseData value = new ParseData();
+src/java/org/apache/nutch/segment/SegmentReader.java,488,for (int i = 0; i < mreaders.length; i++) {
+src/java/org/apache/nutch/segment/SegmentReader.java,489,while (mreaders[i].next(key, value)) {
+src/java/org/apache/nutch/segment/SegmentReader.java,490,cnt++;
+src/java/org/apache/nutch/segment/SegmentReader.java,493,mreaders[i].close();
+src/java/org/apache/nutch/segment/SegmentReader.java,495,stats.parsed = cnt;
+src/java/org/apache/nutch/segment/SegmentReader.java,496,stats.parseErrors = errors;
+src/java/org/apache/nutch/crawl/CrawlDbReader.java,482,System.err.println("\t\t[-sort]\tlist status sorted by host");
+src/java/org/apache/nutch/parse/ParserChecker.java,99,for (java.util.Map.Entry<Text, Parse> entry : parseResult) {
+src/java/org/apache/nutch/parse/ParserChecker.java,100,Parse parse = entry.getValue();
+src/plugin/protocol-file/src/java/org/apache/nutch/protocol/file/File.java,86,redirects++;
+src/plugin/protocol-file/src/java/org/apache/nutch/protocol/file/File.java,142,Content content = file.getProtocolOutput(new Text(urlString), new CrawlDatum()).getContent();
+src/java/org/apache/nutch/crawl/Generator.java,692,if (segs == null) return -1;
+src/java/org/apache/nutch/parse/ParseOutputFormat.java,154,ParseStatus pstatus = parseData.getStatus();
+src/java/org/apache/nutch/parse/ParseOutputFormat.java,155,if (pstatus != null && pstatus.isSuccess() &&
+src/java/org/apache/nutch/parse/ParseOutputFormat.java,156,pstatus.getMinorCode() == ParseStatus.SUCCESS_REDIRECT) {
+src/java/org/apache/nutch/parse/ParseOutputFormat.java,157,String newUrl = pstatus.getMessage();
+src/java/org/apache/nutch/parse/ParseOutputFormat.java,158,int refreshTime = Integer.valueOf(pstatus.getArgs()[1]);
+src/java/org/apache/nutch/parse/ParseOutputFormat.java,159,try {
+src/java/org/apache/nutch/parse/ParseOutputFormat.java,163,newUrl = null;
+src/java/org/apache/nutch/parse/ParseOutputFormat.java,166,String url = key.toString();
+src/java/org/apache/nutch/parse/ParseOutputFormat.java,167,if (newUrl != null && !newUrl.equals(url)) {
+src/java/org/apache/nutch/parse/ParseOutputFormat.java,168,String reprUrl =
+src/java/org/apache/nutch/parse/ParseOutputFormat.java,169,URLUtil.chooseRepr(url, newUrl,
+src/java/org/apache/nutch/parse/ParseOutputFormat.java,170,refreshTime < Fetcher.PERM_REFRESH_TIME);
+src/java/org/apache/nutch/parse/ParseOutputFormat.java,171,CrawlDatum newDatum = new CrawlDatum();
+src/java/org/apache/nutch/parse/ParseOutputFormat.java,172,newDatum.setStatus(CrawlDatum.STATUS_LINKED);
+src/java/org/apache/nutch/parse/ParseOutputFormat.java,173,if (reprUrl != null && !reprUrl.equals(newUrl)) {
+src/java/org/apache/nutch/parse/ParseOutputFormat.java,174,newDatum.getMetaData().put(Nutch.WRITABLE_REPR_URL_KEY,
+src/java/org/apache/nutch/parse/ParseOutputFormat.java,175,new Text(reprUrl));
+src/java/org/apache/nutch/parse/ParseOutputFormat.java,177,crawlOut.append(new Text(newUrl), newDatum);
+src/java/org/apache/nutch/parse/ParseOutputFormat.java,187,if (ignoreExternalLinks) {
+src/java/org/apache/nutch/parse/ParseOutputFormat.java,188,try {
+src/java/org/apache/nutch/parse/ParseOutputFormat.java,189,fromHost = new URL(fromUrl).getHost().toLowerCase();
+src/java/org/apache/nutch/parse/ParseOutputFormat.java,191,fromHost = null;
+src/java/org/apache/nutch/parse/ParseOutputFormat.java,194,fromHost = null;
+src/java/org/apache/nutch/fetcher/Fetcher.java,1165,String agentNames = getConf().get("http.robots.agents");
+src/java/org/apache/nutch/fetcher/Fetcher.java,1166,StringTokenizer tok = new StringTokenizer(agentNames, ",");
+src/java/org/apache/nutch/fetcher/Fetcher.java,1167,ArrayList<String> agents = new ArrayList<String>();
+src/java/org/apache/nutch/fetcher/Fetcher.java,1168,while (tok.hasMoreTokens()) {
+src/java/org/apache/nutch/fetcher/Fetcher.java,1169,agents.add(tok.nextToken().trim());
+src/java/org/apache/nutch/fetcher/Fetcher.java,1174,if (!(agents.get(0)).equalsIgnoreCase(agentName)) {
+src/java/org/apache/nutch/fetcher/Fetcher.java,1175,String message = "Fetcher: Your 'http.agent.name' value should be "
+src/java/org/apache/nutch/fetcher/Fetcher.java,1176,+ "listed first in 'http.robots.agents' property.";
+src/java/org/apache/nutch/fetcher/Fetcher.java,1177,if (LOG.isWarnEnabled()) {
+src/java/org/apache/nutch/fetcher/Fetcher.java,1178,LOG.warn(message);
+src/java/org/apache/nutch/crawl/CrawlDb.java,166,boolean normalize = false;
+src/java/org/apache/nutch/crawl/CrawlDb.java,167,boolean filter = false;
+src/java/org/apache/nutch/crawl/CrawlDb.java,170,boolean additionsAllowed = getConf().getBoolean(CRAWLDB_ADDITIONS_ALLOWED, true);
+src/plugin/protocol-httpclient/src/java/org/apache/nutch/protocol/httpclient/Http.java,82,int maxThreadsTotal = 10;
+src/java/org/apache/nutch/fetcher/Fetcher.java,1025,new FetcherThread(getConf()).start();
+src/java/org/apache/nutch/crawl/CrawlDbReader.java,478,if (args.length < 1) {
+src/java/org/apache/nutch/segment/SegmentMerger.java,407,if (lastF == null) {
+src/java/org/apache/nutch/segment/SegmentMerger.java,408,lastF = val;
+src/java/org/apache/nutch/segment/SegmentMerger.java,409,lastFname = sp.segmentName;
+src/java/org/apache/nutch/indexer/solr/SolrDeleteDuplicates.java,273,key.set(digest);
+src/java/org/apache/nutch/indexer/solr/SolrDeleteDuplicates.java,274,value.readSolrDocument(doc);
+src/java/org/apache/nutch/crawl/CrawlDbReducer.java,241,if (metaFromParse != null) {
+src/java/org/apache/nutch/crawl/CrawlDbReducer.java,242,for (Entry<Writable, Writable> e : metaFromParse.entrySet()) {
+src/java/org/apache/nutch/crawl/CrawlDbReducer.java,243,result.getMetaData().put(e.getKey(), e.getValue());
+src/java/org/apache/nutch/indexer/IndexingFilters.java,20,import java.util.ArrayList;
+src/java/org/apache/nutch/indexer/IndexingFilters.java,21,import java.util.HashMap;
+src/java/org/apache/nutch/indexer/IndexingFilters.java,27,import org.apache.nutch.plugin.*;
+src/java/org/apache/nutch/indexer/IndexingFilters.java,29,import org.apache.nutch.util.ObjectCache;
+src/java/org/apache/nutch/indexer/IndexingFilters.java,46,String order = conf.get(INDEXINGFILTER_ORDER);
+src/java/org/apache/nutch/indexer/IndexingFilters.java,47,ObjectCache objectCache = ObjectCache.get(conf);
+src/java/org/apache/nutch/indexer/IndexingFilters.java,48,this.indexingFilters = (IndexingFilter[]) objectCache
+src/java/org/apache/nutch/indexer/IndexingFilters.java,49,.getObject(IndexingFilter.class.getName());
+src/java/org/apache/nutch/indexer/IndexingFilters.java,50,if (this.indexingFilters == null) {
+src/java/org/apache/nutch/indexer/IndexingFilters.java,55,String[] orderedFilters = null;
+src/java/org/apache/nutch/indexer/IndexingFilters.java,56,if (order != null && !order.trim().equals("")) {
+src/java/org/apache/nutch/indexer/IndexingFilters.java,59,try {
+src/java/org/apache/nutch/indexer/IndexingFilters.java,60,ExtensionPoint point = PluginRepository.get(conf).getExtensionPoint(
+src/java/org/apache/nutch/indexer/IndexingFilters.java,61,IndexingFilter.X_POINT_ID);
+src/java/org/apache/nutch/indexer/IndexingFilters.java,63,throw new RuntimeException(IndexingFilter.X_POINT_ID + " not found.");
+src/java/org/apache/nutch/indexer/IndexingFilters.java,64,Extension[] extensions = point.getExtensions();
+src/java/org/apache/nutch/indexer/IndexingFilters.java,65,HashMap<String, IndexingFilter> filterMap =
+src/java/org/apache/nutch/indexer/IndexingFilters.java,66,new HashMap<String, IndexingFilter>();
+src/java/org/apache/nutch/indexer/IndexingFilters.java,67,for (int i = 0; i < extensions.length; i++) {
+src/java/org/apache/nutch/indexer/IndexingFilters.java,68,Extension extension = extensions[i];
+src/java/org/apache/nutch/indexer/IndexingFilters.java,69,IndexingFilter filter = (IndexingFilter) extension
+src/java/org/apache/nutch/indexer/IndexingFilters.java,70,.getExtensionInstance();
+src/java/org/apache/nutch/indexer/IndexingFilters.java,71,LOG.info("Adding " + filter.getClass().getName());
+src/java/org/apache/nutch/indexer/IndexingFilters.java,72,if (!filterMap.containsKey(filter.getClass().getName())) {
+src/java/org/apache/nutch/indexer/IndexingFilters.java,74,filterMap.put(filter.getClass().getName(), filter);
+src/java/org/apache/nutch/indexer/IndexingFilters.java,81,if (orderedFilters == null) {
+src/java/org/apache/nutch/indexer/IndexingFilters.java,82,objectCache.setObject(IndexingFilter.class.getName(),
+src/java/org/apache/nutch/indexer/IndexingFilters.java,83,filterMap.values().toArray(
+src/java/org/apache/nutch/indexer/IndexingFilters.java,84,new IndexingFilter[0]));
+src/java/org/apache/nutch/indexer/IndexingFilters.java,87,ArrayList<IndexingFilter> filters = new ArrayList<IndexingFilter>();
+src/java/org/apache/nutch/indexer/IndexingFilters.java,88,for (int i = 0; i < orderedFilters.length; i++) {
+src/java/org/apache/nutch/indexer/IndexingFilters.java,89,IndexingFilter filter = filterMap
+src/java/org/apache/nutch/indexer/IndexingFilters.java,90,.get(orderedFilters[i]);
+src/java/org/apache/nutch/indexer/IndexingFilters.java,91,if (filter != null) {
+src/java/org/apache/nutch/indexer/IndexingFilters.java,93,filters.add(filter);
+src/java/org/apache/nutch/indexer/IndexingFilters.java,96,objectCache.setObject(IndexingFilter.class.getName(), filters
+src/java/org/apache/nutch/indexer/IndexingFilters.java,97,.toArray(new IndexingFilter[filters.size()]));
+src/java/org/apache/nutch/indexer/IndexingFilters.java,100,throw new RuntimeException(e);
+src/java/org/apache/nutch/indexer/IndexingFilters.java,102,this.indexingFilters = (IndexingFilter[]) objectCache
+src/java/org/apache/nutch/indexer/IndexingFilters.java,103,.getObject(IndexingFilter.class.getName());
+src/java/org/apache/nutch/net/URLFilters.java,20,import java.util.ArrayList;
+src/java/org/apache/nutch/net/URLFilters.java,21,import java.util.HashMap;
+src/java/org/apache/nutch/net/URLFilters.java,22,import java.util.Map;
+src/java/org/apache/nutch/net/URLFilters.java,24,import org.apache.nutch.plugin.Extension;
+src/java/org/apache/nutch/net/URLFilters.java,25,import org.apache.nutch.plugin.ExtensionPoint;
+src/java/org/apache/nutch/net/URLFilters.java,26,import org.apache.nutch.plugin.PluginRuntimeException;
+src/java/org/apache/nutch/net/URLFilters.java,28,import org.apache.nutch.util.ObjectCache;
+src/java/org/apache/nutch/net/URLFilters.java,30,import org.apache.hadoop.conf.Configuration;
+src/java/org/apache/nutch/net/URLFilters.java,38,String order = conf.get(URLFILTER_ORDER);
+src/java/org/apache/nutch/net/URLFilters.java,39,ObjectCache objectCache = ObjectCache.get(conf);
+src/java/org/apache/nutch/net/URLFilters.java,40,this.filters = (URLFilter[]) objectCache.getObject(URLFilter.class.getName());
+src/java/org/apache/nutch/net/URLFilters.java,42,if (this.filters == null) {
+src/java/org/apache/nutch/net/URLFilters.java,43,String[] orderedFilters = null;
+src/java/org/apache/nutch/net/URLFilters.java,44,if (order != null && !order.trim().equals("")) {
+src/java/org/apache/nutch/net/URLFilters.java,48,try {
+src/java/org/apache/nutch/net/URLFilters.java,49,ExtensionPoint point = PluginRepository.get(conf).getExtensionPoint(
+src/java/org/apache/nutch/net/URLFilters.java,50,URLFilter.X_POINT_ID);
+src/java/org/apache/nutch/net/URLFilters.java,52,throw new RuntimeException(URLFilter.X_POINT_ID + " not found.");
+src/java/org/apache/nutch/net/URLFilters.java,53,Extension[] extensions = point.getExtensions();
+src/java/org/apache/nutch/net/URLFilters.java,54,Map<String, URLFilter> filterMap = new HashMap<String, URLFilter>();
+src/java/org/apache/nutch/net/URLFilters.java,55,for (int i = 0; i < extensions.length; i++) {
+src/java/org/apache/nutch/net/URLFilters.java,56,Extension extension = extensions[i];
+src/java/org/apache/nutch/net/URLFilters.java,57,URLFilter filter = (URLFilter) extension.getExtensionInstance();
+src/java/org/apache/nutch/net/URLFilters.java,58,if (!filterMap.containsKey(filter.getClass().getName())) {
+src/java/org/apache/nutch/net/URLFilters.java,59,filterMap.put(filter.getClass().getName(), filter);
+src/java/org/apache/nutch/net/URLFilters.java,62,if (orderedFilters == null) {
+src/java/org/apache/nutch/net/URLFilters.java,63,objectCache.setObject(URLFilter.class.getName(), filterMap.values().toArray(
+src/java/org/apache/nutch/net/URLFilters.java,64,new URLFilter[0]));
+src/java/org/apache/nutch/net/URLFilters.java,66,ArrayList<URLFilter> filters = new ArrayList<URLFilter>();
+src/java/org/apache/nutch/net/URLFilters.java,67,for (int i = 0; i < orderedFilters.length; i++) {
+src/java/org/apache/nutch/net/URLFilters.java,68,URLFilter filter = filterMap.get(orderedFilters[i]);
+src/java/org/apache/nutch/net/URLFilters.java,69,if (filter != null) {
+src/java/org/apache/nutch/net/URLFilters.java,70,filters.add(filter);
+src/java/org/apache/nutch/net/URLFilters.java,73,objectCache.setObject(URLFilter.class.getName(), filters
+src/java/org/apache/nutch/net/URLFilters.java,74,.toArray(new URLFilter[filters.size()]));
+src/java/org/apache/nutch/net/URLFilters.java,77,throw new RuntimeException(e);
+src/java/org/apache/nutch/net/URLFilters.java,79,this.filters = (URLFilter[]) objectCache.getObject(URLFilter.class.getName());
+src/java/org/apache/nutch/parse/HtmlParseFilters.java,20,import java.util.ArrayList;
+src/java/org/apache/nutch/parse/HtmlParseFilters.java,21,import java.util.HashMap;
+src/java/org/apache/nutch/parse/HtmlParseFilters.java,24,import org.apache.nutch.plugin.*;
+src/java/org/apache/nutch/parse/HtmlParseFilters.java,25,import org.apache.nutch.util.ObjectCache;
+src/java/org/apache/nutch/parse/HtmlParseFilters.java,38,String order = conf.get(HTMLPARSEFILTER_ORDER);
+src/java/org/apache/nutch/parse/HtmlParseFilters.java,39,ObjectCache objectCache = ObjectCache.get(conf);
+src/java/org/apache/nutch/parse/HtmlParseFilters.java,40,this.htmlParseFilters = (HtmlParseFilter[]) objectCache.getObject(HtmlParseFilter.class.getName());
+src/java/org/apache/nutch/parse/HtmlParseFilters.java,41,if (htmlParseFilters == null) {
+src/java/org/apache/nutch/parse/HtmlParseFilters.java,46,String[] orderedFilters = null;
+src/java/org/apache/nutch/parse/HtmlParseFilters.java,47,if (order != null && !order.trim().equals("")) {
+src/java/org/apache/nutch/parse/HtmlParseFilters.java,50,HashMap<String, HtmlParseFilter> filterMap =
+src/java/org/apache/nutch/parse/HtmlParseFilters.java,51,new HashMap<String, HtmlParseFilter>();
+src/java/org/apache/nutch/parse/HtmlParseFilters.java,52,try {
+src/java/org/apache/nutch/parse/HtmlParseFilters.java,53,ExtensionPoint point = PluginRepository.get(conf).getExtensionPoint(HtmlParseFilter.X_POINT_ID);
+src/java/org/apache/nutch/parse/HtmlParseFilters.java,55,throw new RuntimeException(HtmlParseFilter.X_POINT_ID + " not found.");
+src/java/org/apache/nutch/parse/HtmlParseFilters.java,56,Extension[] extensions = point.getExtensions();
+src/java/org/apache/nutch/parse/HtmlParseFilters.java,57,for (int i = 0; i < extensions.length; i++) {
+src/java/org/apache/nutch/parse/HtmlParseFilters.java,58,Extension extension = extensions[i];
+src/java/org/apache/nutch/parse/HtmlParseFilters.java,59,HtmlParseFilter parseFilter = (HtmlParseFilter) extension.getExtensionInstance();
+src/java/org/apache/nutch/parse/HtmlParseFilters.java,60,if (!filterMap.containsKey(parseFilter.getClass().getName())) {
+src/java/org/apache/nutch/parse/HtmlParseFilters.java,61,filterMap.put(parseFilter.getClass().getName(), parseFilter);
+src/java/org/apache/nutch/parse/HtmlParseFilters.java,64,HtmlParseFilter[] htmlParseFilters = filterMap.values().toArray(new HtmlParseFilter[filterMap.size()]);
+src/java/org/apache/nutch/parse/HtmlParseFilters.java,69,if (orderedFilters == null) {
+src/java/org/apache/nutch/parse/HtmlParseFilters.java,70,objectCache.setObject(HtmlParseFilter.class.getName(), htmlParseFilters);
+src/java/org/apache/nutch/parse/HtmlParseFilters.java,73,else {
+src/java/org/apache/nutch/parse/HtmlParseFilters.java,74,ArrayList<HtmlParseFilter> filters = new ArrayList<HtmlParseFilter>();
+src/java/org/apache/nutch/parse/HtmlParseFilters.java,75,for (int i = 0; i < orderedFilters.length; i++) {
+src/java/org/apache/nutch/parse/HtmlParseFilters.java,76,HtmlParseFilter filter = filterMap
+src/java/org/apache/nutch/parse/HtmlParseFilters.java,77,.get(orderedFilters[i]);
+src/java/org/apache/nutch/parse/HtmlParseFilters.java,78,if (filter != null) {
+src/java/org/apache/nutch/parse/HtmlParseFilters.java,79,filters.add(filter);
+src/java/org/apache/nutch/parse/HtmlParseFilters.java,82,objectCache.setObject(HtmlParseFilter.class.getName(), filters
+src/java/org/apache/nutch/parse/HtmlParseFilters.java,83,.toArray(new HtmlParseFilter[filters.size()]));
+src/java/org/apache/nutch/parse/HtmlParseFilters.java,86,throw new RuntimeException(e);
+src/java/org/apache/nutch/parse/HtmlParseFilters.java,88,this.htmlParseFilters = (HtmlParseFilter[]) objectCache.getObject(HtmlParseFilter.class.getName());
+src/java/org/apache/nutch/scoring/ScoringFilters.java,21,import java.util.HashMap;
+src/java/org/apache/nutch/scoring/ScoringFilters.java,30,import org.apache.nutch.plugin.Extension;
+src/java/org/apache/nutch/scoring/ScoringFilters.java,31,import org.apache.nutch.plugin.ExtensionPoint;
+src/java/org/apache/nutch/scoring/ScoringFilters.java,32,import org.apache.nutch.plugin.PluginRuntimeException;
+src/java/org/apache/nutch/scoring/ScoringFilters.java,35,import org.apache.nutch.util.ObjectCache;
+src/java/org/apache/nutch/scoring/ScoringFilters.java,37,import org.apache.hadoop.conf.Configuration;
+src/java/org/apache/nutch/scoring/ScoringFilters.java,38,import org.apache.hadoop.conf.Configured;
+src/java/org/apache/nutch/scoring/ScoringFilters.java,39,import org.apache.hadoop.io.Text;
+src/java/org/apache/nutch/scoring/ScoringFilters.java,52,ObjectCache objectCache = ObjectCache.get(conf);
+src/java/org/apache/nutch/scoring/ScoringFilters.java,53,String order = conf.get("scoring.filter.order");
+src/java/org/apache/nutch/scoring/ScoringFilters.java,54,this.filters = (ScoringFilter[]) objectCache.getObject(ScoringFilter.class.getName());
+src/java/org/apache/nutch/scoring/ScoringFilters.java,56,if (this.filters == null) {
+src/java/org/apache/nutch/scoring/ScoringFilters.java,57,String[] orderedFilters = null;
+src/java/org/apache/nutch/scoring/ScoringFilters.java,58,if (order != null && !order.trim().equals("")) {
+src/java/org/apache/nutch/scoring/ScoringFilters.java,62,try {
+src/java/org/apache/nutch/scoring/ScoringFilters.java,63,ExtensionPoint point = PluginRepository.get(conf).getExtensionPoint(ScoringFilter.X_POINT_ID);
+src/java/org/apache/nutch/scoring/ScoringFilters.java,64,if (point == null) throw new RuntimeException(ScoringFilter.X_POINT_ID + " not found.");
+src/java/org/apache/nutch/scoring/ScoringFilters.java,65,Extension[] extensions = point.getExtensions();
+src/java/org/apache/nutch/scoring/ScoringFilters.java,66,HashMap<String, ScoringFilter> filterMap =
+src/java/org/apache/nutch/scoring/ScoringFilters.java,67,new HashMap<String, ScoringFilter>();
+src/java/org/apache/nutch/scoring/ScoringFilters.java,68,for (int i = 0; i < extensions.length; i++) {
+src/java/org/apache/nutch/scoring/ScoringFilters.java,69,Extension extension = extensions[i];
+src/java/org/apache/nutch/scoring/ScoringFilters.java,70,ScoringFilter filter = (ScoringFilter) extension.getExtensionInstance();
+src/java/org/apache/nutch/scoring/ScoringFilters.java,71,if (!filterMap.containsKey(filter.getClass().getName())) {
+src/java/org/apache/nutch/scoring/ScoringFilters.java,72,filterMap.put(filter.getClass().getName(), filter);
+src/java/org/apache/nutch/scoring/ScoringFilters.java,75,if (orderedFilters == null) {
+src/java/org/apache/nutch/scoring/ScoringFilters.java,76,objectCache.setObject(ScoringFilter.class.getName(), filterMap.values().toArray(new ScoringFilter[0]));
+src/java/org/apache/nutch/scoring/ScoringFilters.java,78,ScoringFilter[] filter = new ScoringFilter[orderedFilters.length];
+src/java/org/apache/nutch/scoring/ScoringFilters.java,79,for (int i = 0; i < orderedFilters.length; i++) {
+src/java/org/apache/nutch/scoring/ScoringFilters.java,80,filter[i] = filterMap.get(orderedFilters[i]);
+src/java/org/apache/nutch/scoring/ScoringFilters.java,82,objectCache.setObject(ScoringFilter.class.getName(), filter);
+src/java/org/apache/nutch/scoring/ScoringFilters.java,85,throw new RuntimeException(e);
+src/java/org/apache/nutch/scoring/ScoringFilters.java,87,this.filters = (ScoringFilter[]) objectCache.getObject(ScoringFilter.class.getName());
+src/java/org/apache/nutch/parse/ParseSegment.java,85,parseResult = new ParseUtil(getConf()).parse(content);
+src/java/org/apache/nutch/indexer/IndexerMapReduce.java,131,fetchDatum.getMetaData().put(Nutch.WRITABLE_REPR_URL_KEY, url);
+src/java/org/apache/nutch/segment/SegmentMerger.java,412,if (lastFname.compareTo(sp.segmentName) < 0) {
+src/java/org/apache/nutch/segment/SegmentMerger.java,413,lastF = val;
+src/java/org/apache/nutch/segment/SegmentMerger.java,414,lastFname = sp.segmentName;
+src/java/org/apache/nutch/crawl/AbstractFetchSchedule.java,105,datum.setFetchInterval(datum.getFetchInterval() * 1.5f);
+src/java/org/apache/nutch/crawl/AbstractFetchSchedule.java,107,if (maxInterval < datum.getFetchInterval()) forceRefetch(url, datum, false);
+src/plugin/index-more/src/java/org/apache/nutch/indexer/more/MoreIndexingFilter.java,108,if (time == -1) {                             // if no last-modified
+src/plugin/index-more/src/java/org/apache/nutch/indexer/more/MoreIndexingFilter.java,109,time = datum.getFetchTime();                // use fetch time
+src/java/org/apache/nutch/parse/HTMLMetaTags.java,43,private Properties generalTags = new Properties();
+src/java/org/apache/nutch/parse/HTMLMetaTags.java,169,public Properties getGeneralTags() {
+src/java/org/apache/nutch/parse/HTMLMetaTags.java,192,while (it.hasNext()) {
+src/java/org/apache/nutch/parse/HTMLMetaTags.java,193,String key = (String)it.next();
+src/plugin/parse-tika/src/java/org/apache/nutch/parse/tika/HTMLMetaProcessor.java,80,String name = nameNode.getNodeValue().toLowerCase();
+src/plugin/parse-tika/src/java/org/apache/nutch/parse/tika/HTMLMetaProcessor.java,81,metaTags.getGeneralTags().setProperty(name, contentNode.getNodeValue());
+src/java/org/apache/nutch/util/MimeUtil.java,151,type = this.mimeTypes.getMimeType(url) != null ? this.mimeTypes
+src/java/org/apache/nutch/util/MimeUtil.java,152,.getMimeType(url) : type;
+src/plugin/index-more/src/java/org/apache/nutch/indexer/more/MoreIndexingFilter.java,26,import org.apache.tika.mime.MimeType;
+src/plugin/index-more/src/java/org/apache/nutch/indexer/more/MoreIndexingFilter.java,77,private boolean MAGIC;
+src/plugin/index-more/src/java/org/apache/nutch/indexer/more/MoreIndexingFilter.java,213,mimeType = MIME.getMimeType(url);
+src/plugin/parse-zip/src/java/org/apache/nutch/parse/zip/ZipTextExtractor.java,41,import org.apache.nutch.parse.ParseImpl;
+src/plugin/parse-zip/src/java/org/apache/nutch/parse/zip/ZipTextExtractor.java,45,import org.apache.nutch.util.MimeUtil;
+src/plugin/parse-zip/src/java/org/apache/nutch/parse/zip/ZipTextExtractor.java,56,private MimeUtil MIME;
+src/plugin/parse-zip/src/java/org/apache/nutch/parse/zip/ZipTextExtractor.java,66,this.MIME = new MimeUtil(conf);
+src/plugin/parse-zip/src/java/org/apache/nutch/parse/zip/ZipTextExtractor.java,69,public String extractText(InputStream input, String url, List outLinksList) throws IOException {
+src/plugin/parse-zip/src/java/org/apache/nutch/parse/zip/ZipTextExtractor.java,71,byte temp;
+src/java/org/apache/nutch/crawl/Generator.java,469,+ System.currentTimeMillis());
+src/java/org/apache/nutch/crawl/Generator.java,557,+ System.currentTimeMillis());
+src/plugin/index-basic/src/java/org/apache/nutch/indexer/basic/BasicIndexingFilter.java,78,if (title.length() > MAX_TITLE_LENGTH) {      // truncate title if needed
+src/java/org/apache/nutch/crawl/CrawlDbFilter.java,78,if (urlNormalizers) {
+src/java/org/apache/nutch/crawl/CrawlDb.java,155,if (args.length < 2) {
+src/java/org/apache/nutch/segment/SegmentReader.java,483,if (fs.exists(fetchDir) && fs.getFileStatus(fetchDir).isDir()) {
+src/java/org/apache/nutch/indexer/solr/SolrDeleteDuplicates.java,89,private static final String SOLR_GET_ALL_QUERY = SolrConstants.ID_FIELD + ":[* TO *]";
+src/plugin/lib-http/src/java/org/apache/nutch/protocol/http/api/RobotRulesParser.java,563,System.out.println( (rules.isAllowed(testPath) ?
+src/java/org/apache/nutch/parse/ParserChecker.java,70,url = args[i];
+src/plugin/urlfilter-domain/src/java/org/apache/nutch/urlfilter/domain/DomainURLFilter.java,81,domainSet.add(StringUtils.lowerCase(line));
+src/plugin/lib-http/src/java/org/apache/nutch/protocol/http/api/HttpBase.java,156,public void setConf(Configuration conf) {
+src/plugin/lib-http/src/java/org/apache/nutch/protocol/http/api/HttpBase.java,157,this.conf = conf;
+src/plugin/lib-http/src/java/org/apache/nutch/protocol/http/api/HttpBase.java,158,this.proxyHost = conf.get("http.proxy.host");
+src/plugin/lib-http/src/java/org/apache/nutch/protocol/http/api/HttpBase.java,159,this.proxyPort = conf.getInt("http.proxy.port", 8080);
+src/plugin/lib-http/src/java/org/apache/nutch/protocol/http/api/HttpBase.java,160,this.useProxy = (proxyHost != null && proxyHost.length() > 0);
+src/plugin/lib-http/src/java/org/apache/nutch/protocol/http/api/HttpBase.java,161,this.timeout = conf.getInt("http.timeout", 10000);
+src/plugin/lib-http/src/java/org/apache/nutch/protocol/http/api/HttpBase.java,162,this.maxContent = conf.getInt("http.content.limit", 64 * 1024);
+src/plugin/lib-http/src/java/org/apache/nutch/protocol/http/api/HttpBase.java,165,this.userAgent = getAgentString(conf.get("http.agent.name"), conf.get("http.agent.version"), conf
+src/plugin/lib-http/src/java/org/apache/nutch/protocol/http/api/HttpBase.java,166,.get("http.agent.description"), conf.get("http.agent.url"), conf.get("http.agent.email"));
+src/plugin/lib-http/src/java/org/apache/nutch/protocol/http/api/HttpBase.java,167,this.acceptLanguage = conf.get("http.accept.language", acceptLanguage);
+src/plugin/lib-http/src/java/org/apache/nutch/protocol/http/api/HttpBase.java,172,this.useHttp11 = conf.getBoolean("http.useHttp11", false);
+src/plugin/lib-http/src/java/org/apache/nutch/protocol/http/api/HttpBase.java,173,this.robots.setConf(conf);
+src/plugin/lib-http/src/java/org/apache/nutch/protocol/http/api/HttpBase.java,176,logConf();
+src/java/org/apache/nutch/crawl/Crawl.java,86,solrUrl = StringUtils.lowerCase(args[i + 1]);
+src/plugin/index-more/src/java/org/apache/nutch/indexer/more/MoreIndexingFilter.java,223,contentType = mimeType.getName();
+src/plugin/parse-zip/src/java/org/apache/nutch/parse/zip/ZipTextExtractor.java,96,String contentType = MIME.getMimeType(fname).getName();
+src/plugin/protocol-file/src/java/org/apache/nutch/protocol/file/FileResponse.java,35,import org.apache.tika.mime.MimeType;
+src/plugin/protocol-file/src/java/org/apache/nutch/protocol/file/FileResponse.java,214,headers.set(Response.CONTENT_TYPE, mimeTypeString);
+src/java/org/apache/nutch/net/URLFilterChecker.java,108,String usage = "Usage: URLFilterChecker (-filterName filterName | -allCombined)";
+src/plugin/urlfilter-regex/src/java/org/apache/nutch/urlfilter/regex/RegexURLFilter.java,90,return pattern.matcher(url).find();
+src/java/org/apache/nutch/parse/ParserChecker.java,103,System.out.print("---------\nParseData\n---------\n");
+src/java/org/apache/nutch/util/domain/DomainStatistics.java,139,if(datum.getStatus() == CrawlDatum.STATUS_DB_FETCHED
+src/java/org/apache/nutch/util/domain/DomainStatistics.java,140,|| datum.getStatus() == CrawlDatum.STATUS_FETCH_SUCCESS) {
+src/java/org/apache/nutch/crawl/Generator.java,273,if (hostCount[1] > maxCount) {
+src/java/org/apache/nutch/crawl/CrawlDbReader.java,103,out.writeBytes("Url;Status code;Status name;Fetch Time;Modified Time;Retries since fetch;Retry interval;Score;Signature;Metadata\n");
+src/java/org/apache/nutch/parse/ParserFactory.java,351,else if ("*".equals(extensions[i].getAttribute("contentType"))){
+src/java/org/apache/nutch/parse/ParserFactory.java,383,(type.equals(extension.getAttribute("contentType")) || extension.getAttribute("contentType").equals("*") ||
+src/plugin/parse-tika/src/java/org/apache/nutch/parse/tika/DOMContentUtils.java,58,private HashMap linkParams = new HashMap();
+src/plugin/parse-tika/src/java/org/apache/nutch/parse/tika/DOMContentUtils.java,320,throws MalformedURLException{
+src/plugin/parse-tika/src/java/org/apache/nutch/parse/tika/DOMContentUtils.java,325,return new URL(base, target);
+src/plugin/parse-tika/src/java/org/apache/nutch/parse/tika/DOMContentUtils.java,329,String baseURL = base.toString();
+src/plugin/parse-tika/src/java/org/apache/nutch/parse/tika/DOMContentUtils.java,330,int startParams = baseURL.indexOf(';');
+src/plugin/parse-tika/src/java/org/apache/nutch/parse/tika/DOMContentUtils.java,331,String params = baseURL.substring(startParams);
+src/plugin/parse-tika/src/java/org/apache/nutch/parse/tika/DOMContentUtils.java,335,int startQS = target.indexOf('?');
+src/plugin/parse-tika/src/java/org/apache/nutch/parse/tika/DOMContentUtils.java,336,if (startQS >= 0) {
+src/plugin/parse-tika/src/java/org/apache/nutch/parse/tika/DOMContentUtils.java,337,target = target.substring(0, startQS) + params +
+src/plugin/parse-tika/src/java/org/apache/nutch/parse/tika/DOMContentUtils.java,338,target.substring(startQS);
+src/plugin/parse-tika/src/java/org/apache/nutch/parse/tika/DOMContentUtils.java,340,else {
+src/plugin/parse-tika/src/java/org/apache/nutch/parse/tika/DOMContentUtils.java,341,target += params;
+src/plugin/parse-tika/src/java/org/apache/nutch/parse/tika/DOMContentUtils.java,344,return new URL(base, target);
+src/plugin/parse-tika/src/java/org/apache/nutch/parse/tika/DOMContentUtils.java,361,void getOutlinks(URL base, ArrayList outlinks,
+src/plugin/parse-tika/src/java/org/apache/nutch/parse/tika/DOMContentUtils.java,403,URL url = (base.toString().indexOf(';') > 0) ?
+src/plugin/parse-tika/src/java/org/apache/nutch/parse/tika/DOMContentUtils.java,404,fixEmbeddedParams(base, target) :  new URL(base, target);
+src/java/org/apache/nutch/crawl/LinkDb.java,272,segDir = new Path(args[++i]);
+src/java/org/apache/nutch/crawl/LinkDb.java,273,FileStatus[] files = fs.listStatus(segDir, HadoopFSUtil.getPassDirectoriesFilter(fs));
+src/java/org/apache/nutch/crawl/LinkDb.java,274,if (files != null) segs.addAll(Arrays.asList(HadoopFSUtil.getPaths(files)));
+src/java/org/apache/nutch/crawl/LinkDb.java,275,break;
+src/java/org/apache/nutch/crawl/CrawlDatum.java,122,private float score = 1.0f;
+src/java/org/apache/nutch/fetcher/Fetcher.java,818,datum.getFetchInterval());
+src/java/org/apache/nutch/scoring/webgraph/WebGraph.java,450,boolean webGraphDbExists = fs.exists(webGraphDb);
+src/java/org/apache/nutch/scoring/webgraph/WebGraph.java,451,if (webGraphDbExists) {
+src/java/org/apache/nutch/scoring/webgraph/WebGraph.java,452,LockUtil.createLockFile(fs, lock, false);
+src/java/org/apache/nutch/scoring/webgraph/WebGraph.java,454,else {
+src/java/org/apache/nutch/scoring/webgraph/WebGraph.java,479,if (webGraphDbExists) {
+src/java/org/apache/nutch/scoring/webgraph/WebGraph.java,480,LOG.info("OutlinkDb: adding input: " + outlinkDb);
+src/java/org/apache/nutch/scoring/webgraph/WebGraph.java,481,FileInputFormat.addInputPath(outlinkJob, outlinkDb);
+src/java/org/apache/nutch/fetcher/FetcherOutputFormat.java,50,throw new IOException("Segment already fetched!");
+src/java/org/apache/nutch/parse/ParseOutputFormat.java,78,Path out = FileOutputFormat.getOutputPath(job);
+src/java/org/apache/nutch/parse/ParseOutputFormat.java,80,throw new IOException("Segment already parsed!");
+src/plugin/index-more/src/java/org/apache/nutch/indexer/more/MoreIndexingFilter.java,173,doc.add("contentLength", contentLength);
+src/java/org/apache/nutch/indexer/solr/SolrMappingReader.java,43,private static final String SS_FILE_MAPPING = "solrindex.mapping.file";
+src/java/org/apache/nutch/indexer/solr/SolrMappingReader.java,68,ssInputStream = conf.getConfResourceAsInputStream(conf.get(SS_FILE_MAPPING, "solrindex-mapping.xml"));
+src/java/org/apache/nutch/crawl/CrawlDbMerger.java,175,dbs.add(new Path(args[i]));
+src/java/org/apache/nutch/fetcher/Fetcher.java,753,if (redirecting && redirectCount >= maxRedirect) {
+src/plugin/lib-http/src/java/org/apache/nutch/protocol/http/api/HttpBase.java,24,import java.util.HashMap;
+src/plugin/lib-http/src/java/org/apache/nutch/protocol/http/api/HttpBase.java,25,import java.util.LinkedList;
+src/plugin/lib-http/src/java/org/apache/nutch/protocol/http/api/HttpBase.java,82,protected int maxThreadsPerHost = 1;
+src/plugin/lib-http/src/java/org/apache/nutch/protocol/http/api/HttpBase.java,105,private static HashMap BLOCKED_ADDR_TO_TIME = new HashMap();
+src/plugin/lib-http/src/java/org/apache/nutch/protocol/http/api/HttpBase.java,110,private static HashMap THREADS_PER_HOST_COUNT = new HashMap();
+src/plugin/lib-http/src/java/org/apache/nutch/protocol/http/api/HttpBase.java,116,private static LinkedList BLOCKED_ADDR_QUEUE = new LinkedList();
+src/plugin/lib-http/src/java/org/apache/nutch/protocol/http/api/HttpBase.java,163,this.maxDelays = conf.getInt("http.max.delays", 3);
+src/plugin/lib-http/src/java/org/apache/nutch/protocol/http/api/HttpBase.java,164,this.maxThreadsPerHost = conf.getInt("fetcher.threads.per.host", 1);
+src/plugin/lib-http/src/java/org/apache/nutch/protocol/http/api/HttpBase.java,168,this.serverDelay = (long) (conf.getFloat("fetcher.server.delay", 1.0f) * 1000);
+src/plugin/lib-http/src/java/org/apache/nutch/protocol/http/api/HttpBase.java,169,this.maxCrawlDelay = (long)(conf.getInt("fetcher.max.crawl.delay", -1) * 1000);
+src/plugin/lib-http/src/java/org/apache/nutch/protocol/http/api/HttpBase.java,171,this.byIP = conf.getBoolean("fetcher.threads.per.host.by.ip", true);
+src/plugin/lib-http/src/java/org/apache/nutch/protocol/http/api/HttpBase.java,174,this.checkBlocking = conf.getBoolean(Protocol.CHECK_BLOCKING, true);
+src/plugin/lib-http/src/java/org/apache/nutch/protocol/http/api/HttpBase.java,175,this.checkRobots = conf.getBoolean(Protocol.CHECK_ROBOTS, true);
+src/plugin/lib-http/src/java/org/apache/nutch/protocol/http/api/HttpBase.java,191,long delay = serverDelay;
+src/plugin/lib-http/src/java/org/apache/nutch/protocol/http/api/HttpBase.java,196,return new ProtocolOutput(null, new ProtocolStatus(ProtocolStatus.ROBOTS_DENIED, url));
+src/plugin/lib-http/src/java/org/apache/nutch/protocol/http/api/HttpBase.java,205,long crawlDelay = robots.getCrawlDelay(this, u);
+src/plugin/lib-http/src/java/org/apache/nutch/protocol/http/api/HttpBase.java,206,delay = crawlDelay > 0 ? crawlDelay : serverDelay;
+src/plugin/lib-http/src/java/org/apache/nutch/protocol/http/api/HttpBase.java,211,+ (maxCrawlDelay / 1000) + ", Crawl-Delay=" + (delay / 1000));
+src/plugin/lib-http/src/java/org/apache/nutch/protocol/http/api/HttpBase.java,212,return new ProtocolOutput(null, ProtocolStatus.STATUS_WOULDBLOCK);
+src/plugin/lib-http/src/java/org/apache/nutch/protocol/http/api/HttpBase.java,219,return new ProtocolOutput(null, ProtocolStatus.STATUS_BLOCKED);
+src/plugin/lib-http/src/java/org/apache/nutch/protocol/http/api/HttpBase.java,224,response = getResponse(u, datum, false); // make a request
+src/plugin/lib-http/src/java/org/apache/nutch/protocol/http/api/HttpBase.java,367,time = (Long) BLOCKED_ADDR_TO_TIME.get(host);
+src/plugin/lib-http/src/java/org/apache/nutch/protocol/http/api/HttpBase.java,371,Integer counter = (Integer)THREADS_PER_HOST_COUNT.get(host);
+src/plugin/lib-http/src/java/org/apache/nutch/protocol/http/api/HttpBase.java,406,int addrCount = ((Integer)THREADS_PER_HOST_COUNT.get(host)).intValue();
+src/plugin/lib-http/src/java/org/apache/nutch/protocol/http/api/HttpBase.java,411,(host, new Long(System.currentTimeMillis() + crawlDelay));
+src/plugin/lib-http/src/java/org/apache/nutch/protocol/http/api/HttpBase.java,421,String host = (String) BLOCKED_ADDR_QUEUE.get(i);
+src/plugin/lib-http/src/java/org/apache/nutch/protocol/http/api/HttpBase.java,422,long time = ((Long) BLOCKED_ADDR_TO_TIME.get(host)).longValue();
+src/plugin/protocol-httpclient/src/java/org/apache/nutch/protocol/httpclient/Http.java,173,if (maxThreadsTotal > maxThreadsPerHost) {
+src/plugin/protocol-httpclient/src/java/org/apache/nutch/protocol/httpclient/Http.java,174,params.setDefaultMaxConnectionsPerHost(maxThreadsPerHost);
+src/plugin/protocol-httpclient/src/java/org/apache/nutch/protocol/httpclient/Http.java,176,params.setDefaultMaxConnectionsPerHost(maxThreadsTotal);
+src/java/org/apache/nutch/fetcher/Fetcher.java,325,this.timelimit = conf.getLong("fetcher.timelimit.mins", -1);
+src/java/org/apache/nutch/fetcher/Fetcher.java,1016,long timelimit = getConf().getLong("fetcher.timelimit.mins", -1);
+src/java/org/apache/nutch/fetcher/Fetcher.java,1081,getConf().setLong("fetcher.timelimit.mins", timelimit);
+src/plugin/protocol-file/src/java/org/apache/nutch/protocol/file/FileResponse.java,82,public int getCode() { return code; }
+src/plugin/protocol-file/src/java/org/apache/nutch/protocol/file/FileResponse.java,89,public byte[] getContent() { return content; }
+src/plugin/protocol-file/src/java/org/apache/nutch/protocol/file/FileResponse.java,93,getHeader(Response.CONTENT_TYPE),
+src/plugin/protocol-file/src/java/org/apache/nutch/protocol/file/FileResponse.java,94,headers, this.conf);
+src/plugin/protocol-file/src/java/org/apache/nutch/protocol/file/FileResponse.java,174,throws FileException, IOException {
+src/plugin/protocol-file/src/java/org/apache/nutch/protocol/file/FileResponse.java,180,throw new FileException("file is too large, size: "+size);
+src/plugin/protocol-file/src/java/org/apache/nutch/protocol/file/FileResponse.java,195,int offset = 0; int n = 0;
+src/plugin/protocol-file/src/java/org/apache/nutch/protocol/file/FileResponse.java,197,&& (n = is.read(this.content, offset, len-offset)) >= 0) {
+src/plugin/protocol-file/src/java/org/apache/nutch/protocol/file/FileResponse.java,202,File.LOG.warn("not enough bytes read from file: "+f.getPath());
+src/plugin/protocol-file/src/java/org/apache/nutch/protocol/file/FileResponse.java,205,is.close();
+src/plugin/protocol-file/src/java/org/apache/nutch/protocol/file/FileResponse.java,209,headers.set(Response.LAST_MODIFIED, HttpDateFormat.toString(f
+src/plugin/protocol-file/src/java/org/apache/nutch/protocol/file/FileResponse.java,210,.lastModified()));
+src/plugin/protocol-file/src/java/org/apache/nutch/protocol/file/FileResponse.java,222,throws IOException {
+src/plugin/protocol-file/src/java/org/apache/nutch/protocol/file/FileResponse.java,229,new Integer(this.content.length).toString());
+src/plugin/protocol-file/src/java/org/apache/nutch/protocol/file/FileResponse.java,232,HttpDateFormat.toString(f.lastModified()));
+src/plugin/protocol-file/src/java/org/apache/nutch/protocol/file/FileResponse.java,239,private byte[] list2html(java.io.File[] list,
+src/plugin/protocol-file/src/java/org/apache/nutch/protocol/file/FileResponse.java,240,String path, boolean includeDotDot) {
+src/plugin/protocol-file/src/java/org/apache/nutch/protocol/file/FileResponse.java,243,x.append("<title>Index of "+path+"</title></head>\n");
+src/plugin/protocol-file/src/java/org/apache/nutch/protocol/file/FileResponse.java,244,x.append("<body><h1>Index of "+path+"</h1><pre>\n");
+src/plugin/protocol-file/src/java/org/apache/nutch/protocol/file/FileResponse.java,253,for (int i=0; i<list.length; i++) {
+src/plugin/protocol-file/src/java/org/apache/nutch/protocol/file/FileResponse.java,262,x.append("<a href='"+name+"/"+"'>"+name+"/</a>\t");
+src/plugin/protocol-file/src/java/org/apache/nutch/protocol/file/FileResponse.java,263,x.append(time+"\t-\n");
+src/plugin/protocol-file/src/java/org/apache/nutch/protocol/file/FileResponse.java,265,x.append("<a href='"+name+    "'>"+name+"</a>\t");
+src/plugin/protocol-file/src/java/org/apache/nutch/protocol/file/FileResponse.java,266,x.append(time+"\t"+f.length()+"\n");

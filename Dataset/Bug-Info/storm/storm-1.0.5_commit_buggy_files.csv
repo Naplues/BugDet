@@ -1,0 +1,5 @@
+0fc6b522487c061f89e8cdacf09f722d3f20589a:storm-core/src/jvm/org/apache/storm/localizer/Localizer.java|storm-core/src/jvm/org/apache/storm/utils/Utils.java
+b80c2a86f4993959bd4bfafa19126610f031b23d:storm-core/src/jvm/org/apache/storm/daemon/supervisor/Slot.java
+5a3cefbace63a593b31e0193656b46143e113f78:storm-core/src/jvm/org/apache/storm/metric/FileBasedEventLogger.java
+a21dcf6c16f794e1ac1287b9fcd3b4e8a9418824:storm-core/src/jvm/org/apache/storm/daemon/supervisor/Supervisor.java
+6e2e7e2973b426340c443b680603d0a713563b1e:external/storm-hdfs/src/main/java/org/apache/storm/hdfs/blobstore/HdfsBlobStore.java

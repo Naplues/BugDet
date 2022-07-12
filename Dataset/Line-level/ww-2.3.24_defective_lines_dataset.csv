@@ -1,0 +1,758 @@
+File,Line_number,SRC
+core/src/main/java/org/apache/struts2/dispatcher/multipart/JakartaMultiPartRequest.java,176,if (charset != null) {
+core/src/main/java/org/apache/struts2/dispatcher/multipart/JakartaMultiPartRequest.java,200,fac.setSizeThreshold(0);
+core/src/main/java/org/apache/struts2/dispatcher/multipart/JakartaMultiPartRequest.java,244,File storeLocation = ((DiskFileItem) fileItem).getStoreLocation();
+core/src/main/java/org/apache/struts2/dispatcher/multipart/JakartaMultiPartRequest.java,245,if (fileItem.isInMemory() && storeLocation != null && !storeLocation.exists()) {
+core/src/main/java/org/apache/struts2/components/Set.java,98,if (body != null && !body.equals("")) {
+core/src/main/java/org/apache/struts2/components/Set.java,99,o = body;
+core/src/main/java/org/apache/struts2/components/Set.java,101,o = findValue("top");
+plugins/portlet/src/main/java/org/apache/struts2/StrutsPortletTestCase.java,8,import org.springframework.mock.web.portlet.MockPortletContext;
+plugins/portlet/src/main/java/org/apache/struts2/StrutsPortletTestCase.java,9,import org.springframework.mock.web.portlet.MockPortletRequest;
+plugins/portlet/src/main/java/org/apache/struts2/StrutsPortletTestCase.java,10,import org.springframework.mock.web.portlet.MockPortletResponse;
+plugins/portlet/src/main/java/org/apache/struts2/StrutsPortletTestCase.java,11,import org.springframework.mock.web.portlet.MockPortletSession;
+plugins/portlet/src/main/java/org/apache/struts2/StrutsPortletTestCase.java,12,import org.springframework.mock.web.portlet.MockStateAwareResponse;
+plugins/portlet/src/main/java/org/apache/struts2/portlet/PortletRequestMap.java,56,String key = (String) keys.nextElement();
+core/src/main/java/org/apache/struts2/interceptor/debugging/DebuggingInterceptor.java,155,new PreResultListener() {
+core/src/main/java/org/apache/struts2/interceptor/debugging/DebuggingInterceptor.java,156,public void beforeResult(ActionInvocation inv, String result) {
+core/src/main/java/org/apache/struts2/interceptor/debugging/DebuggingInterceptor.java,157,printContext();
+core/src/main/java/org/apache/struts2/interceptor/debugging/DebuggingInterceptor.java,163,new PreResultListener() {
+core/src/main/java/org/apache/struts2/interceptor/debugging/DebuggingInterceptor.java,164,public void beforeResult(ActionInvocation inv, String actionResult) {
+core/src/main/java/org/apache/struts2/interceptor/debugging/DebuggingInterceptor.java,165,String xml = "";
+core/src/main/java/org/apache/struts2/interceptor/debugging/DebuggingInterceptor.java,166,if (enableXmlWithConsole) {
+core/src/main/java/org/apache/struts2/interceptor/debugging/DebuggingInterceptor.java,167,StringWriter writer = new StringWriter();
+core/src/main/java/org/apache/struts2/interceptor/debugging/DebuggingInterceptor.java,168,printContext(new PrettyPrintWriter(writer));
+core/src/main/java/org/apache/struts2/interceptor/debugging/DebuggingInterceptor.java,169,xml = writer.toString();
+core/src/main/java/org/apache/struts2/interceptor/debugging/DebuggingInterceptor.java,170,xml = xml.replaceAll("&", "&amp;");
+core/src/main/java/org/apache/struts2/interceptor/debugging/DebuggingInterceptor.java,171,xml = xml.replaceAll(">", "&gt;");
+core/src/main/java/org/apache/struts2/interceptor/debugging/DebuggingInterceptor.java,172,xml = xml.replaceAll("<", "&lt;");
+core/src/main/java/org/apache/struts2/interceptor/debugging/DebuggingInterceptor.java,174,ActionContext.getContext().put("debugXML", xml);
+core/src/main/java/org/apache/struts2/interceptor/debugging/DebuggingInterceptor.java,179,result.setLocation("/org/apache/struts2/interceptor/debugging/console.ftl");
+core/src/main/java/org/apache/struts2/interceptor/debugging/DebuggingInterceptor.java,180,result.setParse(false);
+core/src/main/java/org/apache/struts2/interceptor/debugging/DebuggingInterceptor.java,181,try {
+core/src/main/java/org/apache/struts2/interceptor/debugging/DebuggingInterceptor.java,182,result.execute(inv);
+core/src/main/java/org/apache/struts2/interceptor/debugging/DebuggingInterceptor.java,184,LOG.error("Unable to create debugging console", ex);
+core/src/main/java/org/apache/struts2/interceptor/debugging/DebuggingInterceptor.java,294,ServletActionContext.getResponse().getWriter());
+core/src/main/java/org/apache/struts2/interceptor/debugging/DebuggingInterceptor.java,443,if(valueStack != null) {
+core/src/main/java/org/apache/struts2/interceptor/debugging/DebuggingInterceptor.java,444,filter.add(valueStack);
+core/src/main/java/org/apache/struts2/interceptor/debugging/DebuggingInterceptor.java,446,return filter;
+core/src/main/java/org/apache/struts2/interceptor/debugging/DebuggingInterceptor.java,151,String type = getParameter(DEBUG_PARAM);
+core/src/main/java/org/apache/struts2/interceptor/debugging/DebuggingInterceptor.java,152,ctx.getParameters().remove(DEBUG_PARAM);
+core/src/main/java/org/apache/struts2/interceptor/debugging/DebuggingInterceptor.java,153,if (XML_MODE.equals(type)) {
+core/src/main/java/org/apache/struts2/interceptor/debugging/DebuggingInterceptor.java,154,inv.addPreResultListener(
+core/src/main/java/org/apache/struts2/interceptor/debugging/DebuggingInterceptor.java,161,consoleEnabled = true;
+core/src/main/java/org/apache/struts2/interceptor/debugging/DebuggingInterceptor.java,162,inv.addPreResultListener(
+core/src/main/java/org/apache/struts2/interceptor/debugging/DebuggingInterceptor.java,190,ValueStack stack = (ValueStack) ctx.getSession().get(SESSION_KEY);
+core/src/main/java/org/apache/struts2/interceptor/debugging/DebuggingInterceptor.java,191,if (stack == null) {
+core/src/main/java/org/apache/struts2/interceptor/debugging/DebuggingInterceptor.java,193,stack = (ValueStack) ctx.get(ActionContext.VALUE_STACK);
+core/src/main/java/org/apache/struts2/interceptor/debugging/DebuggingInterceptor.java,194,ctx.getSession().put(SESSION_KEY, stack);
+core/src/main/java/org/apache/struts2/interceptor/debugging/DebuggingInterceptor.java,196,String cmd = getParameter(EXPRESSION_PARAM);
+core/src/main/java/org/apache/struts2/interceptor/debugging/DebuggingInterceptor.java,198,ServletActionContext.getRequest().setAttribute("decorator", "none");
+core/src/main/java/org/apache/struts2/interceptor/debugging/DebuggingInterceptor.java,199,HttpServletResponse res = ServletActionContext.getResponse();
+core/src/main/java/org/apache/struts2/interceptor/debugging/DebuggingInterceptor.java,200,res.setContentType("text/plain");
+core/src/main/java/org/apache/struts2/interceptor/debugging/DebuggingInterceptor.java,205,writer.print(stack.findValue(cmd));
+core/src/main/java/org/apache/struts2/interceptor/debugging/DebuggingInterceptor.java,208,ex.printStackTrace();
+core/src/main/java/org/apache/struts2/interceptor/debugging/DebuggingInterceptor.java,210,cont = false;
+core/src/main/java/org/apache/struts2/interceptor/debugging/DebuggingInterceptor.java,212,actionOnly = true;
+core/src/main/java/org/apache/struts2/interceptor/debugging/DebuggingInterceptor.java,213,inv.addPreResultListener(
+core/src/main/java/org/apache/struts2/interceptor/debugging/DebuggingInterceptor.java,214,new PreResultListener() {
+core/src/main/java/org/apache/struts2/interceptor/debugging/DebuggingInterceptor.java,215,public void beforeResult(ActionInvocation inv, String actionResult) {
+core/src/main/java/org/apache/struts2/interceptor/debugging/DebuggingInterceptor.java,216,String rootObjectExpression = getParameter(OBJECT_PARAM);
+core/src/main/java/org/apache/struts2/interceptor/debugging/DebuggingInterceptor.java,218,rootObjectExpression = "#context";
+core/src/main/java/org/apache/struts2/interceptor/debugging/DebuggingInterceptor.java,219,String decorate = getParameter(DECORATE_PARAM);
+core/src/main/java/org/apache/struts2/interceptor/debugging/DebuggingInterceptor.java,220,ValueStack stack = (ValueStack) ctx.get(ActionContext.VALUE_STACK);
+core/src/main/java/org/apache/struts2/interceptor/debugging/DebuggingInterceptor.java,221,Object rootObject = stack.findValue(rootObjectExpression);
+core/src/main/java/org/apache/struts2/interceptor/debugging/DebuggingInterceptor.java,225,ObjectToHTMLWriter htmlWriter = new ObjectToHTMLWriter(writer);
+core/src/main/java/org/apache/struts2/interceptor/debugging/DebuggingInterceptor.java,226,htmlWriter.write(reflectionProvider, rootObject, rootObjectExpression);
+core/src/main/java/org/apache/struts2/interceptor/debugging/DebuggingInterceptor.java,227,String html = writer.toString();
+core/src/main/java/org/apache/struts2/interceptor/debugging/DebuggingInterceptor.java,228,writer.close();
+core/src/main/java/org/apache/struts2/interceptor/debugging/DebuggingInterceptor.java,230,stack.set("debugHtml", html);
+core/src/main/java/org/apache/struts2/interceptor/debugging/DebuggingInterceptor.java,235,ServletActionContext.getRequest().setAttribute("decorator", "none");
+core/src/main/java/org/apache/struts2/interceptor/debugging/DebuggingInterceptor.java,237,FreemarkerResult result = new FreemarkerResult();
+core/src/main/java/org/apache/struts2/interceptor/debugging/DebuggingInterceptor.java,238,result.setFreemarkerManager(freemarkerManager);
+core/src/main/java/org/apache/struts2/interceptor/debugging/DebuggingInterceptor.java,239,result.setContentType("text/html");
+core/src/main/java/org/apache/struts2/interceptor/debugging/DebuggingInterceptor.java,240,result.setLocation("/org/apache/struts2/interceptor/debugging/browser.ftl");
+core/src/main/java/org/apache/struts2/interceptor/debugging/DebuggingInterceptor.java,241,result.execute(inv);
+core/src/main/java/org/apache/struts2/interceptor/debugging/DebuggingInterceptor.java,243,LOG.error("Unable to create debugging console", ex);
+core/src/main/java/org/apache/struts2/interceptor/debugging/ObjectToHTMLWriter.java,53,if (root instanceof Map) {
+core/src/main/java/org/apache/struts2/interceptor/debugging/ObjectToHTMLWriter.java,62,List list = (List) root;
+core/src/main/java/org/apache/struts2/interceptor/debugging/ObjectToHTMLWriter.java,68,Set set = (Set) root;
+core/src/main/java/org/apache/struts2/interceptor/debugging/ObjectToHTMLWriter.java,126,Class clazz = value.getClass();
+core/src/main/java/org/apache/struts2/interceptor/debugging/ObjectToHTMLWriter.java,143,return value instanceof Map && ((Map) value).isEmpty();
+core/src/main/java/org/apache/struts2/interceptor/debugging/ObjectToHTMLWriter.java,154,return value instanceof Collection && ((Collection) value).isEmpty();
+core/src/main/java/org/apache/struts2/interceptor/debugging/ObjectToHTMLWriter.java,161,Class clazz = value.getClass();
+core/src/main/java/org/apache/struts2/views/jsp/ui/AnchorTag.java,83,if (forceAddSchemeHostAndPort != null) {
+apps/showcase/src/main/java/org/apache/struts2/showcase/fileupload/MultipleFileUploadUsingArrayAction.java,36,private String[] uploadFileNames;
+apps/showcase/src/main/java/org/apache/struts2/showcase/fileupload/MultipleFileUploadUsingArrayAction.java,37,private String[] uploadContentTypes;
+core/src/main/java/org/apache/struts2/util/InvocationSessionStore.java,26,import com.opensymphony.xwork2.util.ValueStack;
+core/src/main/java/org/apache/struts2/util/InvocationSessionStore.java,62,ValueStack stack = invocationContext.invocation.getStack();
+core/src/main/java/org/apache/struts2/util/InvocationSessionStore.java,63,ActionContext.getContext().setValueStack(stack);
+core/src/main/java/org/apache/struts2/util/InvocationSessionStore.java,114,ActionInvocation invocation;
+core/src/main/java/org/apache/struts2/util/InvocationSessionStore.java,65,return invocationContext.invocation.deserialize(ActionContext.getContext());
+core/src/main/java/org/apache/struts2/util/InvocationSessionStore.java,76,InvocationContext invocationContext = new InvocationContext(invocation.serialize(), token);
+plugins/dwr/src/main/java/org/apache/struts2/validators/DWRValidator.java,115,private static final long serialVersionUID = -7645433725470191275L;
+plugins/rest/src/main/java/org/apache/struts2/rest/RestActionInvocation.java,55,private static final long serialVersionUID = 3485701178946428716L;
+plugins/sitemesh/src/main/java/org/apache/struts2/sitemesh/OldDecorator2NewStrutsDecorator.java,146,private static final long serialVersionUID = -4808072199157363028L;
+plugins/sitemesh/src/main/java/org/apache/struts2/sitemesh/OldDecorator2NewStrutsDecorator.java,202,public ActionInvocation serialize() {
+plugins/sitemesh/src/main/java/org/apache/struts2/sitemesh/OldDecorator2NewStrutsDecorator.java,203,return null;
+plugins/sitemesh/src/main/java/org/apache/struts2/sitemesh/OldDecorator2NewStrutsDecorator.java,206,public ActionInvocation deserialize(ActionContext actionContext) {
+plugins/sitemesh/src/main/java/org/apache/struts2/sitemesh/OldDecorator2NewStrutsDecorator.java,207,return null;
+core/src/main/java/org/apache/struts2/interceptor/BackgroundProcess.java,36,protected Object action;
+core/src/main/java/org/apache/struts2/interceptor/BackgroundProcess.java,37,protected ActionInvocation invocation;
+core/src/main/java/org/apache/struts2/interceptor/BackgroundProcess.java,39,protected Exception exception;
+core/src/main/java/org/apache/struts2/interceptor/BackgroundProcess.java,49,public BackgroundProcess(String threadName, final ActionInvocation invocation, int threadPriority) {
+core/src/main/java/org/apache/struts2/interceptor/BackgroundProcess.java,51,this.action = invocation.getAction();
+core/src/main/java/org/apache/struts2/interceptor/BackgroundProcess.java,80,protected void beforeInvocation() throws Exception {
+core/src/main/java/org/apache/struts2/interceptor/BackgroundProcess.java,90,protected void afterInvocation() throws Exception {
+core/src/main/java/org/apache/struts2/interceptor/BackgroundProcess.java,99,return action;
+plugins/json/src/main/java/org/apache/struts2/json/JSONUtil.java,56,JSONWriter writer = new JSONWriter();
+plugins/json/src/main/java/org/apache/struts2/json/JSONUtil.java,77,JSONWriter writer = new JSONWriter();
+plugins/json/src/main/java/org/apache/struts2/json/JSONUtil.java,103,JSONWriter writer = new JSONWriter();
+plugins/json/src/main/java/org/apache/struts2/json/JSONWriter.java,190,Class clazz = object.getClass();
+core/src/main/java/org/apache/struts2/views/util/DefaultUrlHelper.java,106,if ((HTTP_PROTOCOL.equals(scheme) && (httpPort != DEFAULT_HTTP_PORT)) || (HTTPS_PROTOCOL.equals(scheme) && httpsPort != DEFAULT_HTTPS_PORT)) {
+core/src/main/java/org/apache/struts2/views/util/DefaultUrlHelper.java,107,link.append(":");
+core/src/main/java/org/apache/struts2/views/util/DefaultUrlHelper.java,108,link.append(HTTP_PROTOCOL.equals(scheme) ? httpPort : httpsPort);
+core/src/main/java/org/apache/struts2/views/util/DefaultUrlHelper.java,112,int reqPort = request.getServerPort();
+core/src/main/java/org/apache/struts2/views/util/DefaultUrlHelper.java,114,if ((scheme.equals(HTTP_PROTOCOL) && (reqPort != DEFAULT_HTTP_PORT)) || (scheme.equals(HTTPS_PROTOCOL) && reqPort != DEFAULT_HTTPS_PORT)) {
+core/src/main/java/org/apache/struts2/views/util/DefaultUrlHelper.java,115,link.append(":");
+core/src/main/java/org/apache/struts2/views/util/DefaultUrlHelper.java,116,link.append(reqPort);
+core/src/main/java/org/apache/struts2/views/util/DefaultUrlHelper.java,128,link.append(":");
+core/src/main/java/org/apache/struts2/views/util/DefaultUrlHelper.java,129,link.append(HTTP_PROTOCOL.equals(scheme) ? httpPort : httpsPort);
+plugins/jasperreports/src/main/java/org/apache/struts2/views/jasperreports/ValueStackDataSource.java,108,if (!wrapField && MakeIterator.isIterable(value) && !field.getValueClass().isInstance(value)) {
+plugins/javatemplates/src/main/java/org/apache/struts2/views/java/simple/CheckboxListHandler.java,88,a = new Attributes();
+plugins/javatemplates/src/main/java/org/apache/struts2/views/java/simple/CheckboxListHandler.java,90,.add("id",
+plugins/javatemplates/src/main/java/org/apache/struts2/views/java/simple/CheckboxListHandler.java,93,.add("name",
+plugins/javatemplates/src/main/java/org/apache/struts2/views/java/simple/CheckboxListHandler.java,96,.add("value", "").addIfTrue("disabled", disabled);
+plugins/javatemplates/src/main/java/org/apache/struts2/views/java/simple/CheckboxListHandler.java,97,start("input", a);
+plugins/javatemplates/src/main/java/org/apache/struts2/views/java/simple/CheckboxListHandler.java,98,end("input");
+core/src/main/java/org/apache/struts2/interceptor/I18nInterceptor.java,123,if (LOG.isDebugEnabled()) {
+core/src/main/java/org/apache/struts2/interceptor/I18nInterceptor.java,127,final String result = invocation.invoke();
+core/src/main/java/org/apache/struts2/interceptor/I18nInterceptor.java,129,if (LOG.isDebugEnabled()) {
+core/src/main/java/org/apache/struts2/interceptor/I18nInterceptor.java,134,return result;
+core/src/main/java/org/apache/struts2/views/xslt/XSLTResult.java,447,return new ServletURIResolver(
+core/src/main/java/org/apache/struts2/views/xslt/XSLTResult.java,448,ServletActionContext.getServletContext());
+core/src/main/java/org/apache/struts2/interceptor/TokenInterceptor.java,149,synchronized (session) {
+plugins/json/src/main/java/org/apache/struts2/json/JSONValidationInterceptor.java,81,private int validationFailedStatus = -1;
+plugins/json/src/main/java/org/apache/struts2/json/JSONValidationInterceptor.java,87,public void setValidationFailedStatus(int validationFailedStatus) {
+plugins/json/src/main/java/org/apache/struts2/json/JSONValidationInterceptor.java,88,this.validationFailedStatus = validationFailedStatus;
+plugins/json/src/main/java/org/apache/struts2/json/JSONValidationInterceptor.java,121,if (LOG.isDebugEnabled()) {
+plugins/json/src/main/java/org/apache/struts2/json/JSONValidationInterceptor.java,125,if (LOG.isDebugEnabled()) {
+plugins/json/src/main/java/org/apache/struts2/json/JSONValidationInterceptor.java,126,LOG.debug("Setting up encoding to: [" + DEFAULT_ENCODING + "]!");
+plugins/json/src/main/java/org/apache/struts2/json/JSONValidationInterceptor.java,143,private boolean isJsonEnabled(HttpServletRequest request) {
+plugins/json/src/main/java/org/apache/struts2/json/JSONValidationInterceptor.java,144,return "true".equals(request.getParameter(VALIDATE_JSON_PARAM));
+plugins/json/src/main/java/org/apache/struts2/json/JSONValidationInterceptor.java,147,private boolean isValidateOnly(HttpServletRequest request) {
+plugins/json/src/main/java/org/apache/struts2/json/JSONValidationInterceptor.java,148,return "true".equals(request.getParameter(VALIDATE_ONLY_PARAM));
+plugins/json/src/main/java/org/apache/struts2/json/JSONValidationInterceptor.java,151,private boolean isSetEncoding(HttpServletRequest request) {
+plugins/json/src/main/java/org/apache/struts2/json/JSONValidationInterceptor.java,152,return "true".equals(request.getParameter(NO_ENCODING_SET_PARAM));
+core/src/main/java/org/apache/struts2/views/xslt/XSLTResult.java,272,throw new IllegalArgumentException("Null location");
+core/src/main/java/org/apache/struts2/views/xslt/XSLTResult.java,395,else
+core/src/main/java/org/apache/struts2/views/xslt/XSLTResult.java,485,throws IllegalAccessException, InstantiationException {
+plugins/pell-multipart/src/main/java/org/apache/struts2/dispatcher/multipart/PellMultiPartRequest.java,79,multi = new ServletMultipartRequest(servletRequest, saveDir, maxSize);
+core/src/main/java/org/apache/struts2/interceptor/I18nInterceptor.java,157,if (locale != null) {
+core/src/main/java/org/apache/struts2/interceptor/I18nInterceptor.java,158,return locale;
+core/src/main/java/org/apache/struts2/interceptor/I18nInterceptor.java,23,import com.opensymphony.xwork2.ActionContext;
+core/src/main/java/org/apache/struts2/interceptor/I18nInterceptor.java,26,import org.apache.struts2.StrutsStatics;
+core/src/main/java/org/apache/struts2/interceptor/I18nInterceptor.java,140,ActionContext ac = invocation.getInvocationContext();
+core/src/main/java/org/apache/struts2/interceptor/I18nInterceptor.java,141,HttpServletResponse response = (HttpServletResponse) ac.get(StrutsStatics.HTTP_RESPONSE);
+core/src/main/java/org/apache/struts2/interceptor/I18nInterceptor.java,143,Cookie cookie = new Cookie(DEFAULT_COOKIE_ATTRIBUTE, locale.toString());
+core/src/main/java/org/apache/struts2/interceptor/I18nInterceptor.java,144,cookie.setMaxAge(1209600); // two weeks
+core/src/main/java/org/apache/struts2/interceptor/I18nInterceptor.java,145,response.addCookie(cookie);
+core/src/main/java/org/apache/struts2/interceptor/I18nInterceptor.java,154,protected Locale readStoredLocale(ActionInvocation invocation, Map<String, Object> session) {
+core/src/main/java/org/apache/struts2/interceptor/I18nInterceptor.java,113,if (LOG.isDebugEnabled()) {
+core/src/main/java/org/apache/struts2/interceptor/I18nInterceptor.java,115,invocation.getProxy().getNamespace(), invocation.getProxy().getActionName());
+core/src/main/java/org/apache/struts2/interceptor/I18nInterceptor.java,121,saveLocale(invocation, locale);
+core/src/main/java/org/apache/struts2/interceptor/I18nInterceptor.java,131,LOG.debug("intercept } ");
+core/src/main/java/org/apache/struts2/interceptor/I18nInterceptor.java,155,Locale locale = this.readStoredLocalFromSession(invocation, session);
+core/src/main/java/org/apache/struts2/interceptor/I18nInterceptor.java,161,Cookie[] cookies = ServletActionContext.getRequest().getCookies();
+core/src/main/java/org/apache/struts2/interceptor/I18nInterceptor.java,162,if (cookies != null) {
+core/src/main/java/org/apache/struts2/interceptor/I18nInterceptor.java,163,for (Cookie cookie : cookies) {
+core/src/main/java/org/apache/struts2/interceptor/I18nInterceptor.java,164,if (DEFAULT_COOKIE_ATTRIBUTE.equals(cookie.getName())) {
+core/src/main/java/org/apache/struts2/interceptor/I18nInterceptor.java,165,return getLocaleFromParam(cookie.getValue());
+core/src/main/java/org/apache/struts2/interceptor/I18nInterceptor.java,118,LocaleFinder localeFinder = new CookieLocaleFinder(invocation);
+core/src/main/java/org/apache/struts2/interceptor/I18nInterceptor.java,119,Locale locale = getLocaleFromParam(localeFinder.getRequestedLocale());
+core/src/main/java/org/apache/struts2/interceptor/I18nInterceptor.java,120,locale = storeLocale(invocation, locale, localeFinder.getStorage());
+core/src/main/java/org/apache/struts2/interceptor/ProfilingActivationInterceptor.java,96,Object val = invocation.getInvocationContext().getParameters().get(profilingKey);
+core/src/main/java/org/apache/struts2/interceptor/ProfilingActivationInterceptor.java,97,if (val != null) {
+core/src/main/java/org/apache/struts2/interceptor/ProfilingActivationInterceptor.java,98,String sval = (val instanceof String ? (String)val : ((String[])val)[0]);
+core/src/main/java/org/apache/struts2/interceptor/ScopeInterceptor.java,305,if (ActionContext.getContext().getParameters().get(sessionReset) != null) {
+core/src/main/java/org/apache/struts2/views/xslt/XSLTResult.java,371,transformer.setErrorListener(new ErrorListener() {
+core/src/main/java/org/apache/struts2/views/xslt/XSLTResult.java,374,throws TransformerException {
+core/src/main/java/org/apache/struts2/views/xslt/XSLTResult.java,375,throw new StrutsException("Error transforming result", exception);
+core/src/main/java/org/apache/struts2/views/xslt/XSLTResult.java,379,throws TransformerException {
+core/src/main/java/org/apache/struts2/views/xslt/XSLTResult.java,380,throw new StrutsException("Fatal error transforming result", exception);
+core/src/main/java/org/apache/struts2/views/xslt/XSLTResult.java,384,throws TransformerException {
+core/src/main/java/org/apache/struts2/views/xslt/XSLTResult.java,385,if (LOG.isWarnEnabled()) {
+core/src/main/java/org/apache/struts2/views/xslt/XSLTResult.java,386,LOG.warn(exception.getMessage(), exception);
+core/src/main/java/org/apache/struts2/dispatcher/multipart/JakartaMultiPartRequest.java,105,String errorMessage = buildErrorMessage(e, new Object[]{});
+core/src/main/java/org/apache/struts2/dispatcher/multipart/JakartaMultiPartRequest.java,118,protected String buildErrorMessage(Throwable e, Object[] args) {
+core/src/main/java/org/apache/struts2/dispatcher/multipart/JakartaMultiPartRequest.java,123,return LocalizedTextUtil.findText(this.getClass(), errorKey, defaultLocale, e.getMessage(), args);
+core/src/main/java/org/apache/struts2/dispatcher/multipart/JakartaMultiPartRequest.java,330,public List<String> getErrors() {
+core/src/main/java/org/apache/struts2/dispatcher/multipart/JakartaStreamMultiPartRequest.java,148,public List<String> getErrors() {
+core/src/main/java/org/apache/struts2/dispatcher/multipart/JakartaStreamMultiPartRequest.java,250,String errorMessage = buildErrorMessage(e, new Object[]{});
+core/src/main/java/org/apache/struts2/dispatcher/multipart/JakartaStreamMultiPartRequest.java,360,String message = buildErrorMessage(exception, new Object[]{fileName, getRequestSize(request), maxSize});
+core/src/main/java/org/apache/struts2/dispatcher/multipart/JakartaStreamMultiPartRequest.java,527,private String buildErrorMessage(Throwable e, Object[] args) {
+core/src/main/java/org/apache/struts2/dispatcher/multipart/JakartaStreamMultiPartRequest.java,531,return LocalizedTextUtil.findText(this.getClass(), errorKey, defaultLocale, e.getMessage(), args);
+core/src/main/java/org/apache/struts2/dispatcher/multipart/MultiPartRequest.java,116,public List<String> getErrors();
+core/src/main/java/org/apache/struts2/dispatcher/multipart/MultiPartRequestWrapper.java,63,private Collection<String> errors;
+core/src/main/java/org/apache/struts2/dispatcher/multipart/MultiPartRequestWrapper.java,85,for (String error : multi.getErrors()) {
+core/src/main/java/org/apache/struts2/dispatcher/multipart/MultiPartRequestWrapper.java,106,protected String buildErrorMessage(Throwable e, Object[] args) {
+core/src/main/java/org/apache/struts2/dispatcher/multipart/MultiPartRequestWrapper.java,111,return LocalizedTextUtil.findText(this.getClass(), errorKey, defaultLocale, e.getMessage(), args);
+core/src/main/java/org/apache/struts2/dispatcher/multipart/MultiPartRequestWrapper.java,240,public Collection<String> getErrors() {
+core/src/main/java/org/apache/struts2/dispatcher/multipart/MultiPartRequestWrapper.java,249,protected void addError(String anErrorMessage) {
+core/src/main/java/org/apache/struts2/interceptor/FileUploadInterceptor.java,267,for (String error : multiWrapper.getErrors()) {
+core/src/main/java/org/apache/struts2/interceptor/FileUploadInterceptor.java,269,validation.addActionError(error);
+plugins/pell-multipart/src/main/java/org/apache/struts2/dispatcher/multipart/PellMultiPartRequest.java,134,public List<String> getErrors() {
+core/src/main/java/org/apache/struts2/components/Date.java,291,name, dateObject, (dateObject != null ? dateObject.getClass() : "null"));
+core/src/main/java/org/apache/struts2/components/Param.java,140,component.addParameter(findString(name), body);
+core/src/main/java/org/apache/struts2/util/ComponentUtils.java,48,return expr.startsWith("%{") && expr.endsWith("}");
+core/src/main/java/org/apache/struts2/views/util/DefaultUrlHelper.java,276,try {
+core/src/main/java/org/apache/struts2/views/util/DefaultUrlHelper.java,282,return input;
+core/src/main/java/org/apache/struts2/views/util/DefaultUrlHelper.java,302,paramName = decode(paramName);
+core/src/main/java/org/apache/struts2/views/util/DefaultUrlHelper.java,303,String translatedParamValue = decode(paramValue);
+core/src/main/java/org/apache/struts2/views/util/DefaultUrlHelper.java,24,import com.opensymphony.xwork2.inject.Inject;
+core/src/main/java/org/apache/struts2/views/util/DefaultUrlHelper.java,31,import javax.servlet.http.HttpServletRequest;
+core/src/main/java/org/apache/struts2/views/util/DefaultUrlHelper.java,32,import javax.servlet.http.HttpServletResponse;
+core/src/main/java/org/apache/struts2/views/util/DefaultUrlHelper.java,33,import java.io.UnsupportedEncodingException;
+core/src/main/java/org/apache/struts2/views/util/DefaultUrlHelper.java,34,import java.net.URLDecoder;
+core/src/main/java/org/apache/struts2/views/util/DefaultUrlHelper.java,35,import java.net.URLEncoder;
+core/src/main/java/org/apache/struts2/views/util/DefaultUrlHelper.java,177,buildParametersString(params, link, AMP);
+core/src/main/java/org/apache/struts2/views/util/DefaultUrlHelper.java,179,buildParametersString(params, link, "&");
+core/src/main/java/org/apache/struts2/views/util/DefaultUrlHelper.java,217,link.append(buildParameterSubstring(name, paramValue != null ? paramValue.toString() : StringUtils.EMPTY));
+core/src/main/java/org/apache/struts2/views/util/DefaultUrlHelper.java,227,link.append(buildParameterSubstring(name, paramValue != null ? paramValue.toString() : StringUtils.EMPTY));
+core/src/main/java/org/apache/struts2/views/util/DefaultUrlHelper.java,234,link.append(buildParameterSubstring(name, value != null ? value.toString() : StringUtils.EMPTY));
+core/src/main/java/org/apache/struts2/views/util/DefaultUrlHelper.java,244,private String buildParameterSubstring(String name, String value) {
+core/src/main/java/org/apache/struts2/views/util/DefaultUrlHelper.java,246,builder.append(encode(name));
+core/src/main/java/org/apache/struts2/views/util/DefaultUrlHelper.java,248,builder.append(encode(value));
+plugins/rest/src/main/java/org/apache/struts2/rest/RestActionMapper.java,292,mapping.setName(fullName);
+plugins/java8-support/src/main/java/org/apache/struts2/convention/Java8ClassFinder.java,16,package org.apache.struts2.convention;
+plugins/java8-support/src/main/java/org/apache/struts2/convention/Java8ClassFinder.java,18,import com.opensymphony.xwork2.ActionContext;
+plugins/java8-support/src/main/java/org/apache/struts2/convention/Java8ClassFinder.java,19,import com.opensymphony.xwork2.FileManager;
+plugins/java8-support/src/main/java/org/apache/struts2/convention/Java8ClassFinder.java,20,import com.opensymphony.xwork2.FileManagerFactory;
+plugins/java8-support/src/main/java/org/apache/struts2/convention/Java8ClassFinder.java,21,import com.opensymphony.xwork2.XWorkException;
+plugins/java8-support/src/main/java/org/apache/struts2/convention/Java8ClassFinder.java,22,import com.opensymphony.xwork2.util.finder.ClassFinder;
+plugins/java8-support/src/main/java/org/apache/struts2/convention/Java8ClassFinder.java,23,import com.opensymphony.xwork2.util.finder.ClassLoaderInterface;
+plugins/java8-support/src/main/java/org/apache/struts2/convention/Java8ClassFinder.java,24,import com.opensymphony.xwork2.util.finder.Test;
+plugins/java8-support/src/main/java/org/apache/struts2/convention/Java8ClassFinder.java,27,import org.apache.commons.lang3.StringUtils;
+plugins/java8-support/src/main/java/org/apache/struts2/convention/Java8ClassFinder.java,28,import org.objectweb.asm.AnnotationVisitor;
+plugins/java8-support/src/main/java/org/apache/struts2/convention/Java8ClassFinder.java,29,import org.objectweb.asm.ClassReader;
+plugins/java8-support/src/main/java/org/apache/struts2/convention/Java8ClassFinder.java,30,import org.objectweb.asm.ClassVisitor;
+plugins/java8-support/src/main/java/org/apache/struts2/convention/Java8ClassFinder.java,31,import org.objectweb.asm.FieldVisitor;
+plugins/java8-support/src/main/java/org/apache/struts2/convention/Java8ClassFinder.java,32,import org.objectweb.asm.MethodVisitor;
+plugins/java8-support/src/main/java/org/apache/struts2/convention/Java8ClassFinder.java,33,import org.objectweb.asm.Opcodes;
+plugins/java8-support/src/main/java/org/apache/struts2/convention/Java8ClassFinder.java,35,import java.io.File;
+plugins/java8-support/src/main/java/org/apache/struts2/convention/Java8ClassFinder.java,36,import java.io.IOException;
+plugins/java8-support/src/main/java/org/apache/struts2/convention/Java8ClassFinder.java,37,import java.io.InputStream;
+plugins/java8-support/src/main/java/org/apache/struts2/convention/Java8ClassFinder.java,38,import java.lang.annotation.Annotation;
+plugins/java8-support/src/main/java/org/apache/struts2/convention/Java8ClassFinder.java,39,import java.lang.reflect.Constructor;
+plugins/java8-support/src/main/java/org/apache/struts2/convention/Java8ClassFinder.java,40,import java.lang.reflect.Field;
+plugins/java8-support/src/main/java/org/apache/struts2/convention/Java8ClassFinder.java,41,import java.lang.reflect.Method;
+plugins/java8-support/src/main/java/org/apache/struts2/convention/Java8ClassFinder.java,42,import java.net.JarURLConnection;
+plugins/java8-support/src/main/java/org/apache/struts2/convention/Java8ClassFinder.java,43,import java.net.URL;
+plugins/java8-support/src/main/java/org/apache/struts2/convention/Java8ClassFinder.java,44,import java.net.URLDecoder;
+plugins/java8-support/src/main/java/org/apache/struts2/convention/Java8ClassFinder.java,45,import java.util.ArrayList;
+plugins/java8-support/src/main/java/org/apache/struts2/convention/Java8ClassFinder.java,46,import java.util.Arrays;
+plugins/java8-support/src/main/java/org/apache/struts2/convention/Java8ClassFinder.java,47,import java.util.Collection;
+plugins/java8-support/src/main/java/org/apache/struts2/convention/Java8ClassFinder.java,48,import java.util.Collections;
+plugins/java8-support/src/main/java/org/apache/struts2/convention/Java8ClassFinder.java,49,import java.util.Enumeration;
+plugins/java8-support/src/main/java/org/apache/struts2/convention/Java8ClassFinder.java,50,import java.util.HashMap;
+plugins/java8-support/src/main/java/org/apache/struts2/convention/Java8ClassFinder.java,51,import java.util.LinkedHashMap;
+plugins/java8-support/src/main/java/org/apache/struts2/convention/Java8ClassFinder.java,52,import java.util.List;
+plugins/java8-support/src/main/java/org/apache/struts2/convention/Java8ClassFinder.java,53,import java.util.Map;
+plugins/java8-support/src/main/java/org/apache/struts2/convention/Java8ClassFinder.java,54,import java.util.Set;
+plugins/java8-support/src/main/java/org/apache/struts2/convention/Java8ClassFinder.java,55,import java.util.jar.JarEntry;
+plugins/java8-support/src/main/java/org/apache/struts2/convention/Java8ClassFinder.java,56,import java.util.jar.JarInputStream;
+plugins/java8-support/src/main/java/org/apache/struts2/convention/Java8ClassFinder.java,61,public class Java8ClassFinder implements ClassFinder {
+plugins/java8-support/src/main/java/org/apache/struts2/convention/Java8ClassFinder.java,65,private final Map<String, List<Info>> annotated = new HashMap<String, List<Info>>();
+plugins/java8-support/src/main/java/org/apache/struts2/convention/Java8ClassFinder.java,66,private final Map<String, ClassInfo> classInfos = new LinkedHashMap<String, ClassInfo>();
+plugins/java8-support/src/main/java/org/apache/struts2/convention/Java8ClassFinder.java,68,private final List<String> classesNotLoaded = new ArrayList<String>();
+plugins/java8-support/src/main/java/org/apache/struts2/convention/Java8ClassFinder.java,70,private boolean extractBaseInterfaces;
+plugins/java8-support/src/main/java/org/apache/struts2/convention/Java8ClassFinder.java,71,private ClassLoaderInterface classLoaderInterface;
+plugins/java8-support/src/main/java/org/apache/struts2/convention/Java8ClassFinder.java,72,private FileManager fileManager;
+plugins/java8-support/src/main/java/org/apache/struts2/convention/Java8ClassFinder.java,74,public Java8ClassFinder(ClassLoaderInterface classLoaderInterface, Collection<URL> urls, boolean extractBaseInterfaces, Set<String> protocols, Test<String> classNameFilter) {
+plugins/java8-support/src/main/java/org/apache/struts2/convention/Java8ClassFinder.java,75,this.classLoaderInterface = classLoaderInterface;
+plugins/java8-support/src/main/java/org/apache/struts2/convention/Java8ClassFinder.java,76,this.extractBaseInterfaces = extractBaseInterfaces;
+plugins/java8-support/src/main/java/org/apache/struts2/convention/Java8ClassFinder.java,77,this.fileManager = ActionContext.getContext().getInstance(FileManagerFactory.class).getFileManager();
+plugins/java8-support/src/main/java/org/apache/struts2/convention/Java8ClassFinder.java,79,List<String> classNames = new ArrayList<String>();
+plugins/java8-support/src/main/java/org/apache/struts2/convention/Java8ClassFinder.java,80,for (URL location : urls) {
+plugins/java8-support/src/main/java/org/apache/struts2/convention/Java8ClassFinder.java,81,try {
+plugins/java8-support/src/main/java/org/apache/struts2/convention/Java8ClassFinder.java,82,if (protocols.contains(location.getProtocol())) {
+plugins/java8-support/src/main/java/org/apache/struts2/convention/Java8ClassFinder.java,83,classNames.addAll(jar(location));
+plugins/java8-support/src/main/java/org/apache/struts2/convention/Java8ClassFinder.java,85,try {
+plugins/java8-support/src/main/java/org/apache/struts2/convention/Java8ClassFinder.java,87,URL jarUrl = new URL("jar", "", location.toExternalForm() + "!/");
+plugins/java8-support/src/main/java/org/apache/struts2/convention/Java8ClassFinder.java,88,JarURLConnection juc = (JarURLConnection) jarUrl.openConnection();
+plugins/java8-support/src/main/java/org/apache/struts2/convention/Java8ClassFinder.java,89,juc.getJarFile();
+plugins/java8-support/src/main/java/org/apache/struts2/convention/Java8ClassFinder.java,90,classNames.addAll(jar(jarUrl));
+plugins/java8-support/src/main/java/org/apache/struts2/convention/Java8ClassFinder.java,92,classNames.addAll(file(location));
+plugins/java8-support/src/main/java/org/apache/struts2/convention/Java8ClassFinder.java,101,for (String className : classNames) {
+plugins/java8-support/src/main/java/org/apache/struts2/convention/Java8ClassFinder.java,102,try {
+plugins/java8-support/src/main/java/org/apache/struts2/convention/Java8ClassFinder.java,104,readClassDef(className);
+plugins/java8-support/src/main/java/org/apache/struts2/convention/Java8ClassFinder.java,112,public Java8ClassFinder(Class... classes){
+plugins/java8-support/src/main/java/org/apache/struts2/convention/Java8ClassFinder.java,113,this(Arrays.asList(classes));
+plugins/java8-support/src/main/java/org/apache/struts2/convention/Java8ClassFinder.java,116,public Java8ClassFinder(List<Class> classes){
+plugins/java8-support/src/main/java/org/apache/struts2/convention/Java8ClassFinder.java,117,this.classLoaderInterface = null;
+plugins/java8-support/src/main/java/org/apache/struts2/convention/Java8ClassFinder.java,118,List<Info> infos = new ArrayList<Info>();
+plugins/java8-support/src/main/java/org/apache/struts2/convention/Java8ClassFinder.java,119,List<Package> packages = new ArrayList<Package>();
+plugins/java8-support/src/main/java/org/apache/struts2/convention/Java8ClassFinder.java,120,for (Class clazz : classes) {
+plugins/java8-support/src/main/java/org/apache/struts2/convention/Java8ClassFinder.java,122,Package aPackage = clazz.getPackage();
+plugins/java8-support/src/main/java/org/apache/struts2/convention/Java8ClassFinder.java,123,if (aPackage != null && !packages.contains(aPackage)){
+plugins/java8-support/src/main/java/org/apache/struts2/convention/Java8ClassFinder.java,124,infos.add(new PackageInfo(aPackage));
+plugins/java8-support/src/main/java/org/apache/struts2/convention/Java8ClassFinder.java,125,packages.add(aPackage);
+plugins/java8-support/src/main/java/org/apache/struts2/convention/Java8ClassFinder.java,128,ClassInfo classInfo = new ClassInfo(clazz, this);
+plugins/java8-support/src/main/java/org/apache/struts2/convention/Java8ClassFinder.java,129,infos.add(classInfo);
+plugins/java8-support/src/main/java/org/apache/struts2/convention/Java8ClassFinder.java,130,classInfos.put(classInfo.getName(), classInfo);
+plugins/java8-support/src/main/java/org/apache/struts2/convention/Java8ClassFinder.java,131,for (Method method : clazz.getDeclaredMethods()) {
+plugins/java8-support/src/main/java/org/apache/struts2/convention/Java8ClassFinder.java,132,infos.add(new MethodInfo(classInfo, method));
+plugins/java8-support/src/main/java/org/apache/struts2/convention/Java8ClassFinder.java,135,for (Constructor constructor : clazz.getConstructors()) {
+plugins/java8-support/src/main/java/org/apache/struts2/convention/Java8ClassFinder.java,136,infos.add(new MethodInfo(classInfo, constructor));
+plugins/java8-support/src/main/java/org/apache/struts2/convention/Java8ClassFinder.java,139,for (Field field : clazz.getDeclaredFields()) {
+plugins/java8-support/src/main/java/org/apache/struts2/convention/Java8ClassFinder.java,140,infos.add(new FieldInfo(classInfo, field));
+plugins/java8-support/src/main/java/org/apache/struts2/convention/Java8ClassFinder.java,144,for (Info info : infos) {
+plugins/java8-support/src/main/java/org/apache/struts2/convention/Java8ClassFinder.java,145,for (AnnotationInfo annotation : info.getAnnotations()) {
+plugins/java8-support/src/main/java/org/apache/struts2/convention/Java8ClassFinder.java,146,List<Info> annotationInfos = getAnnotationInfos(annotation.getName());
+plugins/java8-support/src/main/java/org/apache/struts2/convention/Java8ClassFinder.java,147,annotationInfos.add(info);
+plugins/java8-support/src/main/java/org/apache/struts2/convention/Java8ClassFinder.java,152,public ClassLoaderInterface getClassLoaderInterface() {
+plugins/java8-support/src/main/java/org/apache/struts2/convention/Java8ClassFinder.java,153,return classLoaderInterface;
+plugins/java8-support/src/main/java/org/apache/struts2/convention/Java8ClassFinder.java,156,public boolean isAnnotationPresent(Class<? extends Annotation> annotation) {
+plugins/java8-support/src/main/java/org/apache/struts2/convention/Java8ClassFinder.java,157,List<Info> infos = annotated.get(annotation.getName());
+plugins/java8-support/src/main/java/org/apache/struts2/convention/Java8ClassFinder.java,158,return infos != null && !infos.isEmpty();
+plugins/java8-support/src/main/java/org/apache/struts2/convention/Java8ClassFinder.java,161,public List<String> getClassesNotLoaded() {
+plugins/java8-support/src/main/java/org/apache/struts2/convention/Java8ClassFinder.java,162,return Collections.unmodifiableList(classesNotLoaded);
+plugins/java8-support/src/main/java/org/apache/struts2/convention/Java8ClassFinder.java,165,public List<Package> findAnnotatedPackages(Class<? extends Annotation> annotation) {
+plugins/java8-support/src/main/java/org/apache/struts2/convention/Java8ClassFinder.java,166,classesNotLoaded.clear();
+plugins/java8-support/src/main/java/org/apache/struts2/convention/Java8ClassFinder.java,167,List<Package> packages = new ArrayList<Package>();
+plugins/java8-support/src/main/java/org/apache/struts2/convention/Java8ClassFinder.java,168,List<Info> infos = getAnnotationInfos(annotation.getName());
+plugins/java8-support/src/main/java/org/apache/struts2/convention/Java8ClassFinder.java,169,for (Info info : infos) {
+plugins/java8-support/src/main/java/org/apache/struts2/convention/Java8ClassFinder.java,170,if (info instanceof PackageInfo) {
+plugins/java8-support/src/main/java/org/apache/struts2/convention/Java8ClassFinder.java,171,PackageInfo packageInfo = (PackageInfo) info;
+plugins/java8-support/src/main/java/org/apache/struts2/convention/Java8ClassFinder.java,172,try {
+plugins/java8-support/src/main/java/org/apache/struts2/convention/Java8ClassFinder.java,173,Package pkg = packageInfo.get();
+plugins/java8-support/src/main/java/org/apache/struts2/convention/Java8ClassFinder.java,175,if (pkg.isAnnotationPresent(annotation)) {
+plugins/java8-support/src/main/java/org/apache/struts2/convention/Java8ClassFinder.java,176,packages.add(pkg);
+plugins/java8-support/src/main/java/org/apache/struts2/convention/Java8ClassFinder.java,179,classesNotLoaded.add(packageInfo.getName());
+plugins/java8-support/src/main/java/org/apache/struts2/convention/Java8ClassFinder.java,183,return packages;
+plugins/java8-support/src/main/java/org/apache/struts2/convention/Java8ClassFinder.java,186,public List<Class> findAnnotatedClasses(Class<? extends Annotation> annotation) {
+plugins/java8-support/src/main/java/org/apache/struts2/convention/Java8ClassFinder.java,187,classesNotLoaded.clear();
+plugins/java8-support/src/main/java/org/apache/struts2/convention/Java8ClassFinder.java,188,List<Class> classes = new ArrayList<Class>();
+plugins/java8-support/src/main/java/org/apache/struts2/convention/Java8ClassFinder.java,189,List<Info> infos = getAnnotationInfos(annotation.getName());
+plugins/java8-support/src/main/java/org/apache/struts2/convention/Java8ClassFinder.java,190,for (Info info : infos) {
+plugins/java8-support/src/main/java/org/apache/struts2/convention/Java8ClassFinder.java,191,if (info instanceof ClassInfo) {
+plugins/java8-support/src/main/java/org/apache/struts2/convention/Java8ClassFinder.java,192,ClassInfo classInfo = (ClassInfo) info;
+plugins/java8-support/src/main/java/org/apache/struts2/convention/Java8ClassFinder.java,193,try {
+plugins/java8-support/src/main/java/org/apache/struts2/convention/Java8ClassFinder.java,194,Class clazz = classInfo.get();
+plugins/java8-support/src/main/java/org/apache/struts2/convention/Java8ClassFinder.java,196,if (clazz.isAnnotationPresent(annotation)) {
+plugins/java8-support/src/main/java/org/apache/struts2/convention/Java8ClassFinder.java,197,classes.add(clazz);
+plugins/java8-support/src/main/java/org/apache/struts2/convention/Java8ClassFinder.java,202,classesNotLoaded.add(classInfo.getName());
+plugins/java8-support/src/main/java/org/apache/struts2/convention/Java8ClassFinder.java,206,return classes;
+plugins/java8-support/src/main/java/org/apache/struts2/convention/Java8ClassFinder.java,209,public List<Method> findAnnotatedMethods(Class<? extends Annotation> annotation) {
+plugins/java8-support/src/main/java/org/apache/struts2/convention/Java8ClassFinder.java,210,classesNotLoaded.clear();
+plugins/java8-support/src/main/java/org/apache/struts2/convention/Java8ClassFinder.java,211,List<ClassInfo> seen = new ArrayList<ClassInfo>();
+plugins/java8-support/src/main/java/org/apache/struts2/convention/Java8ClassFinder.java,212,List<Method> methods = new ArrayList<Method>();
+plugins/java8-support/src/main/java/org/apache/struts2/convention/Java8ClassFinder.java,213,List<Info> infos = getAnnotationInfos(annotation.getName());
+plugins/java8-support/src/main/java/org/apache/struts2/convention/Java8ClassFinder.java,214,for (Info info : infos) {
+plugins/java8-support/src/main/java/org/apache/struts2/convention/Java8ClassFinder.java,215,if (info instanceof MethodInfo && !"<init>".equals(info.getName())) {
+plugins/java8-support/src/main/java/org/apache/struts2/convention/Java8ClassFinder.java,216,MethodInfo methodInfo = (MethodInfo) info;
+plugins/java8-support/src/main/java/org/apache/struts2/convention/Java8ClassFinder.java,217,ClassInfo classInfo = methodInfo.getDeclaringClass();
+plugins/java8-support/src/main/java/org/apache/struts2/convention/Java8ClassFinder.java,219,if (seen.contains(classInfo)) continue;
+plugins/java8-support/src/main/java/org/apache/struts2/convention/Java8ClassFinder.java,221,seen.add(classInfo);
+plugins/java8-support/src/main/java/org/apache/struts2/convention/Java8ClassFinder.java,223,try {
+plugins/java8-support/src/main/java/org/apache/struts2/convention/Java8ClassFinder.java,224,Class clazz = classInfo.get();
+plugins/java8-support/src/main/java/org/apache/struts2/convention/Java8ClassFinder.java,225,for (Method method : clazz.getDeclaredMethods()) {
+plugins/java8-support/src/main/java/org/apache/struts2/convention/Java8ClassFinder.java,226,if (method.isAnnotationPresent(annotation)) {
+plugins/java8-support/src/main/java/org/apache/struts2/convention/Java8ClassFinder.java,227,methods.add(method);
+plugins/java8-support/src/main/java/org/apache/struts2/convention/Java8ClassFinder.java,233,classesNotLoaded.add(classInfo.getName());
+plugins/java8-support/src/main/java/org/apache/struts2/convention/Java8ClassFinder.java,237,return methods;
+plugins/java8-support/src/main/java/org/apache/struts2/convention/Java8ClassFinder.java,240,public List<Constructor> findAnnotatedConstructors(Class<? extends Annotation> annotation) {
+plugins/java8-support/src/main/java/org/apache/struts2/convention/Java8ClassFinder.java,241,classesNotLoaded.clear();
+plugins/java8-support/src/main/java/org/apache/struts2/convention/Java8ClassFinder.java,242,List<ClassInfo> seen = new ArrayList<ClassInfo>();
+plugins/java8-support/src/main/java/org/apache/struts2/convention/Java8ClassFinder.java,243,List<Constructor> constructors = new ArrayList<Constructor>();
+plugins/java8-support/src/main/java/org/apache/struts2/convention/Java8ClassFinder.java,244,List<Info> infos = getAnnotationInfos(annotation.getName());
+plugins/java8-support/src/main/java/org/apache/struts2/convention/Java8ClassFinder.java,245,for (Info info : infos) {
+plugins/java8-support/src/main/java/org/apache/struts2/convention/Java8ClassFinder.java,246,if (info instanceof MethodInfo && "<init>".equals(info.getName())) {
+plugins/java8-support/src/main/java/org/apache/struts2/convention/Java8ClassFinder.java,247,MethodInfo methodInfo = (MethodInfo) info;
+plugins/java8-support/src/main/java/org/apache/struts2/convention/Java8ClassFinder.java,248,ClassInfo classInfo = methodInfo.getDeclaringClass();
+plugins/java8-support/src/main/java/org/apache/struts2/convention/Java8ClassFinder.java,250,if (seen.contains(classInfo)) continue;
+plugins/java8-support/src/main/java/org/apache/struts2/convention/Java8ClassFinder.java,252,seen.add(classInfo);
+plugins/java8-support/src/main/java/org/apache/struts2/convention/Java8ClassFinder.java,254,try {
+plugins/java8-support/src/main/java/org/apache/struts2/convention/Java8ClassFinder.java,255,Class clazz = classInfo.get();
+plugins/java8-support/src/main/java/org/apache/struts2/convention/Java8ClassFinder.java,256,for (Constructor constructor : clazz.getConstructors()) {
+plugins/java8-support/src/main/java/org/apache/struts2/convention/Java8ClassFinder.java,257,if (constructor.isAnnotationPresent(annotation)) {
+plugins/java8-support/src/main/java/org/apache/struts2/convention/Java8ClassFinder.java,258,constructors.add(constructor);
+plugins/java8-support/src/main/java/org/apache/struts2/convention/Java8ClassFinder.java,264,classesNotLoaded.add(classInfo.getName());
+plugins/java8-support/src/main/java/org/apache/struts2/convention/Java8ClassFinder.java,268,return constructors;
+plugins/java8-support/src/main/java/org/apache/struts2/convention/Java8ClassFinder.java,271,public List<Field> findAnnotatedFields(Class<? extends Annotation> annotation) {
+plugins/java8-support/src/main/java/org/apache/struts2/convention/Java8ClassFinder.java,272,classesNotLoaded.clear();
+plugins/java8-support/src/main/java/org/apache/struts2/convention/Java8ClassFinder.java,273,List<ClassInfo> seen = new ArrayList<ClassInfo>();
+plugins/java8-support/src/main/java/org/apache/struts2/convention/Java8ClassFinder.java,274,List<Field> fields = new ArrayList<Field>();
+plugins/java8-support/src/main/java/org/apache/struts2/convention/Java8ClassFinder.java,275,List<Info> infos = getAnnotationInfos(annotation.getName());
+plugins/java8-support/src/main/java/org/apache/struts2/convention/Java8ClassFinder.java,276,for (Info info : infos) {
+plugins/java8-support/src/main/java/org/apache/struts2/convention/Java8ClassFinder.java,277,if (info instanceof FieldInfo) {
+plugins/java8-support/src/main/java/org/apache/struts2/convention/Java8ClassFinder.java,278,FieldInfo fieldInfo = (FieldInfo) info;
+plugins/java8-support/src/main/java/org/apache/struts2/convention/Java8ClassFinder.java,279,ClassInfo classInfo = fieldInfo.getDeclaringClass();
+plugins/java8-support/src/main/java/org/apache/struts2/convention/Java8ClassFinder.java,281,if (seen.contains(classInfo)) continue;
+plugins/java8-support/src/main/java/org/apache/struts2/convention/Java8ClassFinder.java,283,seen.add(classInfo);
+plugins/java8-support/src/main/java/org/apache/struts2/convention/Java8ClassFinder.java,285,try {
+plugins/java8-support/src/main/java/org/apache/struts2/convention/Java8ClassFinder.java,286,Class clazz = classInfo.get();
+plugins/java8-support/src/main/java/org/apache/struts2/convention/Java8ClassFinder.java,287,for (Field field : clazz.getDeclaredFields()) {
+plugins/java8-support/src/main/java/org/apache/struts2/convention/Java8ClassFinder.java,288,if (field.isAnnotationPresent(annotation)) {
+plugins/java8-support/src/main/java/org/apache/struts2/convention/Java8ClassFinder.java,289,fields.add(field);
+plugins/java8-support/src/main/java/org/apache/struts2/convention/Java8ClassFinder.java,295,classesNotLoaded.add(classInfo.getName());
+plugins/java8-support/src/main/java/org/apache/struts2/convention/Java8ClassFinder.java,299,return fields;
+plugins/java8-support/src/main/java/org/apache/struts2/convention/Java8ClassFinder.java,302,public List<Class> findClassesInPackage(String packageName, boolean recursive) {
+plugins/java8-support/src/main/java/org/apache/struts2/convention/Java8ClassFinder.java,303,classesNotLoaded.clear();
+plugins/java8-support/src/main/java/org/apache/struts2/convention/Java8ClassFinder.java,304,List<Class> classes = new ArrayList<Class>();
+plugins/java8-support/src/main/java/org/apache/struts2/convention/Java8ClassFinder.java,305,for (ClassInfo classInfo : classInfos.values()) {
+plugins/java8-support/src/main/java/org/apache/struts2/convention/Java8ClassFinder.java,306,try {
+plugins/java8-support/src/main/java/org/apache/struts2/convention/Java8ClassFinder.java,307,if (recursive && classInfo.getPackageName().startsWith(packageName)){
+plugins/java8-support/src/main/java/org/apache/struts2/convention/Java8ClassFinder.java,308,classes.add(classInfo.get());
+plugins/java8-support/src/main/java/org/apache/struts2/convention/Java8ClassFinder.java,310,classes.add(classInfo.get());
+plugins/java8-support/src/main/java/org/apache/struts2/convention/Java8ClassFinder.java,315,classesNotLoaded.add(classInfo.getName());
+plugins/java8-support/src/main/java/org/apache/struts2/convention/Java8ClassFinder.java,318,return classes;
+plugins/java8-support/src/main/java/org/apache/struts2/convention/Java8ClassFinder.java,321,public List<Class> findClasses(Test<ClassInfo> test) {
+plugins/java8-support/src/main/java/org/apache/struts2/convention/Java8ClassFinder.java,322,classesNotLoaded.clear();
+plugins/java8-support/src/main/java/org/apache/struts2/convention/Java8ClassFinder.java,323,List<Class> classes = new ArrayList<Class>();
+plugins/java8-support/src/main/java/org/apache/struts2/convention/Java8ClassFinder.java,324,for (ClassInfo classInfo : classInfos.values()) {
+plugins/java8-support/src/main/java/org/apache/struts2/convention/Java8ClassFinder.java,325,try {
+plugins/java8-support/src/main/java/org/apache/struts2/convention/Java8ClassFinder.java,326,if (test.test(classInfo)) {
+plugins/java8-support/src/main/java/org/apache/struts2/convention/Java8ClassFinder.java,327,classes.add(classInfo.get());
+plugins/java8-support/src/main/java/org/apache/struts2/convention/Java8ClassFinder.java,332,classesNotLoaded.add(classInfo.getName());
+plugins/java8-support/src/main/java/org/apache/struts2/convention/Java8ClassFinder.java,335,return classes;
+plugins/java8-support/src/main/java/org/apache/struts2/convention/Java8ClassFinder.java,338,public List<Class> findClasses() {
+plugins/java8-support/src/main/java/org/apache/struts2/convention/Java8ClassFinder.java,339,classesNotLoaded.clear();
+plugins/java8-support/src/main/java/org/apache/struts2/convention/Java8ClassFinder.java,340,List<Class> classes = new ArrayList<Class>();
+plugins/java8-support/src/main/java/org/apache/struts2/convention/Java8ClassFinder.java,341,for (ClassInfo classInfo : classInfos.values()) {
+plugins/java8-support/src/main/java/org/apache/struts2/convention/Java8ClassFinder.java,342,try {
+plugins/java8-support/src/main/java/org/apache/struts2/convention/Java8ClassFinder.java,343,classes.add(classInfo.get());
+plugins/java8-support/src/main/java/org/apache/struts2/convention/Java8ClassFinder.java,347,classesNotLoaded.add(classInfo.getName());
+plugins/java8-support/src/main/java/org/apache/struts2/convention/Java8ClassFinder.java,350,return classes;
+plugins/java8-support/src/main/java/org/apache/struts2/convention/Java8ClassFinder.java,353,private static List<URL> getURLs(ClassLoaderInterface classLoader, String[] dirNames) {
+plugins/java8-support/src/main/java/org/apache/struts2/convention/Java8ClassFinder.java,354,List<URL> urls = new ArrayList<URL>();
+plugins/java8-support/src/main/java/org/apache/struts2/convention/Java8ClassFinder.java,355,for (String dirName : dirNames) {
+plugins/java8-support/src/main/java/org/apache/struts2/convention/Java8ClassFinder.java,356,try {
+plugins/java8-support/src/main/java/org/apache/struts2/convention/Java8ClassFinder.java,357,Enumeration<URL> classLoaderURLs = classLoader.getResources(dirName);
+plugins/java8-support/src/main/java/org/apache/struts2/convention/Java8ClassFinder.java,358,while (classLoaderURLs.hasMoreElements()) {
+plugins/java8-support/src/main/java/org/apache/struts2/convention/Java8ClassFinder.java,359,URL url = classLoaderURLs.nextElement();
+plugins/java8-support/src/main/java/org/apache/struts2/convention/Java8ClassFinder.java,360,urls.add(url);
+plugins/java8-support/src/main/java/org/apache/struts2/convention/Java8ClassFinder.java,368,return urls;
+plugins/java8-support/src/main/java/org/apache/struts2/convention/Java8ClassFinder.java,371,private List<String> file(URL location) {
+plugins/java8-support/src/main/java/org/apache/struts2/convention/Java8ClassFinder.java,372,List<String> classNames = new ArrayList<String>();
+plugins/java8-support/src/main/java/org/apache/struts2/convention/Java8ClassFinder.java,373,File dir = new File(URLDecoder.decode(location.getPath()));
+plugins/java8-support/src/main/java/org/apache/struts2/convention/Java8ClassFinder.java,374,if ("META-INF".equals(dir.getName())) {
+plugins/java8-support/src/main/java/org/apache/struts2/convention/Java8ClassFinder.java,375,dir = dir.getParentFile(); // Scrape "META-INF" off
+plugins/java8-support/src/main/java/org/apache/struts2/convention/Java8ClassFinder.java,377,if (dir.isDirectory()) {
+plugins/java8-support/src/main/java/org/apache/struts2/convention/Java8ClassFinder.java,378,scanDir(dir, classNames, "");
+plugins/java8-support/src/main/java/org/apache/struts2/convention/Java8ClassFinder.java,380,return classNames;
+plugins/java8-support/src/main/java/org/apache/struts2/convention/Java8ClassFinder.java,383,private void scanDir(File dir, List<String> classNames, String packageName) {
+plugins/java8-support/src/main/java/org/apache/struts2/convention/Java8ClassFinder.java,384,File[] files = dir.listFiles();
+plugins/java8-support/src/main/java/org/apache/struts2/convention/Java8ClassFinder.java,385,for (File file : files) {
+plugins/java8-support/src/main/java/org/apache/struts2/convention/Java8ClassFinder.java,386,if (file.isDirectory()) {
+plugins/java8-support/src/main/java/org/apache/struts2/convention/Java8ClassFinder.java,387,scanDir(file, classNames, packageName + file.getName() + ".");
+plugins/java8-support/src/main/java/org/apache/struts2/convention/Java8ClassFinder.java,389,String name = file.getName();
+plugins/java8-support/src/main/java/org/apache/struts2/convention/Java8ClassFinder.java,390,name = name.replaceFirst(".class$", "");
+plugins/java8-support/src/main/java/org/apache/struts2/convention/Java8ClassFinder.java,393,classNames.add(StringUtils.removeStart(packageName, "WEB-INF.classes.") + name);
+plugins/java8-support/src/main/java/org/apache/struts2/convention/Java8ClassFinder.java,398,private List<String> jar(URL location) throws IOException {
+plugins/java8-support/src/main/java/org/apache/struts2/convention/Java8ClassFinder.java,399,URL url = fileManager.normalizeToFileProtocol(location);
+plugins/java8-support/src/main/java/org/apache/struts2/convention/Java8ClassFinder.java,400,if (url != null) {
+plugins/java8-support/src/main/java/org/apache/struts2/convention/Java8ClassFinder.java,401,InputStream in = url.openStream();
+plugins/java8-support/src/main/java/org/apache/struts2/convention/Java8ClassFinder.java,402,try {
+plugins/java8-support/src/main/java/org/apache/struts2/convention/Java8ClassFinder.java,403,JarInputStream jarStream = new JarInputStream(in);
+plugins/java8-support/src/main/java/org/apache/struts2/convention/Java8ClassFinder.java,404,return jar(jarStream);
+plugins/java8-support/src/main/java/org/apache/struts2/convention/Java8ClassFinder.java,406,in.close();
+plugins/java8-support/src/main/java/org/apache/struts2/convention/Java8ClassFinder.java,411,return Collections.emptyList();
+plugins/java8-support/src/main/java/org/apache/struts2/convention/Java8ClassFinder.java,414,private List<String> jar(JarInputStream jarStream) throws IOException {
+plugins/java8-support/src/main/java/org/apache/struts2/convention/Java8ClassFinder.java,415,List<String> classNames = new ArrayList<String>();
+plugins/java8-support/src/main/java/org/apache/struts2/convention/Java8ClassFinder.java,417,JarEntry entry;
+plugins/java8-support/src/main/java/org/apache/struts2/convention/Java8ClassFinder.java,418,while ((entry = jarStream.getNextJarEntry()) != null) {
+plugins/java8-support/src/main/java/org/apache/struts2/convention/Java8ClassFinder.java,419,if (entry.isDirectory() || !entry.getName().endsWith(".class")) {
+plugins/java8-support/src/main/java/org/apache/struts2/convention/Java8ClassFinder.java,420,continue;
+plugins/java8-support/src/main/java/org/apache/struts2/convention/Java8ClassFinder.java,422,String className = entry.getName();
+plugins/java8-support/src/main/java/org/apache/struts2/convention/Java8ClassFinder.java,423,className = className.replaceFirst(".class$", "");
+plugins/java8-support/src/main/java/org/apache/struts2/convention/Java8ClassFinder.java,426,className = StringUtils.removeStart(className, "WEB-INF/classes/");
+plugins/java8-support/src/main/java/org/apache/struts2/convention/Java8ClassFinder.java,428,className = className.replace('/', '.');
+plugins/java8-support/src/main/java/org/apache/struts2/convention/Java8ClassFinder.java,429,classNames.add(className);
+plugins/java8-support/src/main/java/org/apache/struts2/convention/Java8ClassFinder.java,432,return classNames;
+plugins/java8-support/src/main/java/org/apache/struts2/convention/Java8ClassFinder.java,435,private List<Info> getAnnotationInfos(String name) {
+plugins/java8-support/src/main/java/org/apache/struts2/convention/Java8ClassFinder.java,436,List<Info> infos = annotated.get(name);
+plugins/java8-support/src/main/java/org/apache/struts2/convention/Java8ClassFinder.java,437,if (infos == null) {
+plugins/java8-support/src/main/java/org/apache/struts2/convention/Java8ClassFinder.java,438,infos = new ArrayList<Info>();
+plugins/java8-support/src/main/java/org/apache/struts2/convention/Java8ClassFinder.java,439,annotated.put(name, infos);
+plugins/java8-support/src/main/java/org/apache/struts2/convention/Java8ClassFinder.java,441,return infos;
+plugins/java8-support/src/main/java/org/apache/struts2/convention/Java8ClassFinder.java,444,private void readClassDef(String className) {
+plugins/java8-support/src/main/java/org/apache/struts2/convention/Java8ClassFinder.java,445,if (!className.endsWith(".class")) {
+plugins/java8-support/src/main/java/org/apache/struts2/convention/Java8ClassFinder.java,446,className = className.replace('.', '/') + ".class";
+plugins/java8-support/src/main/java/org/apache/struts2/convention/Java8ClassFinder.java,448,try {
+plugins/java8-support/src/main/java/org/apache/struts2/convention/Java8ClassFinder.java,449,URL resource = classLoaderInterface.getResource(className);
+plugins/java8-support/src/main/java/org/apache/struts2/convention/Java8ClassFinder.java,450,if (resource != null) {
+plugins/java8-support/src/main/java/org/apache/struts2/convention/Java8ClassFinder.java,453,ClassReader classReader = new ClassReader(in);
+plugins/java8-support/src/main/java/org/apache/struts2/convention/Java8ClassFinder.java,454,classReader.accept(new InfoBuildingClassVisitor(this), ClassReader.SKIP_DEBUG);
+plugins/java8-support/src/main/java/org/apache/struts2/convention/Java8ClassFinder.java,459,throw new XWorkException("Could not load " + className);
+plugins/java8-support/src/main/java/org/apache/struts2/convention/Java8ClassFinder.java,462,throw new XWorkException("Could not load " + className, e);
+plugins/java8-support/src/main/java/org/apache/struts2/convention/Java8ClassFinder.java,467,public class InfoBuildingClassVisitor extends ClassVisitor {
+plugins/java8-support/src/main/java/org/apache/struts2/convention/Java8ClassFinder.java,468,private Info info;
+plugins/java8-support/src/main/java/org/apache/struts2/convention/Java8ClassFinder.java,469,private ClassFinder classFinder;
+plugins/java8-support/src/main/java/org/apache/struts2/convention/Java8ClassFinder.java,471,public InfoBuildingClassVisitor(ClassFinder classFinder) {
+plugins/java8-support/src/main/java/org/apache/struts2/convention/Java8ClassFinder.java,472,super(Opcodes.ASM5);
+plugins/java8-support/src/main/java/org/apache/struts2/convention/Java8ClassFinder.java,473,this.classFinder = classFinder;
+plugins/java8-support/src/main/java/org/apache/struts2/convention/Java8ClassFinder.java,476,public InfoBuildingClassVisitor(Info info, ClassFinder classFinder) {
+plugins/java8-support/src/main/java/org/apache/struts2/convention/Java8ClassFinder.java,477,this(classFinder);
+plugins/java8-support/src/main/java/org/apache/struts2/convention/Java8ClassFinder.java,478,this.info = info;
+plugins/java8-support/src/main/java/org/apache/struts2/convention/Java8ClassFinder.java,482,public void visit(int version, int access, String name, String signature, String superName, String[] interfaces) {
+plugins/java8-support/src/main/java/org/apache/struts2/convention/Java8ClassFinder.java,483,if (name.endsWith("package-info")) {
+plugins/java8-support/src/main/java/org/apache/struts2/convention/Java8ClassFinder.java,484,info = new PackageInfo(javaName(name), classFinder);
+plugins/java8-support/src/main/java/org/apache/struts2/convention/Java8ClassFinder.java,486,ClassInfo classInfo = new ClassInfo(javaName(name), javaName(superName), classFinder);
+plugins/java8-support/src/main/java/org/apache/struts2/convention/Java8ClassFinder.java,488,for (String interfce : interfaces) {
+plugins/java8-support/src/main/java/org/apache/struts2/convention/Java8ClassFinder.java,489,classInfo.getInterfaces().add(javaName(interfce));
+plugins/java8-support/src/main/java/org/apache/struts2/convention/Java8ClassFinder.java,491,info = classInfo;
+plugins/java8-support/src/main/java/org/apache/struts2/convention/Java8ClassFinder.java,492,classInfos.put(classInfo.getName(), classInfo);
+plugins/java8-support/src/main/java/org/apache/struts2/convention/Java8ClassFinder.java,495,extractSuperInterfaces(classInfo);
+plugins/java8-support/src/main/java/org/apache/struts2/convention/Java8ClassFinder.java,499,private void extractSuperInterfaces(ClassInfo classInfo) {
+plugins/java8-support/src/main/java/org/apache/struts2/convention/Java8ClassFinder.java,500,String superType = classInfo.getSuperType();
+plugins/java8-support/src/main/java/org/apache/struts2/convention/Java8ClassFinder.java,502,if (superType != null) {
+plugins/java8-support/src/main/java/org/apache/struts2/convention/Java8ClassFinder.java,503,ClassInfo base = classInfos.get(superType);
+plugins/java8-support/src/main/java/org/apache/struts2/convention/Java8ClassFinder.java,505,if (base == null) {
+plugins/java8-support/src/main/java/org/apache/struts2/convention/Java8ClassFinder.java,507,String resource = superType.replace('.', '/') + ".class";
+plugins/java8-support/src/main/java/org/apache/struts2/convention/Java8ClassFinder.java,508,readClassDef(resource);
+plugins/java8-support/src/main/java/org/apache/struts2/convention/Java8ClassFinder.java,509,base = classInfos.get(superType);
+plugins/java8-support/src/main/java/org/apache/struts2/convention/Java8ClassFinder.java,512,if (base != null) {
+plugins/java8-support/src/main/java/org/apache/struts2/convention/Java8ClassFinder.java,513,List<String> interfaces = classInfo.getSuperInterfaces();
+plugins/java8-support/src/main/java/org/apache/struts2/convention/Java8ClassFinder.java,514,interfaces.addAll(base.getSuperInterfaces());
+plugins/java8-support/src/main/java/org/apache/struts2/convention/Java8ClassFinder.java,515,interfaces.addAll(base.getInterfaces());
+plugins/java8-support/src/main/java/org/apache/struts2/convention/Java8ClassFinder.java,520,private String javaName(String name) {
+plugins/java8-support/src/main/java/org/apache/struts2/convention/Java8ClassFinder.java,521,return (name == null)? null:name.replace('/', '.');
+plugins/java8-support/src/main/java/org/apache/struts2/convention/Java8ClassFinder.java,525,public AnnotationVisitor visitAnnotation(String desc, boolean visible) {
+plugins/java8-support/src/main/java/org/apache/struts2/convention/Java8ClassFinder.java,526,AnnotationInfo annotationInfo = new AnnotationInfo(desc);
+plugins/java8-support/src/main/java/org/apache/struts2/convention/Java8ClassFinder.java,527,info.getAnnotations().add(annotationInfo);
+plugins/java8-support/src/main/java/org/apache/struts2/convention/Java8ClassFinder.java,528,getAnnotationInfos(annotationInfo.getName()).add(info);
+plugins/java8-support/src/main/java/org/apache/struts2/convention/Java8ClassFinder.java,529,return null;
+plugins/java8-support/src/main/java/org/apache/struts2/convention/Java8ClassFinder.java,533,public FieldVisitor visitField(int access, String name, String desc, String signature, Object value) {
+plugins/java8-support/src/main/java/org/apache/struts2/convention/Java8ClassFinder.java,534,ClassInfo classInfo = ((ClassInfo) info);
+plugins/java8-support/src/main/java/org/apache/struts2/convention/Java8ClassFinder.java,535,FieldInfo fieldInfo = new FieldInfo(classInfo, name, desc);
+plugins/java8-support/src/main/java/org/apache/struts2/convention/Java8ClassFinder.java,536,classInfo.getFields().add(fieldInfo);
+plugins/java8-support/src/main/java/org/apache/struts2/convention/Java8ClassFinder.java,537,return null;
+plugins/java8-support/src/main/java/org/apache/struts2/convention/Java8ClassFinder.java,541,public MethodVisitor visitMethod(int access, String name, String desc, String signature, String[] exceptions) {
+plugins/java8-support/src/main/java/org/apache/struts2/convention/Java8ClassFinder.java,542,ClassInfo classInfo = ((ClassInfo) info);
+plugins/java8-support/src/main/java/org/apache/struts2/convention/Java8ClassFinder.java,543,MethodInfo methodInfo = new MethodInfo(classInfo, name, desc);
+plugins/java8-support/src/main/java/org/apache/struts2/convention/Java8ClassFinder.java,544,classInfo.getMethods().add(methodInfo);
+plugins/java8-support/src/main/java/org/apache/struts2/convention/Java8ClassFinder.java,545,return new InfoBuildingMethodVisitor(methodInfo);
+plugins/java8-support/src/main/java/org/apache/struts2/convention/Java8ClassFinder.java,549,public class InfoBuildingMethodVisitor extends MethodVisitor {
+plugins/java8-support/src/main/java/org/apache/struts2/convention/Java8ClassFinder.java,550,private Info info;
+plugins/java8-support/src/main/java/org/apache/struts2/convention/Java8ClassFinder.java,552,public InfoBuildingMethodVisitor() {
+plugins/java8-support/src/main/java/org/apache/struts2/convention/Java8ClassFinder.java,553,super(Opcodes.ASM5);
+plugins/java8-support/src/main/java/org/apache/struts2/convention/Java8ClassFinder.java,556,public InfoBuildingMethodVisitor(Info info) {
+plugins/java8-support/src/main/java/org/apache/struts2/convention/Java8ClassFinder.java,557,this();
+plugins/java8-support/src/main/java/org/apache/struts2/convention/Java8ClassFinder.java,558,this.info = info;
+plugins/java8-support/src/main/java/org/apache/struts2/convention/Java8ClassFinder.java,562,public AnnotationVisitor visitAnnotation(String desc, boolean visible) {
+plugins/java8-support/src/main/java/org/apache/struts2/convention/Java8ClassFinder.java,563,AnnotationInfo annotationInfo = new AnnotationInfo(desc);
+plugins/java8-support/src/main/java/org/apache/struts2/convention/Java8ClassFinder.java,564,info.getAnnotations().add(annotationInfo);
+plugins/java8-support/src/main/java/org/apache/struts2/convention/Java8ClassFinder.java,565,getAnnotationInfos(annotationInfo.getName()).add(info);
+plugins/java8-support/src/main/java/org/apache/struts2/convention/Java8ClassFinder.java,566,return null;
+plugins/java8-support/src/main/java/org/apache/struts2/convention/Java8ClassFinder.java,570,public AnnotationVisitor visitParameterAnnotation(int param, String desc, boolean visible) {
+plugins/java8-support/src/main/java/org/apache/struts2/convention/Java8ClassFinder.java,571,MethodInfo methodInfo = ((MethodInfo) info);
+plugins/java8-support/src/main/java/org/apache/struts2/convention/Java8ClassFinder.java,572,List<AnnotationInfo> annotationInfos = methodInfo.getParameterAnnotations(param);
+plugins/java8-support/src/main/java/org/apache/struts2/convention/Java8ClassFinder.java,573,AnnotationInfo annotationInfo = new AnnotationInfo(desc);
+plugins/java8-support/src/main/java/org/apache/struts2/convention/Java8ClassFinder.java,574,annotationInfos.add(annotationInfo);
+plugins/java8-support/src/main/java/org/apache/struts2/convention/Java8ClassFinder.java,575,return null;
+plugins/java8-support/src/main/java/org/apache/struts2/convention/Java8ClassFinder.java,579,private static final class DefaultClassnameFilterImpl implements Test<String> {
+plugins/java8-support/src/main/java/org/apache/struts2/convention/Java8ClassFinder.java,580,public boolean test(String className) {
+plugins/java8-support/src/main/java/org/apache/struts2/convention/Java8ClassFinder.java,581,return true;
+plugins/java8-support/src/main/java/org/apache/struts2/convention/Java8ClassFinderFactory.java,16,package org.apache.struts2.convention;
+plugins/java8-support/src/main/java/org/apache/struts2/convention/Java8ClassFinderFactory.java,18,import com.opensymphony.xwork2.util.finder.ClassFinder;
+plugins/java8-support/src/main/java/org/apache/struts2/convention/Java8ClassFinderFactory.java,19,import com.opensymphony.xwork2.util.finder.ClassFinderFactory;
+plugins/java8-support/src/main/java/org/apache/struts2/convention/Java8ClassFinderFactory.java,20,import com.opensymphony.xwork2.util.finder.ClassLoaderInterface;
+plugins/java8-support/src/main/java/org/apache/struts2/convention/Java8ClassFinderFactory.java,21,import com.opensymphony.xwork2.util.finder.Test;
+plugins/java8-support/src/main/java/org/apache/struts2/convention/Java8ClassFinderFactory.java,25,import java.net.URL;
+plugins/java8-support/src/main/java/org/apache/struts2/convention/Java8ClassFinderFactory.java,26,import java.util.Collection;
+plugins/java8-support/src/main/java/org/apache/struts2/convention/Java8ClassFinderFactory.java,27,import java.util.Set;
+plugins/java8-support/src/main/java/org/apache/struts2/convention/Java8ClassFinderFactory.java,29,public class Java8ClassFinderFactory implements ClassFinderFactory {
+plugins/java8-support/src/main/java/org/apache/struts2/convention/Java8ClassFinderFactory.java,33,public Java8ClassFinderFactory() {
+plugins/java8-support/src/main/java/org/apache/struts2/convention/Java8ClassFinderFactory.java,34,try {
+plugins/java8-support/src/main/java/org/apache/struts2/convention/Java8ClassFinderFactory.java,35,LOG.trace("Checking if ASM5 is on the classpath....");
+plugins/java8-support/src/main/java/org/apache/struts2/convention/Java8ClassFinderFactory.java,36,Class.forName("org.objectweb.asm.MethodVisitor");
+plugins/java8-support/src/main/java/org/apache/struts2/convention/Java8ClassFinderFactory.java,37,LOG.trace("Proper version of ASM5 is in use!");
+plugins/java8-support/src/main/java/org/apache/struts2/convention/Java8ClassFinderFactory.java,39,LOG.warn("ASM5 is missing or older version is used! If you use Maven, please exclude asm.jar and asm-commons.jar version 3 from xwork!");
+plugins/java8-support/src/main/java/org/apache/struts2/convention/Java8ClassFinderFactory.java,43,public ClassFinder buildClassFinder(ClassLoaderInterface classLoaderInterface, Collection<URL> urls, boolean extractBaseInterfaces, Set<String> protocols, Test<String> classNameFilter) {
+plugins/java8-support/src/main/java/org/apache/struts2/convention/Java8ClassFinderFactory.java,44,LOG.debug("Creating new instance of Java8ClassFinder");
+plugins/java8-support/src/main/java/org/apache/struts2/convention/Java8ClassFinderFactory.java,45,return new Java8ClassFinder(classLoaderInterface, urls, extractBaseInterfaces, protocols, classNameFilter);
+core/src/main/java/org/apache/struts2/dispatcher/DefaultStaticContentLoader.java,144,return "org.apache.struts2.static template org.apache.struts2.interceptor.debugging static";
+plugins/json/src/main/java/org/apache/struts2/json/JSONInterceptor.java,101,Object obj = JSONUtil.deserialize(request.getReader());
+plugins/json/src/main/java/org/apache/struts2/json/JSONInterceptor.java,104,if(obj instanceof List && this.root != null) {
+plugins/json/src/main/java/org/apache/struts2/json/JSONInterceptor.java,105,String mapKey = this.root;
+plugins/json/src/main/java/org/apache/struts2/json/JSONInterceptor.java,106,rootObject = null;
+plugins/json/src/main/java/org/apache/struts2/json/JSONInterceptor.java,108,if(this.root.indexOf('.') != -1) {
+plugins/json/src/main/java/org/apache/struts2/json/JSONInterceptor.java,109,mapKey = this.root.substring(this.root.lastIndexOf('.') + 1);
+plugins/json/src/main/java/org/apache/struts2/json/JSONInterceptor.java,111,rootObject = stack.findValue(this.root.substring(0, this.root.lastIndexOf('.')));
+plugins/json/src/main/java/org/apache/struts2/json/JSONInterceptor.java,112,if (rootObject == null) {
+plugins/json/src/main/java/org/apache/struts2/json/JSONInterceptor.java,113,throw new RuntimeException("JSON array: Invalid root expression: '" + this.root + "'.");
+plugins/json/src/main/java/org/apache/struts2/json/JSONInterceptor.java,118,Map m = new HashMap();
+plugins/json/src/main/java/org/apache/struts2/json/JSONInterceptor.java,119,m.put(mapKey, new ArrayList((List) obj));
+plugins/json/src/main/java/org/apache/struts2/json/JSONInterceptor.java,120,obj = m;
+plugins/json/src/main/java/org/apache/struts2/json/JSONInterceptor.java,123,if (obj instanceof Map) {
+plugins/json/src/main/java/org/apache/struts2/json/JSONInterceptor.java,124,Map json = (Map) obj;
+plugins/json/src/main/java/org/apache/struts2/json/JSONInterceptor.java,128,dataCleaner.clean("", json);
+plugins/json/src/main/java/org/apache/struts2/json/JSONInterceptor.java,130,if (rootObject == null) // model overrides action
+plugins/json/src/main/java/org/apache/struts2/json/JSONInterceptor.java,131,rootObject = invocation.getStack().peek();
+plugins/json/src/main/java/org/apache/struts2/json/JSONInterceptor.java,134,populator.populateObject(rootObject, json);
+plugins/json/src/main/java/org/apache/struts2/json/JSONInterceptor.java,136,LOG.error("Unable to deserialize JSON object from request");
+plugins/json/src/main/java/org/apache/struts2/json/JSONInterceptor.java,137,throw new JSONException("Unable to deserialize JSON object from request");
+plugins/json/src/main/java/org/apache/struts2/json/JSONInterceptor.java,140,Object result;
+plugins/json/src/main/java/org/apache/struts2/json/JSONInterceptor.java,141,if (this.enableSMD) {
+plugins/json/src/main/java/org/apache/struts2/json/JSONInterceptor.java,143,Object obj = JSONUtil.deserialize(request.getReader());
+plugins/json/src/main/java/org/apache/struts2/json/JSONInterceptor.java,145,if (obj instanceof Map) {
+plugins/json/src/main/java/org/apache/struts2/json/JSONInterceptor.java,146,Map smd = (Map) obj;
+plugins/json/src/main/java/org/apache/struts2/json/JSONInterceptor.java,149,rootObject = invocation.getAction();
+plugins/json/src/main/java/org/apache/struts2/json/JSONInterceptor.java,152,try {
+plugins/json/src/main/java/org/apache/struts2/json/JSONInterceptor.java,153,result = this.invoke(rootObject, smd);
+plugins/json/src/main/java/org/apache/struts2/json/JSONInterceptor.java,156,rpcResponse.setId(smd.get("id").toString());
+plugins/json/src/main/java/org/apache/struts2/json/JSONInterceptor.java,157,rpcResponse.setError(new RPCError(e, RPCErrorCode.EXCEPTION, getDebug()));
+plugins/json/src/main/java/org/apache/struts2/json/JSONInterceptor.java,162,String message = "SMD request was not in the right format. See http://json-rpc.org";
+plugins/json/src/main/java/org/apache/struts2/json/JSONInterceptor.java,165,rpcResponse.setError(new RPCError(message, RPCErrorCode.INVALID_PROCEDURE_CALL));
+plugins/json/src/main/java/org/apache/struts2/json/JSONInterceptor.java,169,String message = "Request with content type of 'application/json-rpc' was received but SMD is "
+plugins/json/src/main/java/org/apache/struts2/json/JSONInterceptor.java,170,+ "not enabled for this interceptor. Set 'enableSMD' to true to enable it";
+plugins/json/src/main/java/org/apache/struts2/json/JSONInterceptor.java,172,RPCResponse rpcResponse = new RPCResponse();
+plugins/json/src/main/java/org/apache/struts2/json/JSONInterceptor.java,173,rpcResponse.setError(new RPCError(message, RPCErrorCode.SMD_DISABLED));
+plugins/json/src/main/java/org/apache/struts2/json/JSONInterceptor.java,174,result = rpcResponse;
+plugins/json/src/main/java/org/apache/struts2/json/JSONInterceptor.java,177,String json = JSONUtil.serialize(result, excludeProperties, getIncludeProperties(),
+plugins/json/src/main/java/org/apache/struts2/json/JSONInterceptor.java,178,ignoreHierarchy, excludeNullProperties);
+plugins/json/src/main/java/org/apache/struts2/json/JSONInterceptor.java,179,json = addCallbackIfApplicable(request, json);
+plugins/json/src/main/java/org/apache/struts2/json/JSONInterceptor.java,180,boolean writeGzip = enableGZIP && JSONUtil.isGzipInRequest(request);
+plugins/json/src/main/java/org/apache/struts2/json/JSONInterceptor.java,181,JSONUtil.writeJSONToResponse(new SerializationParams(response, this.defaultEncoding,
+plugins/json/src/main/java/org/apache/struts2/json/JSONInterceptor.java,182,this.wrapWithComments, json, true, writeGzip, noCache, -1, -1, prefix, "application/json"));
+plugins/json/src/main/java/org/apache/struts2/json/JSONInterceptor.java,184,return Action.NONE;
+plugins/rest/src/main/java/org/apache/struts2/rest/RestActionMapper.java,293,return mapping;
+plugins/rest/src/main/java/org/apache/struts2/rest/RestActionMapper.java,296,return null;
+core/src/main/java/org/apache/struts2/interceptor/CookieInterceptor.java,240,if (isAcceptableName(name) && isAcceptableValue(value)) {
+core/src/main/java/org/apache/struts2/interceptor/CookieInterceptor.java,267,protected boolean isAcceptableValue(String value) {
+core/src/main/java/org/apache/struts2/interceptor/CookieInterceptor.java,268,return !isExcluded(value) && isAccepted(value);
+plugins/json/src/main/java/org/apache/struts2/json/JSONInterceptor.java,64,private String defaultEncoding = "ISO-8859-1";
+plugins/json/src/main/java/org/apache/struts2/json/JSONInterceptor.java,76,private String contentType;
+plugins/json/src/main/java/org/apache/struts2/json/JSONInterceptor.java,82,String contentType = request.getHeader("content-type");
+plugins/json/src/main/java/org/apache/struts2/json/JSONInterceptor.java,83,if (contentType != null) {
+plugins/json/src/main/java/org/apache/struts2/json/JSONInterceptor.java,86,contentType = contentType.substring(0, iSemicolonIdx);
+plugins/json/src/main/java/org/apache/struts2/json/JSONInterceptor.java,99,if ((contentType != null) && contentType.equalsIgnoreCase("application/json")) {
+plugins/json/src/main/java/org/apache/struts2/json/JSONInterceptor.java,548,public void setContentType(String contentType) {
+plugins/json/src/main/java/org/apache/struts2/json/JSONInterceptor.java,549,this.contentType = contentType;
+core/src/main/java/org/apache/struts2/interceptor/MessageStoreInterceptor.java,285,if (session == null) {
+core/src/main/java/org/apache/struts2/interceptor/MessageStoreInterceptor.java,289,return;
+plugins/rest/src/main/java/org/apache/struts2/rest/RestActionMapper.java,218,if (prevSlashPos > -1) {
+plugins/rest/src/main/java/org/apache/struts2/rest/RestActionMapper.java,302,mapping.setName(name.substring(0, exclamation));
+plugins/rest/src/main/java/org/apache/struts2/rest/RestActionMapper.java,304,mapping.setMethod(name.substring(exclamation + 1));
+core/src/main/java/org/apache/struts2/dispatcher/mapper/Restful2ActionMapper.java,31,import java.net.URLDecoder;
+core/src/main/java/org/apache/struts2/dispatcher/mapper/Restful2ActionMapper.java,136,paramName = URLDecoder.decode(st.nextToken(), "UTF-8");
+core/src/main/java/org/apache/struts2/dispatcher/mapper/Restful2ActionMapper.java,139,paramValue = URLDecoder.decode(st.nextToken(), "UTF-8");
+core/src/main/java/org/apache/struts2/dispatcher/mapper/RestfulActionMapper.java,30,import java.net.URLDecoder;
+core/src/main/java/org/apache/struts2/dispatcher/mapper/RestfulActionMapper.java,70,paramName = URLDecoder.decode(st.nextToken(), "UTF-8");
+core/src/main/java/org/apache/struts2/dispatcher/mapper/RestfulActionMapper.java,73,paramValue = URLDecoder.decode(st.nextToken(), "UTF-8");
+core/src/main/java/org/apache/struts2/views/util/DefaultUrlHelper.java,277,return URLDecoder.decode(input, encoding);
+core/src/main/java/org/apache/struts2/components/IteratorComponent.java,306,if ((var != null) && (currentValue != null)) {
+plugins/json/src/main/java/org/apache/struts2/json/JSONResult.java,74,private String defaultEncoding = "ISO-8859-1";
+plugins/json/src/main/java/org/apache/struts2/json/JSONReader.java,177,protected Object number() {
+plugins/json/src/main/java/org/apache/struts2/json/JSONReader.java,205,return Double.parseDouble(this.buf.toString());
+plugins/json/src/main/java/org/apache/struts2/json/JSONReader.java,207,return Long.parseLong(this.buf.toString());
+core/src/main/java/org/apache/struts2/dispatcher/multipart/JakartaMultiPartRequest.java,97,String errorMessage = buildErrorMessage(e, new Object[]{e.getPermittedSize(), e.getActualSize()});
+core/src/main/java/org/apache/struts2/interceptor/MessageStoreInterceptor.java,281,if (action instanceof ValidationAware) {
+core/src/main/java/org/apache/struts2/interceptor/MessageStoreInterceptor.java,283,Map session = (Map) invocation.getInvocationContext().get(ActionContext.SESSION);
+core/src/main/java/org/apache/struts2/views/util/DefaultUrlHelper.java,88,public String buildUrl(String action, HttpServletRequest request, HttpServletResponse response, Map<String, Object> params, String scheme,
+plugins/rest/src/main/java/org/apache/struts2/rest/DefaultContentTypeHandlerManager.java,146,res.getOutputStream().close();
+plugins/json/src/main/java/org/apache/struts2/json/JSONResult.java,23,import com.opensymphony.xwork2.ActionContext;
+plugins/json/src/main/java/org/apache/struts2/json/JSONResult.java,24,import com.opensymphony.xwork2.ActionInvocation;
+plugins/json/src/main/java/org/apache/struts2/json/JSONResult.java,25,import com.opensymphony.xwork2.Result;
+plugins/json/src/main/java/org/apache/struts2/json/JSONResult.java,26,import com.opensymphony.xwork2.inject.Inject;
+plugins/json/src/main/java/org/apache/struts2/json/JSONResult.java,27,import com.opensymphony.xwork2.util.ValueStack;
+plugins/json/src/main/java/org/apache/struts2/json/JSONResult.java,28,import com.opensymphony.xwork2.util.WildcardUtil;
+plugins/json/src/main/java/org/apache/struts2/json/JSONResult.java,35,import javax.servlet.http.HttpServletRequest;
+plugins/json/src/main/java/org/apache/struts2/json/JSONResult.java,36,import javax.servlet.http.HttpServletResponse;
+plugins/json/src/main/java/org/apache/struts2/json/JSONResult.java,37,import java.io.IOException;
+plugins/json/src/main/java/org/apache/struts2/json/JSONResult.java,38,import java.util.ArrayList;
+plugins/json/src/main/java/org/apache/struts2/json/JSONResult.java,39,import java.util.List;
+plugins/json/src/main/java/org/apache/struts2/json/JSONResult.java,40,import java.util.Set;
+plugins/json/src/main/java/org/apache/struts2/json/JSONResult.java,41,import java.util.regex.Pattern;
+plugins/json/src/main/java/org/apache/struts2/json/JSONResult.java,204,enumAsBean, excludeNullProperties, defaultDateFormat);
+plugins/json/src/main/java/org/apache/struts2/json/JSONUtil.java,23,import com.opensymphony.xwork2.util.TextParseUtil;
+plugins/json/src/main/java/org/apache/struts2/json/JSONUtil.java,24,import com.opensymphony.xwork2.util.WildcardUtil;
+plugins/json/src/main/java/org/apache/struts2/json/JSONUtil.java,30,import javax.servlet.http.HttpServletRequest;
+plugins/json/src/main/java/org/apache/struts2/json/JSONUtil.java,31,import javax.servlet.http.HttpServletResponse;
+plugins/json/src/main/java/org/apache/struts2/json/JSONUtil.java,32,import java.io.*;
+plugins/json/src/main/java/org/apache/struts2/json/JSONUtil.java,33,import java.lang.reflect.Method;
+plugins/json/src/main/java/org/apache/struts2/json/JSONUtil.java,34,import java.util.*;
+plugins/json/src/main/java/org/apache/struts2/json/JSONUtil.java,35,import java.util.regex.Pattern;
+plugins/json/src/main/java/org/apache/struts2/json/JSONUtil.java,36,import java.util.zip.GZIPOutputStream;
+plugins/json/src/main/java/org/apache/struts2/json/JSONUtil.java,121,writer.write(serialize(object));
+plugins/json/src/main/java/org/apache/struts2/json/JSONUtil.java,141,writer.write(serialize(object, excludeProperties, includeProperties, true, excludeNullProperties));
+core/src/main/java/org/apache/struts2/components/Checkbox.java,63,protected String readonly;
+core/src/main/java/org/apache/struts2/components/Checkbox.java,80,if (readonly != null) {
+core/src/main/java/org/apache/struts2/components/Checkbox.java,81,addParameter("readonly", findValue(readonly, Boolean.class));
+core/src/main/java/org/apache/struts2/components/Checkbox.java,95,public void setReadonly(String readonly) {
+core/src/main/java/org/apache/struts2/components/Checkbox.java,96,this.readonly = readonly;
+core/src/main/java/org/apache/struts2/components/CheckboxList.java,56,protected String readonly;
+core/src/main/java/org/apache/struts2/components/CheckboxList.java,69,if (readonly != null) {
+core/src/main/java/org/apache/struts2/components/CheckboxList.java,70,addParameter("readonly", findValue(readonly, Boolean.class));
+core/src/main/java/org/apache/struts2/components/CheckboxList.java,75,public void setReadonly(String readonly) {
+core/src/main/java/org/apache/struts2/components/CheckboxList.java,76,this.readonly = readonly;
+core/src/main/java/org/apache/struts2/components/Radio.java,63,protected String readonly;
+core/src/main/java/org/apache/struts2/components/Radio.java,76,if (readonly != null) {
+core/src/main/java/org/apache/struts2/components/Radio.java,77,addParameter("readonly", findValue(readonly, Boolean.class));
+core/src/main/java/org/apache/struts2/components/Radio.java,82,public void setReadonly(String readonly) {
+core/src/main/java/org/apache/struts2/components/Radio.java,83,this.readonly = readonly;
+xwork-core/src/main/java/com/opensymphony/xwork2/validator/validators/EmailValidator.java,82,public static final String EMAIL_ADDRESS_PATTERN =
+xwork-core/src/main/java/com/opensymphony/xwork2/config/providers/InterceptorBuilder.java,187,if (result != null && result.contains(mapping)) {
+xwork-core/src/main/java/com/opensymphony/xwork2/config/providers/InterceptorBuilder.java,191,int index = result.indexOf(mapping);
+xwork-core/src/main/java/com/opensymphony/xwork2/config/providers/InterceptorBuilder.java,192,result.set(index, mapping);
+core/src/main/java/org/apache/struts2/dispatcher/DefaultStaticContentLoader.java,104,public void setServeStaticContent(String val) {
+core/src/main/java/org/apache/struts2/dispatcher/DefaultStaticContentLoader.java,105,serveStatic = "true".equals(val);
+core/src/main/java/org/apache/struts2/dispatcher/DefaultStaticContentLoader.java,116,public void setServeStaticBrowserCache(String val) {
+core/src/main/java/org/apache/struts2/dispatcher/DefaultStaticContentLoader.java,117,serveStaticBrowserCache = "true".equals(val);
+core/src/main/java/org/apache/struts2/dispatcher/DefaultStaticContentLoader.java,125,public void setEncoding(String val) {
+core/src/main/java/org/apache/struts2/dispatcher/DefaultStaticContentLoader.java,126,encoding = val;
+plugins/rest/src/main/java/org/apache/struts2/rest/RestActionMapper.java,285,mapping.setParams(new HashMap());
+xwork-core/src/main/java/com/opensymphony/xwork2/validator/DelegatingValidatorContext.java,187,return ((DelegatingValidatorContext) localeProvider).getTextProvider();
+xwork-core/src/main/java/com/opensymphony/xwork2/interceptor/ParametersInterceptor.java,270,if (isAcceptableParameter(name, action) && isAcceptableValue(value)) {
+xwork-core/src/main/java/com/opensymphony/xwork2/interceptor/ParametersInterceptor.java,353,protected boolean isAcceptableValue(Object value) {
+xwork-core/src/main/java/com/opensymphony/xwork2/interceptor/ParametersInterceptor.java,354,if (value == null) {
+xwork-core/src/main/java/com/opensymphony/xwork2/interceptor/ParametersInterceptor.java,355,return true;
+xwork-core/src/main/java/com/opensymphony/xwork2/interceptor/ParametersInterceptor.java,357,Object[] values;
+xwork-core/src/main/java/com/opensymphony/xwork2/interceptor/ParametersInterceptor.java,358,if (value.getClass().isArray()) {
+xwork-core/src/main/java/com/opensymphony/xwork2/interceptor/ParametersInterceptor.java,359,values = (Object[]) value;
+xwork-core/src/main/java/com/opensymphony/xwork2/interceptor/ParametersInterceptor.java,361,values = new Object[] { value };
+xwork-core/src/main/java/com/opensymphony/xwork2/interceptor/ParametersInterceptor.java,363,boolean result = true;
+xwork-core/src/main/java/com/opensymphony/xwork2/interceptor/ParametersInterceptor.java,364,for (Object obj : values) {
+xwork-core/src/main/java/com/opensymphony/xwork2/interceptor/ParametersInterceptor.java,365,if (isExcluded(String.valueOf(obj))) {
+xwork-core/src/main/java/com/opensymphony/xwork2/interceptor/ParametersInterceptor.java,366,result = false;
+xwork-core/src/main/java/com/opensymphony/xwork2/interceptor/ParametersInterceptor.java,369,return result;
+core/src/main/java/org/apache/struts2/interceptor/MessageStoreInterceptor.java,198,after(invocation, result);
+core/src/main/java/org/apache/struts2/interceptor/MessageStoreInterceptor.java,272,protected void after(ActionInvocation invocation, String result) throws Exception {
+core/src/main/java/org/apache/struts2/interceptor/MessageStoreInterceptor.java,274,String reqOperationMode = getRequestOperationMode(invocation);
+core/src/main/java/org/apache/struts2/interceptor/MessageStoreInterceptor.java,275,boolean isRedirect = invocation.getResult() instanceof ServletRedirectResult;
+core/src/main/java/org/apache/struts2/interceptor/MessageStoreInterceptor.java,276,if (STORE_MODE.equalsIgnoreCase(reqOperationMode) ||
+core/src/main/java/org/apache/struts2/interceptor/MessageStoreInterceptor.java,277,STORE_MODE.equalsIgnoreCase(operationMode) ||
+core/src/main/java/org/apache/struts2/interceptor/MessageStoreInterceptor.java,278,(AUTOMATIC_MODE.equalsIgnoreCase(operationMode) && isRedirect)) {
+core/src/main/java/org/apache/struts2/interceptor/MessageStoreInterceptor.java,280,Object action = invocation.getAction();
+core/src/main/java/org/apache/struts2/interceptor/MessageStoreInterceptor.java,296,ValidationAware validationAwareAction = (ValidationAware) action;
+core/src/main/java/org/apache/struts2/interceptor/MessageStoreInterceptor.java,297,session.put(actionErrorsSessionKey, validationAwareAction.getActionErrors());
+core/src/main/java/org/apache/struts2/interceptor/MessageStoreInterceptor.java,298,session.put(actionMessagesSessionKey, validationAwareAction.getActionMessages());
+core/src/main/java/org/apache/struts2/interceptor/MessageStoreInterceptor.java,299,session.put(fieldErrorsSessionKey, validationAwareAction.getFieldErrors());
+xwork-core/src/main/java/com/opensymphony/xwork2/DefaultActionInvocation.java,363,result = createResult();
+core/src/main/java/org/apache/struts2/interceptor/MessageStoreInterceptor.java,286,if (LOG.isDebugEnabled()) {
+core/src/main/java/org/apache/struts2/interceptor/MessageStoreInterceptor.java,287,LOG.debug("Could not store action ["+action+"] error/messages into session, because session hasn't been opened yet.");
+core/src/main/java/org/apache/struts2/interceptor/MessageStoreInterceptor.java,292,if (LOG.isDebugEnabled()) {
+core/src/main/java/org/apache/struts2/interceptor/MessageStoreInterceptor.java,293,LOG.debug("store action ["+action+"] error/messages into session ");
+xwork-core/src/main/java/com/opensymphony/xwork2/util/CompoundRoot.java,28,public class CompoundRoot extends ArrayList {
+xwork-core/src/main/java/com/opensymphony/xwork2/util/CompoundRoot.java,33,public CompoundRoot(List list) {
+core/src/main/java/org/apache/struts2/interceptor/MessageStoreInterceptor.java,301,else if(LOG.isDebugEnabled()) {
+core/src/main/java/org/apache/struts2/interceptor/MessageStoreInterceptor.java,302,LOG.debug("Action ["+action+"] is not ValidationAware, no message / error that are storeable");
+xwork-core/src/main/java/com/opensymphony/xwork2/spring/SpringObjectFactory.java,195,bean = autoWiringFactory.applyBeanPostProcessorsBeforeInitialization(bean, bean.getClass().getName());
+xwork-core/src/main/java/com/opensymphony/xwork2/spring/SpringObjectFactory.java,197,bean = autoWiringFactory.applyBeanPostProcessorsAfterInitialization(bean, bean.getClass().getName());
+xwork-core/src/main/java/com/opensymphony/xwork2/validator/AnnotationActionValidatorManager.java,31,import com.opensymphony.xwork2.validator.validators.VisitorFieldValidator;
+xwork-core/src/main/java/com/opensymphony/xwork2/validator/AnnotationActionValidatorManager.java,257,if (configName.contains(ActionConfig.WILDCARD)) {
+xwork-core/src/main/java/com/opensymphony/xwork2/validator/AnnotationActionValidatorManager.java,235,protected static String buildValidatorKey(Class clazz, String context) {
+core/src/main/java/org/apache/struts2/interceptor/TokenSessionStoreInterceptor.java,134,String sessionTokenName = TokenHelper.buildTokenSessionAttributeName(tokenName);
+core/src/main/java/org/apache/struts2/interceptor/TokenSessionStoreInterceptor.java,166,String sessionTokenName = TokenHelper.buildTokenSessionAttributeName(key);
+core/src/main/java/org/apache/struts2/interceptor/TokenSessionStoreInterceptor.java,167,InvocationSessionStore.storeInvocation(sessionTokenName, token, invocation);
+core/src/main/java/org/apache/struts2/StrutsConstants.java,48,public static final String STRUTS_ACTION_EXCLUDE_PATTERN = "struts.action.excludePattern";
+core/src/main/java/org/apache/struts2/StrutsConstants.java,62,public static final String STRUTS_URL_RENDERER = "struts.urlRenderer";
+core/src/main/java/org/apache/struts2/StrutsConstants.java,211,public static final String STRUTS_ID_PARAMETER_NAME = "struts.mapper.idParameterName";
+core/src/main/java/org/apache/struts2/StrutsConstants.java,214,public static final String STRUTS_ALLOW_STATIC_METHOD_ACCESS = "struts.ognl.allowStaticMethodAccess";
+core/src/main/java/org/apache/struts2/components/Include.java,106,private static String systemEncoding = System.getProperty("file.encoding");
+core/src/main/java/org/apache/struts2/components/Include.java,111,private static String defaultEncoding;
+core/src/main/java/org/apache/struts2/components/Include.java,167,include(result, writer, req, res, defaultEncoding);
+core/src/main/java/org/apache/struts2/util/FastByteArrayOutputStream.java,176,if (result.isOverflow() && !result.isError() && !result.isMalformed()) {
+xwork-core/src/main/java/com/opensymphony/xwork2/conversion/impl/CollectionConverter.java,6,import com.opensymphony.xwork2.util.XWorkList;
+xwork-core/src/main/java/com/opensymphony/xwork2/util/XWorkList.java,16,package com.opensymphony.xwork2.util;
+xwork-core/src/main/java/com/opensymphony/xwork2/util/XWorkList.java,22,import com.opensymphony.xwork2.conversion.impl.XWorkConverter;

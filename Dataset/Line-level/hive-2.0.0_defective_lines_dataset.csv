@@ -1,0 +1,1500 @@
+File,Line_number,SRC
+hplsql/src/main/java/org/apache/hive/hplsql/Select.java,149,exec.closeQuery(query, exec.conf.defaultConnection);
+hplsql/src/main/java/org/apache/hive/hplsql/Select.java,152,exec.closeQuery(query, exec.conf.defaultConnection);
+hplsql/src/main/java/org/apache/hive/hplsql/Stmt.java,639,exec.closeQuery(query, exec.conf.defaultConnection);
+metastore/src/java/org/apache/hadoop/hive/metastore/MetaStoreDirectSql.java,263,((Connection)jdoConn.getNativeConnection()).createStatement().execute(queryText);
+ql/src/java/org/apache/hadoop/hive/ql/debug/Utils.java,29,import com.sun.management.HotSpotDiagnosticMXBean;
+ql/src/java/org/apache/hadoop/hive/ql/debug/Utils.java,36,private static volatile HotSpotDiagnosticMXBean hotspotMBean;
+ql/src/java/org/apache/hadoop/hive/ql/debug/Utils.java,65,HOTSPOT_BEAN_NAME, HotSpotDiagnosticMXBean.class);
+ql/src/java/org/apache/hadoop/hive/ql/debug/Utils.java,67,throw re;
+ql/src/java/org/apache/hadoop/hive/ql/debug/Utils.java,69,throw new RuntimeException(exp);
+ql/src/java/org/apache/hadoop/hive/ql/debug/Utils.java,72,try {
+ql/src/java/org/apache/hadoop/hive/ql/debug/Utils.java,73,hotspotMBean.dumpHeap(fileName, live);
+ql/src/java/org/apache/hadoop/hive/ql/exec/persistence/BytesBytesMultiHashMap.java,452,int hashCode = (keyHashCode == -1) ? writeBuffers.hashCode(keyOffset, keyLength) : keyHashCode;
+ql/src/java/org/apache/hadoop/hive/ql/exec/persistence/BytesBytesMultiHashMap.java,686,writeBuffers.setReadPoint(getFirstRecordLengthsOffset(ref, null));
+ql/src/java/org/apache/hadoop/hive/ql/exec/persistence/BytesBytesMultiHashMap.java,687,int valueLength = (int)writeBuffers.readVLong(), keyLength = (int)writeBuffers.readVLong();
+ql/src/java/org/apache/hadoop/hive/ql/exec/persistence/BytesBytesMultiHashMap.java,766,writeBuffers.setReadPoint(getFirstRecordLengthsOffset(oldRef, null));
+ql/src/java/org/apache/hadoop/hive/ql/exec/persistence/BytesBytesMultiHashMap.java,769,- writeBuffers.readVLong() - writeBuffers.readVLong() - 4, 4);
+ql/src/java/org/apache/hadoop/hive/ql/exec/persistence/BytesBytesMultiHashMap.java,788,return writeBuffers.getReadPoint(); // Assumes we are here after key compare.
+ql/src/java/org/apache/hadoop/hive/ql/exec/persistence/BytesBytesMultiHashMap.java,794,writeBuffers.setReadPoint(firstTailOffset);
+ql/src/java/org/apache/hadoop/hive/ql/exec/persistence/BytesBytesMultiHashMap.java,795,writeBuffers.skipVLong();
+ql/src/java/org/apache/hadoop/hive/ql/exec/persistence/BytesBytesMultiHashMap.java,796,writeBuffers.skipVLong();
+ql/src/java/org/apache/hadoop/hive/ql/exec/persistence/BytesBytesMultiHashMap.java,797,int lengthsLength = (int)(writeBuffers.getReadPoint() - firstTailOffset);
+ql/src/java/org/apache/hadoop/hive/ql/exec/persistence/BytesBytesMultiHashMap.java,819,long prevHeadOffset = writeBuffers.readNByteLong(lrPtrOffset, 5);
+ql/src/java/org/apache/hadoop/hive/ql/exec/persistence/BytesBytesMultiHashMap.java,888,writeBuffers.setReadPoint(recOffset);
+ql/src/java/org/apache/hadoop/hive/ql/exec/persistence/BytesBytesMultiHashMap.java,889,int valueLength = (int)writeBuffers.readVLong(),
+ql/src/java/org/apache/hadoop/hive/ql/exec/persistence/BytesBytesMultiHashMap.java,890,keyLength = (int)writeBuffers.readVLong();
+ql/src/java/org/apache/hadoop/hive/ql/exec/persistence/BytesBytesMultiHashMap.java,891,long ptrOffset = writeBuffers.getReadPoint();
+ql/src/java/org/apache/hadoop/hive/ql/exec/vector/VectorMapJoinOperator.java,156,int columnIndex;;
+ql/src/java/org/apache/hadoop/hive/ql/exec/vector/VectorizedBatchUtil.java,654,if (p == column) {
+ql/src/java/org/apache/hadoop/hive/ql/exec/vector/VectorizedBatchUtil.java,655,sb.append("(col " + p + ") ");
+ql/src/java/org/apache/hadoop/hive/ql/exec/vector/VectorizedBatchUtil.java,657,sb.append("(proj col " + p + " col " + column + ") ");
+ql/src/java/org/apache/hadoop/hive/ql/exec/vector/VectorizedBatchUtil.java,694,LOG.info(sb.toString());
+ql/src/java/org/apache/hadoop/hive/ql/exec/vector/mapjoin/fast/VectorMapJoinFastBytesHashMap.java,76,long valueRefWord = findReadSlot(keyBytes, keyStart, keyLength, hashCode);
+ql/src/java/org/apache/hadoop/hive/ql/exec/vector/mapjoin/fast/VectorMapJoinFastBytesHashMultiSet.java,72,long count = findReadSlot(keyBytes, keyStart, keyLength, hashCode);
+ql/src/java/org/apache/hadoop/hive/ql/exec/vector/mapjoin/fast/VectorMapJoinFastBytesHashSet.java,67,long existance = findReadSlot(keyBytes, keyStart, keyLength, hashCode);
+ql/src/java/org/apache/hadoop/hive/ql/exec/vector/mapjoin/fast/VectorMapJoinFastBytesHashTable.java,90,keyStore.equalKey(slotTriples[tripleIndex], keyBytes, keyStart, keyLength)) {
+ql/src/java/org/apache/hadoop/hive/ql/exec/vector/mapjoin/fast/VectorMapJoinFastBytesHashTable.java,179,protected long findReadSlot(byte[] keyBytes, int keyStart, int keyLength, long hashCode) {
+ql/src/java/org/apache/hadoop/hive/ql/exec/vector/mapjoin/fast/VectorMapJoinFastBytesHashTable.java,191,if (keyStore.equalKey(slotTriples[tripleIndex], keyBytes, keyStart, keyLength)) {
+ql/src/java/org/apache/hadoop/hive/ql/exec/vector/mapjoin/fast/VectorMapJoinFastHashTable.java,32,protected int writeBuffersSize;
+ql/src/java/org/apache/hadoop/hive/ql/exec/vector/mapjoin/fast/VectorMapJoinFastKeyStore.java,33,private WriteBuffers.Position readPos;
+ql/src/java/org/apache/hadoop/hive/ql/exec/vector/mapjoin/fast/VectorMapJoinFastKeyStore.java,118,public boolean equalKey(long keyRefWord, byte[] keyBytes, int keyStart, int keyLength) {
+ql/src/java/org/apache/hadoop/hive/ql/exec/vector/mapjoin/fast/VectorMapJoinFastKeyStore.java,155,readPos = new WriteBuffers.Position();
+ql/src/java/org/apache/hadoop/hive/ql/exec/vector/mapjoin/fast/VectorMapJoinFastKeyStore.java,162,readPos = new WriteBuffers.Position();
+ql/src/java/org/apache/hadoop/hive/ql/exec/vector/mapjoin/fast/VectorMapJoinFastLongHashTable.java,51,private HashTableKeyType hashTableKeyType;
+ql/src/java/org/apache/hadoop/hive/ql/exec/vector/mapjoin/fast/VectorMapJoinFastLongHashTable.java,53,private boolean isOuterJoin;
+ql/src/java/org/apache/hadoop/hive/ql/exec/vector/mapjoin/fast/VectorMapJoinFastLongHashTable.java,55,private BinarySortableDeserializeRead keyBinarySortableDeserializeRead;
+ql/src/java/org/apache/hadoop/hive/ql/exec/vector/mapjoin/fast/VectorMapJoinFastLongHashTable.java,57,private boolean useMinMax;
+ql/src/java/org/apache/hadoop/hive/ql/exec/vector/mapjoin/fast/VectorMapJoinFastTableContainer.java,61,private final VectorMapJoinFastHashTable VectorMapJoinFastHashTable;
+ql/src/java/org/apache/hadoop/hive/ql/exec/vector/mapjoin/fast/VectorMapJoinFastTableContainer.java,86,VectorMapJoinFastHashTable = createHashTable(newThreshold);
+ql/src/java/org/apache/hadoop/hive/ql/exec/vector/mapjoin/fast/VectorMapJoinFastTableContainer.java,91,return VectorMapJoinFastHashTable;
+ql/src/java/org/apache/hadoop/hive/ql/exec/vector/mapjoin/fast/VectorMapJoinFastTableContainer.java,181,VectorMapJoinFastHashTable.putRow((BytesWritable) currentKey, (BytesWritable) currentValue);
+ql/src/java/org/apache/hadoop/hive/ql/exec/vector/mapjoin/fast/VectorMapJoinFastTableContainer.java,217,return VectorMapJoinFastHashTable.size();
+serde/src/java/org/apache/hadoop/hive/serde2/WriteBuffers.java,24,import org.apache.hadoop.hive.serde2.ByteStream.Output;
+serde/src/java/org/apache/hadoop/hive/serde2/WriteBuffers.java,26,import org.apache.hadoop.hive.serde2.binarysortable.BinarySortableSerDe;
+serde/src/java/org/apache/hadoop/hive/serde2/WriteBuffers.java,28,import org.apache.hadoop.hive.serde2.objectinspector.PrimitiveObjectInspector.PrimitiveCategory;
+serde/src/java/org/apache/hadoop/hive/serde2/WriteBuffers.java,56,Position defaultReadPos = new Position(); // Position where we'd read (by default).
+serde/src/java/org/apache/hadoop/hive/serde2/WriteBuffers.java,67,public int readVInt() {
+serde/src/java/org/apache/hadoop/hive/serde2/WriteBuffers.java,68,return (int) readVLong(defaultReadPos);
+serde/src/java/org/apache/hadoop/hive/serde2/WriteBuffers.java,75,public long readVLong() {
+serde/src/java/org/apache/hadoop/hive/serde2/WriteBuffers.java,76,return readVLong(defaultReadPos);
+serde/src/java/org/apache/hadoop/hive/serde2/WriteBuffers.java,100,public void skipVLong() {
+serde/src/java/org/apache/hadoop/hive/serde2/WriteBuffers.java,101,skipVLong(defaultReadPos);
+serde/src/java/org/apache/hadoop/hive/serde2/WriteBuffers.java,120,public void setReadPoint(long offset) {
+serde/src/java/org/apache/hadoop/hive/serde2/WriteBuffers.java,121,setReadPoint(offset, defaultReadPos);
+serde/src/java/org/apache/hadoop/hive/serde2/WriteBuffers.java,130,public int hashCode(long offset, int length) {
+serde/src/java/org/apache/hadoop/hive/serde2/WriteBuffers.java,131,return hashCode(offset, length, defaultReadPos);
+serde/src/java/org/apache/hadoop/hive/serde2/WriteBuffers.java,355,defaultReadPos.clear();
+serde/src/java/org/apache/hadoop/hive/serde2/WriteBuffers.java,366,public long getReadPoint() {
+serde/src/java/org/apache/hadoop/hive/serde2/WriteBuffers.java,367,return getReadPoint(defaultReadPos);
+serde/src/java/org/apache/hadoop/hive/serde2/WriteBuffers.java,521,public long readNByteLong(long offset, int bytes) {
+serde/src/java/org/apache/hadoop/hive/serde2/WriteBuffers.java,522,return readNByteLong(offset, bytes, defaultReadPos);
+serde/src/java/org/apache/hadoop/hive/serde2/WriteBuffers.java,564,return (int)readNByteLong(offset, 4);
+serde/src/java/org/apache/hadoop/hive/serde2/WriteBuffers.java,609,public Position getReadPosition() {
+serde/src/java/org/apache/hadoop/hive/serde2/WriteBuffers.java,610,return defaultReadPos;
+ql/src/java/org/apache/hadoop/hive/ql/exec/mr/ExecDriver.java,396,JobClient jc = new JobClient(job);
+ql/src/java/org/apache/hadoop/hive/ql/io/HiveInputFormat.java,508,boolean readAllColumns = readColIds.isEmpty() ? true : false;
+ql/src/java/org/apache/hadoop/hive/ql/io/HiveInputFormat.java,509,newjob.setBoolean(ColumnProjectionUtils.READ_ALL_COLUMNS, readAllColumns);
+ql/src/java/org/apache/hadoop/hive/ql/io/HiveInputFormat.java,514,LOG.info("{} = {}", ColumnProjectionUtils.READ_ALL_COLUMNS, readAllColumns);
+ql/src/java/org/apache/hadoop/hive/ql/exec/vector/VectorizationContext.java,486,private TypeInfo getCommonTypeForChildExpressions(GenericUDF genericUdf, List<ExprNodeDesc> children,
+ql/src/java/org/apache/hadoop/hive/ql/exec/vector/VectorizationContext.java,487,TypeInfo returnType) {
+ql/src/java/org/apache/hadoop/hive/ql/exec/vector/VectorizationContext.java,501,return children.get(0).getTypeInfo();
+ql/src/java/org/apache/hadoop/hive/ql/exec/vector/VectorizationContext.java,1491,throws HiveException {
+ql/src/java/org/apache/hadoop/hive/ql/exec/vector/VectorizationContext.java,1499,if (category == Category.STRUCT){
+ql/src/java/org/apache/hadoop/hive/ql/udf/generic/GenericUDFUtils.java,176,if (commonTypeInfo instanceof DecimalTypeInfo) {
+ql/src/java/org/apache/hadoop/hive/ql/udf/generic/GenericUDFUtils.java,177,if ((!FunctionRegistry.isExactNumericType((PrimitiveTypeInfo) oiTypeInfo)) ||
+ql/src/java/org/apache/hadoop/hive/ql/udf/generic/GenericUDFUtils.java,178,(!FunctionRegistry.isExactNumericType((PrimitiveTypeInfo) rTypeInfo))) {
+ql/src/java/org/apache/hadoop/hive/ql/udf/generic/GenericUDFUtils.java,179,commonTypeInfo = TypeInfoFactory.doubleTypeInfo;
+serde/src/java/org/apache/hadoop/hive/serde2/typeinfo/HiveDecimalUtils.java,80,return HiveDecimal.MAX_PRECISION;
+serde/src/java/org/apache/hadoop/hive/serde2/typeinfo/HiveDecimalUtils.java,103,return HiveDecimal.MAX_SCALE;
+ql/src/java/org/apache/hadoop/hive/ql/parse/BaseSemanticAnalyzer.java,1346,value = ((DateWritable) colValue).get();
+ql/src/java/org/apache/hadoop/hive/ql/udf/UDFDayOfMonth.java,92,calendar.setTime(d.get());
+ql/src/java/org/apache/hadoop/hive/ql/udf/UDFMonth.java,90,calendar.setTime(d.get());
+ql/src/java/org/apache/hadoop/hive/ql/udf/UDFWeekOfYear.java,89,calendar.setTime(d.get());
+ql/src/java/org/apache/hadoop/hive/ql/udf/UDFYear.java,92,calendar.setTime(d.get());
+service/src/java/org/apache/hive/service/cli/ColumnValue.java,264,private static Date getDateValue(TStringValue tStringValue) {
+service/src/java/org/apache/hive/service/cli/ColumnValue.java,265,if (tStringValue.isSetValue()) {
+service/src/java/org/apache/hive/service/cli/ColumnValue.java,266,return Date.valueOf(tStringValue.getValue());
+service/src/java/org/apache/hive/service/cli/ColumnValue.java,268,return null;
+storage-api/src/java/org/apache/hadoop/hive/serde2/io/DateWritable.java,102,return new Date(daysToMillis(daysSinceEpoch));
+storage-api/src/java/org/apache/hadoop/hive/serde2/io/DateWritable.java,123,long millisUtc = d * MILLIS_PER_DAY;
+storage-api/src/java/org/apache/hadoop/hive/serde2/io/DateWritable.java,124,long tmp =  millisUtc - LOCAL_TIMEZONE.get().getOffset(millisUtc);
+storage-api/src/java/org/apache/hadoop/hive/serde2/io/DateWritable.java,127,return millisUtc - LOCAL_TIMEZONE.get().getOffset(tmp);
+storage-api/src/java/org/apache/hadoop/hive/serde2/io/DateWritable.java,136,days = (int) ((millisUtc - 86399999) / MILLIS_PER_DAY);
+storage-api/src/java/org/apache/hadoop/hive/serde2/io/DateWritable.java,172,return get().toString();
+storage-api/src/java/org/apache/hadoop/hive/ql/exec/vector/DecimalColumnVector.java,64,public void fillWithNulls() {
+storage-api/src/java/org/apache/hadoop/hive/ql/exec/vector/DecimalColumnVector.java,65,noNulls = false;
+storage-api/src/java/org/apache/hadoop/hive/ql/exec/vector/DecimalColumnVector.java,66,isRepeating = true;
+storage-api/src/java/org/apache/hadoop/hive/ql/exec/vector/DecimalColumnVector.java,67,vector[0] = null;
+storage-api/src/java/org/apache/hadoop/hive/ql/exec/vector/DecimalColumnVector.java,68,isNull[0] = true;
+storage-api/src/java/org/apache/hadoop/hive/ql/exec/vector/DecimalColumnVector.java,138,if (size > vector.length) {
+storage-api/src/java/org/apache/hadoop/hive/ql/exec/vector/DecimalColumnVector.java,139,super.ensureSize(size, preserveData);
+storage-api/src/java/org/apache/hadoop/hive/ql/exec/vector/DecimalColumnVector.java,140,HiveDecimalWritable[] oldArray = vector;
+storage-api/src/java/org/apache/hadoop/hive/ql/exec/vector/DecimalColumnVector.java,141,vector = new HiveDecimalWritable[size];
+storage-api/src/java/org/apache/hadoop/hive/ql/exec/vector/DecimalColumnVector.java,142,if (preserveData) {
+storage-api/src/java/org/apache/hadoop/hive/ql/exec/vector/DecimalColumnVector.java,144,System.arraycopy(oldArray, 0, vector, 0 , oldArray.length);
+storage-api/src/java/org/apache/hadoop/hive/ql/exec/vector/DecimalColumnVector.java,145,for(int i= oldArray.length; i < vector.length; ++i) {
+storage-api/src/java/org/apache/hadoop/hive/ql/exec/vector/DecimalColumnVector.java,146,vector[i] = new HiveDecimalWritable(HiveDecimal.ZERO);
+jdbc/src/java/org/apache/hive/jdbc/HiveConnection.java,46,import org.apache.http.conn.ssl.SSLSocketFactory;
+jdbc/src/java/org/apache/hive/jdbc/HiveConnection.java,308,HttpClients.custom().setServiceUnavailableRetryStrategy(
+jdbc/src/java/org/apache/hive/jdbc/HiveConnection.java,309,new  ServiceUnavailableRetryStrategy() {
+jdbc/src/java/org/apache/hive/jdbc/HiveConnection.java,312,public boolean retryRequest(
+jdbc/src/java/org/apache/hive/jdbc/HiveConnection.java,313,final HttpResponse response,
+jdbc/src/java/org/apache/hive/jdbc/HiveConnection.java,314,final int executionCount,
+jdbc/src/java/org/apache/hive/jdbc/HiveConnection.java,315,final HttpContext context) {
+jdbc/src/java/org/apache/hive/jdbc/HiveConnection.java,316,int statusCode = response.getStatusLine().getStatusCode();
+jdbc/src/java/org/apache/hive/jdbc/HiveConnection.java,317,boolean ret = statusCode == 401 && executionCount <= 1;
+jdbc/src/java/org/apache/hive/jdbc/HiveConnection.java,320,if (ret) {
+jdbc/src/java/org/apache/hive/jdbc/HiveConnection.java,321,context.setAttribute(Utils.HIVE_SERVER2_RETRY_KEY, Utils.HIVE_SERVER2_RETRY_TRUE);
+jdbc/src/java/org/apache/hive/jdbc/HiveConnection.java,323,return ret;
+jdbc/src/java/org/apache/hive/jdbc/HiveConnection.java,327,public long getRetryInterval() {
+jdbc/src/java/org/apache/hive/jdbc/HiveConnection.java,329,return 0;
+jdbc/src/java/org/apache/hive/jdbc/HiveConnection.java,344,SSLSocketFactory socketFactory;
+jdbc/src/java/org/apache/hive/jdbc/HiveConnection.java,359,if (useTwoWaySSL != null &&
+jdbc/src/java/org/apache/hive/jdbc/HiveConnection.java,360,useTwoWaySSL.equalsIgnoreCase(JdbcConnectionParams.TRUE)) {
+jdbc/src/java/org/apache/hive/jdbc/HiveConnection.java,364,socketFactory = SSLSocketFactory.getSocketFactory();
+jdbc/src/java/org/apache/hive/jdbc/HiveConnection.java,371,socketFactory = new SSLSocketFactory(sslTrustStore);
+jdbc/src/java/org/apache/hive/jdbc/HiveConnection.java,373,socketFactory.setHostnameVerifier(SSLSocketFactory.ALLOW_ALL_HOSTNAME_VERIFIER);
+jdbc/src/java/org/apache/hive/jdbc/HiveConnection.java,378,.build();
+jdbc/src/java/org/apache/hive/jdbc/HiveConnection.java,382,catch (Exception e) {
+jdbc/src/java/org/apache/hive/jdbc/HiveConnection.java,383,String msg =  "Could not create an https connection to " +
+jdbc/src/java/org/apache/hive/jdbc/HiveConnection.java,384,jdbcUriString + ". " + e.getMessage();
+jdbc/src/java/org/apache/hive/jdbc/HiveConnection.java,486,SSLSocketFactory getTwoWaySSLSocketFactory() throws SQLException {
+jdbc/src/java/org/apache/hive/jdbc/HiveConnection.java,487,SSLSocketFactory socketFactory = null;
+jdbc/src/java/org/apache/hive/jdbc/HiveConnection.java,524,socketFactory = new SSLSocketFactory(context);
+service/src/java/org/apache/hive/service/auth/HiveAuthFactory.java,218,return TSSLTransportFactory.getClientSocket(host, port, loginTimeout);
+service/src/java/org/apache/hive/service/auth/HiveAuthFactory.java,227,return TSSLTransportFactory.getClientSocket(host, port, loginTimeout, params);
+beeline/src/java/org/apache/hive/beeline/DatabaseConnection.java,133,for (Map.Entry<String, String> var : hiveVars.entrySet()) {
+beeline/src/java/org/apache/hive/beeline/DatabaseConnection.java,134,info.put(HIVE_VAR_PREFIX + var.getKey(), var.getValue());
+beeline/src/java/org/apache/hive/beeline/DatabaseConnection.java,138,for (Map.Entry<String, String> var : hiveConfVars.entrySet()) {
+beeline/src/java/org/apache/hive/beeline/DatabaseConnection.java,139,info.put(HIVE_CONF_PREFIX + var.getKey(), var.getValue());
+common/src/java/org/apache/hadoop/hive/conf/HiveConf.java,2371,LLAP_ALLOCATOR_MIN_ALLOC("hive.llap.io.allocator.alloc.min", "128Kb", new SizeValidator(),
+common/src/java/org/apache/hadoop/hive/conf/HiveConf.java,2386,LLAP_USE_LRFU("hive.llap.io.use.lrfu", false,
+llap-server/src/java/org/apache/hadoop/hive/llap/cache/LowLevelLrfuCachePolicy.java,105,buffer.priority *= 8; // this is arbitrary
+llap-server/src/java/org/apache/hadoop/hive/llap/io/metadata/OrcMetadataCache.java,47,if (val == null) {
+llap-server/src/java/org/apache/hadoop/hive/llap/io/metadata/OrcMetadataCache.java,48,val = metaData;
+llap-server/src/java/org/apache/hadoop/hive/llap/io/metadata/OrcMetadataCache.java,49,policy.cache(val, Priority.HIGH);
+llap-server/src/java/org/apache/hadoop/hive/llap/io/metadata/OrcMetadataCache.java,51,memoryManager.releaseMemory(memUsage);
+llap-server/src/java/org/apache/hadoop/hive/llap/io/metadata/OrcMetadataCache.java,52,policy.notifyLock(val);
+llap-server/src/java/org/apache/hadoop/hive/llap/io/metadata/OrcMetadataCache.java,54,policy.notifyUnlock(val);
+llap-server/src/java/org/apache/hadoop/hive/llap/io/metadata/OrcMetadataCache.java,55,return val;
+llap-server/src/java/org/apache/hadoop/hive/llap/io/metadata/OrcMetadataCache.java,63,if (val == null) {
+llap-server/src/java/org/apache/hadoop/hive/llap/io/metadata/OrcMetadataCache.java,64,val = metaData;
+llap-server/src/java/org/apache/hadoop/hive/llap/io/metadata/OrcMetadataCache.java,65,policy.cache(val, Priority.HIGH);
+llap-server/src/java/org/apache/hadoop/hive/llap/io/metadata/OrcMetadataCache.java,68,policy.notifyLock(val);
+llap-server/src/java/org/apache/hadoop/hive/llap/io/metadata/OrcMetadataCache.java,70,policy.notifyUnlock(val);
+llap-server/src/java/org/apache/hadoop/hive/llap/io/metadata/OrcMetadataCache.java,71,return val;
+llap-server/src/java/org/apache/hadoop/hive/llap/io/metadata/OrcMetadataCache.java,75,return stripeMetadata.get(stripeKey);
+llap-server/src/java/org/apache/hadoop/hive/llap/io/metadata/OrcMetadataCache.java,79,return metadata.get(fileId);
+ql/src/java/org/apache/hadoop/hive/ql/io/orc/RecordReaderImpl.java,904,includedColumns[column]) {
+ql/src/java/org/apache/hadoop/hive/ql/io/orc/RecordReaderImpl.java,929,if ((includeColumn != null && !includeColumn[column]) ||
+ql/src/java/org/apache/hadoop/hive/ql/io/orc/TreeReaderFactory.java,2039,private final int fileColumnCount;
+ql/src/java/org/apache/hadoop/hive/ql/io/orc/TreeReaderFactory.java,2052,fileColumnCount = fileStructType.getFieldNamesCount();
+ql/src/java/org/apache/hadoop/hive/ql/io/orc/TreeReaderFactory.java,2061,resultColumnCount = fileColumnCount;
+ql/src/java/org/apache/hadoop/hive/ql/io/orc/TreeReaderFactory.java,2064,this.fields = new TreeReader[fileColumnCount];
+ql/src/java/org/apache/hadoop/hive/ql/io/orc/TreeReaderFactory.java,2065,this.fieldNames = new String[fileColumnCount];
+ql/src/java/org/apache/hadoop/hive/ql/io/orc/TreeReaderFactory.java,2068,for (int i = 0; i < fileColumnCount; ++i) {
+ql/src/java/org/apache/hadoop/hive/ql/io/orc/TreeReaderFactory.java,2075,for (int i = 0; i < fileColumnCount; ++i) {
+ql/src/java/org/apache/hadoop/hive/ql/io/orc/TreeReaderFactory.java,2119,for (int i = 0; i < fileColumnCount; ++i) {
+ql/src/java/org/apache/hadoop/hive/ql/io/orc/TreeReaderFactory.java,2124,if (resultColumnCount > fileColumnCount) {
+ql/src/java/org/apache/hadoop/hive/ql/io/orc/TreeReaderFactory.java,2125,for (int i = fileColumnCount; i < resultColumnCount; ++i) {
+ql/src/java/org/apache/hadoop/hive/ql/io/orc/TreeReaderFactory.java,2138,result = new ColumnVector[fileColumnCount];
+ql/src/java/org/apache/hadoop/hive/ql/io/orc/TreeReaderFactory.java,2144,for (int i = 0; i < fileColumnCount; i++) {
+ql/src/java/org/apache/hadoop/hive/ql/io/orc/TreeReaderFactory.java,2155,if (vectorColumnCount != -1 && vectorColumnCount > fileColumnCount) {
+ql/src/java/org/apache/hadoop/hive/ql/io/orc/TreeReaderFactory.java,2156,for (int i = fileColumnCount; i < vectorColumnCount; ++i) {
+common/src/java/org/apache/hadoop/hive/conf/HiveConf.java,971,HIVE_SCHEMA_EVOLUTION("hive.exec.schema.evolution", true,
+ql/src/java/org/apache/hadoop/hive/ql/exec/DDLTask.java,3294,boolean isOrc = sd.getInputFormat().equals(OrcInputFormat.class.getName());
+ql/src/java/org/apache/hadoop/hive/ql/exec/DDLTask.java,3295,if (isOrc && (first || (afterCol != null && !afterCol.trim().isEmpty()))) {
+ql/src/java/org/apache/hadoop/hive/ql/exec/DDLTask.java,3316,if (isOrc && !isSupportedTypeChange(col.getType(), type)) {
+ql/src/java/org/apache/hadoop/hive/ql/exec/DDLTask.java,3375,final boolean isOrc = serializationLib.equals(OrcSerde.class.getName());
+ql/src/java/org/apache/hadoop/hive/ql/exec/DDLTask.java,3377,if (isOrc) {
+ql/src/java/org/apache/hadoop/hive/ql/exec/DDLTask.java,3410,if (oldSerdeName.equalsIgnoreCase(OrcSerde.class.getName()) &&
+ql/src/java/org/apache/hadoop/hive/ql/exec/FetchOperator.java,607,if (Utilities.isInputFileFormatSelfDescribing(partitionDesc)) {
+ql/src/java/org/apache/hadoop/hive/ql/exec/MapOperator.java,209,if (Utilities.isInputFileFormatSelfDescribing(pd)) {
+ql/src/java/org/apache/hadoop/hive/ql/exec/MapOperator.java,317,if (Utilities.isInputFileFormatSelfDescribing(pd)) {
+ql/src/java/org/apache/hadoop/hive/ql/parse/ImportSemanticAnalyzer.java,320,private Task<?> loadTable(URI fromURI, Table table, boolean replace) {
+ql/src/java/org/apache/hadoop/hive/ql/parse/ImportSemanticAnalyzer.java,322,Path tmpPath = ctx.getExternalTmpPath(new Path(fromURI));
+ql/src/java/org/apache/hadoop/hive/ql/parse/ImportSemanticAnalyzer.java,392,Path tmpPath = ctx.getExternalTmpPath(new Path(fromURI));
+ql/src/java/org/apache/hadoop/hive/ql/parse/ImportSemanticAnalyzer.java,433,checkTargetLocationEmpty(fs, tgtPath, replicationSpec);
+ql/src/java/org/apache/hadoop/hive/ql/parse/ImportSemanticAnalyzer.java,709,checkTargetLocationEmpty(fs, new Path(table.getDataLocation().toString()), replicationSpec);
+ql/src/java/org/apache/hadoop/hive/ql/parse/ImportSemanticAnalyzer.java,710,loadTable(fromURI, table, false);
+ql/src/java/org/apache/hadoop/hive/ql/parse/ImportSemanticAnalyzer.java,743,checkTargetLocationEmpty(fs, tablePath, replicationSpec);
+ql/src/java/org/apache/hadoop/hive/ql/parse/ImportSemanticAnalyzer.java,744,t.addDependentTask(loadTable(fromURI, table, false));
+ql/src/java/org/apache/hadoop/hive/ql/parse/ImportSemanticAnalyzer.java,815,t.addDependentTask(loadTable(fromURI, table, true));
+ql/src/java/org/apache/hadoop/hive/ql/parse/ImportSemanticAnalyzer.java,870,loadTable(fromURI, table, true); // repl-imports are replace-into
+orc/src/java/org/apache/orc/impl/OutStream.java,246,compressed = null;
+ql/src/java/org/apache/hadoop/hive/ql/exec/ReduceSinkOperator.java,118,protected transient TopNHash reducerHash = new TopNHash();
+ql/src/java/org/apache/hadoop/hive/ql/exec/ReduceSinkOperator.java,245,reducerHash = conf.isPTFReduceSink() ? new PTFTopNHash() : reducerHash;
+ql/src/java/org/apache/hadoop/hive/ql/exec/ReduceSinkOperator.java,385,int firstIndex = reducerHash.tryStoreKey(firstKey, partKeyNull);
+ql/src/java/org/apache/hadoop/hive/ql/exec/ReduceSinkOperator.java,569,if (!abort) {
+orc/src/java/org/apache/orc/DataReader.java,27,public interface DataReader {
+orc/src/java/org/apache/orc/DataReader.java,33,void close() throws IOException;
+orc/src/java/org/apache/orc/impl/MetadataReader.java,25,public interface MetadataReader {
+orc/src/java/org/apache/orc/impl/MetadataReader.java,33,void close() throws IOException;
+orc/src/java/org/apache/orc/impl/MetadataReaderImpl.java,40,public MetadataReaderImpl(FileSystem fileSystem, Path path,
+orc/src/java/org/apache/orc/impl/MetadataReaderImpl.java,41,CompressionCodec codec, int bufferSize, int typeCount) throws IOException {
+orc/src/java/org/apache/orc/impl/MetadataReaderImpl.java,42,this(fileSystem.open(path), codec, bufferSize, typeCount);
+orc/src/java/org/apache/orc/impl/MetadataReaderImpl.java,45,public MetadataReaderImpl(FSDataInputStream file,
+orc/src/java/org/apache/orc/impl/MetadataReaderImpl.java,46,CompressionCodec codec, int bufferSize, int typeCount) {
+orc/src/java/org/apache/orc/impl/MetadataReaderImpl.java,47,this.file = file;
+orc/src/java/org/apache/orc/impl/MetadataReaderImpl.java,48,this.codec = codec;
+orc/src/java/org/apache/orc/impl/MetadataReaderImpl.java,49,this.bufferSize = bufferSize;
+orc/src/java/org/apache/orc/impl/MetadataReaderImpl.java,50,this.typeCount = typeCount;
+ql/src/java/org/apache/hadoop/hive/ql/io/orc/ReaderImpl.java,38,import org.apache.orc.impl.MetadataReaderImpl;
+ql/src/java/org/apache/hadoop/hive/ql/io/orc/ReaderImpl.java,662,return new RecordReaderImpl(this.getStripes(), fileSystem, path,
+ql/src/java/org/apache/hadoop/hive/ql/io/orc/ReaderImpl.java,663,options, types, codec, bufferSize, rowIndexStride, conf);
+ql/src/java/org/apache/hadoop/hive/ql/io/orc/ReaderImpl.java,847,return new MetadataReaderImpl(fileSystem, path, codec, bufferSize, types.size());
+ql/src/java/org/apache/hadoop/hive/ql/io/orc/ReaderImpl.java,862,return RecordReaderUtils.createDefaultDataReader(fileSystem, path, useZeroCopy, codec);
+ql/src/java/org/apache/hadoop/hive/ql/io/orc/RecordReaderImpl.java,44,import org.apache.orc.impl.MetadataReaderImpl;
+ql/src/java/org/apache/hadoop/hive/ql/io/orc/RecordReaderImpl.java,144,protected RecordReaderImpl(List<StripeInformation> stripes,
+ql/src/java/org/apache/hadoop/hive/ql/io/orc/RecordReaderImpl.java,145,FileSystem fileSystem,
+ql/src/java/org/apache/hadoop/hive/ql/io/orc/RecordReaderImpl.java,146,Path path,
+ql/src/java/org/apache/hadoop/hive/ql/io/orc/RecordReaderImpl.java,147,Reader.Options options,
+ql/src/java/org/apache/hadoop/hive/ql/io/orc/RecordReaderImpl.java,148,List<OrcProto.Type> types,
+ql/src/java/org/apache/hadoop/hive/ql/io/orc/RecordReaderImpl.java,149,CompressionCodec codec,
+ql/src/java/org/apache/hadoop/hive/ql/io/orc/RecordReaderImpl.java,150,int bufferSize,
+ql/src/java/org/apache/hadoop/hive/ql/io/orc/RecordReaderImpl.java,151,long strideRate,
+ql/src/java/org/apache/hadoop/hive/ql/io/orc/RecordReaderImpl.java,152,Configuration conf
+ql/src/java/org/apache/hadoop/hive/ql/io/orc/RecordReaderImpl.java,153,) throws IOException {
+ql/src/java/org/apache/hadoop/hive/ql/io/orc/RecordReaderImpl.java,166,this.path = path;
+ql/src/java/org/apache/hadoop/hive/ql/io/orc/RecordReaderImpl.java,167,this.codec = codec;
+ql/src/java/org/apache/hadoop/hive/ql/io/orc/RecordReaderImpl.java,168,this.types = types;
+ql/src/java/org/apache/hadoop/hive/ql/io/orc/RecordReaderImpl.java,169,this.bufferSize = bufferSize;
+ql/src/java/org/apache/hadoop/hive/ql/io/orc/RecordReaderImpl.java,171,this.conf = conf;
+ql/src/java/org/apache/hadoop/hive/ql/io/orc/RecordReaderImpl.java,172,this.rowIndexStride = strideRate;
+ql/src/java/org/apache/hadoop/hive/ql/io/orc/RecordReaderImpl.java,173,this.metadata = new MetadataReaderImpl(fileSystem, path, codec, bufferSize, types.size());
+ql/src/java/org/apache/hadoop/hive/ql/io/orc/RecordReaderImpl.java,175,if (sarg != null && strideRate != 0) {
+ql/src/java/org/apache/hadoop/hive/ql/io/orc/RecordReaderImpl.java,177,sarg, options.getColumnNames(), strideRate, types, included.length);
+ql/src/java/org/apache/hadoop/hive/ql/io/orc/RecordReaderImpl.java,185,for(StripeInformation stripe: stripes) {
+ql/src/java/org/apache/hadoop/hive/ql/io/orc/RecordReaderImpl.java,200,this.dataReader = RecordReaderUtils.createDefaultDataReader(fileSystem, path, zeroCopy, codec);
+ql/src/java/org/apache/hadoop/hive/ql/io/orc/RecordReaderImpl.java,1109,clearStreams();
+ql/src/java/org/apache/hadoop/hive/ql/io/orc/RecordReaderImpl.java,1110,dataReader.close();
+ql/src/java/org/apache/hadoop/hive/ql/io/orc/RecordReaderUtils.java,63,public DefaultDataReader(
+ql/src/java/org/apache/hadoop/hive/ql/io/orc/RecordReaderUtils.java,64,FileSystem fs, Path path, boolean useZeroCopy, CompressionCodec codec) {
+ql/src/java/org/apache/hadoop/hive/ql/io/orc/RecordReaderUtils.java,65,this.fs = fs;
+ql/src/java/org/apache/hadoop/hive/ql/io/orc/RecordReaderUtils.java,66,this.path = path;
+ql/src/java/org/apache/hadoop/hive/ql/io/orc/RecordReaderUtils.java,67,this.useZeroCopy = useZeroCopy;
+ql/src/java/org/apache/hadoop/hive/ql/io/orc/RecordReaderUtils.java,68,this.codec = codec;
+ql/src/java/org/apache/hadoop/hive/ql/io/orc/RecordReaderUtils.java,111,static DataReader createDefaultDataReader(
+ql/src/java/org/apache/hadoop/hive/ql/io/orc/RecordReaderUtils.java,112,FileSystem fs, Path path, boolean useZeroCopy, CompressionCodec codec) {
+ql/src/java/org/apache/hadoop/hive/ql/io/orc/RecordReaderUtils.java,113,return new DefaultDataReader(fs, path, useZeroCopy, codec);
+ql/src/java/org/apache/hadoop/hive/ql/io/orc/OrcRawRecordMerger.java,552,try {
+ql/src/java/org/apache/hadoop/hive/ql/io/orc/OrcRawRecordMerger.java,553,FSDataInputStream stream = fs.open(lengths);
+ql/src/java/org/apache/hadoop/hive/ql/io/orc/OrcRawRecordMerger.java,558,stream.close();
+ql/src/java/org/apache/hadoop/hive/ql/exec/vector/VectorizationContext.java,334,int allocateOutputColumn(String hiveTypeName) {
+ql/src/java/org/apache/hadoop/hive/ql/exec/vector/VectorizationContext.java,395,public int allocateScratchColumn(String hiveTypeName) {
+ql/src/java/org/apache/hadoop/hive/ql/exec/vector/VectorizationContext.java,2250,static String getNormalizedName(String hiveTypeName) {
+ql/src/java/org/apache/hadoop/hive/ql/exec/vector/VectorizationContext.java,2276,return "None";
+ql/src/java/org/apache/hadoop/hive/ql/exec/vector/VectorizationContext.java,2280,static String getUndecoratedName(String hiveTypeName) {
+ql/src/java/org/apache/hadoop/hive/ql/exec/vector/VectorizationContext.java,2303,return "None";
+ql/src/java/org/apache/hadoop/hive/ql/exec/vector/VectorizationContext.java,2502,sb.append("scratchColumnTypeNames ").append(getScratchColumnTypeNames().toString());
+ql/src/java/org/apache/hadoop/hive/ql/exec/vector/mapjoin/VectorMapJoinCommonOperator.java,258,protected void determineCommonInfo(boolean isOuter) {
+ant/src/org/apache/hadoop/hive/ant/GenVectorCode.java,1882,writeFile(templateFile.lastModified(), expressionOutputDirectory, expressionClassesDirectory,
+ant/src/org/apache/hadoop/hive/ant/GenVectorCode.java,1883,className, templateString);
+ant/src/org/apache/hadoop/hive/ant/GenVectorCode.java,1887,String operatorName = tdesc[1];
+ant/src/org/apache/hadoop/hive/ant/GenVectorCode.java,1892,String templateString = readFile(templateFile);
+ant/src/org/apache/hadoop/hive/ant/GenVectorCode.java,1893,templateString = templateString.replaceAll("<ClassName>", className);
+ant/src/org/apache/hadoop/hive/ant/GenVectorCode.java,1894,templateString = templateString.replaceAll("<BaseClassName>", baseClassName);
+ant/src/org/apache/hadoop/hive/ant/GenVectorCode.java,1947,writeFile(templateFile.lastModified(), expressionOutputDirectory, expressionClassesDirectory,
+ant/src/org/apache/hadoop/hive/ant/GenVectorCode.java,1948,className, templateString);
+ant/src/org/apache/hadoop/hive/ant/GenVectorCode.java,1952,String operatorName = tdesc[1];
+ant/src/org/apache/hadoop/hive/ant/GenVectorCode.java,1953,String operandType = tdesc[2];
+ant/src/org/apache/hadoop/hive/ant/GenVectorCode.java,1958,String templateString = readFile(templateFile);
+ant/src/org/apache/hadoop/hive/ant/GenVectorCode.java,1959,templateString = templateString.replaceAll("<ClassName>", className);
+ant/src/org/apache/hadoop/hive/ant/GenVectorCode.java,1960,templateString = templateString.replaceAll("<BaseClassName>", baseClassName);
+ant/src/org/apache/hadoop/hive/ant/GenVectorCode.java,2445,String operatorName = tdesc[1];
+ant/src/org/apache/hadoop/hive/ant/GenVectorCode.java,2466,String templateString = readFile(templateFile);
+ant/src/org/apache/hadoop/hive/ant/GenVectorCode.java,2532,writeFile(templateFile.lastModified(), expressionOutputDirectory, expressionClassesDirectory,
+ant/src/org/apache/hadoop/hive/ant/GenVectorCode.java,2533,className, templateString);
+ant/src/org/apache/hadoop/hive/ant/GenVectorCode.java,2584,writeFile(templateFile.lastModified(), expressionOutputDirectory, expressionClassesDirectory,
+ant/src/org/apache/hadoop/hive/ant/GenVectorCode.java,2585,className, templateString);
+ant/src/org/apache/hadoop/hive/ant/GenVectorCode.java,2595,String operatorName = tdesc[1];
+ant/src/org/apache/hadoop/hive/ant/GenVectorCode.java,2616,String templateString = readFile(templateFile);
+ant/src/org/apache/hadoop/hive/ant/GenVectorCode.java,2682,writeFile(templateFile.lastModified(), expressionOutputDirectory, expressionClassesDirectory,
+ant/src/org/apache/hadoop/hive/ant/GenVectorCode.java,2683,className, templateString);
+common/src/java/org/apache/hive/common/util/DateUtils.java,24,import org.apache.hadoop.hive.common.type.HiveIntervalDayTime;
+common/src/java/org/apache/hive/common/util/DateUtils.java,60,public static long getIntervalDayTimeTotalNanos(HiveIntervalDayTime intervalDayTime) {
+common/src/java/org/apache/hive/common/util/DateUtils.java,61,return intervalDayTime.getTotalSeconds() * NANOS_PER_SEC + intervalDayTime.getNanos();
+common/src/java/org/apache/hive/common/util/DateUtils.java,64,public static void setIntervalDayTimeTotalNanos(HiveIntervalDayTime intervalDayTime,
+common/src/java/org/apache/hive/common/util/DateUtils.java,65,long totalNanos) {
+common/src/java/org/apache/hive/common/util/DateUtils.java,66,intervalDayTime.set(totalNanos / NANOS_PER_SEC, (int) (totalNanos % NANOS_PER_SEC));
+common/src/java/org/apache/hive/common/util/DateUtils.java,69,public static long getIntervalDayTimeTotalSecondsFromTotalNanos(long totalNanos) {
+common/src/java/org/apache/hive/common/util/DateUtils.java,70,return totalNanos / NANOS_PER_SEC;
+common/src/java/org/apache/hive/common/util/DateUtils.java,73,public static int getIntervalDayTimeNanosFromTotalNanos(long totalNanos) {
+common/src/java/org/apache/hive/common/util/DateUtils.java,74,return (int) (totalNanos % NANOS_PER_SEC);
+ql/src/java/org/apache/hadoop/hive/ql/exec/vector/VectorColumnAssignFactory.java,358,case INTERVAL_DAY_TIME:outVCA = new VectorLongColumnAssign() {
+ql/src/java/org/apache/hadoop/hive/ql/exec/vector/VectorColumnAssignFactory.java,366,assignLong(
+ql/src/java/org/apache/hadoop/hive/ql/exec/vector/VectorColumnAssignFactory.java,367,DateUtils.getIntervalDayTimeTotalNanos(bw.getHiveIntervalDayTime()),
+ql/src/java/org/apache/hadoop/hive/ql/exec/vector/VectorExpressionDescriptor.java,344,throw new HiveException(ex);
+ql/src/java/org/apache/hadoop/hive/ql/exec/vector/VectorHashKeyWrapper.java,23,import org.apache.hadoop.hive.serde2.io.HiveDecimalWritable;
+ql/src/java/org/apache/hadoop/hive/ql/exec/vector/VectorHashKeyWrapperBatch.java,585,else {
+ql/src/java/org/apache/hadoop/hive/ql/exec/vector/VectorizedBatchUtil.java,420,LongColumnVector lcv = (LongColumnVector) batch.cols[offset + colIndex];
+ql/src/java/org/apache/hadoop/hive/ql/exec/vector/VectorizedBatchUtil.java,422,HiveIntervalDayTime i = ((HiveIntervalDayTimeWritable) writableCol).getHiveIntervalDayTime();
+ql/src/java/org/apache/hadoop/hive/ql/exec/vector/VectorizedBatchUtil.java,423,lcv.vector[rowIndex] = DateUtils.getIntervalDayTimeTotalNanos(i);
+ql/src/java/org/apache/hadoop/hive/ql/exec/vector/VectorizedBatchUtil.java,424,lcv.isNull[rowIndex] = false;
+ql/src/java/org/apache/hadoop/hive/ql/exec/vector/VectorizedBatchUtil.java,426,lcv.vector[rowIndex] = 1;
+ql/src/java/org/apache/hadoop/hive/ql/exec/vector/VectorizedBatchUtil.java,427,setNullColIsNullValue(lcv, rowIndex);
+ql/src/java/org/apache/hadoop/hive/ql/exec/vector/expressions/CastTimestampToDecimal.java,21,import org.apache.hadoop.hive.common.type.HiveDecimal;
+ql/src/java/org/apache/hadoop/hive/ql/exec/vector/expressions/CastTimestampToDecimal.java,47,outV.set(i, result);
+ql/src/java/org/apache/hadoop/hive/ql/exec/vector/udf/VectorUDFAdaptor.java,300,LongColumnVector lv = (LongColumnVector) colVec;
+ql/src/java/org/apache/hadoop/hive/ql/exec/vector/udf/VectorUDFAdaptor.java,310,long l = ts.getTime() * 1000000  // Shift the milliseconds value over by 6 digits
+ql/src/java/org/apache/hadoop/hive/ql/exec/vector/udf/VectorUDFAdaptor.java,313,+ ts.getNanos() % 1000000; // Add on the remaining nanos.
+ql/src/java/org/apache/hadoop/hive/ql/exec/vector/udf/VectorUDFAdaptor.java,316,lv.vector[i] = l;
+ql/src/java/org/apache/hadoop/hive/ql/util/DateTimeMath.java,108,Timestamp tsResult = new Timestamp(resultMillis);
+ql/src/java/org/apache/hadoop/hive/ql/util/DateTimeMath.java,109,tsResult.setNanos(ts.getNanos());
+ql/src/java/org/apache/hadoop/hive/ql/util/DateTimeMath.java,122,return new Date(resultMillis);
+ql/src/java/org/apache/hadoop/hive/ql/util/DateTimeMath.java,139,return add(left, right.negate());
+ql/src/java/org/apache/hadoop/hive/ql/util/DateTimeMath.java,146,return add(left, right.negate());
+ql/src/java/org/apache/hadoop/hive/ql/util/DateTimeMath.java,169,Timestamp tsResult = new Timestamp(newMillis);
+ql/src/java/org/apache/hadoop/hive/ql/util/DateTimeMath.java,170,tsResult.setNanos(nanosResult.nanos);
+ql/src/java/org/apache/hadoop/hive/ql/util/DateTimeMath.java,175,HiveIntervalDayTime result = null;
+ql/src/java/org/apache/hadoop/hive/ql/util/DateTimeMath.java,183,result = new HiveIntervalDayTime(totalSeconds, nanosResult.nanos);
+ql/src/java/org/apache/hadoop/hive/ql/util/DateTimeMath.java,184,return result;
+ql/src/java/org/apache/hadoop/hive/ql/util/DateTimeMath.java,202,HiveIntervalDayTime result = null;
+ql/src/java/org/apache/hadoop/hive/ql/util/DateTimeMath.java,211,result = new HiveIntervalDayTime(totalSeconds, nanosResult.nanos);
+ql/src/java/org/apache/hadoop/hive/ql/util/DateTimeMath.java,212,return result;
+common/src/java/org/apache/hadoop/hive/common/type/HiveIntervalDayTime.java,26,import org.apache.hive.common.util.DateUtils;
+common/src/java/org/apache/hadoop/hive/common/type/HiveIntervalDayTime.java,93,nanos += DateUtils.NANOS_PER_SEC;
+common/src/java/org/apache/hadoop/hive/common/type/HiveIntervalDayTime.java,96,nanos -= DateUtils.NANOS_PER_SEC;
+common/src/java/org/apache/hadoop/hive/common/type/HiveIntervalDayTime.java,106,nanos = nanos % DateUtils.NANOS_PER_SEC;
+common/src/java/org/apache/hadoop/hive/common/type/HiveIntervalDayTime.java,123,int nanos = fractionalSecs.multiply(DateUtils.NANOS_PER_SEC_BD).intValue();
+common/src/java/org/apache/hadoop/hive/common/type/HiveIntervalDayTime.java,193,DateUtils.parseNumericValueWithRange("day", patternMatcher.group(2),
+common/src/java/org/apache/hadoop/hive/common/type/HiveIntervalDayTime.java,196,DateUtils.parseNumericValueWithRange("hour", patternMatcher.group(3), 0, 23));
+common/src/java/org/apache/hadoop/hive/common/type/HiveIntervalDayTime.java,198,DateUtils.parseNumericValueWithRange("minute", patternMatcher.group(4), 0, 59));
+common/src/java/org/apache/hadoop/hive/common/type/HiveIntervalDayTime.java,204,if (bdSeconds.compareTo(DateUtils.MAX_INT_BD) > 0) {
+common/src/java/org/apache/hadoop/hive/common/type/HiveIntervalDayTime.java,209,.multiply(DateUtils.NANOS_PER_SEC_BD).intValue();
+storage-api/src/java/org/apache/hadoop/hive/ql/exec/vector/ColumnVector.java,21,import java.io.IOException;
+ql/src/java/org/apache/hadoop/hive/ql/exec/vector/expressions/LongColEqualLongScalar.java,94,System.arraycopy(nullPos, 0, outNulls, 0, n);
+ql/src/java/org/apache/hadoop/hive/ql/exec/vector/expressions/LongColGreaterEqualLongScalar.java,94,System.arraycopy(nullPos, 0, outNulls, 0, n);
+ql/src/java/org/apache/hadoop/hive/ql/exec/vector/expressions/LongColGreaterLongScalar.java,94,System.arraycopy(nullPos, 0, outNulls, 0, n);
+ql/src/java/org/apache/hadoop/hive/ql/exec/vector/expressions/LongColLessEqualLongScalar.java,94,System.arraycopy(nullPos, 0, outNulls, 0, n);
+ql/src/java/org/apache/hadoop/hive/ql/exec/vector/expressions/LongColLessLongScalar.java,94,System.arraycopy(nullPos, 0, outNulls, 0, n);
+ql/src/java/org/apache/hadoop/hive/ql/exec/vector/expressions/LongColNotEqualLongScalar.java,94,System.arraycopy(nullPos, 0, outNulls, 0, n);
+ql/src/java/org/apache/hadoop/hive/ql/exec/vector/expressions/LongScalarEqualLongColumn.java,94,System.arraycopy(nullPos, 0, outNulls, 0, n);
+ql/src/java/org/apache/hadoop/hive/ql/exec/vector/expressions/LongScalarGreaterEqualLongColumn.java,94,System.arraycopy(nullPos, 0, outNulls, 0, n);
+ql/src/java/org/apache/hadoop/hive/ql/exec/vector/expressions/LongScalarGreaterLongColumn.java,94,System.arraycopy(nullPos, 0, outNulls, 0, n);
+ql/src/java/org/apache/hadoop/hive/ql/exec/vector/expressions/LongScalarLessEqualLongColumn.java,94,System.arraycopy(nullPos, 0, outNulls, 0, n);
+ql/src/java/org/apache/hadoop/hive/ql/exec/vector/expressions/LongScalarLessLongColumn.java,94,System.arraycopy(nullPos, 0, outNulls, 0, n);
+ql/src/java/org/apache/hadoop/hive/ql/exec/vector/expressions/LongScalarNotEqualLongColumn.java,94,System.arraycopy(nullPos, 0, outNulls, 0, n);
+ql/src/java/org/apache/hadoop/hive/ql/exec/TableScanOperator.java,108,if (rowLimit >= 0 && currCount++ >= rowLimit) {
+ql/src/java/org/apache/hadoop/hive/ql/exec/TableScanOperator.java,109,setDone(true);
+ql/src/java/org/apache/hadoop/hive/ql/exec/TableScanOperator.java,110,return;
+ant/src/org/apache/hadoop/hive/ant/GenVectorCode.java,951,generateTimestampScalarCompareTimestampColumn(tdesc);
+ant/src/org/apache/hadoop/hive/ant/GenVectorCode.java,953,generateScalarCompareTimestampColumn(tdesc);
+ant/src/org/apache/hadoop/hive/ant/GenVectorCode.java,955,generateTimestampColumnCompareTimestampScalar(tdesc);
+ant/src/org/apache/hadoop/hive/ant/GenVectorCode.java,957,generateTimestampColumnCompareScalar(tdesc);
+ant/src/org/apache/hadoop/hive/ant/GenVectorCode.java,963,generateFilterTimestampColumnCompareTimestampScalar(tdesc);
+ant/src/org/apache/hadoop/hive/ant/GenVectorCode.java,965,generateFilterTimestampColumnCompareScalar(tdesc);
+ant/src/org/apache/hadoop/hive/ant/GenVectorCode.java,967,generateFilterTimestampScalarCompareTimestampColumn(tdesc);
+ant/src/org/apache/hadoop/hive/ant/GenVectorCode.java,969,generateFilterScalarCompareTimestampColumn(tdesc);
+ant/src/org/apache/hadoop/hive/ant/GenVectorCode.java,991,generateVectorUDAFMinMaxDecimal(tdesc);
+ant/src/org/apache/hadoop/hive/ant/GenVectorCode.java,1041,generateFilterDecimalColumnCompareScalar(tdesc);
+ant/src/org/apache/hadoop/hive/ant/GenVectorCode.java,1043,generateFilterDecimalScalarCompareColumn(tdesc);
+ant/src/org/apache/hadoop/hive/ant/GenVectorCode.java,1045,generateFilterDecimalColumnCompareColumn(tdesc);
+ant/src/org/apache/hadoop/hive/ant/GenVectorCode.java,1061,generateColumnArithmeticColumnWithConvert(tdesc);
+ant/src/org/apache/hadoop/hive/ant/GenVectorCode.java,1063,generateScalarArithmeticColumnWithConvert(tdesc);
+ant/src/org/apache/hadoop/hive/ant/GenVectorCode.java,1065,generateColumnArithmeticScalarWithConvert(tdesc);
+ant/src/org/apache/hadoop/hive/ant/GenVectorCode.java,1067,generateDateTimeColumnArithmeticIntervalColumnWithConvert(tdesc);
+ant/src/org/apache/hadoop/hive/ant/GenVectorCode.java,1069,generateDateTimeScalarArithmeticIntervalColumnWithConvert(tdesc);
+ant/src/org/apache/hadoop/hive/ant/GenVectorCode.java,1071,generateDateTimeColumnArithmeticIntervalScalarWithConvert(tdesc);
+ant/src/org/apache/hadoop/hive/ant/GenVectorCode.java,1073,generateDateTimeColumnArithmeticIntervalColumnWithConvert(tdesc);
+ant/src/org/apache/hadoop/hive/ant/GenVectorCode.java,1075,generateDateTimeScalarArithmeticIntervalColumnWithConvert(tdesc);
+ant/src/org/apache/hadoop/hive/ant/GenVectorCode.java,1077,generateDateTimeColumnArithmeticIntervalScalarWithConvert(tdesc);
+ant/src/org/apache/hadoop/hive/ant/GenVectorCode.java,1214,private void generateVectorUDAFMinMaxDecimal(String[] tdesc) throws Exception {
+ant/src/org/apache/hadoop/hive/ant/GenVectorCode.java,1612,vectorExprArgType = "int_interval_family";
+ant/src/org/apache/hadoop/hive/ant/GenVectorCode.java,1649,vectorExprArgType2 = "int_datetime_interval_family";
+ant/src/org/apache/hadoop/hive/ant/GenVectorCode.java,1650,vectorExprArgType3 = "int_datetime_interval_family";
+ant/src/org/apache/hadoop/hive/ant/GenVectorCode.java,1682,vectorExprArgType2 = "int_datetime_interval_family";
+ant/src/org/apache/hadoop/hive/ant/GenVectorCode.java,1683,vectorExprArgType3 = "int_datetime_interval_family";
+ant/src/org/apache/hadoop/hive/ant/GenVectorCode.java,1714,vectorExprArgType2 = "int_datetime_interval_family";
+ant/src/org/apache/hadoop/hive/ant/GenVectorCode.java,1715,vectorExprArgType3 = "int_datetime_interval_family";
+ant/src/org/apache/hadoop/hive/ant/GenVectorCode.java,1850,vectorExprArgType1 = "int_datetime_interval_family";
+ant/src/org/apache/hadoop/hive/ant/GenVectorCode.java,1851,vectorExprArgType2 = "int_datetime_interval_family";
+ant/src/org/apache/hadoop/hive/ant/GenVectorCode.java,1873,private void generateTimestampScalarCompareTimestampColumn(String[] tdesc) throws Exception {
+ant/src/org/apache/hadoop/hive/ant/GenVectorCode.java,1875,String className = "TimestampScalar" + operatorName + "TimestampColumn";
+ant/src/org/apache/hadoop/hive/ant/GenVectorCode.java,1876,String baseClassName = "org.apache.hadoop.hive.ql.exec.vector.expressions.LongScalar" + operatorName + "LongColumn";
+ant/src/org/apache/hadoop/hive/ant/GenVectorCode.java,1878,File templateFile = new File(joinPath(this.expressionTemplateDirectory, tdesc[0] + ".txt"));
+ant/src/org/apache/hadoop/hive/ant/GenVectorCode.java,1881,templateString = templateString.replaceAll("<BaseClassName>", baseClassName);
+ant/src/org/apache/hadoop/hive/ant/GenVectorCode.java,1886,private void generateTimestampColumnCompareTimestampScalar(String[] tdesc) throws Exception {
+ant/src/org/apache/hadoop/hive/ant/GenVectorCode.java,1888,String className = "TimestampCol" + operatorName + "TimestampScalar";
+ant/src/org/apache/hadoop/hive/ant/GenVectorCode.java,1889,String baseClassName = "org.apache.hadoop.hive.ql.exec.vector.expressions.LongCol" + operatorName + "LongScalar";
+ant/src/org/apache/hadoop/hive/ant/GenVectorCode.java,1891,File templateFile = new File(joinPath(this.expressionTemplateDirectory, tdesc[0] + ".txt"));
+ant/src/org/apache/hadoop/hive/ant/GenVectorCode.java,1899,private void generateFilterTimestampColumnCompareTimestampScalar(String[] tdesc) throws Exception {
+ant/src/org/apache/hadoop/hive/ant/GenVectorCode.java,1901,String className = "FilterTimestampCol" + operatorName + "TimestampScalar";
+ant/src/org/apache/hadoop/hive/ant/GenVectorCode.java,1902,String baseClassName = "FilterLongCol" + operatorName + "LongScalar";
+ant/src/org/apache/hadoop/hive/ant/GenVectorCode.java,1904,File templateFile = new File(joinPath(this.expressionTemplateDirectory, tdesc[0] + ".txt"));
+ant/src/org/apache/hadoop/hive/ant/GenVectorCode.java,1907,templateString = templateString.replaceAll("<BaseClassName>", baseClassName);
+ant/src/org/apache/hadoop/hive/ant/GenVectorCode.java,1912,private void generateFilterTimestampScalarCompareTimestampColumn(String[] tdesc) throws Exception {
+ant/src/org/apache/hadoop/hive/ant/GenVectorCode.java,1914,String className = "FilterTimestampScalar" + operatorName + "TimestampColumn";
+ant/src/org/apache/hadoop/hive/ant/GenVectorCode.java,1915,String baseClassName = "FilterLongScalar" + operatorName + "LongColumn";
+ant/src/org/apache/hadoop/hive/ant/GenVectorCode.java,1917,File templateFile = new File(joinPath(this.expressionTemplateDirectory, tdesc[0] + ".txt"));
+ant/src/org/apache/hadoop/hive/ant/GenVectorCode.java,1920,templateString = templateString.replaceAll("<BaseClassName>", baseClassName);
+ant/src/org/apache/hadoop/hive/ant/GenVectorCode.java,1925,private String timestampScalarConversion(String operandType) {
+ant/src/org/apache/hadoop/hive/ant/GenVectorCode.java,1927,return "secondsToNanoseconds";
+ant/src/org/apache/hadoop/hive/ant/GenVectorCode.java,1929,return "doubleToNanoseconds";
+ant/src/org/apache/hadoop/hive/ant/GenVectorCode.java,1935,private void generateScalarCompareTimestampColumn(String[] tdesc) throws Exception {
+ant/src/org/apache/hadoop/hive/ant/GenVectorCode.java,1937,String operandType = tdesc[2];
+ant/src/org/apache/hadoop/hive/ant/GenVectorCode.java,1938,String className = getCamelCaseType(operandType) + "Scalar" + operatorName + "TimestampColumn";
+ant/src/org/apache/hadoop/hive/ant/GenVectorCode.java,1939,String baseClassName = "org.apache.hadoop.hive.ql.exec.vector.expressions.LongScalar" + operatorName + "LongColumn";
+ant/src/org/apache/hadoop/hive/ant/GenVectorCode.java,1941,File templateFile = new File(joinPath(this.expressionTemplateDirectory, tdesc[0] + ".txt"));
+ant/src/org/apache/hadoop/hive/ant/GenVectorCode.java,1944,templateString = templateString.replaceAll("<BaseClassName>", baseClassName);
+ant/src/org/apache/hadoop/hive/ant/GenVectorCode.java,1945,templateString = templateString.replaceAll("<OperandType>", operandType);
+ant/src/org/apache/hadoop/hive/ant/GenVectorCode.java,1946,templateString = templateString.replaceAll("<TimestampScalarConversion>", timestampScalarConversion(operandType));
+ant/src/org/apache/hadoop/hive/ant/GenVectorCode.java,1951,private void generateTimestampColumnCompareScalar(String[] tdesc) throws Exception {
+ant/src/org/apache/hadoop/hive/ant/GenVectorCode.java,1954,String className = "TimestampCol" + operatorName + getCamelCaseType(operandType) + "Scalar";
+ant/src/org/apache/hadoop/hive/ant/GenVectorCode.java,1955,String baseClassName = "org.apache.hadoop.hive.ql.exec.vector.expressions.LongCol" + operatorName + "LongScalar";
+ant/src/org/apache/hadoop/hive/ant/GenVectorCode.java,1957,File templateFile = new File(joinPath(this.expressionTemplateDirectory, tdesc[0] + ".txt"));
+ant/src/org/apache/hadoop/hive/ant/GenVectorCode.java,1961,templateString = templateString.replaceAll("<OperandType>", operandType);
+ant/src/org/apache/hadoop/hive/ant/GenVectorCode.java,1962,templateString = templateString.replaceAll("<TimestampScalarConversion>", timestampScalarConversion(operandType));
+ant/src/org/apache/hadoop/hive/ant/GenVectorCode.java,1967,private void generateFilterTimestampColumnCompareScalar(String[] tdesc) throws Exception {
+ant/src/org/apache/hadoop/hive/ant/GenVectorCode.java,1970,String className = "FilterTimestampCol" + operatorName + getCamelCaseType(operandType) + "Scalar";
+ant/src/org/apache/hadoop/hive/ant/GenVectorCode.java,1971,String baseClassName = "FilterLongCol" + operatorName + "LongScalar";
+ant/src/org/apache/hadoop/hive/ant/GenVectorCode.java,1973,File templateFile = new File(joinPath(this.expressionTemplateDirectory, tdesc[0] + ".txt"));
+ant/src/org/apache/hadoop/hive/ant/GenVectorCode.java,1976,templateString = templateString.replaceAll("<BaseClassName>", baseClassName);
+ant/src/org/apache/hadoop/hive/ant/GenVectorCode.java,1978,templateString = templateString.replaceAll("<TimestampScalarConversion>", timestampScalarConversion(operandType));
+ant/src/org/apache/hadoop/hive/ant/GenVectorCode.java,1983,private void generateFilterScalarCompareTimestampColumn(String[] tdesc) throws Exception {
+ant/src/org/apache/hadoop/hive/ant/GenVectorCode.java,1986,String className = "Filter" + getCamelCaseType(operandType) + "Scalar" + operatorName + "TimestampColumn";
+ant/src/org/apache/hadoop/hive/ant/GenVectorCode.java,1987,String baseClassName = "FilterLongScalar" + operatorName + "LongColumn";
+ant/src/org/apache/hadoop/hive/ant/GenVectorCode.java,1989,File templateFile = new File(joinPath(this.expressionTemplateDirectory, tdesc[0] + ".txt"));
+ant/src/org/apache/hadoop/hive/ant/GenVectorCode.java,1992,templateString = templateString.replaceAll("<BaseClassName>", baseClassName);
+ant/src/org/apache/hadoop/hive/ant/GenVectorCode.java,1994,templateString = templateString.replaceAll("<TimestampScalarConversion>", timestampScalarConversion(operandType));
+ant/src/org/apache/hadoop/hive/ant/GenVectorCode.java,2101,if (isDateTimeIntervalType(testScalarType)) {
+ant/src/org/apache/hadoop/hive/ant/GenVectorCode.java,2183,if (isDateTimeIntervalType(testScalarType)) {
+ant/src/org/apache/hadoop/hive/ant/GenVectorCode.java,2300,private void generateFilterDecimalColumnCompareScalar(String[] tdesc) throws IOException {
+ant/src/org/apache/hadoop/hive/ant/GenVectorCode.java,2306,private void generateFilterDecimalScalarCompareColumn(String[] tdesc) throws IOException {
+ant/src/org/apache/hadoop/hive/ant/GenVectorCode.java,2312,private void generateFilterDecimalColumnCompareColumn(String[] tdesc) throws IOException {
+ant/src/org/apache/hadoop/hive/ant/GenVectorCode.java,2398,private void generateColumnArithmeticColumnWithConvert(String[] tdesc) throws Exception {
+ant/src/org/apache/hadoop/hive/ant/GenVectorCode.java,2400,String operandType1 = tdesc[2];
+ant/src/org/apache/hadoop/hive/ant/GenVectorCode.java,2401,String operandType2 = tdesc[3];
+ant/src/org/apache/hadoop/hive/ant/GenVectorCode.java,2402,String operatorSymbol = tdesc[4];
+ant/src/org/apache/hadoop/hive/ant/GenVectorCode.java,2403,String typeConversion1 = tdesc[5];
+ant/src/org/apache/hadoop/hive/ant/GenVectorCode.java,2404,String typeConversion2 = tdesc[6];
+ant/src/org/apache/hadoop/hive/ant/GenVectorCode.java,2406,+ "Col" + operatorName + getCamelCaseType(operandType2) + "Column";
+ant/src/org/apache/hadoop/hive/ant/GenVectorCode.java,2407,String returnType = getArithmeticReturnType(operandType1, operandType2);
+ant/src/org/apache/hadoop/hive/ant/GenVectorCode.java,2408,String outputColumnVectorType = this.getColumnVectorType(returnType);
+ant/src/org/apache/hadoop/hive/ant/GenVectorCode.java,2409,String inputColumnVectorType1 = this.getColumnVectorType(operandType1);
+ant/src/org/apache/hadoop/hive/ant/GenVectorCode.java,2410,String inputColumnVectorType2 = this.getColumnVectorType(operandType2);
+ant/src/org/apache/hadoop/hive/ant/GenVectorCode.java,2412,String vectorOperandType1 = this.getVectorPrimitiveType(inputColumnVectorType1);
+ant/src/org/apache/hadoop/hive/ant/GenVectorCode.java,2413,String vectorOperandType2 = this.getVectorPrimitiveType(inputColumnVectorType2);
+ant/src/org/apache/hadoop/hive/ant/GenVectorCode.java,2414,String vectorReturnType = this.getVectorPrimitiveType(outputColumnVectorType);
+ant/src/org/apache/hadoop/hive/ant/GenVectorCode.java,2417,File templateFile = new File(joinPath(this.expressionTemplateDirectory, tdesc[0] + ".txt"));
+ant/src/org/apache/hadoop/hive/ant/GenVectorCode.java,2420,templateString = templateString.replaceAll("<InputColumnVectorType1>", inputColumnVectorType1);
+ant/src/org/apache/hadoop/hive/ant/GenVectorCode.java,2421,templateString = templateString.replaceAll("<InputColumnVectorType2>", inputColumnVectorType2);
+ant/src/org/apache/hadoop/hive/ant/GenVectorCode.java,2422,templateString = templateString.replaceAll("<OutputColumnVectorType>", outputColumnVectorType);
+ant/src/org/apache/hadoop/hive/ant/GenVectorCode.java,2423,templateString = templateString.replaceAll("<OperatorName>", operatorName);
+ant/src/org/apache/hadoop/hive/ant/GenVectorCode.java,2425,templateString = templateString.replaceAll("<OperandType1>", operandType1);
+ant/src/org/apache/hadoop/hive/ant/GenVectorCode.java,2426,templateString = templateString.replaceAll("<OperandType2>", operandType2);
+ant/src/org/apache/hadoop/hive/ant/GenVectorCode.java,2427,templateString = templateString.replaceAll("<ReturnType>", returnType);
+ant/src/org/apache/hadoop/hive/ant/GenVectorCode.java,2428,templateString = templateString.replaceAll("<VectorOperandType1>", vectorOperandType1);
+ant/src/org/apache/hadoop/hive/ant/GenVectorCode.java,2429,templateString = templateString.replaceAll("<VectorOperandType2>", vectorOperandType2);
+ant/src/org/apache/hadoop/hive/ant/GenVectorCode.java,2430,templateString = templateString.replaceAll("<VectorReturnType>", vectorReturnType);
+ant/src/org/apache/hadoop/hive/ant/GenVectorCode.java,2431,templateString = templateString.replaceAll("<TypeConversion1>", typeConversion1);
+ant/src/org/apache/hadoop/hive/ant/GenVectorCode.java,2432,templateString = templateString.replaceAll("<TypeConversion2>", typeConversion2);
+ant/src/org/apache/hadoop/hive/ant/GenVectorCode.java,2433,templateString = templateString.replaceAll("<CamelReturnType>", getCamelCaseType(vectorReturnType));
+ant/src/org/apache/hadoop/hive/ant/GenVectorCode.java,2437,testCodeGen.addColumnColumnOperationTestCases(
+ant/src/org/apache/hadoop/hive/ant/GenVectorCode.java,2440,inputColumnVectorType2,
+ant/src/org/apache/hadoop/hive/ant/GenVectorCode.java,2441,outputColumnVectorType);
+ant/src/org/apache/hadoop/hive/ant/GenVectorCode.java,2444,private void generateScalarArithmeticColumnWithConvert(String[] tdesc) throws Exception {
+ant/src/org/apache/hadoop/hive/ant/GenVectorCode.java,2446,String operandType1 = tdesc[2];
+ant/src/org/apache/hadoop/hive/ant/GenVectorCode.java,2447,String operandType2 = tdesc[3];
+ant/src/org/apache/hadoop/hive/ant/GenVectorCode.java,2448,String operatorSymbol = tdesc[4];
+ant/src/org/apache/hadoop/hive/ant/GenVectorCode.java,2449,String typeConversion1 = tdesc[5];
+ant/src/org/apache/hadoop/hive/ant/GenVectorCode.java,2450,String typeConversion2 = tdesc[6];
+ant/src/org/apache/hadoop/hive/ant/GenVectorCode.java,2452,+ "Scalar" + operatorName + getCamelCaseType(operandType2) + "Column";
+ant/src/org/apache/hadoop/hive/ant/GenVectorCode.java,2453,String returnType = getArithmeticReturnType(operandType1, operandType2);
+ant/src/org/apache/hadoop/hive/ant/GenVectorCode.java,2454,String outputColumnVectorType = this.getColumnVectorType(
+ant/src/org/apache/hadoop/hive/ant/GenVectorCode.java,2455,returnType == null ? "long" : returnType);
+ant/src/org/apache/hadoop/hive/ant/GenVectorCode.java,2456,String inputColumnVectorType = this.getColumnVectorType(operandType2);
+ant/src/org/apache/hadoop/hive/ant/GenVectorCode.java,2457,String inputColumnVectorType1 = this.getColumnVectorType(operandType1);
+ant/src/org/apache/hadoop/hive/ant/GenVectorCode.java,2458,String inputColumnVectorType2 = this.getColumnVectorType(operandType2);
+ant/src/org/apache/hadoop/hive/ant/GenVectorCode.java,2460,String vectorOperandType1 = this.getVectorPrimitiveType(inputColumnVectorType1);
+ant/src/org/apache/hadoop/hive/ant/GenVectorCode.java,2461,String vectorOperandType2 = this.getVectorPrimitiveType(inputColumnVectorType2);
+ant/src/org/apache/hadoop/hive/ant/GenVectorCode.java,2462,String vectorReturnType = this.getVectorPrimitiveType(outputColumnVectorType);
+ant/src/org/apache/hadoop/hive/ant/GenVectorCode.java,2465,File templateFile = new File(joinPath(this.expressionTemplateDirectory, tdesc[0] + ".txt"));
+ant/src/org/apache/hadoop/hive/ant/GenVectorCode.java,2467,templateString = templateString.replaceAll("<ClassName>", className);
+ant/src/org/apache/hadoop/hive/ant/GenVectorCode.java,2468,templateString = templateString.replaceAll("<InputColumnVectorType>", inputColumnVectorType);
+ant/src/org/apache/hadoop/hive/ant/GenVectorCode.java,2469,templateString = templateString.replaceAll("<OutputColumnVectorType>", outputColumnVectorType);
+ant/src/org/apache/hadoop/hive/ant/GenVectorCode.java,2470,templateString = templateString.replaceAll("<OperatorName>", operatorName);
+ant/src/org/apache/hadoop/hive/ant/GenVectorCode.java,2471,templateString = templateString.replaceAll("<OperatorSymbol>", operatorSymbol);
+ant/src/org/apache/hadoop/hive/ant/GenVectorCode.java,2472,templateString = templateString.replaceAll("<OperandType1>", operandType1);
+ant/src/org/apache/hadoop/hive/ant/GenVectorCode.java,2473,templateString = templateString.replaceAll("<OperandType2>", operandType2);
+ant/src/org/apache/hadoop/hive/ant/GenVectorCode.java,2474,templateString = templateString.replaceAll("<ReturnType>", returnType);
+ant/src/org/apache/hadoop/hive/ant/GenVectorCode.java,2475,templateString = templateString.replaceAll("<VectorOperandType1>", vectorOperandType1);
+ant/src/org/apache/hadoop/hive/ant/GenVectorCode.java,2476,templateString = templateString.replaceAll("<VectorOperandType2>", vectorOperandType2);
+ant/src/org/apache/hadoop/hive/ant/GenVectorCode.java,2477,templateString = templateString.replaceAll("<VectorReturnType>", vectorReturnType);
+ant/src/org/apache/hadoop/hive/ant/GenVectorCode.java,2478,templateString = templateString.replaceAll("<TypeConversion1>", typeConversion1);
+ant/src/org/apache/hadoop/hive/ant/GenVectorCode.java,2479,templateString = templateString.replaceAll("<TypeConversion2>", typeConversion2);
+ant/src/org/apache/hadoop/hive/ant/GenVectorCode.java,2480,templateString = templateString.replaceAll("<CamelReturnType>", getCamelCaseType(vectorReturnType));
+ant/src/org/apache/hadoop/hive/ant/GenVectorCode.java,2481,writeFile(templateFile.lastModified(), expressionOutputDirectory, expressionClassesDirectory,
+ant/src/org/apache/hadoop/hive/ant/GenVectorCode.java,2482,className, templateString);
+ant/src/org/apache/hadoop/hive/ant/GenVectorCode.java,2484,String testScalarType = operandType1;
+ant/src/org/apache/hadoop/hive/ant/GenVectorCode.java,2485,if (isDateTimeIntervalType(testScalarType)) {
+ant/src/org/apache/hadoop/hive/ant/GenVectorCode.java,2486,testScalarType = "long";
+ant/src/org/apache/hadoop/hive/ant/GenVectorCode.java,2489,testCodeGen.addColumnScalarOperationTestCases(
+ant/src/org/apache/hadoop/hive/ant/GenVectorCode.java,2490,false,
+ant/src/org/apache/hadoop/hive/ant/GenVectorCode.java,2491,className,
+ant/src/org/apache/hadoop/hive/ant/GenVectorCode.java,2492,inputColumnVectorType,
+ant/src/org/apache/hadoop/hive/ant/GenVectorCode.java,2493,outputColumnVectorType,
+ant/src/org/apache/hadoop/hive/ant/GenVectorCode.java,2494,testScalarType);
+ant/src/org/apache/hadoop/hive/ant/GenVectorCode.java,2497,private void generateColumnArithmeticScalarWithConvert(String[] tdesc) throws Exception {
+ant/src/org/apache/hadoop/hive/ant/GenVectorCode.java,2500,String operandType2 = tdesc[3];
+ant/src/org/apache/hadoop/hive/ant/GenVectorCode.java,2501,String operatorSymbol = tdesc[4];
+ant/src/org/apache/hadoop/hive/ant/GenVectorCode.java,2502,String typeConversion1 = tdesc[5];
+ant/src/org/apache/hadoop/hive/ant/GenVectorCode.java,2503,String typeConversion2 = tdesc[6];
+ant/src/org/apache/hadoop/hive/ant/GenVectorCode.java,2505,+ "Col" + operatorName + getCamelCaseType(operandType2) + "Scalar";
+ant/src/org/apache/hadoop/hive/ant/GenVectorCode.java,2506,String returnType = getArithmeticReturnType(operandType1, operandType2);
+ant/src/org/apache/hadoop/hive/ant/GenVectorCode.java,2507,String outputColumnVectorType = this.getColumnVectorType(returnType);
+ant/src/org/apache/hadoop/hive/ant/GenVectorCode.java,2508,String inputColumnVectorType = this.getColumnVectorType(operandType1);
+ant/src/org/apache/hadoop/hive/ant/GenVectorCode.java,2509,String inputColumnVectorType1 = this.getColumnVectorType(operandType1);
+ant/src/org/apache/hadoop/hive/ant/GenVectorCode.java,2510,String inputColumnVectorType2 = this.getColumnVectorType(operandType2);
+ant/src/org/apache/hadoop/hive/ant/GenVectorCode.java,2512,String vectorOperandType1 = this.getVectorPrimitiveType(inputColumnVectorType1);
+ant/src/org/apache/hadoop/hive/ant/GenVectorCode.java,2513,String vectorOperandType2 = this.getVectorPrimitiveType(inputColumnVectorType2);
+ant/src/org/apache/hadoop/hive/ant/GenVectorCode.java,2514,String vectorReturnType = this.getVectorPrimitiveType(outputColumnVectorType);
+ant/src/org/apache/hadoop/hive/ant/GenVectorCode.java,2517,File templateFile = new File(joinPath(this.expressionTemplateDirectory, tdesc[0] + ".txt"));
+ant/src/org/apache/hadoop/hive/ant/GenVectorCode.java,2520,templateString = templateString.replaceAll("<InputColumnVectorType>", inputColumnVectorType);
+ant/src/org/apache/hadoop/hive/ant/GenVectorCode.java,2521,templateString = templateString.replaceAll("<OutputColumnVectorType>", outputColumnVectorType);
+ant/src/org/apache/hadoop/hive/ant/GenVectorCode.java,2522,templateString = templateString.replaceAll("<OperatorName>", operatorName);
+ant/src/org/apache/hadoop/hive/ant/GenVectorCode.java,2523,templateString = templateString.replaceAll("<OperatorSymbol>", operatorSymbol);
+ant/src/org/apache/hadoop/hive/ant/GenVectorCode.java,2526,templateString = templateString.replaceAll("<ReturnType>", returnType);
+ant/src/org/apache/hadoop/hive/ant/GenVectorCode.java,2527,templateString = templateString.replaceAll("<VectorOperandType1>", vectorOperandType1);
+ant/src/org/apache/hadoop/hive/ant/GenVectorCode.java,2528,templateString = templateString.replaceAll("<VectorOperandType2>", vectorOperandType2);
+ant/src/org/apache/hadoop/hive/ant/GenVectorCode.java,2529,templateString = templateString.replaceAll("<VectorReturnType>", vectorReturnType);
+ant/src/org/apache/hadoop/hive/ant/GenVectorCode.java,2530,templateString = templateString.replaceAll("<TypeConversion1>", typeConversion1);
+ant/src/org/apache/hadoop/hive/ant/GenVectorCode.java,2531,templateString = templateString.replaceAll("<TypeConversion2>", typeConversion2);
+ant/src/org/apache/hadoop/hive/ant/GenVectorCode.java,2535,String testScalarType = operandType2;
+ant/src/org/apache/hadoop/hive/ant/GenVectorCode.java,2536,if (isDateTimeIntervalType(testScalarType)) {
+ant/src/org/apache/hadoop/hive/ant/GenVectorCode.java,2537,testScalarType = "long";
+ant/src/org/apache/hadoop/hive/ant/GenVectorCode.java,2540,testCodeGen.addColumnScalarOperationTestCases(
+ant/src/org/apache/hadoop/hive/ant/GenVectorCode.java,2541,true,
+ant/src/org/apache/hadoop/hive/ant/GenVectorCode.java,2543,inputColumnVectorType,
+ant/src/org/apache/hadoop/hive/ant/GenVectorCode.java,2544,outputColumnVectorType,
+ant/src/org/apache/hadoop/hive/ant/GenVectorCode.java,2545,testScalarType);
+ant/src/org/apache/hadoop/hive/ant/GenVectorCode.java,2548,private void generateDateTimeColumnArithmeticIntervalColumnWithConvert(String[] tdesc) throws Exception {
+ant/src/org/apache/hadoop/hive/ant/GenVectorCode.java,2551,String operandType2 = tdesc[3];
+ant/src/org/apache/hadoop/hive/ant/GenVectorCode.java,2552,String operatorSymbol = tdesc[4];
+ant/src/org/apache/hadoop/hive/ant/GenVectorCode.java,2553,String typeConversion = tdesc[5];
+ant/src/org/apache/hadoop/hive/ant/GenVectorCode.java,2554,String operatorFunction = tdesc[6];
+ant/src/org/apache/hadoop/hive/ant/GenVectorCode.java,2556,+ "Col" + operatorName + getCamelCaseType(operandType2) + "Column";
+ant/src/org/apache/hadoop/hive/ant/GenVectorCode.java,2557,String returnType = getArithmeticReturnType(operandType1, operandType2);
+ant/src/org/apache/hadoop/hive/ant/GenVectorCode.java,2558,String outputColumnVectorType = this.getColumnVectorType(returnType);
+ant/src/org/apache/hadoop/hive/ant/GenVectorCode.java,2559,String inputColumnVectorType1 = this.getColumnVectorType(operandType1);
+ant/src/org/apache/hadoop/hive/ant/GenVectorCode.java,2560,String inputColumnVectorType2 = this.getColumnVectorType(operandType2);
+ant/src/org/apache/hadoop/hive/ant/GenVectorCode.java,2562,String vectorOperandType1 = this.getVectorPrimitiveType(inputColumnVectorType1);
+ant/src/org/apache/hadoop/hive/ant/GenVectorCode.java,2563,String vectorOperandType2 = this.getVectorPrimitiveType(inputColumnVectorType2);
+ant/src/org/apache/hadoop/hive/ant/GenVectorCode.java,2564,String vectorReturnType = this.getVectorPrimitiveType(outputColumnVectorType);
+ant/src/org/apache/hadoop/hive/ant/GenVectorCode.java,2567,File templateFile = new File(joinPath(this.expressionTemplateDirectory, tdesc[0] + ".txt"));
+ant/src/org/apache/hadoop/hive/ant/GenVectorCode.java,2570,templateString = templateString.replaceAll("<InputColumnVectorType1>", inputColumnVectorType1);
+ant/src/org/apache/hadoop/hive/ant/GenVectorCode.java,2571,templateString = templateString.replaceAll("<InputColumnVectorType2>", inputColumnVectorType2);
+ant/src/org/apache/hadoop/hive/ant/GenVectorCode.java,2572,templateString = templateString.replaceAll("<OutputColumnVectorType>", outputColumnVectorType);
+ant/src/org/apache/hadoop/hive/ant/GenVectorCode.java,2573,templateString = templateString.replaceAll("<OperatorName>", operatorName);
+ant/src/org/apache/hadoop/hive/ant/GenVectorCode.java,2574,templateString = templateString.replaceAll("<OperatorSymbol>", operatorSymbol);
+ant/src/org/apache/hadoop/hive/ant/GenVectorCode.java,2577,templateString = templateString.replaceAll("<ReturnType>", returnType);
+ant/src/org/apache/hadoop/hive/ant/GenVectorCode.java,2578,templateString = templateString.replaceAll("<VectorOperandType1>", vectorOperandType1);
+ant/src/org/apache/hadoop/hive/ant/GenVectorCode.java,2579,templateString = templateString.replaceAll("<VectorOperandType2>", vectorOperandType2);
+ant/src/org/apache/hadoop/hive/ant/GenVectorCode.java,2580,templateString = templateString.replaceAll("<VectorReturnType>", vectorReturnType);
+ant/src/org/apache/hadoop/hive/ant/GenVectorCode.java,2581,templateString = templateString.replaceAll("<TypeConversionToMillis>", typeConversion);
+ant/src/org/apache/hadoop/hive/ant/GenVectorCode.java,2582,templateString = templateString.replaceAll("<OperatorFunction>", operatorFunction);
+ant/src/org/apache/hadoop/hive/ant/GenVectorCode.java,2583,templateString = templateString.replaceAll("<CamelReturnType>", getCamelCaseType(vectorReturnType));
+ant/src/org/apache/hadoop/hive/ant/GenVectorCode.java,2591,outputColumnVectorType);
+ant/src/org/apache/hadoop/hive/ant/GenVectorCode.java,2594,private void generateDateTimeScalarArithmeticIntervalColumnWithConvert(String[] tdesc) throws Exception {
+ant/src/org/apache/hadoop/hive/ant/GenVectorCode.java,2596,String operandType1 = tdesc[2];
+ant/src/org/apache/hadoop/hive/ant/GenVectorCode.java,2597,String operandType2 = tdesc[3];
+ant/src/org/apache/hadoop/hive/ant/GenVectorCode.java,2598,String operatorSymbol = tdesc[4];
+ant/src/org/apache/hadoop/hive/ant/GenVectorCode.java,2599,String typeConversion = tdesc[5];
+ant/src/org/apache/hadoop/hive/ant/GenVectorCode.java,2600,String operatorFunction = tdesc[6];
+ant/src/org/apache/hadoop/hive/ant/GenVectorCode.java,2602,+ "Scalar" + operatorName + getCamelCaseType(operandType2) + "Column";
+ant/src/org/apache/hadoop/hive/ant/GenVectorCode.java,2603,String returnType = getArithmeticReturnType(operandType1, operandType2);
+ant/src/org/apache/hadoop/hive/ant/GenVectorCode.java,2604,String outputColumnVectorType = this.getColumnVectorType(
+ant/src/org/apache/hadoop/hive/ant/GenVectorCode.java,2605,returnType == null ? "long" : returnType);
+ant/src/org/apache/hadoop/hive/ant/GenVectorCode.java,2606,String inputColumnVectorType = this.getColumnVectorType(operandType2);
+ant/src/org/apache/hadoop/hive/ant/GenVectorCode.java,2607,String inputColumnVectorType1 = this.getColumnVectorType(operandType1);
+ant/src/org/apache/hadoop/hive/ant/GenVectorCode.java,2608,String inputColumnVectorType2 = this.getColumnVectorType(operandType2);
+ant/src/org/apache/hadoop/hive/ant/GenVectorCode.java,2610,String vectorOperandType1 = this.getVectorPrimitiveType(inputColumnVectorType1);
+ant/src/org/apache/hadoop/hive/ant/GenVectorCode.java,2611,String vectorOperandType2 = this.getVectorPrimitiveType(inputColumnVectorType2);
+ant/src/org/apache/hadoop/hive/ant/GenVectorCode.java,2612,String vectorReturnType = this.getVectorPrimitiveType(outputColumnVectorType);
+ant/src/org/apache/hadoop/hive/ant/GenVectorCode.java,2615,File templateFile = new File(joinPath(this.expressionTemplateDirectory, tdesc[0] + ".txt"));
+ant/src/org/apache/hadoop/hive/ant/GenVectorCode.java,2617,templateString = templateString.replaceAll("<ClassName>", className);
+ant/src/org/apache/hadoop/hive/ant/GenVectorCode.java,2618,templateString = templateString.replaceAll("<InputColumnVectorType>", inputColumnVectorType);
+ant/src/org/apache/hadoop/hive/ant/GenVectorCode.java,2619,templateString = templateString.replaceAll("<OutputColumnVectorType>", outputColumnVectorType);
+ant/src/org/apache/hadoop/hive/ant/GenVectorCode.java,2620,templateString = templateString.replaceAll("<OperatorName>", operatorName);
+ant/src/org/apache/hadoop/hive/ant/GenVectorCode.java,2621,templateString = templateString.replaceAll("<OperatorSymbol>", operatorSymbol);
+ant/src/org/apache/hadoop/hive/ant/GenVectorCode.java,2622,templateString = templateString.replaceAll("<OperandType1>", operandType1);
+ant/src/org/apache/hadoop/hive/ant/GenVectorCode.java,2623,templateString = templateString.replaceAll("<OperandType2>", operandType2);
+ant/src/org/apache/hadoop/hive/ant/GenVectorCode.java,2624,templateString = templateString.replaceAll("<ReturnType>", returnType);
+ant/src/org/apache/hadoop/hive/ant/GenVectorCode.java,2625,templateString = templateString.replaceAll("<VectorOperandType1>", vectorOperandType1);
+ant/src/org/apache/hadoop/hive/ant/GenVectorCode.java,2626,templateString = templateString.replaceAll("<VectorOperandType2>", vectorOperandType2);
+ant/src/org/apache/hadoop/hive/ant/GenVectorCode.java,2627,templateString = templateString.replaceAll("<VectorReturnType>", vectorReturnType);
+ant/src/org/apache/hadoop/hive/ant/GenVectorCode.java,2628,templateString = templateString.replaceAll("<TypeConversionToMillis>", typeConversion);
+ant/src/org/apache/hadoop/hive/ant/GenVectorCode.java,2629,templateString = templateString.replaceAll("<OperatorFunction>", operatorFunction);
+ant/src/org/apache/hadoop/hive/ant/GenVectorCode.java,2630,templateString = templateString.replaceAll("<CamelReturnType>", getCamelCaseType(vectorReturnType));
+ant/src/org/apache/hadoop/hive/ant/GenVectorCode.java,2631,writeFile(templateFile.lastModified(), expressionOutputDirectory, expressionClassesDirectory,
+ant/src/org/apache/hadoop/hive/ant/GenVectorCode.java,2632,className, templateString);
+ant/src/org/apache/hadoop/hive/ant/GenVectorCode.java,2634,String testScalarType = operandType1;
+ant/src/org/apache/hadoop/hive/ant/GenVectorCode.java,2635,if (isDateTimeIntervalType(testScalarType)) {
+ant/src/org/apache/hadoop/hive/ant/GenVectorCode.java,2636,testScalarType = "long";
+ant/src/org/apache/hadoop/hive/ant/GenVectorCode.java,2639,testCodeGen.addColumnScalarOperationTestCases(
+ant/src/org/apache/hadoop/hive/ant/GenVectorCode.java,2640,false,
+ant/src/org/apache/hadoop/hive/ant/GenVectorCode.java,2641,className,
+ant/src/org/apache/hadoop/hive/ant/GenVectorCode.java,2642,inputColumnVectorType,
+ant/src/org/apache/hadoop/hive/ant/GenVectorCode.java,2643,outputColumnVectorType,
+ant/src/org/apache/hadoop/hive/ant/GenVectorCode.java,2644,testScalarType);
+ant/src/org/apache/hadoop/hive/ant/GenVectorCode.java,2647,private void generateDateTimeColumnArithmeticIntervalScalarWithConvert(String[] tdesc) throws Exception {
+ant/src/org/apache/hadoop/hive/ant/GenVectorCode.java,2650,String operandType2 = tdesc[3];
+ant/src/org/apache/hadoop/hive/ant/GenVectorCode.java,2651,String operatorSymbol = tdesc[4];
+ant/src/org/apache/hadoop/hive/ant/GenVectorCode.java,2652,String typeConversion = tdesc[5];
+ant/src/org/apache/hadoop/hive/ant/GenVectorCode.java,2653,String operatorFunction = tdesc[6];
+ant/src/org/apache/hadoop/hive/ant/GenVectorCode.java,2655,+ "Col" + operatorName + getCamelCaseType(operandType2) + "Scalar";
+ant/src/org/apache/hadoop/hive/ant/GenVectorCode.java,2656,String returnType = getArithmeticReturnType(operandType1, operandType2);
+ant/src/org/apache/hadoop/hive/ant/GenVectorCode.java,2657,String outputColumnVectorType = this.getColumnVectorType(returnType);
+ant/src/org/apache/hadoop/hive/ant/GenVectorCode.java,2658,String inputColumnVectorType = this.getColumnVectorType(operandType1);
+ant/src/org/apache/hadoop/hive/ant/GenVectorCode.java,2659,String inputColumnVectorType1 = this.getColumnVectorType(operandType1);
+ant/src/org/apache/hadoop/hive/ant/GenVectorCode.java,2660,String inputColumnVectorType2 = this.getColumnVectorType(operandType2);
+ant/src/org/apache/hadoop/hive/ant/GenVectorCode.java,2662,String vectorOperandType1 = this.getVectorPrimitiveType(inputColumnVectorType1);
+ant/src/org/apache/hadoop/hive/ant/GenVectorCode.java,2663,String vectorOperandType2 = this.getVectorPrimitiveType(inputColumnVectorType2);
+ant/src/org/apache/hadoop/hive/ant/GenVectorCode.java,2664,String vectorReturnType = this.getVectorPrimitiveType(outputColumnVectorType);
+ant/src/org/apache/hadoop/hive/ant/GenVectorCode.java,2667,File templateFile = new File(joinPath(this.expressionTemplateDirectory, tdesc[0] + ".txt"));
+ant/src/org/apache/hadoop/hive/ant/GenVectorCode.java,2670,templateString = templateString.replaceAll("<InputColumnVectorType>", inputColumnVectorType);
+ant/src/org/apache/hadoop/hive/ant/GenVectorCode.java,2671,templateString = templateString.replaceAll("<OutputColumnVectorType>", outputColumnVectorType);
+ant/src/org/apache/hadoop/hive/ant/GenVectorCode.java,2672,templateString = templateString.replaceAll("<OperatorName>", operatorName);
+ant/src/org/apache/hadoop/hive/ant/GenVectorCode.java,2673,templateString = templateString.replaceAll("<OperatorSymbol>", operatorSymbol);
+ant/src/org/apache/hadoop/hive/ant/GenVectorCode.java,2676,templateString = templateString.replaceAll("<ReturnType>", returnType);
+ant/src/org/apache/hadoop/hive/ant/GenVectorCode.java,2677,templateString = templateString.replaceAll("<VectorOperandType1>", vectorOperandType1);
+ant/src/org/apache/hadoop/hive/ant/GenVectorCode.java,2678,templateString = templateString.replaceAll("<VectorOperandType2>", vectorOperandType2);
+ant/src/org/apache/hadoop/hive/ant/GenVectorCode.java,2679,templateString = templateString.replaceAll("<VectorReturnType>", vectorReturnType);
+ant/src/org/apache/hadoop/hive/ant/GenVectorCode.java,2680,templateString = templateString.replaceAll("<TypeConversionToMillis>", typeConversion);
+ant/src/org/apache/hadoop/hive/ant/GenVectorCode.java,2681,templateString = templateString.replaceAll("<OperatorFunction>", operatorFunction);
+ant/src/org/apache/hadoop/hive/ant/GenVectorCode.java,2685,String testScalarType = operandType2;
+ant/src/org/apache/hadoop/hive/ant/GenVectorCode.java,2686,if (isDateTimeIntervalType(testScalarType)) {
+ant/src/org/apache/hadoop/hive/ant/GenVectorCode.java,2687,testScalarType = "long";
+ant/src/org/apache/hadoop/hive/ant/GenVectorCode.java,2690,testCodeGen.addColumnScalarOperationTestCases(
+ant/src/org/apache/hadoop/hive/ant/GenVectorCode.java,2691,true,
+ant/src/org/apache/hadoop/hive/ant/GenVectorCode.java,2693,inputColumnVectorType,
+ant/src/org/apache/hadoop/hive/ant/GenVectorCode.java,2694,outputColumnVectorType,
+ant/src/org/apache/hadoop/hive/ant/GenVectorCode.java,2695,testScalarType);
+ant/src/org/apache/hadoop/hive/ant/GenVectorCode.java,2698,private static boolean isDateTimeIntervalType(String type) {
+orc/src/java/org/apache/orc/TypeDescription.java,285,case TIMESTAMP:
+orc/src/java/org/apache/orc/impl/WriterImpl.java,1735,LongColumnVector vec = (LongColumnVector) vector;
+orc/src/java/org/apache/orc/impl/WriterImpl.java,1738,long value = vec.vector[0];
+orc/src/java/org/apache/orc/impl/WriterImpl.java,1739,long valueMillis = value / MILLIS_PER_NANO;
+orc/src/java/org/apache/orc/impl/WriterImpl.java,1740,indexStatistics.updateTimestamp(valueMillis);
+orc/src/java/org/apache/orc/impl/WriterImpl.java,1742,bloomFilter.addLong(valueMillis);
+orc/src/java/org/apache/orc/impl/WriterImpl.java,1744,final long secs = value / NANOS_PER_SECOND - base_timestamp;
+orc/src/java/org/apache/orc/impl/WriterImpl.java,1745,final long nano = formatNanos((int) (value % NANOS_PER_SECOND));
+orc/src/java/org/apache/orc/impl/WriterImpl.java,1754,long value = vec.vector[i + offset];
+orc/src/java/org/apache/orc/impl/WriterImpl.java,1755,long valueMillis = value / MILLIS_PER_NANO;
+orc/src/java/org/apache/orc/impl/WriterImpl.java,1756,long valueSecs = value /NANOS_PER_SECOND - base_timestamp;
+orc/src/java/org/apache/orc/impl/WriterImpl.java,1757,int valueNanos = (int) (value % NANOS_PER_SECOND);
+orc/src/java/org/apache/orc/impl/WriterImpl.java,1758,if (valueNanos < 0) {
+orc/src/java/org/apache/orc/impl/WriterImpl.java,1759,valueNanos += NANOS_PER_SECOND;
+orc/src/java/org/apache/orc/impl/WriterImpl.java,1761,seconds.write(valueSecs);
+orc/src/java/org/apache/orc/impl/WriterImpl.java,1762,nanos.write(formatNanos(valueNanos));
+orc/src/java/org/apache/orc/impl/WriterImpl.java,1763,indexStatistics.updateTimestamp(valueMillis);
+orc/src/java/org/apache/orc/impl/WriterImpl.java,1765,bloomFilter.addLong(valueMillis);
+ql/src/java/org/apache/hadoop/hive/ql/exec/vector/TimestampUtils.java,21,import java.sql.Timestamp;
+ql/src/java/org/apache/hadoop/hive/ql/exec/vector/TimestampUtils.java,32,public static void assignTimeInNanoSec(long timeInNanoSec, Timestamp t) {
+ql/src/java/org/apache/hadoop/hive/ql/exec/vector/TimestampUtils.java,40,long integralSecInMillis = (timeInNanoSec / 1000000000) * 1000; // Full seconds converted to millis.
+ql/src/java/org/apache/hadoop/hive/ql/exec/vector/TimestampUtils.java,41,long nanos = timeInNanoSec % 1000000000; // The nanoseconds.
+ql/src/java/org/apache/hadoop/hive/ql/exec/vector/TimestampUtils.java,42,if (nanos < 0) {
+ql/src/java/org/apache/hadoop/hive/ql/exec/vector/TimestampUtils.java,43,nanos = 1000000000 + nanos; // The positive nano-part that will be added to milliseconds.
+ql/src/java/org/apache/hadoop/hive/ql/exec/vector/TimestampUtils.java,44,integralSecInMillis = ((timeInNanoSec / 1000000000) - 1) * 1000; // Reduce by one second.
+ql/src/java/org/apache/hadoop/hive/ql/exec/vector/TimestampUtils.java,46,t.setTime(integralSecInMillis);
+ql/src/java/org/apache/hadoop/hive/ql/exec/vector/TimestampUtils.java,47,t.setNanos((int) nanos);
+ql/src/java/org/apache/hadoop/hive/ql/exec/vector/TimestampUtils.java,50,public static long getTimeNanoSec(Timestamp t) {
+ql/src/java/org/apache/hadoop/hive/ql/exec/vector/TimestampUtils.java,51,long time = t.getTime();
+ql/src/java/org/apache/hadoop/hive/ql/exec/vector/TimestampUtils.java,52,int nanos = t.getNanos();
+ql/src/java/org/apache/hadoop/hive/ql/exec/vector/TimestampUtils.java,53,return (time * 1000000) + (nanos % 1000000);
+ql/src/java/org/apache/hadoop/hive/ql/exec/vector/TimestampUtils.java,56,public static long secondsToNanoseconds(long seconds) {
+ql/src/java/org/apache/hadoop/hive/ql/exec/vector/TimestampUtils.java,57,return seconds * 1000000000;
+ql/src/java/org/apache/hadoop/hive/ql/exec/vector/TimestampUtils.java,60,public static long doubleToNanoseconds(double d) {
+ql/src/java/org/apache/hadoop/hive/ql/exec/vector/TimestampUtils.java,61,return (long) (d * 1000000000);
+ql/src/java/org/apache/hadoop/hive/ql/exec/vector/TimestampUtils.java,64,public static long daysToNanoseconds(long daysSinceEpoch) {
+ql/src/java/org/apache/hadoop/hive/ql/exec/vector/TimestampUtils.java,65,return DateWritable.daysToMillis((int) daysSinceEpoch) * 1000000;
+ql/src/java/org/apache/hadoop/hive/ql/exec/vector/VectorAssignRow.java,21,import java.sql.Timestamp;
+ql/src/java/org/apache/hadoop/hive/ql/exec/vector/VectorAssignRow.java,237,private class TimestampAssigner extends AbstractLongAssigner {
+ql/src/java/org/apache/hadoop/hive/ql/exec/vector/VectorAssignRow.java,248,TimestampWritable tw = (TimestampWritable) object;
+ql/src/java/org/apache/hadoop/hive/ql/exec/vector/VectorAssignRow.java,249,Timestamp t = tw.getTimestamp();
+ql/src/java/org/apache/hadoop/hive/ql/exec/vector/VectorAssignRow.java,250,vector[batchIndex] = TimestampUtils.getTimeNanoSec(t);
+ql/src/java/org/apache/hadoop/hive/ql/exec/vector/VectorAssignRow.java,275,private class IntervalDayTimeAssigner extends AbstractLongAssigner {
+ql/src/java/org/apache/hadoop/hive/ql/exec/vector/VectorAssignRow.java,288,vector[batchIndex] = DateUtils.getIntervalDayTimeTotalNanos(idt);
+ql/src/java/org/apache/hadoop/hive/ql/exec/vector/VectorColumnAssignFactory.java,316,outVCA = new VectorLongColumnAssign() {
+ql/src/java/org/apache/hadoop/hive/ql/exec/vector/VectorColumnAssignFactory.java,323,TimestampWritable bw = (TimestampWritable) val;
+ql/src/java/org/apache/hadoop/hive/ql/exec/vector/VectorColumnAssignFactory.java,324,Timestamp t = bw.getTimestamp();
+ql/src/java/org/apache/hadoop/hive/ql/exec/vector/VectorColumnAssignFactory.java,325,assignLong(TimestampUtils.getTimeNanoSec(t), destIndex);
+ql/src/java/org/apache/hadoop/hive/ql/exec/vector/VectorColumnSetInfo.java,25,import org.apache.hadoop.hive.serde2.objectinspector.PrimitiveObjectInspector.PrimitiveCategory;
+ql/src/java/org/apache/hadoop/hive/ql/exec/vector/VectorColumnSetInfo.java,26,import org.apache.hadoop.hive.serde2.typeinfo.PrimitiveTypeInfo;
+ql/src/java/org/apache/hadoop/hive/ql/exec/vector/VectorColumnSetInfo.java,71,this.longIndex = this.doubleIndex = this.stringIndex = this.decimalIndex = INDEX_UNUSED;
+ql/src/java/org/apache/hadoop/hive/ql/exec/vector/VectorCopyRow.java,25,import org.apache.hadoop.hive.serde2.objectinspector.PrimitiveObjectInspector.PrimitiveCategory;
+ql/src/java/org/apache/hadoop/hive/ql/exec/vector/VectorCopyRow.java,26,import org.apache.hadoop.hive.serde2.typeinfo.PrimitiveTypeInfo;
+ql/src/java/org/apache/hadoop/hive/ql/exec/vector/VectorDeserializeRow.java,23,import java.sql.Timestamp;
+ql/src/java/org/apache/hadoop/hive/ql/exec/vector/VectorDeserializeRow.java,213,private class TimestampReader extends AbstractLongReader {
+ql/src/java/org/apache/hadoop/hive/ql/exec/vector/VectorDeserializeRow.java,224,LongColumnVector colVector = (LongColumnVector) batch.cols[columnIndex];
+ql/src/java/org/apache/hadoop/hive/ql/exec/vector/VectorDeserializeRow.java,230,Timestamp t = readTimestampResults.getTimestamp();
+ql/src/java/org/apache/hadoop/hive/ql/exec/vector/VectorDeserializeRow.java,231,colVector.vector[batchIndex] = TimestampUtils.getTimeNanoSec(t);
+ql/src/java/org/apache/hadoop/hive/ql/exec/vector/VectorDeserializeRow.java,261,private class IntervalDayTimeReader extends AbstractLongReader {
+ql/src/java/org/apache/hadoop/hive/ql/exec/vector/VectorDeserializeRow.java,272,LongColumnVector colVector = (LongColumnVector) batch.cols[columnIndex];
+ql/src/java/org/apache/hadoop/hive/ql/exec/vector/VectorDeserializeRow.java,278,HiveIntervalDayTime hidt = readIntervalDayTimeResults.getHiveIntervalDayTime();
+ql/src/java/org/apache/hadoop/hive/ql/exec/vector/VectorDeserializeRow.java,279,colVector.vector[batchIndex] = DateUtils.getIntervalDayTimeTotalNanos(hidt);
+ql/src/java/org/apache/hadoop/hive/ql/exec/vector/VectorExpressionDescriptor.java,74,INT_TIMESTAMP_FAMILY    (INT_FAMILY.value | TIMESTAMP.value),
+ql/src/java/org/apache/hadoop/hive/ql/exec/vector/VectorExpressionDescriptor.java,75,INT_INTERVAL_FAMILY     (INT_FAMILY.value | INTERVAL_FAMILY.value),
+ql/src/java/org/apache/hadoop/hive/ql/exec/vector/VectorExpressionDescriptor.java,76,INT_DATETIME_INTERVAL_FAMILY  (INT_FAMILY.value | DATETIME_FAMILY.value | INTERVAL_FAMILY.value),
+ql/src/java/org/apache/hadoop/hive/ql/exec/vector/VectorExpressionDescriptor.java,149,argType == TIMESTAMP ||
+ql/src/java/org/apache/hadoop/hive/ql/exec/vector/VectorExpressionDescriptor.java,150,argType == INTERVAL_YEAR_MONTH ||
+ql/src/java/org/apache/hadoop/hive/ql/exec/vector/VectorExpressionDescriptor.java,151,argType == INTERVAL_DAY_TIME) {
+ql/src/java/org/apache/hadoop/hive/ql/exec/vector/VectorExtractRow.java,258,private class TimestampExtractor extends AbstractLongExtractor {
+ql/src/java/org/apache/hadoop/hive/ql/exec/vector/VectorExtractRow.java,260,private Timestamp timestamp;
+ql/src/java/org/apache/hadoop/hive/ql/exec/vector/VectorExtractRow.java,272,long value = vector[adjustedIndex];
+ql/src/java/org/apache/hadoop/hive/ql/exec/vector/VectorExtractRow.java,273,TimestampUtils.assignTimeInNanoSec(value, timestamp);
+ql/src/java/org/apache/hadoop/hive/ql/exec/vector/VectorExtractRow.java,306,private class IntervalDayTimeExtractor extends AbstractLongExtractor {
+ql/src/java/org/apache/hadoop/hive/ql/exec/vector/VectorExtractRow.java,320,long value = vector[adjustedIndex];
+ql/src/java/org/apache/hadoop/hive/ql/exec/vector/VectorExtractRow.java,321,DateUtils.setIntervalDayTimeTotalNanos(hiveIntervalDayTime, value);
+ql/src/java/org/apache/hadoop/hive/ql/exec/vector/VectorGroupKeyHelper.java,22,import java.util.Arrays;
+ql/src/java/org/apache/hadoop/hive/ql/exec/vector/VectorHashKeyWrapper.java,59,int byteValuesCount, int decimalValuesCount) {
+ql/src/java/org/apache/hadoop/hive/ql/exec/vector/VectorHashKeyWrapper.java,75,isNull = new boolean[longValuesCount + doubleValuesCount + byteValuesCount + decimalValuesCount];
+ql/src/java/org/apache/hadoop/hive/ql/exec/vector/VectorHashKeyWrapper.java,262,return String.format("%d[%s] %d[%s] %d[%s] %d[%s]",
+ql/src/java/org/apache/hadoop/hive/ql/exec/vector/VectorHashKeyWrapper.java,266,decimalValues.length, Arrays.toString(decimalValues));
+ql/src/java/org/apache/hadoop/hive/ql/exec/vector/VectorHashKeyWrapperBatch.java,21,import java.util.Arrays;
+ql/src/java/org/apache/hadoop/hive/ql/exec/vector/VectorHashKeyWrapperBatch.java,27,import org.apache.hadoop.hive.serde2.lazybinary.LazyBinarySerDe;
+ql/src/java/org/apache/hadoop/hive/ql/exec/vector/VectorHashKeyWrapperBatch.java,160,int keyIndex = decimalIndices[i];
+ql/src/java/org/apache/hadoop/hive/ql/exec/vector/VectorHashKeyWrapperBatch.java,161,int columnIndex = keyExpressions[keyIndex].getOutputColumn();
+ql/src/java/org/apache/hadoop/hive/ql/exec/vector/VectorHashKeyWrapperBatch.java,162,DecimalColumnVector columnVector = (DecimalColumnVector) batch.cols[columnIndex];
+ql/src/java/org/apache/hadoop/hive/ql/exec/vector/VectorHashKeyWrapperBatch.java,163,if (columnVector.noNulls && !columnVector.isRepeating && !batch.selectedInUse) {
+ql/src/java/org/apache/hadoop/hive/ql/exec/vector/VectorHashKeyWrapperBatch.java,164,assignDecimalNoNullsNoRepeatingNoSelection(i, batch.size, columnVector);
+ql/src/java/org/apache/hadoop/hive/ql/exec/vector/VectorHashKeyWrapperBatch.java,166,assignDecimalNoNullsNoRepeatingSelection(i, batch.size, columnVector, batch.selected);
+ql/src/java/org/apache/hadoop/hive/ql/exec/vector/VectorHashKeyWrapperBatch.java,168,assignDecimalNoNullsRepeating(i, batch.size, columnVector);
+ql/src/java/org/apache/hadoop/hive/ql/exec/vector/VectorHashKeyWrapperBatch.java,170,assignDecimalNullsNoRepeatingNoSelection(i, batch.size, columnVector);
+ql/src/java/org/apache/hadoop/hive/ql/exec/vector/VectorHashKeyWrapperBatch.java,172,assignDecimalNullsRepeating(i, batch.size, columnVector);
+ql/src/java/org/apache/hadoop/hive/ql/exec/vector/VectorHashKeyWrapperBatch.java,174,assignDecimalNullsNoRepeatingSelection (i, batch.size, columnVector, batch.selected);
+ql/src/java/org/apache/hadoop/hive/ql/exec/vector/VectorHashKeyWrapperBatch.java,176,throw new HiveException (String.format(
+ql/src/java/org/apache/hadoop/hive/ql/exec/vector/VectorHashKeyWrapperBatch.java,178,columnVector.noNulls, columnVector.isRepeating, batch.selectedInUse));
+ql/src/java/org/apache/hadoop/hive/ql/exec/vector/VectorHashKeyWrapperBatch.java,556,stringIndices.length, decimalIndices.length);
+ql/src/java/org/apache/hadoop/hive/ql/exec/vector/VectorHashKeyWrapperBatch.java,588,i, klh.longIndex, klh.doubleIndex, klh.stringIndex, klh.decimalIndex));
+ql/src/java/org/apache/hadoop/hive/ql/exec/vector/VectorSerializeRow.java,257,private class TimestampWriter extends AbstractLongWriter {
+ql/src/java/org/apache/hadoop/hive/ql/exec/vector/VectorSerializeRow.java,268,LongColumnVector colVector = (LongColumnVector) batch.cols[columnIndex];
+ql/src/java/org/apache/hadoop/hive/ql/exec/vector/VectorSerializeRow.java,272,TimestampUtils.assignTimeInNanoSec(colVector.vector[0], scratchTimestamp);
+ql/src/java/org/apache/hadoop/hive/ql/exec/vector/VectorSerializeRow.java,281,TimestampUtils.assignTimeInNanoSec(colVector.vector[batchIndex], scratchTimestamp);
+ql/src/java/org/apache/hadoop/hive/ql/exec/vector/VectorSerializeRow.java,322,private class IntervalDayTimeWriter extends AbstractLongWriter {
+ql/src/java/org/apache/hadoop/hive/ql/exec/vector/VectorSerializeRow.java,330,LongColumnVector colVector = (LongColumnVector) batch.cols[columnIndex];
+ql/src/java/org/apache/hadoop/hive/ql/exec/vector/VectorSerializeRow.java,334,serializeWrite.writeHiveIntervalDayTime(colVector.vector[0]);
+ql/src/java/org/apache/hadoop/hive/ql/exec/vector/VectorSerializeRow.java,342,serializeWrite.writeHiveIntervalDayTime(colVector.vector[batchIndex]);
+ql/src/java/org/apache/hadoop/hive/ql/exec/vector/VectorizationContext.java,932,return new ConstantVectorExpression(outCol, TimestampUtils.getTimeNanoSec((Timestamp) constantValue));
+ql/src/java/org/apache/hadoop/hive/ql/exec/vector/VectorizationContext.java,937,return new ConstantVectorExpression(outCol,
+ql/src/java/org/apache/hadoop/hive/ql/exec/vector/VectorizationContext.java,938,DateUtils.getIntervalDayTimeTotalNanos((HiveIntervalDayTime) constantValue));
+ql/src/java/org/apache/hadoop/hive/ql/exec/vector/VectorizationContext.java,942,VectorExpression ve = new ConstantVectorExpression(outCol, (HiveDecimal) constantValue);
+ql/src/java/org/apache/hadoop/hive/ql/exec/vector/VectorizationContext.java,944,ve.setOutputType(typeName);
+ql/src/java/org/apache/hadoop/hive/ql/exec/vector/VectorizationContext.java,945,return ve;
+ql/src/java/org/apache/hadoop/hive/ql/exec/vector/VectorizationContext.java,1243,if (!udf.isIntToTimestampInSeconds() && ve instanceof CastLongToTimestampViaLongToLong) {
+ql/src/java/org/apache/hadoop/hive/ql/exec/vector/VectorizationContext.java,1244,ve = createVectorExpression(CastMillisecondsLongToTimestampViaLongToLong.class,
+ql/src/java/org/apache/hadoop/hive/ql/exec/vector/VectorizationContext.java,1529,cl = (mode == Mode.FILTER ? FilterLongColumnInList.class : LongColumnInList.class);
+ql/src/java/org/apache/hadoop/hive/ql/exec/vector/VectorizationContext.java,1530,long[] inVals = new long[childrenForInList.size()];
+ql/src/java/org/apache/hadoop/hive/ql/exec/vector/VectorizationContext.java,1535,((ILongInExpr) expr).setInListValues(inVals);
+ql/src/java/org/apache/hadoop/hive/ql/exec/vector/VectorizationContext.java,1837,return createVectorExpression(CastTimestampToDoubleViaLongToDouble.class, childExpr, Mode.PROJECTION,
+ql/src/java/org/apache/hadoop/hive/ql/exec/vector/VectorizationContext.java,1984,long left = getTimestampScalar(childExpr.get(2));
+ql/src/java/org/apache/hadoop/hive/ql/exec/vector/VectorizationContext.java,1985,long right = getTimestampScalar(childExpr.get(3));
+ql/src/java/org/apache/hadoop/hive/ql/exec/vector/VectorizationContext.java,1986,childrenAfterNot = new ArrayList<ExprNodeDesc>();
+ql/src/java/org/apache/hadoop/hive/ql/exec/vector/VectorizationContext.java,1987,childrenAfterNot.add(colExpr);
+ql/src/java/org/apache/hadoop/hive/ql/exec/vector/VectorizationContext.java,1988,childrenAfterNot.add(new ExprNodeConstantDesc(left));
+ql/src/java/org/apache/hadoop/hive/ql/exec/vector/VectorizationContext.java,1989,childrenAfterNot.add(new ExprNodeConstantDesc(right));
+ql/src/java/org/apache/hadoop/hive/ql/exec/vector/VectorizationContext.java,1990,if (notKeywordPresent) {
+ql/src/java/org/apache/hadoop/hive/ql/exec/vector/VectorizationContext.java,1991,cl = FilterLongColumnNotBetween.class;
+ql/src/java/org/apache/hadoop/hive/ql/exec/vector/VectorizationContext.java,1993,cl = FilterLongColumnBetween.class;
+ql/src/java/org/apache/hadoop/hive/ql/exec/vector/VectorizationContext.java,2176,case TIMESTAMP:
+ql/src/java/org/apache/hadoop/hive/ql/exec/vector/VectorizationContext.java,2177,return TimestampUtils.getTimeNanoSec((Timestamp) scalarValue);
+ql/src/java/org/apache/hadoop/hive/ql/exec/vector/VectorizationContext.java,2182,case INTERVAL_DAY_TIME:
+ql/src/java/org/apache/hadoop/hive/ql/exec/vector/VectorizationContext.java,2183,return DateUtils.getIntervalDayTimeTotalNanos((HiveIntervalDayTime) scalarValue);
+ql/src/java/org/apache/hadoop/hive/ql/exec/vector/VectorizationContext.java,2190,private long getTimestampScalar(ExprNodeDesc expr) throws HiveException {
+ql/src/java/org/apache/hadoop/hive/ql/exec/vector/VectorizationContext.java,2218,private long evaluateCastToTimestamp(ExprNodeDesc expr) throws HiveException {
+ql/src/java/org/apache/hadoop/hive/ql/exec/vector/VectorizationContext.java,2229,return TimestampUtils.getTimeNanoSec(ts);
+ql/src/java/org/apache/hadoop/hive/ql/exec/vector/VectorizationContext.java,2318,public static ColumnVector.Type getColumnVectorTypeFromTypeInfo(TypeInfo typeInfo) throws HiveException {
+ql/src/java/org/apache/hadoop/hive/ql/exec/vector/VectorizationContext.java,2339,case TIMESTAMP:
+ql/src/java/org/apache/hadoop/hive/ql/exec/vector/VectorizationContext.java,2341,case INTERVAL_DAY_TIME:
+ql/src/java/org/apache/hadoop/hive/ql/exec/vector/VectorizationContext.java,2372,add(new AggregateDefinition("min",         VectorExpressionDescriptor.ArgumentType.INT_DATETIME_INTERVAL_FAMILY,    null,                          VectorUDAFMinLong.class));
+ql/src/java/org/apache/hadoop/hive/ql/exec/vector/VectorizationContext.java,2376,add(new AggregateDefinition("max",         VectorExpressionDescriptor.ArgumentType.INT_DATETIME_INTERVAL_FAMILY,    null,                          VectorUDAFMaxLong.class));
+ql/src/java/org/apache/hadoop/hive/ql/exec/vector/VectorizationContext.java,2381,add(new AggregateDefinition("count",       VectorExpressionDescriptor.ArgumentType.INT_DATETIME_INTERVAL_FAMILY,    GroupByDesc.Mode.HASH,         VectorUDAFCount.class));
+ql/src/java/org/apache/hadoop/hive/ql/exec/vector/VectorizationContext.java,2389,add(new AggregateDefinition("avg",         VectorExpressionDescriptor.ArgumentType.INT_TIMESTAMP_FAMILY,   GroupByDesc.Mode.HASH,         VectorUDAFAvgLong.class));
+ql/src/java/org/apache/hadoop/hive/ql/exec/vector/VectorizationContext.java,2392,add(new AggregateDefinition("variance",    VectorExpressionDescriptor.ArgumentType.INT_TIMESTAMP_FAMILY,   GroupByDesc.Mode.HASH,         VectorUDAFVarPopLong.class));
+ql/src/java/org/apache/hadoop/hive/ql/exec/vector/VectorizationContext.java,2393,add(new AggregateDefinition("var_pop",     VectorExpressionDescriptor.ArgumentType.INT_TIMESTAMP_FAMILY,   GroupByDesc.Mode.HASH,         VectorUDAFVarPopLong.class));
+ql/src/java/org/apache/hadoop/hive/ql/exec/vector/VectorizationContext.java,2398,add(new AggregateDefinition("var_samp",    VectorExpressionDescriptor.ArgumentType.INT_TIMESTAMP_FAMILY,   GroupByDesc.Mode.HASH,         VectorUDAFVarSampLong.class));
+ql/src/java/org/apache/hadoop/hive/ql/exec/vector/VectorizationContext.java,2401,add(new AggregateDefinition("std",         VectorExpressionDescriptor.ArgumentType.INT_TIMESTAMP_FAMILY,   GroupByDesc.Mode.HASH,         VectorUDAFStdPopLong.class));
+ql/src/java/org/apache/hadoop/hive/ql/exec/vector/VectorizationContext.java,2402,add(new AggregateDefinition("stddev",      VectorExpressionDescriptor.ArgumentType.INT_TIMESTAMP_FAMILY,   GroupByDesc.Mode.HASH,         VectorUDAFStdPopLong.class));
+ql/src/java/org/apache/hadoop/hive/ql/exec/vector/VectorizationContext.java,2403,add(new AggregateDefinition("stddev_pop",  VectorExpressionDescriptor.ArgumentType.INT_TIMESTAMP_FAMILY,   GroupByDesc.Mode.HASH,         VectorUDAFStdPopLong.class));
+ql/src/java/org/apache/hadoop/hive/ql/exec/vector/VectorizationContext.java,2410,add(new AggregateDefinition("stddev_samp", VectorExpressionDescriptor.ArgumentType.INT_TIMESTAMP_FAMILY,   GroupByDesc.Mode.HASH,         VectorUDAFStdSampLong.class));
+ql/src/java/org/apache/hadoop/hive/ql/exec/vector/VectorizedBatchUtil.java,144,case TIMESTAMP:
+ql/src/java/org/apache/hadoop/hive/ql/exec/vector/VectorizedBatchUtil.java,147,case INTERVAL_DAY_TIME:
+ql/src/java/org/apache/hadoop/hive/ql/exec/vector/VectorizedBatchUtil.java,396,LongColumnVector lcv = (LongColumnVector) batch.cols[offset + colIndex];
+ql/src/java/org/apache/hadoop/hive/ql/exec/vector/VectorizedBatchUtil.java,398,Timestamp t = ((TimestampWritable) writableCol).getTimestamp();
+ql/src/java/org/apache/hadoop/hive/ql/exec/vector/VectorizedBatchUtil.java,399,lcv.vector[rowIndex] = TimestampUtils.getTimeNanoSec(t);
+ql/src/java/org/apache/hadoop/hive/ql/exec/vector/VectorizedBatchUtil.java,402,lcv.vector[rowIndex] = 1;
+ql/src/java/org/apache/hadoop/hive/ql/exec/vector/VectorizedRowBatchCtx.java,378,LongColumnVector lcv = (LongColumnVector) batch.cols[colIndex];
+ql/src/java/org/apache/hadoop/hive/ql/exec/vector/VectorizedRowBatchCtx.java,384,lcv.fill(TimestampUtils.getTimeNanoSec((Timestamp) value));
+ql/src/java/org/apache/hadoop/hive/ql/exec/vector/VectorizedRowBatchCtx.java,403,LongColumnVector lcv = (LongColumnVector) batch.cols[colIndex];
+ql/src/java/org/apache/hadoop/hive/ql/exec/vector/VectorizedRowBatchCtx.java,405,lcv.noNulls = false;
+ql/src/java/org/apache/hadoop/hive/ql/exec/vector/VectorizedRowBatchCtx.java,406,lcv.isNull[0] = true;
+ql/src/java/org/apache/hadoop/hive/ql/exec/vector/VectorizedRowBatchCtx.java,407,lcv.isRepeating = true;
+ql/src/java/org/apache/hadoop/hive/ql/exec/vector/VectorizedRowBatchCtx.java,409,lcv.fill(DateUtils.getIntervalDayTimeTotalNanos((HiveIntervalDayTime) value));
+ql/src/java/org/apache/hadoop/hive/ql/exec/vector/VectorizedRowBatchCtx.java,410,lcv.isNull[0] = false;
+ql/src/java/org/apache/hadoop/hive/ql/exec/vector/expressions/CastDecimalToTimestamp.java,30,public class CastDecimalToTimestamp extends FuncDecimalToLong {
+ql/src/java/org/apache/hadoop/hive/ql/exec/vector/expressions/CastDecimalToTimestamp.java,33,private static transient HiveDecimal tenE9 = HiveDecimal.create(1000000000);
+ql/src/java/org/apache/hadoop/hive/ql/exec/vector/expressions/CastDecimalToTimestamp.java,43,protected void func(LongColumnVector outV, DecimalColumnVector inV,  int i) {
+ql/src/java/org/apache/hadoop/hive/ql/exec/vector/expressions/CastDecimalToTimestamp.java,44,HiveDecimal result = inV.vector[i].getHiveDecimal().multiply(tenE9);
+ql/src/java/org/apache/hadoop/hive/ql/exec/vector/expressions/CastDecimalToTimestamp.java,45,if (result == null) {
+ql/src/java/org/apache/hadoop/hive/ql/exec/vector/expressions/CastDecimalToTimestamp.java,46,outV.noNulls = false;
+ql/src/java/org/apache/hadoop/hive/ql/exec/vector/expressions/CastDecimalToTimestamp.java,47,outV.isNull[i] = true;
+ql/src/java/org/apache/hadoop/hive/ql/exec/vector/expressions/CastDecimalToTimestamp.java,49,outV.vector[i] = result.longValue();
+ql/src/java/org/apache/hadoop/hive/ql/exec/vector/expressions/CastLongToDate.java,66,case TIMESTAMP:
+ql/src/java/org/apache/hadoop/hive/ql/exec/vector/expressions/CastLongToDate.java,67,if (inV.noNulls) {
+ql/src/java/org/apache/hadoop/hive/ql/exec/vector/expressions/CastLongToDate.java,68,outV.noNulls = true;
+ql/src/java/org/apache/hadoop/hive/ql/exec/vector/expressions/CastLongToDate.java,69,if (inV.isRepeating) {
+ql/src/java/org/apache/hadoop/hive/ql/exec/vector/expressions/CastLongToDate.java,70,outV.isRepeating = true;
+ql/src/java/org/apache/hadoop/hive/ql/exec/vector/expressions/CastLongToDate.java,71,date.setTime(inV.vector[0] / 1000000);
+ql/src/java/org/apache/hadoop/hive/ql/exec/vector/expressions/CastLongToDate.java,72,outV.vector[0] = DateWritable.dateToDays(date);
+ql/src/java/org/apache/hadoop/hive/ql/exec/vector/expressions/CastLongToDate.java,74,for(int j = 0; j != n; j++) {
+ql/src/java/org/apache/hadoop/hive/ql/exec/vector/expressions/CastLongToDate.java,75,int i = sel[j];
+ql/src/java/org/apache/hadoop/hive/ql/exec/vector/expressions/CastLongToDate.java,76,date.setTime(inV.vector[i] / 1000000);
+ql/src/java/org/apache/hadoop/hive/ql/exec/vector/expressions/CastLongToDate.java,77,outV.vector[i] = DateWritable.dateToDays(date);
+ql/src/java/org/apache/hadoop/hive/ql/exec/vector/expressions/CastLongToDate.java,79,outV.isRepeating = false;
+ql/src/java/org/apache/hadoop/hive/ql/exec/vector/expressions/CastLongToDate.java,81,for(int i = 0; i != n; i++) {
+ql/src/java/org/apache/hadoop/hive/ql/exec/vector/expressions/CastLongToDate.java,82,date.setTime(inV.vector[i] / 1000000);
+ql/src/java/org/apache/hadoop/hive/ql/exec/vector/expressions/CastLongToDate.java,83,outV.vector[i] = DateWritable.dateToDays(date);
+ql/src/java/org/apache/hadoop/hive/ql/exec/vector/expressions/CastLongToDate.java,85,outV.isRepeating = false;
+ql/src/java/org/apache/hadoop/hive/ql/exec/vector/expressions/CastLongToDate.java,91,outV.noNulls = false;
+ql/src/java/org/apache/hadoop/hive/ql/exec/vector/expressions/CastLongToDate.java,92,if (inV.isRepeating) {
+ql/src/java/org/apache/hadoop/hive/ql/exec/vector/expressions/CastLongToDate.java,93,outV.isRepeating = true;
+ql/src/java/org/apache/hadoop/hive/ql/exec/vector/expressions/CastLongToDate.java,94,outV.isNull[0] = inV.isNull[0];
+ql/src/java/org/apache/hadoop/hive/ql/exec/vector/expressions/CastLongToDate.java,95,if (!inV.isNull[0]) {
+ql/src/java/org/apache/hadoop/hive/ql/exec/vector/expressions/CastLongToDate.java,96,date.setTime(inV.vector[0] / 1000000);
+ql/src/java/org/apache/hadoop/hive/ql/exec/vector/expressions/CastLongToDate.java,97,outV.vector[0] = DateWritable.dateToDays(date);
+ql/src/java/org/apache/hadoop/hive/ql/exec/vector/expressions/CastLongToDate.java,100,for(int j = 0; j != n; j++) {
+ql/src/java/org/apache/hadoop/hive/ql/exec/vector/expressions/CastLongToDate.java,101,int i = sel[j];
+ql/src/java/org/apache/hadoop/hive/ql/exec/vector/expressions/CastLongToDate.java,102,outV.isNull[i] = inV.isNull[i];
+ql/src/java/org/apache/hadoop/hive/ql/exec/vector/expressions/CastLongToDate.java,103,if (!inV.isNull[i]) {
+ql/src/java/org/apache/hadoop/hive/ql/exec/vector/expressions/CastLongToDate.java,104,date.setTime(inV.vector[i] / 1000000);
+ql/src/java/org/apache/hadoop/hive/ql/exec/vector/expressions/CastLongToDate.java,105,outV.vector[i] = DateWritable.dateToDays(date);
+ql/src/java/org/apache/hadoop/hive/ql/exec/vector/expressions/CastLongToDate.java,108,outV.isRepeating = false;
+ql/src/java/org/apache/hadoop/hive/ql/exec/vector/expressions/CastLongToDate.java,110,System.arraycopy(inV.isNull, 0, outV.isNull, 0, n);
+ql/src/java/org/apache/hadoop/hive/ql/exec/vector/expressions/CastLongToDate.java,111,for(int i = 0; i != n; i++) {
+ql/src/java/org/apache/hadoop/hive/ql/exec/vector/expressions/CastLongToDate.java,112,if (!inV.isNull[i]) {
+ql/src/java/org/apache/hadoop/hive/ql/exec/vector/expressions/CastLongToDate.java,113,date.setTime(inV.vector[i] / 1000000);
+ql/src/java/org/apache/hadoop/hive/ql/exec/vector/expressions/CastLongToDate.java,114,outV.vector[i] = DateWritable.dateToDays(date);
+ql/src/java/org/apache/hadoop/hive/ql/exec/vector/expressions/CastLongToDate.java,117,outV.isRepeating = false;
+ql/src/java/org/apache/hadoop/hive/ql/exec/vector/expressions/CastLongToDate.java,120,break;
+ql/src/java/org/apache/hadoop/hive/ql/exec/vector/expressions/CastStringToIntervalDayTime.java,58,LongColumnVector outV = (LongColumnVector) batch.cols[outputColumn];
+ql/src/java/org/apache/hadoop/hive/ql/exec/vector/expressions/CastStringToIntervalDayTime.java,115,private void evaluate(LongColumnVector outV, BytesColumnVector inV, int i) {
+ql/src/java/org/apache/hadoop/hive/ql/exec/vector/expressions/CastStringToIntervalDayTime.java,119,outV.vector[i] = DateUtils.getIntervalDayTimeTotalNanos(interval);
+ql/src/java/org/apache/hadoop/hive/ql/exec/vector/expressions/CastStringToIntervalDayTime.java,121,outV.vector[i] = 1;
+ql/src/java/org/apache/hadoop/hive/ql/exec/vector/expressions/CastTimestampToDecimal.java,23,import org.apache.hadoop.hive.ql.exec.vector.LongColumnVector;
+ql/src/java/org/apache/hadoop/hive/ql/exec/vector/expressions/CastTimestampToDecimal.java,28,public class CastTimestampToDecimal extends FuncLongToDecimal {
+ql/src/java/org/apache/hadoop/hive/ql/exec/vector/expressions/CastTimestampToDecimal.java,41,protected void func(DecimalColumnVector outV, LongColumnVector inV, int i) {
+ql/src/java/org/apache/hadoop/hive/ql/exec/vector/expressions/CastTimestampToDecimal.java,45,HiveDecimal result = HiveDecimal.create(inV.vector[i]);
+ql/src/java/org/apache/hadoop/hive/ql/exec/vector/expressions/CastTimestampToDecimal.java,46,result = result.scaleByPowerOfTen(-9);
+ql/src/java/org/apache/hadoop/hive/ql/exec/vector/expressions/ConstantVectorExpression.java,33,private static enum Type {
+ql/src/java/org/apache/hadoop/hive/ql/exec/vector/expressions/ConstantVectorExpression.java,34,LONG,
+ql/src/java/org/apache/hadoop/hive/ql/exec/vector/expressions/ConstantVectorExpression.java,35,DOUBLE,
+ql/src/java/org/apache/hadoop/hive/ql/exec/vector/expressions/ConstantVectorExpression.java,36,BYTES,
+ql/src/java/org/apache/hadoop/hive/ql/exec/vector/expressions/ConstantVectorExpression.java,37,DECIMAL
+ql/src/java/org/apache/hadoop/hive/ql/exec/vector/expressions/ConstantVectorExpression.java,47,private Type type;
+ql/src/java/org/apache/hadoop/hive/ql/exec/vector/expressions/ConstantVectorExpression.java,85,public ConstantVectorExpression(int outputColumn, HiveDecimal value) {
+ql/src/java/org/apache/hadoop/hive/ql/exec/vector/expressions/ConstantVectorExpression.java,86,this(outputColumn, "decimal");
+ql/src/java/org/apache/hadoop/hive/ql/exec/vector/expressions/ConstantVectorExpression.java,195,public String getTypeString() {
+ql/src/java/org/apache/hadoop/hive/ql/exec/vector/expressions/ConstantVectorExpression.java,196,return getOutputType();
+ql/src/java/org/apache/hadoop/hive/ql/exec/vector/expressions/ConstantVectorExpression.java,199,public void setTypeString(String typeString) {
+ql/src/java/org/apache/hadoop/hive/ql/exec/vector/expressions/ConstantVectorExpression.java,200,this.outputType = typeString;
+ql/src/java/org/apache/hadoop/hive/ql/exec/vector/expressions/ConstantVectorExpression.java,201,if (VectorizationContext.isStringFamily(typeString)) {
+ql/src/java/org/apache/hadoop/hive/ql/exec/vector/expressions/ConstantVectorExpression.java,202,this.type = Type.BYTES;
+ql/src/java/org/apache/hadoop/hive/ql/exec/vector/expressions/ConstantVectorExpression.java,204,this.type = Type.DOUBLE;
+ql/src/java/org/apache/hadoop/hive/ql/exec/vector/expressions/ConstantVectorExpression.java,206,this.type = Type.DECIMAL;
+ql/src/java/org/apache/hadoop/hive/ql/exec/vector/expressions/ConstantVectorExpression.java,209,this.type = Type.LONG;
+ql/src/java/org/apache/hadoop/hive/ql/exec/vector/expressions/ConstantVectorExpression.java,213,public void setOutputColumn(int outputColumn) {
+ql/src/java/org/apache/hadoop/hive/ql/exec/vector/expressions/ConstantVectorExpression.java,214,this.outputColumn = outputColumn;
+ql/src/java/org/apache/hadoop/hive/ql/exec/vector/expressions/ConstantVectorExpression.java,217,public Type getType() {
+ql/src/java/org/apache/hadoop/hive/ql/exec/vector/expressions/ConstantVectorExpression.java,218,return type;
+ql/src/java/org/apache/hadoop/hive/ql/exec/vector/expressions/ConstantVectorExpression.java,221,public void setType(Type type) {
+ql/src/java/org/apache/hadoop/hive/ql/exec/vector/expressions/ConstantVectorExpression.java,222,this.type = type;
+ql/src/java/org/apache/hadoop/hive/ql/exec/vector/expressions/ConstantVectorExpression.java,226,public void setOutputType(String type) {
+ql/src/java/org/apache/hadoop/hive/ql/exec/vector/expressions/ConstantVectorExpression.java,227,setTypeString(type);
+ql/src/java/org/apache/hadoop/hive/ql/exec/vector/expressions/IfExprLongColumnLongColumn.java,176,VectorExpressionDescriptor.ArgumentType.getType("int_datetime_interval_family"),
+ql/src/java/org/apache/hadoop/hive/ql/exec/vector/expressions/LongColEqualLongColumn.java,163,VectorExpressionDescriptor.ArgumentType.getType("int_datetime_interval_family"),
+ql/src/java/org/apache/hadoop/hive/ql/exec/vector/expressions/LongColGreaterEqualLongColumn.java,163,VectorExpressionDescriptor.ArgumentType.getType("int_datetime_interval_family"),
+ql/src/java/org/apache/hadoop/hive/ql/exec/vector/expressions/LongColGreaterLongColumn.java,163,VectorExpressionDescriptor.ArgumentType.getType("int_datetime_interval_family"),
+ql/src/java/org/apache/hadoop/hive/ql/exec/vector/expressions/LongColLessEqualLongColumn.java,163,VectorExpressionDescriptor.ArgumentType.getType("int_datetime_interval_family"),
+ql/src/java/org/apache/hadoop/hive/ql/exec/vector/expressions/LongColLessLongColumn.java,163,VectorExpressionDescriptor.ArgumentType.getType("int_datetime_interval_family"),
+ql/src/java/org/apache/hadoop/hive/ql/exec/vector/expressions/LongColNotEqualLongColumn.java,163,VectorExpressionDescriptor.ArgumentType.getType("int_datetime_interval_family"),
+ql/src/java/org/apache/hadoop/hive/ql/exec/vector/expressions/NullUtil.java,93,setNullDataEntriesLong((LongColumnVector) v, selectedInUse, sel, n);
+ql/src/java/org/apache/hadoop/hive/ql/exec/vector/expressions/VectorExpressionWriter.java,26,import org.apache.hadoop.io.Writable;
+ql/src/java/org/apache/hadoop/hive/ql/exec/vector/expressions/VectorExpressionWriterFactory.java,563,SettableTimestampObjectInspector fieldObjInspector) throws HiveException {
+ql/src/java/org/apache/hadoop/hive/ql/exec/vector/expressions/VectorExpressionWriterFactory.java,564,return new VectorExpressionWriterLong() {
+ql/src/java/org/apache/hadoop/hive/ql/exec/vector/expressions/VectorExpressionWriterFactory.java,566,private Timestamp ts;
+ql/src/java/org/apache/hadoop/hive/ql/exec/vector/expressions/VectorExpressionWriterFactory.java,569,throws HiveException {
+ql/src/java/org/apache/hadoop/hive/ql/exec/vector/expressions/VectorExpressionWriterFactory.java,571,ts = new Timestamp(0);
+ql/src/java/org/apache/hadoop/hive/ql/exec/vector/expressions/VectorExpressionWriterFactory.java,577,public Object writeValue(long value) {
+ql/src/java/org/apache/hadoop/hive/ql/exec/vector/expressions/VectorExpressionWriterFactory.java,578,TimestampUtils.assignTimeInNanoSec(value, ts);
+ql/src/java/org/apache/hadoop/hive/ql/exec/vector/expressions/VectorExpressionWriterFactory.java,579,((SettableTimestampObjectInspector) this.objectInspector).set(obj, ts);
+ql/src/java/org/apache/hadoop/hive/ql/exec/vector/expressions/VectorExpressionWriterFactory.java,580,return obj;
+ql/src/java/org/apache/hadoop/hive/ql/exec/vector/expressions/VectorExpressionWriterFactory.java,584,public Object setValue(Object field, long value) {
+ql/src/java/org/apache/hadoop/hive/ql/exec/vector/expressions/VectorExpressionWriterFactory.java,588,TimestampUtils.assignTimeInNanoSec(value, ts);
+ql/src/java/org/apache/hadoop/hive/ql/exec/vector/expressions/VectorExpressionWriterFactory.java,589,((SettableTimestampObjectInspector) this.objectInspector).set(field, ts);
+ql/src/java/org/apache/hadoop/hive/ql/exec/vector/expressions/VectorExpressionWriterFactory.java,590,return field;
+ql/src/java/org/apache/hadoop/hive/ql/exec/vector/expressions/VectorExpressionWriterFactory.java,641,return new VectorExpressionWriterLong() {
+ql/src/java/org/apache/hadoop/hive/ql/exec/vector/expressions/VectorExpressionWriterFactory.java,654,public Object writeValue(long value) {
+ql/src/java/org/apache/hadoop/hive/ql/exec/vector/expressions/VectorExpressionWriterFactory.java,655,DateUtils.setIntervalDayTimeTotalNanos(interval, value);
+ql/src/java/org/apache/hadoop/hive/ql/exec/vector/expressions/VectorExpressionWriterFactory.java,656,((SettableHiveIntervalDayTimeObjectInspector) this.objectInspector).set(obj, interval);
+ql/src/java/org/apache/hadoop/hive/ql/exec/vector/expressions/VectorExpressionWriterFactory.java,657,return obj;
+ql/src/java/org/apache/hadoop/hive/ql/exec/vector/expressions/VectorExpressionWriterFactory.java,661,public Object setValue(Object field, long value) {
+ql/src/java/org/apache/hadoop/hive/ql/exec/vector/expressions/VectorExpressionWriterFactory.java,665,DateUtils.setIntervalDayTimeTotalNanos(interval, value);
+ql/src/java/org/apache/hadoop/hive/ql/exec/vector/expressions/VectorExpressionWriterFactory.java,666,((SettableHiveIntervalDayTimeObjectInspector) this.objectInspector).set(field, interval);
+ql/src/java/org/apache/hadoop/hive/ql/exec/vector/expressions/VectorExpressionWriterFactory.java,667,return field;
+ql/src/java/org/apache/hadoop/hive/ql/exec/vector/expressions/VectorUDFDateAddColCol.java,167,LongColumnVector lcv = (LongColumnVector) columnVector;
+ql/src/java/org/apache/hadoop/hive/ql/exec/vector/expressions/VectorUDFDateAddColCol.java,168,calendar.setTimeInMillis(lcv.vector[index] / 1000000);
+ql/src/java/org/apache/hadoop/hive/ql/exec/vector/expressions/VectorUDFDateAddColScalar.java,211,LongColumnVector lcv = (LongColumnVector) columnVector;
+ql/src/java/org/apache/hadoop/hive/ql/exec/vector/expressions/VectorUDFDateAddColScalar.java,212,calendar.setTimeInMillis(lcv.vector[index] / 1000000);
+ql/src/java/org/apache/hadoop/hive/ql/exec/vector/expressions/VectorUDFDateAddScalarCol.java,84,baseDate.setTime(longValue / 1000000);
+ql/src/java/org/apache/hadoop/hive/ql/exec/vector/expressions/VectorUDFDateDiffColCol.java,168,LongColumnVector lcv = (LongColumnVector) inputColVector;
+ql/src/java/org/apache/hadoop/hive/ql/exec/vector/expressions/VectorUDFDateDiffColCol.java,169,lcv.copySelected(batch.selectedInUse, batch.selected, batch.size, dateVector);
+ql/src/java/org/apache/hadoop/hive/ql/exec/vector/expressions/VectorUDFDateDiffColCol.java,170,if (dateVector.isRepeating) {
+ql/src/java/org/apache/hadoop/hive/ql/exec/vector/expressions/VectorUDFDateDiffColCol.java,171,date.setTime(dateVector.vector[0] / 1000000);
+ql/src/java/org/apache/hadoop/hive/ql/exec/vector/expressions/VectorUDFDateDiffColCol.java,172,dateVector.vector[0] = DateWritable.dateToDays(date);
+ql/src/java/org/apache/hadoop/hive/ql/exec/vector/expressions/VectorUDFDateDiffColCol.java,174,if (batch.selectedInUse) {
+ql/src/java/org/apache/hadoop/hive/ql/exec/vector/expressions/VectorUDFDateDiffColCol.java,175,for (int j = 0; j != size; j++) {
+ql/src/java/org/apache/hadoop/hive/ql/exec/vector/expressions/VectorUDFDateDiffColCol.java,176,int i = batch.selected[j];
+ql/src/java/org/apache/hadoop/hive/ql/exec/vector/expressions/VectorUDFDateDiffColCol.java,177,if (!dateVector.isNull[i]) {
+ql/src/java/org/apache/hadoop/hive/ql/exec/vector/expressions/VectorUDFDateDiffColCol.java,178,date.setTime(dateVector.vector[i] / 1000000);
+ql/src/java/org/apache/hadoop/hive/ql/exec/vector/expressions/VectorUDFDateDiffColCol.java,179,dateVector.vector[i] = DateWritable.dateToDays(date);
+ql/src/java/org/apache/hadoop/hive/ql/exec/vector/expressions/VectorUDFDateDiffColCol.java,183,for (int i = 0; i != size; i++) {
+ql/src/java/org/apache/hadoop/hive/ql/exec/vector/expressions/VectorUDFDateDiffColCol.java,184,if (!dateVector.isNull[i]) {
+ql/src/java/org/apache/hadoop/hive/ql/exec/vector/expressions/VectorUDFDateDiffColCol.java,185,date.setTime(dateVector.vector[i] / 1000000);
+ql/src/java/org/apache/hadoop/hive/ql/exec/vector/expressions/VectorUDFDateDiffColCol.java,186,dateVector.vector[i] = DateWritable.dateToDays(date);
+ql/src/java/org/apache/hadoop/hive/ql/exec/vector/expressions/VectorUDFDateDiffColScalar.java,90,date.setTime(longValue / 1000000);
+ql/src/java/org/apache/hadoop/hive/ql/exec/vector/expressions/VectorUDFDateDiffColScalar.java,235,LongColumnVector lcv = (LongColumnVector) columnVector;
+ql/src/java/org/apache/hadoop/hive/ql/exec/vector/expressions/VectorUDFDateDiffColScalar.java,236,date.setTime(lcv.vector[index] / 1000000);
+ql/src/java/org/apache/hadoop/hive/ql/exec/vector/expressions/VectorUDFDateDiffScalarCol.java,89,date.setTime(longValue / 1000000);
+ql/src/java/org/apache/hadoop/hive/ql/exec/vector/expressions/VectorUDFDateDiffScalarCol.java,234,LongColumnVector lcv = (LongColumnVector) columnVector;
+ql/src/java/org/apache/hadoop/hive/ql/exec/vector/expressions/VectorUDFDateDiffScalarCol.java,235,date.setTime(lcv.vector[index] / 1000000);
+ql/src/java/org/apache/hadoop/hive/ql/exec/vector/expressions/VectorUDFDateLong.java,50,case TIMESTAMP:
+ql/src/java/org/apache/hadoop/hive/ql/exec/vector/expressions/VectorUDFDateLong.java,51,date.setTime(vector[i] / 1000000);
+ql/src/java/org/apache/hadoop/hive/ql/exec/vector/expressions/VectorUDFDateLong.java,52,break;
+ql/src/java/org/apache/hadoop/hive/ql/exec/vector/expressions/VectorUDFDayOfMonthLong.java,27,public final class VectorUDFDayOfMonthLong extends VectorUDFTimestampFieldLong {
+ql/src/java/org/apache/hadoop/hive/ql/exec/vector/expressions/VectorUDFDayOfMonthLong.java,31,public VectorUDFDayOfMonthLong(int colNum, int outputColumn) {
+ql/src/java/org/apache/hadoop/hive/ql/exec/vector/expressions/VectorUDFDayOfMonthLong.java,35,public VectorUDFDayOfMonthLong() {
+ql/src/java/org/apache/hadoop/hive/ql/exec/vector/expressions/VectorUDFHourLong.java,27,public final class VectorUDFHourLong extends VectorUDFTimestampFieldLong {
+ql/src/java/org/apache/hadoop/hive/ql/exec/vector/expressions/VectorUDFHourLong.java,31,public VectorUDFHourLong(int colNum, int outputColumn) {
+ql/src/java/org/apache/hadoop/hive/ql/exec/vector/expressions/VectorUDFHourLong.java,35,public VectorUDFHourLong() {
+ql/src/java/org/apache/hadoop/hive/ql/exec/vector/expressions/VectorUDFMinuteLong.java,27,public final class VectorUDFMinuteLong extends VectorUDFTimestampFieldLong {
+ql/src/java/org/apache/hadoop/hive/ql/exec/vector/expressions/VectorUDFMinuteLong.java,31,public VectorUDFMinuteLong(int colNum, int outputColumn) {
+ql/src/java/org/apache/hadoop/hive/ql/exec/vector/expressions/VectorUDFMinuteLong.java,35,public VectorUDFMinuteLong() {
+ql/src/java/org/apache/hadoop/hive/ql/exec/vector/expressions/VectorUDFMonthLong.java,27,public final class VectorUDFMonthLong extends VectorUDFTimestampFieldLong {
+ql/src/java/org/apache/hadoop/hive/ql/exec/vector/expressions/VectorUDFMonthLong.java,31,public VectorUDFMonthLong(int colNum, int outputColumn) {
+ql/src/java/org/apache/hadoop/hive/ql/exec/vector/expressions/VectorUDFMonthLong.java,35,public VectorUDFMonthLong() {
+ql/src/java/org/apache/hadoop/hive/ql/exec/vector/expressions/VectorUDFMonthLong.java,40,protected long getTimestampField(long time) {
+ql/src/java/org/apache/hadoop/hive/ql/exec/vector/expressions/VectorUDFMonthLong.java,42,return 1 + super.getTimestampField(time);
+ql/src/java/org/apache/hadoop/hive/ql/exec/vector/expressions/VectorUDFSecondLong.java,27,public final class VectorUDFSecondLong extends VectorUDFTimestampFieldLong {
+ql/src/java/org/apache/hadoop/hive/ql/exec/vector/expressions/VectorUDFSecondLong.java,31,public VectorUDFSecondLong(int colNum, int outputColumn) {
+ql/src/java/org/apache/hadoop/hive/ql/exec/vector/expressions/VectorUDFSecondLong.java,35,public VectorUDFSecondLong() {
+ql/src/java/org/apache/hadoop/hive/ql/exec/vector/expressions/VectorUDFTimestampFieldLong.java,19,package org.apache.hadoop.hive.ql.exec.vector.expressions;
+ql/src/java/org/apache/hadoop/hive/ql/exec/vector/expressions/VectorUDFTimestampFieldLong.java,21,import java.sql.Timestamp;
+ql/src/java/org/apache/hadoop/hive/ql/exec/vector/expressions/VectorUDFTimestampFieldLong.java,22,import java.util.Calendar;
+ql/src/java/org/apache/hadoop/hive/ql/exec/vector/expressions/VectorUDFTimestampFieldLong.java,24,import org.apache.hadoop.hive.ql.exec.vector.LongColumnVector;
+ql/src/java/org/apache/hadoop/hive/ql/exec/vector/expressions/VectorUDFTimestampFieldLong.java,25,import org.apache.hadoop.hive.ql.exec.vector.VectorExpressionDescriptor;
+ql/src/java/org/apache/hadoop/hive/ql/exec/vector/expressions/VectorUDFTimestampFieldLong.java,26,import org.apache.hadoop.hive.ql.exec.vector.VectorizedRowBatch;
+ql/src/java/org/apache/hadoop/hive/ql/exec/vector/expressions/VectorUDFTimestampFieldLong.java,27,import org.apache.hadoop.hive.serde2.io.DateWritable;
+ql/src/java/org/apache/hadoop/hive/ql/exec/vector/expressions/VectorUDFTimestampFieldLong.java,32,public abstract class VectorUDFTimestampFieldLong extends VectorExpression {
+ql/src/java/org/apache/hadoop/hive/ql/exec/vector/expressions/VectorUDFTimestampFieldLong.java,34,private static final long serialVersionUID = 1L;
+ql/src/java/org/apache/hadoop/hive/ql/exec/vector/expressions/VectorUDFTimestampFieldLong.java,36,protected int colNum;
+ql/src/java/org/apache/hadoop/hive/ql/exec/vector/expressions/VectorUDFTimestampFieldLong.java,37,protected int outputColumn;
+ql/src/java/org/apache/hadoop/hive/ql/exec/vector/expressions/VectorUDFTimestampFieldLong.java,38,protected int field;
+ql/src/java/org/apache/hadoop/hive/ql/exec/vector/expressions/VectorUDFTimestampFieldLong.java,39,protected transient final Calendar calendar = Calendar.getInstance();
+ql/src/java/org/apache/hadoop/hive/ql/exec/vector/expressions/VectorUDFTimestampFieldLong.java,40,protected transient final Timestamp ts = new Timestamp(0);
+ql/src/java/org/apache/hadoop/hive/ql/exec/vector/expressions/VectorUDFTimestampFieldLong.java,42,public VectorUDFTimestampFieldLong(int field, int colNum, int outputColumn) {
+ql/src/java/org/apache/hadoop/hive/ql/exec/vector/expressions/VectorUDFTimestampFieldLong.java,43,this();
+ql/src/java/org/apache/hadoop/hive/ql/exec/vector/expressions/VectorUDFTimestampFieldLong.java,44,this.colNum = colNum;
+ql/src/java/org/apache/hadoop/hive/ql/exec/vector/expressions/VectorUDFTimestampFieldLong.java,45,this.outputColumn = outputColumn;
+ql/src/java/org/apache/hadoop/hive/ql/exec/vector/expressions/VectorUDFTimestampFieldLong.java,46,this.field = field;
+ql/src/java/org/apache/hadoop/hive/ql/exec/vector/expressions/VectorUDFTimestampFieldLong.java,49,public VectorUDFTimestampFieldLong() {
+ql/src/java/org/apache/hadoop/hive/ql/exec/vector/expressions/VectorUDFTimestampFieldLong.java,50,super();
+ql/src/java/org/apache/hadoop/hive/ql/exec/vector/expressions/VectorUDFTimestampFieldLong.java,53,protected final Timestamp getTimestamp(long nanos) {
+ql/src/java/org/apache/hadoop/hive/ql/exec/vector/expressions/VectorUDFTimestampFieldLong.java,61,long ms = (nanos / (1000 * 1000 * 1000)) * 1000;
+ql/src/java/org/apache/hadoop/hive/ql/exec/vector/expressions/VectorUDFTimestampFieldLong.java,63,long ns = nanos % (1000*1000*1000);
+ql/src/java/org/apache/hadoop/hive/ql/exec/vector/expressions/VectorUDFTimestampFieldLong.java,64,if (ns < 0) {
+ql/src/java/org/apache/hadoop/hive/ql/exec/vector/expressions/VectorUDFTimestampFieldLong.java,71,ms -= 1000;
+ql/src/java/org/apache/hadoop/hive/ql/exec/vector/expressions/VectorUDFTimestampFieldLong.java,72,ns += 1000*1000*1000;
+ql/src/java/org/apache/hadoop/hive/ql/exec/vector/expressions/VectorUDFTimestampFieldLong.java,74,ts.setTime(ms);
+ql/src/java/org/apache/hadoop/hive/ql/exec/vector/expressions/VectorUDFTimestampFieldLong.java,75,ts.setNanos((int) ns);
+ql/src/java/org/apache/hadoop/hive/ql/exec/vector/expressions/VectorUDFTimestampFieldLong.java,76,return ts;
+ql/src/java/org/apache/hadoop/hive/ql/exec/vector/expressions/VectorUDFTimestampFieldLong.java,79,protected long getTimestampField(long time) {
+ql/src/java/org/apache/hadoop/hive/ql/exec/vector/expressions/VectorUDFTimestampFieldLong.java,80,calendar.setTime(getTimestamp(time));
+ql/src/java/org/apache/hadoop/hive/ql/exec/vector/expressions/VectorUDFTimestampFieldLong.java,81,return calendar.get(field);
+ql/src/java/org/apache/hadoop/hive/ql/exec/vector/expressions/VectorUDFTimestampFieldLong.java,84,protected long getDateField(long days) {
+ql/src/java/org/apache/hadoop/hive/ql/exec/vector/expressions/VectorUDFTimestampFieldLong.java,85,calendar.setTimeInMillis(DateWritable.daysToMillis((int) days));
+ql/src/java/org/apache/hadoop/hive/ql/exec/vector/expressions/VectorUDFTimestampFieldLong.java,86,return calendar.get(field);
+ql/src/java/org/apache/hadoop/hive/ql/exec/vector/expressions/VectorUDFTimestampFieldLong.java,90,public void evaluate(VectorizedRowBatch batch) {
+ql/src/java/org/apache/hadoop/hive/ql/exec/vector/expressions/VectorUDFTimestampFieldLong.java,92,if (childExpressions != null) {
+ql/src/java/org/apache/hadoop/hive/ql/exec/vector/expressions/VectorUDFTimestampFieldLong.java,93,super.evaluateChildren(batch);
+ql/src/java/org/apache/hadoop/hive/ql/exec/vector/expressions/VectorUDFTimestampFieldLong.java,96,LongColumnVector outV = (LongColumnVector) batch.cols[outputColumn];
+ql/src/java/org/apache/hadoop/hive/ql/exec/vector/expressions/VectorUDFTimestampFieldLong.java,97,LongColumnVector inputCol = (LongColumnVector)batch.cols[this.colNum];
+ql/src/java/org/apache/hadoop/hive/ql/exec/vector/expressions/VectorUDFTimestampFieldLong.java,99,final int n = inputCol.isRepeating ? 1 : batch.size;
+ql/src/java/org/apache/hadoop/hive/ql/exec/vector/expressions/VectorUDFTimestampFieldLong.java,100,int[] sel = batch.selected;
+ql/src/java/org/apache/hadoop/hive/ql/exec/vector/expressions/VectorUDFTimestampFieldLong.java,101,final boolean selectedInUse = (inputCol.isRepeating == false) && batch.selectedInUse;
+ql/src/java/org/apache/hadoop/hive/ql/exec/vector/expressions/VectorUDFTimestampFieldLong.java,103,if(batch.size == 0) {
+ql/src/java/org/apache/hadoop/hive/ql/exec/vector/expressions/VectorUDFTimestampFieldLong.java,105,return;
+ql/src/java/org/apache/hadoop/hive/ql/exec/vector/expressions/VectorUDFTimestampFieldLong.java,109,outV.isRepeating = inputCol.isRepeating;
+ql/src/java/org/apache/hadoop/hive/ql/exec/vector/expressions/VectorUDFTimestampFieldLong.java,111,switch (inputTypes[0]) {
+ql/src/java/org/apache/hadoop/hive/ql/exec/vector/expressions/VectorUDFTimestampFieldLong.java,112,case TIMESTAMP:
+ql/src/java/org/apache/hadoop/hive/ql/exec/vector/expressions/VectorUDFTimestampFieldLong.java,113,if (inputCol.noNulls) {
+ql/src/java/org/apache/hadoop/hive/ql/exec/vector/expressions/VectorUDFTimestampFieldLong.java,114,outV.noNulls = true;
+ql/src/java/org/apache/hadoop/hive/ql/exec/vector/expressions/VectorUDFTimestampFieldLong.java,115,if (selectedInUse) {
+ql/src/java/org/apache/hadoop/hive/ql/exec/vector/expressions/VectorUDFTimestampFieldLong.java,116,for(int j=0; j < n; j++) {
+ql/src/java/org/apache/hadoop/hive/ql/exec/vector/expressions/VectorUDFTimestampFieldLong.java,117,int i = sel[j];
+ql/src/java/org/apache/hadoop/hive/ql/exec/vector/expressions/VectorUDFTimestampFieldLong.java,118,outV.vector[i] = getTimestampField(inputCol.vector[i]);
+ql/src/java/org/apache/hadoop/hive/ql/exec/vector/expressions/VectorUDFTimestampFieldLong.java,121,for(int i = 0; i < n; i++) {
+ql/src/java/org/apache/hadoop/hive/ql/exec/vector/expressions/VectorUDFTimestampFieldLong.java,122,outV.vector[i] = getTimestampField(inputCol.vector[i]);
+ql/src/java/org/apache/hadoop/hive/ql/exec/vector/expressions/VectorUDFTimestampFieldLong.java,128,outV.noNulls = false;
+ql/src/java/org/apache/hadoop/hive/ql/exec/vector/expressions/VectorUDFTimestampFieldLong.java,129,if (selectedInUse) {
+ql/src/java/org/apache/hadoop/hive/ql/exec/vector/expressions/VectorUDFTimestampFieldLong.java,130,for(int j=0; j < n; j++) {
+ql/src/java/org/apache/hadoop/hive/ql/exec/vector/expressions/VectorUDFTimestampFieldLong.java,131,int i = sel[j];
+ql/src/java/org/apache/hadoop/hive/ql/exec/vector/expressions/VectorUDFTimestampFieldLong.java,132,outV.isNull[i] = inputCol.isNull[i];
+ql/src/java/org/apache/hadoop/hive/ql/exec/vector/expressions/VectorUDFTimestampFieldLong.java,133,if (!inputCol.isNull[i]) {
+ql/src/java/org/apache/hadoop/hive/ql/exec/vector/expressions/VectorUDFTimestampFieldLong.java,134,outV.vector[i] = getTimestampField(inputCol.vector[i]);
+ql/src/java/org/apache/hadoop/hive/ql/exec/vector/expressions/VectorUDFTimestampFieldLong.java,138,for(int i = 0; i < n; i++) {
+ql/src/java/org/apache/hadoop/hive/ql/exec/vector/expressions/VectorUDFTimestampFieldLong.java,139,outV.isNull[i] = inputCol.isNull[i];
+ql/src/java/org/apache/hadoop/hive/ql/exec/vector/expressions/VectorUDFTimestampFieldLong.java,140,if (!inputCol.isNull[i]) {
+ql/src/java/org/apache/hadoop/hive/ql/exec/vector/expressions/VectorUDFTimestampFieldLong.java,141,outV.vector[i] = getTimestampField(inputCol.vector[i]);
+ql/src/java/org/apache/hadoop/hive/ql/exec/vector/expressions/VectorUDFTimestampFieldLong.java,146,break;
+ql/src/java/org/apache/hadoop/hive/ql/exec/vector/expressions/VectorUDFTimestampFieldLong.java,148,case DATE:
+ql/src/java/org/apache/hadoop/hive/ql/exec/vector/expressions/VectorUDFTimestampFieldLong.java,149,if (inputCol.noNulls) {
+ql/src/java/org/apache/hadoop/hive/ql/exec/vector/expressions/VectorUDFTimestampFieldLong.java,150,outV.noNulls = true;
+ql/src/java/org/apache/hadoop/hive/ql/exec/vector/expressions/VectorUDFTimestampFieldLong.java,151,if (selectedInUse) {
+ql/src/java/org/apache/hadoop/hive/ql/exec/vector/expressions/VectorUDFTimestampFieldLong.java,152,for(int j=0; j < n; j++) {
+ql/src/java/org/apache/hadoop/hive/ql/exec/vector/expressions/VectorUDFTimestampFieldLong.java,153,int i = sel[j];
+ql/src/java/org/apache/hadoop/hive/ql/exec/vector/expressions/VectorUDFTimestampFieldLong.java,154,outV.vector[i] = getDateField(inputCol.vector[i]);
+ql/src/java/org/apache/hadoop/hive/ql/exec/vector/expressions/VectorUDFTimestampFieldLong.java,157,for(int i = 0; i < n; i++) {
+ql/src/java/org/apache/hadoop/hive/ql/exec/vector/expressions/VectorUDFTimestampFieldLong.java,158,outV.vector[i] = getDateField(inputCol.vector[i]);
+ql/src/java/org/apache/hadoop/hive/ql/exec/vector/expressions/VectorUDFTimestampFieldLong.java,164,outV.noNulls = false;
+ql/src/java/org/apache/hadoop/hive/ql/exec/vector/expressions/VectorUDFTimestampFieldLong.java,165,if (selectedInUse) {
+ql/src/java/org/apache/hadoop/hive/ql/exec/vector/expressions/VectorUDFTimestampFieldLong.java,166,for(int j=0; j < n; j++) {
+ql/src/java/org/apache/hadoop/hive/ql/exec/vector/expressions/VectorUDFTimestampFieldLong.java,167,int i = sel[j];
+ql/src/java/org/apache/hadoop/hive/ql/exec/vector/expressions/VectorUDFTimestampFieldLong.java,168,outV.isNull[i] = inputCol.isNull[i];
+ql/src/java/org/apache/hadoop/hive/ql/exec/vector/expressions/VectorUDFTimestampFieldLong.java,169,if (!inputCol.isNull[i]) {
+ql/src/java/org/apache/hadoop/hive/ql/exec/vector/expressions/VectorUDFTimestampFieldLong.java,170,outV.vector[i] = getDateField(inputCol.vector[i]);
+ql/src/java/org/apache/hadoop/hive/ql/exec/vector/expressions/VectorUDFTimestampFieldLong.java,174,for(int i = 0; i < n; i++) {
+ql/src/java/org/apache/hadoop/hive/ql/exec/vector/expressions/VectorUDFTimestampFieldLong.java,175,outV.isNull[i] = inputCol.isNull[i];
+ql/src/java/org/apache/hadoop/hive/ql/exec/vector/expressions/VectorUDFTimestampFieldLong.java,176,if (!inputCol.isNull[i]) {
+ql/src/java/org/apache/hadoop/hive/ql/exec/vector/expressions/VectorUDFTimestampFieldLong.java,177,outV.vector[i] = getDateField(inputCol.vector[i]);
+ql/src/java/org/apache/hadoop/hive/ql/exec/vector/expressions/VectorUDFTimestampFieldLong.java,182,break;
+ql/src/java/org/apache/hadoop/hive/ql/exec/vector/expressions/VectorUDFTimestampFieldLong.java,183,default:
+ql/src/java/org/apache/hadoop/hive/ql/exec/vector/expressions/VectorUDFTimestampFieldLong.java,184,throw new Error("Unsupported input type " + inputTypes[0].name());
+ql/src/java/org/apache/hadoop/hive/ql/exec/vector/expressions/VectorUDFTimestampFieldLong.java,189,public int getOutputColumn() {
+ql/src/java/org/apache/hadoop/hive/ql/exec/vector/expressions/VectorUDFTimestampFieldLong.java,190,return this.outputColumn;
+ql/src/java/org/apache/hadoop/hive/ql/exec/vector/expressions/VectorUDFTimestampFieldLong.java,194,public String getOutputType() {
+ql/src/java/org/apache/hadoop/hive/ql/exec/vector/expressions/VectorUDFTimestampFieldLong.java,195,return "long";
+ql/src/java/org/apache/hadoop/hive/ql/exec/vector/expressions/VectorUDFTimestampFieldLong.java,198,public int getColNum() {
+ql/src/java/org/apache/hadoop/hive/ql/exec/vector/expressions/VectorUDFTimestampFieldLong.java,199,return colNum;
+ql/src/java/org/apache/hadoop/hive/ql/exec/vector/expressions/VectorUDFTimestampFieldLong.java,202,public void setColNum(int colNum) {
+ql/src/java/org/apache/hadoop/hive/ql/exec/vector/expressions/VectorUDFTimestampFieldLong.java,203,this.colNum = colNum;
+ql/src/java/org/apache/hadoop/hive/ql/exec/vector/expressions/VectorUDFTimestampFieldLong.java,206,public int getField() {
+ql/src/java/org/apache/hadoop/hive/ql/exec/vector/expressions/VectorUDFTimestampFieldLong.java,207,return field;
+ql/src/java/org/apache/hadoop/hive/ql/exec/vector/expressions/VectorUDFTimestampFieldLong.java,210,public void setField(int field) {
+ql/src/java/org/apache/hadoop/hive/ql/exec/vector/expressions/VectorUDFTimestampFieldLong.java,211,this.field = field;
+ql/src/java/org/apache/hadoop/hive/ql/exec/vector/expressions/VectorUDFTimestampFieldLong.java,214,public void setOutputColumn(int outputColumn) {
+ql/src/java/org/apache/hadoop/hive/ql/exec/vector/expressions/VectorUDFTimestampFieldLong.java,215,this.outputColumn = outputColumn;
+ql/src/java/org/apache/hadoop/hive/ql/exec/vector/expressions/VectorUDFTimestampFieldLong.java,219,public VectorExpressionDescriptor.Descriptor getDescriptor() {
+ql/src/java/org/apache/hadoop/hive/ql/exec/vector/expressions/VectorUDFTimestampFieldLong.java,220,VectorExpressionDescriptor.Builder b = new VectorExpressionDescriptor.Builder();
+ql/src/java/org/apache/hadoop/hive/ql/exec/vector/expressions/VectorUDFTimestampFieldLong.java,223,.setArgumentTypes(
+ql/src/java/org/apache/hadoop/hive/ql/exec/vector/expressions/VectorUDFTimestampFieldLong.java,225,.setInputExpressionTypes(
+ql/src/java/org/apache/hadoop/hive/ql/exec/vector/expressions/VectorUDFTimestampFieldLong.java,226,VectorExpressionDescriptor.InputExpressionType.COLUMN);
+ql/src/java/org/apache/hadoop/hive/ql/exec/vector/expressions/VectorUDFTimestampFieldLong.java,227,return b.build();
+ql/src/java/org/apache/hadoop/hive/ql/exec/vector/expressions/VectorUDFUnixTimeStampLong.java,27,public final class VectorUDFUnixTimeStampLong extends VectorUDFTimestampFieldLong {
+ql/src/java/org/apache/hadoop/hive/ql/exec/vector/expressions/VectorUDFUnixTimeStampLong.java,32,protected long getTimestampField(long time) {
+ql/src/java/org/apache/hadoop/hive/ql/exec/vector/expressions/VectorUDFUnixTimeStampLong.java,33,long ms = (time / (1000*1000*1000)) * 1000;
+ql/src/java/org/apache/hadoop/hive/ql/exec/vector/expressions/VectorUDFUnixTimeStampLong.java,34,long remainder = time % (1000*1000*1000);
+ql/src/java/org/apache/hadoop/hive/ql/exec/vector/expressions/VectorUDFUnixTimeStampLong.java,36,if(remainder < 0) {
+ql/src/java/org/apache/hadoop/hive/ql/exec/vector/expressions/VectorUDFUnixTimeStampLong.java,37,ms -= 1000;
+ql/src/java/org/apache/hadoop/hive/ql/exec/vector/expressions/VectorUDFUnixTimeStampLong.java,39,return ms / 1000;
+ql/src/java/org/apache/hadoop/hive/ql/exec/vector/expressions/VectorUDFUnixTimeStampLong.java,48,public VectorUDFUnixTimeStampLong(int colNum, int outputColumn) {
+ql/src/java/org/apache/hadoop/hive/ql/exec/vector/expressions/VectorUDFUnixTimeStampLong.java,53,public VectorUDFUnixTimeStampLong() {
+ql/src/java/org/apache/hadoop/hive/ql/exec/vector/expressions/VectorUDFWeekOfYearLong.java,27,public final class VectorUDFWeekOfYearLong extends VectorUDFTimestampFieldLong {
+ql/src/java/org/apache/hadoop/hive/ql/exec/vector/expressions/VectorUDFWeekOfYearLong.java,31,public VectorUDFWeekOfYearLong(int colNum, int outputColumn) {
+ql/src/java/org/apache/hadoop/hive/ql/exec/vector/expressions/VectorUDFWeekOfYearLong.java,36,public VectorUDFWeekOfYearLong() {
+ql/src/java/org/apache/hadoop/hive/ql/exec/vector/expressions/VectorUDFYearLong.java,19,package org.apache.hadoop.hive.ql.exec.vector.expressions;
+ql/src/java/org/apache/hadoop/hive/ql/exec/vector/expressions/VectorUDFYearLong.java,21,import java.util.Arrays;
+ql/src/java/org/apache/hadoop/hive/ql/exec/vector/expressions/VectorUDFYearLong.java,22,import java.util.Calendar;
+ql/src/java/org/apache/hadoop/hive/ql/exec/vector/expressions/VectorUDFYearLong.java,28,public final class VectorUDFYearLong extends VectorUDFTimestampFieldLong {
+ql/src/java/org/apache/hadoop/hive/ql/exec/vector/expressions/VectorUDFYearLong.java,30,private static final long serialVersionUID = 1L;
+ql/src/java/org/apache/hadoop/hive/ql/exec/vector/expressions/VectorUDFYearLong.java,32,private static transient final long[] YEAR_BOUNDARIES;
+ql/src/java/org/apache/hadoop/hive/ql/exec/vector/expressions/VectorUDFYearLong.java,33,private static transient final int MIN_YEAR = 1678;
+ql/src/java/org/apache/hadoop/hive/ql/exec/vector/expressions/VectorUDFYearLong.java,34,private static transient final int MAX_YEAR = 2300;
+ql/src/java/org/apache/hadoop/hive/ql/exec/vector/expressions/VectorUDFYearLong.java,36,static {
+ql/src/java/org/apache/hadoop/hive/ql/exec/vector/expressions/VectorUDFYearLong.java,37,YEAR_BOUNDARIES = new long[MAX_YEAR-MIN_YEAR];
+ql/src/java/org/apache/hadoop/hive/ql/exec/vector/expressions/VectorUDFYearLong.java,38,Calendar c = Calendar.getInstance();
+ql/src/java/org/apache/hadoop/hive/ql/exec/vector/expressions/VectorUDFYearLong.java,39,c.setTimeInMillis(0); // c.set doesn't reset millis
+ql/src/java/org/apache/hadoop/hive/ql/exec/vector/expressions/VectorUDFYearLong.java,41,for(int year=MIN_YEAR+1; year <= MAX_YEAR; year++) {
+ql/src/java/org/apache/hadoop/hive/ql/exec/vector/expressions/VectorUDFYearLong.java,42,c.set(year, Calendar.JANUARY, 1, 0, 0, 0);
+ql/src/java/org/apache/hadoop/hive/ql/exec/vector/expressions/VectorUDFYearLong.java,43,YEAR_BOUNDARIES[year-MIN_YEAR-1] = c.getTimeInMillis()*1000*1000;
+ql/src/java/org/apache/hadoop/hive/ql/exec/vector/expressions/VectorUDFYearLong.java,48,protected long getTimestampField(long time) {
+ql/src/java/org/apache/hadoop/hive/ql/exec/vector/expressions/VectorUDFYearLong.java,50,int year = Arrays.binarySearch(YEAR_BOUNDARIES, time);
+ql/src/java/org/apache/hadoop/hive/ql/exec/vector/expressions/VectorUDFYearLong.java,51,if(year >= 0) {
+ql/src/java/org/apache/hadoop/hive/ql/exec/vector/expressions/VectorUDFYearLong.java,53,return MIN_YEAR + 1 + year;
+ql/src/java/org/apache/hadoop/hive/ql/exec/vector/expressions/VectorUDFYearLong.java,56,return MIN_YEAR - 1 - year;
+ql/src/java/org/apache/hadoop/hive/ql/exec/vector/expressions/VectorUDFYearLong.java,60,public VectorUDFYearLong(int colNum, int outputColumn) {
+ql/src/java/org/apache/hadoop/hive/ql/exec/vector/expressions/VectorUDFYearLong.java,61,super(Calendar.YEAR, colNum, outputColumn);
+ql/src/java/org/apache/hadoop/hive/ql/exec/vector/expressions/VectorUDFYearLong.java,64,public VectorUDFYearLong() {
+ql/src/java/org/apache/hadoop/hive/ql/exec/vector/expressions/VectorUDFYearLong.java,65,super();
+ql/src/java/org/apache/hadoop/hive/ql/io/orc/TreeReaderFactory.java,1146,final LongColumnVector result;
+ql/src/java/org/apache/hadoop/hive/ql/io/orc/TreeReaderFactory.java,1148,result = new LongColumnVector();
+ql/src/java/org/apache/hadoop/hive/ql/io/orc/TreeReaderFactory.java,1150,result = (LongColumnVector) previousVector;
+ql/src/java/org/apache/hadoop/hive/ql/io/orc/TreeReaderFactory.java,1154,Object obj = null;
+ql/src/java/org/apache/hadoop/hive/ql/io/orc/TreeReaderFactory.java,1156,obj = next(obj);
+ql/src/java/org/apache/hadoop/hive/ql/io/orc/TreeReaderFactory.java,1162,Timestamp timestamp = writable.getTimestamp();
+ql/src/java/org/apache/hadoop/hive/ql/io/orc/TreeReaderFactory.java,1163,result.vector[i] = TimestampUtils.getTimeNanoSec(timestamp);
+ql/src/java/org/apache/hadoop/hive/ql/io/orc/WriterImpl.java,190,LongColumnVector vector = (LongColumnVector) column;
+ql/src/java/org/apache/hadoop/hive/ql/io/orc/WriterImpl.java,193,vector.vector[rowId] = ts.getTime() * NANOS_PER_MILLI +
+ql/src/java/org/apache/hadoop/hive/ql/io/orc/WriterImpl.java,194,(ts.getNanos() % NANOS_PER_MILLI);
+ql/src/java/org/apache/hadoop/hive/ql/udf/UDFDayOfMonth.java,29,import org.apache.hadoop.hive.ql.exec.vector.expressions.VectorUDFDayOfMonthLong;
+ql/src/java/org/apache/hadoop/hive/ql/udf/UDFHour.java,29,import org.apache.hadoop.hive.ql.exec.vector.expressions.VectorUDFHourLong;
+ql/src/java/org/apache/hadoop/hive/ql/udf/UDFMinute.java,29,import org.apache.hadoop.hive.ql.exec.vector.expressions.VectorUDFMinuteLong;
+ql/src/java/org/apache/hadoop/hive/ql/udf/UDFMonth.java,29,import org.apache.hadoop.hive.ql.exec.vector.expressions.VectorUDFMonthLong;
+ql/src/java/org/apache/hadoop/hive/ql/udf/UDFSecond.java,30,import org.apache.hadoop.hive.ql.exec.vector.expressions.VectorUDFSecondLong;
+ql/src/java/org/apache/hadoop/hive/ql/udf/UDFToBoolean.java,29,import org.apache.hadoop.hive.ql.exec.vector.expressions.gen.CastTimestampToBooleanViaLongToLong;
+ql/src/java/org/apache/hadoop/hive/ql/udf/UDFToBoolean.java,48,CastDateToBooleanViaLongToLong.class, CastTimestampToBooleanViaLongToLong.class,
+ql/src/java/org/apache/hadoop/hive/ql/udf/UDFToByte.java,25,import org.apache.hadoop.hive.ql.exec.vector.expressions.gen.CastTimestampToLongViaLongToLong;
+ql/src/java/org/apache/hadoop/hive/ql/udf/UDFToDouble.java,25,import org.apache.hadoop.hive.ql.exec.vector.expressions.gen.CastTimestampToDoubleViaLongToDouble;
+ql/src/java/org/apache/hadoop/hive/ql/udf/UDFToFloat.java,25,import org.apache.hadoop.hive.ql.exec.vector.expressions.gen.CastTimestampToDoubleViaLongToDouble;
+ql/src/java/org/apache/hadoop/hive/ql/udf/UDFToInteger.java,25,import org.apache.hadoop.hive.ql.exec.vector.expressions.gen.CastTimestampToLongViaLongToLong;
+ql/src/java/org/apache/hadoop/hive/ql/udf/UDFToLong.java,25,import org.apache.hadoop.hive.ql.exec.vector.expressions.gen.CastTimestampToLongViaLongToLong;
+ql/src/java/org/apache/hadoop/hive/ql/udf/UDFToShort.java,26,import org.apache.hadoop.hive.ql.exec.vector.expressions.gen.CastTimestampToLongViaLongToLong;
+ql/src/java/org/apache/hadoop/hive/ql/udf/UDFWeekOfYear.java,29,import org.apache.hadoop.hive.ql.exec.vector.expressions.VectorUDFWeekOfYearLong;
+ql/src/java/org/apache/hadoop/hive/ql/udf/UDFYear.java,29,import org.apache.hadoop.hive.ql.exec.vector.expressions.VectorUDFYearLong;
+ql/src/java/org/apache/hadoop/hive/ql/udf/generic/GenericUDFIf.java,86,IfExprCharScalarStringScalar.class, IfExprVarCharScalarStringScalar.class
+ql/src/java/org/apache/hadoop/hive/ql/udf/generic/GenericUDFOPEqual.java,58,TimestampColEqualLongScalar.class, LongScalarEqualTimestampColumn.class,
+ql/src/java/org/apache/hadoop/hive/ql/udf/generic/GenericUDFOPEqual.java,59,FilterTimestampColEqualLongScalar.class, FilterLongScalarEqualTimestampColumn.class,
+ql/src/java/org/apache/hadoop/hive/ql/udf/generic/GenericUDFOPEqual.java,60,TimestampColEqualDoubleScalar.class, DoubleScalarEqualTimestampColumn.class,
+ql/src/java/org/apache/hadoop/hive/ql/udf/generic/GenericUDFOPEqual.java,61,FilterTimestampColEqualDoubleScalar.class, FilterDoubleScalarEqualTimestampColumn.class,
+ql/src/java/org/apache/hadoop/hive/ql/udf/generic/GenericUDFOPEqualOrGreaterThan.java,59,TimestampColGreaterEqualLongScalar.class, LongScalarGreaterEqualTimestampColumn.class,
+ql/src/java/org/apache/hadoop/hive/ql/udf/generic/GenericUDFOPEqualOrGreaterThan.java,60,FilterTimestampColGreaterEqualLongScalar.class, FilterLongScalarGreaterEqualTimestampColumn.class,
+ql/src/java/org/apache/hadoop/hive/ql/udf/generic/GenericUDFOPEqualOrGreaterThan.java,61,TimestampColGreaterEqualDoubleScalar.class, DoubleScalarGreaterEqualTimestampColumn.class,
+ql/src/java/org/apache/hadoop/hive/ql/udf/generic/GenericUDFOPEqualOrGreaterThan.java,62,FilterTimestampColGreaterEqualDoubleScalar.class, FilterDoubleScalarGreaterEqualTimestampColumn.class,
+ql/src/java/org/apache/hadoop/hive/ql/udf/generic/GenericUDFOPEqualOrLessThan.java,59,TimestampColLessEqualLongScalar.class, LongScalarLessEqualTimestampColumn.class,
+ql/src/java/org/apache/hadoop/hive/ql/udf/generic/GenericUDFOPEqualOrLessThan.java,60,FilterTimestampColLessEqualLongScalar.class, FilterLongScalarLessEqualTimestampColumn.class,
+ql/src/java/org/apache/hadoop/hive/ql/udf/generic/GenericUDFOPEqualOrLessThan.java,61,TimestampColLessEqualDoubleScalar.class, DoubleScalarLessEqualTimestampColumn.class,
+ql/src/java/org/apache/hadoop/hive/ql/udf/generic/GenericUDFOPEqualOrLessThan.java,62,FilterTimestampColLessEqualDoubleScalar.class, FilterDoubleScalarLessEqualTimestampColumn.class,
+ql/src/java/org/apache/hadoop/hive/ql/udf/generic/GenericUDFOPGreaterThan.java,59,TimestampColGreaterLongScalar.class, LongScalarGreaterTimestampColumn.class,
+ql/src/java/org/apache/hadoop/hive/ql/udf/generic/GenericUDFOPGreaterThan.java,60,FilterTimestampColGreaterLongScalar.class, FilterLongScalarGreaterTimestampColumn.class,
+ql/src/java/org/apache/hadoop/hive/ql/udf/generic/GenericUDFOPGreaterThan.java,61,TimestampColGreaterDoubleScalar.class, DoubleScalarGreaterTimestampColumn.class,
+ql/src/java/org/apache/hadoop/hive/ql/udf/generic/GenericUDFOPGreaterThan.java,62,FilterTimestampColGreaterDoubleScalar.class, FilterDoubleScalarGreaterTimestampColumn.class,
+ql/src/java/org/apache/hadoop/hive/ql/udf/generic/GenericUDFOPLessThan.java,59,TimestampColLessLongScalar.class, LongScalarLessTimestampColumn.class,
+ql/src/java/org/apache/hadoop/hive/ql/udf/generic/GenericUDFOPLessThan.java,60,FilterTimestampColLessLongScalar.class, FilterLongScalarLessTimestampColumn.class,
+ql/src/java/org/apache/hadoop/hive/ql/udf/generic/GenericUDFOPLessThan.java,61,TimestampColLessDoubleScalar.class, DoubleScalarLessTimestampColumn.class,
+ql/src/java/org/apache/hadoop/hive/ql/udf/generic/GenericUDFOPLessThan.java,62,FilterTimestampColLessDoubleScalar.class, FilterDoubleScalarLessTimestampColumn.class,
+ql/src/java/org/apache/hadoop/hive/ql/udf/generic/GenericUDFOPNotEqual.java,58,TimestampColNotEqualLongScalar.class, LongScalarNotEqualTimestampColumn.class,
+ql/src/java/org/apache/hadoop/hive/ql/udf/generic/GenericUDFOPNotEqual.java,59,FilterTimestampColNotEqualLongScalar.class, FilterLongScalarNotEqualTimestampColumn.class,
+ql/src/java/org/apache/hadoop/hive/ql/udf/generic/GenericUDFOPNotEqual.java,60,TimestampColNotEqualDoubleScalar.class, DoubleScalarNotEqualTimestampColumn.class,
+ql/src/java/org/apache/hadoop/hive/ql/udf/generic/GenericUDFOPNotEqual.java,61,FilterTimestampColNotEqualDoubleScalar.class, FilterDoubleScalarNotEqualTimestampColumn.class,
+ql/src/java/org/apache/hadoop/hive/ql/udf/generic/GenericUDFTimestamp.java,28,import org.apache.hadoop.hive.ql.exec.vector.expressions.gen.CastDoubleToTimestampViaDoubleToLong;
+ql/src/java/org/apache/hadoop/hive/ql/udf/generic/GenericUDFTimestamp.java,29,import org.apache.hadoop.hive.ql.exec.vector.expressions.gen.CastLongToTimestampViaLongToLong;
+ql/src/java/org/apache/hadoop/hive/ql/udf/generic/GenericUDFToUnixTimeStamp.java,30,import org.apache.hadoop.hive.ql.exec.vector.expressions.VectorUDFUnixTimeStampLong;
+serde/src/java/org/apache/hadoop/hive/serde2/binarysortable/fast/BinarySortableSerializeWrite.java,353,public void writeHiveIntervalDayTime(long totalNanos) throws IOException {
+serde/src/java/org/apache/hadoop/hive/serde2/binarysortable/fast/BinarySortableSerializeWrite.java,354,final boolean invert = columnSortOrderIsDesc[++index];
+serde/src/java/org/apache/hadoop/hive/serde2/binarysortable/fast/BinarySortableSerializeWrite.java,357,BinarySortableSerDe.writeByte(output, (byte) 1, invert);
+serde/src/java/org/apache/hadoop/hive/serde2/binarysortable/fast/BinarySortableSerializeWrite.java,359,long totalSecs = DateUtils.getIntervalDayTimeTotalSecondsFromTotalNanos(totalNanos);
+serde/src/java/org/apache/hadoop/hive/serde2/binarysortable/fast/BinarySortableSerializeWrite.java,360,int nanos = DateUtils.getIntervalDayTimeNanosFromTotalNanos(totalNanos);
+serde/src/java/org/apache/hadoop/hive/serde2/binarysortable/fast/BinarySortableSerializeWrite.java,361,BinarySortableSerDe.serializeLong(output, totalSecs, invert);
+serde/src/java/org/apache/hadoop/hive/serde2/binarysortable/fast/BinarySortableSerializeWrite.java,362,BinarySortableSerDe.serializeInt(output, nanos, invert);
+serde/src/java/org/apache/hadoop/hive/serde2/fast/SerializeWrite.java,149,void writeHiveIntervalDayTime(long totalNanos) throws IOException;
+serde/src/java/org/apache/hadoop/hive/serde2/io/TimestampWritable.java,659,static long millisToSeconds(long millis) {
+serde/src/java/org/apache/hadoop/hive/serde2/lazy/fast/LazySimpleSerializeWrite.java,477,public void writeHiveIntervalDayTime(long totalNanos) throws IOException {
+serde/src/java/org/apache/hadoop/hive/serde2/lazy/fast/LazySimpleSerializeWrite.java,479,if (index > 0) {
+serde/src/java/org/apache/hadoop/hive/serde2/lazy/fast/LazySimpleSerializeWrite.java,480,output.write(separator);
+serde/src/java/org/apache/hadoop/hive/serde2/lazy/fast/LazySimpleSerializeWrite.java,483,if (hiveIntervalDayTime == null) {
+serde/src/java/org/apache/hadoop/hive/serde2/lazy/fast/LazySimpleSerializeWrite.java,484,hiveIntervalDayTime = new HiveIntervalDayTime();
+serde/src/java/org/apache/hadoop/hive/serde2/lazy/fast/LazySimpleSerializeWrite.java,486,if (hiveIntervalDayTimeWritable == null) {
+serde/src/java/org/apache/hadoop/hive/serde2/lazy/fast/LazySimpleSerializeWrite.java,487,hiveIntervalDayTimeWritable = new HiveIntervalDayTimeWritable();
+serde/src/java/org/apache/hadoop/hive/serde2/lazy/fast/LazySimpleSerializeWrite.java,489,DateUtils.setIntervalDayTimeTotalNanos(hiveIntervalDayTime, totalNanos);
+serde/src/java/org/apache/hadoop/hive/serde2/lazy/fast/LazySimpleSerializeWrite.java,490,hiveIntervalDayTimeWritable.set(hiveIntervalDayTime);
+serde/src/java/org/apache/hadoop/hive/serde2/lazy/fast/LazySimpleSerializeWrite.java,491,LazyHiveIntervalDayTime.writeUTF8(output, hiveIntervalDayTimeWritable);
+serde/src/java/org/apache/hadoop/hive/serde2/lazy/fast/LazySimpleSerializeWrite.java,493,index++;
+serde/src/java/org/apache/hadoop/hive/serde2/lazybinary/fast/LazyBinarySerializeWrite.java,677,public void writeHiveIntervalDayTime(long totalNanos) throws IOException {
+serde/src/java/org/apache/hadoop/hive/serde2/lazybinary/fast/LazyBinarySerializeWrite.java,680,if ((fieldIndex % 8) == 0) {
+serde/src/java/org/apache/hadoop/hive/serde2/lazybinary/fast/LazyBinarySerializeWrite.java,681,if (fieldIndex > 0) {
+serde/src/java/org/apache/hadoop/hive/serde2/lazybinary/fast/LazyBinarySerializeWrite.java,683,output.writeByte(nullOffset, nullByte);
+serde/src/java/org/apache/hadoop/hive/serde2/lazybinary/fast/LazyBinarySerializeWrite.java,684,nullByte = 0;
+serde/src/java/org/apache/hadoop/hive/serde2/lazybinary/fast/LazyBinarySerializeWrite.java,685,nullOffset = output.getLength();
+serde/src/java/org/apache/hadoop/hive/serde2/lazybinary/fast/LazyBinarySerializeWrite.java,688,output.reserve(1);
+serde/src/java/org/apache/hadoop/hive/serde2/lazybinary/fast/LazyBinarySerializeWrite.java,692,nullByte |= 1 << (fieldIndex % 8);
+serde/src/java/org/apache/hadoop/hive/serde2/lazybinary/fast/LazyBinarySerializeWrite.java,694,if (hiveIntervalDayTime == null) {
+serde/src/java/org/apache/hadoop/hive/serde2/lazybinary/fast/LazyBinarySerializeWrite.java,695,hiveIntervalDayTime = new HiveIntervalDayTime();
+serde/src/java/org/apache/hadoop/hive/serde2/lazybinary/fast/LazyBinarySerializeWrite.java,697,if (hiveIntervalDayTimeWritable == null) {
+serde/src/java/org/apache/hadoop/hive/serde2/lazybinary/fast/LazyBinarySerializeWrite.java,698,hiveIntervalDayTimeWritable = new HiveIntervalDayTimeWritable();
+serde/src/java/org/apache/hadoop/hive/serde2/lazybinary/fast/LazyBinarySerializeWrite.java,700,DateUtils.setIntervalDayTimeTotalNanos(hiveIntervalDayTime, totalNanos);
+serde/src/java/org/apache/hadoop/hive/serde2/lazybinary/fast/LazyBinarySerializeWrite.java,701,hiveIntervalDayTimeWritable.set(hiveIntervalDayTime);
+serde/src/java/org/apache/hadoop/hive/serde2/lazybinary/fast/LazyBinarySerializeWrite.java,702,hiveIntervalDayTimeWritable.writeToByteStream(output);
+serde/src/java/org/apache/hadoop/hive/serde2/lazybinary/fast/LazyBinarySerializeWrite.java,704,fieldIndex++;
+serde/src/java/org/apache/hadoop/hive/serde2/lazybinary/fast/LazyBinarySerializeWrite.java,706,if (fieldIndex == fieldCount) {
+serde/src/java/org/apache/hadoop/hive/serde2/lazybinary/fast/LazyBinarySerializeWrite.java,708,output.writeByte(nullOffset, nullByte);
+ql/src/java/org/apache/hadoop/hive/ql/io/orc/OrcInputFormat.java,253,TypeDescription schema = getDesiredRowTypeDescr(conf);
+ql/src/java/org/apache/hadoop/hive/ql/io/orc/OrcInputFormat.java,1418,if (inputSplit.getClass() == FileSplit.class) {
+ql/src/java/org/apache/hadoop/hive/ql/io/orc/OrcInputFormat.java,1422,return new OrcRecordReader(OrcFile.createReader(
+ql/src/java/org/apache/hadoop/hive/ql/io/orc/OrcInputFormat.java,1423,((FileSplit) inputSplit).getPath(),
+ql/src/java/org/apache/hadoop/hive/ql/io/orc/OrcInputFormat.java,1424,OrcFile.readerOptions(conf)), conf, (FileSplit) inputSplit);
+ql/src/java/org/apache/hadoop/hive/ql/io/orc/OrcInputFormat.java,1436,if (split.isOriginal() && split.getDeltas().isEmpty()) {
+ql/src/java/org/apache/hadoop/hive/ql/io/orc/OrcInputFormat.java,1437,if (vectorMode) {
+ql/src/java/org/apache/hadoop/hive/ql/io/orc/OrcInputFormat.java,1438,return createVectorizedReader(inputSplit, conf, reporter);
+ql/src/java/org/apache/hadoop/hive/ql/io/orc/OrcInputFormat.java,1440,return new NullKeyRecordReader(inner, conf);
+ql/src/java/org/apache/hadoop/hive/ql/io/orc/OrcInputFormat.java,1449,return new NullKeyRecordReader(inner, conf);
+ql/src/java/org/apache/hadoop/hive/ql/io/orc/OrcInputFormat.java,1526,TypeDescription schema = getDesiredRowTypeDescr(conf);
+ql/src/java/org/apache/hadoop/hive/ql/io/orc/OrcInputFormat.java,2054,public static TypeDescription getDesiredRowTypeDescr(Configuration conf) {
+ql/src/java/org/apache/hadoop/hive/ql/io/orc/OrcInputFormat.java,2063,if (HiveConf.getBoolVar(conf, ConfVars.HIVE_SCHEMA_EVOLUTION)) {
+ql/src/java/org/apache/hadoop/hive/ql/io/orc/OrcInputFormat.java,2085,if (!haveSchemaEvolutionProperties) {
+ql/src/java/org/apache/hadoop/hive/ql/io/orc/OrcRawRecordMerger.java,450,TypeDescription typeDescr = OrcInputFormat.getDesiredRowTypeDescr(conf);
+ql/src/java/org/apache/hadoop/hive/ql/io/orc/OrcRawRecordMerger.java,451,if (typeDescr == null) {
+ql/src/java/org/apache/hadoop/hive/ql/io/orc/OrcRawRecordMerger.java,452,throw new IOException(ErrorMsg.SCHEMA_REQUIRED_TO_READ_ACID_TABLES.getErrorCodedMsg());
+ql/src/java/org/apache/hadoop/hive/ql/io/orc/VectorizedOrcInputFormat.java,69,TypeDescription schema = OrcInputFormat.getDesiredRowTypeDescr(conf);
+ql/src/java/org/apache/hadoop/hive/ql/optimizer/BucketingSortingReduceSinkOptimizer.java,397,if(SemanticAnalyzer.isAcidTable(tso.getConf().getTableMetadata())) {
+ql/src/java/org/apache/hadoop/hive/ql/parse/SemanticAnalyzer.java,1611,boolean isAcid = isAcidTable(tab);
+ql/src/java/org/apache/hadoop/hive/ql/parse/SemanticAnalyzer.java,6137,(isAcidTable(dest_tab) ? getAcidType() : AcidUtils.Operation.NOT_ACID));
+ql/src/java/org/apache/hadoop/hive/ql/parse/SemanticAnalyzer.java,6205,destTableIsAcid = isAcidTable(dest_tab);
+ql/src/java/org/apache/hadoop/hive/ql/parse/SemanticAnalyzer.java,6350,destTableIsAcid = isAcidTable(dest_tab);
+ql/src/java/org/apache/hadoop/hive/ql/parse/SemanticAnalyzer.java,12196,public static boolean isAcidTable(Table tab) {
+ql/src/java/org/apache/hadoop/hive/ql/parse/SemanticAnalyzer.java,12197,if (tab == null) return false;
+ql/src/java/org/apache/hadoop/hive/ql/parse/SemanticAnalyzer.java,12198,if (!SessionState.get().getTxnMgr().supportsAcid()) return false;
+ql/src/java/org/apache/hadoop/hive/ql/parse/SemanticAnalyzer.java,12199,return AcidUtils.isTablePropertyTransactional(tab.getParameters());
+ql/src/java/org/apache/hadoop/hive/ql/plan/TableScanDesc.java,27,import org.apache.hadoop.hive.ql.exec.PTFUtils;
+ql/src/java/org/apache/hadoop/hive/ql/plan/TableScanDesc.java,30,import org.apache.hadoop.hive.ql.parse.SemanticAnalyzer;
+ql/src/java/org/apache/hadoop/hive/ql/plan/TableScanDesc.java,141,return SemanticAnalyzer.isAcidTable(this.tableMetadata);
+ql/src/java/org/apache/hadoop/hive/ql/txn/compactor/CompactorMR.java,269,job.set(serdeConstants.LIST_COLUMNS, colNames.toString());
+ql/src/java/org/apache/hadoop/hive/ql/txn/compactor/CompactorMR.java,270,job.set(serdeConstants.LIST_COLUMN_TYPES, colTypes.toString());
+llap-server/src/java/org/apache/hadoop/hive/llap/security/SecretManager.java,69,setZkConfIfNotSet(zkConf, SecretManager.ZK_DTSM_ZNODE_WORKING_PATH, "llapzkdtsm");
+service/src/java/org/apache/hive/service/auth/HiveAuthFactory.java,170,if (authTypeStr.equalsIgnoreCase(AuthTypes.KERBEROS.getAuthName())) {
+service/src/java/org/apache/hive/service/cli/thrift/ThriftCLIService.java,346,if (isKerberosAuthMode()) {
+service/src/java/org/apache/hive/service/cli/thrift/ThriftCLIService.java,371,if (isKerberosAuthMode()) {
+service/src/java/org/apache/hive/service/cli/thrift/ThriftCLIService.java,759,private boolean isKerberosAuthMode() {
+service/src/java/org/apache/hive/service/cli/thrift/ThriftCLIService.java,761,.equalsIgnoreCase(HiveAuthFactory.AuthTypes.KERBEROS.toString());
+ql/src/java/org/apache/hadoop/hive/ql/optimizer/physical/MetadataOnlyOptimizer.java,122,if (noColNeeded && noVCneeded) {
+llap-server/src/java/org/apache/hadoop/hive/llap/cli/LlapServiceDriver.java,283,String java_home = System.getenv("JAVA_HOME");
+llap-server/src/java/org/apache/hadoop/hive/llap/cli/LlapServiceDriver.java,284,String jre_home = System.getProperty("java.home");
+llap-server/src/java/org/apache/hadoop/hive/llap/cli/LlapServiceDriver.java,285,if (java_home == null) {
+llap-server/src/java/org/apache/hadoop/hive/llap/cli/LlapServiceDriver.java,286,java_home = jre_home;
+llap-server/src/java/org/apache/hadoop/hive/llap/cli/LlapServiceDriver.java,288,LOG.warn("Java versions might not match : JAVA_HOME=%s,process jre=%s",
+llap-server/src/java/org/apache/hadoop/hive/llap/cli/LlapServiceDriver.java,289,java_home, jre_home);
+llap-server/src/java/org/apache/hadoop/hive/llap/metrics/MetricsUtils.java,29,public static final String METRICS_CONTEXT = "llap";
+llap-server/src/java/org/apache/hadoop/hive/llap/cli/LlapServiceDriver.java,217,lfs.mkdirs(libDir);
+llap-server/src/java/org/apache/hadoop/hive/llap/cli/LlapServiceDriver.java,219,CompressionUtils.unTar(new Path(libDir, "tez.tar.gz").toString(), libDir.toString(), true);
+llap-server/src/java/org/apache/hadoop/hive/llap/cli/LlapServiceDriver.java,223,lfs.copyFromLocalFile(new Path(Utilities.jarFinderGetJar(LlapDaemonProtocolProtos.class)), libDir);
+llap-server/src/java/org/apache/hadoop/hive/llap/cli/LlapServiceDriver.java,225,lfs.copyFromLocalFile(new Path(Utilities.jarFinderGetJar(LlapTezUtils.class)), libDir);
+llap-server/src/java/org/apache/hadoop/hive/llap/cli/LlapServiceDriver.java,227,lfs.copyFromLocalFile(new Path(Utilities.jarFinderGetJar(LlapInputFormat.class)), libDir);
+llap-server/src/java/org/apache/hadoop/hive/llap/cli/LlapServiceDriver.java,229,lfs.copyFromLocalFile(new Path(Utilities.jarFinderGetJar(HiveInputFormat.class)), libDir);
+llap-server/src/java/org/apache/hadoop/hive/llap/cli/LlapServiceDriver.java,193,URL logger = conf.getResource("llap-daemon-log4j2.properties");
+ql/src/java/org/apache/hadoop/hive/ql/optimizer/calcite/HiveRelFactories.java,27,import org.apache.calcite.rel.InvalidRelException;
+ql/src/java/org/apache/hadoop/hive/ql/optimizer/calcite/HiveRelFactories.java,187,try {
+ql/src/java/org/apache/hadoop/hive/ql/optimizer/calcite/HiveRelFactories.java,191,throw new RuntimeException(e);
+ql/src/java/org/apache/hadoop/hive/ql/optimizer/calcite/reloperators/HiveAggregate.java,28,import org.apache.calcite.rel.InvalidRelException;
+ql/src/java/org/apache/hadoop/hive/ql/optimizer/calcite/reloperators/HiveAggregate.java,47,List<AggregateCall> aggCalls) throws InvalidRelException {
+ql/src/java/org/apache/hadoop/hive/ql/optimizer/calcite/reloperators/HiveAggregate.java,56,try {
+ql/src/java/org/apache/hadoop/hive/ql/optimizer/calcite/reloperators/HiveAggregate.java,62,throw new AssertionError(e);
+ql/src/java/org/apache/hadoop/hive/ql/parse/CalcitePlanner.java,52,import org.apache.calcite.rel.InvalidRelException;
+ql/src/java/org/apache/hadoop/hive/ql/parse/CalcitePlanner.java,2001,HiveRelNode aggregateRel = null;
+ql/src/java/org/apache/hadoop/hive/ql/parse/CalcitePlanner.java,2002,try {
+ql/src/java/org/apache/hadoop/hive/ql/parse/CalcitePlanner.java,2003,aggregateRel = new HiveAggregate(cluster, cluster.traitSetOf(HiveRelNode.CONVENTION),
+ql/src/java/org/apache/hadoop/hive/ql/parse/CalcitePlanner.java,2007,throw new SemanticException(e);
+ql/src/java/org/apache/hadoop/hive/ql/parse/CalcitePlanner.java,2185,List<ASTNode> grpByAstExprs = SemanticAnalyzer.getGroupByForClause(qbp, detsClauseName);
+ql/src/java/org/apache/hadoop/hive/ql/parse/CalcitePlanner.java,2947,RelNode selRel = genSelectRelNode(calciteColLst, out_rwsch, srcRel);
+ql/src/java/org/apache/hadoop/hive/ql/parse/CalcitePlanner.java,2949,return selRel;
+ql/src/java/org/apache/hadoop/hive/ql/parse/SemanticAnalyzer.java,3484,static List<ASTNode> getGroupByForClause(QBParseInfo parseInfo, String dest) {
+ql/src/java/org/apache/hadoop/hive/ql/parse/SemanticAnalyzer.java,5580,private boolean optimizeMapAggrGroupBy(String dest, QB qb) {
+cli/src/java/org/apache/hadoop/hive/cli/OptionsProcessor.java,32,import org.apache.logging.log4j.Level;
+cli/src/java/org/apache/hadoop/hive/cli/OptionsProcessor.java,125,String propVal = confProps.getProperty(propKey);
+cli/src/java/org/apache/hadoop/hive/cli/OptionsProcessor.java,126,if (propVal.contains(",")) {
+cli/src/java/org/apache/hadoop/hive/cli/OptionsProcessor.java,127,String[] tokens = propVal.split(",");
+cli/src/java/org/apache/hadoop/hive/cli/OptionsProcessor.java,128,for (String token : tokens) {
+cli/src/java/org/apache/hadoop/hive/cli/OptionsProcessor.java,129,if (Level.getLevel(token) == null) {
+cli/src/java/org/apache/hadoop/hive/cli/OptionsProcessor.java,130,System.setProperty("hive.root.logger", token);
+cli/src/java/org/apache/hadoop/hive/cli/OptionsProcessor.java,132,System.setProperty("hive.log.level", token);
+cli/src/java/org/apache/hadoop/hive/cli/OptionsProcessor.java,136,System.setProperty(propKey, confProps.getProperty(propKey));
+common/src/java/org/apache/hadoop/hive/common/cli/CommonCliOptions.java,97,System.setProperty(propKey, confProps.getProperty(propKey));
+service/src/java/org/apache/hive/service/server/HiveServer2.java,689,System.setProperty(propKey, confProps.getProperty(propKey));
+llap-server/src/java/org/apache/hadoop/hive/llap/cli/LlapServiceDriver.java,281,lfs.copyFromLocalFile(new Path(logger.toString()), confPath);
+llap-server/src/java/org/apache/hadoop/hive/llap/io/encoded/OrcEncodedDataReader.java,397,stripeMetadata = new OrcStripeMetadata(
+llap-server/src/java/org/apache/hadoop/hive/llap/io/encoded/OrcEncodedDataReader.java,398,stripeKey, metadataReader, stripe, stripeIncludes, sargColumns);
+llap-server/src/java/org/apache/hadoop/hive/llap/io/encoded/OrcEncodedDataReader.java,406,stripeKey = new OrcBatchKey(fileId, -1, 0);
+llap-server/src/java/org/apache/hadoop/hive/llap/io/encoded/OrcEncodedDataReader.java,661,value = new OrcStripeMetadata(stripeKey, metadataReader, si, globalInc, sargColumns);
+llap-server/src/java/org/apache/hadoop/hive/llap/io/encoded/OrcEncodedDataReader.java,670,stripeKey = new OrcBatchKey(fileId, 0, 0);
+ql/src/java/org/apache/hadoop/hive/ql/io/orc/encoded/EncodedReaderImpl.java,109,public EncodedReaderImpl(long fileId, List<OrcProto.Type> types, CompressionCodec codec,
+ql/src/java/org/apache/hadoop/hive/ql/parse/GenTezUtils.java,123,maxPartition = (maxPartition > maxReducers) ? maxReducers : maxPartition;
+ql/src/java/org/apache/hadoop/hive/ql/optimizer/stats/annotation/StatsRulesProcFactory.java,108,PrunedPartitionList partList =
+ql/src/java/org/apache/hadoop/hive/ql/optimizer/stats/annotation/StatsRulesProcFactory.java,109,aspCtx.getParseContext().getPrunedPartitions(tsop.getName(), tsop);
+ql/src/java/org/apache/hadoop/hive/ql/parse/SemanticAnalyzer.java,10258,if (((TableScanDesc)topOp.getConf()).getIsMetadataOnly()) {
+ql/src/java/org/apache/hadoop/hive/ql/parse/SemanticAnalyzer.java,10261,PrunedPartitionList parts = pCtx.getOpToPartList().get(topOp);
+ql/src/java/org/apache/hadoop/hive/ql/io/orc/TreeReaderFactory.java,1862,result.isRepeating = true;
+ql/src/java/org/apache/hadoop/hive/ql/io/orc/TreeReaderFactory.java,1863,result.noNulls = false;
+ql/src/java/org/apache/hadoop/hive/ql/io/orc/TreeReaderFactory.java,1864,result.isNull[0] = true;
+ql/src/java/org/apache/hadoop/hive/ql/io/orc/TreeReaderFactory.java,1865,result.setRef(0, "".getBytes(), 0, 0);
+orc/src/java/org/apache/orc/impl/IntegerReader.java,66,void setInStream(InStream data);
+orc/src/java/org/apache/orc/impl/RunLengthIntegerReader.java,102,public void nextVector(LongColumnVector previous, long previousLen) throws IOException {
+orc/src/java/org/apache/orc/impl/RunLengthIntegerReader.java,125,public void setInStream(InStream data) {
+orc/src/java/org/apache/orc/impl/RunLengthIntegerReader.java,126,input = data;
+orc/src/java/org/apache/orc/impl/RunLengthIntegerReaderV2.java,363,public void nextVector(LongColumnVector previous, long previousLen) throws IOException {
+orc/src/java/org/apache/orc/impl/RunLengthIntegerReaderV2.java,387,public void setInStream(InStream data) {
+orc/src/java/org/apache/orc/impl/RunLengthIntegerReaderV2.java,388,input = data;
+orc/src/java/org/apache/orc/impl/SerializationUtils.java,21,import org.apache.orc.impl.InStream;
+orc/src/java/org/apache/orc/impl/SerializationUtils.java,80,int ser = in.read() | (in.read() << 8) | (in.read() << 16) |
+orc/src/java/org/apache/orc/impl/SerializationUtils.java,81,(in.read() << 24);
+orc/src/java/org/apache/orc/impl/SerializationUtils.java,82,return Float.intBitsToFloat(ser);
+orc/src/java/org/apache/orc/impl/SerializationUtils.java,88,output.write(ser & 0xff);
+orc/src/java/org/apache/orc/impl/SerializationUtils.java,89,output.write((ser >> 8) & 0xff);
+orc/src/java/org/apache/orc/impl/SerializationUtils.java,90,output.write((ser >> 16) & 0xff);
+orc/src/java/org/apache/orc/impl/SerializationUtils.java,91,output.write((ser >> 24) & 0xff);
+orc/src/java/org/apache/orc/impl/SerializationUtils.java,99,in.read(readBuffer, 0, 8);
+ql/src/java/org/apache/hadoop/hive/ql/io/orc/RecordReaderImpl.java,1050,long batchSize = computeBatchSize(VectorizedRowBatch.DEFAULT_SIZE);
+ql/src/java/org/apache/hadoop/hive/ql/io/orc/RecordReaderImpl.java,1058,result = (VectorizedRowBatch) previous;
+ql/src/java/org/apache/hadoop/hive/ql/io/orc/RecordReaderImpl.java,1061,reader.nextVector(result.cols, (int) batchSize);
+ql/src/java/org/apache/hadoop/hive/ql/io/orc/RecordReaderImpl.java,1064,result.size = (int) batchSize;
+ql/src/java/org/apache/hadoop/hive/ql/io/orc/RecordReaderImpl.java,1073,private long computeBatchSize(long targetBatchSize) {
+ql/src/java/org/apache/hadoop/hive/ql/io/orc/RecordReaderImpl.java,1074,long batchSize = 0;
+ql/src/java/org/apache/hadoop/hive/ql/io/orc/RecordReaderImpl.java,1096,batchSize = Math.min(targetBatchSize, (markerPosition - rowInStripe));
+ql/src/java/org/apache/hadoop/hive/ql/io/orc/RecordReaderImpl.java,1102,batchSize = Math.min(targetBatchSize, (rowCountInStripe - rowInStripe));
+ql/src/java/org/apache/hadoop/hive/ql/io/orc/TreeReaderFactory.java,241,public Object nextVector(Object previousVector, long batchSize) throws IOException {
+ql/src/java/org/apache/hadoop/hive/ql/io/orc/TreeReaderFactory.java,324,public Object nextVector(Object previousVector, long batchSize) throws IOException {
+ql/src/java/org/apache/hadoop/hive/ql/io/orc/TreeReaderFactory.java,389,public Object nextVector(Object previousVector, long batchSize) throws IOException {
+ql/src/java/org/apache/hadoop/hive/ql/io/orc/TreeReaderFactory.java,475,public Object nextVector(Object previousVector, long batchSize) throws IOException {
+ql/src/java/org/apache/hadoop/hive/ql/io/orc/TreeReaderFactory.java,561,public Object nextVector(Object previousVector, long batchSize) throws IOException {
+ql/src/java/org/apache/hadoop/hive/ql/io/orc/TreeReaderFactory.java,648,public Object nextVector(Object previousVector, long batchSize) throws IOException {
+ql/src/java/org/apache/hadoop/hive/ql/io/orc/TreeReaderFactory.java,721,public Object nextVector(Object previousVector, final long batchSize) throws IOException {
+ql/src/java/org/apache/hadoop/hive/ql/io/orc/TreeReaderFactory.java,834,public Object nextVector(Object previousVector, final long batchSize) throws IOException {
+ql/src/java/org/apache/hadoop/hive/ql/io/orc/TreeReaderFactory.java,976,public Object nextVector(Object previousVector, long batchSize) throws IOException {
+ql/src/java/org/apache/hadoop/hive/ql/io/orc/TreeReaderFactory.java,1145,public Object nextVector(Object previousVector, long batchSize) throws IOException {
+ql/src/java/org/apache/hadoop/hive/ql/io/orc/TreeReaderFactory.java,1252,public Object nextVector(Object previousVector, long batchSize) throws IOException {
+ql/src/java/org/apache/hadoop/hive/ql/io/orc/TreeReaderFactory.java,1351,public Object nextVector(Object previousVector, long batchSize) throws IOException {
+ql/src/java/org/apache/hadoop/hive/ql/io/orc/TreeReaderFactory.java,1480,public Object nextVector(Object previousVector, long batchSize) throws IOException {
+ql/src/java/org/apache/hadoop/hive/ql/io/orc/TreeReaderFactory.java,1497,BytesColumnVector result, long batchSize) throws IOException {
+ql/src/java/org/apache/hadoop/hive/ql/io/orc/TreeReaderFactory.java,1533,BytesColumnVector result, long batchSize) throws IOException {
+ql/src/java/org/apache/hadoop/hive/ql/io/orc/TreeReaderFactory.java,1640,public Object nextVector(Object previousVector, long batchSize) throws IOException {
+ql/src/java/org/apache/hadoop/hive/ql/io/orc/TreeReaderFactory.java,1814,public Object nextVector(Object previousVector, long batchSize) throws IOException {
+ql/src/java/org/apache/hadoop/hive/ql/io/orc/TreeReaderFactory.java,1925,public Object nextVector(Object previousVector, long batchSize) throws IOException {
+ql/src/java/org/apache/hadoop/hive/ql/io/orc/TreeReaderFactory.java,1999,public Object nextVector(Object previousVector, long batchSize) throws IOException {
+ql/src/java/org/apache/hadoop/hive/ql/io/orc/TreeReaderFactory.java,2135,public Object nextVector(Object previousVector, long batchSize) throws IOException {
+ql/src/java/org/apache/hadoop/hive/ql/io/orc/TreeReaderFactory.java,2240,public Object nextVector(Object previousVector, long batchSize) throws IOException {
+ql/src/java/org/apache/hadoop/hive/ql/io/orc/TreeReaderFactory.java,2323,public Object nextVector(Object previous, long batchSize) throws IOException {
+ql/src/java/org/apache/hadoop/hive/ql/io/orc/TreeReaderFactory.java,2417,public Object nextVector(Object previous, long batchSize) throws IOException {
+ql/src/java/org/apache/hadoop/hive/ql/txn/compactor/Initiator.java,216,return ugi.doAs(new PrivilegedExceptionAction<CompactionType>() {
+orc/src/java/org/apache/orc/impl/WriterImpl.java,182,this.bufferSize = getEstimatedBufferSize(defaultStripeSize,
+orc/src/java/org/apache/orc/impl/WriterImpl.java,183,numColumns, opts.getBufferSize());
+orc/src/java/org/apache/orc/impl/WriterImpl.java,211,if (estBufferSize > bs) {
+orc/src/java/org/apache/orc/impl/WriterImpl.java,212,estBufferSize = bs;
+orc/src/java/org/apache/orc/impl/WriterImpl.java,214,LOG.info("WIDE TABLE - Number of columns: " + numColumns +
+orc/src/java/org/apache/orc/impl/WriterImpl.java,217,return estBufferSize;
+ql/src/java/org/apache/hadoop/hive/ql/exec/OrcFileMergeOperator.java,124,options.bufferSize(compressBuffSize);
+metastore/src/java/org/apache/hadoop/hive/metastore/ObjectStore.java,7687,pm.deletePersistent(toBeRemoved);
+ql/src/java/org/apache/hadoop/hive/ql/exec/OperatorUtils.java,205,return operator1.getSchema().equals(operator2.getSchema());
+ql/src/java/org/apache/hadoop/hive/ql/exec/OperatorUtils.java,223,Operator<?> start, Set<Class<? extends Operator<?>>> classes) {
+ql/src/java/org/apache/hadoop/hive/ql/exec/OperatorUtils.java,225,new ImmutableMultimap.Builder<Class<? extends Operator<?>>, Operator<?>>();
+ql/src/java/org/apache/hadoop/hive/ql/exec/OperatorUtils.java,258,Operator<?> start, Set<Class<? extends Operator<?>>> classes) {
+ql/src/java/org/apache/hadoop/hive/ql/exec/OperatorUtils.java,260,new ImmutableMultimap.Builder<Class<? extends Operator<?>>, Operator<?>>();
+ql/src/java/org/apache/hadoop/hive/ql/optimizer/ReduceSinkMapJoinProc.java,225,+ ", pos: " + pos + " --> " + parentWork.getName() + " (" + keyCount
+ql/src/java/org/apache/hadoop/hive/ql/optimizer/ReduceSinkMapJoinProc.java,226,+ " keys estimated from " + rowCount + " rows, " + bucketCount + " buckets)");
+ql/src/java/org/apache/hadoop/hive/ql/optimizer/ReduceSinkMapJoinProc.java,252,Operator<?> rootOp =
+ql/src/java/org/apache/hadoop/hive/ql/optimizer/ReduceSinkMapJoinProc.java,253,OperatorUtils.findSingleOperatorUpstream(
+ql/src/java/org/apache/hadoop/hive/ql/optimizer/ReduceSinkMapJoinProc.java,254,mapJoinOp.getParentOperators().get(joinConf.getPosBigTable()),
+ql/src/java/org/apache/hadoop/hive/ql/optimizer/ReduceSinkMapJoinProc.java,255,ReduceSinkOperator.class);
+ql/src/java/org/apache/hadoop/hive/ql/optimizer/ReduceSinkMapJoinProc.java,264,Operator<?> rootOp =
+ql/src/java/org/apache/hadoop/hive/ql/optimizer/ReduceSinkMapJoinProc.java,265,OperatorUtils.findSingleOperatorUpstream(
+ql/src/java/org/apache/hadoop/hive/ql/optimizer/ReduceSinkMapJoinProc.java,266,mapJoinOp.getParentOperators().get(joinConf.getPosBigTable()),
+ql/src/java/org/apache/hadoop/hive/ql/optimizer/ReduceSinkMapJoinProc.java,267,TableScanOperator.class);
+ql/src/java/org/apache/hadoop/hive/ql/optimizer/ReduceSinkMapJoinProc.java,325,= context.linkWorkWithReduceSinkMap.get(parentWork);
+ql/src/java/org/apache/hadoop/hive/ql/optimizer/ReduceSinkMapJoinProc.java,360,new ArrayList<Operator<? extends OperatorDesc>>();
+metastore/src/java/org/apache/hadoop/hive/metastore/MetaStoreDirectSql.java,549,if (sdId == null || colId == null || serdeId == null) {
+metastore/src/java/org/apache/hadoop/hive/metastore/MetaStoreDirectSql.java,554,throw new MetaException("Unexpected null for one of the IDs, SD " + sdId + ", column "
+metastore/src/java/org/apache/hadoop/hive/metastore/MetaStoreDirectSql.java,555,+ colId + ", serde " + serdeId + " for a " + (isView ? "" : "non-") + " view");
+metastore/src/java/org/apache/hadoop/hive/metastore/MetaStoreDirectSql.java,571,assert colId != null && serdeId != null;
+metastore/src/java/org/apache/hadoop/hive/metastore/MetaStoreDirectSql.java,596,List<FieldSchema> cols = colss.get(colId);
+metastore/src/java/org/apache/hadoop/hive/metastore/MetaStoreDirectSql.java,598,if (cols == null) {
+metastore/src/java/org/apache/hadoop/hive/metastore/MetaStoreDirectSql.java,599,cols = new ArrayList<FieldSchema>();
+metastore/src/java/org/apache/hadoop/hive/metastore/MetaStoreDirectSql.java,600,colss.put(colId, cols);
+metastore/src/java/org/apache/hadoop/hive/metastore/MetaStoreDirectSql.java,601,colsSb.append(colId).append(",");
+metastore/src/java/org/apache/hadoop/hive/metastore/MetaStoreDirectSql.java,603,sd.setCols(cols);
+metastore/src/java/org/apache/hadoop/hive/metastore/MetaStoreDirectSql.java,649,String sdIds = trimCommaList(sdSb), serdeIds = trimCommaList(serdeSb),
+metastore/src/java/org/apache/hadoop/hive/metastore/MetaStoreDirectSql.java,650,colIds = trimCommaList(colsSb);
+ql/src/java/org/apache/hadoop/hive/ql/Driver.java,410,if (queryId == null || queryId.isEmpty()) {
+ql/src/java/org/apache/hadoop/hive/ql/Driver.java,411,queryId = QueryPlan.makeQueryId();
+ql/src/java/org/apache/hadoop/hive/ql/Driver.java,412,conf.setVar(HiveConf.ConfVars.HIVEQUERYID, queryId);
+service/src/java/org/apache/hive/service/cli/session/HiveSessionImpl.java,453,String queryId = confOverlay.get(HiveConf.ConfVars.HIVEQUERYID.varname);
+service/src/java/org/apache/hive/service/cli/session/HiveSessionImpl.java,454,if (queryId == null || queryId.isEmpty()) {
+service/src/java/org/apache/hive/service/cli/session/HiveSessionImpl.java,455,queryId = QueryPlan.makeQueryId();
+service/src/java/org/apache/hive/service/cli/session/HiveSessionImpl.java,456,confOverlay.put(HiveConf.ConfVars.HIVEQUERYID.varname, queryId);
+cli/src/java/org/apache/hadoop/hive/cli/CliDriver.java,121,String callerInfo = ss.getConf().getLogIdVar(ss.getSessionId());
+cli/src/java/org/apache/hadoop/hive/cli/CliDriver.java,122,Thread.currentThread().setName(callerInfo + " " + originalThreadName);
+cli/src/java/org/apache/hadoop/hive/cli/CliDriver.java,714,Thread.currentThread().setName(conf.getLogIdVar(ss.getSessionId()) + " " + originalThreadName);
+service/src/java/org/apache/hive/service/cli/session/HiveSessionImpl.java,327,String logPrefix = getHiveConf().getLogIdVar(sessionState.getSessionId());
+service/src/java/org/apache/hive/service/cli/session/HiveSessionImpl.java,328,LOG.info(
+service/src/java/org/apache/hive/service/cli/session/HiveSessionImpl.java,330,Thread.currentThread().setName(logPrefix + Thread.currentThread().getName());
+service/src/java/org/apache/hive/service/cli/session/HiveSessionImpl.java,346,.split(getHiveConf().getLogIdVar(sessionState.getSessionId()));
+service/src/java/org/apache/hive/service/cli/session/HiveSessionImpl.java,347,String threadName = null;
+service/src/java/org/apache/hive/service/cli/session/HiveSessionImpl.java,348,if (names.length > 1) {
+service/src/java/org/apache/hive/service/cli/session/HiveSessionImpl.java,349,threadName = names[names.length - 1];
+service/src/java/org/apache/hive/service/cli/session/HiveSessionImpl.java,351,threadName = names[0];
+service/src/java/org/apache/hive/service/cli/session/HiveSessionImpl.java,353,threadName = "";
+service/src/java/org/apache/hive/service/cli/session/HiveSessionImpl.java,355,Thread.currentThread().setName(threadName);
+serde/src/java/org/apache/hadoop/hive/serde2/avro/AvroSerdeUtils.java,137,return AvroSerdeUtils.getSchemaFor(new URL(schemaString).openStream());
+ql/src/java/org/apache/hadoop/hive/ql/exec/AbstractFileMergeOperator.java,211,if (!exception) {
+ql/src/java/org/apache/hadoop/hive/ql/exec/AbstractFileMergeOperator.java,212,FileStatus fss = fs.getFileStatus(outPath);
+ql/src/java/org/apache/hadoop/hive/ql/exec/AbstractFileMergeOperator.java,213,if (!fs.rename(outPath, finalPath)) {
+ql/src/java/org/apache/hadoop/hive/ql/exec/AbstractFileMergeOperator.java,214,throw new IOException(
+ql/src/java/org/apache/hadoop/hive/ql/exec/AbstractFileMergeOperator.java,217,LOG.info("renamed path " + outPath + " to " + finalPath + " . File" +
+ql/src/java/org/apache/hadoop/hive/ql/exec/AbstractFileMergeOperator.java,219,+ fss.getLen());
+ql/src/java/org/apache/hadoop/hive/ql/exec/AbstractFileMergeOperator.java,222,if (!incompatFileSet.isEmpty()) {
+ql/src/java/org/apache/hadoop/hive/ql/exec/OrcFileMergeOperator.java,235,if (outWriter == null) {
+ql/src/java/org/apache/hadoop/hive/ql/exec/OrcFileMergeOperator.java,236,return;
+ql/src/java/org/apache/hadoop/hive/ql/exec/OrcFileMergeOperator.java,245,outWriter.close();
+ql/src/java/org/apache/hadoop/hive/ql/exec/OrcFileMergeOperator.java,246,outWriter = null;
+metastore/src/java/org/apache/hadoop/hive/metastore/HiveMetaStore.java,1450,checkTrashPurgeCombination(tblPath, dbname + "." + name, ifPurge);
+metastore/src/java/org/apache/hadoop/hive/metastore/HiveMetaStore.java,1488,throws MetaException {
+metastore/src/java/org/apache/hadoop/hive/metastore/HiveMetaStore.java,1489,if (!(pathToData != null && !ifPurge)) {//pathToData may be NULL for a view
+metastore/src/java/org/apache/hadoop/hive/metastore/HiveMetaStore.java,1495,trashEnabled = 0 < hiveConf.getFloat("fs.trash.interval", -1);
+metastore/src/java/org/apache/hadoop/hive/metastore/HiveMetaStore.java,2593,checkTrashPurgeCombination(archiveParentDir, db_name + "." + tbl_name + "." + part_vals, mustPurge);
+metastore/src/java/org/apache/hadoop/hive/metastore/HiveMetaStore.java,2602,checkTrashPurgeCombination(partPath, db_name + "." + tbl_name + "." + part_vals, mustPurge);
+metastore/src/java/org/apache/hadoop/hive/metastore/HiveMetaStore.java,2608,if (tbl != null && !isExternal(tbl)) {
+metastore/src/java/org/apache/hadoop/hive/metastore/HiveMetaStore.java,2761,checkTrashPurgeCombination(archiveParentDir, dbName + "." + tblName + "." + part.getValues(), mustPurge);
+metastore/src/java/org/apache/hadoop/hive/metastore/HiveMetaStore.java,2767,checkTrashPurgeCombination(partPath, dbName + "." + tblName + "." + part.getValues(), mustPurge);
+llap-server/src/java/org/apache/hadoop/hive/llap/security/SecretManager.java,65,zkConf.setLong(DelegationTokenManager.MAX_LIFETIME,
+llap-server/src/java/org/apache/hadoop/hive/llap/security/SecretManager.java,66,HiveConf.getTimeVar(conf, ConfVars.LLAP_DELEGATION_TOKEN_LIFETIME, TimeUnit.SECONDS));
+service/src/java/org/apache/hive/service/server/HiveServer2.java,211,List<ACL> nodeAcls = new ArrayList<ACL>();
+metastore/src/java/org/apache/hadoop/hive/metastore/Deadline.java,35,private long timeout;
+metastore/src/java/org/apache/hadoop/hive/metastore/Deadline.java,40,private long startTime = -1;
+metastore/src/java/org/apache/hadoop/hive/metastore/Deadline.java,47,private Deadline(long timeout) {
+metastore/src/java/org/apache/hadoop/hive/metastore/Deadline.java,48,this.timeout = timeout;
+metastore/src/java/org/apache/hadoop/hive/metastore/Deadline.java,54,private static final ThreadLocal<Deadline> DEADLINE_THREAD_LOCAL = new
+metastore/src/java/org/apache/hadoop/hive/metastore/Deadline.java,55,ThreadLocal<Deadline>() {
+metastore/src/java/org/apache/hadoop/hive/metastore/Deadline.java,62,static void setCurrentDeadline(Deadline deadline) {
+metastore/src/java/org/apache/hadoop/hive/metastore/Deadline.java,70,static void removeCurrentDeadline() {
+metastore/src/java/org/apache/hadoop/hive/metastore/Deadline.java,88,public static void resetTimeout(long timeout) throws MetaException {
+metastore/src/java/org/apache/hadoop/hive/metastore/Deadline.java,89,if (timeout <= 0) {
+metastore/src/java/org/apache/hadoop/hive/metastore/Deadline.java,95,deadline.timeout = timeout;
+metastore/src/java/org/apache/hadoop/hive/metastore/Deadline.java,97,throw newMetaException(new DeadlineException("The threadlocal Deadline is null," +
+metastore/src/java/org/apache/hadoop/hive/metastore/Deadline.java,107,public static boolean isStarted() throws MetaException {
+metastore/src/java/org/apache/hadoop/hive/metastore/Deadline.java,108,Deadline deadline = getCurrentDeadline();
+metastore/src/java/org/apache/hadoop/hive/metastore/Deadline.java,109,if (deadline != null) {
+metastore/src/java/org/apache/hadoop/hive/metastore/Deadline.java,110,return deadline.startTime >= 0;
+metastore/src/java/org/apache/hadoop/hive/metastore/Deadline.java,121,public static void startTimer(String method) throws MetaException {
+metastore/src/java/org/apache/hadoop/hive/metastore/Deadline.java,123,if (deadline != null) {
+metastore/src/java/org/apache/hadoop/hive/metastore/Deadline.java,124,deadline.startTime = System.currentTimeMillis();
+metastore/src/java/org/apache/hadoop/hive/metastore/Deadline.java,125,deadline.method = method;
+metastore/src/java/org/apache/hadoop/hive/metastore/Deadline.java,138,deadline.startTime = -1;
+metastore/src/java/org/apache/hadoop/hive/metastore/Deadline.java,169,if (startTime < 0) {
+metastore/src/java/org/apache/hadoop/hive/metastore/Deadline.java,173,if (startTime + timeout < System.currentTimeMillis()) {
+metastore/src/java/org/apache/hadoop/hive/metastore/Deadline.java,174,throw new DeadlineException("Timeout when executing method: " + method);
+metastore/src/java/org/apache/hadoop/hive/metastore/RawStoreProxy.java,94,Object ret = null;
+metastore/src/java/org/apache/hadoop/hive/metastore/RawStoreProxy.java,95,boolean isTimerStarted = false;
+metastore/src/java/org/apache/hadoop/hive/metastore/RawStoreProxy.java,99,if (!Deadline.isStarted()) {
+metastore/src/java/org/apache/hadoop/hive/metastore/RawStoreProxy.java,100,Deadline.startTimer(method.getName());
+metastore/src/java/org/apache/hadoop/hive/metastore/RawStoreProxy.java,101,isTimerStarted = true;
+metastore/src/java/org/apache/hadoop/hive/metastore/RawStoreProxy.java,105,long timeout = HiveConf.getTimeVar(hiveConf,
+metastore/src/java/org/apache/hadoop/hive/metastore/RawStoreProxy.java,106,HiveConf.ConfVars.METASTORE_CLIENT_SOCKET_TIMEOUT, TimeUnit.MILLISECONDS);
+metastore/src/java/org/apache/hadoop/hive/metastore/RawStoreProxy.java,107,Deadline.registerIfNot(timeout);
+metastore/src/java/org/apache/hadoop/hive/metastore/RawStoreProxy.java,108,Deadline.startTimer(method.getName());
+metastore/src/java/org/apache/hadoop/hive/metastore/RawStoreProxy.java,109,isTimerStarted = true;
+metastore/src/java/org/apache/hadoop/hive/metastore/RawStoreProxy.java,111,ret = method.invoke(base, args);
+metastore/src/java/org/apache/hadoop/hive/metastore/RawStoreProxy.java,113,if (isTimerStarted) {
+metastore/src/java/org/apache/hadoop/hive/metastore/RawStoreProxy.java,114,Deadline.stopTimer();
+metastore/src/java/org/apache/hadoop/hive/metastore/RawStoreProxy.java,121,return ret;
+metastore/src/java/org/apache/hadoop/hive/metastore/RetryingHMSHandler.java,137,Deadline.startTimer(method.getName());
+metastore/src/java/org/apache/hadoop/hive/metastore/RetryingHMSHandler.java,138,Object object = method.invoke(baseHandler, args);
+metastore/src/java/org/apache/hadoop/hive/metastore/RetryingHMSHandler.java,139,Deadline.stopTimer();
+metastore/src/java/org/apache/hadoop/hive/metastore/SessionPropertiesListener.java,39,if (changeEvent.getKey().equals(HiveConf.ConfVars.METASTORE_CLIENT_SOCKET_TIMEOUT.varname)) {
+metastore/src/java/org/apache/hadoop/hive/metastore/SessionPropertiesListener.java,40,Deadline.resetTimeout(HiveConf.toTime(changeEvent.getNewValue(), TimeUnit.SECONDS,
+metastore/src/java/org/apache/hadoop/hive/metastore/SessionPropertiesListener.java,41,TimeUnit.MILLISECONDS));
+orc/src/java/org/apache/orc/OrcFile.java,145,public static final WriterVersion CURRENT_WRITER = WriterVersion.HIVE_12055;
+storage-api/src/java/org/apache/hadoop/hive/ql/exec/vector/DecimalColumnVector.java,111,HiveDecimal hiveDec = writeable.getHiveDecimal(precision, scale);
+storage-api/src/java/org/apache/hadoop/hive/ql/exec/vector/DecimalColumnVector.java,112,if (hiveDec == null) {
+storage-api/src/java/org/apache/hadoop/hive/ql/exec/vector/DecimalColumnVector.java,116,vector[elementNum].set(hiveDec);
+ql/src/java/org/apache/hadoop/hive/ql/optimizer/ConstantPropagateProcFactory.java,509,v = typeCast(v, ci.getType());
+llap-common/src/java/org/apache/hadoop/hive/llap/security/LlapTokenIdentifier.java,62,return -1;
+llap-common/src/java/org/apache/hadoop/hive/llap/security/LlapTokenIdentifier.java,67,return (other != null) && other.getClass().isAssignableFrom(this.getClass());
+shims/common/src/main/java/org/apache/hadoop/hive/thrift/TokenStoreDelegationTokenSecretManager.java,333,Runtime.getRuntime().exit(-1);
+service/src/java/org/apache/hive/service/auth/HiveAuthFactory.java,100,if ("http".equalsIgnoreCase(transportMode)) {
+service/src/java/org/apache/hive/service/auth/HiveAuthFactory.java,101,if (authTypeStr == null) {
+service/src/java/org/apache/hive/service/auth/HiveAuthFactory.java,105,if (authTypeStr == null) {
+service/src/java/org/apache/hive/service/auth/HiveAuthFactory.java,110,.createServer(conf.getVar(ConfVars.HIVE_SERVER2_KERBEROS_KEYTAB),
+service/src/java/org/apache/hive/service/auth/HiveAuthFactory.java,111,conf.getVar(ConfVars.HIVE_SERVER2_KERBEROS_PRINCIPAL));
+service/src/java/org/apache/hive/service/auth/HiveAuthFactory.java,113,try {
+service/src/java/org/apache/hive/service/auth/HiveAuthFactory.java,115,HMSHandler baseHandler = null;
+service/src/java/org/apache/hive/service/auth/HiveAuthFactory.java,116,String tokenStoreClass = conf.getVar(HiveConf.ConfVars.METASTORE_CLUSTER_DELEGATION_TOKEN_STORE_CLS);
+service/src/java/org/apache/hive/service/auth/HiveAuthFactory.java,118,if (tokenStoreClass.equals(DBTokenStore.class.getName())) {
+service/src/java/org/apache/hive/service/auth/HiveAuthFactory.java,119,baseHandler = new HiveMetaStore.HMSHandler("new db based metaserver", conf, true);
+service/src/java/org/apache/hive/service/auth/HiveAuthFactory.java,122,saslServer.startDelegationTokenSecretManager(conf, baseHandler, ServerMode.HIVESERVER2);
+service/src/java/org/apache/hive/service/auth/HiveAuthFactory.java,124,catch (MetaException|IOException e) {
+service/src/java/org/apache/hive/service/auth/HiveAuthFactory.java,125,throw new TTransportException("Failed to start token manager", e);

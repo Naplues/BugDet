@@ -1,0 +1,243 @@
+File,Line_number,SRC
+src/java/main/org/apache/zookeeper/server/DataTree.java,929,ProcessTxnResult subRc = processTxn(subHdr, record);
+src/java/main/org/apache/zookeeper/server/DataTree.java,961,if (rc.zxid > lastProcessedZxid) {
+src/java/main/org/apache/zookeeper/server/DataTree.java,962,lastProcessedZxid = rc.zxid;
+src/java/main/org/apache/zookeeper/server/ZKDatabase.java,98,dataTree = new DataTree();
+src/java/main/org/apache/zookeeper/server/ZKDatabase.java,124,dataTree = new DataTree();
+src/java/main/org/apache/zookeeper/server/admin/Commands.java,177,response.put("connections", zkServer.getServerCnxnFactory().getAllConnectionInfo(false));
+src/java/main/org/apache/zookeeper/ClientCnxn.java,798,private Random r = new Random(System.nanoTime());
+src/java/main/org/apache/zookeeper/server/SyncRequestProcessor.java,64,private final Random r = new Random(System.nanoTime());
+src/java/main/org/apache/zookeeper/ClientCnxn.java,673,private void finishPacket(Packet p) {
+src/java/main/org/apache/zookeeper/ClientCnxn.java,1245,cleanup();
+src/java/main/org/apache/zookeeper/ClientCnxn.java,1246,if (state.isAlive()) {
+src/java/main/org/apache/zookeeper/ClientCnxn.java,1247,eventThread.queueEvent(new WatchedEvent(
+src/java/main/org/apache/zookeeper/ClientCnxn.java,1248,Event.EventType.None,
+src/java/main/org/apache/zookeeper/ClientCnxn.java,1249,Event.KeeperState.Disconnected,
+src/java/main/org/apache/zookeeper/ClientCnxn.java,1250,null));
+src/java/main/org/apache/zookeeper/ClientCnxn.java,1252,clientCnxnSocket.updateNow();
+src/java/main/org/apache/zookeeper/ClientCnxn.java,1253,clientCnxnSocket.updateLastSendAndHeard();
+src/java/main/org/apache/zookeeper/ClientCnxn.java,1498,while (!packet.finished) {
+src/java/main/org/apache/zookeeper/ClientCnxn.java,1499,packet.wait();
+src/java/main/org/apache/zookeeper/ZooKeeper.java,878,cnxn = new ClientCnxn(connectStringParser.getChrootPath(),
+src/java/main/org/apache/zookeeper/client/StaticHostProvider.java,74,sourceOfRandomness = new Random(System.currentTimeMillis() ^ this.hashCode());
+src/java/main/org/apache/zookeeper/client/StaticHostProvider.java,76,this.serverAddresses = resolveAndShuffle(serverAddresses);
+src/java/main/org/apache/zookeeper/client/StaticHostProvider.java,77,if (this.serverAddresses.isEmpty()) {
+src/java/main/org/apache/zookeeper/client/StaticHostProvider.java,78,throw new IllegalArgumentException(
+src/java/main/org/apache/zookeeper/client/StaticHostProvider.java,81,currentIndex = -1;
+src/java/main/org/apache/zookeeper/client/StaticHostProvider.java,82,lastIndex = -1;
+src/java/main/org/apache/zookeeper/client/StaticHostProvider.java,97,sourceOfRandomness = new Random(randomnessSeed);
+src/java/main/org/apache/zookeeper/client/StaticHostProvider.java,99,this.serverAddresses = resolveAndShuffle(serverAddresses);
+src/java/main/org/apache/zookeeper/client/StaticHostProvider.java,100,if (this.serverAddresses.isEmpty()) {
+src/java/main/org/apache/zookeeper/client/StaticHostProvider.java,105,lastIndex = -1;
+src/java/main/org/apache/zookeeper/client/StaticHostProvider.java,108,private List<InetSocketAddress> resolveAndShuffle(Collection<InetSocketAddress> serverAddresses) {
+src/java/main/org/apache/zookeeper/client/StaticHostProvider.java,109,List<InetSocketAddress> tmpList = new ArrayList<InetSocketAddress>(serverAddresses.size());
+src/java/main/org/apache/zookeeper/client/StaticHostProvider.java,110,for (InetSocketAddress address : serverAddresses) {
+src/java/main/org/apache/zookeeper/client/StaticHostProvider.java,111,try {
+src/java/main/org/apache/zookeeper/client/StaticHostProvider.java,112,InetAddress ia = address.getAddress();
+src/java/main/org/apache/zookeeper/client/StaticHostProvider.java,113,String addr = (ia != null) ? ia.getHostAddress() : address.getHostString();
+src/java/main/org/apache/zookeeper/client/StaticHostProvider.java,114,InetAddress resolvedAddresses[] = InetAddress.getAllByName(addr);
+src/java/main/org/apache/zookeeper/client/StaticHostProvider.java,115,for (InetAddress resolvedAddress : resolvedAddresses) {
+src/java/main/org/apache/zookeeper/client/StaticHostProvider.java,116,InetAddress taddr = InetAddress.getByAddress(address.getHostString(), resolvedAddress.getAddress());
+src/java/main/org/apache/zookeeper/client/StaticHostProvider.java,117,tmpList.add(new InetSocketAddress(taddr, address.getPort()));
+src/java/main/org/apache/zookeeper/client/StaticHostProvider.java,120,LOG.warn("No IP address found for server: {}", address, ex);
+src/java/main/org/apache/zookeeper/client/StaticHostProvider.java,155,List<InetSocketAddress> resolvedList = resolveAndShuffle(serverAddresses);
+src/java/main/org/apache/zookeeper/client/StaticHostProvider.java,156,if (resolvedList.isEmpty()) {
+src/java/main/org/apache/zookeeper/client/StaticHostProvider.java,182,for (InetSocketAddress addr : resolvedList) {
+src/java/main/org/apache/zookeeper/client/StaticHostProvider.java,199,for (InetSocketAddress resolvedAddress : resolvedList) {
+src/java/main/org/apache/zookeeper/client/StaticHostProvider.java,200,if (this.serverAddresses.contains(resolvedAddress)) {
+src/java/main/org/apache/zookeeper/client/StaticHostProvider.java,201,oldServers.add(resolvedAddress);
+src/java/main/org/apache/zookeeper/client/StaticHostProvider.java,203,newServers.add(resolvedAddress);
+src/java/main/org/apache/zookeeper/client/StaticHostProvider.java,244,currentIndex = resolvedList.indexOf(getServerAtCurrentIndex());
+src/java/main/org/apache/zookeeper/client/StaticHostProvider.java,248,this.serverAddresses = resolvedList;
+src/java/main/org/apache/zookeeper/client/StaticHostProvider.java,313,return addr;
+src/java/main/org/apache/zookeeper/client/StaticHostProvider.java,338,return addr;
+src/java/main/org/apache/zookeeper/ClientCnxn.java,824,Watcher.Event.KeeperState.AuthFailed, null) );
+src/java/main/org/apache/zookeeper/server/NIOServerCnxnFactory.java,818,private void addCnxn(NIOServerCnxn cnxn) {
+src/java/main/org/apache/zookeeper/server/admin/JsonOutputter.java,21,import java.io.IOException;
+src/java/main/org/apache/zookeeper/server/admin/JsonOutputter.java,22,import java.io.PrintWriter;
+src/java/main/org/apache/zookeeper/server/admin/JsonOutputter.java,23,import java.util.Map;
+src/java/main/org/apache/zookeeper/server/admin/JsonOutputter.java,25,import org.codehaus.jackson.JsonGenerationException;
+src/java/main/org/apache/zookeeper/server/admin/JsonOutputter.java,26,import org.codehaus.jackson.map.JsonMappingException;
+src/java/main/org/apache/zookeeper/server/admin/JsonOutputter.java,27,import org.codehaus.jackson.map.ObjectMapper;
+src/java/main/org/apache/zookeeper/server/admin/JsonOutputter.java,28,import org.codehaus.jackson.map.PropertyNamingStrategy;
+src/java/main/org/apache/zookeeper/server/admin/JsonOutputter.java,29,import org.codehaus.jackson.map.SerializationConfig;
+src/java/main/org/apache/zookeeper/server/admin/JsonOutputter.java,42,mapper.configure(SerializationConfig.Feature.WRITE_ENUMS_USING_TO_STRING, true);
+src/java/main/org/apache/zookeeper/server/admin/JsonOutputter.java,43,mapper.configure(SerializationConfig.Feature.INDENT_OUTPUT, true);
+src/java/main/org/apache/zookeeper/server/admin/JsonOutputter.java,44,mapper.setPropertyNamingStrategy(PropertyNamingStrategy.CAMEL_CASE_TO_LOWER_CASE_WITH_UNDERSCORES);
+src/java/main/org/apache/zookeeper/common/PathUtils.java,93,reason = "invalid charater @" + i;
+src/java/main/org/apache/zookeeper/server/quorum/Leader.java,95,private boolean quorumFormed = false;
+src/java/main/org/apache/zookeeper/server/quorum/Leader.java,349,private final Proposal newLeaderProposal = new Proposal();
+src/java/main/org/apache/zookeeper/server/quorum/Leader.java,493,waitForNewLeaderAck(self.getId(), zk.getZxid(), LearnerType.PARTICIPANT);
+src/java/main/org/apache/zookeeper/server/quorum/Leader.java,1168,private final HashSet<Long> connectingFollowers = new HashSet<Long>();
+src/java/main/org/apache/zookeeper/server/quorum/Leader.java,1177,connectingFollowers.add(sid);
+src/java/main/org/apache/zookeeper/server/quorum/Leader.java,1200,private final HashSet<Long> electingFollowers = new HashSet<Long>();
+src/java/main/org/apache/zookeeper/server/quorum/Leader.java,1201,private boolean electionFinished = false;
+src/java/main/org/apache/zookeeper/server/quorum/Leader.java,1215,electingFollowers.add(id);
+src/java/main/org/apache/zookeeper/server/quorum/LearnerHandler.java,491,leader.waitForNewLeaderAck(getSid(), qp.getZxid(), getLearnerType());
+src/java/main/org/apache/zookeeper/cli/CreateCommand.java,103,EphemeralType.ttlToEphemeralOwner(ttl);
+src/java/main/org/apache/zookeeper/server/ContainerManager.java,161,long elapsed = getElapsed(node);
+src/java/main/org/apache/zookeeper/server/ContainerManager.java,162,long ttl = EphemeralType.getTTL(node.stat.getEphemeralOwner());
+src/java/main/org/apache/zookeeper/server/ContainerManager.java,163,if ((ttl != 0) && (elapsed > ttl)) {
+src/java/main/org/apache/zookeeper/server/ContainerManager.java,164,candidates.add(ttlPath);
+src/java/main/org/apache/zookeeper/server/DataTree.java,818,EphemeralType.ttlToEphemeralOwner(createTtlTxn.getTtl()),
+src/java/main/org/apache/zookeeper/server/EphemeralType.java,39,TTL;
+src/java/main/org/apache/zookeeper/server/EphemeralType.java,42,public static final long MAX_TTL = 0x0fffffffffffffffL;
+src/java/main/org/apache/zookeeper/server/EphemeralType.java,43,public static final long TTL_MASK = 0x8000000000000000L;
+src/java/main/org/apache/zookeeper/server/EphemeralType.java,49,if (ephemeralOwner < 0) {
+src/java/main/org/apache/zookeeper/server/EphemeralType.java,50,return TTL;
+src/java/main/org/apache/zookeeper/server/EphemeralType.java,57,ttlToEphemeralOwner(ttl);
+src/java/main/org/apache/zookeeper/server/EphemeralType.java,63,public static long getTTL(long ephemeralOwner) {
+src/java/main/org/apache/zookeeper/server/EphemeralType.java,64,if ((ephemeralOwner < 0) && (ephemeralOwner != CONTAINER_EPHEMERAL_OWNER)) {
+src/java/main/org/apache/zookeeper/server/EphemeralType.java,65,return (ephemeralOwner & MAX_TTL);
+src/java/main/org/apache/zookeeper/server/EphemeralType.java,67,return 0;
+src/java/main/org/apache/zookeeper/server/EphemeralType.java,70,public static long ttlToEphemeralOwner(long ttl) {
+src/java/main/org/apache/zookeeper/server/EphemeralType.java,71,if ((ttl > MAX_TTL) || (ttl <= 0)) {
+src/java/main/org/apache/zookeeper/server/EphemeralType.java,72,throw new IllegalArgumentException("ttl must be positive and cannot be larger than: " + MAX_TTL);
+src/java/main/org/apache/zookeeper/server/EphemeralType.java,74,return TTL_MASK | ttl;
+src/java/main/org/apache/zookeeper/server/ZooKeeperServer.java,475,tickTime, 1, getZooKeeperServerListener());
+src/java/main/org/apache/zookeeper/server/quorum/FastLeaderElection.java,25,import java.util.HashSet;
+src/java/main/org/apache/zookeeper/server/quorum/FastLeaderElection.java,325,if(!self.getCurrentAndNextConfigVoters().contains(response.sid)) {
+src/java/main/org/apache/zookeeper/server/quorum/FastLeaderElection.java,930,else if (self.getCurrentAndNextConfigVoters().contains(n.sid)) {
+src/java/main/org/apache/zookeeper/server/quorum/FastLeaderElection.java,1059,LOG.warn("Ignoring notification from non-cluster member " + n.sid);
+src/java/main/org/apache/zookeeper/server/ZKDatabase.java,279,snapSize = snapLog.findMostRecentSnapshot().length();
+src/java/main/org/apache/zookeeper/server/ContainerManager.java,119,LOG.info("Attempting to delete candidate container: %s",
+src/java/main/org/apache/zookeeper/server/ContainerManager.java,123,LOG.error(String.format("Could not delete container: %s" ,
+src/java/main/org/apache/zookeeper/server/ContainerManager.java,124,containerPath), e);
+src/java/main/org/apache/zookeeper/server/ZKDatabase.java,218,PlayBackListener listener=new PlayBackListener(){
+src/java/main/org/apache/zookeeper/server/ZKDatabase.java,219,public void onTxnLoaded(TxnHeader hdr,Record txn){
+src/java/main/org/apache/zookeeper/server/ZKDatabase.java,220,Request r = new Request(0, hdr.getCxid(),hdr.getType(), hdr, txn, hdr.getZxid());
+src/java/main/org/apache/zookeeper/server/ZKDatabase.java,221,addCommittedProposal(r);
+src/java/main/org/apache/zookeeper/server/ZKDatabase.java,225,long zxid = snapLog.restore(dataTree,sessionsWithTimeouts,listener);
+src/java/main/org/apache/zookeeper/server/ZooKeeperServer.java,555,if (fullyShutDown && zkDb != null) {
+src/java/main/org/apache/zookeeper/server/ZooKeeperServer.java,556,zkDb.clear();
+src/java/main/org/apache/zookeeper/ZooKeeper.java,518,addTo(existWatches.remove(clientPath), result);
+src/java/main/org/apache/zookeeper/ClientCnxnSocketNetty.java,115,bootstrap.setPipelineFactory(new ZKClientPipelineFactory());
+src/java/main/org/apache/zookeeper/ClientCnxnSocketNetty.java,366,sslEngine = sslContext.createSSLEngine();
+src/java/main/org/apache/zookeeper/server/quorum/QuorumPeer.java,467,volatile boolean running = true;
+src/java/main/org/apache/zookeeper/server/quorum/QuorumPeer.java,1686,public void setRunning(boolean running) {
+src/java/main/org/apache/zookeeper/server/quorum/QuorumPeer.java,1687,this.running = running;
+src/java/main/org/apache/zookeeper/server/ZooKeeperServer.java,187,pwriter.println(zkDb.snapLog.getDataDir().getAbsolutePath());
+src/java/main/org/apache/zookeeper/server/ZooKeeperServer.java,191,pwriter.println(zkDb.snapLog.getSnapDir().getAbsolutePath());
+src/java/main/org/apache/zookeeper/server/persistence/FileTxnLog.java,241,private void padFile(FileOutputStream out) throws IOException {
+src/java/main/org/apache/zookeeper/server/persistence/FileTxnLog.java,242,currentSize = Util.padLogFile(out, currentSize, preAllocSize);
+src/java/main/org/apache/zookeeper/server/persistence/Util.java,24,import java.io.FileOutputStream;
+src/java/main/org/apache/zookeeper/server/persistence/Util.java,54,private static final ByteBuffer fill = ByteBuffer.allocateDirect(1);
+src/java/main/org/apache/zookeeper/server/persistence/Util.java,213,public static long padLogFile(FileOutputStream f,long currentSize,
+src/java/main/org/apache/zookeeper/server/persistence/Util.java,214,long preAllocSize) throws IOException{
+src/java/main/org/apache/zookeeper/server/persistence/Util.java,215,long position = f.getChannel().position();
+src/java/main/org/apache/zookeeper/server/persistence/Util.java,216,if (position + 4096 >= currentSize) {
+src/java/main/org/apache/zookeeper/server/persistence/Util.java,217,currentSize = currentSize + preAllocSize;
+src/java/main/org/apache/zookeeper/server/persistence/Util.java,218,fill.position(0);
+src/java/main/org/apache/zookeeper/server/persistence/Util.java,219,f.getChannel().write(fill, currentSize-fill.remaining());
+src/java/main/org/apache/zookeeper/server/persistence/Util.java,221,return currentSize;
+src/java/main/org/apache/zookeeper/ClientCnxn.java,1056,private void startConnect() throws IOException {
+src/java/main/org/apache/zookeeper/ClientCnxn.java,1066,InetSocketAddress addr;
+src/java/main/org/apache/zookeeper/ClientCnxn.java,1067,if (rwServerAddress != null) {
+src/java/main/org/apache/zookeeper/ClientCnxn.java,1068,addr = rwServerAddress;
+src/java/main/org/apache/zookeeper/ClientCnxn.java,1069,rwServerAddress = null;
+src/java/main/org/apache/zookeeper/ClientCnxn.java,1071,addr = hostProvider.next(1000);
+src/java/main/org/apache/zookeeper/ClientCnxn.java,1133,startConnect();
+src/java/main/org/apache/zookeeper/ClientCnxn.java,1235,LOG.warn(
+src/java/main/org/apache/zookeeper/ClientCnxn.java,1238,+ " for server "
+src/java/main/org/apache/zookeeper/ClientCnxn.java,1240,+ ", unexpected error"
+src/java/main/org/apache/zookeeper/ClientCnxn.java,1241,+ RETRY_CONN_MSG, e);
+src/recipes/lock/src/java/org/apache/zookeeper/recipes/lock/ZNodeName.java,78,int answer = this.prefix.compareTo(that.prefix);
+src/recipes/lock/src/java/org/apache/zookeeper/recipes/lock/ZNodeName.java,80,int s1 = this.sequence;
+src/recipes/lock/src/java/org/apache/zookeeper/recipes/lock/ZNodeName.java,81,int s2 = that.sequence;
+src/recipes/lock/src/java/org/apache/zookeeper/recipes/lock/ZNodeName.java,82,if (s1 == -1 && s2 == -1) {
+src/recipes/lock/src/java/org/apache/zookeeper/recipes/lock/ZNodeName.java,83,return this.name.compareTo(that.name);
+src/recipes/lock/src/java/org/apache/zookeeper/recipes/lock/ZNodeName.java,85,answer = s1 == -1 ? 1 : s2 == -1 ? -1 : s1 - s2;
+src/java/main/org/apache/zookeeper/jmx/ManagedUtil.java,72,Object hdm = Class.forName("org.apache.log4j.jmx.HierarchyDynamicMBean").newInstance();
+src/java/main/org/apache/zookeeper/server/NIOServerCnxn.java,255,directBuffer.remaining());
+src/java/main/org/apache/zookeeper/server/auth/ProviderRegistry.java,52,AuthenticationProvider ap = (AuthenticationProvider) c
+src/java/main/org/apache/zookeeper/server/auth/X509AuthenticationProvider.java,67,public X509AuthenticationProvider() {
+src/java/main/org/apache/zookeeper/server/auth/X509AuthenticationProvider.java,75,try {
+src/java/main/org/apache/zookeeper/server/auth/X509AuthenticationProvider.java,76,km = X509Util.createKeyManager(
+src/java/main/org/apache/zookeeper/server/auth/X509AuthenticationProvider.java,77,keyStoreLocationProp, keyStorePasswordProp);
+src/java/main/org/apache/zookeeper/server/auth/X509AuthenticationProvider.java,79,LOG.error("Failed to create key manager", e);
+src/java/main/org/apache/zookeeper/server/auth/X509AuthenticationProvider.java,87,try {
+src/java/main/org/apache/zookeeper/server/auth/X509AuthenticationProvider.java,88,tm = X509Util.createTrustManager(
+src/java/main/org/apache/zookeeper/server/auth/X509AuthenticationProvider.java,89,trustStoreLocationProp, trustStorePasswordProp);
+src/java/main/org/apache/zookeeper/server/auth/X509AuthenticationProvider.java,91,LOG.error("Failed to create trust manager", e);
+src/java/main/org/apache/zookeeper/server/NettyServerCnxn.java,112,channel.close();
+src/java/main/org/apache/zookeeper/server/NettyServerCnxn.java,169,if (!channel.isOpen()) {
+src/java/main/org/apache/zookeeper/server/persistence/FileTxnLog.java,196,if (hdr != null) {
+src/java/main/org/apache/zookeeper/server/persistence/FileTxnLog.java,197,if (hdr.getZxid() <= lastZxidSeen) {
+src/java/main/org/apache/zookeeper/server/persistence/FileTxnLog.java,199,+ " is <= " + lastZxidSeen + " for "
+src/java/main/org/apache/zookeeper/server/persistence/FileTxnLog.java,200,+ hdr.getType());
+src/java/main/org/apache/zookeeper/server/persistence/FileTxnLog.java,202,if (logStream==null) {
+src/java/main/org/apache/zookeeper/server/persistence/FileTxnLog.java,203,if(LOG.isInfoEnabled()){
+src/java/main/org/apache/zookeeper/server/persistence/FileTxnLog.java,204,LOG.info("Creating new log file: log." +
+src/java/main/org/apache/zookeeper/server/persistence/FileTxnLog.java,205,Long.toHexString(hdr.getZxid()));
+src/java/main/org/apache/zookeeper/server/persistence/FileTxnLog.java,208,logFileWrite = new File(logDir, ("log." +
+src/java/main/org/apache/zookeeper/server/persistence/FileTxnLog.java,209,Long.toHexString(hdr.getZxid())));
+src/java/main/org/apache/zookeeper/server/persistence/FileTxnLog.java,210,fos = new FileOutputStream(logFileWrite);
+src/java/main/org/apache/zookeeper/server/persistence/FileTxnLog.java,211,logStream=new BufferedOutputStream(fos);
+src/java/main/org/apache/zookeeper/server/persistence/FileTxnLog.java,212,oa = BinaryOutputArchive.getArchive(logStream);
+src/java/main/org/apache/zookeeper/server/persistence/FileTxnLog.java,213,FileHeader fhdr = new FileHeader(TXNLOG_MAGIC,VERSION, dbId);
+src/java/main/org/apache/zookeeper/server/persistence/FileTxnLog.java,214,fhdr.serialize(oa, "fileheader");
+src/java/main/org/apache/zookeeper/server/persistence/FileTxnLog.java,216,logStream.flush();
+src/java/main/org/apache/zookeeper/server/persistence/FileTxnLog.java,217,currentSize = fos.getChannel().position();
+src/java/main/org/apache/zookeeper/server/persistence/FileTxnLog.java,218,streamsToFlush.add(fos);
+src/java/main/org/apache/zookeeper/server/persistence/FileTxnLog.java,220,padFile(fos);
+src/java/main/org/apache/zookeeper/server/persistence/FileTxnLog.java,221,byte[] buf = Util.marshallTxnEntry(hdr, txn);
+src/java/main/org/apache/zookeeper/server/persistence/FileTxnLog.java,222,if (buf == null || buf.length == 0) {
+src/java/main/org/apache/zookeeper/server/persistence/FileTxnLog.java,223,throw new IOException("Faulty serialization for header " +
+src/java/main/org/apache/zookeeper/server/persistence/FileTxnLog.java,226,Checksum crc = makeChecksumAlgorithm();
+src/java/main/org/apache/zookeeper/server/persistence/FileTxnLog.java,227,crc.update(buf, 0, buf.length);
+src/java/main/org/apache/zookeeper/server/persistence/FileTxnLog.java,228,oa.writeLong(crc.getValue(), "txnEntryCRC");
+src/java/main/org/apache/zookeeper/server/persistence/FileTxnLog.java,229,Util.writeTxnBytes(oa, buf);
+src/java/main/org/apache/zookeeper/server/persistence/FileTxnLog.java,231,return true;
+src/java/main/org/apache/zookeeper/server/persistence/FileTxnLog.java,233,return false;
+src/java/main/org/apache/zookeeper/server/persistence/FileTxnLog.java,478,return rc;
+src/java/main/org/apache/zookeeper/server/persistence/FileTxnLog.java,630,throw new IOException("Transaction log: " + this.logFile + " has invalid magic number "
+src/java/main/org/apache/zookeeper/server/ZKDatabase.java,83,private double snapshotSizeFactor = 0.33;
+src/java/main/org/apache/zookeeper/server/ZKDatabase.java,272,public double getSnapshotSizeFactor() {
+src/java/main/org/apache/zookeeper/server/ZKDatabase.java,273,return snapshotSizeFactor;
+src/java/main/org/apache/zookeeper/server/quorum/LearnerHandler.java,674,boolean txnLogSyncEnabled = (db.getSnapshotSizeFactor() >= 0);
+src/java/main/org/apache/zookeeper/server/quorum/QuorumPeerConfig.java,363,if (isDistributed()) {
+src/contrib/zooinspector/src/java/org/apache/zookeeper/retry/ZooKeeperRetry.java,225,return super.setACL(path, acl, version);
+src/java/main/org/apache/zookeeper/ZooKeeper.java,2400,request.setVersion(version);
+src/java/main/org/apache/zookeeper/server/quorum/Learner.java,373,LOG.info("Getting a snapshot from leader");
+src/java/main/org/apache/zookeeper/server/quorum/Learner.java,402,zk.getZKDatabase().setlastProcessedZxid(qp.getZxid());
+src/java/main/org/apache/zookeeper/server/auth/SASLAuthenticationProvider.java,41,if (System.getProperty("zookeeper.superUser") != null) {
+src/java/main/org/apache/zookeeper/server/auth/SASLAuthenticationProvider.java,42,if (id.equals(System.getProperty("zookeeper.superUser")) || id.equals(aclExpr)) {
+src/java/main/org/apache/zookeeper/server/auth/SASLAuthenticationProvider.java,43,return true;
+src/java/main/org/apache/zookeeper/server/DataTree.java,230,private DataNode configDataNode = new DataNode(new byte[0], -1L, new StatPersisted());
+src/java/main/org/apache/zookeeper/server/DataTree.java,256,nodes.put(configZookeeper, configDataNode);
+src/java/main/org/apache/zookeeper/server/DataTree.java,1330,watcher.process(new WatchedEvent(EventType.NodeDeleted,
+src/java/main/org/apache/zookeeper/server/DataTree.java,1333,watcher.process(new WatchedEvent(EventType.NodeDataChanged,
+src/java/main/org/apache/zookeeper/server/DataTree.java,1342,watcher.process(new WatchedEvent(EventType.NodeCreated,
+src/java/main/org/apache/zookeeper/server/DataTree.java,1351,watcher.process(new WatchedEvent(EventType.NodeDeleted,
+src/java/main/org/apache/zookeeper/server/DataTree.java,1354,watcher.process(new WatchedEvent(EventType.NodeChildrenChanged,
+src/java/main/org/apache/zookeeper/server/ZKDatabase.java,573,LOG.warn("configuration znode missing (hould only happen during upgrade), creating the node");
+src/java/main/org/apache/zookeeper/server/PrepRequestProcessor.java,657,ttl = 0;
+src/java/main/org/apache/zookeeper/server/PrepRequestProcessor.java,660,validateCreateRequest(createMode, request);
+src/java/main/org/apache/zookeeper/cli/DelQuotaCommand.java,98,throws KeeperException, IOException, InterruptedException {
+src/java/main/org/apache/zookeeper/cli/DeleteCommand.java,83,zk.delete(path, version);
+src/java/main/org/apache/zookeeper/cli/RemoveWatchesCommand.java,65,public boolean exec() throws CliWrapperException {
+src/java/main/org/apache/zookeeper/cli/SetQuotaCommand.java,94,throws KeeperException, IOException, InterruptedException {
+src/java/main/org/apache/zookeeper/cli/SetQuotaCommand.java,98,Stat initStat = zk.exists(path, false);
+src/java/main/org/apache/zookeeper/cli/SyncCommand.java,60,zk.sync(path, new AsyncCallback.VoidCallback() {
+src/java/main/org/apache/zookeeper/cli/SyncCommand.java,62,public void processResult(int rc, String path, Object ctx) {
+src/java/main/org/apache/zookeeper/cli/SyncCommand.java,63,out.println("Sync returned " + rc);
+src/java/main/org/apache/zookeeper/server/quorum/QuorumZooKeeperServer.java,65,if (request.type != OpCode.create ||
+src/java/main/org/apache/zookeeper/server/quorum/QuorumZooKeeperServer.java,69,CreateRequest createRequest = new CreateRequest();
+src/java/main/org/apache/zookeeper/server/quorum/QuorumZooKeeperServer.java,70,request.request.rewind();
+src/java/main/org/apache/zookeeper/server/quorum/QuorumZooKeeperServer.java,71,ByteBufferInputStream.byteBuffer2Record(request.request, createRequest);
+src/java/main/org/apache/zookeeper/server/quorum/QuorumZooKeeperServer.java,72,request.request.rewind();
+src/java/main/org/apache/zookeeper/server/quorum/QuorumZooKeeperServer.java,73,CreateMode createMode = CreateMode.fromFlag(createRequest.getFlags());
+src/java/main/org/apache/zookeeper/server/quorum/QuorumZooKeeperServer.java,74,if (!createMode.isEphemeral()) {
+src/java/main/org/apache/zookeeper/server/quorum/QuorumZooKeeperServer.java,75,return null;
+src/java/main/org/apache/zookeeper/server/NettyServerCnxn.java,114,factory.unregisterConnection(this);
+src/java/main/org/apache/zookeeper/server/ZooKeeperServer.java,1090,if (h.getType() == OpCode.sasl) {
+src/java/main/org/apache/zookeeper/server/ZooKeeperServer.java,1091,Record rsp = processSasl(incomingBuffer,cnxn);
+src/java/main/org/apache/zookeeper/server/ZooKeeperServer.java,1092,ReplyHeader rh = new ReplyHeader(h.getXid(), 0, KeeperException.Code.OK.intValue());
+src/java/main/org/apache/zookeeper/server/ZooKeeperServer.java,1093,cnxn.sendResponse(rh,rsp, "response"); // not sure about 3rd arg..what is it?
+src/java/main/org/apache/zookeeper/server/ZooKeeperServer.java,1095,else {
+src/java/main/org/apache/zookeeper/server/ZooKeeperServer.java,1096,Request si = new Request(cnxn, cnxn.getSessionId(), h.getXid(),
+src/java/main/org/apache/zookeeper/server/ZooKeeperServer.java,1097,h.getType(), incomingBuffer, cnxn.getAuthInfo());
+src/java/main/org/apache/zookeeper/server/ZooKeeperServer.java,1098,si.setOwner(ServerCnxn.me);
+src/java/main/org/apache/zookeeper/server/ZooKeeperServer.java,1101,setLocalSessionFlag(si);
+src/java/main/org/apache/zookeeper/server/ZooKeeperServer.java,1102,submitRequest(si);
+src/java/main/org/apache/zookeeper/server/ZooKeeperServer.java,1105,cnxn.incrOutstandingRequests(h);

@@ -1,0 +1,669 @@
+File,Line_number,SRC
+ql/src/java/org/apache/hadoop/hive/ql/io/orc/RecordReaderUtils.java,90,long start = index.getEntry(group).getPositions(posn);
+ql/src/java/org/apache/hadoop/hive/ql/io/orc/InStream.java,122,for(DiskRange curRange : bytes) {
+ql/src/java/org/apache/hadoop/hive/ql/exec/SecureCmdDoAs.java,48,ShimLoader.getHadoopShims().addDelegationTokens(fs, cred, uname);
+shims/common/src/main/java/org/apache/hadoop/hive/shims/Utils.java,162,krbOptions.put("doNotPrompt", "true");
+shims/common/src/main/java/org/apache/hadoop/hive/shims/Utils.java,163,krbOptions.put("storeKey", "true");
+shims/common/src/main/java/org/apache/hadoop/hive/shims/Utils.java,164,krbOptions.put("useKeyTab", "true");
+shims/common/src/main/java/org/apache/hadoop/hive/shims/Utils.java,165,krbOptions.put("principal", principal);
+shims/common/src/main/java/org/apache/hadoop/hive/shims/Utils.java,166,krbOptions.put("keyTab", keyTabFile);
+ql/src/java/org/apache/hadoop/hive/ql/exec/mr/ExecDriver.java,401,JobClient jc = new JobClient(job);
+beeline/src/java/org/apache/hive/beeline/ClassNameCompleter.java,126,File file = new File(url.getFile());
+beeline/src/java/org/apache/hive/beeline/ClassNameCompleter.java,128,if (file.isDirectory()) {
+beeline/src/java/org/apache/hive/beeline/ClassNameCompleter.java,129,Set files = getClassFiles(file.getAbsolutePath(), new HashSet(), file, new int[]{200});
+beeline/src/java/org/apache/hive/beeline/ClassNameCompleter.java,130,classes.addAll(files);
+beeline/src/java/org/apache/hive/beeline/ClassNameCompleter.java,132,continue;
+beeline/src/java/org/apache/hive/beeline/ClassNameCompleter.java,135,if ((file == null) || !file.isFile()) {
+beeline/src/java/org/apache/hive/beeline/ClassNameCompleter.java,136,continue;
+beeline/src/java/org/apache/hive/beeline/ClassNameCompleter.java,139,JarFile jf = new JarFile(file);
+beeline/src/java/org/apache/hive/beeline/ClassNameCompleter.java,141,for (Enumeration e = jf.entries(); e.hasMoreElements(); ) {
+beeline/src/java/org/apache/hive/beeline/ClassNameCompleter.java,142,JarEntry entry = (JarEntry) e.nextElement();
+beeline/src/java/org/apache/hive/beeline/ClassNameCompleter.java,144,if (entry == null) {
+beeline/src/java/org/apache/hive/beeline/ClassNameCompleter.java,145,continue;
+beeline/src/java/org/apache/hive/beeline/ClassNameCompleter.java,148,String name = entry.getName();
+beeline/src/java/org/apache/hive/beeline/ClassNameCompleter.java,150,if (isClazzFile(name)) {
+beeline/src/java/org/apache/hive/beeline/ClassNameCompleter.java,152,classes.add(name);
+beeline/src/java/org/apache/hive/beeline/ClassNameCompleter.java,154,classes.addAll(getClassNamesFromJar(name));
+beeline/src/java/org/apache/hive/beeline/ClassNameCompleter.java,156,continue;
+service/src/java/org/apache/hive/service/cli/Column.java,352,doubleVars()[size] = field == null ? 0 : ((Float)field).doubleValue();
+ql/src/java/org/apache/hadoop/hive/ql/parse/BaseSemanticAnalyzer.java,1334,value = ((DateWritable) colValue).get();
+ql/src/java/org/apache/hadoop/hive/ql/udf/UDFDayOfMonth.java,90,calendar.setTime(d.get());
+ql/src/java/org/apache/hadoop/hive/ql/udf/UDFMonth.java,88,calendar.setTime(d.get());
+ql/src/java/org/apache/hadoop/hive/ql/udf/UDFWeekOfYear.java,87,calendar.setTime(d.get());
+ql/src/java/org/apache/hadoop/hive/ql/udf/UDFYear.java,90,calendar.setTime(d.get());
+serde/src/java/org/apache/hadoop/hive/serde2/io/DateWritable.java,104,return new Date(daysToMillis(daysSinceEpoch));
+serde/src/java/org/apache/hadoop/hive/serde2/io/DateWritable.java,125,long millisUtc = d * MILLIS_PER_DAY;
+serde/src/java/org/apache/hadoop/hive/serde2/io/DateWritable.java,126,long tmp =  millisUtc - LOCAL_TIMEZONE.get().getOffset(millisUtc);
+serde/src/java/org/apache/hadoop/hive/serde2/io/DateWritable.java,129,return millisUtc - LOCAL_TIMEZONE.get().getOffset(tmp);
+serde/src/java/org/apache/hadoop/hive/serde2/io/DateWritable.java,138,days = (int) ((millisUtc - 86399999) / MILLIS_PER_DAY);
+serde/src/java/org/apache/hadoop/hive/serde2/io/DateWritable.java,185,return get().toString();
+service/src/java/org/apache/hive/service/cli/ColumnValue.java,259,private static Date getDateValue(TStringValue tStringValue) {
+service/src/java/org/apache/hive/service/cli/ColumnValue.java,260,if (tStringValue.isSetValue()) {
+service/src/java/org/apache/hive/service/cli/ColumnValue.java,261,return Date.valueOf(tStringValue.getValue());
+service/src/java/org/apache/hive/service/cli/ColumnValue.java,263,return null;
+jdbc/src/java/org/apache/hive/jdbc/HiveConnection.java,87,import org.apache.http.conn.ssl.SSLSocketFactory;
+jdbc/src/java/org/apache/hive/jdbc/HiveConnection.java,324,HttpClients.custom().setServiceUnavailableRetryStrategy(
+jdbc/src/java/org/apache/hive/jdbc/HiveConnection.java,325,new  ServiceUnavailableRetryStrategy() {
+jdbc/src/java/org/apache/hive/jdbc/HiveConnection.java,328,public boolean retryRequest(
+jdbc/src/java/org/apache/hive/jdbc/HiveConnection.java,329,final HttpResponse response,
+jdbc/src/java/org/apache/hive/jdbc/HiveConnection.java,330,final int executionCount,
+jdbc/src/java/org/apache/hive/jdbc/HiveConnection.java,331,final HttpContext context) {
+jdbc/src/java/org/apache/hive/jdbc/HiveConnection.java,332,int statusCode = response.getStatusLine().getStatusCode();
+jdbc/src/java/org/apache/hive/jdbc/HiveConnection.java,333,boolean ret = statusCode == 401 && executionCount <= 1;
+jdbc/src/java/org/apache/hive/jdbc/HiveConnection.java,336,if (ret) {
+jdbc/src/java/org/apache/hive/jdbc/HiveConnection.java,337,context.setAttribute(Utils.HIVE_SERVER2_RETRY_KEY, Utils.HIVE_SERVER2_RETRY_TRUE);
+jdbc/src/java/org/apache/hive/jdbc/HiveConnection.java,339,return ret;
+jdbc/src/java/org/apache/hive/jdbc/HiveConnection.java,343,public long getRetryInterval() {
+jdbc/src/java/org/apache/hive/jdbc/HiveConnection.java,345,return 0;
+jdbc/src/java/org/apache/hive/jdbc/HiveConnection.java,360,SSLSocketFactory socketFactory;
+jdbc/src/java/org/apache/hive/jdbc/HiveConnection.java,375,if (useTwoWaySSL != null &&
+jdbc/src/java/org/apache/hive/jdbc/HiveConnection.java,376,useTwoWaySSL.equalsIgnoreCase(JdbcConnectionParams.TRUE)) {
+jdbc/src/java/org/apache/hive/jdbc/HiveConnection.java,380,socketFactory = SSLSocketFactory.getSocketFactory();
+jdbc/src/java/org/apache/hive/jdbc/HiveConnection.java,385,sslTrustStorePassword.toCharArray());
+jdbc/src/java/org/apache/hive/jdbc/HiveConnection.java,386,socketFactory = new SSLSocketFactory(sslTrustStore);
+jdbc/src/java/org/apache/hive/jdbc/HiveConnection.java,388,socketFactory.setHostnameVerifier(SSLSocketFactory.ALLOW_ALL_HOSTNAME_VERIFIER);
+jdbc/src/java/org/apache/hive/jdbc/HiveConnection.java,393,.build();
+jdbc/src/java/org/apache/hive/jdbc/HiveConnection.java,397,catch (Exception e) {
+jdbc/src/java/org/apache/hive/jdbc/HiveConnection.java,398,String msg =  "Could not create an https connection to " +
+jdbc/src/java/org/apache/hive/jdbc/HiveConnection.java,399,jdbcUriString + ". " + e.getMessage();
+jdbc/src/java/org/apache/hive/jdbc/HiveConnection.java,490,SSLSocketFactory getTwoWaySSLSocketFactory() throws SQLException {
+jdbc/src/java/org/apache/hive/jdbc/HiveConnection.java,491,SSLSocketFactory socketFactory = null;
+jdbc/src/java/org/apache/hive/jdbc/HiveConnection.java,526,socketFactory = new SSLSocketFactory(context);
+service/src/java/org/apache/hive/service/auth/HiveAuthFactory.java,220,return TSSLTransportFactory.getClientSocket(host, port, loginTimeout);
+service/src/java/org/apache/hive/service/auth/HiveAuthFactory.java,229,return TSSLTransportFactory.getClientSocket(host, port, loginTimeout, params);
+beeline/src/java/org/apache/hive/beeline/DatabaseConnection.java,131,for (Map.Entry<String, String> var : hiveVars.entrySet()) {
+beeline/src/java/org/apache/hive/beeline/DatabaseConnection.java,132,info.put(HIVE_VAR_PREFIX + var.getKey(), var.getValue());
+beeline/src/java/org/apache/hive/beeline/DatabaseConnection.java,136,for (Map.Entry<String, String> var : hiveConfVars.entrySet()) {
+beeline/src/java/org/apache/hive/beeline/DatabaseConnection.java,137,info.put(HIVE_CONF_PREFIX + var.getKey(), var.getValue());
+metastore/src/java/org/apache/hadoop/hive/metastore/ObjectStore.java,7120,pm.deletePersistent(toBeRemoved);
+ql/src/java/org/apache/hadoop/hive/ql/exec/OperatorUtils.java,206,return operator1.getSchema().equals(operator2.getSchema());
+ql/src/java/org/apache/hadoop/hive/ql/exec/OperatorUtils.java,224,Operator<?> start, Set<Class<? extends Operator<?>>> classes) {
+ql/src/java/org/apache/hadoop/hive/ql/exec/OperatorUtils.java,226,new ImmutableMultimap.Builder<Class<? extends Operator<?>>, Operator<?>>();
+ql/src/java/org/apache/hadoop/hive/ql/exec/OperatorUtils.java,259,Operator<?> start, Set<Class<? extends Operator<?>>> classes) {
+ql/src/java/org/apache/hadoop/hive/ql/exec/OperatorUtils.java,261,new ImmutableMultimap.Builder<Class<? extends Operator<?>>, Operator<?>>();
+ql/src/java/org/apache/hadoop/hive/ql/optimizer/ReduceSinkMapJoinProc.java,197,Operator<?> rootOp =
+ql/src/java/org/apache/hadoop/hive/ql/optimizer/ReduceSinkMapJoinProc.java,198,OperatorUtils.findSingleOperatorUpstream(
+ql/src/java/org/apache/hadoop/hive/ql/optimizer/ReduceSinkMapJoinProc.java,199,mapJoinOp.getParentOperators().get(joinConf.getPosBigTable()),
+ql/src/java/org/apache/hadoop/hive/ql/optimizer/ReduceSinkMapJoinProc.java,200,ReduceSinkOperator.class);
+ql/src/java/org/apache/hadoop/hive/ql/optimizer/ReduceSinkMapJoinProc.java,209,Operator<?> rootOp =
+ql/src/java/org/apache/hadoop/hive/ql/optimizer/ReduceSinkMapJoinProc.java,210,OperatorUtils.findSingleOperatorUpstream(
+ql/src/java/org/apache/hadoop/hive/ql/optimizer/ReduceSinkMapJoinProc.java,211,mapJoinOp.getParentOperators().get(joinConf.getPosBigTable()),
+ql/src/java/org/apache/hadoop/hive/ql/optimizer/ReduceSinkMapJoinProc.java,212,TableScanOperator.class);
+ql/src/java/org/apache/hadoop/hive/ql/optimizer/ReduceSinkMapJoinProc.java,263,= context.linkWorkWithReduceSinkMap.get(parentWork);
+ql/src/java/org/apache/hadoop/hive/ql/optimizer/ReduceSinkMapJoinProc.java,297,new ArrayList<Operator<? extends OperatorDesc>>();
+metastore/src/java/org/apache/hadoop/hive/metastore/MetaStoreDirectSql.java,527,if (sdId == null || colId == null || serdeId == null) {
+metastore/src/java/org/apache/hadoop/hive/metastore/MetaStoreDirectSql.java,532,throw new MetaException("Unexpected null for one of the IDs, SD " + sdId + ", column "
+metastore/src/java/org/apache/hadoop/hive/metastore/MetaStoreDirectSql.java,533,+ colId + ", serde " + serdeId + " for a " + (isView ? "" : "non-") + " view");
+metastore/src/java/org/apache/hadoop/hive/metastore/MetaStoreDirectSql.java,549,assert colId != null && serdeId != null;
+metastore/src/java/org/apache/hadoop/hive/metastore/MetaStoreDirectSql.java,574,List<FieldSchema> cols = colss.get(colId);
+metastore/src/java/org/apache/hadoop/hive/metastore/MetaStoreDirectSql.java,576,if (cols == null) {
+metastore/src/java/org/apache/hadoop/hive/metastore/MetaStoreDirectSql.java,577,cols = new ArrayList<FieldSchema>();
+metastore/src/java/org/apache/hadoop/hive/metastore/MetaStoreDirectSql.java,578,colss.put(colId, cols);
+metastore/src/java/org/apache/hadoop/hive/metastore/MetaStoreDirectSql.java,579,colsSb.append(colId).append(",");
+metastore/src/java/org/apache/hadoop/hive/metastore/MetaStoreDirectSql.java,581,sd.setCols(cols);
+metastore/src/java/org/apache/hadoop/hive/metastore/MetaStoreDirectSql.java,623,String sdIds = trimCommaList(sdSb), serdeIds = trimCommaList(serdeSb),
+metastore/src/java/org/apache/hadoop/hive/metastore/MetaStoreDirectSql.java,624,colIds = trimCommaList(colsSb);
+service/src/java/org/apache/hive/service/cli/thrift/ThriftCLIService.java,346,private String getUserName(TOpenSessionReq req) throws HiveSQLException {
+service/src/java/org/apache/hive/service/cli/thrift/ThriftCLIService.java,372,private String getShortName(String userName) {
+service/src/java/org/apache/hive/service/cli/thrift/ThriftCLIService.java,375,int indexOfDomainMatch = ServiceUtils.indexOfDomainMatch(userName);
+service/src/java/org/apache/hive/service/cli/thrift/ThriftCLIService.java,376,ret = (indexOfDomainMatch <= 0) ? userName :
+service/src/java/org/apache/hive/service/cli/thrift/ThriftCLIService.java,377,userName.substring(0, indexOfDomainMatch);
+hcatalog/core/src/main/java/org/apache/hive/hcatalog/mapreduce/DynamicPartitionFileRecordWriterContainer.java,139,dynamicPartValues.add(value.get(colToAppend).toString());
+ql/src/java/org/apache/hadoop/hive/ql/exec/CommonMergeJoinOperator.java,23,import java.util.Arrays;
+ql/src/java/org/apache/hadoop/hive/ql/exec/CommonMergeJoinOperator.java,636,Map<Integer, DummyStoreOperator> dummyOps =
+ql/src/java/org/apache/hadoop/hive/ql/exec/CommonMergeJoinOperator.java,637,((TezContext) (MapredContext.get())).getDummyOpsMap();
+ql/src/java/org/apache/hadoop/hive/ql/exec/CommonMergeJoinOperator.java,638,for (Entry<Integer, DummyStoreOperator> connectOp : dummyOps.entrySet()) {
+ql/src/java/org/apache/hadoop/hive/ql/exec/CommonMergeJoinOperator.java,639,if (connectOp.getValue().getChildOperators() == null
+ql/src/java/org/apache/hadoop/hive/ql/exec/CommonMergeJoinOperator.java,640,|| connectOp.getValue().getChildOperators().isEmpty()) {
+ql/src/java/org/apache/hadoop/hive/ql/exec/CommonMergeJoinOperator.java,641,parentOperators.add(connectOp.getKey(), connectOp.getValue());
+ql/src/java/org/apache/hadoop/hive/ql/exec/CommonMergeJoinOperator.java,642,connectOp.getValue().getChildOperators().add(this);
+ql/src/java/org/apache/hadoop/hive/ql/exec/tez/MapRecordProcessor.java,175,DummyStoreOperator dummyOp = getJoinParentOp(mergeMapOp);
+ql/src/java/org/apache/hadoop/hive/ql/exec/tez/MapRecordProcessor.java,176,connectOps.put(mergeMapWork.getTag(), dummyOp);
+ql/src/java/org/apache/hadoop/hive/ql/exec/tez/MapRecordProcessor.java,184,((TezContext) (MapredContext.get())).setDummyOpsMap(connectOps);
+ql/src/java/org/apache/hadoop/hive/ql/exec/tez/MapRecordProcessor.java,277,private DummyStoreOperator getJoinParentOp(Operator<? extends OperatorDesc> mergeMapOp) {
+ql/src/java/org/apache/hadoop/hive/ql/exec/tez/MapRecordProcessor.java,280,return (DummyStoreOperator) childOp;
+ql/src/java/org/apache/hadoop/hive/ql/exec/tez/MapRecordProcessor.java,282,return getJoinParentOp(childOp);
+ql/src/java/org/apache/hadoop/hive/ql/Driver.java,560,HashSet<ReadEntity> inputs = sem.getInputs();
+ql/src/java/org/apache/hadoop/hive/ql/Driver.java,561,HashSet<WriteEntity> outputs = sem.getOutputs();
+ql/src/java/org/apache/hadoop/hive/ql/Driver.java,762,private static void doAuthorizationV2(SessionState ss, HiveOperation op, HashSet<ReadEntity> inputs,
+ql/src/java/org/apache/hadoop/hive/ql/Driver.java,763,HashSet<WriteEntity> outputs, String command, Map<String, List<String>> tab2cols,
+ql/src/java/org/apache/hadoop/hive/ql/Driver.java,783,HashSet<? extends Entity> privObjects, Map<String, List<String>> tableName2Cols) {
+ql/src/java/org/apache/hadoop/hive/ql/exec/tez/CustomPartitionVertex.java,322,if (bucketToTaskMap.isEmpty()) {
+ql/src/java/org/apache/hadoop/hive/ql/exec/tez/CustomPartitionVertex.java,323,LOG.info("We don't have a routing table yet. Will need to wait for the main input"
+ql/src/java/org/apache/hadoop/hive/ql/exec/tez/CustomPartitionVertex.java,324,+ " initialization");
+ql/src/java/org/apache/hadoop/hive/ql/exec/CommonMergeJoinOperator.java,145,fetchDone[pos] = false;
+ql/src/java/org/apache/hadoop/hive/ql/exec/tez/MapRecordProcessor.java,173,mergeMapOp.setChildren(jconf);
+ql/src/java/org/apache/hadoop/hive/ql/exec/tez/MapRecordProcessor.java,255,reader = getKeyValueReader(kvReaders, mapOp);
+ql/src/java/org/apache/hadoop/hive/ql/exec/tez/MapRecordProcessor.java,256,sources[tag].init(jconf, mapOp, reader);
+ql/src/java/org/apache/hadoop/hive/ql/optimizer/calcite/HiveCalciteUtil.java,232,rexBuilder.makeInputRef(newLeftFields.get(i).getType(), newLeftOffset + i),
+ql/src/java/org/apache/hadoop/hive/ql/optimizer/calcite/HiveCalciteUtil.java,233,rexBuilder.makeInputRef(newLeftFields.get(i).getType(), newRightOffset + i));
+ql/src/java/org/apache/hadoop/hive/ql/Driver.java,605,authorizer.authorize(write.getDatabase(),
+ql/src/java/org/apache/hadoop/hive/ql/Driver.java,606,null, op.getOutputRequiredPrivileges());
+ql/src/java/org/apache/hadoop/hive/ql/security/authorization/plugin/sqlstd/Operation2Privilege.java,272,op2Priv.put(HiveOperationType.IMPORT, PrivRequirement.newIOPrivRequirement
+ql/src/java/org/apache/hadoop/hive/ql/security/authorization/plugin/sqlstd/Operation2Privilege.java,273,(OWNER_INS_SEL_DEL_NOGRANT_AR, INS_NOGRANT_AR));
+ql/src/java/org/apache/hadoop/hive/ql/exec/Utilities.java,3865,public static void stripHivePasswordDetails(Configuration conf) {
+ql/src/java/org/apache/hadoop/hive/ql/exec/Utilities.java,3867,if (HiveConf.getVar(conf, HiveConf.ConfVars.METASTOREPWD) != null) {
+ql/src/java/org/apache/hadoop/hive/ql/exec/Utilities.java,3868,HiveConf.setVar(conf, HiveConf.ConfVars.METASTOREPWD, "");
+ql/src/java/org/apache/hadoop/hive/ql/exec/Utilities.java,3870,if (HiveConf.getVar(conf, HiveConf.ConfVars.HIVE_SERVER2_SSL_KEYSTORE_PASSWORD) != null) {
+ql/src/java/org/apache/hadoop/hive/ql/exec/Utilities.java,3871,HiveConf.setVar(conf, HiveConf.ConfVars.HIVE_SERVER2_SSL_KEYSTORE_PASSWORD, "");
+ql/src/java/org/apache/hadoop/hive/ql/exec/mr/ExecDriver.java,167,Utilities.stripHivePasswordDetails(job);
+ql/src/java/org/apache/hadoop/hive/ql/exec/tez/DagUtils.java,1018,Utilities.stripHivePasswordDetails(conf);
+ql/src/java/org/apache/hadoop/hive/ql/processors/SetProcessor.java,91,if (ss.getConf().get(s) != null) {
+ql/src/java/org/apache/hadoop/hive/ql/processors/SetProcessor.java,214,if (ss.getConf().get(var) != null) {
+ql/src/java/org/apache/hadoop/hive/ql/udf/generic/GenericUDFMapKeys.java,64,retArray.addAll(mapOI.getMap(mapObj).keySet());
+ql/src/java/org/apache/hadoop/hive/ql/metadata/Hive.java,3113,return null;
+ql/src/java/org/apache/hadoop/hive/ql/exec/vector/VectorSMBMapJoinOperator.java,126,VectorizedRowBatch inBatch = (VectorizedRowBatch) row;
+ql/src/java/org/apache/hadoop/hive/ql/exec/vector/VectorSMBMapJoinOperator.java,127,return keyEvaluator.evaluate(keyValues[batchIndex]);
+ql/src/java/org/apache/hadoop/hive/ql/optimizer/stats/annotation/StatsRulesProcFactory.java,1021,private boolean pkfkInferred = false;
+ql/src/java/org/apache/hadoop/hive/ql/optimizer/stats/annotation/StatsRulesProcFactory.java,1022,private long newNumRows = 0;
+ql/src/java/org/apache/hadoop/hive/ql/optimizer/stats/annotation/StatsRulesProcFactory.java,1023,private List<Operator<? extends OperatorDesc>> parents;
+ql/src/java/org/apache/hadoop/hive/ql/optimizer/stats/annotation/StatsRulesProcFactory.java,1024,private CommonJoinOperator<? extends JoinDesc> jop;
+ql/src/java/org/apache/hadoop/hive/ql/optimizer/stats/annotation/StatsRulesProcFactory.java,1025,private int numAttr = 1;
+ql/src/java/org/apache/hadoop/hive/ql/optimizer/stats/annotation/StatsRulesProcFactory.java,1030,jop = (CommonJoinOperator<? extends JoinDesc>) nd;
+ql/src/java/org/apache/hadoop/hive/ql/optimizer/stats/annotation/StatsRulesProcFactory.java,1031,parents = jop.getParentOperators();
+ql/src/java/org/apache/hadoop/hive/ql/optimizer/stats/annotation/StatsRulesProcFactory.java,1070,inferPKFKRelationship();
+ql/src/java/org/apache/hadoop/hive/ql/optimizer/stats/annotation/StatsRulesProcFactory.java,1180,long newRowCount = pkfkInferred ? newNumRows : computeNewRowCount(rowCounts, denom);
+ql/src/java/org/apache/hadoop/hive/ql/optimizer/stats/annotation/StatsRulesProcFactory.java,1211,long newNumRows = StatsUtils.safeMult(StatsUtils.safeMult(maxRowCount, (numParents - 1)), joinFactor);
+ql/src/java/org/apache/hadoop/hive/ql/optimizer/stats/annotation/StatsRulesProcFactory.java,1226,private void inferPKFKRelationship() {
+ql/src/java/org/apache/hadoop/hive/ql/exec/tez/tools/KeyValuesInputMerger.java,107,l4j.info("next called on " + currentIterator);
+ql/src/java/org/apache/hadoop/hive/ql/exec/Operator.java,372,LOG.info("Initialization Done " + id + " " + getName());
+ql/src/java/org/apache/hadoop/hive/ql/optimizer/ReduceSinkMapJoinProc.java,166,LOG.info("Mapjoin " + mapJoinOp + ", pos: " + pos + " --> " + parentWork.getName() + " ("
+ql/src/java/org/apache/hadoop/hive/ql/optimizer/ReduceSinkMapJoinProc.java,167,+ keyCount + " keys estimated from " + rowCount + " rows, " + bucketCount + " buckets)");
+ql/src/java/org/apache/hadoop/hive/ql/optimizer/ConvertJoinMapJoin.java,382,.getOpTraits().getSortCols(), rsOp.getColumnExprMap(), tezBucketJoinProcCtx) == false) {
+ql/src/java/org/apache/hadoop/hive/ql/optimizer/ConvertJoinMapJoin.java,435,tezBucketJoinProcCtx) == false) {
+ql/src/java/org/apache/hadoop/hive/ql/optimizer/ConvertJoinMapJoin.java,453,TezBucketJoinProcCtx tezBucketJoinProcCtx) {
+ql/src/java/org/apache/hadoop/hive/ql/optimizer/ConvertJoinMapJoin.java,486,return true;
+ql/src/java/org/apache/hadoop/hive/ql/optimizer/ReduceSinkMapJoinProc.java,179,parentRS.getConf().setReducerTraits(EnumSet.of(FIXED));
+ql/src/java/org/apache/hadoop/hive/ql/stats/StatsUtils.java,245,AggrStats aggrStats = Hive.get().getAggrColStatsFor(table.getDbName(), table.getTableName(),
+ql/src/java/org/apache/hadoop/hive/ql/stats/StatsUtils.java,246,neededColumns, partNames);
+ql/src/java/org/apache/hadoop/hive/ql/optimizer/ConstantPropagateProcFactory.java,384,if (childExpr instanceof ExprNodeGenericFuncDesc &&
+ql/src/java/org/apache/hadoop/hive/ql/optimizer/ConstantPropagateProcFactory.java,386,childExpr.getChildren().get(0) instanceof ExprNodeColumnDesc && other instanceof ExprNodeGenericFuncDesc
+ql/src/java/org/apache/hadoop/hive/ql/optimizer/ConstantPropagateProcFactory.java,387,&& ((ExprNodeGenericFuncDesc)other).getGenericUDF() instanceof GenericUDFBaseCompare
+ql/src/java/org/apache/hadoop/hive/ql/optimizer/ConstantPropagateProcFactory.java,388,&& other.getChildren().size() == 2) {
+hbase-handler/src/java/org/apache/hadoop/hive/hbase/HiveHBaseInputFormatUtil.java,31,import java.io.IOException;
+hbase-handler/src/java/org/apache/hadoop/hive/hbase/HiveHBaseInputFormatUtil.java,32,import java.util.ArrayList;
+hbase-handler/src/java/org/apache/hadoop/hive/hbase/HiveHBaseInputFormatUtil.java,33,import java.util.HashMap;
+hbase-handler/src/java/org/apache/hadoop/hive/hbase/HiveHBaseInputFormatUtil.java,34,import java.util.List;
+hbase-handler/src/java/org/apache/hadoop/hive/hbase/HiveHBaseInputFormatUtil.java,35,import java.util.Map;
+hbase-handler/src/java/org/apache/hadoop/hive/hbase/HiveHBaseInputFormatUtil.java,104,for (ColumnMapping colMap: columnMappings) {
+hbase-handler/src/java/org/apache/hadoop/hive/hbase/HiveHBaseInputFormatUtil.java,105,if (colMap.hbaseRowKey || colMap.hbaseTimestamp) {
+hbase-handler/src/java/org/apache/hadoop/hive/hbase/HiveHBaseInputFormatUtil.java,106,continue;
+hbase-handler/src/java/org/apache/hadoop/hive/hbase/HiveHBaseInputFormatUtil.java,109,if (colMap.qualifierName == null) {
+hbase-handler/src/java/org/apache/hadoop/hive/hbase/HiveHBaseInputFormatUtil.java,110,scan.addFamily(colMap.familyNameBytes);
+hbase-handler/src/java/org/apache/hadoop/hive/hbase/HiveHBaseInputFormatUtil.java,112,scan.addColumn(colMap.familyNameBytes, colMap.qualifierNameBytes);
+hbase-handler/src/java/org/apache/hadoop/hive/hbase/HiveHBaseInputFormatUtil.java,115,if (!readAllColumns) {
+hbase-handler/src/java/org/apache/hadoop/hive/hbase/HiveHBaseInputFormatUtil.java,116,break;
+ql/src/java/org/apache/hadoop/hive/ql/optimizer/ConstantPropagateProcFactory.java,219,if (!isDeterministicUdf(udf)) {
+ql/src/java/org/apache/hadoop/hive/ql/optimizer/ConstantPropagateProcFactory.java,220,LOG.debug("Function " + udf.getClass() + " undeterministic, quit folding.");
+ql/src/java/org/apache/hadoop/hive/ql/optimizer/ConstantPropagateProcFactory.java,221,return desc;
+ql/src/java/org/apache/hadoop/hive/ql/optimizer/ConstantPropagateProcFactory.java,231,ExprNodeDesc constant = evaluateFunction(udf, newExprs, desc.getChildren());
+ql/src/java/org/apache/hadoop/hive/ql/optimizer/ConstantPropagateProcFactory.java,232,if (constant != null) {
+ql/src/java/org/apache/hadoop/hive/ql/optimizer/ConstantPropagateProcFactory.java,233,LOG.debug("Folding expression:" + desc + " -> " + constant);
+ql/src/java/org/apache/hadoop/hive/ql/optimizer/ConstantPropagateProcFactory.java,234,return constant;
+ql/src/java/org/apache/hadoop/hive/ql/optimizer/ConstantPropagateProcFactory.java,239,if (shortcut != null) {
+ql/src/java/org/apache/hadoop/hive/ql/optimizer/ConstantPropagateProcFactory.java,240,LOG.debug("Folding expression:" + desc + " -> " + shortcut);
+ql/src/java/org/apache/hadoop/hive/ql/optimizer/ConstantPropagateProcFactory.java,241,return shortcut;
+ql/src/java/org/apache/hadoop/hive/ql/optimizer/ConstantPropagateProcFactory.java,243,((ExprNodeGenericFuncDesc) desc).setChildren(newExprs);
+ql/src/java/org/apache/hadoop/hive/ql/optimizer/ConstantPropagateProcFactory.java,249,if (propagate) {
+ql/src/java/org/apache/hadoop/hive/ql/optimizer/ConstantPropagateProcFactory.java,250,propagate(udf, newExprs, op.getSchema(), constants);
+jdbc/src/java/org/apache/hive/jdbc/HivePreparedStatement.java,439,this.parameters.put(parameterIndex, x.toString());
+service/src/java/org/apache/hive/service/server/HiveServer2.java,309,if (hiveConf.getBoolVar(ConfVars.HIVE_SERVER2_SUPPORT_DYNAMIC_SERVICE_DISCOVERY)) {
+service/src/java/org/apache/hive/service/server/HiveServer2.java,318,if (hiveConf.getBoolVar(ConfVars.HIVE_SERVER2_TEZ_INITIALIZE_DEFAULT_SESSIONS)) {
+service/src/java/org/apache/hive/service/server/HiveServer2.java,327,if (hiveConf.getVar(ConfVars.HIVE_EXECUTION_ENGINE).equals("spark")) {
+metastore/src/java/org/apache/hadoop/hive/metastore/HiveMetaStoreClient.java,495,LOG.error("Unable to shutdown local metastore client", e);
+ql/src/java/org/apache/hadoop/hive/ql/exec/FetchOperator.java,232,inspectors[i] = TypeInfoUtils.getStandardJavaObjectInspectorFromTypeInfo(
+ql/src/java/org/apache/hadoop/hive/ql/exec/FetchOperator.java,233,TypeInfoFactory.getPrimitiveTypeInfo(partKeyTypes[i]));
+ql/src/java/org/apache/hadoop/hive/ql/exec/PartitionKeySampler.java,115,public void writePartitionKeys(Path path, HiveConf conf, JobConf job) throws IOException {
+ql/src/java/org/apache/hadoop/hive/ql/exec/PartitionKeySampler.java,136,public static FetchOperator createSampler(FetchWork work, HiveConf conf, JobConf job,
+ql/src/java/org/apache/hadoop/hive/ql/exec/PartitionKeySampler.java,138,int sampleNum = conf.getIntVar(HiveConf.ConfVars.HIVESAMPLINGNUMBERFORORDERBY);
+ql/src/java/org/apache/hadoop/hive/ql/exec/PartitionKeySampler.java,139,float samplePercent = conf.getFloatVar(HiveConf.ConfVars.HIVESAMPLINGPERCENTFORORDERBY);
+ql/src/java/org/apache/hadoop/hive/ql/exec/mr/ExecDriver.java,379,handleSampling(driverContext, mWork, job, conf);
+ql/src/java/org/apache/hadoop/hive/ql/exec/mr/ExecDriver.java,513,Path tmpPath = context.getCtx().getExternalTmpPath(inputPaths.get(0));
+ql/src/java/org/apache/hadoop/hive/ql/exec/mr/ExecDriver.java,542,FetchOperator fetcher = PartitionKeySampler.createSampler(fetchWork, conf, job, ts);
+ql/src/java/org/apache/hadoop/hive/ql/exec/mr/ExecDriver.java,544,ts.initialize(conf, new ObjectInspector[]{fetcher.getOutputObjectInspector()});
+ql/src/java/org/apache/hadoop/hive/ql/exec/mr/ExecDriver.java,553,sampler.writePartitionKeys(partitionFile, conf, job);
+hcatalog/core/src/main/java/org/apache/hive/hcatalog/mapreduce/DefaultOutputFormatContainer.java,54,static synchronized String getOutputName(int partition) {
+hcatalog/core/src/main/java/org/apache/hive/hcatalog/mapreduce/DefaultOutputFormatContainer.java,55,return "part-" + NUMBER_FORMAT.format(partition);
+hcatalog/core/src/main/java/org/apache/hive/hcatalog/mapreduce/DefaultOutputFormatContainer.java,68,String name = getOutputName(context.getTaskAttemptID().getTaskID().getId());
+hcatalog/core/src/main/java/org/apache/hive/hcatalog/mapreduce/DynamicPartitionFileRecordWriterContainer.java,208,new Path(parentDir, FileOutputFormat.getUniqueFile(currTaskContext, "part", ""));
+hcatalog/core/src/main/java/org/apache/hive/hcatalog/mapreduce/FileOutputFormatContainer.java,100,Path childPath = new Path(parentDir,FileOutputFormat.getUniqueName(new JobConf(context.getConfiguration()), "part"));
+hcatalog/core/src/main/java/org/apache/hive/hcatalog/mapreduce/PartInfo.java,203,throws IOException {
+metastore/src/java/org/apache/hadoop/hive/metastore/AggregateStatsCache.java,244,for (Map.Entry<AggrColStats, MatchStats> entry : candidateMatchStats.entrySet()) {
+metastore/src/java/org/apache/hadoop/hive/metastore/AggregateStatsCache.java,255,candidateMatchStats.remove(candidate);
+ql/src/java/org/apache/hadoop/hive/ql/optimizer/calcite/translator/ASTConverter.java,290,ast = ASTBuilder.join(left.ast, right.ast, join.getJoinType(), cond, semiJoin);
+ql/src/java/org/apache/hadoop/hive/ql/optimizer/calcite/translator/PlanModifierForASTConv.java,245,if (((Join) parent).getRight() == joinNode) {
+ql/src/java/org/apache/hadoop/hive/ql/parse/CalcitePlanner.java,71,import org.apache.calcite.rel.rules.JoinPushTransitivePredicatesRule;
+ql/src/java/org/apache/hadoop/hive/ql/parse/CalcitePlanner.java,938,basePlan = hepPlan(basePlan, false, mdProvider, new JoinPushTransitivePredicatesRule(
+ql/src/java/org/apache/hadoop/hive/ql/exec/ColumnInfo.java,159,return internalName + ": " + objectInspector.getTypeName();
+ql/src/java/org/apache/hadoop/hive/ql/optimizer/ColumnPrunerProcFactory.java,130,GroupByOperator op = (GroupByOperator) nd;
+ql/src/java/org/apache/hadoop/hive/ql/optimizer/ColumnPrunerProcFactory.java,133,GroupByDesc conf = op.getConf();
+ql/src/java/org/apache/hadoop/hive/ql/optimizer/ColumnPrunerProcFactory.java,148,List<String> cols = cppCtx.genColLists(op);
+ql/src/java/org/apache/hadoop/hive/ql/optimizer/ColumnPrunerProcFactory.java,150,if (!cols.contains(groupingColumn)) {
+ql/src/java/org/apache/hadoop/hive/ql/optimizer/ColumnPrunerProcFactory.java,152,if (op.getSchema() != null) {
+ql/src/java/org/apache/hadoop/hive/ql/optimizer/ColumnPrunerProcFactory.java,153,op.getSchema().getSignature().remove(groupingSetPosition);
+ql/src/java/org/apache/hadoop/hive/ql/optimizer/ColumnPrunerProcFactory.java,158,cppCtx.getPrunedColLists().put(op, colLists);
+ql/src/java/org/apache/hadoop/hive/ql/optimizer/ConstantPropagate.java,66,public ConstantPropagate() {}
+ql/src/java/org/apache/hadoop/hive/ql/optimizer/ConstantPropagate.java,79,ConstantPropagateProcCtx cppCtx = new ConstantPropagateProcCtx();
+ql/src/java/org/apache/hadoop/hive/ql/optimizer/ConstantPropagateProcFactory.java,211,private static ExprNodeDesc foldExpr(ExprNodeDesc desc, Map<ColumnInfo, ExprNodeDesc> constants,
+ql/src/java/org/apache/hadoop/hive/ql/parse/TezCompiler.java,311,new ConstantPropagate().transform(procCtx.parseContext);
+ql/src/java/org/apache/hadoop/hive/ql/exec/OrcFileMergeOperator.java,35,import java.io.IOException;
+ql/src/java/org/apache/hadoop/hive/ql/exec/OrcFileMergeOperator.java,84,if (isLogInfoEnabled) {
+ql/src/java/org/apache/hadoop/hive/ql/exec/OrcFileMergeOperator.java,85,LOG.info("ORC merge file input path: " + k.getInputPath());
+ql/src/java/org/apache/hadoop/hive/ql/exec/OrcFileMergeOperator.java,105,if (isLogDebugEnabled) {
+ql/src/java/org/apache/hadoop/hive/ql/exec/OrcFileMergeOperator.java,106,LOG.info("ORC merge file output path: " + outPath);
+ql/src/java/org/apache/hadoop/hive/ql/exec/OrcFileMergeOperator.java,131,LOG.info("Merged stripe from file " + k.getInputPath() + " [ offset : "
+ql/src/java/org/apache/hadoop/hive/ql/exec/OrcFileMergeOperator.java,132,+ v.getStripeInformation().getOffset() + " length: "
+ql/src/java/org/apache/hadoop/hive/ql/exec/OrcFileMergeOperator.java,133,+ v.getStripeInformation().getLength() + " ]");
+ql/src/java/org/apache/hadoop/hive/ql/exec/OrcFileMergeOperator.java,142,closeOp(true);
+ql/src/java/org/apache/hadoop/hive/ql/exec/OrcFileMergeOperator.java,160,if (isLogInfoEnabled) {
+ql/src/java/org/apache/hadoop/hive/ql/exec/OrcFileMergeOperator.java,161,LOG.info("Incompatible ORC file merge! Column counts does not match for "
+ql/src/java/org/apache/hadoop/hive/ql/exec/OrcFileMergeOperator.java,162,+ k.getInputPath());
+ql/src/java/org/apache/hadoop/hive/ql/exec/OrcFileMergeOperator.java,168,if (isLogInfoEnabled) {
+ql/src/java/org/apache/hadoop/hive/ql/exec/OrcFileMergeOperator.java,169,LOG.info("Incompatible ORC file merge! Compression codec does not match" +
+ql/src/java/org/apache/hadoop/hive/ql/exec/OrcFileMergeOperator.java,176,if (isLogInfoEnabled) {
+ql/src/java/org/apache/hadoop/hive/ql/exec/OrcFileMergeOperator.java,177,LOG.info("Incompatible ORC file merge! Compression buffer size does not" +
+ql/src/java/org/apache/hadoop/hive/ql/exec/OrcFileMergeOperator.java,185,if (isLogInfoEnabled) {
+ql/src/java/org/apache/hadoop/hive/ql/exec/OrcFileMergeOperator.java,186,LOG.info("Incompatible ORC file merge! Version does not match for "
+ql/src/java/org/apache/hadoop/hive/ql/exec/OrcFileMergeOperator.java,187,+ k.getInputPath());
+ql/src/java/org/apache/hadoop/hive/ql/exec/OrcFileMergeOperator.java,193,if (isLogInfoEnabled) {
+ql/src/java/org/apache/hadoop/hive/ql/exec/OrcFileMergeOperator.java,194,LOG.info("Incompatible ORC file merge! Row index stride does not match" +
+ql/src/java/org/apache/hadoop/hive/ql/io/orc/ColumnStatisticsImpl.java,61,BooleanStatisticsImpl bkt = (BooleanStatisticsImpl) other;
+ql/src/java/org/apache/hadoop/hive/ql/io/orc/ColumnStatisticsImpl.java,62,trueCount += bkt.trueCount;
+ql/src/java/org/apache/hadoop/hive/ql/io/orc/ColumnStatisticsImpl.java,152,IntegerStatisticsImpl otherInt = (IntegerStatisticsImpl) other;
+ql/src/java/org/apache/hadoop/hive/ql/io/orc/ColumnStatisticsImpl.java,153,if (!hasMinimum) {
+ql/src/java/org/apache/hadoop/hive/ql/io/orc/ColumnStatisticsImpl.java,154,hasMinimum = otherInt.hasMinimum;
+ql/src/java/org/apache/hadoop/hive/ql/io/orc/ColumnStatisticsImpl.java,155,minimum = otherInt.minimum;
+ql/src/java/org/apache/hadoop/hive/ql/io/orc/ColumnStatisticsImpl.java,156,maximum = otherInt.maximum;
+ql/src/java/org/apache/hadoop/hive/ql/io/orc/ColumnStatisticsImpl.java,158,if (otherInt.minimum < minimum) {
+ql/src/java/org/apache/hadoop/hive/ql/io/orc/ColumnStatisticsImpl.java,161,if (otherInt.maximum > maximum) {
+ql/src/java/org/apache/hadoop/hive/ql/io/orc/ColumnStatisticsImpl.java,165,super.merge(other);
+ql/src/java/org/apache/hadoop/hive/ql/io/orc/ColumnStatisticsImpl.java,166,overflow |= otherInt.overflow;
+ql/src/java/org/apache/hadoop/hive/ql/io/orc/ColumnStatisticsImpl.java,167,if (!overflow) {
+ql/src/java/org/apache/hadoop/hive/ql/io/orc/ColumnStatisticsImpl.java,168,boolean wasPositive = sum >= 0;
+ql/src/java/org/apache/hadoop/hive/ql/io/orc/ColumnStatisticsImpl.java,169,sum += otherInt.sum;
+ql/src/java/org/apache/hadoop/hive/ql/io/orc/ColumnStatisticsImpl.java,170,if ((otherInt.sum >= 0) == wasPositive) {
+ql/src/java/org/apache/hadoop/hive/ql/io/orc/ColumnStatisticsImpl.java,171,overflow = (sum >= 0) != wasPositive;
+ql/src/java/org/apache/hadoop/hive/ql/io/orc/ColumnStatisticsImpl.java,279,super.merge(other);
+ql/src/java/org/apache/hadoop/hive/ql/io/orc/ColumnStatisticsImpl.java,280,DoubleStatisticsImpl dbl = (DoubleStatisticsImpl) other;
+ql/src/java/org/apache/hadoop/hive/ql/io/orc/ColumnStatisticsImpl.java,281,if (!hasMinimum) {
+ql/src/java/org/apache/hadoop/hive/ql/io/orc/ColumnStatisticsImpl.java,282,hasMinimum = dbl.hasMinimum;
+ql/src/java/org/apache/hadoop/hive/ql/io/orc/ColumnStatisticsImpl.java,283,minimum = dbl.minimum;
+ql/src/java/org/apache/hadoop/hive/ql/io/orc/ColumnStatisticsImpl.java,284,maximum = dbl.maximum;
+ql/src/java/org/apache/hadoop/hive/ql/io/orc/ColumnStatisticsImpl.java,286,if (dbl.minimum < minimum) {
+ql/src/java/org/apache/hadoop/hive/ql/io/orc/ColumnStatisticsImpl.java,289,if (dbl.maximum > maximum) {
+ql/src/java/org/apache/hadoop/hive/ql/io/orc/ColumnStatisticsImpl.java,293,sum += dbl.sum;
+ql/src/java/org/apache/hadoop/hive/ql/io/orc/ColumnStatisticsImpl.java,385,super.merge(other);
+ql/src/java/org/apache/hadoop/hive/ql/io/orc/ColumnStatisticsImpl.java,386,StringStatisticsImpl str = (StringStatisticsImpl) other;
+ql/src/java/org/apache/hadoop/hive/ql/io/orc/ColumnStatisticsImpl.java,387,if (minimum == null) {
+ql/src/java/org/apache/hadoop/hive/ql/io/orc/ColumnStatisticsImpl.java,388,if(str.minimum != null) {
+ql/src/java/org/apache/hadoop/hive/ql/io/orc/ColumnStatisticsImpl.java,389,maximum = new Text(str.getMaximum());
+ql/src/java/org/apache/hadoop/hive/ql/io/orc/ColumnStatisticsImpl.java,390,minimum = new Text(str.getMinimum());
+ql/src/java/org/apache/hadoop/hive/ql/io/orc/ColumnStatisticsImpl.java,393,maximum = minimum = null;
+ql/src/java/org/apache/hadoop/hive/ql/io/orc/ColumnStatisticsImpl.java,396,if (minimum.compareTo(str.minimum) > 0) {
+ql/src/java/org/apache/hadoop/hive/ql/io/orc/ColumnStatisticsImpl.java,397,minimum = new Text(str.getMinimum());
+ql/src/java/org/apache/hadoop/hive/ql/io/orc/ColumnStatisticsImpl.java,399,if (maximum.compareTo(str.maximum) < 0) {
+ql/src/java/org/apache/hadoop/hive/ql/io/orc/ColumnStatisticsImpl.java,400,maximum = new Text(str.getMaximum());
+ql/src/java/org/apache/hadoop/hive/ql/io/orc/ColumnStatisticsImpl.java,403,sum += str.sum;
+ql/src/java/org/apache/hadoop/hive/ql/io/orc/ColumnStatisticsImpl.java,480,BinaryStatisticsImpl bin = (BinaryStatisticsImpl) other;
+ql/src/java/org/apache/hadoop/hive/ql/io/orc/ColumnStatisticsImpl.java,481,sum += bin.sum;
+ql/src/java/org/apache/hadoop/hive/ql/io/orc/ColumnStatisticsImpl.java,559,super.merge(other);
+ql/src/java/org/apache/hadoop/hive/ql/io/orc/ColumnStatisticsImpl.java,560,DecimalStatisticsImpl dec = (DecimalStatisticsImpl) other;
+ql/src/java/org/apache/hadoop/hive/ql/io/orc/ColumnStatisticsImpl.java,561,if (minimum == null) {
+ql/src/java/org/apache/hadoop/hive/ql/io/orc/ColumnStatisticsImpl.java,562,minimum = dec.minimum;
+ql/src/java/org/apache/hadoop/hive/ql/io/orc/ColumnStatisticsImpl.java,563,maximum = dec.maximum;
+ql/src/java/org/apache/hadoop/hive/ql/io/orc/ColumnStatisticsImpl.java,564,sum = dec.sum;
+ql/src/java/org/apache/hadoop/hive/ql/io/orc/ColumnStatisticsImpl.java,566,if (minimum.compareTo(dec.minimum) > 0) {
+ql/src/java/org/apache/hadoop/hive/ql/io/orc/ColumnStatisticsImpl.java,569,if (maximum.compareTo(dec.maximum) < 0) {
+ql/src/java/org/apache/hadoop/hive/ql/io/orc/ColumnStatisticsImpl.java,572,if (sum == null || dec.sum == null) {
+ql/src/java/org/apache/hadoop/hive/ql/io/orc/ColumnStatisticsImpl.java,573,sum = null;
+ql/src/java/org/apache/hadoop/hive/ql/io/orc/ColumnStatisticsImpl.java,575,sum = sum.add(dec.sum);
+ql/src/java/org/apache/hadoop/hive/ql/io/orc/ColumnStatisticsImpl.java,585,if (getNumberOfValues() != 0) {
+ql/src/java/org/apache/hadoop/hive/ql/io/orc/ColumnStatisticsImpl.java,669,super.merge(other);
+ql/src/java/org/apache/hadoop/hive/ql/io/orc/ColumnStatisticsImpl.java,670,DateStatisticsImpl dateStats = (DateStatisticsImpl) other;
+ql/src/java/org/apache/hadoop/hive/ql/io/orc/ColumnStatisticsImpl.java,671,if (minimum == null) {
+ql/src/java/org/apache/hadoop/hive/ql/io/orc/ColumnStatisticsImpl.java,672,minimum = dateStats.minimum;
+ql/src/java/org/apache/hadoop/hive/ql/io/orc/ColumnStatisticsImpl.java,673,maximum = dateStats.maximum;
+ql/src/java/org/apache/hadoop/hive/ql/io/orc/ColumnStatisticsImpl.java,675,if (minimum > dateStats.minimum) {
+ql/src/java/org/apache/hadoop/hive/ql/io/orc/ColumnStatisticsImpl.java,678,if (maximum < dateStats.maximum) {
+ql/src/java/org/apache/hadoop/hive/ql/io/orc/ColumnStatisticsImpl.java,689,if (getNumberOfValues() != 0) {
+ql/src/java/org/apache/hadoop/hive/ql/io/orc/ColumnStatisticsImpl.java,766,super.merge(other);
+ql/src/java/org/apache/hadoop/hive/ql/io/orc/ColumnStatisticsImpl.java,767,TimestampStatisticsImpl timestampStats = (TimestampStatisticsImpl) other;
+ql/src/java/org/apache/hadoop/hive/ql/io/orc/ColumnStatisticsImpl.java,768,if (minimum == null) {
+ql/src/java/org/apache/hadoop/hive/ql/io/orc/ColumnStatisticsImpl.java,769,minimum = timestampStats.minimum;
+ql/src/java/org/apache/hadoop/hive/ql/io/orc/ColumnStatisticsImpl.java,770,maximum = timestampStats.maximum;
+ql/src/java/org/apache/hadoop/hive/ql/io/orc/ColumnStatisticsImpl.java,772,if (minimum > timestampStats.minimum) {
+ql/src/java/org/apache/hadoop/hive/ql/io/orc/ColumnStatisticsImpl.java,775,if (maximum < timestampStats.maximum) {
+ql/src/java/org/apache/hadoop/hive/ql/io/orc/ColumnStatisticsImpl.java,786,if (getNumberOfValues() != 0) {
+ql/src/java/org/apache/hadoop/hive/ql/io/orc/OrcFileKeyWrapper.java,21,import org.apache.hadoop.fs.Path;
+ql/src/java/org/apache/hadoop/hive/ql/io/orc/OrcFileKeyWrapper.java,22,import org.apache.hadoop.io.WritableComparable;
+ql/src/java/org/apache/hadoop/hive/ql/io/orc/OrcFileKeyWrapper.java,35,protected Path inputPath;
+ql/src/java/org/apache/hadoop/hive/ql/io/orc/OrcFileKeyWrapper.java,36,protected CompressionKind compression;
+ql/src/java/org/apache/hadoop/hive/ql/io/orc/OrcFileKeyWrapper.java,37,protected long compressBufferSize;
+ql/src/java/org/apache/hadoop/hive/ql/io/orc/OrcFileKeyWrapper.java,38,protected List<OrcProto.Type> types;
+ql/src/java/org/apache/hadoop/hive/ql/io/orc/OrcFileKeyWrapper.java,39,protected int rowIndexStride;
+ql/src/java/org/apache/hadoop/hive/ql/io/orc/OrcFileKeyWrapper.java,40,protected OrcFile.Version version;
+ql/src/java/org/apache/hadoop/hive/ql/io/orc/RecordReaderImpl.java,669,private final OrcProto.BloomFilterIndex[] bloomFilterIndices;
+ql/src/java/org/apache/hadoop/hive/ql/io/orc/RecordReaderImpl.java,677,bloomFilterIndices = new OrcProto.BloomFilterIndex[types.size()];
+ql/src/java/org/apache/hadoop/hive/ql/io/orc/RecordReaderImpl.java,697,StripeInformation stripe, OrcProto.RowIndex[] indexes) throws IOException {
+ql/src/java/org/apache/hadoop/hive/ql/io/orc/RecordReaderImpl.java,708,if (bloomFilterIndices[filterColumns[pred]] != null) {
+ql/src/java/org/apache/hadoop/hive/ql/io/orc/RecordReaderImpl.java,752,return sargApp.pickRowGroups(stripes.get(currentStripe), indexes);
+serde/src/java/org/apache/hadoop/hive/serde2/ColumnProjectionUtils.java,112,appendReadColumns(readColumnsBuffer, ids);
+serde/src/java/org/apache/hadoop/hive/serde2/ColumnProjectionUtils.java,113,appendReadColumnNames(readColumnNamesBuffer, names);
+serde/src/java/org/apache/hadoop/hive/serde2/ColumnProjectionUtils.java,116,public static void appendReadColumns(StringBuilder readColumnsBuffer, List<Integer> ids) {
+serde/src/java/org/apache/hadoop/hive/serde2/ColumnProjectionUtils.java,117,String id = toReadColumnIDString(ids);
+serde/src/java/org/apache/hadoop/hive/serde2/ColumnProjectionUtils.java,118,String newConfStr = id;
+serde/src/java/org/apache/hadoop/hive/serde2/ColumnProjectionUtils.java,119,if (readColumnsBuffer.length() > 0) {
+serde/src/java/org/apache/hadoop/hive/serde2/ColumnProjectionUtils.java,120,readColumnsBuffer.append(StringUtils.COMMA_STR).append(newConfStr);
+serde/src/java/org/apache/hadoop/hive/serde2/ColumnProjectionUtils.java,122,if (readColumnsBuffer.length() == 0) {
+serde/src/java/org/apache/hadoop/hive/serde2/ColumnProjectionUtils.java,123,readColumnsBuffer.append(READ_COLUMN_IDS_CONF_STR_DEFAULT);
+serde/src/java/org/apache/hadoop/hive/serde2/ColumnProjectionUtils.java,127,private static void appendReadColumnNames(StringBuilder readColumnNamesBuffer, List<String> cols) {
+serde/src/java/org/apache/hadoop/hive/serde2/ColumnProjectionUtils.java,128,boolean first = readColumnNamesBuffer.length() > 0;
+serde/src/java/org/apache/hadoop/hive/serde2/ColumnProjectionUtils.java,129,for(String col: cols) {
+serde/src/java/org/apache/hadoop/hive/serde2/ColumnProjectionUtils.java,130,if (first) {
+serde/src/java/org/apache/hadoop/hive/serde2/ColumnProjectionUtils.java,131,first = false;
+serde/src/java/org/apache/hadoop/hive/serde2/ColumnProjectionUtils.java,133,readColumnNamesBuffer.append(',');
+serde/src/java/org/apache/hadoop/hive/serde2/ColumnProjectionUtils.java,135,readColumnNamesBuffer.append(col);
+ql/src/java/org/apache/hadoop/hive/ql/exec/ReduceSinkOperator.java,427,if (buckNum < 0) {
+ql/src/java/org/apache/hadoop/hive/ql/exec/ReduceSinkOperator.java,428,buckNum = -1 * buckNum;
+ql/src/java/org/apache/hadoop/hive/ql/exec/ReduceSinkOperator.java,431,return buckNum % numBuckets;
+metastore/src/java/org/apache/hadoop/hive/metastore/MetaStoreDirectSql.java,131,this.isCompatibleDatastore = ensureDbInit() && runTestQuery();
+metastore/src/java/org/apache/hadoop/hive/metastore/MetaStoreDirectSql.java,132,if (isCompatibleDatastore) {
+metastore/src/java/org/apache/hadoop/hive/metastore/MetaStoreDirectSql.java,133,LOG.info("Using direct SQL, underlying DB is " + dbType);
+metastore/src/java/org/apache/hadoop/hive/metastore/txn/CompactionTxnHandler.java,98,checkRetryable(dbConn, e, "findPotentialCompactions");
+metastore/src/java/org/apache/hadoop/hive/metastore/txn/CompactionTxnHandler.java,136,checkRetryable(dbConn, e, "setRunAs");
+metastore/src/java/org/apache/hadoop/hive/metastore/txn/CompactionTxnHandler.java,197,checkRetryable(dbConn, e, "findNextToCompact");
+metastore/src/java/org/apache/hadoop/hive/metastore/txn/CompactionTxnHandler.java,235,checkRetryable(dbConn, e, "markCompacted");
+metastore/src/java/org/apache/hadoop/hive/metastore/txn/CompactionTxnHandler.java,377,checkRetryable(dbConn, e, "markCleaned");
+metastore/src/java/org/apache/hadoop/hive/metastore/txn/CompactionTxnHandler.java,467,checkRetryable(dbConn, e, "revokeFromLocalWorkers");
+metastore/src/java/org/apache/hadoop/hive/metastore/txn/CompactionTxnHandler.java,510,checkRetryable(dbConn, e, "revokeTimedoutWorkers");
+metastore/src/java/org/apache/hadoop/hive/metastore/txn/CompactionTxnHandler.java,567,LOG.error("Failed to find columns to analyze stats on for " + ci.tableName +
+metastore/src/java/org/apache/hadoop/hive/metastore/txn/CompactionTxnHandler.java,568,(ci.partName == null ? "" : "/" + ci.partName), e);
+metastore/src/java/org/apache/hadoop/hive/metastore/txn/CompactionTxnHandler.java,570,checkRetryable(dbConn, e, "findColumnsWithStats");
+metastore/src/java/org/apache/hadoop/hive/metastore/txn/TxnHandler.java,321,checkRetryable(dbConn, e, "openTxns");
+metastore/src/java/org/apache/hadoop/hive/metastore/txn/TxnHandler.java,350,checkRetryable(dbConn, e, "abortTxn");
+metastore/src/java/org/apache/hadoop/hive/metastore/txn/TxnHandler.java,403,checkRetryable(dbConn, e, "commitTxn");
+metastore/src/java/org/apache/hadoop/hive/metastore/txn/TxnHandler.java,426,checkRetryable(dbConn, e, "lock");
+metastore/src/java/org/apache/hadoop/hive/metastore/txn/TxnHandler.java,447,checkRetryable(dbConn, e, "lockNoWait");
+metastore/src/java/org/apache/hadoop/hive/metastore/txn/TxnHandler.java,478,checkRetryable(dbConn, e, "checkLock");
+metastore/src/java/org/apache/hadoop/hive/metastore/txn/TxnHandler.java,529,checkRetryable(dbConn, e, "unlock");
+metastore/src/java/org/apache/hadoop/hive/metastore/txn/TxnHandler.java,596,checkRetryable(dbConn, e, "showLocks");
+metastore/src/java/org/apache/hadoop/hive/metastore/txn/TxnHandler.java,627,checkRetryable(dbConn, e, "heartbeat");
+metastore/src/java/org/apache/hadoop/hive/metastore/txn/TxnHandler.java,664,checkRetryable(dbConn, e, "heartbeatTxnRange");
+metastore/src/java/org/apache/hadoop/hive/metastore/txn/TxnHandler.java,745,checkRetryable(dbConn, e, "compact");
+metastore/src/java/org/apache/hadoop/hive/metastore/txn/TxnHandler.java,795,checkRetryable(dbConn, e, "showCompact");
+metastore/src/java/org/apache/hadoop/hive/metastore/txn/TxnHandler.java,838,checkRetryable(dbConn, e, "addDynamicPartitions");
+metastore/src/java/org/apache/hadoop/hive/metastore/txn/TxnHandler.java,980,LOG.warn("Deadlock detected in " + caller + ", trying again.");
+metastore/src/java/org/apache/hadoop/hive/metastore/txn/TxnHandler.java,983,Thread.sleep(deadlockRetryInterval * deadlockCnt);
+metastore/src/java/org/apache/hadoop/hive/metastore/txn/TxnHandler.java,1002,LOG.warn("Retryable error detected in " + caller + ", trying again: " + getMessage(e));
+ql/src/java/org/apache/hadoop/hive/ql/lockmgr/DbLockManager.java,82,LOG.debug("Requesting: queryId=" + queryId + " " + lock);
+ql/src/java/org/apache/hadoop/hive/ql/lockmgr/DbLockManager.java,85,LOG.debug("Response " + res);
+ql/src/java/org/apache/hadoop/hive/ql/lockmgr/DbTxnManager.java,108,LOG.debug("Setting lock request transaction to " + txnId + " for queryId=" + plan.getQueryId());
+ql/src/java/org/apache/hadoop/hive/ql/exec/tez/HashTableLoader.java,95,long maxSize = 0; // the size of the biggest small table
+ql/src/java/org/apache/hadoop/hive/ql/exec/tez/HashTableLoader.java,100,totalSize += desc.getParentDataSizes().get(pos);
+ql/src/java/org/apache/hadoop/hive/ql/exec/tez/HashTableLoader.java,101,biggest = desc.getParentDataSizes().get(pos) > maxSize ? pos : biggest;
+ql/src/java/org/apache/hadoop/hive/ql/exec/tez/HashTableLoader.java,103,: maxSize;
+ql/src/java/org/apache/hadoop/hive/ql/exec/tez/HashTableLoader.java,107,float percentage = (float) maxSize / totalSize;
+ql/src/java/org/apache/hadoop/hive/ql/exec/tez/HashTableLoader.java,108,long memory = (long) (noConditionalTaskThreshold * percentage);
+ql/src/java/org/apache/hadoop/hive/ql/exec/tez/HashTableLoader.java,112,desc.getParentDataSizes().get(biggest),
+ql/src/java/org/apache/hadoop/hive/ql/exec/tez/HashTableLoader.java,163,float percentage = (float) desc.getParentDataSizes().get(pos) / totalSize;
+ql/src/java/org/apache/hadoop/hive/ql/exec/tez/HashTableLoader.java,164,memory = (long) (noConditionalTaskThreshold * percentage);
+service/src/java/org/apache/hive/service/cli/thrift/ThriftHttpServlet.java,137,String doAsQueryParam = getDoAsQueryParam(request.getQueryString());
+service/src/java/org/apache/hive/service/cli/thrift/ThriftHttpServlet.java,139,if (doAsQueryParam != null) {
+service/src/java/org/apache/hive/service/cli/thrift/ThriftHttpServlet.java,140,SessionManager.setProxyUserName(doAsQueryParam);
+hcatalog/webhcat/svr/src/main/java/org/apache/hive/hcatalog/templeton/tool/TempletonControllerJob.java,136,Token<DelegationTokenIdentifier> mrdt = jc.getDelegationToken(new Text("mr token"));
+hcatalog/webhcat/svr/src/main/java/org/apache/hive/hcatalog/templeton/tool/TempletonControllerJob.java,137,job.getCredentials().addToken(new Text("mr token"), mrdt);
+hcatalog/webhcat/svr/src/main/java/org/apache/hive/hcatalog/templeton/HiveDelegator.java,55,completedUrl, enablelog);
+hcatalog/webhcat/svr/src/main/java/org/apache/hive/hcatalog/templeton/HiveDelegator.java,67,args.addAll(makeBasicArgs(execute, srcFile, otherFiles, statusdir, completedUrl, enablelog));
+hcatalog/webhcat/svr/src/main/java/org/apache/hive/hcatalog/templeton/HiveDelegator.java,138,enablelog, JobType.HIVE));
+hcatalog/webhcat/svr/src/main/java/org/apache/hive/hcatalog/templeton/JarDelegator.java,53,statusdir, usesHcatalog, completedUrl, enablelog, jobType);
+hcatalog/webhcat/svr/src/main/java/org/apache/hive/hcatalog/templeton/JarDelegator.java,70,completedUrl, allFiles, enablelog, jobType));
+hcatalog/webhcat/svr/src/main/java/org/apache/hive/hcatalog/templeton/PigDelegator.java,57,otherFiles, statusdir, usesHcatalog, completedUrl, enablelog);
+hcatalog/webhcat/svr/src/main/java/org/apache/hive/hcatalog/templeton/PigDelegator.java,96,args.addAll(makeLauncherArgs(appConf, statusdir, completedUrl, allFiles, enablelog, JobType.PIG));
+hcatalog/webhcat/svr/src/main/java/org/apache/hive/hcatalog/templeton/Server.java,679,statusdir, callback, getCompletedUrl(), enablelog, JobType.STREAMING);
+hcatalog/webhcat/svr/src/main/java/org/apache/hive/hcatalog/templeton/Server.java,727,statusdir, callback, usesHcatalog, getCompletedUrl(), enablelog, JobType.JAR);
+hcatalog/webhcat/svr/src/main/java/org/apache/hive/hcatalog/templeton/Server.java,775,statusdir, callback, usesHcatalog, getCompletedUrl(), enablelog);
+hcatalog/webhcat/svr/src/main/java/org/apache/hive/hcatalog/templeton/Server.java,819,statusdir, callback, getCompletedUrl(), enablelog, libdir);
+hcatalog/webhcat/svr/src/main/java/org/apache/hive/hcatalog/templeton/Server.java,870,statusdir, callback, getCompletedUrl(), enablelog);
+hcatalog/webhcat/svr/src/main/java/org/apache/hive/hcatalog/templeton/SqoopDelegator.java,48,Map<String, Object> userArgs, String command,
+hcatalog/webhcat/svr/src/main/java/org/apache/hive/hcatalog/templeton/SqoopDelegator.java,49,String optionsFile, String otherFiles, String statusdir,
+hcatalog/webhcat/svr/src/main/java/org/apache/hive/hcatalog/templeton/SqoopDelegator.java,62,completedUrl, enablelog, libdir);
+hcatalog/webhcat/svr/src/main/java/org/apache/hive/hcatalog/templeton/SqoopDelegator.java,72,args.addAll(makeBasicArgs(optionsFile, otherFiles, statusdir, completedUrl, enablelog, libdir));
+hcatalog/webhcat/svr/src/main/java/org/apache/hive/hcatalog/templeton/SqoopDelegator.java,155,enablelog, JobType.SQOOP));
+hcatalog/webhcat/svr/src/main/java/org/apache/hive/hcatalog/templeton/StreamingDelegator.java,61,statusdir, callback, false, completedUrl, enableLog, jobType);
+hcatalog/webhcat/svr/src/main/java/org/apache/hive/hcatalog/templeton/tool/LaunchMapper.java,146,Configuration conf = context.getConfiguration();
+hcatalog/webhcat/svr/src/main/java/org/apache/hive/hcatalog/templeton/tool/LaunchMapper.java,150,killLauncherChildJobs(conf, context.getJobID().toString());
+hcatalog/webhcat/svr/src/main/java/org/apache/hive/hcatalog/templeton/tool/LaunchMapper.java,169,JobSubmissionConstants.MAPREDUCE_JOB_TAGS, context.getJobID().toString());
+hcatalog/webhcat/svr/src/main/java/org/apache/hive/hcatalog/templeton/tool/LaunchMapper.java,288,Process proc = startJob(context,
+hcatalog/webhcat/svr/src/main/java/org/apache/hive/hcatalog/templeton/tool/LaunchMapper.java,289,conf.get("user.name"),
+hcatalog/webhcat/svr/src/main/java/org/apache/hive/hcatalog/templeton/tool/LaunchMapper.java,290,conf.get(OVERRIDE_CLASSPATH));
+hcatalog/webhcat/svr/src/main/java/org/apache/hive/hcatalog/templeton/tool/LaunchMapper.java,305,Boolean enablelog = Boolean.parseBoolean(conf.get(ENABLE_LOG));
+hcatalog/webhcat/svr/src/main/java/org/apache/hive/hcatalog/templeton/tool/LaunchMapper.java,306,LauncherDelegator.JobType jobType = LauncherDelegator.JobType.valueOf(conf.get(JOB_TYPE));
+hcatalog/webhcat/svr/src/main/java/org/apache/hive/hcatalog/templeton/tool/LaunchMapper.java,322,writeExitValue(conf, proc.exitValue(), statusdir);
+hcatalog/webhcat/svr/src/main/java/org/apache/hive/hcatalog/templeton/tool/LaunchMapper.java,323,JobState state = new JobState(context.getJobID().toString(), conf);
+hcatalog/webhcat/svr/src/main/java/org/apache/hive/hcatalog/templeton/tool/LaunchMapper.java,324,state.setExitValue(proc.exitValue());
+hcatalog/webhcat/svr/src/main/java/org/apache/hive/hcatalog/templeton/tool/LaunchMapper.java,325,state.setCompleteStatus("done");
+hcatalog/webhcat/svr/src/main/java/org/apache/hive/hcatalog/templeton/tool/LaunchMapper.java,326,state.close();
+hcatalog/webhcat/svr/src/main/java/org/apache/hive/hcatalog/templeton/tool/LaunchMapper.java,330,+ " to " + statusdir + "/logs");
+hcatalog/webhcat/svr/src/main/java/org/apache/hive/hcatalog/templeton/tool/LaunchMapper.java,335,if (proc.exitValue() != 0) {
+hcatalog/webhcat/svr/src/main/java/org/apache/hive/hcatalog/templeton/tool/LaunchMapper.java,337,+ proc.exitValue());
+hcatalog/webhcat/svr/src/main/java/org/apache/hive/hcatalog/templeton/tool/LaunchMapper.java,408,JobState state = null;
+hcatalog/webhcat/svr/src/main/java/org/apache/hive/hcatalog/templeton/tool/LaunchMapper.java,409,try {
+hcatalog/webhcat/svr/src/main/java/org/apache/hive/hcatalog/templeton/tool/LaunchMapper.java,410,String percent = TempletonUtils.extractPercentComplete(line);
+hcatalog/webhcat/svr/src/main/java/org/apache/hive/hcatalog/templeton/tool/LaunchMapper.java,411,String childid = TempletonUtils.extractChildJobId(line);
+hcatalog/webhcat/svr/src/main/java/org/apache/hive/hcatalog/templeton/tool/LaunchMapper.java,413,if (percent != null || childid != null) {
+hcatalog/webhcat/svr/src/main/java/org/apache/hive/hcatalog/templeton/tool/LaunchMapper.java,414,state = new JobState(jobid.toString(), conf);
+hcatalog/webhcat/svr/src/main/java/org/apache/hive/hcatalog/templeton/tool/LaunchMapper.java,415,if (percent != null) {
+hcatalog/webhcat/svr/src/main/java/org/apache/hive/hcatalog/templeton/tool/LaunchMapper.java,416,state.setPercentComplete(percent);
+hcatalog/webhcat/svr/src/main/java/org/apache/hive/hcatalog/templeton/tool/LaunchMapper.java,418,if (childid != null) {
+hcatalog/webhcat/svr/src/main/java/org/apache/hive/hcatalog/templeton/tool/LaunchMapper.java,419,JobState childState = new JobState(childid, conf);
+hcatalog/webhcat/svr/src/main/java/org/apache/hive/hcatalog/templeton/tool/LaunchMapper.java,420,childState.setParent(jobid.toString());
+hcatalog/webhcat/svr/src/main/java/org/apache/hive/hcatalog/templeton/tool/LaunchMapper.java,421,state.addChild(childid);
+hcatalog/webhcat/svr/src/main/java/org/apache/hive/hcatalog/templeton/tool/LaunchMapper.java,422,state.close();
+hcatalog/webhcat/svr/src/main/java/org/apache/hive/hcatalog/templeton/tool/LaunchMapper.java,426,LOG.error("templeton: state error: ", e);
+hcatalog/webhcat/svr/src/main/java/org/apache/hive/hcatalog/templeton/tool/LaunchMapper.java,428,if (state != null) {
+hcatalog/webhcat/svr/src/main/java/org/apache/hive/hcatalog/templeton/tool/LaunchMapper.java,429,try {
+hcatalog/webhcat/svr/src/main/java/org/apache/hive/hcatalog/templeton/tool/LaunchMapper.java,430,state.close();
+hcatalog/webhcat/svr/src/main/java/org/apache/hive/hcatalog/templeton/tool/LaunchMapper.java,432,LOG.warn(e);
+ql/src/java/org/apache/hadoop/hive/ql/stats/StatsUtils.java,247,if (null == aggrStats) {
+metastore/src/java/org/apache/hadoop/hive/metastore/StatObjectConverter.java,467,stringStats.setAvgColLen((Double)avglen);
+metastore/src/java/org/apache/hadoop/hive/metastore/StatObjectConverter.java,474,binaryStats.setAvgColLen((Double)avglen);
+metastore/src/java/org/apache/hadoop/hive/metastore/StatObjectConverter.java,494,doubleStats.setHighValue((Double)dhigh);
+metastore/src/java/org/apache/hadoop/hive/metastore/StatObjectConverter.java,497,doubleStats.setLowValue((Double)dlow);
+metastore/src/java/org/apache/hadoop/hive/metastore/StatObjectConverter.java,542,stringStats.setAvgColLen((Double) avglen);
+metastore/src/java/org/apache/hadoop/hive/metastore/StatObjectConverter.java,549,binaryStats.setAvgColLen((Double) avglen);
+metastore/src/java/org/apache/hadoop/hive/metastore/StatObjectConverter.java,586,doubleStats.setHighValue((Double) dhigh);
+metastore/src/java/org/apache/hadoop/hive/metastore/StatObjectConverter.java,589,doubleStats.setLowValue((Double) dlow);
+ql/src/java/org/apache/hadoop/hive/ql/io/orc/OrcFileStripeMergeRecordReader.java,27,import java.io.IOException;
+ql/src/java/org/apache/hadoop/hive/ql/io/orc/OrcFileStripeMergeRecordReader.java,28,import java.util.Iterator;
+ql/src/java/org/apache/hadoop/hive/ql/io/orc/OrcFileStripeMergeRecordReader.java,29,import java.util.List;
+ql/src/java/org/apache/hadoop/hive/ql/io/orc/OrcFileStripeMergeRecordReader.java,82,valueWrapper.setStripeStatistics(stripeStatistics.get(stripeIdx++));
+accumulo-handler/src/java/org/apache/hadoop/hive/accumulo/AccumuloConnectionParameters.java,115,String username = getAccumuloUserName(), password = getAccumuloPassword();
+accumulo-handler/src/java/org/apache/hadoop/hive/accumulo/AccumuloConnectionParameters.java,121,if (null == password) {
+accumulo-handler/src/java/org/apache/hadoop/hive/accumulo/AccumuloConnectionParameters.java,122,throw new IllegalArgumentException("Accumulo password must be provided in hiveconf using " + USER_PASS);
+accumulo-handler/src/java/org/apache/hadoop/hive/accumulo/AccumuloConnectionParameters.java,125,return inst.getConnector(username, new PasswordToken(password));
+accumulo-handler/src/java/org/apache/hadoop/hive/accumulo/mr/HiveAccumuloTableInputFormat.java,106,final Connector connector = accumuloParams.getConnector(instance);
+accumulo-handler/src/java/org/apache/hadoop/hive/accumulo/mr/HiveAccumuloTableInputFormat.java,257,AccumuloException, SerDeException {
+accumulo-handler/src/java/org/apache/hadoop/hive/accumulo/mr/HiveAccumuloTableInputFormat.java,263,setZooKeeperInstance(conf, instance.getInstanceName(), instance.getZooKeepers());
+accumulo-handler/src/java/org/apache/hadoop/hive/accumulo/mr/HiveAccumuloTableInputFormat.java,267,setConnectorInfo(conf, accumuloParams.getAccumuloUserName(),
+accumulo-handler/src/java/org/apache/hadoop/hive/accumulo/mr/HiveAccumuloTableInputFormat.java,268,new PasswordToken(accumuloParams.getAccumuloPassword()));
+accumulo-handler/src/java/org/apache/hadoop/hive/accumulo/mr/HiveAccumuloTableInputFormat.java,315,protected void setZooKeeperInstance(JobConf conf, String instanceName, String zkHosts) {
+accumulo-handler/src/java/org/apache/hadoop/hive/accumulo/mr/HiveAccumuloTableInputFormat.java,319,AccumuloInputFormat.setZooKeeperInstance(conf, instanceName, zkHosts);
+accumulo-handler/src/java/org/apache/hadoop/hive/accumulo/mr/HiveAccumuloTableOutputFormat.java,67,setAccumuloConnectorInfo(job, cnxnParams.getAccumuloUserName(),
+accumulo-handler/src/java/org/apache/hadoop/hive/accumulo/mr/HiveAccumuloTableOutputFormat.java,68,new PasswordToken(cnxnParams.getAccumuloPassword()));
+accumulo-handler/src/java/org/apache/hadoop/hive/accumulo/mr/HiveAccumuloTableOutputFormat.java,75,cnxnParams.getZooKeepers());
+accumulo-handler/src/java/org/apache/hadoop/hive/accumulo/mr/HiveAccumuloTableOutputFormat.java,99,protected void setAccumuloZooKeeperInstance(JobConf conf, String instanceName, String zookeepers) {
+accumulo-handler/src/java/org/apache/hadoop/hive/accumulo/mr/HiveAccumuloTableOutputFormat.java,101,AccumuloOutputFormat.setZooKeeperInstance(conf, instanceName, zookeepers);
+ql/src/java/org/apache/hadoop/hive/ql/exec/tez/TezJobMonitor.java,130,for (TezSessionState s: TezSessionState.getOpenSessions()) {
+ql/src/java/org/apache/hadoop/hive/ql/exec/tez/TezSessionPoolManager.java,29,import org.apache.hadoop.hive.shims.ShimLoader;
+ql/src/java/org/apache/hadoop/hive/ql/exec/tez/TezSessionPoolManager.java,187,for (TezSessionState sessionState: TezSessionState.getOpenSessions()) {
+ql/src/java/org/apache/hadoop/hive/ql/exec/tez/TezSessionState.java,82,private static List<TezSessionState> openSessions
+ql/src/java/org/apache/hadoop/hive/ql/exec/tez/TezSessionState.java,83,= Collections.synchronizedList(new LinkedList<TezSessionState>());
+ql/src/java/org/apache/hadoop/hive/ql/exec/tez/TezSessionState.java,113,public static List<TezSessionState> getOpenSessions() {
+ql/src/java/org/apache/hadoop/hive/ql/exec/tez/TezSessionState.java,114,return openSessions;
+ql/src/java/org/apache/hadoop/hive/ql/exec/tez/TezSessionState.java,217,openSessions.add(this);
+ql/src/java/org/apache/hadoop/hive/ql/exec/tez/TezSessionState.java,266,openSessions.remove(this);
+ql/src/java/org/apache/hadoop/hive/ql/session/SessionState.java,1461,registry.clear();;
+metastore/src/java/org/apache/hadoop/hive/metastore/HiveMetaStore.java,304,private final ThreadLocal<TxnHandler> threadLocalTxn = new ThreadLocal<TxnHandler>() {
+metastore/src/java/org/apache/hadoop/hive/metastore/HiveMetaStore.java,321,private final ThreadLocal<Configuration> threadLocalConf =
+ql/src/java/org/apache/hadoop/hive/ql/security/authorization/AuthorizationPreEventListener.java,71,private final ThreadLocal<Configuration> tConfig = new ThreadLocal<Configuration>() {
+ql/src/java/org/apache/hadoop/hive/ql/security/authorization/AuthorizationPreEventListener.java,78,private final ThreadLocal<HiveMetastoreAuthenticationProvider> tAuthenticator
+ql/src/java/org/apache/hadoop/hive/ql/security/authorization/AuthorizationPreEventListener.java,91,private final ThreadLocal<List<HiveMetastoreAuthorizationProvider>> tAuthorizers
+ql/src/java/org/apache/hadoop/hive/ql/security/authorization/AuthorizationPreEventListener.java,104,private final ThreadLocal<Boolean> tConfigSetOnAuths = new ThreadLocal<Boolean>() {
+ql/src/java/org/apache/hadoop/hive/ql/parse/CalcitePlanner.java,929,new HiveFilterProjectTransposeRule(
+ql/src/java/org/apache/hadoop/hive/ql/parse/CalcitePlanner.java,930,Filter.class, HiveFilter.DEFAULT_FILTER_FACTORY, HiveProject.class,
+ql/src/java/org/apache/hadoop/hive/ql/parse/CalcitePlanner.java,931,HiveProject.DEFAULT_PROJECT_FACTORY), new HiveFilterSetOpTransposeRule(
+ql/src/java/org/apache/hadoop/hive/ql/parse/CalcitePlanner.java,932,HiveFilter.DEFAULT_FILTER_FACTORY),
+ql/src/java/org/apache/hadoop/hive/ql/parse/CalcitePlanner.java,933,new FilterMergeRule(HiveFilter.DEFAULT_FILTER_FACTORY), HiveFilterJoinRule.JOIN,
+ql/src/java/org/apache/hadoop/hive/ql/parse/CalcitePlanner.java,934,HiveFilterJoinRule.FILTER_ON_JOIN, new FilterAggregateTransposeRule(Filter.class,
+metastore/src/java/org/apache/hadoop/hive/metastore/HiveAlterHandler.java,202,Warehouse.closeFs(srcFs);
+metastore/src/java/org/apache/hadoop/hive/metastore/HiveAlterHandler.java,203,Warehouse.closeFs(destFs);
+metastore/src/java/org/apache/hadoop/hive/metastore/HiveAlterHandler.java,415,Warehouse.closeFs(srcFs);
+metastore/src/java/org/apache/hadoop/hive/metastore/HiveAlterHandler.java,416,Warehouse.closeFs(destFs);
+metastore/src/java/org/apache/hadoop/hive/metastore/HiveMetaStoreFsImpl.java,63,Warehouse.closeFs(fs);
+metastore/src/java/org/apache/hadoop/hive/metastore/Warehouse.java,203,closeFs(fs);
+metastore/src/java/org/apache/hadoop/hive/metastore/Warehouse.java,477,closeFs(fs);
+ql/src/java/org/apache/hadoop/hive/ql/exec/persistence/BytesBytesMultiHashMap.java,187,public class ThreadSafeGetter {
+ql/src/java/org/apache/hadoop/hive/ql/exec/persistence/BytesBytesMultiHashMap.java,188,private WriteBuffers.Position position = new WriteBuffers.Position();
+ql/src/java/org/apache/hadoop/hive/ql/exec/persistence/BytesBytesMultiHashMap.java,189,public byte getValueResult(byte[] key, int offset, int length,
+ql/src/java/org/apache/hadoop/hive/ql/exec/persistence/BytesBytesMultiHashMap.java,190,BytesBytesMultiHashMap.Result hashMapResult) {
+ql/src/java/org/apache/hadoop/hive/ql/exec/persistence/BytesBytesMultiHashMap.java,191,return BytesBytesMultiHashMap.this.getValueResult(key, offset, length, hashMapResult, position);
+ql/src/java/org/apache/hadoop/hive/ql/exec/persistence/BytesBytesMultiHashMap.java,194,public void populateValue(WriteBuffers.ByteSegmentRef valueRef) {
+ql/src/java/org/apache/hadoop/hive/ql/exec/persistence/BytesBytesMultiHashMap.java,196,BytesBytesMultiHashMap.this.populateValue(valueRef);
+ql/src/java/org/apache/hadoop/hive/ql/exec/persistence/BytesBytesMultiHashMap.java,267,long offsetAfterListRecordKeyLen, WriteBuffers.Position readPos) {
+ql/src/java/org/apache/hadoop/hive/ql/exec/persistence/BytesBytesMultiHashMap.java,270,this.readPos = readPos;
+ql/src/java/org/apache/hadoop/hive/ql/exec/persistence/BytesBytesMultiHashMap.java,413,readPos = null;
+ql/src/java/org/apache/hadoop/hive/ql/exec/persistence/BytesBytesMultiHashMap.java,484,public ThreadSafeGetter createGetterForThread() {
+ql/src/java/org/apache/hadoop/hive/ql/exec/persistence/BytesBytesMultiHashMap.java,485,return new ThreadSafeGetter();
+ql/src/java/org/apache/hadoop/hive/ql/exec/persistence/BytesBytesMultiHashMap.java,489,public byte getValueResult(byte[] key, int offset, int length, Result hashMapResult) {
+ql/src/java/org/apache/hadoop/hive/ql/exec/persistence/BytesBytesMultiHashMap.java,490,return getValueResult(key, offset, length, hashMapResult, writeBuffers.getReadPosition());
+ql/src/java/org/apache/hadoop/hive/ql/exec/persistence/BytesBytesMultiHashMap.java,502,private byte getValueResult(byte[] key, int offset, int length, Result hashMapResult,
+ql/src/java/org/apache/hadoop/hive/ql/exec/persistence/BytesBytesMultiHashMap.java,503,WriteBuffers.Position readPos) {
+ql/src/java/org/apache/hadoop/hive/ql/exec/persistence/BytesBytesMultiHashMap.java,518,hashMapResult.set(this, Ref.getOffset(ref), hasList, offsetAfterListRecordKeyLen,
+ql/src/java/org/apache/hadoop/hive/ql/exec/persistence/BytesBytesMultiHashMap.java,519,readPos);
+ql/src/java/org/apache/hadoop/hive/ql/exec/persistence/MapJoinBytesTableContainer.java,503,private final BytesBytesMultiHashMap.ThreadSafeGetter threadSafeHashMapGetter;
+ql/src/java/org/apache/hadoop/hive/ql/exec/persistence/MapJoinBytesTableContainer.java,523,threadSafeHashMapGetter = hashMap.createGetterForThread();
+ql/src/java/org/apache/hadoop/hive/ql/exec/persistence/MapJoinBytesTableContainer.java,530,aliasFilter = threadSafeHashMapGetter.getValueResult(
+ql/src/java/org/apache/hadoop/hive/ql/exec/vector/VectorFilterOperator.java,44,private final int[] temporarySelected = new int [VectorizedRowBatch.DEFAULT_SIZE];
+ql/src/java/org/apache/hadoop/hive/ql/exec/tez/TezJobMonitor.java,499,final int killedTasks = progress.getKilledTaskCount();
+ql/src/java/org/apache/hadoop/hive/ql/exec/tez/TezJobMonitor.java,586,killedTasks,
+ql/src/java/org/apache/hadoop/hive/ql/exec/tez/TezJobMonitor.java,626,final int killed = progress.getKilledTaskCount();
+ql/src/java/org/apache/hadoop/hive/ql/plan/PlanUtils.java,979,if (input == null) {
+ql/src/java/org/apache/hadoop/hive/ql/parse/SemanticAnalyzer.java,432,QBExpr qbexpr1 = new QBExpr(alias + "-subquery1");
+ql/src/java/org/apache/hadoop/hive/ql/parse/SemanticAnalyzer.java,433,doPhase1QBExpr((ASTNode) ast.getChild(0), qbexpr1, id + "-subquery1",
+ql/src/java/org/apache/hadoop/hive/ql/parse/SemanticAnalyzer.java,434,alias + "-subquery1");
+ql/src/java/org/apache/hadoop/hive/ql/parse/SemanticAnalyzer.java,439,QBExpr qbexpr2 = new QBExpr(alias + "-subquery2");
+ql/src/java/org/apache/hadoop/hive/ql/parse/SemanticAnalyzer.java,440,doPhase1QBExpr((ASTNode) ast.getChild(1), qbexpr2, id + "-subquery2",
+ql/src/java/org/apache/hadoop/hive/ql/parse/SemanticAnalyzer.java,441,alias + "-subquery2");
+common/src/java/org/apache/hadoop/hive/conf/HiveConf.java,1937,HIVE_SERVER2_SESSION_CHECK_INTERVAL("hive.server2.session.check.interval", "0ms",
+common/src/java/org/apache/hadoop/hive/conf/HiveConf.java,1940,HIVE_SERVER2_IDLE_SESSION_TIMEOUT("hive.server2.idle.session.timeout", "0ms",
+common/src/java/org/apache/hadoop/hive/conf/HiveConf.java,1943,HIVE_SERVER2_IDLE_OPERATION_TIMEOUT("hive.server2.idle.operation.timeout", "0ms",
+common/src/java/org/apache/hadoop/hive/conf/HiveConf.java,1948,HIVE_SERVER2_IDLE_SESSION_CHECK_OPERATION("hive.server2.idle.session.check.operation", false,
+service/src/java/org/apache/hive/service/cli/thrift/ThriftHttpServlet.java,452,return fullKerberosName.getServiceName();
+hcatalog/webhcat/svr/src/main/java/org/apache/hive/hcatalog/templeton/tool/LaunchMapper.java,110,if(TempletonUtils.isset(System.getenv("HADOOP_CLASSPATH"))) {
+hcatalog/webhcat/svr/src/main/java/org/apache/hive/hcatalog/templeton/tool/LaunchMapper.java,111,env.put("HADOOP_CLASSPATH", System.getenv("HADOOP_CLASSPATH") + File.pathSeparator + jdbcJars.toString());
+hcatalog/webhcat/svr/src/main/java/org/apache/hive/hcatalog/templeton/tool/LaunchMapper.java,113,else {
+hcatalog/webhcat/svr/src/main/java/org/apache/hive/hcatalog/templeton/tool/LaunchMapper.java,114,env.put("HADOOP_CLASSPATH", jdbcJars.toString());
+hcatalog/webhcat/svr/src/main/java/org/apache/hive/hcatalog/templeton/tool/LaunchMapper.java,137,if(TempletonUtils.isset(System.getenv("HADOOP_CLASSPATH"))) {
+hcatalog/webhcat/svr/src/main/java/org/apache/hive/hcatalog/templeton/tool/LaunchMapper.java,138,env.put("HADOOP_CLASSPATH", System.getenv("HADOOP_CLASSPATH") + File.pathSeparator + paths);
+hcatalog/webhcat/svr/src/main/java/org/apache/hive/hcatalog/templeton/tool/LaunchMapper.java,141,env.put("HADOOP_CLASSPATH", paths.toString());
+common/src/java/org/apache/hadoop/hive/conf/HiveConf.java,2819,ConfVars.HIVEGROUPBYSKEW.varname,
+ql/src/java/org/apache/hadoop/hive/ql/parse/CalcitePlanner.java,102,import org.apache.calcite.sql2rel.RelFieldTrimmer;
+ql/src/java/org/apache/hadoop/hive/ql/parse/CalcitePlanner.java,943,RelFieldTrimmer fieldTrimmer = new RelFieldTrimmer(null, HiveProject.DEFAULT_PROJECT_FACTORY,
+ql/src/java/org/apache/hadoop/hive/ql/exec/ExplainTask.java,589,if (this.work.isUserLevelExplain()) {
+ql/src/java/org/apache/hadoop/hive/ql/exec/ExplainTask.java,621,if (this.work.isUserLevelExplain()) {
+ql/src/java/org/apache/hadoop/hive/ql/exec/ExplainTask.java,662,if (this.work.isUserLevelExplain()) {
+ql/src/java/org/apache/hadoop/hive/ql/parse/SemanticAnalyzer.java,3845,handleInsertStatementSpec(col_list, dest, out_rwsch, inputRR, qb, selExprList);
+ql/src/java/org/apache/hadoop/hive/ql/parse/SemanticAnalyzer.java,3890,private void handleInsertStatementSpec(List<ExprNodeDesc> col_list, String dest,
+ql/src/java/org/apache/hadoop/hive/ql/parse/SemanticAnalyzer.java,3897,return;
+ql/src/java/org/apache/hadoop/hive/ql/parse/SemanticAnalyzer.java,3948,newSchema.add(ci);
+ql/src/java/org/apache/hadoop/hive/ql/parse/SemanticAnalyzer.java,3960,newSchema.add(colInfo);
+hcatalog/webhcat/svr/src/main/java/org/apache/hive/hcatalog/templeton/HcatDelegator.java,769,throw new SimpleWebException(HttpStatus.INTERNAL_SERVER_ERROR_500, "Internal error, unable to find column "
+hcatalog/webhcat/svr/src/main/java/org/apache/hive/hcatalog/templeton/HcatDelegator.java,784,throw new SimpleWebException(HttpStatus.INTERNAL_SERVER_ERROR_500, "unable to find column " + column,
+ant/src/org/apache/hadoop/hive/ant/QTestGenTask.java,440,throw new Exception("Could not delete log file " + lf.getCanonicalPath());
+ant/src/org/apache/hadoop/hive/ant/QTestGenTask.java,462,throw new Exception("Could not delete old query file names containing file " +
+ant/src/org/apache/hadoop/hive/ant/QTestGenTask.java,466,if (!qFileNames.createNewFile()) {
+ant/src/org/apache/hadoop/hive/ant/QTestGenTask.java,467,throw new Exception("Could not create query file names containing file " +
+ant/src/org/apache/hadoop/hive/ant/QTestGenTask.java,468,qFileNamesFile);
+ql/src/java/org/apache/hadoop/hive/ql/parse/TaskCompiler.java,332,rootTasks.add(cStatsTask);
+ql/src/java/org/apache/hadoop/hive/ql/optimizer/physical/Vectorizer.java,1182,private boolean validateExprNodeDescRecursive(ExprNodeDesc desc) {
+ql/src/java/org/apache/hadoop/hive/ql/optimizer/physical/Vectorizer.java,1192,boolean ret = validateDataType(typeName);
+ql/src/java/org/apache/hadoop/hive/ql/optimizer/physical/Vectorizer.java,1206,boolean r = validateExprNodeDescRecursive(d);
+ql/src/java/org/apache/hadoop/hive/ql/optimizer/physical/Vectorizer.java,1220,if (!validateExprNodeDescRecursive(desc)) {
+ql/src/java/org/apache/hadoop/hive/ql/optimizer/physical/Vectorizer.java,1300,private boolean validateDataType(String type) {
+ql/src/java/org/apache/hadoop/hive/ql/optimizer/physical/Vectorizer.java,1301,return supportedDataTypesPattern.matcher(type.toLowerCase()).matches();
+ql/src/java/org/apache/hadoop/hive/ql/parse/SemanticAnalyzer.java,3891,RowResolver out_rwsch, RowResolver inputRR, QB qb,
+ql/src/java/org/apache/hadoop/hive/ql/parse/SemanticAnalyzer.java,3913,targetCol2ColumnInfo.put(targetCol, out_rwsch.getColumnInfos().get(colListPos));
+ql/src/java/org/apache/hadoop/hive/ql/parse/SemanticAnalyzer.java,3957,final String tableAlias = "";//is this OK? this column doesn't come from any table
+ql/src/java/org/apache/hadoop/hive/ql/parse/SemanticAnalyzer.java,3966,out_rwsch.setRowSchema(new RowSchema(newSchema));
+beeline/src/java/org/apache/hive/beeline/BeeLine.java,973,return commands.sql(line);
+beeline/src/java/org/apache/hive/beeline/Commands.java,709,return execute(line, false);
+beeline/src/java/org/apache/hive/beeline/Commands.java,743,return execute(line, true);
+beeline/src/java/org/apache/hive/beeline/Commands.java,746,private boolean execute(String line, boolean call) {
+beeline/src/java/org/apache/hive/beeline/Commands.java,795,String[] cmds = line.split(";");
+ant/src/org/apache/hadoop/hive/ant/QTestGenTask.java,458,String qFileNamesFile = qFileNames.getCanonicalPath();
+ql/src/java/org/apache/hadoop/hive/ql/parse/CalcitePlanner.java,381,String msg = CalcitePlanner.canHandleQbForCbo(queryProperties, conf, true, needToLogMessage);
+ql/src/java/org/apache/hadoop/hive/ql/parse/CalcitePlanner.java,410,boolean topLevelQB, boolean verbose) {
+ql/src/java/org/apache/hadoop/hive/ql/parse/CalcitePlanner.java,414,boolean hasEnoughJoins = !topLevelQB || (queryProperties.getJoinCount() > 1) || isInTest;
+ql/src/java/org/apache/hadoop/hive/ql/parse/CalcitePlanner.java,2703,String reason = canHandleQbForCbo(queryProperties, conf, false, LOG.isDebugEnabled());
+ql/src/java/org/apache/hadoop/hive/ql/parse/SemanticAnalyzer.java,233,private HashMap<String, Operator<? extends OperatorDesc>> topSelOps;
+ql/src/java/org/apache/hadoop/hive/ql/parse/SemanticAnalyzer.java,3919,throw new SemanticException(generateErrorMessage(selExprList,
+ql/src/java/org/apache/hadoop/hive/ql/parse/SemanticAnalyzer.java,8581,new SelectDesc(colList, columnNames, true),
+ql/src/java/org/apache/hadoop/hive/ql/parse/SemanticAnalyzer.java,8742,private boolean distinctExprsExists(QB qb) {
+ql/src/java/org/apache/hadoop/hive/ql/optimizer/calcite/translator/PlanModifierUtil.java,71,int a = -1;
+ql/src/java/org/apache/hadoop/hive/ql/optimizer/calcite/translator/PlanModifierUtil.java,72,List<RexNode> operands = new ArrayList<>();
+ql/src/java/org/apache/hadoop/hive/ql/optimizer/calcite/translator/PlanModifierUtil.java,73,for (int k = 0; k< ((RexCall) obyExpr).operands.size(); k++) {
+ql/src/java/org/apache/hadoop/hive/ql/optimizer/calcite/translator/PlanModifierUtil.java,74,RexNode rn = ((RexCall) obyExpr).operands.get(k);
+ql/src/java/org/apache/hadoop/hive/ql/optimizer/calcite/translator/PlanModifierUtil.java,75,for (int j = 0; j < resultSchema.size(); j++) {
+ql/src/java/org/apache/hadoop/hive/ql/optimizer/calcite/translator/PlanModifierUtil.java,76,if( obChild.getChildExps().get(j).toString().equals(rn.toString())) {
+ql/src/java/org/apache/hadoop/hive/ql/optimizer/calcite/translator/PlanModifierUtil.java,77,a = j;
+ql/src/java/org/apache/hadoop/hive/ql/optimizer/calcite/translator/PlanModifierUtil.java,78,break;
+ql/src/java/org/apache/hadoop/hive/ql/optimizer/calcite/translator/PlanModifierUtil.java,81,operands.add(new RexInputRef(a, rn.getType()));
+ql/src/java/org/apache/hadoop/hive/ql/optimizer/calcite/translator/PlanModifierUtil.java,83,operands.add(rn);
+ql/src/java/org/apache/hadoop/hive/ql/optimizer/calcite/translator/PlanModifierUtil.java,85,a = -1;
+ql/src/java/org/apache/hadoop/hive/ql/optimizer/calcite/translator/PlanModifierUtil.java,87,obyExpr = obChild.getCluster().getRexBuilder().makeCall(((RexCall)obyExpr).getOperator(), operands);
+ql/src/java/org/apache/hadoop/hive/ql/optimizer/calcite/translator/ASTConverter.java,57,import org.apache.hadoop.hive.ql.exec.RowSchema;
+ql/src/java/org/apache/hadoop/hive/ql/optimizer/calcite/translator/ASTConverter.java,60,import org.apache.hadoop.hive.ql.optimizer.calcite.RelOptHiveTable;
+ql/src/java/org/apache/hadoop/hive/ql/exec/vector/VectorizationContext.java,22,import java.math.BigDecimal;
+ql/src/java/org/apache/hadoop/hive/ql/exec/vector/VectorizationContext.java,40,import org.apache.hadoop.hive.serde2.io.HiveDecimalWritable;
+ql/src/java/org/apache/hadoop/hive/ql/exec/vector/VectorizationContext.java,133,private String contextName;
+ql/src/java/org/apache/hadoop/hive/ql/exec/vector/VectorizationContext.java,134,private int level;
+ql/src/java/org/apache/hadoop/hive/ql/exec/vector/VectorizationContext.java,363,TreeSet<Integer> treeSet = new TreeSet();
+ql/src/java/org/apache/hadoop/hive/ql/exec/vector/VectorizationContext.java,445,ve = getConstantVectorExpression(null, exprDesc.getTypeInfo(), mode);
+ql/src/java/org/apache/hadoop/hive/ql/exec/vector/VectorizationContext.java,1350,int scale = HiveDecimalUtils.getScaleForType(ptinfo);
+ql/src/java/org/apache/hadoop/hive/ql/exec/vector/VectorizationContext.java,1454,return getConstantVectorExpression(null, returnType, Mode.PROJECTION);
+ql/src/java/org/apache/hadoop/hive/ql/exec/vector/VectorizationContext.java,1481,return getConstantVectorExpression(null, returnType, Mode.PROJECTION);
+ql/src/java/org/apache/hadoop/hive/ql/exec/vector/VectorizationContext.java,1568,return getConstantVectorExpression(null, returnType, Mode.PROJECTION);
+ql/src/java/org/apache/hadoop/hive/ql/exec/vector/VectorizationContext.java,1594,return getConstantVectorExpression(null, TypeInfoFactory.booleanTypeInfo, Mode.PROJECTION);
+ql/src/java/org/apache/hadoop/hive/ql/exec/vector/VectorizationContext.java,1624,return getConstantVectorExpression(null, TypeInfoFactory.longTypeInfo, Mode.PROJECTION);
+ql/src/java/org/apache/hadoop/hive/ql/exec/vector/VectorizationContext.java,1778,throw new HiveException("Unable to vectorize Custom UDF");
+ql/src/java/org/apache/hadoop/hive/ql/optimizer/physical/Vectorizer.java,1550,if (isTez && desc.getConds().length == 1) {
+metastore/src/java/org/apache/hadoop/hive/metastore/HiveAlterHandler.java,177,Path databasePath = constructRenamedPath(
+metastore/src/java/org/apache/hadoop/hive/metastore/HiveAlterHandler.java,178,wh.getDefaultDatabasePath(newt.getDbName()), srcPath);
+hcatalog/core/src/main/java/org/apache/hive/hcatalog/data/HCatRecordObjectInspectorFactory.java,96,((PrimitiveTypeInfo) typeInfo).getPrimitiveCategory());
+serde/src/java/org/apache/hadoop/hive/serde2/objectinspector/primitive/PrimitiveObjectInspectorFactory.java,394,default:
+serde/src/java/org/apache/hadoop/hive/serde2/objectinspector/primitive/PrimitiveObjectInspectorFactory.java,395,throw new RuntimeException("Failed to create JavaHiveVarcharObjectInspector for " + typeInfo );
+ql/src/java/org/apache/hadoop/hive/ql/exec/persistence/HybridHashTableContainer.java,241,tableRowSize = estimatedTableSize / keyCount;
+hcatalog/core/src/main/java/org/apache/hive/hcatalog/data/schema/HCatFieldSchema.java,225,HCatUtil.assertNotNull(typeInfo, "typeInfo cannot be null; fieldName=" + fieldName, null);
+ql/src/java/org/apache/hadoop/hive/ql/optimizer/ConvertJoinMapJoin.java,640,if (hasDynamicPartitionBroadcast(c)) {
+ql/src/java/org/apache/hadoop/hive/ql/optimizer/ConvertJoinMapJoin.java,645,p.removeChild(c);
+ql/src/java/org/apache/hadoop/hive/ql/optimizer/ConvertJoinMapJoin.java,665,private boolean hasDynamicPartitionBroadcast(Operator<?> parent) {
+ql/src/java/org/apache/hadoop/hive/ql/optimizer/ConvertJoinMapJoin.java,666,boolean hasDynamicPartitionPruning = false;
+ql/src/java/org/apache/hadoop/hive/ql/optimizer/ConvertJoinMapJoin.java,672,hasDynamicPartitionPruning = true;
+ql/src/java/org/apache/hadoop/hive/ql/optimizer/ConvertJoinMapJoin.java,673,break;
+ql/src/java/org/apache/hadoop/hive/ql/optimizer/ConvertJoinMapJoin.java,689,return hasDynamicPartitionPruning;
+ql/src/java/org/apache/hadoop/hive/ql/optimizer/RemoveDynamicPruningBySize.java,27,import org.apache.hadoop.hive.ql.exec.Operator;
+ql/src/java/org/apache/hadoop/hive/ql/optimizer/RemoveDynamicPruningBySize.java,55,.getLongVar(ConfVars.TEZ_DYNAMIC_PARTITION_PRUNING_MAX_DATA_SIZE)) {
+ql/src/java/org/apache/hadoop/hive/ql/optimizer/RemoveDynamicPruningBySize.java,56,Operator<?> child = event;
+ql/src/java/org/apache/hadoop/hive/ql/optimizer/RemoveDynamicPruningBySize.java,57,Operator<?> curr = event;
+ql/src/java/org/apache/hadoop/hive/ql/optimizer/RemoveDynamicPruningBySize.java,59,while (curr.getChildOperators().size() <= 1) {
+ql/src/java/org/apache/hadoop/hive/ql/optimizer/RemoveDynamicPruningBySize.java,60,child = curr;
+ql/src/java/org/apache/hadoop/hive/ql/optimizer/RemoveDynamicPruningBySize.java,61,curr = curr.getParentOperators().get(0);
+ql/src/java/org/apache/hadoop/hive/ql/optimizer/RemoveDynamicPruningBySize.java,68,curr.removeChild(child);
+ql/src/java/org/apache/hadoop/hive/ql/parse/TezCompiler.java,152,removeEventOperator(component);
+ql/src/java/org/apache/hadoop/hive/ql/parse/TezCompiler.java,160,private void removeEventOperator(Set<Operator<?>> component) {
+ql/src/java/org/apache/hadoop/hive/ql/parse/TezCompiler.java,172,Operator<?> child = victim;
+ql/src/java/org/apache/hadoop/hive/ql/parse/TezCompiler.java,173,Operator<?> curr = victim;
+ql/src/java/org/apache/hadoop/hive/ql/parse/TezCompiler.java,175,while (curr.getChildOperators().size() <= 1) {
+ql/src/java/org/apache/hadoop/hive/ql/parse/TezCompiler.java,176,child = curr;
+ql/src/java/org/apache/hadoop/hive/ql/parse/TezCompiler.java,177,curr = curr.getParentOperators().get(0);
+ql/src/java/org/apache/hadoop/hive/ql/parse/TezCompiler.java,185,curr.removeChild(child);

@@ -1,0 +1,1432 @@
+File,Line_number,SRC
+log4j-core/src/main/java/org/apache/logging/log4j/core/appender/rolling/action/FileRenameAction.java,77,if (renameEmptyFiles || source.length() > 0) {
+log4j-core/src/main/java/org/apache/logging/log4j/core/appender/rolling/action/FileRenameAction.java,79,if (parent != null && !parent.exists()) {
+log4j-core/src/main/java/org/apache/logging/log4j/core/appender/rolling/action/FileRenameAction.java,95,return true;
+log4j-core/src/main/java/org/apache/logging/log4j/core/appender/rolling/action/FileRenameAction.java,109,LOGGER.error("Unable to delete empty file " + source.getAbsolutePath());
+log4j-core/src/main/java/org/apache/logging/log4j/core/appender/rolling/OnStartupTriggeringPolicy.java,37,private RollingFileManager manager;
+log4j-core/src/main/java/org/apache/logging/log4j/core/appender/rolling/OnStartupTriggeringPolicy.java,45,this.manager = manager;
+log4j-core/src/main/java/org/apache/logging/log4j/core/appender/rolling/OnStartupTriggeringPolicy.java,100,public static OnStartupTriggeringPolicy createPolicy() {
+log4j-core/src/main/java/org/apache/logging/log4j/core/appender/rolling/OnStartupTriggeringPolicy.java,101,return new OnStartupTriggeringPolicy();
+log4j-core/src/main/java/org/apache/logging/log4j/core/appender/OutputStreamManager.java,76,if (layout == null) {
+log4j-core/src/main/java/org/apache/logging/log4j/core/appender/rolling/OnStartupTriggeringPolicy.java,34,private static long JVM_START_TIME = initStartTime();
+log4j-core/src/main/java/org/apache/logging/log4j/core/appender/rolling/OnStartupTriggeringPolicy.java,36,private boolean evaluated = false;
+log4j-core/src/main/java/org/apache/logging/log4j/core/appender/rolling/OnStartupTriggeringPolicy.java,46,if (JVM_START_TIME == 0) {
+log4j-core/src/main/java/org/apache/logging/log4j/core/appender/rolling/OnStartupTriggeringPolicy.java,47,evaluated = true;
+log4j-core/src/main/java/org/apache/logging/log4j/core/appender/rolling/OnStartupTriggeringPolicy.java,55,private static long initStartTime() {
+log4j-core/src/main/java/org/apache/logging/log4j/core/appender/rolling/OnStartupTriggeringPolicy.java,62,try {
+log4j-core/src/main/java/org/apache/logging/log4j/core/appender/rolling/OnStartupTriggeringPolicy.java,63,final Class<?> factoryClass = Loader.loadSystemClass("java.lang.management.ManagementFactory");
+log4j-core/src/main/java/org/apache/logging/log4j/core/appender/rolling/OnStartupTriggeringPolicy.java,64,final Method getRuntimeMXBean = factoryClass.getMethod("getRuntimeMXBean");
+log4j-core/src/main/java/org/apache/logging/log4j/core/appender/rolling/OnStartupTriggeringPolicy.java,65,final Object runtimeMXBean = getRuntimeMXBean.invoke(null);
+log4j-core/src/main/java/org/apache/logging/log4j/core/appender/rolling/OnStartupTriggeringPolicy.java,67,final Class<?> runtimeMXBeanClass = Loader.loadSystemClass("java.lang.management.RuntimeMXBean");
+log4j-core/src/main/java/org/apache/logging/log4j/core/appender/rolling/OnStartupTriggeringPolicy.java,68,final Method getStartTime = runtimeMXBeanClass.getMethod("getStartTime");
+log4j-core/src/main/java/org/apache/logging/log4j/core/appender/rolling/OnStartupTriggeringPolicy.java,69,final Long result = (Long) getStartTime.invoke(runtimeMXBean);
+log4j-core/src/main/java/org/apache/logging/log4j/core/appender/rolling/OnStartupTriggeringPolicy.java,71,return result.longValue();
+log4j-core/src/main/java/org/apache/logging/log4j/core/appender/rolling/OnStartupTriggeringPolicy.java,73,StatusLogger.getLogger().error("Unable to call ManagementFactory.getRuntimeMXBean().getStartTime(), " //
+log4j-core/src/main/java/org/apache/logging/log4j/core/appender/rolling/OnStartupTriggeringPolicy.java,74,+ "using system time for OnStartupTriggeringPolicy", t);
+log4j-core/src/main/java/org/apache/logging/log4j/core/appender/rolling/OnStartupTriggeringPolicy.java,76,return System.currentTimeMillis();
+log4j-core/src/main/java/org/apache/logging/log4j/core/appender/rolling/OnStartupTriggeringPolicy.java,87,if (evaluated) {
+log4j-core/src/main/java/org/apache/logging/log4j/core/appender/rolling/OnStartupTriggeringPolicy.java,88,return false;
+log4j-core/src/main/java/org/apache/logging/log4j/core/appender/rolling/OnStartupTriggeringPolicy.java,90,evaluated = true;
+log4j-core/src/main/java/org/apache/logging/log4j/core/appender/rolling/OnStartupTriggeringPolicy.java,91,return manager.getFileTime() < JVM_START_TIME;
+log4j-core/src/main/java/org/apache/logging/log4j/core/filter/AbstractFilterable.java,73,if (this.filter == filter) {
+log4j-core/src/main/java/org/apache/logging/log4j/core/filter/AbstractFilterable.java,76,CompositeFilter composite = (CompositeFilter) filter;
+log4j-core/src/main/java/org/apache/logging/log4j/core/filter/CompositeFilter.java,72,filterList.remove(filter);
+log4j-api/src/main/java/org/apache/logging/log4j/message/AbstractMessageFactory.java,29,public abstract class AbstractMessageFactory implements MessageFactory, Serializable {
+log4j-api/src/main/java/org/apache/logging/log4j/message/AbstractMessageFactory.java,59,public abstract Message newMessage(String message, Object... params);
+log4j-api/src/main/java/org/apache/logging/log4j/message/FormattedMessageFactory.java,27,private static final long serialVersionUID = 1L;
+log4j-api/src/main/java/org/apache/logging/log4j/message/ParameterizedMessageFactory.java,37,public static final ParameterizedMessageFactory INSTANCE = new ParameterizedMessageFactory();
+log4j-core/src/main/java/org/apache/logging/log4j/core/async/RingBufferLogEvent.java,59,private transient AsyncLogger asyncLogger;
+log4j-core/src/main/java/org/apache/logging/log4j/core/async/RingBufferLogEvent.java,60,private String loggerName;
+log4j-core/src/main/java/org/apache/logging/log4j/core/async/RingBufferLogEvent.java,61,private Marker marker;
+log4j-core/src/main/java/org/apache/logging/log4j/core/async/RingBufferLogEvent.java,62,private String fqcn;
+log4j-core/src/main/java/org/apache/logging/log4j/core/async/RingBufferLogEvent.java,68,private ContextStack contextStack;
+log4j-core/src/main/java/org/apache/logging/log4j/core/async/RingBufferLogEvent.java,69,private String threadName;
+log4j-core/src/main/java/org/apache/logging/log4j/core/async/RingBufferLogEvent.java,71,private long currentTimeMillis;
+log4j-core/src/main/java/org/apache/logging/log4j/core/async/RingBufferLogEvent.java,72,private boolean endOfBatch;
+log4j-core/src/main/java/org/apache/logging/log4j/core/async/RingBufferLogEvent.java,73,private boolean includeLocation;
+log4j-core/src/main/java/org/apache/logging/log4j/core/layout/JacksonFactory.java,92,return new DefaultXmlPrettyPrinter();
+log4j-1.2-api/src/main/java/org/apache/log4j/Category.java,42,private static LoggerFactory loggerFactory = new PrivateFactory();
+log4j-1.2-api/src/main/java/org/apache/log4j/Category.java,442,private static class PrivateFactory implements LoggerFactory {
+log4j-1.2-api/src/main/java/org/apache/log4j/Category.java,445,public Logger makeNewLoggerInstance(final LoggerContext context, final String name) {
+log4j-1.2-api/src/main/java/org/apache/log4j/spi/LoggerFactory.java,30,Logger makeNewLoggerInstance(org.apache.logging.log4j.core.LoggerContext context, String name);
+log4j-core/src/main/java/org/apache/logging/log4j/core/async/RingBufferLogEvent.java,208,return currentTimeMillis;
+log4j-api/src/main/java/org/apache/logging/log4j/simple/SimpleLoggerContext.java,23,import java.util.concurrent.ConcurrentHashMap;
+log4j-api/src/main/java/org/apache/logging/log4j/simple/SimpleLoggerContext.java,24,import java.util.concurrent.ConcurrentMap;
+log4j-core/src/main/java/org/apache/logging/log4j/core/LoggerContext.java,26,import java.util.concurrent.ConcurrentHashMap;
+log4j-core/src/main/java/org/apache/logging/log4j/core/LoggerContext.java,283,return loggers.values();
+log4j-core/src/main/java/org/apache/logging/log4j/core/LoggerContext.java,304,return prev == null ? logger : prev;
+log4j-core/src/main/java/org/apache/logging/log4j/core/LoggerContext.java,437,for (final Logger logger : loggers.values()) {
+log4j-taglib/src/main/java/org/apache/logging/log4j/taglib/Log4jTaglibLoggerContext.java,38,private static final WeakHashMap<ServletContext, Log4jTaglibLoggerContext> CONTEXTS =
+log4j-taglib/src/main/java/org/apache/logging/log4j/taglib/Log4jTaglibLoggerContext.java,41,private final WeakHashMap<String, Log4jTaglibLogger> loggers =
+log4j-taglib/src/main/java/org/apache/logging/log4j/taglib/Log4jTaglibLoggerContext.java,68,synchronized (this.loggers) {
+log4j-to-slf4j/src/main/java/org/apache/logging/slf4j/SLF4JLoggerContext.java,19,import java.util.concurrent.ConcurrentHashMap;
+log4j-to-slf4j/src/main/java/org/apache/logging/slf4j/SLF4JLoggerContext.java,20,import java.util.concurrent.ConcurrentMap;
+log4j-to-slf4j/src/main/java/org/apache/logging/slf4j/SLF4JLoggerContext.java,40,if (!loggers.containsKey(name)) {
+log4j-to-slf4j/src/main/java/org/apache/logging/slf4j/SLF4JLoggerContext.java,41,loggers.putIfAbsent(name, new SLF4JLogger(name, LoggerFactory.getLogger(name)));
+log4j-to-slf4j/src/main/java/org/apache/logging/slf4j/SLF4JLoggerContext.java,43,return loggers.get(name);
+log4j-to-slf4j/src/main/java/org/apache/logging/slf4j/SLF4JLoggerContext.java,48,if (!loggers.containsKey(name)) {
+log4j-to-slf4j/src/main/java/org/apache/logging/slf4j/SLF4JLoggerContext.java,49,loggers.putIfAbsent(name, new SLF4JLogger(name, messageFactory, LoggerFactory.getLogger(name)));
+log4j-to-slf4j/src/main/java/org/apache/logging/slf4j/SLF4JLoggerContext.java,51,return loggers.get(name);
+log4j-web/src/main/java/org/apache/logging/log4j/web/Log4jServletContextListener.java,50,throw new IllegalStateException("Context destroyed before it was initialized.");
+log4j-core/src/main/java/org/apache/logging/log4j/core/appender/RollingRandomAccessFileAppender.java,28,import org.apache.logging.log4j.core.appender.rolling.RollingFileManager;
+log4j-api/src/main/java/org/apache/logging/log4j/spi/AbstractLogger.java,74,private static final String THROWING = "throwing";
+log4j-api/src/main/java/org/apache/logging/log4j/spi/AbstractLogger.java,76,private static final String CATCHING = "catching";
+log4j-core/src/main/java/org/apache/logging/log4j/core/lookup/ContextMapLookup.java,27,public class ContextMapLookup implements StrLookup {
+log4j-core/src/main/java/org/apache/logging/log4j/core/lookup/DateLookup.java,32,public class DateLookup implements StrLookup {
+log4j-core/src/main/java/org/apache/logging/log4j/core/lookup/MapLookup.java,29,public class MapLookup implements StrLookup {
+log4j-core/src/main/java/org/apache/logging/log4j/core/lookup/StructuredDataLookup.java,27,public class StructuredDataLookup implements StrLookup {
+log4j-core/src/main/java/org/apache/logging/log4j/core/config/ConfigurationSource.java,33,public class ConfigurationSource {
+log4j-core/src/main/java/org/apache/logging/log4j/core/config/plugins/util/PluginManager.java,40,public class PluginManager {
+log4j-core/src/main/java/org/apache/logging/log4j/core/appender/AsyncAppender.java,63,private AsyncThread thread;
+log4j-core/src/main/java/org/apache/logging/log4j/core/appender/FailoversPlugin.java,30,public final class FailoversPlugin {
+log4j-core/src/main/java/org/apache/logging/log4j/core/appender/db/jdbc/DataSourceConnectionSource.java,37,public final class DataSourceConnectionSource implements ConnectionSource {
+log4j-core/src/main/java/org/apache/logging/log4j/core/appender/db/jdbc/FactoryMethodConnectionSource.java,39,public final class FactoryMethodConnectionSource implements ConnectionSource {
+log4j-core/src/main/java/org/apache/logging/log4j/core/appender/db/jdbc/JdbcDatabaseManager.java,44,private Connection connection;
+log4j-core/src/main/java/org/apache/logging/log4j/core/appender/db/jdbc/JdbcDatabaseManager.java,45,private PreparedStatement statement;
+log4j-core/src/main/java/org/apache/logging/log4j/core/appender/db/jdbc/JdbcDatabaseManager.java,226,private static final class Column {
+log4j-core/src/main/java/org/apache/logging/log4j/core/appender/db/jpa/JpaDatabaseManager.java,41,private EntityManagerFactory entityManagerFactory;
+log4j-core/src/main/java/org/apache/logging/log4j/core/appender/db/jpa/JpaDatabaseManager.java,43,private EntityManager entityManager;
+log4j-core/src/main/java/org/apache/logging/log4j/core/appender/db/jpa/JpaDatabaseManager.java,44,private EntityTransaction transaction;
+log4j-core/src/main/java/org/apache/logging/log4j/core/appender/rolling/AbstractRolloverStrategy.java,25,public abstract class AbstractRolloverStrategy implements RolloverStrategy {
+log4j-core/src/main/java/org/apache/logging/log4j/core/appender/rolling/DefaultRolloverStrategy.java,78,public class DefaultRolloverStrategy implements RolloverStrategy {
+log4j-core/src/main/java/org/apache/logging/log4j/core/appender/rolling/OnStartupTriggeringPolicy.java,33,public class OnStartupTriggeringPolicy implements TriggeringPolicy {
+log4j-core/src/main/java/org/apache/logging/log4j/core/appender/rolling/TimeBasedTriggeringPolicy.java,29,public final class TimeBasedTriggeringPolicy implements TriggeringPolicy {
+log4j-core/src/main/java/org/apache/logging/log4j/core/appender/rolling/action/AbstractAction.java,28,public abstract class AbstractAction implements Action {
+log4j-core/src/main/java/org/apache/logging/log4j/core/config/AppenderRef.java,34,public final class AppenderRef {
+log4j-core/src/main/java/org/apache/logging/log4j/core/lookup/StrMatcher.java,30,public abstract class StrMatcher {
+log4j-core/src/main/java/org/apache/logging/log4j/core/lookup/StrSubstitutor.java,125,public class StrSubstitutor {
+log4j-core/src/main/java/org/apache/logging/log4j/core/net/SmtpManager.java,153,throw new LoggingException("Error occurred while sending email", e);
+log4j-core/src/main/java/org/apache/logging/log4j/core/net/SmtpManager.java,156,throw new LoggingException("Error occurred while sending email", e);
+log4j-core/src/main/java/org/apache/logging/log4j/core/net/SmtpManager.java,248,private static class FactoryData {
+log4j-core/src/main/java/org/apache/logging/log4j/core/net/TcpSocketManager.java,56,private Socket socket;
+log4j-core/src/main/java/org/apache/logging/log4j/core/net/TcpSocketManager.java,83,connector = new Reconnector(this);
+log4j-core/src/main/java/org/apache/logging/log4j/core/net/TcpSocketManager.java,84,connector.setDaemon(true);
+log4j-core/src/main/java/org/apache/logging/log4j/core/net/TcpSocketManager.java,85,connector.setPriority(Thread.MIN_PRIORITY);
+log4j-core/src/main/java/org/apache/logging/log4j/core/net/TcpSocketManager.java,86,connector.start();
+log4j-core/src/main/java/org/apache/logging/log4j/core/net/TcpSocketManager.java,128,connector = new Reconnector(this);
+log4j-core/src/main/java/org/apache/logging/log4j/core/net/TcpSocketManager.java,129,connector.setDaemon(true);
+log4j-core/src/main/java/org/apache/logging/log4j/core/net/TcpSocketManager.java,130,connector.setPriority(Thread.MIN_PRIORITY);
+log4j-core/src/main/java/org/apache/logging/log4j/core/net/TcpSocketManager.java,131,connector.start();
+log4j-core/src/main/java/org/apache/logging/log4j/core/net/ssl/AbstractKeyStoreConfiguration.java,31,private final KeyStore keyStore;
+log4j-core/src/main/java/org/apache/logging/log4j/core/net/ssl/SslConfiguration.java,43,public class SslConfiguration {
+log4j-core/src/main/java/org/apache/logging/log4j/core/net/ssl/SslConfiguration.java,47,private final SSLContext sslContext;
+log4j-core/src/main/java/org/apache/logging/log4j/core/net/ssl/StoreConfiguration.java,24,public class StoreConfiguration<T> {
+log4j-core/src/main/java/org/apache/logging/log4j/core/util/CyclicBuffer.java,26,public final class CyclicBuffer<T> {
+log4j-flume-ng/src/main/java/org/apache/logging/log4j/flume/appender/Agent.java,30,public final class Agent {
+log4j-flume-ng/src/main/java/org/apache/logging/log4j/flume/appender/BatchEvent.java,27,public class BatchEvent {
+log4j-nosql/src/main/java/org/apache/logging/log4j/nosql/appender/couchdb/CouchDbProvider.java,38,public final class CouchDbProvider implements NoSqlProvider<CouchDbConnection> {
+log4j-nosql/src/main/java/org/apache/logging/log4j/nosql/appender/mongodb/MongoDbProvider.java,41,public final class MongoDbProvider implements NoSqlProvider<MongoDbConnection> {
+log4j-core/src/main/java/org/apache/logging/log4j/core/appender/AbstractManager.java,30,public abstract class AbstractManager {
+log4j-core/src/main/java/org/apache/logging/log4j/core/net/MulticastDnsAdvertiser.java,39,public class MulticastDnsAdvertiser implements Advertiser {
+log4j-core/src/main/java/org/apache/logging/log4j/core/pattern/PatternParser.java,41,public final class PatternParser {
+log4j-core/src/main/java/org/apache/logging/log4j/core/pattern/RegexReplacement.java,31,public final class RegexReplacement {
+log4j-core/src/main/java/org/apache/logging/log4j/core/impl/ThrowableFormatOptions.java,29,public final class ThrowableFormatOptions {
+log4j-core/src/main/java/org/apache/logging/log4j/core/pattern/AbstractPatternConverter.java,31,public abstract class AbstractPatternConverter implements PatternConverter {
+log4j-core/src/main/java/org/apache/logging/log4j/core/pattern/DatePatternConverter.java,33,private abstract static class Formatter {
+log4j-core/src/main/java/org/apache/logging/log4j/core/pattern/FileDatePatternConverter.java,28,public final class FileDatePatternConverter {
+log4j-core/src/main/java/org/apache/logging/log4j/core/pattern/FormattingInfo.java,23,public final class FormattingInfo {
+log4j-core/src/main/java/org/apache/logging/log4j/core/pattern/NameAbbreviator.java,26,public abstract class NameAbbreviator {
+log4j-core/src/main/java/org/apache/logging/log4j/core/pattern/NameAbbreviator.java,198,private static class PatternAbbreviatorFragment {
+log4j-core/src/main/java/org/apache/logging/log4j/core/pattern/PatternFormatter.java,25,public class PatternFormatter {
+log4j-api/src/main/java/org/apache/logging/log4j/spi/AbstractLogger.java,45,public static final Marker ENTRY_MARKER = MarkerManager.getMarker("ENTRY").setParents(FLOW_MARKER);
+log4j-core/src/main/java/org/apache/logging/log4j/core/appender/TlsSyslogFrame.java,19,import java.nio.charset.Charset;
+log4j-core/src/main/java/org/apache/logging/log4j/core/appender/TlsSyslogFrame.java,27,private String message;
+log4j-core/src/main/java/org/apache/logging/log4j/core/appender/TlsSyslogFrame.java,28,private int messageLengthInBytes;
+log4j-core/src/main/java/org/apache/logging/log4j/core/appender/TlsSyslogFrame.java,31,setMessage(message);
+log4j-core/src/main/java/org/apache/logging/log4j/core/appender/TlsSyslogFrame.java,38,public void setMessage(final String message) {
+log4j-core/src/main/java/org/apache/logging/log4j/core/appender/TlsSyslogFrame.java,39,this.message = message;
+log4j-core/src/main/java/org/apache/logging/log4j/core/appender/TlsSyslogFrame.java,40,setLengthInBytes();
+log4j-core/src/main/java/org/apache/logging/log4j/core/appender/TlsSyslogFrame.java,43,private void setLengthInBytes() {
+log4j-core/src/main/java/org/apache/logging/log4j/core/appender/TlsSyslogFrame.java,44,messageLengthInBytes = message.length();
+log4j-core/src/main/java/org/apache/logging/log4j/core/appender/TlsSyslogFrame.java,47,public byte[] getBytes() {
+log4j-core/src/main/java/org/apache/logging/log4j/core/appender/TlsSyslogFrame.java,48,final String frame = toString();
+log4j-core/src/main/java/org/apache/logging/log4j/core/appender/TlsSyslogFrame.java,49,return frame.getBytes(Charset.defaultCharset());
+log4j-core/src/main/java/org/apache/logging/log4j/core/appender/TlsSyslogFrame.java,54,final String length = Integer.toString(messageLengthInBytes);
+log4j-core/src/main/java/org/apache/logging/log4j/core/appender/TlsSyslogFrame.java,63,public boolean equals(final TlsSyslogFrame frame) {
+log4j-core/src/main/java/org/apache/logging/log4j/core/appender/TlsSyslogFrame.java,64,return isLengthEquals(frame) && isMessageEquals(frame);
+log4j-core/src/main/java/org/apache/logging/log4j/core/appender/TlsSyslogFrame.java,67,private boolean isLengthEquals(final TlsSyslogFrame frame) {
+log4j-core/src/main/java/org/apache/logging/log4j/core/appender/TlsSyslogFrame.java,68,return this.messageLengthInBytes == frame.messageLengthInBytes;
+log4j-core/src/main/java/org/apache/logging/log4j/core/appender/TlsSyslogFrame.java,71,private boolean isMessageEquals(final TlsSyslogFrame frame) {
+log4j-core/src/main/java/org/apache/logging/log4j/core/appender/TlsSyslogFrame.java,72,return this.message.equals(frame.message);
+log4j-core/src/main/java/org/apache/logging/log4j/core/filter/DynamicThresholdFilter.java,67,return filter(level);
+log4j-core/src/main/java/org/apache/logging/log4j/core/filter/DynamicThresholdFilter.java,73,return filter(level);
+log4j-core/src/main/java/org/apache/logging/log4j/core/appender/AbstractOutputStreamAppender.java,48,private final ReadWriteLock rwLock = new ReentrantReadWriteLock();
+log4j-core/src/main/java/org/apache/logging/log4j/core/appender/AbstractOutputStreamAppender.java,49,private final Lock readLock = rwLock.readLock();
+log4j-core/src/main/java/org/apache/logging/log4j/core/appender/AbstractOutputStreamAppender.java,102,readLock.lock();
+log4j-core/src/main/java/org/apache/logging/log4j/core/appender/AbstractOutputStreamAppender.java,105,if (bytes.length > 0) {
+log4j-core/src/main/java/org/apache/logging/log4j/core/appender/AbstractOutputStreamAppender.java,106,manager.write(bytes);
+log4j-core/src/main/java/org/apache/logging/log4j/core/appender/AbstractOutputStreamAppender.java,107,if (this.immediateFlush || event.isEndOfBatch()) {
+log4j-core/src/main/java/org/apache/logging/log4j/core/appender/AbstractOutputStreamAppender.java,108,manager.flush();
+log4j-core/src/main/java/org/apache/logging/log4j/core/appender/AbstractOutputStreamAppender.java,115,readLock.unlock();
+log4j-core/src/main/java/org/apache/logging/log4j/core/appender/FileManager.java,78,protected synchronized void write(final byte[] bytes, final int offset, final int length)  {
+log4j-core/src/main/java/org/apache/logging/log4j/core/appender/FileManager.java,92,super.write(bytes, offset, length);
+log4j-core/src/main/java/org/apache/logging/log4j/core/appender/FileManager.java,101,super.write(bytes, offset, length);
+log4j-core/src/main/java/org/apache/logging/log4j/core/appender/OutputStreamManager.java,119,protected synchronized void write(final byte[] bytes, final int offset, final int length)  {
+log4j-core/src/main/java/org/apache/logging/log4j/core/appender/OutputStreamManager.java,136,write(bytes, 0, bytes.length);
+log4j-core/src/main/java/org/apache/logging/log4j/core/appender/RandomAccessFileManager.java,87,protected synchronized void write(final byte[] bytes, int offset, int length) {
+log4j-core/src/main/java/org/apache/logging/log4j/core/appender/RandomAccessFileManager.java,88,super.write(bytes, offset, length); // writes to dummy output stream
+log4j-core/src/main/java/org/apache/logging/log4j/core/appender/RandomAccessFileManager.java,101,if (isImmediateFlush || isEndOfBatch.get() == Boolean.TRUE) {
+log4j-core/src/main/java/org/apache/logging/log4j/core/appender/rolling/RollingFileManager.java,84,protected synchronized void write(final byte[] bytes, final int offset, final int length) {
+log4j-core/src/main/java/org/apache/logging/log4j/core/appender/rolling/RollingFileManager.java,86,super.write(bytes, offset, length);
+log4j-core/src/main/java/org/apache/logging/log4j/core/appender/rolling/RollingRandomAccessFileManager.java,97,protected synchronized void write(final byte[] bytes, int offset, int length) {
+log4j-core/src/main/java/org/apache/logging/log4j/core/appender/rolling/RollingRandomAccessFileManager.java,98,super.write(bytes, offset, length); // writes to dummy output stream, needed to track file size
+log4j-core/src/main/java/org/apache/logging/log4j/core/appender/rolling/RollingRandomAccessFileManager.java,111,if (isImmediateFlush || isEndOfBatch.get() == Boolean.TRUE) {
+log4j-core/src/main/java/org/apache/logging/log4j/core/net/TcpSocketManager.java,113,protected void write(final byte[] bytes, final int offset, final int length)  {
+log4j-core/src/main/java/org/apache/logging/log4j/core/net/TcpSocketManager.java,125,getOutputStream().write(bytes, offset, length);
+log4j-core/src/main/java/org/apache/logging/log4j/core/net/TcpSocketManager.java,264,LOGGER.error("Could not find address of " + data.host, ex);
+log4j-core/src/main/java/org/apache/logging/log4j/core/net/TcpSocketManager.java,273,LOGGER.error("TcpSocketManager (" + name + ") " + ex);
+log4j-core/src/main/java/org/apache/logging/log4j/core/layout/AbstractJacksonLayout.java,24,import com.fasterxml.jackson.core.JsonProcessingException;
+log4j-core/src/main/java/org/apache/logging/log4j/core/layout/JsonLayout.java,795,protected JsonLayout(final boolean locationInfo, final boolean properties, final boolean complete, final boolean compact,
+log4j-core/src/main/java/org/apache/logging/log4j/core/appender/rolling/action/FileRenameAction.java,92,destination.getAbsolutePath(), iex.getMessage());
+log4j-core/src/main/java/org/apache/logging/log4j/core/appender/rolling/action/FileRenameAction.java,102,destination.getAbsolutePath(), iex.getMessage());
+log4j-core/src/main/java/org/apache/logging/log4j/core/async/AsyncLogger.java,76,public class AsyncLogger extends Logger {
+log4j-core/src/main/java/org/apache/logging/log4j/core/async/AsyncLogger.java,248,info.translator.setValues(this, getName(), marker, fqcn, level, message, //
+log4j-core/src/main/java/org/apache/logging/log4j/core/async/AsyncLogger.java,250,thrown, //
+log4j-core/src/main/java/org/apache/logging/log4j/core/async/AsyncLogger.java,286,private static StackTraceElement location(final String fqcnOfLogger) {
+log4j-core/src/main/java/org/apache/logging/log4j/core/async/AsyncLogger.java,287,return Log4jLogEvent.calcLocation(fqcnOfLogger);
+log4j-core/src/main/java/org/apache/logging/log4j/core/config/AbstractConfiguration.java,214,int asyncAppenderCount = 0;
+log4j-core/src/main/java/org/apache/logging/log4j/core/config/AbstractConfiguration.java,215,for (int i = array.length - 1; i >= 0; --i) {
+log4j-core/src/main/java/org/apache/logging/log4j/core/config/AbstractConfiguration.java,216,if (array[i] instanceof AsyncAppender) {
+log4j-core/src/main/java/org/apache/logging/log4j/core/config/AbstractConfiguration.java,217,array[i].stop();
+log4j-core/src/main/java/org/apache/logging/log4j/core/config/AbstractConfiguration.java,218,asyncAppenderCount++;
+log4j-core/src/main/java/org/apache/logging/log4j/core/appender/rolling/RollingFileManager.java,46,private final TriggeringPolicy triggeringPolicy;
+log4j-core/src/main/java/org/apache/logging/log4j/core/appender/rolling/RollingFileManager.java,47,private final RolloverStrategy rolloverStrategy;
+log4j-taglib/src/main/java/org/apache/logging/log4j/taglib/Log4jTaglibLoggerContext.java,61,public Log4jTaglibLogger getLogger(final String name, final MessageFactory factory) {
+log4j-taglib/src/main/java/org/apache/logging/log4j/taglib/Log4jTaglibLoggerContext.java,62,Log4jTaglibLogger logger = this.loggers.get(name);
+log4j-taglib/src/main/java/org/apache/logging/log4j/taglib/Log4jTaglibLoggerContext.java,64,AbstractLogger.checkMessageFactory(logger, factory);
+log4j-taglib/src/main/java/org/apache/logging/log4j/taglib/Log4jTaglibLoggerContext.java,69,logger = this.loggers.get(name);
+log4j-taglib/src/main/java/org/apache/logging/log4j/taglib/Log4jTaglibLoggerContext.java,72,final ExtendedLogger original = factory == null ?
+log4j-taglib/src/main/java/org/apache/logging/log4j/taglib/Log4jTaglibLoggerContext.java,73,context.getLogger(name) : context.getLogger(name, factory);
+log4j-taglib/src/main/java/org/apache/logging/log4j/taglib/Log4jTaglibLoggerContext.java,76,this.loggers.put(name, logger);
+log4j-api/src/main/java/org/apache/logging/log4j/simple/SimpleLoggerContext.java,112,loggers.putIfAbsent(name, new SimpleLogger(name, defaultLevel, showLogName, showShortName, showDateTime,
+log4j-api/src/main/java/org/apache/logging/log4j/simple/SimpleLoggerContext.java,113,showContextMap, dateTimeFormat, messageFactory, props, stream));
+log4j-api/src/main/java/org/apache/logging/log4j/simple/SimpleLoggerContext.java,114,return loggers.get(name);
+log4j-core/src/main/java/org/apache/logging/log4j/core/LoggerContext.java,296,Logger logger = loggers.get(name);
+log4j-core/src/main/java/org/apache/logging/log4j/core/LoggerContext.java,303,final Logger prev = loggers.putIfAbsent(name, logger);
+log4j-core/src/main/java/org/apache/logging/log4j/core/LoggerContext.java,314,return loggers.containsKey(name);
+log4j-taglib/src/main/java/org/apache/logging/log4j/taglib/Log4jTaglibLoggerContext.java,26,import org.apache.logging.log4j.spi.LoggerContext;
+log4j-taglib/src/main/java/org/apache/logging/log4j/taglib/Log4jTaglibLoggerContext.java,85,return this.loggers.containsKey(name);
+log4j-to-slf4j/src/main/java/org/apache/logging/slf4j/SLF4JLoggerContext.java,23,import org.apache.logging.log4j.spi.LoggerContext;
+log4j-to-slf4j/src/main/java/org/apache/logging/slf4j/SLF4JLoggerContext.java,56,return loggers.containsKey(name);
+log4j-core/src/main/java/org/apache/logging/log4j/core/layout/AbstractStringLayout.java,27,public abstract class AbstractStringLayout extends AbstractLayout<String> {
+log4j-core/src/main/java/org/apache/logging/log4j/core/config/AbstractConfiguration.java,399,setName(DefaultConfiguration.DEFAULT_NAME);
+log4j-api/src/main/java/org/apache/logging/log4j/status/StatusLogger.java,61,private static final StatusLogger STATUS_LOGGER = new StatusLogger();
+log4j-api/src/main/java/org/apache/logging/log4j/status/StatusLogger.java,73,private StatusLogger() {
+log4j-core/src/main/java/org/apache/logging/log4j/core/async/AsyncLoggerConfig.java,124,this.setStarting();
+log4j-core/src/main/java/org/apache/logging/log4j/core/async/AsyncLoggerConfig.java,125,if (helper == null) {
+log4j-core/src/main/java/org/apache/logging/log4j/core/async/AsyncLoggerConfig.java,128,AsyncLoggerConfigHelper.claim(); // LOG4J2-336
+log4j-core/src/main/java/org/apache/logging/log4j/core/async/AsyncLoggerConfig.java,136,this.setStopping();
+log4j-core/src/main/java/org/apache/logging/log4j/core/async/AsyncLoggerConfig.java,137,AsyncLoggerConfigHelper.release();
+log4j-core/src/main/java/org/apache/logging/log4j/core/async/AsyncLoggerConfigHelper.java,30,import com.lmax.disruptor.EventHandler;
+log4j-core/src/main/java/org/apache/logging/log4j/core/async/AsyncLoggerConfigHelper.java,67,private static ThreadFactory threadFactory = new DaemonThreadFactory("AsyncLoggerConfig-");
+log4j-core/src/main/java/org/apache/logging/log4j/core/async/AsyncLoggerConfigHelper.java,68,private static volatile Disruptor<Log4jEventWrapper> disruptor;
+log4j-core/src/main/java/org/apache/logging/log4j/core/async/AsyncLoggerConfigHelper.java,69,private static ExecutorService executor;
+log4j-core/src/main/java/org/apache/logging/log4j/core/async/AsyncLoggerConfigHelper.java,71,private static volatile int count = 0;
+log4j-core/src/main/java/org/apache/logging/log4j/core/async/AsyncLoggerConfigHelper.java,103,claim();
+log4j-core/src/main/java/org/apache/logging/log4j/core/async/AsyncLoggerConfigHelper.java,106,private static synchronized void initDisruptor() {
+log4j-core/src/main/java/org/apache/logging/log4j/core/async/AsyncLoggerConfigHelper.java,111,LOGGER.trace("AsyncLoggerConfigHelper creating new disruptor. Ref count is {}.", count);
+log4j-core/src/main/java/org/apache/logging/log4j/core/async/AsyncLoggerConfigHelper.java,115,initThreadLocalForExecutorThread();
+log4j-core/src/main/java/org/apache/logging/log4j/core/async/AsyncLoggerConfigHelper.java,118,final EventHandler<Log4jEventWrapper>[] handlers = new Log4jEventWrapperHandler[] {//
+log4j-core/src/main/java/org/apache/logging/log4j/core/async/AsyncLoggerConfigHelper.java,190,private static class Log4jEventWrapper {
+log4j-core/src/main/java/org/apache/logging/log4j/core/async/AsyncLoggerConfigHelper.java,191,private AsyncLoggerConfig loggerConfig;
+log4j-core/src/main/java/org/apache/logging/log4j/core/async/AsyncLoggerConfigHelper.java,192,private LogEvent event;
+log4j-core/src/main/java/org/apache/logging/log4j/core/async/AsyncLoggerConfigHelper.java,198,public void clear() {
+log4j-core/src/main/java/org/apache/logging/log4j/core/async/AsyncLoggerConfigHelper.java,199,loggerConfig = null;
+log4j-core/src/main/java/org/apache/logging/log4j/core/async/AsyncLoggerConfigHelper.java,200,event = null;
+log4j-core/src/main/java/org/apache/logging/log4j/core/async/AsyncLoggerConfigHelper.java,209,private static final int NOTIFY_PROGRESS_THRESHOLD = 50;
+log4j-core/src/main/java/org/apache/logging/log4j/core/async/AsyncLoggerConfigHelper.java,210,private Sequence sequenceCallback;
+log4j-core/src/main/java/org/apache/logging/log4j/core/async/AsyncLoggerConfigHelper.java,211,private int counter;
+log4j-core/src/main/java/org/apache/logging/log4j/core/async/AsyncLoggerConfigHelper.java,214,public void setSequenceCallback(final Sequence sequenceCallback) {
+log4j-core/src/main/java/org/apache/logging/log4j/core/async/AsyncLoggerConfigHelper.java,215,this.sequenceCallback = sequenceCallback;
+log4j-core/src/main/java/org/apache/logging/log4j/core/async/AsyncLoggerConfigHelper.java,221,event.event.setEndOfBatch(endOfBatch);
+log4j-core/src/main/java/org/apache/logging/log4j/core/async/AsyncLoggerConfigHelper.java,222,event.loggerConfig.asyncCallAppenders(event.event);
+log4j-core/src/main/java/org/apache/logging/log4j/core/async/AsyncLoggerConfigHelper.java,223,event.clear();
+log4j-core/src/main/java/org/apache/logging/log4j/core/async/AsyncLoggerConfigHelper.java,228,if (++counter > NOTIFY_PROGRESS_THRESHOLD) {
+log4j-core/src/main/java/org/apache/logging/log4j/core/async/AsyncLoggerConfigHelper.java,229,sequenceCallback.set(sequence);
+log4j-core/src/main/java/org/apache/logging/log4j/core/async/AsyncLoggerConfigHelper.java,230,counter = 0;
+log4j-core/src/main/java/org/apache/logging/log4j/core/async/AsyncLoggerConfigHelper.java,242,count++;
+log4j-core/src/main/java/org/apache/logging/log4j/core/async/AsyncLoggerConfigHelper.java,243,initDisruptor();
+log4j-core/src/main/java/org/apache/logging/log4j/core/async/AsyncLoggerConfigHelper.java,252,if (--count > 0) {
+log4j-core/src/main/java/org/apache/logging/log4j/core/async/AsyncLoggerConfigHelper.java,253,LOGGER.trace("AsyncLoggerConfigHelper: not shutting down disruptor: ref count is {}.", count);
+log4j-core/src/main/java/org/apache/logging/log4j/core/async/AsyncLoggerConfigHelper.java,254,return;
+log4j-core/src/main/java/org/apache/logging/log4j/core/async/AsyncLoggerConfigHelper.java,258,LOGGER.trace("AsyncLoggerConfigHelper: disruptor already shut down: ref count is {}. (Resetting to zero.)",
+log4j-core/src/main/java/org/apache/logging/log4j/core/async/AsyncLoggerConfigHelper.java,259,count);
+log4j-core/src/main/java/org/apache/logging/log4j/core/async/AsyncLoggerConfigHelper.java,260,count = 0; // ref count must not be negative or #claim() will not work correctly
+log4j-core/src/main/java/org/apache/logging/log4j/core/async/AsyncLoggerConfigHelper.java,263,LOGGER.trace("AsyncLoggerConfigHelper: shutting down disruptor: ref count is {}.", count);
+log4j-core/src/main/java/org/apache/logging/log4j/core/async/AsyncLoggerConfigHelper.java,296,private static void initThreadLocalForExecutorThread() {
+log4j-core/src/main/java/org/apache/logging/log4j/core/config/AbstractConfiguration.java,34,import org.apache.logging.log4j.LogManager;
+log4j-core/src/main/java/org/apache/logging/log4j/core/config/AbstractConfiguration.java,42,import org.apache.logging.log4j.core.async.AsyncLoggerContextSelector;
+log4j-core/src/main/java/org/apache/logging/log4j/core/config/AbstractConfiguration.java,47,import org.apache.logging.log4j.core.impl.Log4jContextFactory;
+log4j-core/src/main/java/org/apache/logging/log4j/core/config/AbstractConfiguration.java,54,import org.apache.logging.log4j.core.selector.ContextSelector;
+log4j-core/src/main/java/org/apache/logging/log4j/core/config/AbstractConfiguration.java,59,import org.apache.logging.log4j.spi.LoggerContextFactory;
+log4j-core/src/main/java/org/apache/logging/log4j/core/config/AbstractConfiguration.java,175,final LoggerContextFactory factory = LogManager.getFactory();
+log4j-core/src/main/java/org/apache/logging/log4j/core/config/AbstractConfiguration.java,176,if (factory instanceof Log4jContextFactory) {
+log4j-core/src/main/java/org/apache/logging/log4j/core/config/AbstractConfiguration.java,177,final ContextSelector selector = ((Log4jContextFactory) factory).getSelector();
+log4j-core/src/main/java/org/apache/logging/log4j/core/config/AbstractConfiguration.java,178,if (selector instanceof AsyncLoggerContextSelector) { // all loggers are async
+log4j-core/src/main/java/org/apache/logging/log4j/core/config/AbstractConfiguration.java,190,int asyncLoggerConfigCount = 0;
+log4j-core/src/main/java/org/apache/logging/log4j/core/config/AbstractConfiguration.java,192,if (logger instanceof AsyncLoggerConfig) {
+log4j-core/src/main/java/org/apache/logging/log4j/core/config/AbstractConfiguration.java,198,logger.stop();
+log4j-core/src/main/java/org/apache/logging/log4j/core/config/AbstractConfiguration.java,199,asyncLoggerConfigCount++;
+log4j-core/src/main/java/org/apache/logging/log4j/core/config/AbstractConfiguration.java,200,alreadyStopped.add(logger);
+log4j-core/src/main/java/org/apache/logging/log4j/core/config/AbstractConfiguration.java,205,asyncLoggerConfigCount++;
+log4j-core/src/main/java/org/apache/logging/log4j/core/config/AbstractConfiguration.java,206,alreadyStopped.add(root);
+log4j-core/src/main/java/org/apache/logging/log4j/core/config/AbstractConfiguration.java,232,int loggerCount = 0;
+log4j-core/src/main/java/org/apache/logging/log4j/core/config/AbstractConfiguration.java,251,if (!alreadyStopped.contains(root)) {
+log4j-core/src/main/java/org/apache/logging/log4j/core/config/AbstractConfiguration.java,252,root.stop();
+log4j-core/src/main/java/org/apache/logging/log4j/core/jmx/RingBufferAdmin.java,58,return ringBuffer.getBufferSize();
+log4j-core/src/main/java/org/apache/logging/log4j/core/jmx/RingBufferAdmin.java,63,return ringBuffer.remainingCapacity();
+log4j-core/src/main/java/org/apache/logging/log4j/core/jmx/Server.java,147,register(mbs, rbmbean, rbmbean.getObjectName());
+log4j-core/src/main/java/org/apache/logging/log4j/core/async/AsyncLoggerConfigHelper.java,134,if ("Sleep".equals(strategy)) {
+log4j-core/src/main/java/org/apache/logging/log4j/core/async/AsyncLoggerConfigHelper.java,135,return new SleepingWaitStrategy();
+log4j-core/src/main/java/org/apache/logging/log4j/core/async/AsyncLoggerConfigHelper.java,137,return new YieldingWaitStrategy();
+log4j-core/src/main/java/org/apache/logging/log4j/core/async/AsyncLoggerConfigHelper.java,139,return new BlockingWaitStrategy();
+log4j-core/src/main/java/org/apache/logging/log4j/core/async/AsyncLoggerConfig.java,70,private AsyncLoggerConfigHelper helper;
+log4j-core/src/main/java/org/apache/logging/log4j/core/async/AsyncLoggerConfig.java,75,public AsyncLoggerConfig() {
+log4j-core/src/main/java/org/apache/logging/log4j/core/async/AsyncLoggerConfig.java,76,super();
+log4j-core/src/main/java/org/apache/logging/log4j/core/async/AsyncLoggerConfig.java,86,public AsyncLoggerConfig(final String name, final Level level,
+log4j-core/src/main/java/org/apache/logging/log4j/core/async/AsyncLoggerConfig.java,87,final boolean additive) {
+log4j-core/src/main/java/org/apache/logging/log4j/core/async/AsyncLoggerConfig.java,88,super(name, level, additive);
+log4j-core/src/main/java/org/apache/logging/log4j/core/async/AsyncLoggerConfig.java,111,if (!helper.callAppendersFromAnotherThread(event)) {
+log4j-core/src/main/java/org/apache/logging/log4j/core/async/AsyncLoggerConfig.java,126,helper = new AsyncLoggerConfigHelper(this);
+log4j-core/src/main/java/org/apache/logging/log4j/core/async/AsyncLoggerConfigHelper.java,59,class AsyncLoggerConfigHelper {
+log4j-core/src/main/java/org/apache/logging/log4j/core/async/AsyncLoggerConfigHelper.java,99,private final AsyncLoggerConfig asyncLoggerConfig;
+log4j-core/src/main/java/org/apache/logging/log4j/core/async/AsyncLoggerConfigHelper.java,101,public AsyncLoggerConfigHelper(final AsyncLoggerConfig asyncLoggerConfig) {
+log4j-core/src/main/java/org/apache/logging/log4j/core/async/AsyncLoggerConfigHelper.java,102,this.asyncLoggerConfig = asyncLoggerConfig;
+log4j-core/src/main/java/org/apache/logging/log4j/core/async/AsyncLoggerConfigHelper.java,318,public boolean callAppendersFromAnotherThread(final LogEvent event) {
+log4j-core/src/main/java/org/apache/logging/log4j/core/jmx/Server.java,36,import org.apache.logging.log4j.core.async.AsyncLogger;
+log4j-core/src/main/java/org/apache/logging/log4j/core/async/AsyncLoggerContext.java,38,public AsyncLoggerContext(final String name, final Object externalContext,
+log4j-core/src/main/java/org/apache/logging/log4j/core/async/AsyncLoggerContext.java,39,final URI configLocn) {
+log4j-core/src/main/java/org/apache/logging/log4j/core/async/AsyncLoggerContext.java,43,public AsyncLoggerContext(final String name, final Object externalContext,
+log4j-core/src/main/java/org/apache/logging/log4j/core/async/AsyncLoggerContext.java,44,final String configLocn) {
+log4j-core/src/main/java/org/apache/logging/log4j/core/async/AsyncLoggerContext.java,49,protected Logger newInstance(final LoggerContext ctx, final String name,
+log4j-core/src/main/java/org/apache/logging/log4j/core/async/AsyncLoggerContext.java,50,final MessageFactory messageFactory) {
+log4j-core/src/main/java/org/apache/logging/log4j/core/async/AsyncLoggerContextSelector.java,20,import java.util.ArrayList;
+log4j-core/src/main/java/org/apache/logging/log4j/core/async/AsyncLoggerContextSelector.java,22,import java.util.List;
+log4j-core/src/main/java/org/apache/logging/log4j/core/async/AsyncLoggerContextSelector.java,25,import org.apache.logging.log4j.core.selector.ContextSelector;
+log4j-core/src/main/java/org/apache/logging/log4j/core/async/AsyncLoggerContextSelector.java,30,public class AsyncLoggerContextSelector implements ContextSelector {
+log4j-core/src/main/java/org/apache/logging/log4j/core/async/AsyncLoggerContextSelector.java,37,public LoggerContext getContext(final String fqcn, final ClassLoader loader, final boolean currentContext) {
+log4j-core/src/main/java/org/apache/logging/log4j/core/async/AsyncLoggerContextSelector.java,42,public List<LoggerContext> getLoggerContexts() {
+log4j-core/src/main/java/org/apache/logging/log4j/core/async/AsyncLoggerContextSelector.java,49,public LoggerContext getContext(final String fqcn, final ClassLoader loader, final boolean currentContext,
+log4j-core/src/main/java/org/apache/logging/log4j/core/async/AsyncLoggerContextSelector.java,50,final URI configLocation) {
+log4j-core/src/main/java/org/apache/logging/log4j/core/async/AsyncLoggerContextSelector.java,55,public void removeContext(final LoggerContext context) {
+log4j-core/src/main/java/org/apache/logging/log4j/core/selector/ClassLoaderContextSelector.java,85,final URI configLocation) {
+log4j-core/src/main/java/org/apache/logging/log4j/core/selector/ClassLoaderContextSelector.java,218,LoggerContext ctx = new LoggerContext(name, null, configLocation);
+log4j-core/src/main/java/org/apache/logging/log4j/core/selector/ClassLoaderContextSelector.java,219,final AtomicReference<WeakReference<LoggerContext>> r =
+log4j-core/src/main/java/org/apache/logging/log4j/core/selector/ClassLoaderContextSelector.java,233,!ctx.getConfigLocation().equals(configLocation)) {
+log4j-core/src/main/java/org/apache/logging/log4j/core/selector/ClassLoaderContextSelector.java,235,ctx.getConfigLocation());
+log4j-core/src/main/java/org/apache/logging/log4j/core/selector/ClassLoaderContextSelector.java,239,ctx = new LoggerContext(name, null, configLocation);
+log4j-core/src/main/java/org/apache/logging/log4j/core/selector/ClassLoaderContextSelector.java,245,final LoggerContext ctx = CONTEXT.get();
+log4j-core/src/main/java/org/apache/logging/log4j/core/selector/ClassLoaderContextSelector.java,249,CONTEXT.compareAndSet(null, new LoggerContext("Default"));
+log4j-core/src/main/java/org/apache/logging/log4j/core/selector/ClassLoaderContextSelector.java,250,return CONTEXT.get();
+log4j-core/src/main/java/org/apache/logging/log4j/core/jmx/Server.java,146,final RingBufferAdmin rbmbean = AsyncLogger.createRingBufferAdmin(ctx.getName());
+log4j-core/src/main/java/org/apache/logging/log4j/core/async/AsyncLogger.java,30,import org.apache.logging.log4j.core.jmx.RingBufferAdmin;
+log4j-core/src/main/java/org/apache/logging/log4j/core/async/AsyncLoggerContext.java,51,return new AsyncLogger(ctx, name, messageFactory);
+log4j-core/src/main/java/org/apache/logging/log4j/core/async/AsyncLoggerContextSelector.java,21,import java.util.Collections;
+log4j-core/src/main/java/org/apache/logging/log4j/core/async/AsyncLoggerContextSelector.java,33,private static final AsyncLoggerContext CONTEXT = new AsyncLoggerContext("AsyncLoggerContext@"
+log4j-core/src/main/java/org/apache/logging/log4j/core/async/AsyncLoggerContextSelector.java,38,return CONTEXT;
+log4j-core/src/main/java/org/apache/logging/log4j/core/async/AsyncLoggerContextSelector.java,44,list.add(CONTEXT);
+log4j-core/src/main/java/org/apache/logging/log4j/core/async/AsyncLoggerContextSelector.java,45,return Collections.unmodifiableList(list);
+log4j-core/src/main/java/org/apache/logging/log4j/core/async/AsyncLoggerContextSelector.java,51,return CONTEXT;
+log4j-core/src/main/java/org/apache/logging/log4j/core/async/AsyncLogger.java,20,import java.util.concurrent.ExecutorService;
+log4j-core/src/main/java/org/apache/logging/log4j/core/async/AsyncLogger.java,86,static enum ThreadNameStrategy { // LOG4J2-467
+log4j-core/src/main/java/org/apache/logging/log4j/core/async/AsyncLogger.java,87,CACHED {
+log4j-core/src/main/java/org/apache/logging/log4j/core/async/AsyncLogger.java,89,public String getThreadName(final Info info) {
+log4j-core/src/main/java/org/apache/logging/log4j/core/async/AsyncLogger.java,90,return info.cachedThreadName;
+log4j-core/src/main/java/org/apache/logging/log4j/core/async/AsyncLogger.java,93,UNCACHED {
+log4j-core/src/main/java/org/apache/logging/log4j/core/async/AsyncLogger.java,95,public String getThreadName(final Info info) {
+log4j-core/src/main/java/org/apache/logging/log4j/core/async/AsyncLogger.java,96,return Thread.currentThread().getName();
+log4j-core/src/main/java/org/apache/logging/log4j/core/async/AsyncLogger.java,99,abstract String getThreadName(Info info);
+log4j-core/src/main/java/org/apache/logging/log4j/core/async/AsyncLogger.java,101,static ThreadNameStrategy create() {
+log4j-core/src/main/java/org/apache/logging/log4j/core/async/AsyncLogger.java,103,try {
+log4j-core/src/main/java/org/apache/logging/log4j/core/async/AsyncLogger.java,106,LOGGER.debug("Using AsyncLogger.ThreadNameStrategy.CACHED: '{}' not valid: {}", name, ex.toString());
+log4j-core/src/main/java/org/apache/logging/log4j/core/async/AsyncLogger.java,107,return CACHED;
+log4j-core/src/main/java/org/apache/logging/log4j/core/async/AsyncLogger.java,21,import java.util.concurrent.Executors;
+log4j-core/src/main/java/org/apache/logging/log4j/core/async/AsyncLogger.java,33,import org.apache.logging.log4j.core.util.Loader;
+log4j-core/src/main/java/org/apache/logging/log4j/core/async/AsyncLogger.java,38,import com.lmax.disruptor.BlockingWaitStrategy;
+log4j-core/src/main/java/org/apache/logging/log4j/core/async/AsyncLogger.java,39,import com.lmax.disruptor.ExceptionHandler;
+log4j-core/src/main/java/org/apache/logging/log4j/core/async/AsyncLogger.java,40,import com.lmax.disruptor.RingBuffer;
+log4j-core/src/main/java/org/apache/logging/log4j/core/async/AsyncLogger.java,41,import com.lmax.disruptor.SleepingWaitStrategy;
+log4j-core/src/main/java/org/apache/logging/log4j/core/async/AsyncLogger.java,42,import com.lmax.disruptor.WaitStrategy;
+log4j-core/src/main/java/org/apache/logging/log4j/core/async/AsyncLogger.java,43,import com.lmax.disruptor.YieldingWaitStrategy;
+log4j-core/src/main/java/org/apache/logging/log4j/core/async/AsyncLogger.java,45,import com.lmax.disruptor.dsl.ProducerType;
+log4j-core/src/main/java/org/apache/logging/log4j/core/async/AsyncLogger.java,77,private static final long serialVersionUID = 1L;
+log4j-core/src/main/java/org/apache/logging/log4j/core/async/AsyncLogger.java,78,private static final int SLEEP_MILLIS_BETWEEN_DRAIN_ATTEMPTS = 50;
+log4j-core/src/main/java/org/apache/logging/log4j/core/async/AsyncLogger.java,79,private static final int MAX_DRAIN_ATTEMPTS_BEFORE_SHUTDOWN = 200;
+log4j-core/src/main/java/org/apache/logging/log4j/core/async/AsyncLogger.java,80,private static final int RINGBUFFER_MIN_SIZE = 128;
+log4j-core/src/main/java/org/apache/logging/log4j/core/async/AsyncLogger.java,81,private static final int RINGBUFFER_DEFAULT_SIZE = 256 * 1024;
+log4j-core/src/main/java/org/apache/logging/log4j/core/async/AsyncLogger.java,82,private static final StatusLogger LOGGER = StatusLogger.getLogger();
+log4j-core/src/main/java/org/apache/logging/log4j/core/async/AsyncLogger.java,83,private static final ThreadNameStrategy THREAD_NAME_STRATEGY = ThreadNameStrategy.create();
+log4j-core/src/main/java/org/apache/logging/log4j/core/async/AsyncLogger.java,104,return ThreadNameStrategy.valueOf(name);
+log4j-core/src/main/java/org/apache/logging/log4j/core/async/AsyncLogger.java,111,private static volatile Disruptor<RingBufferLogEvent> disruptor;
+log4j-core/src/main/java/org/apache/logging/log4j/core/async/AsyncLogger.java,117,static {
+log4j-core/src/main/java/org/apache/logging/log4j/core/async/AsyncLogger.java,118,initInfoForExecutorThread();
+log4j-core/src/main/java/org/apache/logging/log4j/core/async/AsyncLogger.java,119,LOGGER.debug("AsyncLogger.ThreadNameStrategy={}", THREAD_NAME_STRATEGY);
+log4j-core/src/main/java/org/apache/logging/log4j/core/async/AsyncLogger.java,120,final int ringBufferSize = calculateRingBufferSize();
+log4j-core/src/main/java/org/apache/logging/log4j/core/async/AsyncLogger.java,122,final WaitStrategy waitStrategy = createWaitStrategy();
+log4j-core/src/main/java/org/apache/logging/log4j/core/async/AsyncLogger.java,125,disruptor.handleExceptionsWith(getExceptionHandler());
+log4j-core/src/main/java/org/apache/logging/log4j/core/async/AsyncLogger.java,126,disruptor.handleEventsWith(new RingBufferLogEventHandler());
+log4j-core/src/main/java/org/apache/logging/log4j/core/async/AsyncLogger.java,129,.getBufferSize());
+log4j-core/src/main/java/org/apache/logging/log4j/core/async/AsyncLogger.java,130,disruptor.start();
+log4j-core/src/main/java/org/apache/logging/log4j/core/async/AsyncLogger.java,133,private static int calculateRingBufferSize() {
+log4j-core/src/main/java/org/apache/logging/log4j/core/async/AsyncLogger.java,134,int ringBufferSize = RINGBUFFER_DEFAULT_SIZE;
+log4j-core/src/main/java/org/apache/logging/log4j/core/async/AsyncLogger.java,137,try {
+log4j-core/src/main/java/org/apache/logging/log4j/core/async/AsyncLogger.java,138,int size = Integer.parseInt(userPreferredRBSize);
+log4j-core/src/main/java/org/apache/logging/log4j/core/async/AsyncLogger.java,139,if (size < RINGBUFFER_MIN_SIZE) {
+log4j-core/src/main/java/org/apache/logging/log4j/core/async/AsyncLogger.java,140,size = RINGBUFFER_MIN_SIZE;
+log4j-core/src/main/java/org/apache/logging/log4j/core/async/AsyncLogger.java,141,LOGGER.warn("Invalid RingBufferSize {}, using minimum size {}.", userPreferredRBSize,
+log4j-core/src/main/java/org/apache/logging/log4j/core/async/AsyncLogger.java,142,RINGBUFFER_MIN_SIZE);
+log4j-core/src/main/java/org/apache/logging/log4j/core/async/AsyncLogger.java,144,ringBufferSize = size;
+log4j-core/src/main/java/org/apache/logging/log4j/core/async/AsyncLogger.java,146,LOGGER.warn("Invalid RingBufferSize {}, using default size {}.", userPreferredRBSize, ringBufferSize);
+log4j-core/src/main/java/org/apache/logging/log4j/core/async/AsyncLogger.java,158,private static void initInfoForExecutorThread() {
+log4j-core/src/main/java/org/apache/logging/log4j/core/async/AsyncLogger.java,161,public void run() {
+log4j-core/src/main/java/org/apache/logging/log4j/core/async/AsyncLogger.java,162,final boolean isAppenderThread = true;
+log4j-core/src/main/java/org/apache/logging/log4j/core/async/AsyncLogger.java,163,final Info info = new Info(new RingBufferLogEventTranslator(), //
+log4j-core/src/main/java/org/apache/logging/log4j/core/async/AsyncLogger.java,164,Thread.currentThread().getName(), isAppenderThread);
+log4j-core/src/main/java/org/apache/logging/log4j/core/async/AsyncLogger.java,170,private static WaitStrategy createWaitStrategy() {
+log4j-core/src/main/java/org/apache/logging/log4j/core/async/AsyncLogger.java,172,LOGGER.debug("property AsyncLogger.WaitStrategy={}", strategy);
+log4j-core/src/main/java/org/apache/logging/log4j/core/async/AsyncLogger.java,173,if ("Sleep".equals(strategy)) {
+log4j-core/src/main/java/org/apache/logging/log4j/core/async/AsyncLogger.java,174,return new SleepingWaitStrategy();
+log4j-core/src/main/java/org/apache/logging/log4j/core/async/AsyncLogger.java,176,return new YieldingWaitStrategy();
+log4j-core/src/main/java/org/apache/logging/log4j/core/async/AsyncLogger.java,178,return new BlockingWaitStrategy();
+log4j-core/src/main/java/org/apache/logging/log4j/core/async/AsyncLogger.java,180,LOGGER.debug("disruptor event handler uses BlockingWaitStrategy");
+log4j-core/src/main/java/org/apache/logging/log4j/core/async/AsyncLogger.java,181,return new BlockingWaitStrategy();
+log4j-core/src/main/java/org/apache/logging/log4j/core/async/AsyncLogger.java,186,if (cls == null) {
+log4j-core/src/main/java/org/apache/logging/log4j/core/async/AsyncLogger.java,187,LOGGER.debug("No AsyncLogger.ExceptionHandler specified");
+log4j-core/src/main/java/org/apache/logging/log4j/core/async/AsyncLogger.java,188,return null;
+log4j-core/src/main/java/org/apache/logging/log4j/core/async/AsyncLogger.java,190,try {
+log4j-core/src/main/java/org/apache/logging/log4j/core/async/AsyncLogger.java,192,LOGGER.debug("AsyncLogger.ExceptionHandler={}", result);
+log4j-core/src/main/java/org/apache/logging/log4j/core/async/AsyncLogger.java,193,return result;
+log4j-core/src/main/java/org/apache/logging/log4j/core/async/AsyncLogger.java,195,LOGGER.debug("AsyncLogger.ExceptionHandler not set: error creating " + cls + ": ", ignored);
+log4j-core/src/main/java/org/apache/logging/log4j/core/async/AsyncLogger.java,196,return null;
+log4j-core/src/main/java/org/apache/logging/log4j/core/async/AsyncLogger.java,234,final Disruptor<RingBufferLogEvent> temp = disruptor;
+log4j-core/src/main/java/org/apache/logging/log4j/core/async/AsyncLogger.java,276,try {
+log4j-core/src/main/java/org/apache/logging/log4j/core/async/AsyncLogger.java,280,disruptor.publishEvent(info.translator);
+log4j-core/src/main/java/org/apache/logging/log4j/core/async/AsyncLogger.java,282,LOGGER.fatal("Ignoring log event after log4j was shut down.");
+log4j-core/src/main/java/org/apache/logging/log4j/core/async/AsyncLogger.java,302,public static void stop() {
+log4j-core/src/main/java/org/apache/logging/log4j/core/async/AsyncLogger.java,303,final Disruptor<RingBufferLogEvent> temp = disruptor;
+log4j-core/src/main/java/org/apache/logging/log4j/core/async/AsyncLogger.java,307,disruptor = null; // client code fails with NPE if log after stop = OK
+log4j-core/src/main/java/org/apache/logging/log4j/core/async/AsyncLogger.java,308,if (temp == null) {
+log4j-core/src/main/java/org/apache/logging/log4j/core/async/AsyncLogger.java,309,return; // stop() has already been called
+log4j-core/src/main/java/org/apache/logging/log4j/core/async/AsyncLogger.java,315,for (int i = 0; hasBacklog(temp) && i < MAX_DRAIN_ATTEMPTS_BEFORE_SHUTDOWN; i++) {
+log4j-core/src/main/java/org/apache/logging/log4j/core/async/AsyncLogger.java,316,try {
+log4j-core/src/main/java/org/apache/logging/log4j/core/async/AsyncLogger.java,317,Thread.sleep(SLEEP_MILLIS_BETWEEN_DRAIN_ATTEMPTS); // give up the CPU for a while
+log4j-core/src/main/java/org/apache/logging/log4j/core/async/AsyncLogger.java,321,temp.shutdown(); // busy-spins until all events currently in the disruptor have been processed
+log4j-core/src/main/java/org/apache/logging/log4j/core/async/AsyncLogger.java,331,return !ringBuffer.hasAvailableCapacity(ringBuffer.getBufferSize());
+log4j-core/src/main/java/org/apache/logging/log4j/core/async/AsyncLogger.java,341,return RingBufferAdmin.forAsyncLogger(disruptor.getRingBuffer(), contextName);
+log4j-core/src/main/java/org/apache/logging/log4j/core/async/AsyncLoggerContext.java,56,AsyncLogger.stop();
+log4j-core/src/main/java/org/apache/logging/log4j/core/layout/PatternLayout.java,338,this.charset = charset;
+log4j-core/src/main/java/org/apache/logging/log4j/core/net/server/InputStreamLogEventBridge.java,48,this.objectReader = mapper.reader(Log4jLogEvent.class);
+log4j-nosql/src/main/java/org/apache/logging/log4j/nosql/appender/couchdb/CouchDbConnection.java,17,package org.apache.logging.log4j.nosql.appender.couchdb;
+log4j-nosql/src/main/java/org/apache/logging/log4j/nosql/appender/couchdb/CouchDbConnection.java,19,import java.util.Map;
+log4j-nosql/src/main/java/org/apache/logging/log4j/nosql/appender/couchdb/CouchDbConnection.java,20,import java.util.concurrent.atomic.AtomicBoolean;
+log4j-nosql/src/main/java/org/apache/logging/log4j/nosql/appender/couchdb/CouchDbConnection.java,22,import org.apache.logging.log4j.core.appender.AppenderLoggingException;
+log4j-nosql/src/main/java/org/apache/logging/log4j/nosql/appender/couchdb/CouchDbConnection.java,23,import org.apache.logging.log4j.nosql.appender.DefaultNoSqlObject;
+log4j-nosql/src/main/java/org/apache/logging/log4j/nosql/appender/couchdb/CouchDbConnection.java,24,import org.apache.logging.log4j.nosql.appender.NoSqlConnection;
+log4j-nosql/src/main/java/org/apache/logging/log4j/nosql/appender/couchdb/CouchDbConnection.java,25,import org.apache.logging.log4j.nosql.appender.NoSqlObject;
+log4j-nosql/src/main/java/org/apache/logging/log4j/nosql/appender/couchdb/CouchDbConnection.java,26,import org.lightcouch.CouchDbClient;
+log4j-nosql/src/main/java/org/apache/logging/log4j/nosql/appender/couchdb/CouchDbConnection.java,27,import org.lightcouch.Response;
+log4j-nosql/src/main/java/org/apache/logging/log4j/nosql/appender/couchdb/CouchDbConnection.java,32,public final class CouchDbConnection implements NoSqlConnection<Map<String, Object>, DefaultNoSqlObject> {
+log4j-nosql/src/main/java/org/apache/logging/log4j/nosql/appender/couchdb/CouchDbConnection.java,33,private final CouchDbClient client;
+log4j-nosql/src/main/java/org/apache/logging/log4j/nosql/appender/couchdb/CouchDbConnection.java,34,private final AtomicBoolean closed = new AtomicBoolean(false);
+log4j-nosql/src/main/java/org/apache/logging/log4j/nosql/appender/couchdb/CouchDbConnection.java,36,public CouchDbConnection(final CouchDbClient client) {
+log4j-nosql/src/main/java/org/apache/logging/log4j/nosql/appender/couchdb/CouchDbConnection.java,37,this.client = client;
+log4j-nosql/src/main/java/org/apache/logging/log4j/nosql/appender/couchdb/CouchDbConnection.java,41,public DefaultNoSqlObject createObject() {
+log4j-nosql/src/main/java/org/apache/logging/log4j/nosql/appender/couchdb/CouchDbConnection.java,42,return new DefaultNoSqlObject();
+log4j-nosql/src/main/java/org/apache/logging/log4j/nosql/appender/couchdb/CouchDbConnection.java,46,public DefaultNoSqlObject[] createList(final int length) {
+log4j-nosql/src/main/java/org/apache/logging/log4j/nosql/appender/couchdb/CouchDbConnection.java,47,return new DefaultNoSqlObject[length];
+log4j-nosql/src/main/java/org/apache/logging/log4j/nosql/appender/couchdb/CouchDbConnection.java,51,public void insertObject(final NoSqlObject<Map<String, Object>> object) {
+log4j-nosql/src/main/java/org/apache/logging/log4j/nosql/appender/couchdb/CouchDbConnection.java,52,try {
+log4j-nosql/src/main/java/org/apache/logging/log4j/nosql/appender/couchdb/CouchDbConnection.java,53,final Response response = this.client.save(object.unwrap());
+log4j-nosql/src/main/java/org/apache/logging/log4j/nosql/appender/couchdb/CouchDbConnection.java,55,throw new AppenderLoggingException("Failed to write log event to CouchDB due to error: " +
+log4j-nosql/src/main/java/org/apache/logging/log4j/nosql/appender/couchdb/CouchDbConnection.java,56,response.getError() + '.');
+log4j-nosql/src/main/java/org/apache/logging/log4j/nosql/appender/couchdb/CouchDbConnection.java,59,throw new AppenderLoggingException("Failed to write log event to CouchDB due to error: " + e.getMessage(),
+log4j-nosql/src/main/java/org/apache/logging/log4j/nosql/appender/couchdb/CouchDbConnection.java,60,e);
+log4j-nosql/src/main/java/org/apache/logging/log4j/nosql/appender/couchdb/CouchDbConnection.java,65,public void close() {
+log4j-nosql/src/main/java/org/apache/logging/log4j/nosql/appender/couchdb/CouchDbConnection.java,66,if (this.closed.compareAndSet(false, true)) {
+log4j-nosql/src/main/java/org/apache/logging/log4j/nosql/appender/couchdb/CouchDbConnection.java,67,this.client.shutdown();
+log4j-nosql/src/main/java/org/apache/logging/log4j/nosql/appender/couchdb/CouchDbConnection.java,72,public boolean isClosed() {
+log4j-nosql/src/main/java/org/apache/logging/log4j/nosql/appender/couchdb/CouchDbConnection.java,73,return this.closed.get();
+log4j-core/src/main/java/org/apache/logging/log4j/core/config/Configurator.java,17,package org.apache.logging.log4j.core.config;
+log4j-core/src/main/java/org/apache/logging/log4j/core/config/Configurator.java,19,import java.net.URI;
+log4j-core/src/main/java/org/apache/logging/log4j/core/config/Configurator.java,20,import java.net.URISyntaxException;
+log4j-core/src/main/java/org/apache/logging/log4j/core/config/Configurator.java,22,import org.apache.logging.log4j.LogManager;
+log4j-core/src/main/java/org/apache/logging/log4j/core/config/Configurator.java,23,import org.apache.logging.log4j.Logger;
+log4j-core/src/main/java/org/apache/logging/log4j/core/config/Configurator.java,24,import org.apache.logging.log4j.core.LoggerContext;
+log4j-core/src/main/java/org/apache/logging/log4j/core/config/Configurator.java,25,import org.apache.logging.log4j.core.impl.Log4jContextFactory;
+log4j-core/src/main/java/org/apache/logging/log4j/core/config/Configurator.java,26,import org.apache.logging.log4j.core.util.FileUtils;
+log4j-core/src/main/java/org/apache/logging/log4j/core/config/Configurator.java,27,import org.apache.logging.log4j.spi.LoggerContextFactory;
+log4j-core/src/main/java/org/apache/logging/log4j/core/config/Configurator.java,28,import org.apache.logging.log4j.status.StatusLogger;
+log4j-core/src/main/java/org/apache/logging/log4j/core/config/Configurator.java,34,public final class Configurator {
+log4j-core/src/main/java/org/apache/logging/log4j/core/config/Configurator.java,36,private static final Logger LOGGER = StatusLogger.getLogger();
+log4j-core/src/main/java/org/apache/logging/log4j/core/config/Configurator.java,51,public static LoggerContext initialize(final String name, final ClassLoader loader, final String configLocation) {
+log4j-core/src/main/java/org/apache/logging/log4j/core/config/Configurator.java,52,return initialize(name, loader, configLocation, null);
+log4j-core/src/main/java/org/apache/logging/log4j/core/config/Configurator.java,64,public static LoggerContext initialize(final String name, final ClassLoader loader, final String configLocation,
+log4j-core/src/main/java/org/apache/logging/log4j/core/config/Configurator.java,67,try {
+log4j-core/src/main/java/org/apache/logging/log4j/core/config/Configurator.java,69,return initialize(name, loader, uri, externalContext);
+log4j-core/src/main/java/org/apache/logging/log4j/core/config/Configurator.java,71,LOGGER.error("There was a problem parsing the configuration location [{}].", configLocation, ex);
+log4j-core/src/main/java/org/apache/logging/log4j/core/config/Configurator.java,73,return null;
+log4j-core/src/main/java/org/apache/logging/log4j/core/config/Configurator.java,93,public static LoggerContext initialize(final String name, final ClassLoader loader, final URI configLocation) {
+log4j-core/src/main/java/org/apache/logging/log4j/core/config/Configurator.java,94,return initialize(name, loader, configLocation, null);
+log4j-core/src/main/java/org/apache/logging/log4j/core/config/Configurator.java,105,public static LoggerContext initialize(final String name, final ClassLoader loader, final URI configLocation,
+log4j-core/src/main/java/org/apache/logging/log4j/core/config/Configurator.java,106,final Object externalContext) {
+log4j-core/src/main/java/org/apache/logging/log4j/core/config/Configurator.java,108,try {
+log4j-core/src/main/java/org/apache/logging/log4j/core/config/Configurator.java,109,final Log4jContextFactory factory = getFactory();
+log4j-core/src/main/java/org/apache/logging/log4j/core/config/Configurator.java,110,return factory == null ? null :
+log4j-core/src/main/java/org/apache/logging/log4j/core/config/Configurator.java,111,factory.getContext(FQCN, loader, externalContext, false, configLocation, name);
+log4j-core/src/main/java/org/apache/logging/log4j/core/config/Configurator.java,113,LOGGER.error("There was a problem initializing the LoggerContext [{}] using configuration at [{}].",
+log4j-core/src/main/java/org/apache/logging/log4j/core/config/Configurator.java,114,name, configLocation, ex);
+log4j-core/src/main/java/org/apache/logging/log4j/core/config/Configurator.java,116,return null;
+log4j-core/src/main/java/org/apache/logging/log4j/core/config/Configurator.java,171,public static void shutdown(final LoggerContext ctx) {
+log4j-core/src/main/java/org/apache/logging/log4j/core/config/Configurator.java,172,if (ctx != null) {
+log4j-core/src/main/java/org/apache/logging/log4j/core/config/Configurator.java,173,ctx.stop();
+log4j-core/src/main/java/org/apache/logging/log4j/core/util/FileUtils.java,115,public static URI getCorrectedFilePathUri(final String uri) throws URISyntaxException {
+log4j-core/src/main/java/org/apache/logging/log4j/core/util/FileUtils.java,116,return new URI(WINDOWS_DIRECTORY_SEPARATOR.matcher(uri).replaceAll("/"));
+log4j-web/src/main/java/org/apache/logging/log4j/web/Log4jWebInitializerImpl.java,17,package org.apache.logging.log4j.web;
+log4j-web/src/main/java/org/apache/logging/log4j/web/Log4jWebInitializerImpl.java,20,import java.net.URI;
+log4j-web/src/main/java/org/apache/logging/log4j/web/Log4jWebInitializerImpl.java,21,import java.net.URL;
+log4j-web/src/main/java/org/apache/logging/log4j/web/Log4jWebInitializerImpl.java,22,import java.util.Map;
+log4j-web/src/main/java/org/apache/logging/log4j/web/Log4jWebInitializerImpl.java,24,import java.util.concurrent.ConcurrentHashMap;
+log4j-web/src/main/java/org/apache/logging/log4j/web/Log4jWebInitializerImpl.java,26,import javax.servlet.ServletContext;
+log4j-web/src/main/java/org/apache/logging/log4j/web/Log4jWebInitializerImpl.java,28,import org.apache.logging.log4j.LogManager;
+log4j-web/src/main/java/org/apache/logging/log4j/web/Log4jWebInitializerImpl.java,29,import org.apache.logging.log4j.core.AbstractLifeCycle;
+log4j-web/src/main/java/org/apache/logging/log4j/web/Log4jWebInitializerImpl.java,30,import org.apache.logging.log4j.core.LoggerContext;
+log4j-web/src/main/java/org/apache/logging/log4j/web/Log4jWebInitializerImpl.java,31,import org.apache.logging.log4j.core.config.Configurator;
+log4j-web/src/main/java/org/apache/logging/log4j/web/Log4jWebInitializerImpl.java,32,import org.apache.logging.log4j.core.impl.ContextAnchor;
+log4j-web/src/main/java/org/apache/logging/log4j/web/Log4jWebInitializerImpl.java,33,import org.apache.logging.log4j.core.impl.Log4jContextFactory;
+log4j-web/src/main/java/org/apache/logging/log4j/web/Log4jWebInitializerImpl.java,34,import org.apache.logging.log4j.core.lookup.Interpolator;
+log4j-web/src/main/java/org/apache/logging/log4j/web/Log4jWebInitializerImpl.java,35,import org.apache.logging.log4j.core.lookup.StrSubstitutor;
+log4j-web/src/main/java/org/apache/logging/log4j/web/Log4jWebInitializerImpl.java,36,import org.apache.logging.log4j.core.selector.ContextSelector;
+log4j-web/src/main/java/org/apache/logging/log4j/web/Log4jWebInitializerImpl.java,37,import org.apache.logging.log4j.core.selector.NamedContextSelector;
+log4j-web/src/main/java/org/apache/logging/log4j/web/Log4jWebInitializerImpl.java,38,import org.apache.logging.log4j.core.util.FileUtils;
+log4j-web/src/main/java/org/apache/logging/log4j/web/Log4jWebInitializerImpl.java,39,import org.apache.logging.log4j.core.util.Loader;
+log4j-web/src/main/java/org/apache/logging/log4j/web/Log4jWebInitializerImpl.java,40,import org.apache.logging.log4j.core.util.NetUtils;
+log4j-web/src/main/java/org/apache/logging/log4j/web/Log4jWebInitializerImpl.java,41,import org.apache.logging.log4j.core.util.SetUtils;
+log4j-web/src/main/java/org/apache/logging/log4j/web/Log4jWebInitializerImpl.java,42,import org.apache.logging.log4j.spi.LoggerContextFactory;
+log4j-web/src/main/java/org/apache/logging/log4j/web/Log4jWebInitializerImpl.java,47,final class Log4jWebInitializerImpl extends AbstractLifeCycle implements Log4jWebLifeCycle {
+log4j-web/src/main/java/org/apache/logging/log4j/web/Log4jWebInitializerImpl.java,50,static {
+log4j-web/src/main/java/org/apache/logging/log4j/web/Log4jWebInitializerImpl.java,51,if (Loader.isClassAvailable("org.apache.logging.log4j.core.web.JNDIContextFilter")) {
+log4j-web/src/main/java/org/apache/logging/log4j/web/Log4jWebInitializerImpl.java,59,private final StrSubstitutor substitutor = new StrSubstitutor(new Interpolator(map));
+log4j-web/src/main/java/org/apache/logging/log4j/web/Log4jWebInitializerImpl.java,60,private final ServletContext servletContext;
+log4j-web/src/main/java/org/apache/logging/log4j/web/Log4jWebInitializerImpl.java,62,private String name;
+log4j-web/src/main/java/org/apache/logging/log4j/web/Log4jWebInitializerImpl.java,63,private NamedContextSelector namedContextSelector;
+log4j-web/src/main/java/org/apache/logging/log4j/web/Log4jWebInitializerImpl.java,64,private LoggerContext loggerContext;
+log4j-web/src/main/java/org/apache/logging/log4j/web/Log4jWebInitializerImpl.java,66,private Log4jWebInitializerImpl(final ServletContext servletContext) {
+log4j-web/src/main/java/org/apache/logging/log4j/web/Log4jWebInitializerImpl.java,67,this.servletContext = servletContext;
+log4j-web/src/main/java/org/apache/logging/log4j/web/Log4jWebInitializerImpl.java,68,this.map.put("hostName", NetUtils.getLocalHostname());
+log4j-web/src/main/java/org/apache/logging/log4j/web/Log4jWebInitializerImpl.java,72,public synchronized void start() {
+log4j-web/src/main/java/org/apache/logging/log4j/web/Log4jWebInitializerImpl.java,73,if (this.isStopped() || this.isStopping()) {
+log4j-web/src/main/java/org/apache/logging/log4j/web/Log4jWebInitializerImpl.java,74,throw new IllegalStateException("Cannot start this Log4jWebInitializerImpl after it was stopped.");
+log4j-web/src/main/java/org/apache/logging/log4j/web/Log4jWebInitializerImpl.java,78,if (this.isInitialized()) {
+log4j-web/src/main/java/org/apache/logging/log4j/web/Log4jWebInitializerImpl.java,79,super.setStarting();
+log4j-web/src/main/java/org/apache/logging/log4j/web/Log4jWebInitializerImpl.java,81,this.name = this.substitutor.replace(this.servletContext.getInitParameter(LOG4J_CONTEXT_NAME));
+log4j-web/src/main/java/org/apache/logging/log4j/web/Log4jWebInitializerImpl.java,87,if (isJndi) {
+log4j-web/src/main/java/org/apache/logging/log4j/web/Log4jWebInitializerImpl.java,88,this.initializeJndi(location);
+log4j-web/src/main/java/org/apache/logging/log4j/web/Log4jWebInitializerImpl.java,90,this.initializeNonJndi(location);
+log4j-web/src/main/java/org/apache/logging/log4j/web/Log4jWebInitializerImpl.java,93,this.servletContext.setAttribute(CONTEXT_ATTRIBUTE, this.loggerContext);
+log4j-web/src/main/java/org/apache/logging/log4j/web/Log4jWebInitializerImpl.java,94,super.setStarted();
+log4j-web/src/main/java/org/apache/logging/log4j/web/Log4jWebInitializerImpl.java,98,private void initializeJndi(final String location) {
+log4j-web/src/main/java/org/apache/logging/log4j/web/Log4jWebInitializerImpl.java,101,if (this.name == null) {
+log4j-web/src/main/java/org/apache/logging/log4j/web/Log4jWebInitializerImpl.java,102,throw new IllegalStateException("A log4jContextName context parameter is required");
+log4j-web/src/main/java/org/apache/logging/log4j/web/Log4jWebInitializerImpl.java,105,LoggerContext context;
+log4j-web/src/main/java/org/apache/logging/log4j/web/Log4jWebInitializerImpl.java,106,final LoggerContextFactory factory = LogManager.getFactory();
+log4j-web/src/main/java/org/apache/logging/log4j/web/Log4jWebInitializerImpl.java,107,if (factory instanceof Log4jContextFactory) {
+log4j-web/src/main/java/org/apache/logging/log4j/web/Log4jWebInitializerImpl.java,108,final ContextSelector selector = ((Log4jContextFactory) factory).getSelector();
+log4j-web/src/main/java/org/apache/logging/log4j/web/Log4jWebInitializerImpl.java,109,if (selector instanceof NamedContextSelector) {
+log4j-web/src/main/java/org/apache/logging/log4j/web/Log4jWebInitializerImpl.java,110,this.namedContextSelector = (NamedContextSelector) selector;
+log4j-web/src/main/java/org/apache/logging/log4j/web/Log4jWebInitializerImpl.java,111,context = this.namedContextSelector.locateContext(this.name, this.servletContext, configLocation);
+log4j-web/src/main/java/org/apache/logging/log4j/web/Log4jWebInitializerImpl.java,112,ContextAnchor.THREAD_CONTEXT.set(context);
+log4j-web/src/main/java/org/apache/logging/log4j/web/Log4jWebInitializerImpl.java,113,if (context.isInitialized()) {
+log4j-web/src/main/java/org/apache/logging/log4j/web/Log4jWebInitializerImpl.java,114,context.start();
+log4j-web/src/main/java/org/apache/logging/log4j/web/Log4jWebInitializerImpl.java,116,ContextAnchor.THREAD_CONTEXT.remove();
+log4j-web/src/main/java/org/apache/logging/log4j/web/Log4jWebInitializerImpl.java,120,return;
+log4j-web/src/main/java/org/apache/logging/log4j/web/Log4jWebInitializerImpl.java,124,return;
+log4j-web/src/main/java/org/apache/logging/log4j/web/Log4jWebInitializerImpl.java,126,this.loggerContext = context;
+log4j-web/src/main/java/org/apache/logging/log4j/web/Log4jWebInitializerImpl.java,131,private void initializeNonJndi(final String location) {
+log4j-web/src/main/java/org/apache/logging/log4j/web/Log4jWebInitializerImpl.java,132,if (this.name == null) {
+log4j-web/src/main/java/org/apache/logging/log4j/web/Log4jWebInitializerImpl.java,133,this.name = this.servletContext.getServletContextName();
+log4j-web/src/main/java/org/apache/logging/log4j/web/Log4jWebInitializerImpl.java,136,if (this.name == null && location == null) {
+log4j-web/src/main/java/org/apache/logging/log4j/web/Log4jWebInitializerImpl.java,138,return;
+log4j-web/src/main/java/org/apache/logging/log4j/web/Log4jWebInitializerImpl.java,141,final URI uri = getConfigURI(location);
+log4j-web/src/main/java/org/apache/logging/log4j/web/Log4jWebInitializerImpl.java,142,this.loggerContext = Configurator.initialize(this.name, this.getClassLoader(), uri, this.servletContext);
+log4j-web/src/main/java/org/apache/logging/log4j/web/Log4jWebInitializerImpl.java,145,private URI getConfigURI(final String location) {
+log4j-web/src/main/java/org/apache/logging/log4j/web/Log4jWebInitializerImpl.java,146,try {
+log4j-web/src/main/java/org/apache/logging/log4j/web/Log4jWebInitializerImpl.java,147,String configLocation = location;
+log4j-web/src/main/java/org/apache/logging/log4j/web/Log4jWebInitializerImpl.java,148,if (configLocation == null) {
+log4j-web/src/main/java/org/apache/logging/log4j/web/Log4jWebInitializerImpl.java,150,if (paths.length == 1) {
+log4j-web/src/main/java/org/apache/logging/log4j/web/Log4jWebInitializerImpl.java,151,configLocation = paths[0];
+log4j-web/src/main/java/org/apache/logging/log4j/web/Log4jWebInitializerImpl.java,155,for (final String str : paths) {
+log4j-web/src/main/java/org/apache/logging/log4j/web/Log4jWebInitializerImpl.java,156,if (str.startsWith(prefix)) {
+log4j-web/src/main/java/org/apache/logging/log4j/web/Log4jWebInitializerImpl.java,157,configLocation = str;
+log4j-web/src/main/java/org/apache/logging/log4j/web/Log4jWebInitializerImpl.java,158,break;
+log4j-web/src/main/java/org/apache/logging/log4j/web/Log4jWebInitializerImpl.java,161,if (!found) {
+log4j-web/src/main/java/org/apache/logging/log4j/web/Log4jWebInitializerImpl.java,162,configLocation = paths[0];
+log4j-web/src/main/java/org/apache/logging/log4j/web/Log4jWebInitializerImpl.java,166,if (configLocation != null) {
+log4j-web/src/main/java/org/apache/logging/log4j/web/Log4jWebInitializerImpl.java,167,final URL url = servletContext.getResource(configLocation);
+log4j-web/src/main/java/org/apache/logging/log4j/web/Log4jWebInitializerImpl.java,168,if (url != null) {
+log4j-web/src/main/java/org/apache/logging/log4j/web/Log4jWebInitializerImpl.java,175,if (location != null) {
+log4j-web/src/main/java/org/apache/logging/log4j/web/Log4jWebInitializerImpl.java,176,try {
+log4j-web/src/main/java/org/apache/logging/log4j/web/Log4jWebInitializerImpl.java,182,return null;
+log4j-web/src/main/java/org/apache/logging/log4j/web/Log4jWebInitializerImpl.java,186,public synchronized void stop() {
+log4j-web/src/main/java/org/apache/logging/log4j/web/Log4jWebInitializerImpl.java,187,if (!this.isStarted() && !this.isStopped()) {
+log4j-web/src/main/java/org/apache/logging/log4j/web/Log4jWebInitializerImpl.java,188,throw new IllegalStateException("Cannot stop this Log4jWebInitializer because it has not started.");
+log4j-web/src/main/java/org/apache/logging/log4j/web/Log4jWebInitializerImpl.java,192,if (this.isStarted()) {
+log4j-web/src/main/java/org/apache/logging/log4j/web/Log4jWebInitializerImpl.java,193,this.setStopping();
+log4j-web/src/main/java/org/apache/logging/log4j/web/Log4jWebInitializerImpl.java,194,if (this.loggerContext != null) {
+log4j-web/src/main/java/org/apache/logging/log4j/web/Log4jWebInitializerImpl.java,196,this.servletContext.removeAttribute(CONTEXT_ATTRIBUTE);
+log4j-web/src/main/java/org/apache/logging/log4j/web/Log4jWebInitializerImpl.java,197,if (this.namedContextSelector != null) {
+log4j-web/src/main/java/org/apache/logging/log4j/web/Log4jWebInitializerImpl.java,198,this.namedContextSelector.removeContext(this.name);
+log4j-web/src/main/java/org/apache/logging/log4j/web/Log4jWebInitializerImpl.java,200,this.loggerContext.stop();
+log4j-web/src/main/java/org/apache/logging/log4j/web/Log4jWebInitializerImpl.java,201,this.loggerContext.setExternalContext(null);
+log4j-web/src/main/java/org/apache/logging/log4j/web/Log4jWebInitializerImpl.java,202,this.loggerContext = null;
+log4j-web/src/main/java/org/apache/logging/log4j/web/Log4jWebInitializerImpl.java,204,this.setStopped();
+log4j-web/src/main/java/org/apache/logging/log4j/web/Log4jWebInitializerImpl.java,209,public void setLoggerContext() {
+log4j-web/src/main/java/org/apache/logging/log4j/web/Log4jWebInitializerImpl.java,210,if (this.loggerContext != null) {
+log4j-web/src/main/java/org/apache/logging/log4j/web/Log4jWebInitializerImpl.java,211,ContextAnchor.THREAD_CONTEXT.set(this.loggerContext);
+log4j-web/src/main/java/org/apache/logging/log4j/web/Log4jWebInitializerImpl.java,216,public void clearLoggerContext() {
+log4j-web/src/main/java/org/apache/logging/log4j/web/Log4jWebInitializerImpl.java,217,ContextAnchor.THREAD_CONTEXT.remove();
+log4j-web/src/main/java/org/apache/logging/log4j/web/Log4jWebInitializerImpl.java,221,public void wrapExecution(final Runnable runnable) {
+log4j-web/src/main/java/org/apache/logging/log4j/web/Log4jWebInitializerImpl.java,222,this.setLoggerContext();
+log4j-web/src/main/java/org/apache/logging/log4j/web/Log4jWebInitializerImpl.java,224,try {
+log4j-web/src/main/java/org/apache/logging/log4j/web/Log4jWebInitializerImpl.java,225,runnable.run();
+log4j-web/src/main/java/org/apache/logging/log4j/web/Log4jWebInitializerImpl.java,227,this.clearLoggerContext();
+log4j-web/src/main/java/org/apache/logging/log4j/web/Log4jWebInitializerImpl.java,231,private ClassLoader getClassLoader() {
+log4j-web/src/main/java/org/apache/logging/log4j/web/Log4jWebInitializerImpl.java,232,try {
+log4j-web/src/main/java/org/apache/logging/log4j/web/Log4jWebInitializerImpl.java,236,return this.servletContext.getClassLoader();
+log4j-web/src/main/java/org/apache/logging/log4j/web/Log4jWebInitializerImpl.java,239,return Log4jWebInitializerImpl.class.getClassLoader();
+log4j-core/src/main/java/org/apache/logging/log4j/core/appender/ConsoleAppender.java,99,return new ConsoleAppender(name, layout, filter, getManager(isFollow, target, layout), ignoreExceptions);
+log4j-core/src/main/java/org/apache/logging/log4j/core/appender/ConsoleAppender.java,102,private static OutputStreamManager getManager(final boolean follow, final Target target, final Layout<? extends Serializable> layout) {
+log4j-core/src/main/java/org/apache/logging/log4j/core/appender/ConsoleAppender.java,103,final String type = target.name();
+log4j-core/src/main/java/org/apache/logging/log4j/core/config/AbstractConfiguration.java,130,public void start() {
+log4j-core/src/main/java/org/apache/logging/log4j/core/config/AbstractConfiguration.java,131,LOGGER.debug("Starting configuration {}", this);
+log4j-core/src/main/java/org/apache/logging/log4j/core/config/AbstractConfiguration.java,132,this.setStarting();
+log4j-core/src/main/java/org/apache/logging/log4j/core/Logger.java,94,if (level != null) {
+log4j-core/src/main/java/org/apache/logging/log4j/core/Logger.java,95,config = new PrivateConfig(config, level);
+log4j-core/src/main/java/org/apache/logging/log4j/core/pattern/DatePatternConverter.java,19,import java.text.SimpleDateFormat;
+log4j-core/src/main/java/org/apache/logging/log4j/core/pattern/DatePatternConverter.java,151,private String cachedDateString;
+log4j-core/src/main/java/org/apache/logging/log4j/core/pattern/DatePatternConverter.java,155,private long lastTimestamp;
+log4j-core/src/main/java/org/apache/logging/log4j/core/pattern/DatePatternConverter.java,196,LOGGER.warn("Could not instantiate SimpleDateFormat with pattern " + patternOption, e);
+log4j-core/src/main/java/org/apache/logging/log4j/core/pattern/DatePatternConverter.java,42,private final SimpleDateFormat simpleDateFormat;
+log4j-core/src/main/java/org/apache/logging/log4j/core/pattern/DatePatternConverter.java,44,PatternFormatter(final SimpleDateFormat simpleDateFormat) {
+log4j-core/src/main/java/org/apache/logging/log4j/core/pattern/DatePatternConverter.java,45,this.simpleDateFormat = simpleDateFormat;
+log4j-core/src/main/java/org/apache/logging/log4j/core/pattern/DatePatternConverter.java,50,return simpleDateFormat.format(Long.valueOf(time));
+log4j-core/src/main/java/org/apache/logging/log4j/core/pattern/DatePatternConverter.java,55,return simpleDateFormat.toPattern();
+log4j-core/src/main/java/org/apache/logging/log4j/core/pattern/DatePatternConverter.java,191,SimpleDateFormat tempFormat;
+log4j-core/src/main/java/org/apache/logging/log4j/core/pattern/DatePatternConverter.java,194,tempFormat = new SimpleDateFormat(pattern);
+log4j-core/src/main/java/org/apache/logging/log4j/core/pattern/DatePatternConverter.java,203,if (options != null && options.length > 1) {
+log4j-core/src/main/java/org/apache/logging/log4j/core/pattern/DatePatternConverter.java,204,final TimeZone tz = TimeZone.getTimeZone(options[1]);
+log4j-core/src/main/java/org/apache/logging/log4j/core/pattern/DatePatternConverter.java,205,tempFormat.setTimeZone(tz);
+log4j-core/src/main/java/org/apache/logging/log4j/core/pattern/DatePatternConverter.java,221,synchronized (this) {
+log4j-core/src/main/java/org/apache/logging/log4j/core/pattern/DatePatternConverter.java,233,synchronized (this) {
+log4j-core/src/main/java/org/apache/logging/log4j/core/pattern/DatePatternConverter.java,234,if (timestamp != lastTimestamp) {
+log4j-core/src/main/java/org/apache/logging/log4j/core/pattern/DatePatternConverter.java,235,lastTimestamp = timestamp;
+log4j-core/src/main/java/org/apache/logging/log4j/core/pattern/DatePatternConverter.java,236,cachedDateString = formatter.format(timestamp);
+log4j-core/src/main/java/org/apache/logging/log4j/core/pattern/DatePatternConverter.java,239,output.append(cachedDateString);
+log4j-core/src/main/java/org/apache/logging/log4j/core/appender/rolling/DefaultRolloverStrategy.java,182,int suffixLength = 0;
+log4j-core/src/main/java/org/apache/logging/log4j/core/appender/rolling/DefaultRolloverStrategy.java,299,int suffixLength = 0;
+log4j-core/src/main/java/org/apache/logging/log4j/core/appender/ConsoleAppender.java,241,return new OutputStreamManager(data.os, data.type, data.layout);
+log4j-core/src/main/java/org/apache/logging/log4j/core/appender/FileManager.java,47,final String advertiseURI, final Layout<? extends Serializable> layout, final int bufferSize) {
+log4j-core/src/main/java/org/apache/logging/log4j/core/appender/FileManager.java,48,super(os, fileName, layout);
+log4j-core/src/main/java/org/apache/logging/log4j/core/appender/FileManager.java,208,return new FileManager(name, os, data.append, data.locking, data.advertiseURI, data.layout, bufferSize);
+log4j-core/src/main/java/org/apache/logging/log4j/core/appender/OutputStreamManager.java,33,protected OutputStreamManager(final OutputStream os, final String streamName, final Layout<?> layout) {
+log4j-core/src/main/java/org/apache/logging/log4j/core/appender/OutputStreamManager.java,37,if (layout != null) {
+log4j-core/src/main/java/org/apache/logging/log4j/core/appender/RandomAccessFileManager.java,49,final String advertiseURI, final Layout<? extends Serializable> layout) {
+log4j-core/src/main/java/org/apache/logging/log4j/core/appender/RandomAccessFileManager.java,50,super(os, fileName, layout);
+log4j-core/src/main/java/org/apache/logging/log4j/core/appender/RandomAccessFileManager.java,232,data.bufferSize, data.advertiseURI, data.layout);
+log4j-core/src/main/java/org/apache/logging/log4j/core/appender/rolling/RollingFileManager.java,52,final Layout<? extends Serializable> layout, final int bufferSize) {
+log4j-core/src/main/java/org/apache/logging/log4j/core/appender/rolling/RollingFileManager.java,53,super(fileName, os, append, false, advertiseURI, layout, bufferSize);
+log4j-core/src/main/java/org/apache/logging/log4j/core/appender/rolling/RollingFileManager.java,324,data.strategy, data.advertiseURI, data.layout, bufferSize);
+log4j-core/src/main/java/org/apache/logging/log4j/core/appender/rolling/RollingRandomAccessFileManager.java,52,final String advertiseURI, final Layout<? extends Serializable> layout) {
+log4j-core/src/main/java/org/apache/logging/log4j/core/appender/rolling/RollingRandomAccessFileManager.java,53,super(fileName, pattern, os, append, size, time, policy, strategy, advertiseURI, layout, bufferSize);
+log4j-core/src/main/java/org/apache/logging/log4j/core/net/AbstractSocketManager.java,56,public AbstractSocketManager(final String name, final OutputStream os, final InetAddress inetAddress, final String host,
+log4j-core/src/main/java/org/apache/logging/log4j/core/net/AbstractSocketManager.java,57,final int port, final Layout<? extends Serializable> layout) {
+log4j-core/src/main/java/org/apache/logging/log4j/core/net/AbstractSocketManager.java,58,super(os, name, layout);
+log4j-core/src/main/java/org/apache/logging/log4j/core/net/DatagramSocketManager.java,48,super(name, os, inetAddress, host, port, layout);
+log4j-core/src/main/java/org/apache/logging/log4j/core/net/TcpSocketManager.java,77,super(name, os, inetAddress, host, port, layout);
+log4j-core/src/main/java/org/apache/logging/log4j/core/impl/ThrowableProxy.java,223,private void formatElements(final StringBuilder sb, final int commonCount, final StackTraceElement[] causedTrace,
+log4j-core/src/main/java/org/apache/logging/log4j/core/impl/ThrowableProxy.java,224,final ExtendedStackTraceElement[] extStackTrace, final List<String> ignorePackages) {
+log4j-core/src/main/java/org/apache/logging/log4j/core/impl/ThrowableProxy.java,225,if (ignorePackages == null || ignorePackages.isEmpty()) {
+log4j-core/src/main/java/org/apache/logging/log4j/core/impl/ThrowableProxy.java,230,int count = 0;
+log4j-core/src/main/java/org/apache/logging/log4j/core/impl/ThrowableProxy.java,231,for (int i = 0; i < extStackTrace.length; ++i) {
+log4j-core/src/main/java/org/apache/logging/log4j/core/impl/ThrowableProxy.java,232,if (!this.ignoreElement(causedTrace[i], ignorePackages)) {
+log4j-core/src/main/java/org/apache/logging/log4j/core/impl/ThrowableProxy.java,233,if (count > 0) {
+log4j-core/src/main/java/org/apache/logging/log4j/core/impl/ThrowableProxy.java,239,count = 0;
+log4j-core/src/main/java/org/apache/logging/log4j/core/impl/ThrowableProxy.java,243,++count;
+log4j-core/src/main/java/org/apache/logging/log4j/core/impl/ThrowableProxy.java,246,if (count > 0) {
+log4j-core/src/main/java/org/apache/logging/log4j/core/impl/ThrowableProxy.java,254,if (commonCount != 0) {
+log4j-core/src/main/java/org/apache/logging/log4j/core/impl/ThrowableProxy.java,293,sb.append("Wrapped by: ");
+log4j-core/src/main/java/org/apache/logging/log4j/core/impl/ThrowableProxy.java,296,this.formatElements(sb, cause.commonElementCount, cause.getThrowable().getStackTrace(),
+log4j-core/src/main/java/org/apache/logging/log4j/core/impl/ThrowableProxy.java,297,cause.extendedStackTrace, packages);
+log4j-core/src/main/java/org/apache/logging/log4j/core/impl/ThrowableProxy.java,324,sb.append("Wrapped by: ");
+log4j-core/src/main/java/org/apache/logging/log4j/core/impl/ThrowableProxy.java,328,this.formatElements(sb, 0, this.throwable.getStackTrace(), this.extendedStackTrace, packages);
+log4j-core/src/main/java/org/apache/logging/log4j/core/net/server/JsonInputStreamLogEventBridge.java,57,if (!inEsc) {
+log4j-core/src/main/java/org/apache/logging/log4j/core/net/server/JsonInputStreamLogEventBridge.java,58,inEsc = false;
+log4j-core/src/main/java/org/apache/logging/log4j/core/pattern/ExtendedThrowablePatternConverter.java,67,if (throwable != null && options.anyLines()) {
+log4j-core/src/main/java/org/apache/logging/log4j/core/impl/ThrowableProxy.java,214,private void formatCause(final StringBuilder sb, final ThrowableProxy cause, final List<String> ignorePackages) {
+log4j-core/src/main/java/org/apache/logging/log4j/core/impl/ThrowableProxy.java,215,sb.append("Caused by: ").append(cause).append(EOL);
+log4j-core/src/main/java/org/apache/logging/log4j/core/impl/ThrowableProxy.java,216,this.formatElements(sb, cause.commonElementCount, cause.getThrowable().getStackTrace(),
+log4j-core/src/main/java/org/apache/logging/log4j/core/impl/ThrowableProxy.java,217,cause.extendedStackTrace, ignorePackages);
+log4j-slf4j-impl/src/main/java/org/apache/logging/slf4j/Log4jMarker.java,17,package org.apache.logging.slf4j;
+log4j-slf4j-impl/src/main/java/org/apache/logging/slf4j/Log4jMarker.java,19,import java.util.ArrayList;
+log4j-slf4j-impl/src/main/java/org/apache/logging/slf4j/Log4jMarker.java,20,import java.util.Iterator;
+log4j-slf4j-impl/src/main/java/org/apache/logging/slf4j/Log4jMarker.java,21,import java.util.List;
+log4j-slf4j-impl/src/main/java/org/apache/logging/slf4j/Log4jMarker.java,23,import org.apache.logging.log4j.MarkerManager;
+log4j-slf4j-impl/src/main/java/org/apache/logging/slf4j/Log4jMarker.java,24,import org.slf4j.IMarkerFactory;
+log4j-slf4j-impl/src/main/java/org/apache/logging/slf4j/Log4jMarker.java,25,import org.slf4j.Marker;
+log4j-slf4j-impl/src/main/java/org/apache/logging/slf4j/Log4jMarker.java,26,import org.slf4j.impl.StaticMarkerBinder;
+log4j-slf4j-impl/src/main/java/org/apache/logging/slf4j/Log4jMarker.java,31,public class Log4jMarker implements Marker {
+log4j-slf4j-impl/src/main/java/org/apache/logging/slf4j/Log4jMarker.java,33,public static final long serialVersionUID = 1590472L;
+log4j-slf4j-impl/src/main/java/org/apache/logging/slf4j/Log4jMarker.java,35,private final IMarkerFactory factory = StaticMarkerBinder.SINGLETON.getMarkerFactory();
+log4j-slf4j-impl/src/main/java/org/apache/logging/slf4j/Log4jMarker.java,37,private final org.apache.logging.log4j.Marker marker;
+log4j-slf4j-impl/src/main/java/org/apache/logging/slf4j/Log4jMarker.java,39,public Log4jMarker(final org.apache.logging.log4j.Marker marker) {
+log4j-slf4j-impl/src/main/java/org/apache/logging/slf4j/Log4jMarker.java,40,this.marker = marker;
+log4j-slf4j-impl/src/main/java/org/apache/logging/slf4j/Log4jMarker.java,43,public org.apache.logging.log4j.Marker getLog4jMarker() {
+log4j-slf4j-impl/src/main/java/org/apache/logging/slf4j/Log4jMarker.java,44,return marker;
+log4j-slf4j-impl/src/main/java/org/apache/logging/slf4j/Log4jMarker.java,48,public void add(final Marker marker) {
+log4j-slf4j-impl/src/main/java/org/apache/logging/slf4j/Log4jMarker.java,49,final Marker m = factory.getMarker(marker.getName());
+log4j-slf4j-impl/src/main/java/org/apache/logging/slf4j/Log4jMarker.java,50,this.marker.addParents(((Log4jMarker)m).getLog4jMarker());
+log4j-slf4j-impl/src/main/java/org/apache/logging/slf4j/Log4jMarker.java,54,public boolean remove(final Marker marker) {
+log4j-slf4j-impl/src/main/java/org/apache/logging/slf4j/Log4jMarker.java,55,return this.marker.remove(MarkerManager.getMarker(marker.getName()));
+log4j-slf4j-impl/src/main/java/org/apache/logging/slf4j/Log4jMarker.java,59,public String getName() {
+log4j-slf4j-impl/src/main/java/org/apache/logging/slf4j/Log4jMarker.java,60,return marker.getName();
+log4j-slf4j-impl/src/main/java/org/apache/logging/slf4j/Log4jMarker.java,64,public boolean hasReferences() {
+log4j-slf4j-impl/src/main/java/org/apache/logging/slf4j/Log4jMarker.java,65,return marker.hasParents();
+log4j-slf4j-impl/src/main/java/org/apache/logging/slf4j/Log4jMarker.java,69,public boolean hasChildren() {
+log4j-slf4j-impl/src/main/java/org/apache/logging/slf4j/Log4jMarker.java,70,return marker.hasParents();
+log4j-slf4j-impl/src/main/java/org/apache/logging/slf4j/Log4jMarker.java,77,for (final org.apache.logging.log4j.Marker m : this.marker.getParents()) {
+log4j-slf4j-impl/src/main/java/org/apache/logging/slf4j/Log4jMarker.java,78,parents.add(factory.getMarker(m.getName()));
+log4j-slf4j-impl/src/main/java/org/apache/logging/slf4j/Log4jMarker.java,80,return parents.iterator();
+log4j-slf4j-impl/src/main/java/org/apache/logging/slf4j/Log4jMarker.java,84,public boolean contains(final org.slf4j.Marker marker) {
+log4j-slf4j-impl/src/main/java/org/apache/logging/slf4j/Log4jMarker.java,85,return this.marker.isInstanceOf(marker.getName());
+log4j-slf4j-impl/src/main/java/org/apache/logging/slf4j/Log4jMarker.java,89,public boolean contains(final String s) {
+log4j-slf4j-impl/src/main/java/org/apache/logging/slf4j/Log4jMarker.java,90,return this.marker.isInstanceOf(s);
+log4j-core/src/main/java/org/apache/logging/log4j/core/config/ConfigurationFactory.java,377,final String config = this.substitutor.replace(
+log4j-core/src/main/java/org/apache/logging/log4j/core/config/ConfigurationFactory.java,378,PropertiesUtil.getProperties().getStringProperty(CONFIGURATION_FILE_PROPERTY));
+log4j-core/src/main/java/org/apache/logging/log4j/core/config/ConfigurationFactory.java,379,if (config != null) {
+log4j-core/src/main/java/org/apache/logging/log4j/core/config/ConfigurationFactory.java,382,source = getInputFromUri(FileUtils.getCorrectedFilePathUri(config));
+log4j-core/src/main/java/org/apache/logging/log4j/core/config/ConfigurationFactory.java,389,source = getInputFromString(config, loader);
+log4j-core/src/main/java/org/apache/logging/log4j/core/config/ConfigurationFactory.java,392,for (final ConfigurationFactory factory : factories) {
+log4j-core/src/main/java/org/apache/logging/log4j/core/config/ConfigurationFactory.java,396,if (type.equals("*") || config.endsWith(type)) {
+log4j-core/src/main/java/org/apache/logging/log4j/core/config/ConfigurationFactory.java,397,final Configuration c = factory.getConfiguration(source);
+log4j-core/src/main/java/org/apache/logging/log4j/core/config/ConfigurationFactory.java,398,if (c != null) {
+log4j-core/src/main/java/org/apache/logging/log4j/core/config/ConfigurationFactory.java,399,return c;
+log4j-core/src/main/java/org/apache/logging/log4j/core/config/ConfigurationFactory.java,408,for (final ConfigurationFactory factory : factories) {
+log4j-core/src/main/java/org/apache/logging/log4j/core/config/ConfigurationFactory.java,412,if (type.equals("*") || configLocation.toString().endsWith(type)) {
+log4j-core/src/main/java/org/apache/logging/log4j/core/config/ConfigurationFactory.java,439,for (final ConfigurationFactory factory : factories) {
+log4j-core/src/main/java/org/apache/logging/log4j/core/config/ConfigurationFactory.java,471,for (final ConfigurationFactory factory : factories) {
+log4j-core/src/main/java/org/apache/logging/log4j/core/util/Loader.java,45,static {
+log4j-core/src/main/java/org/apache/logging/log4j/core/util/Loader.java,50,final SecurityManager sm = System.getSecurityManager();
+log4j-core/src/main/java/org/apache/logging/log4j/core/util/Loader.java,51,if (sm != null) {
+log4j-core/src/main/java/org/apache/logging/log4j/core/util/Loader.java,53,sm.checkPermission(new RuntimePermission("getStackTrace"));
+log4j-core/src/main/java/org/apache/logging/log4j/core/util/Loader.java,54,sm.checkPermission(new ReflectPermission("suppressAccessChecks"));
+log4j-core/src/main/java/org/apache/logging/log4j/core/appender/AsyncAppender.java,152,queue.put(Log4jLogEvent.serialize(coreEvent, includeLocation));
+log4j-core/src/main/java/org/apache/logging/log4j/core/appender/AsyncAppender.java,155,LOGGER.warn("Interrupted while waiting for a free slot in the AsyncAppender LogEvent-queue {}",
+log4j-core/src/main/java/org/apache/logging/log4j/core/appender/AsyncAppender.java,156,getName());
+log4j-core/src/main/java/org/apache/logging/log4j/core/config/FileConfigurationMonitor.java,76,final long current = System.currentTimeMillis();
+log4j-core/src/main/java/org/apache/logging/log4j/core/config/FileConfigurationMonitor.java,77,if (((counter.incrementAndGet() & MASK) == 0) && (current >= nextCheck)) {
+log4j-core/src/main/java/org/apache/logging/log4j/core/async/RingBufferLogEvent.java,176,thrownProxy = new ThrowableProxy(thrown);
+log4j-core/src/main/java/org/apache/logging/log4j/core/impl/Log4jLogEvent.java,270,thrownProxy = new ThrowableProxy(thrown);
+log4j-core/src/main/java/org/apache/logging/log4j/core/impl/ThrowableProxy.java,139,public ThrowableProxy(final Throwable throwable) {
+log4j-core/src/main/java/org/apache/logging/log4j/core/impl/ThrowableProxy.java,148,this.causeProxy = throwableCause == null ? null : new ThrowableProxy(throwable, stack, map, throwableCause);
+log4j-core/src/main/java/org/apache/logging/log4j/core/impl/ThrowableProxy.java,149,this.suppressedProxies = this.toSuppressedProxies(throwable);
+log4j-core/src/main/java/org/apache/logging/log4j/core/impl/ThrowableProxy.java,165,final Throwable cause) {
+log4j-core/src/main/java/org/apache/logging/log4j/core/impl/ThrowableProxy.java,171,this.causeProxy = cause.getCause() == null ? null : new ThrowableProxy(parent, stack, map, cause.getCause());
+log4j-core/src/main/java/org/apache/logging/log4j/core/impl/ThrowableProxy.java,172,this.suppressedProxies = this.toSuppressedProxies(cause);
+log4j-core/src/main/java/org/apache/logging/log4j/core/impl/ThrowableProxy.java,641,private ThrowableProxy[] toSuppressedProxies(final Throwable thrown) {
+log4j-core/src/main/java/org/apache/logging/log4j/core/impl/ThrowableProxy.java,647,final ThrowableProxy[] proxies = new ThrowableProxy[suppressed.length];
+log4j-core/src/main/java/org/apache/logging/log4j/core/impl/ThrowableProxy.java,649,proxies[i] = new ThrowableProxy(suppressed[i]);
+log4j-core/src/main/java/org/apache/logging/log4j/core/impl/ThrowableProxy.java,651,return proxies;
+log4j-api/src/main/java/org/apache/logging/log4j/simple/SimpleLogger.java,163,sb.append(SPACE);
+log4j-api/src/main/java/org/apache/logging/log4j/simple/SimpleLogger.java,164,final ByteArrayOutputStream baos = new ByteArrayOutputStream();
+log4j-api/src/main/java/org/apache/logging/log4j/simple/SimpleLogger.java,165,t.printStackTrace(new PrintStream(baos));
+log4j-api/src/main/java/org/apache/logging/log4j/simple/SimpleLogger.java,166,sb.append(baos.toString());
+log4j-api/src/main/java/org/apache/logging/log4j/simple/SimpleLogger.java,168,stream.println(sb.toString());
+log4j-core/src/main/java/org/apache/logging/log4j/core/net/TcpSocketManager.java,268,final Socket socket = new Socket(data.host, data.port);
+log4j-api/src/main/java/org/apache/logging/log4j/spi/DefaultThreadContextStack.java,23,import java.util.NoSuchElementException;
+log4j-api/src/main/java/org/apache/logging/log4j/spi/DefaultThreadContextStack.java,173,return null;
+log4j-api/src/main/java/org/apache/logging/log4j/spi/DefaultThreadContextStack.java,185,throw new NoSuchElementException("The ThreadContext stack is empty");
+log4j-api/src/main/java/org/apache/logging/log4j/simple/SimpleLogger.java,148,final Map<String, String> mdc = ThreadContext.getContext();
+log4j-core/src/main/java/org/apache/logging/log4j/core/pattern/StyleConverter.java,60,final boolean noConsoleNoAnsi = options.length > 2
+log4j-core/src/main/java/org/apache/logging/log4j/core/pattern/StyleConverter.java,61,&& (PatternParser.NO_CONSOLE_NO_ANSI + "=true").equals(options[2]);
+log4j-core/src/main/java/org/apache/logging/log4j/core/appender/rolling/action/GzCompressAction.java,92,throws IOException {
+log4j-core/src/main/java/org/apache/logging/log4j/core/appender/rolling/action/GzCompressAction.java,94,final FileInputStream fis = new FileInputStream(source);
+log4j-core/src/main/java/org/apache/logging/log4j/core/appender/rolling/action/GzCompressAction.java,95,final FileOutputStream fos = new FileOutputStream(destination);
+log4j-core/src/main/java/org/apache/logging/log4j/core/appender/rolling/action/GzCompressAction.java,96,final GZIPOutputStream gzos = new GZIPOutputStream(fos);
+log4j-core/src/main/java/org/apache/logging/log4j/core/appender/rolling/action/GzCompressAction.java,97,final BufferedOutputStream os = new BufferedOutputStream(gzos);
+log4j-core/src/main/java/org/apache/logging/log4j/core/appender/rolling/action/GzCompressAction.java,98,final byte[] inbuf = new byte[BUF_SIZE];
+log4j-core/src/main/java/org/apache/logging/log4j/core/appender/rolling/action/GzCompressAction.java,99,int n;
+log4j-core/src/main/java/org/apache/logging/log4j/core/appender/rolling/action/GzCompressAction.java,101,while ((n = fis.read(inbuf)) != -1) {
+log4j-core/src/main/java/org/apache/logging/log4j/core/appender/rolling/action/GzCompressAction.java,102,os.write(inbuf, 0, n);
+log4j-core/src/main/java/org/apache/logging/log4j/core/appender/rolling/action/GzCompressAction.java,105,os.close();
+log4j-core/src/main/java/org/apache/logging/log4j/core/appender/rolling/action/GzCompressAction.java,106,fis.close();
+log4j-core/src/main/java/org/apache/logging/log4j/core/appender/rolling/action/ZipCompressAction.java,101,throws IOException {
+log4j-core/src/main/java/org/apache/logging/log4j/core/appender/rolling/action/ZipCompressAction.java,103,final FileInputStream fis = new FileInputStream(source);
+log4j-core/src/main/java/org/apache/logging/log4j/core/appender/rolling/action/ZipCompressAction.java,104,final FileOutputStream fos = new FileOutputStream(destination);
+log4j-core/src/main/java/org/apache/logging/log4j/core/appender/rolling/action/ZipCompressAction.java,105,final ZipOutputStream zos = new ZipOutputStream(fos);
+log4j-core/src/main/java/org/apache/logging/log4j/core/appender/rolling/action/ZipCompressAction.java,106,zos.setLevel(level);
+log4j-core/src/main/java/org/apache/logging/log4j/core/appender/rolling/action/ZipCompressAction.java,108,final ZipEntry zipEntry = new ZipEntry(source.getName());
+log4j-core/src/main/java/org/apache/logging/log4j/core/appender/rolling/action/ZipCompressAction.java,109,zos.putNextEntry(zipEntry);
+log4j-core/src/main/java/org/apache/logging/log4j/core/appender/rolling/action/ZipCompressAction.java,111,final byte[] inbuf = new byte[BUF_SIZE];
+log4j-core/src/main/java/org/apache/logging/log4j/core/appender/rolling/action/ZipCompressAction.java,112,int n;
+log4j-core/src/main/java/org/apache/logging/log4j/core/appender/rolling/action/ZipCompressAction.java,114,while ((n = fis.read(inbuf)) != -1) {
+log4j-core/src/main/java/org/apache/logging/log4j/core/appender/rolling/action/ZipCompressAction.java,115,zos.write(inbuf, 0, n);
+log4j-core/src/main/java/org/apache/logging/log4j/core/appender/rolling/action/ZipCompressAction.java,118,zos.close();
+log4j-core/src/main/java/org/apache/logging/log4j/core/appender/rolling/action/ZipCompressAction.java,119,fis.close();
+log4j-core/src/main/java/org/apache/logging/log4j/core/config/plugins/util/ResolverUtil.java,234,return urlPath;
+log4j-core/src/main/java/org/apache/logging/log4j/core/config/plugins/util/ResolverUtil.java,131,public void setClassLoader(final ClassLoader classloader) { this.classloader = classloader; }
+log4j-core/src/main/java/org/apache/logging/log4j/core/config/plugins/util/ResolverUtil.java,205,String extractPath(final URL url) throws UnsupportedEncodingException {
+log4j-core/src/main/java/org/apache/logging/log4j/core/config/plugins/util/ResolverUtil.java,229,if (new File(urlPath).exists()) {
+log4j-core/src/main/java/org/apache/logging/log4j/core/config/plugins/util/ResolverUtil.java,231,return urlPath;
+log4j-core/src/main/java/org/apache/logging/log4j/core/config/plugins/util/ResolverUtil.java,240,final BundleWiring wiring = (BundleWiring) FrameworkUtil.getBundle(
+log4j-core/src/main/java/org/apache/logging/log4j/core/config/plugins/util/ResolverUtil.java,241,ResolverUtil.class).adapt(BundleWiring.class);
+log4j-core/src/main/java/org/apache/logging/log4j/core/config/plugins/util/ResolverUtil.java,244,BundleWiring.LISTRESOURCES_RECURSE);
+log4j-core/src/main/java/org/apache/logging/log4j/core/config/plugins/util/ResolverUtil.java,337,final JarInputStream stream) {
+log4j-core/src/main/java/org/apache/logging/log4j/core/config/plugins/util/ResolverUtil.java,349,LOGGER.error("Could not search jar file '" + path + "' for classes matching criteria: " +
+log4j-core/src/main/java/org/apache/logging/log4j/core/config/plugins/util/ResolverUtil.java,350,test + " due to an IOException", ioe);
+log4j-core/src/main/java/org/apache/logging/log4j/core/appender/ConsoleAppender.java,110,PrintStream printStream = null;
+log4j-core/src/main/java/org/apache/logging/log4j/core/appender/ConsoleAppender.java,112,printStream = target == Target.SYSTEM_OUT ?
+log4j-core/src/main/java/org/apache/logging/log4j/core/appender/ConsoleAppender.java,121,return printStream;
+log4j-core/src/main/java/org/apache/logging/log4j/core/appender/ConsoleAppender.java,136,return printStream;
+log4j-core/src/main/java/org/apache/logging/log4j/core/appender/ConsoleAppender.java,119,if (!propsUtil.getStringProperty("os.name").startsWith("Windows") ||
+log4j-core/src/main/java/org/apache/logging/log4j/core/appender/ConsoleAppender.java,120,propsUtil.getBooleanProperty("log4j.skipJansi")) {
+log4j-core/src/main/java/org/apache/logging/log4j/core/appender/ConsoleAppender.java,128,return (OutputStream) constructor.newInstance(printStream);
+log4j-core/src/main/java/org/apache/logging/log4j/core/LoggerContext.java,75,private URI configLocation;
+log4j-core/src/main/java/org/apache/logging/log4j/core/LoggerContext.java,349,private synchronized Configuration setConfiguration(final Configuration config) {
+log4j-core/src/main/java/org/apache/logging/log4j/core/LoggerContext.java,353,final Configuration prev = this.config;
+log4j-core/src/main/java/org/apache/logging/log4j/core/LoggerContext.java,354,config.addListener(this);
+log4j-core/src/main/java/org/apache/logging/log4j/core/LoggerContext.java,355,final ConcurrentMap<String, String> map = config.getComponent(Configuration.CONTEXT_PROPERTIES);
+log4j-core/src/main/java/org/apache/logging/log4j/core/LoggerContext.java,357,map.putIfAbsent("contextName", name);
+log4j-core/src/main/java/org/apache/logging/log4j/core/LoggerContext.java,358,config.start();
+log4j-core/src/main/java/org/apache/logging/log4j/core/LoggerContext.java,359,this.config = config;
+log4j-core/src/main/java/org/apache/logging/log4j/core/LoggerContext.java,360,updateLoggers();
+log4j-core/src/main/java/org/apache/logging/log4j/core/LoggerContext.java,361,if (prev != null) {
+log4j-core/src/main/java/org/apache/logging/log4j/core/LoggerContext.java,362,prev.removeListener(this);
+log4j-core/src/main/java/org/apache/logging/log4j/core/LoggerContext.java,363,prev.stop();
+log4j-core/src/main/java/org/apache/logging/log4j/core/LoggerContext.java,366,firePropertyChangeEvent(new PropertyChangeEvent(this, PROPERTY_CONFIG, prev, config));
+log4j-core/src/main/java/org/apache/logging/log4j/core/LoggerContext.java,373,return prev;
+log4j-core/src/main/java/org/apache/logging/log4j/core/LoggerContext.java,397,public synchronized URI getConfigLocation() {
+log4j-core/src/main/java/org/apache/logging/log4j/core/LoggerContext.java,405,public synchronized void setConfigLocation(final URI configLocation) {
+log4j-core/src/main/java/org/apache/logging/log4j/core/LoggerContext.java,407,reconfigure();
+log4j-core/src/main/java/org/apache/logging/log4j/core/LoggerContext.java,413,public synchronized void reconfigure() {
+log4j-core/src/main/java/org/apache/logging/log4j/core/async/AsyncLoggerConfig.java,230,includeLocation(includeLocation));
+log4j-core/src/main/java/org/apache/logging/log4j/core/net/Priority.java,46,return (facility.getCode() << 3) + Severity.getSeverity(level).getCode();
+log4j-core/src/main/java/org/apache/logging/log4j/core/net/Priority.java,70,return facility.getCode() << 3 + severity.getCode();
+log4j-core/src/main/java/org/apache/logging/log4j/core/async/AsyncLogger.java,102,final String name = System.getProperty("AsyncLogger.ThreadNameStrategy", CACHED.name());
+log4j-core/src/main/java/org/apache/logging/log4j/core/async/AsyncLogger.java,135,final String userPreferredRBSize = System.getProperty("AsyncLogger.RingBufferSize",
+log4j-core/src/main/java/org/apache/logging/log4j/core/async/AsyncLogger.java,171,final String strategy = System.getProperty("AsyncLogger.WaitStrategy");
+log4j-core/src/main/java/org/apache/logging/log4j/core/async/AsyncLogger.java,185,final String cls = System.getProperty("AsyncLogger.ExceptionHandler");
+log4j-core/src/main/java/org/apache/logging/log4j/core/async/AsyncLoggerConfigHelper.java,147,final String userPreferredRBSize = System.getProperty(
+log4j-core/src/main/java/org/apache/logging/log4j/core/config/LoggerConfig.java,479,.equals(System.getProperty(Constants.LOG4J_CONTEXT_SELECTOR));
+log4j-core/src/main/java/org/apache/logging/log4j/core/layout/SyslogLayout.java,54,private final SimpleDateFormat dateFormat = new SimpleDateFormat("MMM dd HH:mm:ss ", Locale.ENGLISH);
+log4j-core/src/main/java/org/apache/logging/log4j/core/net/ssl/KeyStoreConfiguration.java,66,return new KeyStoreConfiguration(location, password, keyStoreType, null);
+log4j-api/src/main/java/org/apache/logging/log4j/message/StringFormattedMessage.java,136,stringArgs[i] = obj.toString();
+log4j-core/src/main/java/org/apache/logging/log4j/core/jmx/Server.java,60,static final Executor executor = Executors.newFixedThreadPool(1);
+log4j-core/src/main/java/org/apache/logging/log4j/core/config/Property.java,68,if (key == null) {
+log4j-core/src/main/java/org/apache/logging/log4j/core/config/Property.java,69,LOGGER.error("Property key cannot be null");
+log4j-core/src/main/java/org/apache/logging/log4j/core/config/Property.java,71,return new Property(key, value);
+log4j-api/src/main/java/org/apache/logging/log4j/Level.java,277,final String levelName = name.toUpperCase();
+log4j-core/src/main/java/org/apache/logging/log4j/core/layout/Rfc5424Layout.java,449,final int millis = cal.get(Calendar.MILLISECOND);
+log4j-core/src/main/java/org/apache/logging/log4j/core/layout/Rfc5424Layout.java,450,if (millis != 0) {
+log4j-core/src/main/java/org/apache/logging/log4j/core/layout/Rfc5424Layout.java,451,buffer.append('.');
+log4j-core/src/main/java/org/apache/logging/log4j/core/layout/Rfc5424Layout.java,452,pad(millis, THREE_DIGITS, buffer);
+log4j-core/src/main/java/org/apache/logging/log4j/core/layout/HtmlLayout.java,283,sbuf.append("<hr size=\"1\" noshade>").append(Constants.LINE_SEPARATOR);
+log4j-1.2-api/src/main/java/org/apache/log4j/Category.java,160,case TRACE:
+log4j-1.2-api/src/main/java/org/apache/log4j/Category.java,161,return Level.TRACE;
+log4j-1.2-api/src/main/java/org/apache/log4j/Category.java,162,case DEBUG:
+log4j-1.2-api/src/main/java/org/apache/log4j/Category.java,163,return Level.DEBUG;
+log4j-1.2-api/src/main/java/org/apache/log4j/Category.java,164,case INFO:
+log4j-1.2-api/src/main/java/org/apache/log4j/Category.java,165,return Level.INFO;
+log4j-1.2-api/src/main/java/org/apache/log4j/Category.java,166,case WARN:
+log4j-1.2-api/src/main/java/org/apache/log4j/Category.java,167,return Level.WARN;
+log4j-1.2-api/src/main/java/org/apache/log4j/Category.java,168,case ERROR:
+log4j-1.2-api/src/main/java/org/apache/log4j/Category.java,169,return Level.ERROR;
+log4j-1.2-api/src/main/java/org/apache/log4j/Category.java,170,case FATAL:
+log4j-1.2-api/src/main/java/org/apache/log4j/Category.java,171,return Level.FATAL;
+log4j-1.2-api/src/main/java/org/apache/log4j/Category.java,172,default:
+log4j-1.2-api/src/main/java/org/apache/log4j/Category.java,173,return Level.OFF;
+log4j-core/src/main/java/org/apache/logging/log4j/core/impl/ThrowableProxy.java,401,this.formatElements(sb, 0, this.throwable.getStackTrace(), this.extendedStackTrace, ignorePackages);
+log4j-core/src/main/java/org/apache/logging/log4j/core/config/xml/XmlConfiguration.java,97,LOGGER.warn("The DocumentBuilderFactory does not support XInclude: {}", factory, e);
+log4j-core/src/main/java/org/apache/logging/log4j/core/config/xml/XmlConfiguration.java,99,LOGGER.warn("The DocumentBuilderFactory is out of date and does not support XInclude: {}", factory, err);
+log4j-core/src/main/java/org/apache/logging/log4j/core/config/xml/XmlConfiguration.java,106,LOGGER.warn("The DocumentBuilderFactory [{}] does not support the feature [{}].", factory,
+log4j-core/src/main/java/org/apache/logging/log4j/core/config/xml/XmlConfiguration.java,109,LOGGER.warn("The DocumentBuilderFactory is out of date and does not support setFeature: {}", factory, err);
+log4j-core/src/main/java/org/apache/logging/log4j/core/config/xml/XmlConfiguration.java,114,LOGGER.warn("The DocumentBuilderFactory [{}] does not support the feature [{}].", factory,
+log4j-core/src/main/java/org/apache/logging/log4j/core/config/xml/XmlConfiguration.java,117,LOGGER.warn("The DocumentBuilderFactory is out of date and does not support setFeature: {}", factory, err);
+log4j-core/src/main/java/org/apache/logging/log4j/core/impl/ThrowableProxy.java,511,try {
+log4j-core/src/main/java/org/apache/logging/log4j/core/impl/ThrowableProxy.java,512,clazz = Loader.initializeClass(className, this.getClass().getClassLoader());
+log4j-core/src/main/java/org/apache/logging/log4j/core/impl/ThrowableProxy.java,514,return null;
+log4j-core/src/main/java/org/apache/logging/log4j/core/Logger.java,289,return intLevel >= level.intLevel();
+log4j-core/src/main/java/org/apache/logging/log4j/core/Logger.java,302,return intLevel >= level.intLevel();
+log4j-core/src/main/java/org/apache/logging/log4j/core/Logger.java,315,return intLevel >= level.intLevel();
+log4j-core/src/main/java/org/apache/logging/log4j/core/Logger.java,328,return intLevel >= level.intLevel();
+log4j-core/src/main/java/org/apache/logging/log4j/core/Logger.java,341,return intLevel >= level.intLevel();
+log4j-api/src/main/java/org/apache/logging/log4j/util/ProviderUtil.java,23,import java.util.Enumeration;
+log4j-api/src/main/java/org/apache/logging/log4j/util/ProviderUtil.java,50,final ClassLoader cl = findClassLoader();
+log4j-api/src/main/java/org/apache/logging/log4j/util/ProviderUtil.java,51,Enumeration<URL> enumResources = null;
+log4j-api/src/main/java/org/apache/logging/log4j/util/ProviderUtil.java,52,try {
+log4j-api/src/main/java/org/apache/logging/log4j/util/ProviderUtil.java,53,enumResources = cl.getResources(PROVIDER_RESOURCE);
+log4j-api/src/main/java/org/apache/logging/log4j/util/ProviderUtil.java,55,LOGGER.fatal("Unable to locate {}", PROVIDER_RESOURCE, e);
+log4j-api/src/main/java/org/apache/logging/log4j/util/ProviderUtil.java,61,if (enumResources != null) {
+log4j-api/src/main/java/org/apache/logging/log4j/util/ProviderUtil.java,62,while (enumResources.hasMoreElements()) {
+log4j-api/src/main/java/org/apache/logging/log4j/util/ProviderUtil.java,63,final URL url = enumResources.nextElement();
+log4j-core/src/main/java/org/apache/logging/log4j/core/filter/BurstFilter.java,17,package org.apache.logging.log4j.core.filter;
+log4j-core/src/main/java/org/apache/logging/log4j/core/filter/BurstFilter.java,19,import java.util.Iterator;
+log4j-core/src/main/java/org/apache/logging/log4j/core/filter/BurstFilter.java,20,import java.util.Queue;
+log4j-core/src/main/java/org/apache/logging/log4j/core/filter/BurstFilter.java,21,import java.util.concurrent.ConcurrentLinkedQueue;
+log4j-core/src/main/java/org/apache/logging/log4j/core/filter/BurstFilter.java,22,import java.util.concurrent.DelayQueue;
+log4j-core/src/main/java/org/apache/logging/log4j/core/filter/BurstFilter.java,23,import java.util.concurrent.Delayed;
+log4j-core/src/main/java/org/apache/logging/log4j/core/filter/BurstFilter.java,24,import java.util.concurrent.TimeUnit;
+log4j-core/src/main/java/org/apache/logging/log4j/core/filter/BurstFilter.java,26,import org.apache.logging.log4j.Level;
+log4j-core/src/main/java/org/apache/logging/log4j/core/filter/BurstFilter.java,27,import org.apache.logging.log4j.Marker;
+log4j-core/src/main/java/org/apache/logging/log4j/core/filter/BurstFilter.java,28,import org.apache.logging.log4j.core.LogEvent;
+log4j-core/src/main/java/org/apache/logging/log4j/core/filter/BurstFilter.java,29,import org.apache.logging.log4j.core.Logger;
+log4j-core/src/main/java/org/apache/logging/log4j/core/filter/BurstFilter.java,30,import org.apache.logging.log4j.core.config.plugins.Plugin;
+log4j-core/src/main/java/org/apache/logging/log4j/core/filter/BurstFilter.java,33,import org.apache.logging.log4j.message.Message;
+log4j-core/src/main/java/org/apache/logging/log4j/core/filter/BurstFilter.java,56,public final class BurstFilter extends AbstractFilter {
+log4j-core/src/main/java/org/apache/logging/log4j/core/filter/BurstFilter.java,60,private static final int DEFAULT_RATE = 10;
+log4j-core/src/main/java/org/apache/logging/log4j/core/filter/BurstFilter.java,62,private static final int DEFAULT_RATE_MULTIPLE = 100;
+log4j-core/src/main/java/org/apache/logging/log4j/core/filter/BurstFilter.java,64,private static final int HASH_SHIFT = 32;
+log4j-core/src/main/java/org/apache/logging/log4j/core/filter/BurstFilter.java,72,private final Level level;
+log4j-core/src/main/java/org/apache/logging/log4j/core/filter/BurstFilter.java,74,private final long burstInterval;
+log4j-core/src/main/java/org/apache/logging/log4j/core/filter/BurstFilter.java,76,private final DelayQueue<LogDelay> history = new DelayQueue<LogDelay>();
+log4j-core/src/main/java/org/apache/logging/log4j/core/filter/BurstFilter.java,78,private final Queue<LogDelay> available = new ConcurrentLinkedQueue<LogDelay>();
+log4j-core/src/main/java/org/apache/logging/log4j/core/filter/BurstFilter.java,80,private BurstFilter(final Level level, final float rate, final long maxBurst, final Result onMatch,
+log4j-core/src/main/java/org/apache/logging/log4j/core/filter/BurstFilter.java,81,final Result onMismatch) {
+log4j-core/src/main/java/org/apache/logging/log4j/core/filter/BurstFilter.java,82,super(onMatch, onMismatch);
+log4j-core/src/main/java/org/apache/logging/log4j/core/filter/BurstFilter.java,83,this.level = level;
+log4j-core/src/main/java/org/apache/logging/log4j/core/filter/BurstFilter.java,84,this.burstInterval = (long) (NANOS_IN_SECONDS * (maxBurst / rate));
+log4j-core/src/main/java/org/apache/logging/log4j/core/filter/BurstFilter.java,85,for (int i = 0; i < maxBurst; ++i) {
+log4j-core/src/main/java/org/apache/logging/log4j/core/filter/BurstFilter.java,86,available.add(new LogDelay());
+log4j-core/src/main/java/org/apache/logging/log4j/core/filter/BurstFilter.java,91,public Result filter(final Logger logger, final Level level, final Marker marker, final String msg,
+log4j-core/src/main/java/org/apache/logging/log4j/core/filter/BurstFilter.java,92,final Object... params) {
+log4j-core/src/main/java/org/apache/logging/log4j/core/filter/BurstFilter.java,93,return filter(level);
+log4j-core/src/main/java/org/apache/logging/log4j/core/filter/BurstFilter.java,97,public Result filter(final Logger logger, final Level level, final Marker marker, final Object msg,
+log4j-core/src/main/java/org/apache/logging/log4j/core/filter/BurstFilter.java,98,final Throwable t) {
+log4j-core/src/main/java/org/apache/logging/log4j/core/filter/BurstFilter.java,99,return filter(level);
+log4j-core/src/main/java/org/apache/logging/log4j/core/filter/BurstFilter.java,103,public Result filter(final Logger logger, final Level level, final Marker marker, final Message msg,
+log4j-core/src/main/java/org/apache/logging/log4j/core/filter/BurstFilter.java,104,final Throwable t) {
+log4j-core/src/main/java/org/apache/logging/log4j/core/filter/BurstFilter.java,105,return filter(level);
+log4j-core/src/main/java/org/apache/logging/log4j/core/filter/BurstFilter.java,109,public Result filter(final LogEvent event) {
+log4j-core/src/main/java/org/apache/logging/log4j/core/filter/BurstFilter.java,110,return filter(event.getLevel());
+log4j-core/src/main/java/org/apache/logging/log4j/core/filter/BurstFilter.java,120,private Result filter(final Level level) {
+log4j-core/src/main/java/org/apache/logging/log4j/core/filter/BurstFilter.java,121,if (this.level.isMoreSpecificThan(level)) {
+log4j-core/src/main/java/org/apache/logging/log4j/core/filter/BurstFilter.java,122,LogDelay delay = history.poll();
+log4j-core/src/main/java/org/apache/logging/log4j/core/filter/BurstFilter.java,123,while (delay != null) {
+log4j-core/src/main/java/org/apache/logging/log4j/core/filter/BurstFilter.java,124,available.add(delay);
+log4j-core/src/main/java/org/apache/logging/log4j/core/filter/BurstFilter.java,125,delay = history.poll();
+log4j-core/src/main/java/org/apache/logging/log4j/core/filter/BurstFilter.java,127,delay = available.poll();
+log4j-core/src/main/java/org/apache/logging/log4j/core/filter/BurstFilter.java,128,if (delay != null) {
+log4j-core/src/main/java/org/apache/logging/log4j/core/filter/BurstFilter.java,129,delay.setDelay(burstInterval);
+log4j-core/src/main/java/org/apache/logging/log4j/core/filter/BurstFilter.java,130,history.add(delay);
+log4j-core/src/main/java/org/apache/logging/log4j/core/filter/BurstFilter.java,131,return onMatch;
+log4j-core/src/main/java/org/apache/logging/log4j/core/filter/BurstFilter.java,133,return onMismatch;
+log4j-core/src/main/java/org/apache/logging/log4j/core/filter/BurstFilter.java,135,return onMatch;
+log4j-core/src/main/java/org/apache/logging/log4j/core/filter/BurstFilter.java,143,public int getAvailable() {
+log4j-core/src/main/java/org/apache/logging/log4j/core/filter/BurstFilter.java,144,return available.size();
+log4j-core/src/main/java/org/apache/logging/log4j/core/filter/BurstFilter.java,150,public void clear() {
+log4j-core/src/main/java/org/apache/logging/log4j/core/filter/BurstFilter.java,151,final Iterator<LogDelay> iter = history.iterator();
+log4j-core/src/main/java/org/apache/logging/log4j/core/filter/BurstFilter.java,152,while (iter.hasNext()) {
+log4j-core/src/main/java/org/apache/logging/log4j/core/filter/BurstFilter.java,153,final LogDelay delay = iter.next();
+log4j-core/src/main/java/org/apache/logging/log4j/core/filter/BurstFilter.java,154,history.remove(delay);
+log4j-core/src/main/java/org/apache/logging/log4j/core/filter/BurstFilter.java,155,available.add(delay);
+log4j-core/src/main/java/org/apache/logging/log4j/core/filter/BurstFilter.java,160,public String toString() {
+log4j-core/src/main/java/org/apache/logging/log4j/core/filter/BurstFilter.java,161,return "level=" + level.toString() + ", interval=" + burstInterval + ", max=" + history.size();
+log4j-core/src/main/java/org/apache/logging/log4j/core/filter/BurstFilter.java,167,private class LogDelay implements Delayed {
+log4j-core/src/main/java/org/apache/logging/log4j/core/filter/BurstFilter.java,169,private long expireTime;
+log4j-core/src/main/java/org/apache/logging/log4j/core/filter/BurstFilter.java,171,public LogDelay() {
+log4j-core/src/main/java/org/apache/logging/log4j/core/filter/BurstFilter.java,174,public void setDelay(final long delay) {
+log4j-core/src/main/java/org/apache/logging/log4j/core/filter/BurstFilter.java,175,this.expireTime = delay + System.nanoTime();
+log4j-core/src/main/java/org/apache/logging/log4j/core/filter/BurstFilter.java,179,public long getDelay(final TimeUnit timeUnit) {
+log4j-core/src/main/java/org/apache/logging/log4j/core/filter/BurstFilter.java,180,return timeUnit.convert(expireTime - System.nanoTime(), TimeUnit.NANOSECONDS);
+log4j-core/src/main/java/org/apache/logging/log4j/core/filter/BurstFilter.java,184,public int compareTo(final Delayed delayed) {
+log4j-core/src/main/java/org/apache/logging/log4j/core/filter/BurstFilter.java,185,if (this.expireTime < ((LogDelay) delayed).expireTime) {
+log4j-core/src/main/java/org/apache/logging/log4j/core/filter/BurstFilter.java,186,return -1;
+log4j-core/src/main/java/org/apache/logging/log4j/core/filter/BurstFilter.java,188,return 1;
+log4j-core/src/main/java/org/apache/logging/log4j/core/filter/BurstFilter.java,190,return 0;
+log4j-core/src/main/java/org/apache/logging/log4j/core/filter/BurstFilter.java,194,public boolean equals(final Object o) {
+log4j-core/src/main/java/org/apache/logging/log4j/core/filter/BurstFilter.java,195,if (this == o) {
+log4j-core/src/main/java/org/apache/logging/log4j/core/filter/BurstFilter.java,196,return true;
+log4j-core/src/main/java/org/apache/logging/log4j/core/filter/BurstFilter.java,198,if (o == null || getClass() != o.getClass()) {
+log4j-core/src/main/java/org/apache/logging/log4j/core/filter/BurstFilter.java,199,return false;
+log4j-core/src/main/java/org/apache/logging/log4j/core/filter/BurstFilter.java,202,final LogDelay logDelay = (LogDelay) o;
+log4j-core/src/main/java/org/apache/logging/log4j/core/filter/BurstFilter.java,204,if (expireTime != logDelay.expireTime) {
+log4j-core/src/main/java/org/apache/logging/log4j/core/filter/BurstFilter.java,205,return false;
+log4j-core/src/main/java/org/apache/logging/log4j/core/filter/BurstFilter.java,208,return true;
+log4j-core/src/main/java/org/apache/logging/log4j/core/filter/BurstFilter.java,212,public int hashCode() {
+log4j-core/src/main/java/org/apache/logging/log4j/core/filter/BurstFilter.java,213,return (int) (expireTime ^ (expireTime >>> HASH_SHIFT));
+log4j-core/src/main/java/org/apache/logging/log4j/core/async/AsyncLoggerConfig.java,123,LOGGER.trace("AsyncLoggerConfig[{}] starting...", getName());
+log4j-core/src/main/java/org/apache/logging/log4j/core/async/AsyncLoggerConfig.java,135,LOGGER.trace("AsyncLoggerConfig[{}] stopping...", getName());
+log4j-core/src/main/java/org/apache/logging/log4j/core/config/AbstractConfiguration.java,203,if (root instanceof AsyncLoggerConfig) {
+log4j-core/src/main/java/org/apache/logging/log4j/core/appender/AsyncAppender.java,235,continue;
+log4j-api/src/main/java/org/apache/logging/log4j/MarkerManager.java,231,return this.parents == null;
+log4j-core/src/main/java/org/apache/logging/log4j/core/appender/rolling/PatternProcessor.java,69,parser.parse(pattern, converters, fields, false);
+log4j-core/src/main/java/org/apache/logging/log4j/core/pattern/LiteralPatternConverter.java,43,public LiteralPatternConverter(final Configuration config, final String literal) {
+log4j-core/src/main/java/org/apache/logging/log4j/core/pattern/LiteralPatternConverter.java,45,this.literal = OptionConverter.convertSpecialChars(literal);
+log4j-core/src/main/java/org/apache/logging/log4j/core/pattern/PatternParser.java,163,parse(pattern, converters, fields, noConsoleNoAnsi);
+log4j-core/src/main/java/org/apache/logging/log4j/core/pattern/PatternParser.java,174,pc = new LiteralPatternConverter(config, Strings.EMPTY);
+log4j-core/src/main/java/org/apache/logging/log4j/core/pattern/PatternParser.java,291,final List<FormattingInfo> formattingInfos, final boolean noConsoleNoAnsi) {
+log4j-core/src/main/java/org/apache/logging/log4j/core/pattern/PatternParser.java,329,patternConverters.add(new LiteralPatternConverter(config, currentLiteral.toString()));
+log4j-core/src/main/java/org/apache/logging/log4j/core/pattern/PatternParser.java,365,patternConverters, formattingInfos, noConsoleNoAnsi);
+log4j-core/src/main/java/org/apache/logging/log4j/core/pattern/PatternParser.java,387,patternConverters, formattingInfos, noConsoleNoAnsi);
+log4j-core/src/main/java/org/apache/logging/log4j/core/pattern/PatternParser.java,420,patternConverters, formattingInfos, noConsoleNoAnsi);
+log4j-core/src/main/java/org/apache/logging/log4j/core/pattern/PatternParser.java,432,patternConverters.add(new LiteralPatternConverter(config, currentLiteral.toString()));
+log4j-core/src/main/java/org/apache/logging/log4j/core/pattern/PatternParser.java,560,final boolean noConsoleNoAnsi) {
+log4j-core/src/main/java/org/apache/logging/log4j/core/pattern/PatternParser.java,587,patternConverters.add(new LiteralPatternConverter(config, currentLiteral.toString()));
+log4j-core/src/main/java/org/apache/logging/log4j/core/pattern/PatternParser.java,594,patternConverters.add(new LiteralPatternConverter(config, currentLiteral.toString()));
+log4j-flume-ng/src/main/java/org/apache/logging/log4j/flume/appender/FlumePersistentManager.java,661,Cursor cursor = database.openCursor(null, CursorConfig.DEFAULT);
+log4j-flume-ng/src/main/java/org/apache/logging/log4j/flume/appender/FlumePersistentManager.java,663,status = cursor.getFirst(key, data, null);
+log4j-flume-ng/src/main/java/org/apache/logging/log4j/flume/appender/FlumePersistentManager.java,665,final BatchEvent batch = new BatchEvent();
+log4j-flume-ng/src/main/java/org/apache/logging/log4j/flume/appender/FlumePersistentManager.java,666,for (int i = 0; status == OperationStatus.SUCCESS && i < batchSize; ++i) {
+log4j-flume-ng/src/main/java/org/apache/logging/log4j/flume/appender/FlumePersistentManager.java,667,final SimpleEvent event = createEvent(data);
+log4j-flume-ng/src/main/java/org/apache/logging/log4j/flume/appender/FlumePersistentManager.java,668,if (event != null) {
+log4j-flume-ng/src/main/java/org/apache/logging/log4j/flume/appender/FlumePersistentManager.java,669,batch.addEvent(event);
+log4j-flume-ng/src/main/java/org/apache/logging/log4j/flume/appender/FlumePersistentManager.java,671,status = cursor.getNext(key, data, null);
+log4j-flume-ng/src/main/java/org/apache/logging/log4j/flume/appender/FlumePersistentManager.java,680,cursor.close();
+log4j-flume-ng/src/main/java/org/apache/logging/log4j/flume/appender/FlumePersistentManager.java,681,cursor = null;
+log4j-core/src/main/java/org/apache/logging/log4j/core/layout/AbstractLayout.java,31,public abstract class AbstractLayout<T extends Serializable> implements Layout<T> {
+log4j-core/src/main/java/org/apache/logging/log4j/core/appender/DefaultErrorHandler.java,28,public class DefaultErrorHandler implements ErrorHandler {
+log4j-core/src/main/java/org/apache/logging/log4j/core/Logger.java,241,protected class PrivateConfig {
+log4j-core/src/main/java/org/apache/logging/log4j/core/config/DefaultAdvertiser.java,28,public class DefaultAdvertiser implements Advertiser {
+log4j-to-slf4j/src/main/java/org/apache/logging/slf4j/SLF4JLogger.java,164,logger.debug(fqcn, getMarker(marker), message.getFormattedMessage(), message.getParameters(), t);
+log4j-to-slf4j/src/main/java/org/apache/logging/slf4j/SLF4JLogger.java,167,logger.trace(fqcn, getMarker(marker), message.getFormattedMessage(), message.getParameters(), t);
+log4j-to-slf4j/src/main/java/org/apache/logging/slf4j/SLF4JLogger.java,170,logger.info(fqcn, getMarker(marker), message.getFormattedMessage(), message.getParameters(), t);
+log4j-to-slf4j/src/main/java/org/apache/logging/slf4j/SLF4JLogger.java,173,logger.warn(fqcn, getMarker(marker), message.getFormattedMessage(), message.getParameters(), t);
+log4j-to-slf4j/src/main/java/org/apache/logging/slf4j/SLF4JLogger.java,176,logger.error(fqcn, getMarker(marker), message.getFormattedMessage(), message.getParameters(), t);
+log4j-to-slf4j/src/main/java/org/apache/logging/slf4j/SLF4JLogger.java,179,logger.error(fqcn, getMarker(marker), message.getFormattedMessage(), message.getParameters(), t);
+log4j-api/src/main/java/org/apache/logging/log4j/simple/SimpleLogger.java,157,if (throwable == null && params != null && params[params.length - 1] instanceof Throwable) {
+log4j-core/src/main/java/org/apache/logging/log4j/core/impl/ThrowableProxy.java,227,this.formatEntry(causedTrace[i], extStackTrace[i], sb);
+log4j-core/src/main/java/org/apache/logging/log4j/core/impl/ThrowableProxy.java,241,this.formatEntry(causedTrace[i], extStackTrace[i], sb);
+log4j-core/src/main/java/org/apache/logging/log4j/core/impl/ThrowableProxy.java,259,private void formatEntry(final StackTraceElement element, final ExtendedStackTraceElement extStackTraceElement,
+log4j-core/src/main/java/org/apache/logging/log4j/core/impl/ThrowableProxy.java,260,final StringBuilder sb) {
+log4j-core/src/main/java/org/apache/logging/log4j/core/layout/PatternLayout.java,38,import org.apache.logging.log4j.core.util.Charsets;
+log4j-core/src/main/java/org/apache/logging/log4j/core/layout/PatternLayout.java,302,private Charset charset = Charsets.UTF_8;
+log4j-core/src/main/java/org/apache/logging/log4j/core/appender/rolling/action/FileRenameAction.java,80,if (!parent.mkdirs()) {
+log4j-api/src/main/java/org/apache/logging/log4j/message/ObjectMessage.java,68,return new Object[]{obj};
+log4j-api/src/main/java/org/apache/logging/log4j/message/ObjectMessage.java,82,return !(obj != null ? !obj.equals(that.obj) : that.obj != null);
+log4j-api/src/main/java/org/apache/logging/log4j/message/ObjectMessage.java,100,out.writeObject(obj.toString());
+log4j-core/src/main/java/org/apache/logging/log4j/core/pattern/PatternParser.java,255,if (end != -1) {
+log4j-api/src/main/java/org/apache/logging/log4j/message/FormattedMessage.java,52,this.messagePattern = messagePattern;
+log4j-api/src/main/java/org/apache/logging/log4j/message/FormattedMessage.java,53,this.argArray = arguments;
+log4j-api/src/main/java/org/apache/logging/log4j/message/FormattedMessage.java,54,this.throwable = null;
+log4j-api/src/main/java/org/apache/logging/log4j/message/FormattedMessage.java,63,this.messagePattern = messagePattern;
+log4j-api/src/main/java/org/apache/logging/log4j/message/FormattedMessage.java,64,this.argArray = new Object[] {arg};
+log4j-api/src/main/java/org/apache/logging/log4j/message/FormattedMessage.java,65,this.throwable = null;
+log4j-api/src/main/java/org/apache/logging/log4j/message/ObjectMessage.java,50,return obj.toString();
+log4j-api/src/main/java/org/apache/logging/log4j/message/ObjectMessage.java,59,return obj.toString();
+log4j-api/src/main/java/org/apache/logging/log4j/message/ObjectMessage.java,92,return "ObjectMessage[obj=" + obj.toString() + ']';
+log4j-core/src/main/java/org/apache/logging/log4j/core/config/ConfigurationFactory.java,433,return config != null ? config : new DefaultConfiguration();
+log4j-core/src/main/java/org/apache/logging/log4j/core/pattern/DatePatternConverter.java,115,private static final String ISO8601_BASIC_PATTERN = "yyyyMMdd HHmmss,SSS";
+log4j-core/src/main/java/org/apache/logging/log4j/core/pattern/DatePatternConverter.java,125,private static final String ISO8601_PATTERN = "yyyy-MM-dd HH:mm:ss,SSS";
+log4j-core/src/main/java/org/apache/logging/log4j/core/appender/rolling/RollingFileManager.java,190,if (thread == null) {
+log4j-core/src/main/java/org/apache/logging/log4j/core/LoggerContext.java,356,map.putIfAbsent("hostName", NetUtils.getLocalHostname());
+log4j-core/src/main/java/org/apache/logging/log4j/core/appender/db/AbstractDatabaseManager.java,138,for (final LogEvent event : this.buffer) {
+log4j-core/src/main/java/org/apache/logging/log4j/core/appender/db/AbstractDatabaseManager.java,139,this.writeInternal(event);
+log4j-core/src/main/java/org/apache/logging/log4j/core/appender/db/AbstractDatabaseManager.java,141,this.commitAndClose();
+log4j-core/src/main/java/org/apache/logging/log4j/core/appender/db/AbstractDatabaseManager.java,142,this.buffer.clear();
+log4j-core/src/main/java/org/apache/logging/log4j/core/appender/db/AbstractDatabaseManager.java,159,this.writeInternal(event);
+log4j-core/src/main/java/org/apache/logging/log4j/core/appender/db/AbstractDatabaseManager.java,160,this.commitAndClose();
+log4j-core/src/main/java/org/apache/logging/log4j/core/lookup/Interpolator.java,76,lookups.put("jndi", new JndiLookup());
+log4j-core/src/main/java/org/apache/logging/log4j/core/lookup/JndiLookup.java,25,import org.apache.logging.log4j.core.util.Closer;
+log4j-core/src/main/java/org/apache/logging/log4j/core/lookup/JndiLookup.java,65,Closer.closeSilently(ctx);
+log4j-core/src/main/java/org/apache/logging/log4j/core/selector/JndiContextSelector.java,33,import org.apache.logging.log4j.core.util.Closer;
+log4j-core/src/main/java/org/apache/logging/log4j/core/selector/JndiContextSelector.java,121,Closer.closeSilently(ctx);
+log4j-core/src/main/java/org/apache/logging/log4j/core/util/Closer.java,28,import javax.naming.Context;
+log4j-core/src/main/java/org/apache/logging/log4j/core/util/Closer.java,29,import javax.naming.NamingException;
+log4j-core/src/main/java/org/apache/logging/log4j/core/util/Closer.java,172,public static void closeSilently(final Context context) {
+log4j-core/src/main/java/org/apache/logging/log4j/core/util/Closer.java,173,try {
+log4j-core/src/main/java/org/apache/logging/log4j/core/util/Closer.java,174,close(context);
+log4j-core/src/main/java/org/apache/logging/log4j/core/util/Closer.java,186,public static void close(final Context context) throws NamingException {
+log4j-core/src/main/java/org/apache/logging/log4j/core/util/Closer.java,187,if (context != null) {
+log4j-core/src/main/java/org/apache/logging/log4j/core/util/Closer.java,188,context.close();
+log4j-core/src/main/java/org/apache/logging/log4j/core/pattern/NameAbbreviator.java,290,pos = fragments[i].abbreviate(sb, pos);
+log4j-core/src/main/java/org/apache/logging/log4j/core/pattern/NameAbbreviator.java,296,final PatternAbbreviatorFragment terminalFragment = fragments[fragments.length - 1];
+log4j-core/src/main/java/org/apache/logging/log4j/core/pattern/NameAbbreviator.java,299,pos = terminalFragment.abbreviate(sb, pos);
+log4j-core/src/main/java/org/apache/logging/log4j/core/config/LoggerConfig.java,269,return level == null ? parent.getLevel() : level;
+log4j-core/src/main/java/org/apache/logging/log4j/core/async/AsyncLoggerConfig.java,117,void asyncCallAppenders(final LogEvent event) {
+log4j-core/src/main/java/org/apache/logging/log4j/core/async/AsyncLoggerConfig.java,118,super.callAppenders(event);
+log4j-core/src/main/java/org/apache/logging/log4j/core/config/LoggerConfig.java,476,protected static boolean includeLocation(final String includeLocationConfigValue) {
+log4j-core/src/main/java/org/apache/logging/log4j/core/config/LoggerConfig.java,480,return sync;
+log4j-core/src/main/java/org/apache/logging/log4j/core/async/AsyncLoggerConfig.java,217,Level level;
+log4j-core/src/main/java/org/apache/logging/log4j/core/async/AsyncLoggerConfig.java,221,LOGGER.error(
+log4j-core/src/main/java/org/apache/logging/log4j/core/async/AsyncLoggerConfig.java,223,levelName);
+log4j-core/src/main/java/org/apache/logging/log4j/core/jmx/Server.java,170,final MBeanServer mbs = ManagementFactory.getPlatformMBeanServer();
+log4j-core/src/main/java/org/apache/logging/log4j/core/jmx/Server.java,171,unregisterMBeans(mbs);
+log4j-core/src/main/java/org/apache/logging/log4j/core/jmx/Server.java,179,public static void unregisterMBeans(final MBeanServer mbs) {
+log4j-core/src/main/java/org/apache/logging/log4j/core/jmx/Server.java,180,unregisterStatusLogger("*", mbs);
+log4j-core/src/main/java/org/apache/logging/log4j/core/jmx/Server.java,181,unregisterContextSelector("*", mbs);
+log4j-core/src/main/java/org/apache/logging/log4j/core/jmx/Server.java,182,unregisterContexts(mbs);
+log4j-core/src/main/java/org/apache/logging/log4j/core/jmx/Server.java,183,unregisterLoggerConfigs("*", mbs);
+log4j-core/src/main/java/org/apache/logging/log4j/core/jmx/Server.java,184,unregisterAsyncLoggerRingBufferAdmins("*", mbs);
+log4j-core/src/main/java/org/apache/logging/log4j/core/jmx/Server.java,185,unregisterAsyncLoggerConfigRingBufferAdmins("*", mbs);
+log4j-core/src/main/java/org/apache/logging/log4j/core/jmx/Server.java,186,unregisterAppenders("*", mbs);
+log4j-core/src/main/java/org/apache/logging/log4j/core/jmx/Server.java,187,unregisterAsyncAppenders("*", mbs);
+log4j-core/src/main/java/org/apache/logging/log4j/core/jmx/Server.java,308,for (final ObjectName objectName : found) {
+log4j-core/src/main/java/org/apache/logging/log4j/core/jmx/Server.java,310,mbs.unregisterMBean(objectName);
+log4j-core/src/main/java/org/apache/logging/log4j/core/lookup/EnvironmentLookup.java,46,return System.getenv(key);
+log4j-core/src/main/java/org/apache/logging/log4j/core/pattern/ExtendedThrowablePatternConverter.java,78,final StringBuilder sb = new StringBuilder();
+log4j-core/src/main/java/org/apache/logging/log4j/core/pattern/ExtendedThrowablePatternConverter.java,80,final int limit = options.minLines(array.length) - 1;
+log4j-core/src/main/java/org/apache/logging/log4j/core/pattern/ExtendedThrowablePatternConverter.java,81,for (int i = 0; i <= limit; ++i) {
+log4j-core/src/main/java/org/apache/logging/log4j/core/pattern/ExtendedThrowablePatternConverter.java,82,sb.append(array[i]);
+log4j-core/src/main/java/org/apache/logging/log4j/core/pattern/ExtendedThrowablePatternConverter.java,83,if (i < limit) {
+log4j-core/src/main/java/org/apache/logging/log4j/core/pattern/ExtendedThrowablePatternConverter.java,84,sb.append(options.getSeparator());
+log4j-core/src/main/java/org/apache/logging/log4j/core/pattern/ExtendedThrowablePatternConverter.java,87,toAppendTo.append(sb.toString());
+log4j-api/src/main/java/org/apache/logging/log4j/message/StructuredDataMessage.java,311,final StringBuilder sb = new StringBuilder();
+log4j-api/src/main/java/org/apache/logging/log4j/message/StructuredDataMessage.java,314,return sb.toString();
+log4j-api/src/main/java/org/apache/logging/log4j/message/StructuredDataMessage.java,316,sb.append("<StructuredData>\n");
+log4j-api/src/main/java/org/apache/logging/log4j/message/StructuredDataMessage.java,317,sb.append("<type>").append(type).append("</type>\n");
+log4j-api/src/main/java/org/apache/logging/log4j/message/StructuredDataMessage.java,319,super.asXml(sb);
+log4j-api/src/main/java/org/apache/logging/log4j/message/StructuredDataMessage.java,320,sb.append("</StructuredData>\n");
+log4j-api/src/main/java/org/apache/logging/log4j/message/StructuredDataMessage.java,321,return sb.toString();
+log4j-api/src/main/java/org/apache/logging/log4j/message/MapMessage.java,226,return asString();
+log4j-api/src/main/java/org/apache/logging/log4j/message/MapMessage.java,235,return asString();
+log4j-core/src/main/java/org/apache/logging/log4j/core/jackson/LevelMixIn.java,38,public static Level getLevel(@JsonProperty("name") final String name) {
+log4j-core/src/main/java/org/apache/logging/log4j/core/lookup/Interpolator.java,86,if (Loader.isClassAvailable("javax.servlet.ServletContext")) {
+log4j-core/src/main/java/org/apache/logging/log4j/core/appender/ConsoleAppender.java,134,LOGGER.warn("Unable to instantiate {}", JANSI_CLASS);
+log4j-core/src/main/java/org/apache/logging/log4j/core/pattern/PatternParser.java,250,final int begin = i++;
+log4j-core/src/main/java/org/apache/logging/log4j/core/pattern/PatternParser.java,251,int end;
+log4j-core/src/main/java/org/apache/logging/log4j/core/pattern/PatternParser.java,252,int depth = 0;
+log4j-core/src/main/java/org/apache/logging/log4j/core/pattern/PatternParser.java,253,do {
+log4j-core/src/main/java/org/apache/logging/log4j/core/pattern/PatternParser.java,254,end = pattern.indexOf('}', i);
+log4j-core/src/main/java/org/apache/logging/log4j/core/pattern/PatternParser.java,266,if (end == -1) {
+log4j-core/src/main/java/org/apache/logging/log4j/core/pattern/PatternParser.java,267,break;
+log4j-core/src/main/java/org/apache/logging/log4j/core/pattern/PatternParser.java,270,final String r = pattern.substring(begin + 1, end);
+log4j-core/src/main/java/org/apache/logging/log4j/core/pattern/PatternParser.java,271,options.add(r);
+log4j-core/src/main/java/org/apache/logging/log4j/core/pattern/PatternParser.java,272,i = end + 1;
+log4j-core/src/main/java/org/apache/logging/log4j/core/async/AsyncLogger.java,36,import org.apache.logging.log4j.status.StatusLogger;
+log4j-core/src/main/java/org/apache/logging/log4j/core/layout/Rfc5424Layout.java,134,this.mdcId = mdcId;
+log4j-core/src/main/java/org/apache/logging/log4j/core/pattern/HighlightConverter.java,152,final Level level = Level.toLevel(key);
+log4j-core/src/main/java/org/apache/logging/log4j/core/pattern/HighlightConverter.java,154,LOGGER.error("Unknown level name: " + key + ". Use one of " +
+log4j-core/src/main/java/org/apache/logging/log4j/core/pattern/HighlightConverter.java,155,Arrays.toString(DEFAULT_STYLES.keySet().toArray()));
+log4j-core/src/main/java/org/apache/logging/log4j/core/pattern/StyleConverter.java,45,if (options.length < 1) {
+log4j-core/src/main/java/org/apache/logging/log4j/core/pattern/StyleConverter.java,50,LOGGER.error("No pattern supplied on style");
+log4j-core/src/main/java/org/apache/logging/log4j/core/pattern/StyleConverter.java,54,LOGGER.error("No style attributes provided");
+log4j-core/src/main/java/org/apache/logging/log4j/core/net/SslSocketManager.java,19,import java.io.ByteArrayOutputStream;
+log4j-core/src/main/java/org/apache/logging/log4j/core/net/SslSocketManager.java,25,import java.net.UnknownHostException;
+log4j-core/src/main/java/org/apache/logging/log4j/core/net/SslSocketManager.java,30,import org.apache.logging.log4j.Level;
+log4j-core/src/main/java/org/apache/logging/log4j/core/net/SslSocketManager.java,32,import org.apache.logging.log4j.core.appender.ManagerFactory;
+log4j-core/src/main/java/org/apache/logging/log4j/core/net/SslSocketManager.java,116,private static class SslSocketManagerFactory implements ManagerFactory<SslSocketManager, SslFactoryData> {
+log4j-core/src/main/java/org/apache/logging/log4j/core/net/SslSocketManager.java,120,private static final long serialVersionUID = 1L;
+log4j-core/src/main/java/org/apache/logging/log4j/core/net/SslSocketManager.java,124,public SslSocketManager createManager(final String name, final SslFactoryData data) {
+log4j-core/src/main/java/org/apache/logging/log4j/core/net/SslSocketManager.java,125,InetAddress inetAddress = null;
+log4j-core/src/main/java/org/apache/logging/log4j/core/net/SslSocketManager.java,126,OutputStream os = null;
+log4j-core/src/main/java/org/apache/logging/log4j/core/net/SslSocketManager.java,127,Socket socket = null;
+log4j-core/src/main/java/org/apache/logging/log4j/core/net/SslSocketManager.java,129,try {
+log4j-core/src/main/java/org/apache/logging/log4j/core/net/SslSocketManager.java,130,inetAddress = resolveAddress(data.host);
+log4j-core/src/main/java/org/apache/logging/log4j/core/net/SslSocketManager.java,131,socket = createSocket(data);
+log4j-core/src/main/java/org/apache/logging/log4j/core/net/SslSocketManager.java,132,os = socket.getOutputStream();
+log4j-core/src/main/java/org/apache/logging/log4j/core/net/SslSocketManager.java,136,LOGGER.error("SslSocketManager ({})", name, e);
+log4j-core/src/main/java/org/apache/logging/log4j/core/net/SslSocketManager.java,137,os = new ByteArrayOutputStream();
+log4j-core/src/main/java/org/apache/logging/log4j/core/net/SslSocketManager.java,140,LOGGER.catching(Level.DEBUG, e);
+log4j-core/src/main/java/org/apache/logging/log4j/core/net/SslSocketManager.java,141,return null;
+log4j-core/src/main/java/org/apache/logging/log4j/core/net/SslSocketManager.java,146,private InetAddress resolveAddress(final String hostName) throws TlsSocketManagerFactoryException {
+log4j-core/src/main/java/org/apache/logging/log4j/core/net/SslSocketManager.java,147,InetAddress address;
+log4j-core/src/main/java/org/apache/logging/log4j/core/net/SslSocketManager.java,149,try {
+log4j-core/src/main/java/org/apache/logging/log4j/core/net/SslSocketManager.java,150,address = InetAddress.getByName(hostName);
+log4j-core/src/main/java/org/apache/logging/log4j/core/net/SslSocketManager.java,152,LOGGER.error("Could not find address of {}", hostName, ex);
+log4j-core/src/main/java/org/apache/logging/log4j/core/net/SslSocketManager.java,153,throw new TlsSocketManagerFactoryException();
+log4j-core/src/main/java/org/apache/logging/log4j/core/net/SslSocketManager.java,156,return address;
+log4j-core/src/main/java/org/apache/logging/log4j/core/net/SslSocketManager.java,159,private void checkDelay(final int delay, final OutputStream os) throws TlsSocketManagerFactoryException {
+log4j-core/src/main/java/org/apache/logging/log4j/core/net/SslSocketManager.java,160,if (delay == 0 && os == null) {
+log4j-core/src/main/java/org/apache/logging/log4j/core/net/SslSocketManager.java,161,throw new TlsSocketManagerFactoryException();
+log4j-core/src/main/java/org/apache/logging/log4j/core/net/SslSocketManager.java,165,private Socket createSocket(final SslFactoryData data) throws IOException {
+log4j-core/src/main/java/org/apache/logging/log4j/core/net/SslSocketManager.java,166,SSLSocketFactory socketFactory;
+log4j-core/src/main/java/org/apache/logging/log4j/core/net/SslSocketManager.java,167,SSLSocket socket;
+log4j-core/src/main/java/org/apache/logging/log4j/core/net/SslSocketManager.java,171,return socket;
+log4j-core/src/main/java/org/apache/logging/log4j/core/net/SslSocketManager.java,63,private static class SslFactoryData {
+log4j-core/src/main/java/org/apache/logging/log4j/core/net/SslSocketManager.java,65,private final String host;
+log4j-core/src/main/java/org/apache/logging/log4j/core/net/SslSocketManager.java,66,private final int port;
+log4j-core/src/main/java/org/apache/logging/log4j/core/net/SslSocketManager.java,68,private final boolean immediateFail;
+log4j-core/src/main/java/org/apache/logging/log4j/core/net/SslSocketManager.java,69,private final Layout<? extends Serializable> layout;
+log4j-core/src/main/java/org/apache/logging/log4j/core/net/SslSocketManager.java,73,this.host = host;
+log4j-core/src/main/java/org/apache/logging/log4j/core/net/SslSocketManager.java,74,this.port = port;
+log4j-core/src/main/java/org/apache/logging/log4j/core/net/SslSocketManager.java,76,this.immediateFail = immediateFail;
+log4j-core/src/main/java/org/apache/logging/log4j/core/net/SslSocketManager.java,77,this.layout = layout;
+log4j-core/src/main/java/org/apache/logging/log4j/core/appender/rolling/action/FileRenameAction.java,149,return FileRenameAction.class.getSimpleName() + '[' + source + " to " + destination //
+log4j-core/src/main/java/org/apache/logging/log4j/core/appender/rolling/action/GzCompressAction.java,31,private static final int BUF_SIZE = 8102;
+log4j-core/src/main/java/org/apache/logging/log4j/core/appender/rolling/action/GzCompressAction.java,131,return GzCompressAction.class.getSimpleName() + '[' + source + " to " + destination //
+log4j-core/src/main/java/org/apache/logging/log4j/core/appender/rolling/action/ZipCompressAction.java,32,private static final int BUF_SIZE = 8102;
+log4j-core/src/main/java/org/apache/logging/log4j/core/appender/AsyncAppender.java,211,private volatile boolean shutdown = false;
+log4j-core/src/main/java/org/apache/logging/log4j/core/config/status/StatusConfiguration.java,49,private volatile boolean initialized = false;
+log4j-core/src/main/java/org/apache/logging/log4j/core/util/NetUtils.java,48,return addr.getHostName();
+log4j-core/src/main/java/org/apache/logging/log4j/core/util/NetUtils.java,52,while (interfaces.hasMoreElements()) {
+log4j-core/src/main/java/org/apache/logging/log4j/core/util/NetUtils.java,53,final NetworkInterface nic = interfaces.nextElement();
+log4j-core/src/main/java/org/apache/logging/log4j/core/util/NetUtils.java,54,final Enumeration<InetAddress> addresses = nic.getInetAddresses();
+log4j-core/src/main/java/org/apache/logging/log4j/core/util/NetUtils.java,55,while (addresses.hasMoreElements()) {
+log4j-core/src/main/java/org/apache/logging/log4j/core/util/NetUtils.java,56,final InetAddress address = addresses.nextElement();
+log4j-core/src/main/java/org/apache/logging/log4j/core/util/NetUtils.java,57,if (!address.isLoopbackAddress()) {
+log4j-core/src/main/java/org/apache/logging/log4j/core/util/NetUtils.java,58,final String hostname = address.getHostName();
+log4j-core/src/main/java/org/apache/logging/log4j/core/util/NetUtils.java,59,if (hostname != null) {
+log4j-core/src/main/java/org/apache/logging/log4j/core/util/NetUtils.java,60,return hostname;
+log4j-core/src/main/java/org/apache/logging/log4j/core/util/FileUtils.java,21,import java.io.UnsupportedEncodingException;
+log4j-core/src/main/java/org/apache/logging/log4j/core/util/FileUtils.java,22,import java.net.MalformedURLException;
+log4j-core/src/main/java/org/apache/logging/log4j/core/util/FileUtils.java,26,import java.net.URLDecoder;
+log4j-core/src/main/java/org/apache/logging/log4j/core/util/FileUtils.java,60,if (uri.getScheme() == null) {
+log4j-core/src/main/java/org/apache/logging/log4j/core/util/FileUtils.java,65,return null;
+log4j-core/src/main/java/org/apache/logging/log4j/core/util/FileUtils.java,68,try {
+log4j-core/src/main/java/org/apache/logging/log4j/core/util/FileUtils.java,70,if (new File(fileName).exists()) { // LOG4J2-466
+log4j-core/src/main/java/org/apache/logging/log4j/core/util/FileUtils.java,71,return new File(fileName); // allow files with '+' char in name
+log4j-core/src/main/java/org/apache/logging/log4j/core/util/FileUtils.java,75,LOGGER.warn("Invalid URL {}", uri, ex);
+log4j-core/src/main/java/org/apache/logging/log4j/core/filter/TimeFilter.java,19,import java.text.ParseException;
+log4j-core/src/main/java/org/apache/logging/log4j/core/filter/TimeFilter.java,20,import java.text.SimpleDateFormat;
+log4j-core/src/main/java/org/apache/logging/log4j/core/filter/TimeFilter.java,21,import java.util.Calendar;
+log4j-core/src/main/java/org/apache/logging/log4j/core/filter/TimeFilter.java,22,import java.util.TimeZone;
+log4j-core/src/main/java/org/apache/logging/log4j/core/filter/TimeFilter.java,42,private static final long MINUTE_MS = 60000;
+log4j-core/src/main/java/org/apache/logging/log4j/core/filter/TimeFilter.java,47,private static final long SECOND_MS = 1000;
+log4j-core/src/main/java/org/apache/logging/log4j/core/filter/TimeFilter.java,52,private final long start;
+log4j-core/src/main/java/org/apache/logging/log4j/core/filter/TimeFilter.java,56,private final long end;
+log4j-core/src/main/java/org/apache/logging/log4j/core/filter/TimeFilter.java,64,final Result onMismatch) {
+log4j-core/src/main/java/org/apache/logging/log4j/core/filter/TimeFilter.java,66,this.start = start;
+log4j-core/src/main/java/org/apache/logging/log4j/core/filter/TimeFilter.java,67,this.end = end;
+log4j-core/src/main/java/org/apache/logging/log4j/core/selector/ClassLoaderContextSelector.java,222,CONTEXT_MAP.putIfAbsent(name, r);
+log4j-core/src/main/java/org/apache/logging/log4j/core/lookup/Interpolator.java,37,private static final char PREFIX_SEPARATOR = ':';
+log4j-core/src/main/java/org/apache/logging/log4j/core/lookup/StrSubstitutor.java,142,public static final StrMatcher DEFAULT_VALUE_DELIMITER = StrMatcher.stringMatcher(":-");
+log4j-core/src/main/java/org/apache/logging/log4j/core/lookup/StrSubstitutor.java,286,this(variableResolver, prefixMatcher, suffixMatcher, escape, DEFAULT_VALUE_DELIMITER);
+log4j-core/src/main/java/org/apache/logging/log4j/core/lookup/StrSubstitutor.java,299,public StrSubstitutor(
+log4j-core/src/main/java/org/apache/logging/log4j/core/lookup/StrSubstitutor.java,300,final StrLookup variableResolver, final StrMatcher prefixMatcher, final StrMatcher suffixMatcher, final char escape, final StrMatcher valueDelimiterMatcher) {
+log4j-core/src/main/java/org/apache/logging/log4j/core/lookup/StrSubstitutor.java,906,if ((valueDelimiterMatchLen = valueDelimiterMatcher.isMatch(varNameExprChars, i)) != 0) {
+log4j-core/src/main/java/org/apache/logging/log4j/core/lookup/StrSubstitutor.java,907,varName = varNameExpr.substring(0, i);
+log4j-core/src/main/java/org/apache/logging/log4j/core/lookup/StrSubstitutor.java,909,break;
+log4j-api/src/main/java/org/apache/logging/log4j/message/MapMessage.java,252,sb.append('{');
+log4j-api/src/main/java/org/apache/logging/log4j/message/MapMessage.java,255,sb.append(", ");
+log4j-api/src/main/java/org/apache/logging/log4j/message/MapMessage.java,261,sb.append('}');
+log4j-slf4j-impl/src/main/java/org/apache/logging/slf4j/Log4jLogger.java,46,private transient EventDataConverter converter;
+log4j-slf4j-impl/src/main/java/org/apache/logging/slf4j/Log4jLogger.java,52,this.converter = createConverter();
+log4j-slf4j-impl/src/main/java/org/apache/logging/slf4j/Log4jLogger.java,364,if (eventLogger && marker != null && marker.contains(EVENT_MARKER) && converter != null) {
+log4j-slf4j-impl/src/main/java/org/apache/logging/slf4j/Log4jLogger.java,365,msg = converter.convertEvent(message, params, throwable);
+log4j-slf4j-impl/src/main/java/org/apache/logging/slf4j/Log4jLogger.java,394,converter = createConverter();
+log4j-core/src/main/java/org/apache/logging/log4j/core/async/RingBufferLogEventHandler.java,43,event.execute(endOfBatch);
+log4j-core/src/main/java/org/apache/logging/log4j/core/async/RingBufferLogEventHandler.java,44,event.clear();
+log4j-core/src/main/java/org/apache/logging/log4j/core/util/UuidUtil.java,67,static {
+log4j-core/src/main/java/org/apache/logging/log4j/core/util/UuidUtil.java,156,private UuidUtil() {
+log4j-core/src/main/java/org/apache/logging/log4j/core/util/UuidUtil.java,115,System.arraycopy(mac, index, node, index + 2, length);
+log4j-core/src/main/java/org/apache/logging/log4j/core/selector/ClassLoaderContextSelector.java,47,public class ClassLoaderContextSelector implements ContextSelector {
+log4j-core/src/main/java/org/apache/logging/log4j/core/selector/ClassLoaderContextSelector.java,223,ctx = CONTEXT_MAP.get(name).get().get();
+log4j-core/src/main/java/org/apache/logging/log4j/core/selector/ClassLoaderContextSelector.java,224,return ctx;
+log4j-1.2-api/src/main/java/org/apache/log4j/Category.java,29,import org.apache.logging.log4j.core.LoggerContext;
+log4j-1.2-api/src/main/java/org/apache/log4j/Category.java,54,private final org.apache.logging.log4j.core.Logger logger;
+log4j-1.2-api/src/main/java/org/apache/log4j/Category.java,73,private Category(final org.apache.logging.log4j.core.Logger logger) {
+log4j-1.2-api/src/main/java/org/apache/log4j/Category.java,108,org.apache.logging.log4j.core.Logger getLogger() {
+log4j-1.2-api/src/main/java/org/apache/log4j/Category.java,113,final org.apache.logging.log4j.core.Logger parent = logger.getParent();
+log4j-1.2-api/src/main/java/org/apache/log4j/Category.java,114,if (parent == null) {
+log4j-1.2-api/src/main/java/org/apache/log4j/Category.java,117,final ConcurrentMap<String, Logger> loggers = getLoggersMap(logger.getContext());
+log4j-1.2-api/src/main/java/org/apache/log4j/Category.java,186,logger.setLevel(org.apache.logging.log4j.Level.toLevel(level.levelStr));
+log4j-1.2-api/src/main/java/org/apache/log4j/Category.java,194,logger.setLevel(org.apache.logging.log4j.Level.toLevel(priority.levelStr));
+log4j-1.2-api/src/main/java/org/apache/log4j/Category.java,341,logger.logMessage(fqcn, lvl, null, msg, t);
+log4j-1.2-api/src/main/java/org/apache/log4j/Category.java,349,return logger.isAdditive();
+log4j-1.2-api/src/main/java/org/apache/log4j/Category.java,353,logger.setAdditive(additivity);
+log4j-1.2-api/src/main/java/org/apache/log4j/Category.java,365,final ConcurrentMap<String, Logger> loggers = getLoggersMap(logger.getContext());
+log4j-1.2-api/src/main/java/org/apache/log4j/Category.java,366,while ((name = NameUtil.getSubName(name)) != null) {
+log4j-1.2-api/src/main/java/org/apache/log4j/Category.java,369,if (rb != null) {
+log4j-1.2-api/src/main/java/org/apache/log4j/Category.java,370,return rb;
+log4j-1.2-api/src/main/java/org/apache/log4j/Category.java,434,if (logger.isEnabled(level, null, message, throwable)) {
+log4j-1.2-api/src/main/java/org/apache/log4j/Category.java,435,logger.logMessage(FQCN, level, null, new ObjectMessage(message), throwable);
+log4j-1.2-api/src/main/java/org/apache/log4j/Category.java,466,return logger.isEnabled(level, null, null);
+log4j-1.2-api/src/main/java/org/apache/log4j/Logger.java,21,import org.apache.logging.log4j.core.LoggerContext;
+log4j-core/src/main/java/org/apache/logging/log4j/core/pattern/PatternParser.java,480,&& method.getName().equals("newInstance")) {
+log4j-core/src/main/java/org/apache/logging/log4j/core/appender/rolling/DefaultRolloverStrategy.java,411,final StringBuilder buf = new StringBuilder(255);
+log4j-core/src/main/java/org/apache/logging/log4j/core/pattern/MapPatternConverter.java,46,private MapPatternConverter(final String[] options) {
+log4j-core/src/main/java/org/apache/logging/log4j/core/pattern/MapPatternConverter.java,58,return new MapPatternConverter(options);
+log4j-core/src/main/java/org/apache/logging/log4j/core/pattern/MapPatternConverter.java,77,toAppendTo.append("{}");
+log4j-core/src/main/java/org/apache/logging/log4j/core/pattern/MapPatternConverter.java,78,return;
+log4j-core/src/main/java/org/apache/logging/log4j/core/appender/rolling/TimeBasedTriggeringPolicy.java,63,if (manager.getFileSize() == 0) {
+log4j-core/src/main/java/org/apache/logging/log4j/core/appender/rolling/TimeBasedTriggeringPolicy.java,64,return false;
+log4j-core/src/main/java/org/apache/logging/log4j/core/appender/ConsoleAppender.java,19,import java.io.IOException;
+log4j-core/src/main/java/org/apache/logging/log4j/core/appender/ConsoleAppender.java,20,import java.io.OutputStream;
+log4j-core/src/main/java/org/apache/logging/log4j/core/appender/ConsoleAppender.java,21,import java.io.PrintStream;
+log4j-core/src/main/java/org/apache/logging/log4j/core/appender/ConsoleAppender.java,22,import java.io.Serializable;
+log4j-core/src/main/java/org/apache/logging/log4j/core/appender/ConsoleAppender.java,23,import java.io.UnsupportedEncodingException;
+log4j-core/src/main/java/org/apache/logging/log4j/core/appender/ConsoleAppender.java,24,import java.lang.reflect.Constructor;
+log4j-core/src/main/java/org/apache/logging/log4j/core/appender/ConsoleAppender.java,25,import java.nio.charset.Charset;
+log4j-core/src/main/java/org/apache/logging/log4j/core/util/Loader.java,333,throws ClassNotFoundException,
+log4j-core/src/main/java/org/apache/logging/log4j/core/util/Loader.java,334,IllegalAccessException,
+log4j-core/src/main/java/org/apache/logging/log4j/core/util/Loader.java,335,InstantiationException,
+log4j-core/src/main/java/org/apache/logging/log4j/core/util/Loader.java,336,NoSuchMethodException,
+log4j-core/src/main/java/org/apache/logging/log4j/core/util/Loader.java,337,InvocationTargetException {
+log4j-core/src/main/java/org/apache/logging/log4j/core/util/Loader.java,363,throws ClassNotFoundException,
+log4j-core/src/main/java/org/apache/logging/log4j/core/util/Loader.java,364,NoSuchMethodException,
+log4j-core/src/main/java/org/apache/logging/log4j/core/util/Loader.java,365,IllegalAccessException,
+log4j-core/src/main/java/org/apache/logging/log4j/core/util/Loader.java,366,InvocationTargetException,
+log4j-core/src/main/java/org/apache/logging/log4j/core/util/Loader.java,367,InstantiationException {
+log4j-core/src/main/java/org/apache/logging/log4j/core/config/AbstractConfiguration.java,477,appenders.putIfAbsent(appender.getName(), appender);
+log4j-to-slf4j/src/main/java/org/apache/logging/slf4j/MDCContextMap.java,50,return MDC.getCopyOfContextMap().containsKey(key);
+log4j-to-slf4j/src/main/java/org/apache/logging/slf4j/MDCContextMap.java,67,return MDC.getCopyOfContextMap().isEmpty();
+log4j-core/src/main/java/org/apache/logging/log4j/core/layout/HtmlLayout.java,106,final String font, final String fontSize, final String headerSize) {
+log4j-core/src/main/java/org/apache/logging/log4j/core/layout/HtmlLayout.java,136,sbuf.append(event.getTimeMillis() - jvmStartTime);
+log4j-core/src/main/java/org/apache/logging/log4j/core/layout/HtmlLayout.java,339,return new HtmlLayout(locationInfo, title, contentType, charset, font, fontSize, headerSize);
+log4j-core/src/main/java/org/apache/logging/log4j/core/layout/HtmlLayout.java,416,fontSize.larger().getFontSize());
+log4j-api/src/main/java/org/apache/logging/log4j/message/FormattedMessage.java,179,stringArgs[i] = obj.toString();
+log4j-core/src/main/java/org/apache/logging/log4j/core/layout/HtmlLayout.java,159,if (escapedLogger.isEmpty()) {
+log4j-core/src/main/java/org/apache/logging/log4j/core/lookup/StrSubstitutor.java,169,private boolean enableSubstitutionInVariables;
+log4j-core/src/main/java/org/apache/logging/log4j/core/appender/rolling/DefaultRolloverStrategy.java,27,import org.apache.logging.log4j.core.appender.rolling.action.GzCompressAction;
+log4j-core/src/main/java/org/apache/logging/log4j/core/appender/rolling/DefaultRolloverStrategy.java,28,import org.apache.logging.log4j.core.appender.rolling.action.ZipCompressAction;
+log4j-core/src/main/java/org/apache/logging/log4j/core/appender/rolling/DefaultRolloverStrategy.java,108,final boolean useMax = fileIndex == null ? true : fileIndex.equalsIgnoreCase("max");
+log4j-core/src/main/java/org/apache/logging/log4j/core/appender/rolling/DefaultRolloverStrategy.java,109,int minIndex = MIN_WINDOW_SIZE;
+log4j-core/src/main/java/org/apache/logging/log4j/core/appender/rolling/DefaultRolloverStrategy.java,110,if (min != null) {
+log4j-core/src/main/java/org/apache/logging/log4j/core/appender/rolling/DefaultRolloverStrategy.java,111,minIndex = Integer.parseInt(min);
+log4j-core/src/main/java/org/apache/logging/log4j/core/appender/rolling/DefaultRolloverStrategy.java,112,if (minIndex < 1) {
+log4j-core/src/main/java/org/apache/logging/log4j/core/appender/rolling/DefaultRolloverStrategy.java,113,LOGGER.error("Minimum window size too small. Limited to " + MIN_WINDOW_SIZE);
+log4j-core/src/main/java/org/apache/logging/log4j/core/appender/rolling/DefaultRolloverStrategy.java,114,minIndex = MIN_WINDOW_SIZE;
+log4j-core/src/main/java/org/apache/logging/log4j/core/appender/rolling/DefaultRolloverStrategy.java,117,int maxIndex = DEFAULT_WINDOW_SIZE;
+log4j-core/src/main/java/org/apache/logging/log4j/core/appender/rolling/DefaultRolloverStrategy.java,118,if (max != null) {
+log4j-core/src/main/java/org/apache/logging/log4j/core/appender/rolling/DefaultRolloverStrategy.java,119,maxIndex = Integer.parseInt(max);
+log4j-core/src/main/java/org/apache/logging/log4j/core/appender/rolling/DefaultRolloverStrategy.java,120,if (maxIndex < minIndex) {
+log4j-core/src/main/java/org/apache/logging/log4j/core/appender/rolling/DefaultRolloverStrategy.java,121,maxIndex = minIndex < DEFAULT_WINDOW_SIZE ? DEFAULT_WINDOW_SIZE : minIndex;
+log4j-core/src/main/java/org/apache/logging/log4j/core/appender/rolling/DefaultRolloverStrategy.java,122,LOGGER.error("Maximum window size must be greater than the minimum windows size. Set to " + maxIndex);
+log4j-core/src/main/java/org/apache/logging/log4j/core/appender/rolling/DefaultRolloverStrategy.java,185,final StringBuilder buf = new StringBuilder();
+log4j-core/src/main/java/org/apache/logging/log4j/core/appender/rolling/DefaultRolloverStrategy.java,200,for (int i = highIndex; i >= lowIndex; i--) {
+log4j-core/src/main/java/org/apache/logging/log4j/core/appender/rolling/DefaultRolloverStrategy.java,201,File toRename = new File(highFilename);
+log4j-core/src/main/java/org/apache/logging/log4j/core/appender/rolling/DefaultRolloverStrategy.java,202,if (i == highIndex && toRename.exists()) {
+log4j-core/src/main/java/org/apache/logging/log4j/core/appender/rolling/DefaultRolloverStrategy.java,209,boolean isBase = false;
+log4j-core/src/main/java/org/apache/logging/log4j/core/appender/rolling/DefaultRolloverStrategy.java,211,if (suffixLength > 0) {
+log4j-core/src/main/java/org/apache/logging/log4j/core/appender/rolling/DefaultRolloverStrategy.java,215,if (toRename.exists()) {
+log4j-core/src/main/java/org/apache/logging/log4j/core/appender/rolling/DefaultRolloverStrategy.java,216,if (toRenameBase.exists()) {
+log4j-core/src/main/java/org/apache/logging/log4j/core/appender/rolling/DefaultRolloverStrategy.java,217,LOGGER.debug("DefaultRolloverStrategy.purgeAscending deleting {} base of {}.", //
+log4j-core/src/main/java/org/apache/logging/log4j/core/appender/rolling/DefaultRolloverStrategy.java,218,toRenameBase, toRename);
+log4j-core/src/main/java/org/apache/logging/log4j/core/appender/rolling/DefaultRolloverStrategy.java,219,toRenameBase.delete();
+log4j-core/src/main/java/org/apache/logging/log4j/core/appender/rolling/DefaultRolloverStrategy.java,222,toRename = toRenameBase;
+log4j-core/src/main/java/org/apache/logging/log4j/core/appender/rolling/DefaultRolloverStrategy.java,223,isBase = true;
+log4j-core/src/main/java/org/apache/logging/log4j/core/appender/rolling/DefaultRolloverStrategy.java,227,if (toRename.exists()) {
+log4j-core/src/main/java/org/apache/logging/log4j/core/appender/rolling/DefaultRolloverStrategy.java,232,if (i == lowIndex) {
+log4j-core/src/main/java/org/apache/logging/log4j/core/appender/rolling/DefaultRolloverStrategy.java,234,toRename, i);
+log4j-core/src/main/java/org/apache/logging/log4j/core/appender/rolling/DefaultRolloverStrategy.java,235,if (!toRename.delete()) {
+log4j-core/src/main/java/org/apache/logging/log4j/core/appender/rolling/DefaultRolloverStrategy.java,236,return -1;
+log4j-core/src/main/java/org/apache/logging/log4j/core/appender/rolling/DefaultRolloverStrategy.java,239,break;
+log4j-core/src/main/java/org/apache/logging/log4j/core/appender/rolling/DefaultRolloverStrategy.java,250,String renameTo = lowFilename;
+log4j-core/src/main/java/org/apache/logging/log4j/core/appender/rolling/DefaultRolloverStrategy.java,252,if (isBase) {
+log4j-core/src/main/java/org/apache/logging/log4j/core/appender/rolling/DefaultRolloverStrategy.java,253,renameTo = lowFilename.substring(0, lowFilename.length() - suffixLength);
+log4j-core/src/main/java/org/apache/logging/log4j/core/appender/rolling/DefaultRolloverStrategy.java,256,renames.add(new FileRenameAction(toRename, new File(renameTo), true));
+log4j-core/src/main/java/org/apache/logging/log4j/core/appender/rolling/DefaultRolloverStrategy.java,257,highFilename = lowFilename;
+log4j-core/src/main/java/org/apache/logging/log4j/core/appender/rolling/DefaultRolloverStrategy.java,259,buf.setLength(0);
+log4j-core/src/main/java/org/apache/logging/log4j/core/appender/rolling/DefaultRolloverStrategy.java,273,for (int i = renames.size() - 1; i >= 0; i--) {
+log4j-core/src/main/java/org/apache/logging/log4j/core/appender/rolling/DefaultRolloverStrategy.java,274,final Action action = renames.get(i);
+log4j-core/src/main/java/org/apache/logging/log4j/core/appender/rolling/DefaultRolloverStrategy.java,275,try {
+log4j-core/src/main/java/org/apache/logging/log4j/core/appender/rolling/DefaultRolloverStrategy.java,276,LOGGER.debug("DefaultRolloverStrategy.purgeAscending executing {} of {}: {}", //
+log4j-core/src/main/java/org/apache/logging/log4j/core/appender/rolling/DefaultRolloverStrategy.java,277,i, renames.size(), action);
+log4j-core/src/main/java/org/apache/logging/log4j/core/appender/rolling/DefaultRolloverStrategy.java,278,if (!action.execute()) {
+log4j-core/src/main/java/org/apache/logging/log4j/core/appender/rolling/DefaultRolloverStrategy.java,282,LOGGER.warn("Exception during purge in RollingFileAppender", ex);
+log4j-core/src/main/java/org/apache/logging/log4j/core/appender/rolling/DefaultRolloverStrategy.java,283,return -1;
+log4j-core/src/main/java/org/apache/logging/log4j/core/appender/rolling/DefaultRolloverStrategy.java,302,final StringBuilder buf = new StringBuilder();
+log4j-core/src/main/java/org/apache/logging/log4j/core/appender/rolling/DefaultRolloverStrategy.java,315,for (int i = lowIndex; i <= highIndex; i++) {
+log4j-core/src/main/java/org/apache/logging/log4j/core/appender/rolling/DefaultRolloverStrategy.java,316,File toRename = new File(lowFilename);
+log4j-core/src/main/java/org/apache/logging/log4j/core/appender/rolling/DefaultRolloverStrategy.java,317,boolean isBase = false;
+log4j-core/src/main/java/org/apache/logging/log4j/core/appender/rolling/DefaultRolloverStrategy.java,319,if (suffixLength > 0) {
+log4j-core/src/main/java/org/apache/logging/log4j/core/appender/rolling/DefaultRolloverStrategy.java,323,if (toRename.exists()) {
+log4j-core/src/main/java/org/apache/logging/log4j/core/appender/rolling/DefaultRolloverStrategy.java,324,if (toRenameBase.exists()) {
+log4j-core/src/main/java/org/apache/logging/log4j/core/appender/rolling/DefaultRolloverStrategy.java,325,LOGGER.debug("DefaultRolloverStrategy.purgeDescending deleting {} base of {}.", //
+log4j-core/src/main/java/org/apache/logging/log4j/core/appender/rolling/DefaultRolloverStrategy.java,326,toRenameBase, toRename);
+log4j-core/src/main/java/org/apache/logging/log4j/core/appender/rolling/DefaultRolloverStrategy.java,327,toRenameBase.delete();
+log4j-core/src/main/java/org/apache/logging/log4j/core/appender/rolling/DefaultRolloverStrategy.java,330,toRename = toRenameBase;
+log4j-core/src/main/java/org/apache/logging/log4j/core/appender/rolling/DefaultRolloverStrategy.java,331,isBase = true;
+log4j-core/src/main/java/org/apache/logging/log4j/core/appender/rolling/DefaultRolloverStrategy.java,335,if (toRename.exists()) {
+log4j-core/src/main/java/org/apache/logging/log4j/core/appender/rolling/DefaultRolloverStrategy.java,340,if (i == highIndex) {
+log4j-core/src/main/java/org/apache/logging/log4j/core/appender/rolling/DefaultRolloverStrategy.java,342,toRename, i);
+log4j-core/src/main/java/org/apache/logging/log4j/core/appender/rolling/DefaultRolloverStrategy.java,343,if (!toRename.delete()) {
+log4j-core/src/main/java/org/apache/logging/log4j/core/appender/rolling/DefaultRolloverStrategy.java,344,return -1;
+log4j-core/src/main/java/org/apache/logging/log4j/core/appender/rolling/DefaultRolloverStrategy.java,347,break;
+log4j-core/src/main/java/org/apache/logging/log4j/core/appender/rolling/DefaultRolloverStrategy.java,353,buf.setLength(0);
+log4j-core/src/main/java/org/apache/logging/log4j/core/appender/rolling/DefaultRolloverStrategy.java,358,String renameTo = highFilename;
+log4j-core/src/main/java/org/apache/logging/log4j/core/appender/rolling/DefaultRolloverStrategy.java,360,if (isBase) {
+log4j-core/src/main/java/org/apache/logging/log4j/core/appender/rolling/DefaultRolloverStrategy.java,361,renameTo = highFilename.substring(0, highFilename.length() - suffixLength);
+log4j-core/src/main/java/org/apache/logging/log4j/core/appender/rolling/DefaultRolloverStrategy.java,364,renames.add(new FileRenameAction(toRename, new File(renameTo), true));
+log4j-core/src/main/java/org/apache/logging/log4j/core/appender/rolling/DefaultRolloverStrategy.java,365,lowFilename = highFilename;
+log4j-core/src/main/java/org/apache/logging/log4j/core/appender/rolling/DefaultRolloverStrategy.java,374,for (int i = renames.size() - 1; i >= 0; i--) {
+log4j-core/src/main/java/org/apache/logging/log4j/core/appender/rolling/DefaultRolloverStrategy.java,375,final Action action = renames.get(i);
+log4j-core/src/main/java/org/apache/logging/log4j/core/appender/rolling/DefaultRolloverStrategy.java,377,LOGGER.debug("DefaultRolloverStrategy.purgeDescending executing {} of {}: {}", //
+log4j-core/src/main/java/org/apache/logging/log4j/core/appender/rolling/DefaultRolloverStrategy.java,378,i, renames.size(), action);
+log4j-core/src/main/java/org/apache/logging/log4j/core/appender/rolling/DefaultRolloverStrategy.java,399,if (maxIndex < 0) {
+log4j-core/src/main/java/org/apache/logging/log4j/core/appender/rolling/DefaultRolloverStrategy.java,400,return null;
+log4j-core/src/main/java/org/apache/logging/log4j/core/appender/rolling/DefaultRolloverStrategy.java,403,final int fileIndex = purge(minIndex, maxIndex, manager);
+log4j-core/src/main/java/org/apache/logging/log4j/core/appender/rolling/DefaultRolloverStrategy.java,404,if (fileIndex < 0) {
+log4j-core/src/main/java/org/apache/logging/log4j/core/appender/rolling/DefaultRolloverStrategy.java,405,return null;
+log4j-core/src/main/java/org/apache/logging/log4j/core/appender/rolling/DefaultRolloverStrategy.java,407,if (LOGGER.isTraceEnabled()) {
+log4j-core/src/main/java/org/apache/logging/log4j/core/appender/rolling/DefaultRolloverStrategy.java,436,return "DefaultRolloverStrategy(min=" + minIndex + ", max=" + maxIndex + ')';
+log4j-core/src/main/java/org/apache/logging/log4j/core/config/plugins/processor/PluginProcessor.java,132,entry.setKey(plugin.name().toLowerCase());
+log4j-core/src/main/java/org/apache/logging/log4j/core/config/plugins/processor/PluginProcessor.java,163,entry.setKey(alias.toLowerCase());
+log4j-core/src/main/java/org/apache/logging/log4j/core/lookup/Interpolator.java,138,final String prefix = var.substring(0, prefixPos);
+log4j-core/src/main/java/org/apache/logging/log4j/core/lookup/StrSubstitutor.java,892,final int endPos = pos;
+log4j-core/src/main/java/org/apache/logging/log4j/core/lookup/StrSubstitutor.java,908,varDefaultValue = varNameExpr.substring(i + valueDelimiterMatchLen);
+log4j-core/src/main/java/org/apache/logging/log4j/core/net/SslSocketManager.java,170,socket = (SSLSocket) socketFactory.createSocket(data.host, data.port);
+log4j-api/src/main/java/org/apache/logging/log4j/message/LocalizedMessageFactory.java,78,return new LocalizedMessage(baseName,  key, params);
+log4j-api/src/main/java/org/apache/logging/log4j/spi/AbstractLogger.java,194,logIfEnabled(FQCN, Level.DEBUG, marker, msg, null);
+log4j-api/src/main/java/org/apache/logging/log4j/spi/AbstractLogger.java,276,logIfEnabled(FQCN, Level.DEBUG, null, msg, null);
+log4j-core/src/main/java/org/apache/logging/log4j/core/impl/Log4jLogEvent.java,501,private final Message message;
+log4j-core/src/main/java/org/apache/logging/log4j/core/impl/Log4jLogEvent.java,534,final Log4jLogEvent result = new Log4jLogEvent(loggerName, marker, loggerFQCN, level, message, thrown,
+log4j-api/src/main/java/org/apache/logging/log4j/util/PropertiesUtil.java,17,package org.apache.logging.log4j.util;
+log4j-api/src/main/java/org/apache/logging/log4j/util/PropertiesUtil.java,19,import java.io.IOException;
+log4j-api/src/main/java/org/apache/logging/log4j/util/PropertiesUtil.java,20,import java.io.InputStream;
+log4j-api/src/main/java/org/apache/logging/log4j/util/PropertiesUtil.java,21,import java.net.URL;
+log4j-api/src/main/java/org/apache/logging/log4j/util/PropertiesUtil.java,23,import java.util.Properties;
+log4j-api/src/main/java/org/apache/logging/log4j/util/PropertiesUtil.java,34,public final class PropertiesUtil {
+log4j-api/src/main/java/org/apache/logging/log4j/util/PropertiesUtil.java,36,private static final PropertiesUtil LOG4J_PROPERTIES = new PropertiesUtil("log4j2.component.properties");
+log4j-api/src/main/java/org/apache/logging/log4j/util/PropertiesUtil.java,40,private final Properties props;
+log4j-api/src/main/java/org/apache/logging/log4j/util/PropertiesUtil.java,42,public PropertiesUtil(final Properties props) {
+log4j-api/src/main/java/org/apache/logging/log4j/util/PropertiesUtil.java,43,this.props = props;
+log4j-api/src/main/java/org/apache/logging/log4j/util/PropertiesUtil.java,120,public int getIntegerProperty(final String name, final int defaultValue) {
+log4j-api/src/main/java/org/apache/logging/log4j/util/PropertiesUtil.java,130,if (prop != null) {
+log4j-api/src/main/java/org/apache/logging/log4j/util/PropertiesUtil.java,131,try {
+log4j-api/src/main/java/org/apache/logging/log4j/util/PropertiesUtil.java,132,return Integer.parseInt(prop);
+log4j-api/src/main/java/org/apache/logging/log4j/util/PropertiesUtil.java,134,return defaultValue;
+log4j-api/src/main/java/org/apache/logging/log4j/util/PropertiesUtil.java,137,return defaultValue;
+log4j-api/src/main/java/org/apache/logging/log4j/util/PropertiesUtil.java,141,public long getLongProperty(final String name, final long defaultValue) {
+log4j-api/src/main/java/org/apache/logging/log4j/util/PropertiesUtil.java,151,if (prop != null) {
+log4j-api/src/main/java/org/apache/logging/log4j/util/PropertiesUtil.java,152,try {
+log4j-api/src/main/java/org/apache/logging/log4j/util/PropertiesUtil.java,153,return Long.parseLong(prop);
+log4j-api/src/main/java/org/apache/logging/log4j/util/PropertiesUtil.java,155,return defaultValue;
+log4j-api/src/main/java/org/apache/logging/log4j/util/PropertiesUtil.java,158,return defaultValue;
+log4j-api/src/main/java/org/apache/logging/log4j/util/PropertiesUtil.java,162,final String prop = getStringProperty(name);
+log4j-api/src/main/java/org/apache/logging/log4j/util/PropertiesUtil.java,179,public static Properties getSystemProperties() {
+log4j-api/src/main/java/org/apache/logging/log4j/util/PropertiesUtil.java,180,try {
+log4j-api/src/main/java/org/apache/logging/log4j/util/PropertiesUtil.java,181,return new Properties(System.getProperties());
+log4j-api/src/main/java/org/apache/logging/log4j/util/PropertiesUtil.java,185,return new Properties();
+log4j-core/src/main/java/org/apache/logging/log4j/core/appender/ConsoleAppender.java,59,SYSTEM_OUT,
+log4j-core/src/main/java/org/apache/logging/log4j/core/appender/ConsoleAppender.java,61,SYSTEM_ERR
+log4j-core/src/main/java/org/apache/logging/log4j/core/impl/Log4jLogEvent.java,411,sb.append(" Message=").append(message.getFormattedMessage());
+log4j-web/src/main/java/org/apache/logging/log4j/web/appender/ServletAppender.java,53,servletContext.log(((AbstractStringLayout) getLayout()).toSerializable(event));
+log4j-api/src/main/java/org/apache/logging/log4j/spi/AbstractLogger.java,156,logMessage(fqcn, level, CATCHING_MARKER, catchingMsg(t), t);
+log4j-api/src/main/java/org/apache/logging/log4j/spi/AbstractLogger.java,168,logMessage(FQCN, Level.ERROR, CATCHING_MARKER, catchingMsg(t), t);
+log4j-core/src/main/java/org/apache/logging/log4j/core/lookup/Interpolator.java,55,LOGGER.error("Unable to create Lookup for {}", entry.getKey(), ex);
+log4j-core/src/main/java/org/apache/logging/log4j/core/lookup/Interpolator.java,91,LOGGER.info("Log4j appears to be running in a Servlet environment, but there's no log4j-web module " +
+log4j-core/src/main/java/org/apache/logging/log4j/core/config/Property.java,55,return value;
+log4j-core/src/main/java/org/apache/logging/log4j/core/config/Property.java,76,return name + '=' + value;
+log4j-core/src/main/java/org/apache/logging/log4j/core/config/plugins/visitors/PluginValueVisitor.java,35,final StringBuilder log) {
+log4j-core/src/main/java/org/apache/logging/log4j/core/net/TcpSocketManager.java,274,os = new ByteArrayOutputStream();
+log4j-core/src/main/java/org/apache/logging/log4j/core/config/plugins/util/ResolverUtil.java,225,final List<String> neverDecode = Arrays.asList(VFSZIP, BUNDLE_RESOURCE);
+log4j-core/src/main/java/org/apache/logging/log4j/core/config/xml/XmlConfiguration.java,179,InputStream is = null;
+log4j-core/src/main/java/org/apache/logging/log4j/core/config/xml/XmlConfiguration.java,180,try {
+log4j-core/src/main/java/org/apache/logging/log4j/core/config/xml/XmlConfiguration.java,185,if (is != null) {
+log4j-core/src/main/java/org/apache/logging/log4j/core/config/xml/XmlConfiguration.java,186,final Source src = new StreamSource(is, LOG4J_XSD);
+log4j-core/src/main/java/org/apache/logging/log4j/core/config/xml/XmlConfiguration.java,187,final SchemaFactory factory = SchemaFactory.newInstance(XMLConstants.W3C_XML_SCHEMA_NS_URI);
+log4j-core/src/main/java/org/apache/logging/log4j/core/config/xml/XmlConfiguration.java,188,Schema schema = null;
+log4j-core/src/main/java/org/apache/logging/log4j/core/config/xml/XmlConfiguration.java,189,try {
+log4j-core/src/main/java/org/apache/logging/log4j/core/config/xml/XmlConfiguration.java,190,schema = factory.newSchema(src);
+log4j-core/src/main/java/org/apache/logging/log4j/core/config/xml/XmlConfiguration.java,192,LOGGER.error("Error parsing Log4j schema", ex);
+log4j-core/src/main/java/org/apache/logging/log4j/core/config/xml/XmlConfiguration.java,194,if (schema != null) {
+log4j-core/src/main/java/org/apache/logging/log4j/core/config/xml/XmlConfiguration.java,195,final Validator validator = schema.newValidator();
+log4j-core/src/main/java/org/apache/logging/log4j/core/config/xml/XmlConfiguration.java,197,validator.validate(new StreamSource(new ByteArrayInputStream(buffer)));
+log4j-core/src/main/java/org/apache/logging/log4j/core/config/xml/XmlConfiguration.java,199,LOGGER.error("Error reading configuration for validation", ioe);
+log4j-core/src/main/java/org/apache/logging/log4j/core/config/xml/XmlConfiguration.java,201,LOGGER.error("Error validating configuration", ex);
+log4j-core/src/main/java/org/apache/logging/log4j/core/appender/rolling/RollingFileManager.java,306,file.createNewFile();
+log4j-core/src/main/java/org/apache/logging/log4j/core/appender/rolling/RollingFileManager.java,313,OutputStream os;
+log4j-core/src/main/java/org/apache/logging/log4j/core/appender/rolling/RollingFileManager.java,315,os = new FileOutputStream(name, data.append);
+log4j-core/src/main/java/org/apache/logging/log4j/core/appender/rolling/RollingFileManager.java,322,final long time = file.lastModified(); // LOG4J2-531 create file first so time has valid value
+log4j-core/src/main/java/org/apache/logging/log4j/core/appender/rolling/RollingFileManager.java,323,return new RollingFileManager(name, data.pattern, os, data.append, size, time, data.policy,
+log4j-core/src/main/java/org/apache/logging/log4j/core/appender/FileAppender.java,42,private static final int DEFAULT_BUFFER_SIZE = 8192;
+log4j-core/src/main/java/org/apache/logging/log4j/core/appender/FileAppender.java,146,final FileManager manager = FileManager.getFileManager(fileName, isAppend, isLocking, isBuffered, advertiseUri,
+log4j-core/src/main/java/org/apache/logging/log4j/core/appender/FileManager.java,67,final boolean bufferedIo, final String advertiseUri, final Layout<? extends Serializable> layout,
+log4j-core/src/main/java/org/apache/logging/log4j/core/appender/FileManager.java,73,return (FileManager) getManager(fileName, new FactoryData(append, locking, bufferedIo, bufferSize,
+log4j-core/src/main/java/org/apache/logging/log4j/core/appender/FileManager.java,81,final FileChannel channel = ((FileOutputStream) getOutputStream()).getChannel();
+log4j-core/src/main/java/org/apache/logging/log4j/core/appender/OutputStreamManager.java,41,this.os.write(header, 0, header.length);
+log4j-core/src/main/java/org/apache/logging/log4j/core/appender/OutputStreamManager.java,93,protected OutputStream getOutputStream() {
+log4j-core/src/main/java/org/apache/logging/log4j/core/appender/OutputStreamManager.java,122,os.write(bytes, offset, length);
+log4j-core/src/main/java/org/apache/logging/log4j/core/appender/OutputStreamManager.java,124,final String msg = "Error writing to stream " + getName();
+log4j-core/src/main/java/org/apache/logging/log4j/core/appender/OutputStreamManager.java,125,throw new AppenderLoggingException(msg, ex);
+log4j-core/src/main/java/org/apache/logging/log4j/core/appender/OutputStreamManager.java,141,if (stream == System.out || stream == System.err) {
+log4j-core/src/main/java/org/apache/logging/log4j/core/config/plugins/visitors/PluginValueVisitor.java,37,final String rawValue = node.getValue() != null ? node.getValue() :
+log4j-core/src/main/java/org/apache/logging/log4j/core/config/plugins/visitors/PluginValueVisitor.java,38,removeAttributeValue(node.getAttributes(), "value");
+log4j-core/src/main/java/org/apache/logging/log4j/core/config/plugins/util/PluginBuilder.java,123,LOGGER.error("Unable to inject fields into builder class for plugin type {}, element {}.", this.clazz,
+log4j-core/src/main/java/org/apache/logging/log4j/core/layout/Rfc5424Layout.java,375,final StructuredDataElement formattedContextMap = new StructuredDataElement(contextMap, false);
+log4j-core/src/main/java/org/apache/logging/log4j/core/layout/Rfc5424Layout.java,391,final StructuredDataElement formattedData = new StructuredDataElement(map, false);
+log4j-core/src/main/java/org/apache/logging/log4j/core/layout/Rfc5424Layout.java,490,private void formatStructuredElement(final String id, final String prefix, final StructuredDataElement data,
+log4j-core/src/main/java/org/apache/logging/log4j/core/layout/Rfc5424Layout.java,499,appendMap(prefix, data.getFields(), sb, noopChecker);
+log4j-core/src/main/java/org/apache/logging/log4j/core/layout/Rfc5424Layout.java,501,appendMap(prefix, data.getFields(), sb, checker);
+log4j-core/src/main/java/org/apache/logging/log4j/core/layout/Rfc5424Layout.java,676,return new StructuredDataElement(map, discardIfEmpty);
+log4j-core/src/main/java/org/apache/logging/log4j/core/layout/Rfc5424Layout.java,685,public StructuredDataElement(final Map<String, String> fields, final boolean discardIfEmpty) {
+log4j-1.2-api/src/main/java/org/apache/log4j/Category.java,30,import org.apache.logging.log4j.core.util.NameUtil;

@@ -1,0 +1,1032 @@
+File,Line_number,SRC
+activemq-client/src/main/java/org/apache/activemq/TransactionContext.java,794,xae.errorCode = original.errorCode;
+activemq-client/src/main/java/org/apache/activemq/TransactionContext.java,795,if (xae.errorCode == XA_OK) {
+activemq-client/src/main/java/org/apache/activemq/TransactionContext.java,799,xae.initCause(original);
+activemq-http/src/main/java/org/apache/activemq/transport/ws/AbstractMQTTSocket.java,147,protocolConverter = new MQTTProtocolConverter(this, brokerService);
+activemq-http/src/main/java/org/apache/activemq/transport/ws/AbstractMQTTSocket.java,148,IntrospectionSupport.setProperties(protocolConverter, transportOptions);
+activemq-client/src/main/java/org/apache/activemq/state/ConnectionState.java,49,private HashMap<ConsumerId, ConsumerInfo> recoveringPullConsumers;
+activemq-client/src/main/java/org/apache/activemq/state/ConnectionState.java,149,recoveringPullConsumers = new HashMap<ConsumerId, ConsumerInfo>();
+activemq-broker/src/main/java/org/apache/activemq/broker/TransportConnection.java,849,LOG.warn("Failed to add Connection id={}, clientId={} due to {}", info.getConnectionId(), clientId, e);
+activemq-broker/src/main/java/org/apache/activemq/network/DemandForwardingBridgeSupport.java,224,LOG.info("error with pending local brokerInfo on: " + localBroker, error);
+activemq-broker/src/main/java/org/apache/activemq/network/DemandForwardingBridgeSupport.java,243,LOG.info("error with pending remote brokerInfo on: " + remoteBroker, error);
+activemq-broker/src/main/java/org/apache/activemq/network/DemandForwardingBridgeSupport.java,633,LOG.error("Network connection between {} and {} shutdown due to a remote error: {}", new Object[]{
+activemq-broker/src/main/java/org/apache/activemq/network/DemandForwardingBridgeSupport.java,634,localBroker, remoteBroker, error
+activemq-broker/src/main/java/org/apache/activemq/network/DemandForwardingBridgeSupport.java,637,LOG.warn("Network connection between {} and {} shutdown due to a remote error: {}", new Object[]{
+activemq-broker/src/main/java/org/apache/activemq/network/DemandForwardingBridgeSupport.java,638,localBroker, remoteBroker, error
+activemq-broker/src/main/java/org/apache/activemq/broker/region/TopicRegion.java,372,LOG.error("Failed to create TopicSubscription ", e);
+activemq-stomp/src/main/java/org/apache/activemq/transport/stomp/ProtocolConverter.java,285,LOG.warn("Exception occurred processing: {} -> {}", safeGetAction(command), exception.toString());
+activemq-jdbc-store/src/main/java/org/apache/activemq/store/jdbc/JDBCMessageStore.java,253,long seq = ack.getLastMessageId().getFutureOrSequenceLong() != null ?
+activemq-jdbc-store/src/main/java/org/apache/activemq/store/jdbc/JDBCMessageStore.java,363,Message msg = (Message)wireFormat.unmarshal(new ByteSequence(data));
+activemq-stomp/src/main/java/org/apache/activemq/transport/stomp/StompNIOSSLTransport.java,55,protected void initializeStreams() throws IOException {
+activemq-stomp/src/main/java/org/apache/activemq/transport/stomp/StompNIOSSLTransport.java,56,codec = new StompCodec(this);
+activemq-stomp/src/main/java/org/apache/activemq/transport/stomp/StompNIOSSLTransport.java,57,super.initializeStreams();
+activemq-stomp/src/main/java/org/apache/activemq/transport/stomp/StompNIOSSLTransport.java,58,if (inputBuffer.position() != 0 && inputBuffer.hasRemaining()) {
+activemq-stomp/src/main/java/org/apache/activemq/transport/stomp/StompNIOSSLTransport.java,59,serviceRead();
+activemq-jdbc-store/src/main/java/org/apache/activemq/store/jdbc/JDBCPersistenceAdapter.java,795,getAdapter().doRemoveMessage(c, (Long)ack.getLastMessageId().getFutureOrSequenceLong(), null);
+activemq-jms-pool/src/main/java/org/apache/activemq/jms/pool/PooledConnectionFactory.java,235,connection = connectionsPool.borrowObject(key);
+activemq-jms-pool/src/main/java/org/apache/activemq/jms/pool/PooledConnectionFactory.java,236,synchronized (connection) {
+activemq-jms-pool/src/main/java/org/apache/activemq/jms/pool/PooledConnectionFactory.java,237,if (connection.getConnection() != null) {
+activemq-jms-pool/src/main/java/org/apache/activemq/jms/pool/PooledConnectionFactory.java,238,connection.incrementReferenceCount();
+activemq-jms-pool/src/main/java/org/apache/activemq/jms/pool/PooledConnectionFactory.java,239,break;
+activemq-jms-pool/src/main/java/org/apache/activemq/jms/pool/PooledConnectionFactory.java,243,connectionsPool.returnObject(key, connection);
+activemq-jms-pool/src/main/java/org/apache/activemq/jms/pool/PooledConnectionFactory.java,244,connection = null;
+activemq-partition/src/main/java/org/apache/activemq/partition/PartitionBroker.java,251,if( !targetScores.isEmpty() ) {
+activemq-partition/src/main/java/org/apache/activemq/partition/PartitionBroker.java,253,int bestScore=0;
+activemq-partition/src/main/java/org/apache/activemq/partition/PartitionBroker.java,255,if( entry.getValue().value > bestScore ) {
+activemq-client/src/main/java/org/apache/activemq/command/ActiveMQBytesMessage.java,911,public void setObjectProperty(String name, Object value) throws JMSException {
+activemq-client/src/main/java/org/apache/activemq/command/ActiveMQBytesMessage.java,912,initializeWriting();
+activemq-client/src/main/java/org/apache/activemq/command/ActiveMQBytesMessage.java,913,super.setObjectProperty(name, value);
+activemq-broker/src/main/java/org/apache/activemq/broker/region/TopicSubscription.java,529,public int getMaxProducersToAudit() {
+activemq-broker/src/main/java/org/apache/activemq/broker/region/TopicSubscription.java,540,public int getMaxAuditDepth() {
+activemq-broker/src/main/java/org/apache/activemq/broker/region/cursors/AbstractPendingMessageCursor.java,253,public int getMaxProducersToAudit() {
+activemq-broker/src/main/java/org/apache/activemq/broker/region/cursors/AbstractPendingMessageCursor.java,272,public int getMaxAuditDepth() {
+activemq-client/src/main/java/org/apache/activemq/management/SizeStatisticImpl.java,22,private long maxSize;
+activemq-client/src/main/java/org/apache/activemq/management/SizeStatisticImpl.java,23,private long minSize;
+activemq-client/src/main/java/org/apache/activemq/management/SizeStatisticImpl.java,97,public synchronized long getMinSize() {
+activemq-kahadb-store/src/main/java/org/apache/activemq/store/kahadb/disk/index/HashIndex.java,125,private Marshaller<Key> keyMarshaller;
+activemq-kahadb-store/src/main/java/org/apache/activemq/store/kahadb/disk/index/HashIndex.java,395,public synchronized void setKeyMarshaller(Marshaller<Key> marshaller) {
+activemq-client/src/main/java/org/apache/activemq/util/ClassLoadingAwareObjectInputStream.java,43,serializablePackages = System.getProperty("org.apache.activemq.SERIALIZABLE_PACKAGES",
+activemq-jdbc-store/src/main/java/org/apache/activemq/store/jdbc/LeaseDatabaseLocker.java,136,PreparedStatement statement = connection.prepareStatement(getStatements().getCurrentDateTime());
+activemq-jdbc-store/src/main/java/org/apache/activemq/store/jdbc/LeaseDatabaseLocker.java,137,ResultSet resultSet = statement.executeQuery();
+activemq-jdbc-store/src/main/java/org/apache/activemq/store/jdbc/LeaseDatabaseLocker.java,138,long result = 0l;
+activemq-jdbc-store/src/main/java/org/apache/activemq/store/jdbc/LeaseDatabaseLocker.java,139,if (resultSet.next()) {
+activemq-jdbc-store/src/main/java/org/apache/activemq/store/jdbc/LeaseDatabaseLocker.java,140,Timestamp timestamp = resultSet.getTimestamp(1);
+activemq-jdbc-store/src/main/java/org/apache/activemq/store/jdbc/LeaseDatabaseLocker.java,141,long diff = System.currentTimeMillis() - timestamp.getTime();
+activemq-jdbc-store/src/main/java/org/apache/activemq/store/jdbc/LeaseDatabaseLocker.java,142,if (Math.abs(diff) > maxAllowableDiffFromDBTime) {
+activemq-jdbc-store/src/main/java/org/apache/activemq/store/jdbc/LeaseDatabaseLocker.java,144,result = (-diff);
+activemq-jdbc-store/src/main/java/org/apache/activemq/store/jdbc/LeaseDatabaseLocker.java,146,LOG.info(getLeaseHolderId() + " diff adjust from db: " + result + ", db time: " + timestamp);
+activemq-jdbc-store/src/main/java/org/apache/activemq/store/jdbc/LeaseDatabaseLocker.java,148,return result;
+activemq-broker/src/main/java/org/apache/activemq/broker/region/Queue.java,412,class BrowserDispatch {
+activemq-broker/src/main/java/org/apache/activemq/broker/region/Queue.java,413,QueueBrowserSubscription browser;
+activemq-broker/src/main/java/org/apache/activemq/broker/region/Queue.java,415,public BrowserDispatch(QueueBrowserSubscription browserSubscription) {
+activemq-broker/src/main/java/org/apache/activemq/broker/region/Queue.java,416,browser = browserSubscription;
+activemq-broker/src/main/java/org/apache/activemq/broker/region/Queue.java,417,browser.incrementQueueRef();
+activemq-broker/src/main/java/org/apache/activemq/broker/region/Queue.java,420,public QueueBrowserSubscription getBrowser() {
+activemq-broker/src/main/java/org/apache/activemq/broker/region/Queue.java,421,return browser;
+activemq-broker/src/main/java/org/apache/activemq/broker/region/Queue.java,425,ConcurrentLinkedQueue<BrowserDispatch> browserDispatches = new ConcurrentLinkedQueue<BrowserDispatch>();
+activemq-broker/src/main/java/org/apache/activemq/broker/region/Queue.java,474,BrowserDispatch browserDispatch = new BrowserDispatch(browserSubscription);
+activemq-broker/src/main/java/org/apache/activemq/broker/region/Queue.java,475,browserDispatches.add(browserDispatch);
+activemq-broker/src/main/java/org/apache/activemq/broker/region/Queue.java,588,browserDispatches.remove(sub);
+activemq-broker/src/main/java/org/apache/activemq/broker/region/Queue.java,1637,boolean hasBrowsers = !browserDispatches.isEmpty();
+activemq-broker/src/main/java/org/apache/activemq/broker/region/Queue.java,1657,Iterator<BrowserDispatch> browsers = browserDispatches.iterator();
+activemq-broker/src/main/java/org/apache/activemq/broker/region/Queue.java,1659,BrowserDispatch browserDispatch = browsers.next();
+activemq-broker/src/main/java/org/apache/activemq/broker/region/Queue.java,1664,QueueBrowserSubscription browser = browserDispatch.getBrowser();
+activemq-broker/src/main/java/org/apache/activemq/broker/region/Queue.java,1680,browserDispatches.remove(browserDispatch);
+activemq-broker/src/main/java/org/apache/activemq/broker/region/Queue.java,1683,LOG.warn("exception on dispatch to browser: {}", browserDispatch.getBrowser(), e);
+activemq-broker/src/main/java/org/apache/activemq/broker/region/Queue.java,2041,return consumers.size() - browserDispatches.size() > 0;
+activemq-mqtt/src/main/java/org/apache/activemq/transport/mqtt/MQTTProtocolConverter.java,27,import javax.jms.Destination;
+activemq-mqtt/src/main/java/org/apache/activemq/transport/mqtt/MQTTProtocolConverter.java,561,destination = activeMQDestinationMap.get(command.topicName());
+activemq-broker/src/main/java/org/apache/activemq/broker/BrokerService.java,279,Security.insertProviderAt(bouncycastle,
+activemq-broker/src/main/java/org/apache/activemq/broker/BrokerService.java,280,Integer.getInteger("org.apache.activemq.broker.BouncyCastlePosition", 2));
+activemq-broker/src/main/java/org/apache/activemq/broker/BrokerService.java,281,LOG.info("Loaded the Bouncy Castle security provider.");
+activemq-ra/src/main/java/org/apache/activemq/ra/ActiveMQResourceAdapter.java,132,String clientId = activationSpec.getClientId();
+activemq-broker/src/main/java/org/apache/activemq/broker/TransportConnector.java,243,LOG.info("Could not accept connection during shutdown {} : {}", (remoteHost == null ? "" : "from " + remoteHost), error);
+activemq-broker/src/main/java/org/apache/activemq/broker/TransportConnector.java,245,LOG.error("Could not accept connection {} : {}", (remoteHost == null ? "" : "from " + remoteHost), error);
+activemq-broker/src/main/java/org/apache/activemq/broker/TransportConnector.java,246,LOG.debug("Reason: " + error, error);
+activemq-broker/src/main/java/org/apache/activemq/plugin/SubQueueSelectorCacheBroker.java,135,if (!AdvisorySupport.isAdvisoryTopic(info.getDestination()) && !info.getDestination().isTemporary()) {
+activemq-http/src/main/java/org/apache/activemq/transport/SecureSocketConnectorFactory.java,95,factory.setSslKeyManagerFactoryAlgorithm(keyCertificateAlgorithm);
+activemq-http/src/main/java/org/apache/activemq/transport/http/HttpClientTransport.java,75,public static final int MAX_CLIENT_TIMEOUT = 30000;
+activemq-broker/src/main/java/org/apache/activemq/broker/region/Queue.java,673,if (context.getTransaction().getState() > IN_USE_STATE) {
+activemq-client/src/main/java/org/apache/activemq/usage/MemoryUsage.java,97,public boolean waitForSpace(long timeout) throws InterruptedException {
+activemq-client/src/main/java/org/apache/activemq/usage/MemoryUsage.java,109,while (percentUsage >= 100 ) {
+activemq-client/src/main/java/org/apache/activemq/usage/MemoryUsage.java,110,waitForSpaceCondition.await(timeout, TimeUnit.MILLISECONDS);
+activemq-client/src/main/java/org/apache/activemq/usage/MemoryUsage.java,112,usageLock.readLock().lock();
+activemq-kahadb-store/src/main/java/org/apache/activemq/store/kahadb/MultiKahaDBTransactionStore.java,64,final Set<TransactionId> recoveredPendingCommit = new HashSet<TransactionId>();
+activemq-kahadb-store/src/main/java/org/apache/activemq/store/kahadb/MultiKahaDBTransactionStore.java,348,recoveredPendingCommit.addAll(inflightTransactions.keySet());
+activemq-kahadb-store/src/main/java/org/apache/activemq/store/kahadb/MultiKahaDBTransactionStore.java,349,LOG.info("pending local transactions: " + recoveredPendingCommit);
+activemq-kahadb-store/src/main/java/org/apache/activemq/store/kahadb/MultiKahaDBTransactionStore.java,405,if (recoveredPendingCommit.contains(txid)) {
+activemq-kahadb-store/src/main/java/org/apache/activemq/store/kahadb/MultiKahaDBPersistenceAdapter.java,59,import org.apache.activemq.usage.StoreUsage;
+activemq-kahadb-store/src/main/java/org/apache/activemq/store/kahadb/MultiKahaDBTransactionStore.java,345,process(load(location));
+activemq-kahadb-store/src/main/java/org/apache/activemq/store/kahadb/MultiKahaDBTransactionStore.java,364,public void process(JournalCommand<?> command) throws IOException {
+activemq-kahadb-store/src/main/java/org/apache/activemq/store/kahadb/MultiKahaDBTransactionStore.java,368,getTx(TransactionIdConversion.convert(prepareCommand.getTransactionInfo()));
+activemq-kahadb-store/src/main/java/org/apache/activemq/store/kahadb/scheduler/JobSchedulerStoreImpl.java,321,if (name.endsWith(".data") || name.endsWith(".redo") || name.endsWith(".log")) {
+activemq-stomp/src/main/java/org/apache/activemq/transport/stomp/ProtocolConverter.java,119,private final IdGenerator ACK_ID_GENERATOR = new IdGenerator();
+activemq-stomp/src/main/java/org/apache/activemq/transport/stomp/ProtocolConverter.java,133,private static class AckEntry {
+activemq-stomp/src/main/java/org/apache/activemq/transport/stomp/ProtocolConverter.java,135,private final String messageId;
+activemq-stomp/src/main/java/org/apache/activemq/transport/stomp/ProtocolConverter.java,136,private final StompSubscription subscription;
+activemq-stomp/src/main/java/org/apache/activemq/transport/stomp/ProtocolConverter.java,138,public AckEntry(String messageId, StompSubscription subscription) {
+activemq-stomp/src/main/java/org/apache/activemq/transport/stomp/ProtocolConverter.java,139,this.messageId = messageId;
+activemq-stomp/src/main/java/org/apache/activemq/transport/stomp/ProtocolConverter.java,140,this.subscription = subscription;
+activemq-stomp/src/main/java/org/apache/activemq/transport/stomp/ProtocolConverter.java,143,public MessageAck onMessageAck(TransactionId transactionId) {
+activemq-stomp/src/main/java/org/apache/activemq/transport/stomp/ProtocolConverter.java,144,return subscription.onStompMessageAck(messageId, transactionId);
+activemq-stomp/src/main/java/org/apache/activemq/transport/stomp/ProtocolConverter.java,147,public MessageAck onMessageNack(TransactionId transactionId) throws ProtocolException {
+activemq-stomp/src/main/java/org/apache/activemq/transport/stomp/ProtocolConverter.java,148,return subscription.onStompMessageNack(messageId, transactionId);
+activemq-stomp/src/main/java/org/apache/activemq/transport/stomp/ProtocolConverter.java,151,public String getMessageId() {
+activemq-stomp/src/main/java/org/apache/activemq/transport/stomp/ProtocolConverter.java,152,return this.messageId;
+activemq-stomp/src/main/java/org/apache/activemq/transport/stomp/ProtocolConverter.java,156,public StompSubscription getSubscription() {
+activemq-stomp/src/main/java/org/apache/activemq/transport/stomp/ProtocolConverter.java,157,return this.subscription;
+activemq-stomp/src/main/java/org/apache/activemq/transport/stomp/ProtocolConverter.java,385,AckEntry pendingAck = this.pedingAcks.remove(ackId);
+activemq-stomp/src/main/java/org/apache/activemq/transport/stomp/ProtocolConverter.java,387,messageId = pendingAck.getMessageId();
+activemq-stomp/src/main/java/org/apache/activemq/transport/stomp/ProtocolConverter.java,441,AckEntry pendingAck = this.pedingAcks.remove(ackId);
+activemq-stomp/src/main/java/org/apache/activemq/transport/stomp/ProtocolConverter.java,443,messageId = pendingAck.getMessageId();
+activemq-stomp/src/main/java/org/apache/activemq/transport/stomp/ProtocolConverter.java,524,pedingAcks.clear();
+activemq-stomp/src/main/java/org/apache/activemq/transport/stomp/ProtocolConverter.java,555,pedingAcks.clear();
+activemq-stomp/src/main/java/org/apache/activemq/transport/stomp/ProtocolConverter.java,617,stompSubscription = new StompSubscription(this, subscriptionId, consumerInfo, headers.get(Stomp.Headers.TRANSFORMATION));
+activemq-stomp/src/main/java/org/apache/activemq/transport/stomp/ProtocolConverter.java,619,stompSubscription = new StompQueueBrowserSubscription(this, subscriptionId, consumerInfo, headers.get(Stomp.Headers.TRANSFORMATION));
+activemq-stomp/src/main/java/org/apache/activemq/transport/stomp/ProtocolConverter.java,873,String ackId = null;
+activemq-stomp/src/main/java/org/apache/activemq/transport/stomp/ProtocolConverter.java,874,if (version.equals(Stomp.V1_2) && sub.getAckMode() != Stomp.Headers.Subscribe.AckModeValues.AUTO && md.getMessage() != null) {
+activemq-stomp/src/main/java/org/apache/activemq/transport/stomp/ProtocolConverter.java,875,AckEntry pendingAck = new AckEntry(md.getMessage().getMessageId().toString(), sub);
+activemq-stomp/src/main/java/org/apache/activemq/transport/stomp/ProtocolConverter.java,876,ackId = this.ACK_ID_GENERATOR.generateId();
+activemq-stomp/src/main/java/org/apache/activemq/transport/stomp/ProtocolConverter.java,877,this.pedingAcks.put(ackId, pendingAck);
+activemq-stomp/src/main/java/org/apache/activemq/transport/stomp/ProtocolConverter.java,879,try {
+activemq-stomp/src/main/java/org/apache/activemq/transport/stomp/ProtocolConverter.java,880,sub.onMessageDispatch(md, ackId);
+activemq-stomp/src/main/java/org/apache/activemq/transport/stomp/ProtocolConverter.java,882,if (ackId != null) {
+activemq-stomp/src/main/java/org/apache/activemq/transport/stomp/ProtocolConverter.java,883,this.pedingAcks.remove(ackId);
+activemq-stomp/src/main/java/org/apache/activemq/transport/stomp/StompQueueBrowserSubscription.java,30,public StompQueueBrowserSubscription(ProtocolConverter stompTransport, String subscriptionId, ConsumerInfo consumerInfo, String transformation) {
+activemq-stomp/src/main/java/org/apache/activemq/transport/stomp/StompQueueBrowserSubscription.java,31,super(stompTransport, subscriptionId, consumerInfo, transformation);
+activemq-stomp/src/main/java/org/apache/activemq/transport/stomp/StompQueueBrowserSubscription.java,35,void onMessageDispatch(MessageDispatch md, String ackId) throws IOException, JMSException {
+activemq-stomp/src/main/java/org/apache/activemq/transport/stomp/StompQueueBrowserSubscription.java,38,super.onMessageDispatch(md, ackId);
+activemq-stomp/src/main/java/org/apache/activemq/transport/stomp/StompSubscription.java,24,import java.util.Map.Entry;
+activemq-stomp/src/main/java/org/apache/activemq/transport/stomp/StompSubscription.java,52,protected final LinkedHashMap<MessageId, MessageDispatch> dispatchedMessage = new LinkedHashMap<>();
+activemq-stomp/src/main/java/org/apache/activemq/transport/stomp/StompSubscription.java,53,protected final LinkedList<MessageDispatch> unconsumedMessage = new LinkedList<>();
+activemq-stomp/src/main/java/org/apache/activemq/transport/stomp/StompSubscription.java,59,public StompSubscription(ProtocolConverter stompTransport, String subscriptionId, ConsumerInfo consumerInfo, String transformation) {
+activemq-stomp/src/main/java/org/apache/activemq/transport/stomp/StompSubscription.java,66,void onMessageDispatch(MessageDispatch md, String ackId) throws IOException, JMSException {
+activemq-stomp/src/main/java/org/apache/activemq/transport/stomp/StompSubscription.java,68,if (ackMode.equals(CLIENT_ACK) || ackMode.equals(INDIVIDUAL_ACK)) {
+activemq-stomp/src/main/java/org/apache/activemq/transport/stomp/StompSubscription.java,70,dispatchedMessage.put(message.getMessageId(), md);
+activemq-stomp/src/main/java/org/apache/activemq/transport/stomp/StompSubscription.java,95,if (ackId != null) {
+activemq-stomp/src/main/java/org/apache/activemq/transport/stomp/StompSubscription.java,99,protocolConverter.getStompTransport().sendToStomp(command);
+activemq-stomp/src/main/java/org/apache/activemq/transport/stomp/StompSubscription.java,103,unconsumedMessage.clear();
+activemq-stomp/src/main/java/org/apache/activemq/transport/stomp/StompSubscription.java,109,for (Iterator<?> iter = dispatchedMessage.entrySet().iterator(); iter.hasNext();) {
+activemq-stomp/src/main/java/org/apache/activemq/transport/stomp/StompSubscription.java,111,Map.Entry entry = (Entry)iter.next();
+activemq-stomp/src/main/java/org/apache/activemq/transport/stomp/StompSubscription.java,112,MessageDispatch msg = (MessageDispatch)entry.getValue();
+activemq-stomp/src/main/java/org/apache/activemq/transport/stomp/StompSubscription.java,113,if (unconsumedMessage.contains(msg)) {
+activemq-stomp/src/main/java/org/apache/activemq/transport/stomp/StompSubscription.java,114,iter.remove();
+activemq-stomp/src/main/java/org/apache/activemq/transport/stomp/StompSubscription.java,119,ack = new MessageAck(unconsumedMessage.getLast(), MessageAck.STANDARD_ACK_TYPE, unconsumedMessage.size());
+activemq-stomp/src/main/java/org/apache/activemq/transport/stomp/StompSubscription.java,120,unconsumedMessage.clear();
+activemq-stomp/src/main/java/org/apache/activemq/transport/stomp/StompSubscription.java,133,if (!dispatchedMessage.containsKey(msgId)) {
+activemq-stomp/src/main/java/org/apache/activemq/transport/stomp/StompSubscription.java,141,if (ackMode == CLIENT_ACK) {
+activemq-stomp/src/main/java/org/apache/activemq/transport/stomp/StompSubscription.java,148,for (Iterator<?> iter = dispatchedMessage.entrySet().iterator(); iter.hasNext();) {
+activemq-stomp/src/main/java/org/apache/activemq/transport/stomp/StompSubscription.java,151,Map.Entry entry = (Entry)iter.next();
+activemq-stomp/src/main/java/org/apache/activemq/transport/stomp/StompSubscription.java,152,MessageId id = (MessageId)entry.getKey();
+activemq-stomp/src/main/java/org/apache/activemq/transport/stomp/StompSubscription.java,153,MessageDispatch msg = (MessageDispatch)entry.getValue();
+activemq-stomp/src/main/java/org/apache/activemq/transport/stomp/StompSubscription.java,156,if (!unconsumedMessage.contains(msg)) {
+activemq-stomp/src/main/java/org/apache/activemq/transport/stomp/StompSubscription.java,157,unconsumedMessage.add(msg);
+activemq-stomp/src/main/java/org/apache/activemq/transport/stomp/StompSubscription.java,161,iter.remove();
+activemq-stomp/src/main/java/org/apache/activemq/transport/stomp/StompSubscription.java,165,if (id.equals(msgId)) {
+activemq-stomp/src/main/java/org/apache/activemq/transport/stomp/StompSubscription.java,166,ack.setLastMessageId(id);
+activemq-stomp/src/main/java/org/apache/activemq/transport/stomp/StompSubscription.java,180,unconsumedMessage.add(dispatchedMessage.get(msgId));
+activemq-stomp/src/main/java/org/apache/activemq/transport/stomp/StompSubscription.java,203,unconsumedMessage.add(dispatchedMessage.get(msgId));
+activemq-stomp/src/main/java/org/apache/activemq/transport/stomp/StompSubscription.java,206,dispatchedMessage.remove(msgId);
+activemq-kahadb-store/src/main/java/org/apache/activemq/store/kahadb/scheduler/JobSchedulerImpl.java,664,protected List<JobLocation> getAllScheduledJobs(Transaction tx) throws IOException {
+activemq-kahadb-store/src/main/java/org/apache/activemq/store/kahadb/scheduler/JobSchedulerImpl.java,665,List<JobLocation> references = new ArrayList<>();
+activemq-kahadb-store/src/main/java/org/apache/activemq/store/kahadb/scheduler/JobSchedulerImpl.java,667,for (Iterator<Map.Entry<Long, List<JobLocation>>> i = this.index.iterator(tx); i.hasNext();) {
+activemq-kahadb-store/src/main/java/org/apache/activemq/store/kahadb/scheduler/JobSchedulerImpl.java,668,Map.Entry<Long, List<JobLocation>> entry = i.next();
+activemq-kahadb-store/src/main/java/org/apache/activemq/store/kahadb/scheduler/JobSchedulerImpl.java,669,List<JobLocation> scheduled = entry.getValue();
+activemq-kahadb-store/src/main/java/org/apache/activemq/store/kahadb/scheduler/JobSchedulerImpl.java,670,for (JobLocation job : scheduled) {
+activemq-kahadb-store/src/main/java/org/apache/activemq/store/kahadb/scheduler/JobSchedulerImpl.java,671,references.add(job);
+activemq-kahadb-store/src/main/java/org/apache/activemq/store/kahadb/scheduler/JobSchedulerImpl.java,675,return references;
+activemq-kahadb-store/src/main/java/org/apache/activemq/store/kahadb/scheduler/JobSchedulerStoreImpl.java,825,List<JobLocation> jobs = scheduler.getAllScheduledJobs(tx);
+activemq-kahadb-store/src/main/java/org/apache/activemq/store/kahadb/scheduler/JobSchedulerStoreImpl.java,826,for (JobLocation job : jobs) {
+activemq-kahadb-store/src/main/java/org/apache/activemq/store/kahadb/scheduler/JobSchedulerStoreImpl.java,853,List<JobLocation> jobs = scheduler.getAllScheduledJobs(tx);
+activemq-kahadb-store/src/main/java/org/apache/activemq/store/kahadb/scheduler/JobSchedulerStoreImpl.java,854,for (JobLocation job : jobs) {
+activemq-kahadb-store/src/main/java/org/apache/activemq/store/kahadb/scheduler/JobSchedulerStoreImpl.java,936,List<JobLocation> jobs = scheduler.getAllScheduledJobs(tx);
+activemq-kahadb-store/src/main/java/org/apache/activemq/store/kahadb/scheduler/JobSchedulerStoreImpl.java,937,for (JobLocation job : jobs) {
+activemq-kahadb-store/src/main/java/org/apache/activemq/store/kahadb/MessageDatabase.java,2994,if (messageSequences != null) {
+activemq-kahadb-store/src/main/java/org/apache/activemq/store/kahadb/MessageDatabase.java,2999,Iterator<Entry<Long, MessageKeys>> iterator = sd.orderIndex.iterator(tx,
+activemq-kahadb-store/src/main/java/org/apache/activemq/store/kahadb/MessageDatabase.java,3000,new MessageOrderCursor(head.getFirst()));
+activemq-kahadb-store/src/main/java/org/apache/activemq/store/kahadb/MessageDatabase.java,3002,while (iterator.hasNext()) {
+activemq-kahadb-store/src/main/java/org/apache/activemq/store/kahadb/MessageDatabase.java,3003,Entry<Long, MessageKeys> entry = iterator.next();
+activemq-kahadb-store/src/main/java/org/apache/activemq/store/kahadb/MessageDatabase.java,2995,Sequence head = messageSequences.getHead();
+activemq-kahadb-store/src/main/java/org/apache/activemq/store/kahadb/MessageDatabase.java,2996,if (head != null) {
+activemq-kahadb-store/src/main/java/org/apache/activemq/store/kahadb/MessageDatabase.java,3004,locationSize += entry.getValue().location.getSize();
+activemq-kahadb-store/src/main/java/org/apache/activemq/store/kahadb/KahaDBStore.java,1004,sd.orderIndex.setBatch(tx, cursorPos);
+activemq-kahadb-store/src/main/java/org/apache/activemq/store/kahadb/KahaDBStore.java,1042,sd.orderIndex.setBatch(tx, pos);
+activemq-kahadb-store/src/main/java/org/apache/activemq/store/kahadb/KahaDBStore.java,598,if (counter >= maxReturned) {
+activemq-broker/src/main/java/org/apache/activemq/broker/TransportConnection.java,141,private final AtomicBoolean starting = new AtomicBoolean();
+activemq-broker/src/main/java/org/apache/activemq/broker/TransportConnection.java,142,private final AtomicBoolean pendingStop = new AtomicBoolean();
+activemq-broker/src/main/java/org/apache/activemq/broker/TransportConnection.java,232,if (!stopping.get() && !pendingStop.get()) {
+activemq-broker/src/main/java/org/apache/activemq/broker/TransportConnection.java,311,if (pendingStop.get()) {
+activemq-broker/src/main/java/org/apache/activemq/broker/TransportConnection.java,329,if (!pendingStop.get()) {
+activemq-broker/src/main/java/org/apache/activemq/broker/TransportConnection.java,1001,if (pendingStop.get() || stopping.get()) {
+activemq-broker/src/main/java/org/apache/activemq/broker/TransportConnection.java,1057,try {
+activemq-broker/src/main/java/org/apache/activemq/broker/TransportConnection.java,1058,synchronized (this) {
+activemq-broker/src/main/java/org/apache/activemq/broker/TransportConnection.java,1059,starting.set(true);
+activemq-broker/src/main/java/org/apache/activemq/broker/TransportConnection.java,1060,if (taskRunnerFactory != null) {
+activemq-broker/src/main/java/org/apache/activemq/broker/TransportConnection.java,1061,taskRunner = taskRunnerFactory.createTaskRunner(this, "ActiveMQ Connection Dispatcher: "
+activemq-broker/src/main/java/org/apache/activemq/broker/TransportConnection.java,1062,+ getRemoteAddress());
+activemq-broker/src/main/java/org/apache/activemq/broker/TransportConnection.java,1064,taskRunner = null;
+activemq-broker/src/main/java/org/apache/activemq/broker/TransportConnection.java,1066,transport.start();
+activemq-broker/src/main/java/org/apache/activemq/broker/TransportConnection.java,1067,active = true;
+activemq-broker/src/main/java/org/apache/activemq/broker/TransportConnection.java,1068,BrokerInfo info = connector.getBrokerInfo().copy();
+activemq-broker/src/main/java/org/apache/activemq/broker/TransportConnection.java,1069,if (connector.isUpdateClusterClients()) {
+activemq-broker/src/main/java/org/apache/activemq/broker/TransportConnection.java,1070,info.setPeerBrokerInfos(this.broker.getPeerBrokerInfos());
+activemq-broker/src/main/java/org/apache/activemq/broker/TransportConnection.java,1072,info.setPeerBrokerInfos(null);
+activemq-broker/src/main/java/org/apache/activemq/broker/TransportConnection.java,1074,dispatchAsync(info);
+activemq-broker/src/main/java/org/apache/activemq/broker/TransportConnection.java,1076,connector.onStarted(this);
+activemq-broker/src/main/java/org/apache/activemq/broker/TransportConnection.java,1080,pendingStop.set(true);
+activemq-broker/src/main/java/org/apache/activemq/broker/TransportConnection.java,1081,throw e;
+activemq-broker/src/main/java/org/apache/activemq/broker/TransportConnection.java,1086,setStarting(false);
+activemq-broker/src/main/java/org/apache/activemq/broker/TransportConnection.java,1087,if (isPendingStop()) {
+activemq-broker/src/main/java/org/apache/activemq/broker/TransportConnection.java,1088,LOG.debug("Calling the delayed stop() after start() {}", this);
+activemq-broker/src/main/java/org/apache/activemq/broker/TransportConnection.java,1089,stop();
+activemq-broker/src/main/java/org/apache/activemq/broker/TransportConnection.java,1107,synchronized (this) {
+activemq-broker/src/main/java/org/apache/activemq/broker/TransportConnection.java,1108,pendingStop.set(true);
+activemq-broker/src/main/java/org/apache/activemq/broker/TransportConnection.java,1109,transportException.set(cause);
+activemq-broker/src/main/java/org/apache/activemq/broker/TransportConnection.java,1136,synchronized (this) {
+activemq-broker/src/main/java/org/apache/activemq/broker/TransportConnection.java,1137,pendingStop.set(true);
+activemq-broker/src/main/java/org/apache/activemq/broker/TransportConnection.java,1138,if (starting.get()) {
+activemq-broker/src/main/java/org/apache/activemq/broker/TransportConnection.java,1139,LOG.debug("stopAsync() called in the middle of start(). Delaying till start completes..");
+activemq-broker/src/main/java/org/apache/activemq/broker/TransportConnection.java,1140,return;
+activemq-broker/src/main/java/org/apache/activemq/broker/TransportConnection.java,1350,return starting.get();
+activemq-broker/src/main/java/org/apache/activemq/broker/TransportConnection.java,1363,protected void setStarting(boolean starting) {
+activemq-broker/src/main/java/org/apache/activemq/broker/TransportConnection.java,1364,this.starting.set(starting);
+activemq-broker/src/main/java/org/apache/activemq/broker/TransportConnection.java,1371,return pendingStop.get();
+activemq-broker/src/main/java/org/apache/activemq/broker/TransportConnection.java,1374,protected void setPendingStop(boolean pendingStop) {
+activemq-broker/src/main/java/org/apache/activemq/broker/TransportConnection.java,1375,this.pendingStop.set(pendingStop);
+activemq-mqtt/src/main/java/org/apache/activemq/transport/mqtt/MQTTInactivityMonitor.java,81,onException(new InactivityIOException("Channel was inactive for too (>" + (readKeepAliveTime + readGraceTime) + ") long: "
+activemq-kahadb-store/src/main/java/org/apache/activemq/store/kahadb/MessageDatabase.java,1729,metadata.ackMessageFileMapLocation = checkpointAckMessageFileMap();
+activemq-kahadb-store/src/main/java/org/apache/activemq/store/kahadb/MessageDatabase.java,2297,final TreeMap<Long, Long> messageReferences = new TreeMap<>();
+activemq-kahadb-store/src/main/java/org/apache/activemq/store/kahadb/MessageDatabase.java,2567,Iterator<Entry<String, SequenceSet>> subscriptions = rc.ackPositions.iterator(tx);
+activemq-kahadb-store/src/main/java/org/apache/activemq/store/kahadb/MessageDatabase.java,2568,while (subscriptions.hasNext()) {
+activemq-kahadb-store/src/main/java/org/apache/activemq/store/kahadb/MessageDatabase.java,2569,Entry<String, SequenceSet> subscription = subscriptions.next();
+activemq-kahadb-store/src/main/java/org/apache/activemq/store/kahadb/MessageDatabase.java,2570,SequenceSet pendingAcks = subscription.getValue();
+activemq-kahadb-store/src/main/java/org/apache/activemq/store/kahadb/MessageDatabase.java,2571,if (pendingAcks != null && !pendingAcks.isEmpty()) {
+activemq-kahadb-store/src/main/java/org/apache/activemq/store/kahadb/MessageDatabase.java,2572,Long lastPendingAck = pendingAcks.getTail().getLast();
+activemq-kahadb-store/src/main/java/org/apache/activemq/store/kahadb/MessageDatabase.java,2573,for (Long sequenceId : pendingAcks) {
+activemq-kahadb-store/src/main/java/org/apache/activemq/store/kahadb/MessageDatabase.java,2574,Long current = rc.messageReferences.get(sequenceId);
+activemq-kahadb-store/src/main/java/org/apache/activemq/store/kahadb/MessageDatabase.java,2575,if (current == null) {
+activemq-kahadb-store/src/main/java/org/apache/activemq/store/kahadb/MessageDatabase.java,2576,current = new Long(0);
+activemq-kahadb-store/src/main/java/org/apache/activemq/store/kahadb/MessageDatabase.java,2581,if (!sequenceId.equals(lastPendingAck)) {
+activemq-kahadb-store/src/main/java/org/apache/activemq/store/kahadb/MessageDatabase.java,2582,current = current.longValue() + 1;
+activemq-kahadb-store/src/main/java/org/apache/activemq/store/kahadb/MessageDatabase.java,2584,current = Long.valueOf(0L);
+activemq-kahadb-store/src/main/java/org/apache/activemq/store/kahadb/MessageDatabase.java,2587,rc.messageReferences.put(sequenceId, current);
+activemq-kahadb-store/src/main/java/org/apache/activemq/store/kahadb/MessageDatabase.java,2609,if (!rc.messageReferences.isEmpty()) {
+activemq-kahadb-store/src/main/java/org/apache/activemq/store/kahadb/MessageDatabase.java,2610,Long nextMessageId = (Long) rc.messageReferences.keySet().toArray()[rc.messageReferences.size() - 1];
+activemq-kahadb-store/src/main/java/org/apache/activemq/store/kahadb/MessageDatabase.java,2611,rc.orderIndex.nextMessageId =
+activemq-kahadb-store/src/main/java/org/apache/activemq/store/kahadb/MessageDatabase.java,2612,Math.max(rc.orderIndex.nextMessageId, nextMessageId);
+activemq-kahadb-store/src/main/java/org/apache/activemq/store/kahadb/MessageDatabase.java,2817,Long count = sd.messageReferences.get(messageSequence);
+activemq-kahadb-store/src/main/java/org/apache/activemq/store/kahadb/MessageDatabase.java,2818,if (count == null) {
+activemq-kahadb-store/src/main/java/org/apache/activemq/store/kahadb/MessageDatabase.java,2819,count = Long.valueOf(0L);
+activemq-kahadb-store/src/main/java/org/apache/activemq/store/kahadb/MessageDatabase.java,2821,count = count.longValue() + 1;
+activemq-kahadb-store/src/main/java/org/apache/activemq/store/kahadb/MessageDatabase.java,2822,sd.messageReferences.put(messageSequence, count);
+activemq-kahadb-store/src/main/java/org/apache/activemq/store/kahadb/MessageDatabase.java,2837,for (Long ackPosition : allOutstanding) {
+activemq-kahadb-store/src/main/java/org/apache/activemq/store/kahadb/MessageDatabase.java,2838,Long count = sd.messageReferences.get(ackPosition);
+activemq-kahadb-store/src/main/java/org/apache/activemq/store/kahadb/MessageDatabase.java,2843,if (count != null) {
+activemq-kahadb-store/src/main/java/org/apache/activemq/store/kahadb/MessageDatabase.java,2844,count = count.longValue() + 1;
+activemq-kahadb-store/src/main/java/org/apache/activemq/store/kahadb/MessageDatabase.java,2845,sd.messageReferences.put(ackPosition, count);
+activemq-kahadb-store/src/main/java/org/apache/activemq/store/kahadb/MessageDatabase.java,2865,incrementAndAddSizeToStoreStat(kahaDest, subscriptionKey,
+activemq-kahadb-store/src/main/java/org/apache/activemq/store/kahadb/MessageDatabase.java,2866,key.location.getSize());
+activemq-kahadb-store/src/main/java/org/apache/activemq/store/kahadb/MessageDatabase.java,2868,Long count = sd.messageReferences.get(messageSequence);
+activemq-kahadb-store/src/main/java/org/apache/activemq/store/kahadb/MessageDatabase.java,2869,if (count == null) {
+activemq-kahadb-store/src/main/java/org/apache/activemq/store/kahadb/MessageDatabase.java,2870,count = Long.valueOf(0L);
+activemq-kahadb-store/src/main/java/org/apache/activemq/store/kahadb/MessageDatabase.java,2872,count = count.longValue() + 1;
+activemq-kahadb-store/src/main/java/org/apache/activemq/store/kahadb/MessageDatabase.java,2873,sd.messageReferences.put(messageSequence, count);
+activemq-kahadb-store/src/main/java/org/apache/activemq/store/kahadb/MessageDatabase.java,2874,sd.messageReferences.put(messageSequence + 1, Long.valueOf(0L));
+activemq-kahadb-store/src/main/java/org/apache/activemq/store/kahadb/MessageDatabase.java,2889,Long references = sd.messageReferences.get(sequenceId);
+activemq-kahadb-store/src/main/java/org/apache/activemq/store/kahadb/MessageDatabase.java,2890,if (references != null) {
+activemq-kahadb-store/src/main/java/org/apache/activemq/store/kahadb/MessageDatabase.java,2891,references = references.longValue() - 1;
+activemq-kahadb-store/src/main/java/org/apache/activemq/store/kahadb/MessageDatabase.java,2893,if (references.longValue() > 0) {
+activemq-kahadb-store/src/main/java/org/apache/activemq/store/kahadb/MessageDatabase.java,2894,sd.messageReferences.put(sequenceId, references);
+activemq-kahadb-store/src/main/java/org/apache/activemq/store/kahadb/MessageDatabase.java,2896,sd.messageReferences.remove(sequenceId);
+activemq-kahadb-store/src/main/java/org/apache/activemq/store/kahadb/MessageDatabase.java,2897,unreferenced.add(sequenceId);
+activemq-kahadb-store/src/main/java/org/apache/activemq/store/kahadb/MessageDatabase.java,2944,Long count = sd.messageReferences.get(messageSequence);
+activemq-kahadb-store/src/main/java/org/apache/activemq/store/kahadb/MessageDatabase.java,2945,if (count != null) {
+activemq-kahadb-store/src/main/java/org/apache/activemq/store/kahadb/MessageDatabase.java,2946,long references = count.longValue() - 1;
+activemq-kahadb-store/src/main/java/org/apache/activemq/store/kahadb/MessageDatabase.java,2947,if (references > 0) {
+activemq-kahadb-store/src/main/java/org/apache/activemq/store/kahadb/MessageDatabase.java,2948,sd.messageReferences.put(messageSequence, Long.valueOf(references));
+activemq-kahadb-store/src/main/java/org/apache/activemq/store/kahadb/MessageDatabase.java,2949,return;
+activemq-kahadb-store/src/main/java/org/apache/activemq/store/kahadb/MessageDatabase.java,2951,sd.messageReferences.remove(messageSequence);
+activemq-kahadb-store/src/main/java/org/apache/activemq/store/kahadb/disk/page/PageFile.java,414,needsFreePageRecovery = true;
+activemq-kahadb-store/src/main/java/org/apache/activemq/store/kahadb/disk/page/PageFile.java,467,metaData.setCleanShutdown(true);
+activemq-kahadb-store/src/main/java/org/apache/activemq/store/kahadb/MessageDatabase.java,2074,if (command != null && command instanceof KahaRemoveMessageCommand) {
+activemq-kahadb-store/src/main/java/org/apache/activemq/store/kahadb/disk/page/PageFile.java,404,boolean needsFreePageRecovery = false;
+activemq-kahadb-store/src/main/java/org/apache/activemq/store/kahadb/disk/page/PageFile.java,422,if (needsFreePageRecovery) {
+activemq-kahadb-store/src/main/java/org/apache/activemq/store/kahadb/disk/page/PageFile.java,424,freeList = new SequenceSet();
+activemq-kahadb-store/src/main/java/org/apache/activemq/store/kahadb/disk/page/PageFile.java,425,for (Iterator<Page> i = tx().iterator(true); i.hasNext(); ) {
+activemq-kahadb-store/src/main/java/org/apache/activemq/store/kahadb/disk/page/PageFile.java,426,Page page = i.next();
+activemq-kahadb-store/src/main/java/org/apache/activemq/store/kahadb/disk/page/PageFile.java,427,if (page.getType() == Page.PAGE_FREE_TYPE) {
+activemq-kahadb-store/src/main/java/org/apache/activemq/store/kahadb/disk/page/PageFile.java,428,freeList.add(page.getPageId());
+activemq-kahadb-store/src/main/java/org/apache/activemq/store/kahadb/MessageDatabase.java,1405,List<Operation> tx = inflightTransactions.remove(key);
+activemq-kahadb-store/src/main/java/org/apache/activemq/store/kahadb/MultiKahaDBPersistenceAdapter.java,309,destinationMap.removeAll(destination);
+activemq-kahadb-store/src/main/java/org/apache/activemq/store/kahadb/MultiKahaDBPersistenceAdapter.java,324,destinationMap.removeAll(destination);
+activemq-broker/src/main/java/org/apache/activemq/broker/ConnectionContext.java,67,this.messageEvaluationContext = new MessageEvaluationContext();
+activemq-broker/src/main/java/org/apache/activemq/broker/jmx/DestinationView.java,54,import org.apache.activemq.filter.MessageEvaluationContext;
+activemq-broker/src/main/java/org/apache/activemq/broker/jmx/DestinationView.java,216,MessageEvaluationContext ctx = new MessageEvaluationContext();
+activemq-broker/src/main/java/org/apache/activemq/broker/jmx/DestinationView.java,259,MessageEvaluationContext ctx = new MessageEvaluationContext();
+activemq-broker/src/main/java/org/apache/activemq/broker/jmx/DestinationView.java,300,MessageEvaluationContext ctx = new MessageEvaluationContext();
+activemq-broker/src/main/java/org/apache/activemq/broker/region/BaseDestination.java,844,ConnectionContext answer = new ConnectionContext(new NonCachedMessageEvaluationContext());
+activemq-broker/src/main/java/org/apache/activemq/broker/region/cursors/FilePendingMessageCursor.java,487,ConnectionContext context = new ConnectionContext(new NonCachedMessageEvaluationContext());
+activemq-broker/src/main/java/org/apache/activemq/network/DemandForwardingBridgeSupport.java,88,import org.apache.activemq.filter.MessageEvaluationContext;
+activemq-broker/src/main/java/org/apache/activemq/network/DemandForwardingBridgeSupport.java,1206,MessageEvaluationContext messageEvalContext = new MessageEvaluationContext();
+activemq-broker/src/main/java/org/apache/activemq/network/DemandForwardingBridgeSupport.java,1212,messageEvalContext.getMessageReference().decrementReferenceCount();
+activemq-amqp/src/main/java/org/apache/activemq/transport/amqp/message/JMSMappingOutboundTransformer.java,91,import org.fusesource.hawtbuf.UTF8Buffer;
+activemq-amqp/src/main/java/org/apache/activemq/transport/amqp/message/JMSMappingOutboundTransformer.java,253,if (value instanceof UTF8Buffer) {
+activemq-amqp/src/main/java/org/apache/activemq/transport/amqp/message/JMSMappingOutboundTransformer.java,254,value = value.toString();
+activemq-amqp/src/main/java/org/apache/activemq/transport/amqp/message/AMQPNativeOutboundTransformer.java,44,long messageFormat;
+activemq-amqp/src/main/java/org/apache/activemq/transport/amqp/message/AMQPNativeOutboundTransformer.java,45,try {
+activemq-amqp/src/main/java/org/apache/activemq/transport/amqp/message/AMQPNativeOutboundTransformer.java,46,messageFormat = message.getLongProperty(JMS_AMQP_MESSAGE_FORMAT);
+activemq-amqp/src/main/java/org/apache/activemq/transport/amqp/message/AMQPNativeOutboundTransformer.java,48,return null;
+activemq-amqp/src/main/java/org/apache/activemq/transport/amqp/message/JMSMappingOutboundTransformer.java,162,maMap = new HashMap<Symbol, Object>();
+activemq-amqp/src/main/java/org/apache/activemq/transport/amqp/message/JMSMappingOutboundTransformer.java,173,maMap = new HashMap<Symbol, Object>();
+activemq-amqp/src/main/java/org/apache/activemq/transport/amqp/message/JMSMappingOutboundTransformer.java,279,maMap = new HashMap<Symbol, Object>();
+activemq-amqp/src/main/java/org/apache/activemq/transport/amqp/message/JMSMappingOutboundTransformer.java,310,daMap = new HashMap<Symbol, Object>();
+activemq-amqp/src/main/java/org/apache/activemq/transport/amqp/message/JMSMappingOutboundTransformer.java,317,footerMap = new HashMap<Object, Object>();
+activemq-amqp/src/main/java/org/apache/activemq/transport/amqp/message/JMSMappingOutboundTransformer.java,331,apMap = new HashMap<String, Object>();
+activemq-amqp/src/main/java/org/apache/activemq/transport/amqp/message/JMSMappingOutboundTransformer.java,412,ArrayList<Object> list = new ArrayList<Object>();
+activemq-amqp/src/main/java/org/apache/activemq/transport/amqp/protocol/AmqpSender.java,20,import static org.apache.activemq.transport.amqp.message.AmqpMessageSupport.JMS_AMQP_MESSAGE_FORMAT;
+activemq-amqp/src/main/java/org/apache/activemq/transport/amqp/protocol/AmqpSender.java,464,if (!temp.getProperties().containsKey(JMS_AMQP_MESSAGE_FORMAT)) {
+activemq-amqp/src/main/java/org/apache/activemq/transport/amqp/protocol/AmqpSender.java,465,temp.setProperty(JMS_AMQP_MESSAGE_FORMAT, 0);
+activemq-broker/src/main/java/org/apache/activemq/broker/region/Queue.java,1209,&& messages.hasSpace();
+activemq-broker/src/main/java/org/apache/activemq/broker/ProducerBrokerExchange.java,19,import java.io.IOException;
+activemq-broker/src/main/java/org/apache/activemq/broker/ProducerBrokerExchange.java,20,import java.util.concurrent.atomic.AtomicBoolean;
+activemq-broker/src/main/java/org/apache/activemq/broker/ProducerBrokerExchange.java,21,import java.util.concurrent.atomic.AtomicLong;
+activemq-broker/src/main/java/org/apache/activemq/broker/ProducerBrokerExchange.java,216,double value = flowControlInfo.getSendsBlocked() / flowControlInfo.getTotalSends();
+activemq-ra/src/main/java/org/apache/activemq/ra/ActiveMQManagedConnectionFactory.java,79,if (getDurableTopicPrefetch() != null) {
+activemq-ra/src/main/java/org/apache/activemq/ra/ActiveMQManagedConnectionFactory.java,82,if (getOptimizeDurableTopicPrefetch() != null) {
+activemq-ra/src/main/java/org/apache/activemq/ra/ActiveMQManagedConnectionFactory.java,85,if (getQueuePrefetch() != null) {
+activemq-ra/src/main/java/org/apache/activemq/ra/ActiveMQManagedConnectionFactory.java,88,if (getQueueBrowserPrefetch() != null) {
+activemq-ra/src/main/java/org/apache/activemq/ra/ActiveMQManagedConnectionFactory.java,91,if (getTopicPrefetch() != null) {
+activemq-stomp/src/main/java/org/apache/activemq/transport/stomp/Stomp.java,52,String SUBSCRIBE = "SUB";
+activemq-stomp/src/main/java/org/apache/activemq/transport/stomp/Stomp.java,53,String UNSUBSCRIBE = "UNSUB";
+activemq-stomp/src/main/java/org/apache/activemq/transport/stomp/ProtocolConverter.java,110,private final ConcurrentMap<Integer, ResponseHandler> resposeHandlers = new ConcurrentHashMap<Integer, ResponseHandler>();
+activemq-stomp/src/main/java/org/apache/activemq/transport/stomp/ProtocolConverter.java,111,private final ConcurrentMap<ConsumerId, StompSubscription> subscriptionsByConsumerId = new ConcurrentHashMap<ConsumerId, StompSubscription>();
+activemq-stomp/src/main/java/org/apache/activemq/transport/stomp/ProtocolConverter.java,112,private final ConcurrentMap<String, StompSubscription> subscriptions = new ConcurrentHashMap<String, StompSubscription>();
+activemq-stomp/src/main/java/org/apache/activemq/transport/stomp/ProtocolConverter.java,113,private final ConcurrentMap<String, ActiveMQDestination> tempDestinations = new ConcurrentHashMap<String, ActiveMQDestination>();
+activemq-stomp/src/main/java/org/apache/activemq/transport/stomp/ProtocolConverter.java,114,private final ConcurrentMap<String, String> tempDestinationAmqToStompMap = new ConcurrentHashMap<String, String>();
+activemq-stomp/src/main/java/org/apache/activemq/transport/stomp/ProtocolConverter.java,115,private final Map<String, LocalTransactionId> transactions = new ConcurrentHashMap<String, LocalTransactionId>();
+activemq-stomp/src/main/java/org/apache/activemq/transport/stomp/ProtocolConverter.java,118,private final ConcurrentMap<String, AckEntry> pedingAcks = new ConcurrentHashMap<String, AckEntry>();
+activemq-stomp/src/main/java/org/apache/activemq/transport/stomp/ProtocolConverter.java,302,HashMap<String, String> headers = new HashMap<String, String>();
+activemq-stomp/src/main/java/org/apache/activemq/transport/stomp/ProtocolConverter.java,802,HashMap<String, String> responseHeaders = new HashMap<String, String>();
+activemq-client/src/main/java/org/apache/activemq/command/XATransactionId.java,202,hash = hash(globalTransactionId, hash);
+activemq-client/src/main/java/org/apache/activemq/command/XATransactionId.java,203,hash = hash(branchQualifier, hash);
+activemq-client/src/main/java/org/apache/activemq/command/XATransactionId.java,211,private static int hash(byte[] bytes, int hash) {
+activemq-client/src/main/java/org/apache/activemq/command/XATransactionId.java,212,int size = bytes.length;
+activemq-client/src/main/java/org/apache/activemq/command/XATransactionId.java,213,for (int i = 0; i < size; i++) {
+activemq-client/src/main/java/org/apache/activemq/command/XATransactionId.java,214,hash ^= bytes[i] << ((i % 4) * 8);
+activemq-client/src/main/java/org/apache/activemq/command/XATransactionId.java,216,return hash;
+activemq-broker/src/main/java/org/apache/activemq/broker/scheduler/SchedulerBroker.java,340,getInternalScheduler().schedule(msg.getMessageId().toString(),
+activemq-broker/src/main/java/org/apache/activemq/broker/scheduler/SchedulerBroker.java,341,new ByteSequence(packet.data, packet.offset, packet.length), cronEntry, delay, period, repeat);
+activemq-amqp/src/main/java/org/apache/activemq/transport/amqp/protocol/AmqpSender.java,456,if (md.getDestination().isTopic()) {
+activemq-amqp/src/main/java/org/apache/activemq/transport/amqp/protocol/AmqpSender.java,457,synchronized (md.getMessage()) {
+activemq-amqp/src/main/java/org/apache/activemq/transport/amqp/protocol/AmqpSender.java,458,temp = (ActiveMQMessage) md.getMessage().copy();
+activemq-amqp/src/main/java/org/apache/activemq/transport/amqp/protocol/AmqpSender.java,461,temp = (ActiveMQMessage) md.getMessage();
+activemq-client/src/main/java/org/apache/activemq/ActiveMQConnection.java,120,public final ConcurrentMap<ActiveMQTempDestination, ActiveMQTempDestination> activeTempDestinations = new ConcurrentHashMap<ActiveMQTempDestination, ActiveMQTempDestination>();
+activemq-client/src/main/java/org/apache/activemq/ActiveMQConnection.java,173,private final CopyOnWriteArrayList<ActiveMQSession> sessions = new CopyOnWriteArrayList<ActiveMQSession>();
+activemq-client/src/main/java/org/apache/activemq/ActiveMQConnection.java,174,private final CopyOnWriteArrayList<ActiveMQConnectionConsumer> connectionConsumers = new CopyOnWriteArrayList<ActiveMQConnectionConsumer>();
+activemq-client/src/main/java/org/apache/activemq/ActiveMQConnection.java,175,private final CopyOnWriteArrayList<TransportListener> transportListeners = new CopyOnWriteArrayList<TransportListener>();
+activemq-client/src/main/java/org/apache/activemq/ActiveMQConnection.java,178,private final ConcurrentMap<ConsumerId, ActiveMQDispatcher> dispatchers = new ConcurrentHashMap<ConsumerId, ActiveMQDispatcher>();
+activemq-client/src/main/java/org/apache/activemq/ActiveMQConnection.java,179,private final ConcurrentMap<ProducerId, ActiveMQMessageProducer> producers = new ConcurrentHashMap<ProducerId, ActiveMQMessageProducer>();
+activemq-client/src/main/java/org/apache/activemq/ActiveMQConnection.java,211,private List<String> trustedPackages = new ArrayList<String>();
+activemq-client/src/main/java/org/apache/activemq/ActiveMQConnection.java,213,private int connectResponseTimeout;
+activemq-client/src/main/java/org/apache/activemq/ActiveMQConnection.java,821,Map<String, String> options = new HashMap<String, String>(info.getDestination().getOptions());
+activemq-client/src/main/java/org/apache/activemq/ActiveMQConnection.java,1240,Map<String, String> options = new HashMap<String, String>(consumerInfo.getDestination().getOptions());
+activemq-client/src/main/java/org/apache/activemq/ActiveMQConnection.java,1343,if(exception!=null) {
+activemq-client/src/main/java/org/apache/activemq/ActiveMQConnection.java,1347,if (isClosed()||closing.get()) {
+activemq-client/src/main/java/org/apache/activemq/ActiveMQConnection.java,1358,forceCloseOnSecurityException(exception);
+activemq-client/src/main/java/org/apache/activemq/ActiveMQConnection.java,1360,if (jmsEx !=null) {
+activemq-client/src/main/java/org/apache/activemq/ActiveMQConnection.java,1394,if (isClosed()||closing.get()) {
+activemq-client/src/main/java/org/apache/activemq/ActiveMQConnection.java,1404,forceCloseOnSecurityException(er.getException());
+activemq-client/src/main/java/org/apache/activemq/ActiveMQConnection.java,1406,if (jmsEx !=null) {
+activemq-client/src/main/java/org/apache/activemq/ActiveMQConnection.java,2573,return connectResponseTimeout;
+activemq-client/src/main/java/org/apache/activemq/ActiveMQConnection.java,2576,public void setConnectResponseTimeout(int connectResponseTimeout) {
+activemq-client/src/main/java/org/apache/activemq/ActiveMQConnection.java,2577,this.connectResponseTimeout = connectResponseTimeout;
+activemq-broker/src/main/java/org/apache/activemq/broker/region/TopicSubscription.java,261,getSubscriptionStatistics().getInflightMessageSize().addSize(node.getSize());
+activemq-broker/src/main/java/org/apache/activemq/broker/region/TopicSubscription.java,391,synchronized(dispatchLock) {
+activemq-broker/src/main/java/org/apache/activemq/broker/region/TopicSubscription.java,392,boolean inAckRange = false;
+activemq-broker/src/main/java/org/apache/activemq/broker/region/TopicSubscription.java,395,MessageId messageId = node.getMessageId();
+activemq-broker/src/main/java/org/apache/activemq/broker/region/TopicSubscription.java,396,if (ack.getFirstMessageId() == null
+activemq-broker/src/main/java/org/apache/activemq/broker/region/TopicSubscription.java,397,|| ack.getFirstMessageId().equals(messageId)) {
+activemq-broker/src/main/java/org/apache/activemq/broker/region/TopicSubscription.java,398,inAckRange = true;
+activemq-broker/src/main/java/org/apache/activemq/broker/region/TopicSubscription.java,400,if (inAckRange) {
+activemq-broker/src/main/java/org/apache/activemq/broker/region/TopicSubscription.java,401,removeList.add(node);
+activemq-broker/src/main/java/org/apache/activemq/broker/region/TopicSubscription.java,402,if (ack.getLastMessageId().equals(messageId)) {
+activemq-broker/src/main/java/org/apache/activemq/broker/region/TopicSubscription.java,403,break;
+activemq-broker/src/main/java/org/apache/activemq/broker/region/TopicSubscription.java,409,dispatched.remove(node);
+activemq-broker/src/main/java/org/apache/activemq/broker/region/TopicSubscription.java,410,getSubscriptionStatistics().getInflightMessageSize().addSize(-node.getSize());
+activemq-broker/src/main/java/org/apache/activemq/broker/region/TopicSubscription.java,411,getSubscriptionStatistics().getDequeues().increment();
+activemq-broker/src/main/java/org/apache/activemq/broker/region/TopicSubscription.java,679,getSubscriptionStatistics().getInflightMessageSize().addSize(node.getSize());
+activemq-broker/src/main/java/org/apache/activemq/broker/region/TopicSubscription.java,77,protected final List<MessageReference> dispatched = new ArrayList<MessageReference>();
+activemq-broker/src/main/java/org/apache/activemq/broker/region/TopicSubscription.java,260,dispatched.add(node);
+activemq-broker/src/main/java/org/apache/activemq/broker/region/TopicSubscription.java,393,List<MessageReference> removeList = new ArrayList<MessageReference>();
+activemq-broker/src/main/java/org/apache/activemq/broker/region/TopicSubscription.java,394,for (final MessageReference node : dispatched) {
+activemq-broker/src/main/java/org/apache/activemq/broker/region/TopicSubscription.java,408,for (final MessageReference node : removeList) {
+activemq-broker/src/main/java/org/apache/activemq/broker/region/TopicSubscription.java,412,((Destination)node.getRegionDestination()).getDestinationStatistics().getDequeues().increment();
+activemq-broker/src/main/java/org/apache/activemq/broker/region/TopicSubscription.java,413,((Destination)node.getRegionDestination()).getDestinationStatistics().getInflight().decrement();
+activemq-broker/src/main/java/org/apache/activemq/broker/region/TopicSubscription.java,414,if (info.isNetworkSubscription()) {
+activemq-broker/src/main/java/org/apache/activemq/broker/region/TopicSubscription.java,415,((Destination)node.getRegionDestination()).getDestinationStatistics().getForwards().add(ack.getMessageCount());
+activemq-broker/src/main/java/org/apache/activemq/broker/region/TopicSubscription.java,417,if (ack.isExpiredAck()) {
+activemq-broker/src/main/java/org/apache/activemq/broker/region/TopicSubscription.java,418,destination.getDestinationStatistics().getExpired().add(ack.getMessageCount());
+activemq-broker/src/main/java/org/apache/activemq/broker/region/TopicSubscription.java,678,dispatched.add(node);
+activemq-web/src/main/java/org/apache/activemq/web/MessageQuery.java,19,import java.util.Enumeration;
+activemq-web/src/main/java/org/apache/activemq/web/MessageQuery.java,20,import java.util.HashMap;
+activemq-web/src/main/java/org/apache/activemq/web/MessageQuery.java,21,import java.util.Map;
+activemq-web/src/main/java/org/apache/activemq/web/MessageQuery.java,41,public MessageQuery(BrokerFacade brokerFacade, SessionPool sessionPool) throws JMSException {
+activemq-web/src/main/java/org/apache/activemq/web/MessageQuery.java,42,super(brokerFacade, sessionPool);
+activemq-web/src/main/java/org/apache/activemq/web/QueueBrowseQuery.java,24,import org.springframework.beans.factory.DisposableBean;
+activemq-web/src/main/java/org/apache/activemq/web/QueueBrowseQuery.java,31,private SessionPool sessionPool;
+activemq-web/src/main/java/org/apache/activemq/web/QueueBrowseQuery.java,33,private Session session;
+activemq-web/src/main/java/org/apache/activemq/web/QueueBrowseQuery.java,37,public QueueBrowseQuery(BrokerFacade brokerFacade, SessionPool sessionPool) throws JMSException {
+activemq-web/src/main/java/org/apache/activemq/web/QueueBrowseQuery.java,39,this.sessionPool = sessionPool;
+activemq-web/src/main/java/org/apache/activemq/web/QueueBrowseQuery.java,40,this.session = sessionPool.borrowSession();
+activemq-web/src/main/java/org/apache/activemq/web/QueueBrowseQuery.java,48,sessionPool.returnSession(session);
+activemq-web/src/main/java/org/apache/activemq/web/QueueBrowseQuery.java,49,session = null;
+activemq-web/src/main/java/org/apache/activemq/web/QueueBrowseQuery.java,65,queue = session.createQueue(getValidDestination());
+activemq-web/src/main/java/org/apache/activemq/web/QueueBrowseQuery.java,82,public Session getSession() {
+activemq-web/src/main/java/org/apache/activemq/web/QueueBrowseQuery.java,83,return session;
+activemq-broker/src/main/java/org/apache/activemq/broker/region/cursors/StoreDurableSubscriberCursor.java,191,nonPersistent.addMessageLast(node);
+activemq-client/src/main/java/org/apache/activemq/filter/DestinationMap.java,205,public Object chooseValue(final ActiveMQDestination destination) {
+activemq-client/src/main/java/org/apache/activemq/filter/DestinationMap.java,206,Set set = get(destination);
+activemq-client/src/main/java/org/apache/activemq/filter/DestinationMap.java,210,SortedSet sortedSet = new TreeSet(new Comparator<DestinationMapEntry>() {
+activemq-client/src/main/java/org/apache/activemq/filter/DestinationMap.java,216,sortedSet.addAll(set);
+activemq-client/src/main/java/org/apache/activemq/filter/DestinationMap.java,217,return sortedSet.first();
+activemq-client/src/main/java/org/apache/activemq/broker/scheduler/CronParser.java,73,int nextMinutes = getNext(minutes, currentMinutes);
+activemq-client/src/main/java/org/apache/activemq/broker/scheduler/CronParser.java,79,int nextHour = getNext(hours, currentHours);
+activemq-client/src/main/java/org/apache/activemq/broker/scheduler/CronParser.java,103,int nextHour = getNext(hours, currentHours);
+activemq-client/src/main/java/org/apache/activemq/broker/scheduler/CronParser.java,109,int nextMinutes = getNext(minutes, currentMinutes);
+activemq-client/src/main/java/org/apache/activemq/broker/scheduler/CronParser.java,126,int nextMonth = getNext(month, currentMonth);
+activemq-client/src/main/java/org/apache/activemq/broker/scheduler/CronParser.java,153,nextWeekDay = getNext(dayOfWeek, currentDayOfWeek);
+activemq-client/src/main/java/org/apache/activemq/broker/scheduler/CronParser.java,157,nextCalendarDay = getNext(dayOfMonth, currentDayOfMonth);
+activemq-client/src/main/java/org/apache/activemq/broker/scheduler/CronParser.java,193,static int getNext(final CronEntry entry, final int current) throws MessageFormatException {
+activemq-client/src/main/java/org/apache/activemq/broker/scheduler/CronParser.java,212,result = entry.end + first - entry.start - current;
+activemq-broker/src/main/java/org/apache/activemq/broker/region/Queue.java,1462,BrokerSupport.resend(context, m.getMessage(), dest);
+activemq-broker/src/main/java/org/apache/activemq/broker/region/Queue.java,1463,removeMessage(context, m);
+activemq-broker/src/main/java/org/apache/activemq/broker/region/Queue.java,1464,messagesLock.writeLock().lock();
+activemq-broker/src/main/java/org/apache/activemq/broker/region/Queue.java,1466,messages.rollback(m.getMessageId());
+activemq-broker/src/main/java/org/apache/activemq/broker/region/Queue.java,1467,if (isDLQ()) {
+activemq-broker/src/main/java/org/apache/activemq/broker/region/Queue.java,1468,DeadLetterStrategy stratagy = getDeadLetterStrategy();
+activemq-broker/src/main/java/org/apache/activemq/broker/region/Queue.java,1469,stratagy.rollback(m.getMessage());
+activemq-broker/src/main/java/org/apache/activemq/broker/region/Queue.java,1472,messagesLock.writeLock().unlock();
+activemq-osgi/src/main/java/org/apache/activemq/osgi/ActiveMQServiceFactory.java,141,broker.waitUntilStarted();
+activemq-broker/src/main/java/org/apache/activemq/advisory/AdvisoryBroker.java,607,info.setDestination(virtualDestination.getVirtualDestination());
+activemq-broker/src/main/java/org/apache/activemq/advisory/AdvisoryBroker.java,619,info.setDestination(virtualDestination.getVirtualDestination());
+activemq-client/src/main/java/org/apache/activemq/openwire/OpenWireFormatFactory.java,47,private String platformDetails = ActiveMQConnectionMetaData.PLATFORM_DETAILS;
+activemq-broker/src/main/java/org/apache/activemq/network/DemandForwardingBridgeSupport.java,949,RemoveSubscriptionInfo info = ((RemoveSubscriptionInfo) data);
+activemq-broker/src/main/java/org/apache/activemq/network/DemandForwardingBridgeSupport.java,950,SubscriptionInfo subscriptionInfo = new SubscriptionInfo(info.getClientId(), info.getSubscriptionName());
+activemq-broker/src/main/java/org/apache/activemq/network/DemandForwardingBridgeSupport.java,954,if (removed) {
+activemq-broker/src/main/java/org/apache/activemq/network/DemandForwardingBridgeSupport.java,955,cleanupDurableSub(ds, i);
+activemq-broker/src/main/java/org/apache/activemq/network/DemandForwardingBridgeSupport.java,483,localClientId = configuration.getName() + "_" + remoteBrokerName + "_inbound_" + configuration.getBrokerName();
+activemq-broker/src/main/java/org/apache/activemq/network/DemandForwardingBridgeSupport.java,511,duplexLocalConnectionInfo.setClientId(configuration.getName() + "_" + remoteBrokerName + "_inbound_duplex_"
+activemq-broker/src/main/java/org/apache/activemq/network/DemandForwardingBridgeSupport.java,512,+ configuration.getBrokerName());
+activemq-broker/src/main/java/org/apache/activemq/network/DemandForwardingBridgeSupport.java,600,remoteConnectionInfo.setClientId(configuration.getName() + "_" + configuration.getBrokerName() + "_outbound");
+activemq-broker/src/main/java/org/apache/activemq/network/ConduitBridge.java,79,ds.getDurableRemoteSubs().add(new SubscriptionInfo(info.getClientId(), info.getSubscriptionName()));
+activemq-broker/src/main/java/org/apache/activemq/network/DemandForwardingBridgeSupport.java,96,import org.apache.activemq.transport.tcp.SslTransport;
+activemq-broker/src/main/java/org/apache/activemq/network/DemandForwardingBridgeSupport.java,1329,sub.getDurableRemoteSubs().add(new SubscriptionInfo(sub.getRemoteInfo().getClientId(), consumerInfo.getSubscriptionName()));
+activemq-broker/src/main/java/org/apache/activemq/network/ConduitBridge.java,60,if (info.isNetworkSubscription()) {
+activemq-broker/src/main/java/org/apache/activemq/network/ConduitBridge.java,91,return ds.isStaticallyIncluded() || !ds.getRemoteInfo().isNetworkSubscription();
+activemq-broker/src/main/java/org/apache/activemq/network/DemandForwardingBridgeSupport.java,685,if((info.getSubscriptionName() == null || !info.getSubscriptionName().startsWith(DURABLE_SUB_PREFIX)) &&
+activemq-broker/src/main/java/org/apache/activemq/network/DemandForwardingBridgeSupport.java,977,i.remove();
+activemq-broker/src/main/java/org/apache/activemq/network/DemandForwardingBridgeSupport.java,1071,localBroker.oneway(sub.getLocalInfo().createRemoveCommand());
+activemq-broker/src/main/java/org/apache/activemq/network/DemandForwardingBridgeSupport.java,1306,sub.setStaticallyIncluded(true);
+activemq-broker/src/main/java/org/apache/activemq/network/DemandForwardingBridgeSupport.java,1307,try {
+activemq-broker/src/main/java/org/apache/activemq/network/DemandForwardingBridgeSupport.java,1308,addSubscription(sub);
+activemq-broker/src/main/java/org/apache/activemq/network/DemandForwardingBridgeSupport.java,1310,LOG.error("Failed to add static destination {}", dest, e);
+activemq-broker/src/main/java/org/apache/activemq/network/DemandForwardingBridgeSupport.java,1312,LOG.trace("{}, bridging messages for static destination: {}", configuration.getBrokerName(), dest);
+activemq-broker/src/main/java/org/apache/activemq/network/DurableConduitBridge.java,78,if (subName != null && subName.equals(candidateSubName)) {
+activemq-broker/src/main/java/org/apache/activemq/network/DurableConduitBridge.java,80,sub.getLocalInfo().setSubscriptionName(getSubscriberName(dest));
+activemq-broker/src/main/java/org/apache/activemq/network/DurableConduitBridge.java,81,sub.setStaticallyIncluded(true);
+activemq-broker/src/main/java/org/apache/activemq/network/DurableConduitBridge.java,82,addSubscription(sub);
+activemq-broker/src/main/java/org/apache/activemq/network/DurableConduitBridge.java,83,break;
+activemq-broker/src/main/java/org/apache/activemq/network/DurableConduitBridge.java,142,info.setConsumerId(new ConsumerId(localSessionInfo.getSessionId(),
+activemq-broker/src/main/java/org/apache/activemq/broker/region/PrefetchSubscription.java,265,if (isUsePrefetchExtension() && getPrefetchSize() != 0 && ack.isInTransaction()) {
+activemq-broker/src/main/java/org/apache/activemq/broker/region/PrefetchSubscription.java,267,while (true) {
+activemq-broker/src/main/java/org/apache/activemq/broker/region/PrefetchSubscription.java,268,int currentExtension = prefetchExtension.get();
+activemq-broker/src/main/java/org/apache/activemq/broker/region/PrefetchSubscription.java,269,int newExtension = Math.max(currentExtension, currentExtension + 1);
+activemq-broker/src/main/java/org/apache/activemq/broker/region/PrefetchSubscription.java,270,if (prefetchExtension.compareAndSet(currentExtension, newExtension)) {
+activemq-broker/src/main/java/org/apache/activemq/broker/region/PrefetchSubscription.java,271,break;
+activemq-broker/src/main/java/org/apache/activemq/broker/region/PrefetchSubscription.java,290,if (isUsePrefetchExtension() && getPrefetchSize() != 0) {
+activemq-broker/src/main/java/org/apache/activemq/broker/region/PrefetchSubscription.java,292,while (true) {
+activemq-broker/src/main/java/org/apache/activemq/broker/region/PrefetchSubscription.java,293,int currentExtension = prefetchExtension.get();
+activemq-broker/src/main/java/org/apache/activemq/broker/region/PrefetchSubscription.java,294,int newExtension = Math.max(currentExtension, index + 1);
+activemq-broker/src/main/java/org/apache/activemq/broker/region/PrefetchSubscription.java,295,if (prefetchExtension.compareAndSet(currentExtension, newExtension)) {
+activemq-broker/src/main/java/org/apache/activemq/broker/region/PrefetchSubscription.java,296,break;
+activemq-broker/src/main/java/org/apache/activemq/broker/region/PrefetchSubscription.java,330,if (isUsePrefetchExtension() && getPrefetchSize() != 0) {
+activemq-broker/src/main/java/org/apache/activemq/broker/region/PrefetchSubscription.java,332,while (true) {
+activemq-broker/src/main/java/org/apache/activemq/broker/region/PrefetchSubscription.java,333,int currentExtension = prefetchExtension.get();
+activemq-broker/src/main/java/org/apache/activemq/broker/region/PrefetchSubscription.java,334,int newExtension = Math.max(currentExtension, index + 1);
+activemq-broker/src/main/java/org/apache/activemq/broker/region/PrefetchSubscription.java,335,if (prefetchExtension.compareAndSet(currentExtension, newExtension)) {
+activemq-broker/src/main/java/org/apache/activemq/broker/region/PrefetchSubscription.java,336,break;
+activemq-broker/src/main/java/org/apache/activemq/broker/region/PrefetchSubscription.java,402,while (true) {
+activemq-broker/src/main/java/org/apache/activemq/broker/region/PrefetchSubscription.java,403,int currentExtension = prefetchExtension.get();
+activemq-broker/src/main/java/org/apache/activemq/broker/region/PrefetchSubscription.java,404,int newExtension = Math.max(0, currentExtension - (index + 1));
+activemq-broker/src/main/java/org/apache/activemq/broker/region/PrefetchSubscription.java,405,if (prefetchExtension.compareAndSet(currentExtension, newExtension)) {
+activemq-broker/src/main/java/org/apache/activemq/broker/region/PrefetchSubscription.java,406,break;
+activemq-broker/src/main/java/org/apache/activemq/broker/region/PrefetchSubscription.java,445,public void beforeEnd() {
+activemq-broker/src/main/java/org/apache/activemq/broker/region/PrefetchSubscription.java,446,if (isUsePrefetchExtension() && getPrefetchSize() != 0) {
+activemq-broker/src/main/java/org/apache/activemq/broker/region/PrefetchSubscription.java,447,while (true) {
+activemq-broker/src/main/java/org/apache/activemq/broker/region/PrefetchSubscription.java,448,int currentExtension = prefetchExtension.get();
+activemq-broker/src/main/java/org/apache/activemq/broker/region/PrefetchSubscription.java,449,int newExtension = Math.max(0, currentExtension - 1);
+activemq-broker/src/main/java/org/apache/activemq/broker/region/PrefetchSubscription.java,450,if (prefetchExtension.compareAndSet(currentExtension, newExtension)) {
+activemq-broker/src/main/java/org/apache/activemq/broker/region/PrefetchSubscription.java,451,break;
+activemq-broker/src/main/java/org/apache/activemq/broker/region/PrefetchSubscription.java,461,synchronized(dispatchLock) {
+activemq-broker/src/main/java/org/apache/activemq/broker/region/PrefetchSubscription.java,473,synchronized(dispatchLock) {
+activemq-broker/src/main/java/org/apache/activemq/broker/region/TopicSubscription.java,284,if (getPrefetchSize() != 0) {
+activemq-broker/src/main/java/org/apache/activemq/broker/region/TopicSubscription.java,285,decrementPrefetchExtension(ack.getMessageCount());
+activemq-broker/src/main/java/org/apache/activemq/broker/region/TopicSubscription.java,289,if (getPrefetchSize() != 0 && ack.isInTransaction()) {
+activemq-broker/src/main/java/org/apache/activemq/broker/region/TopicSubscription.java,290,incrementPrefetchExtension(ack.getMessageCount());
+activemq-broker/src/main/java/org/apache/activemq/broker/region/TopicSubscription.java,294,if (getPrefetchSize() != 0) {
+activemq-broker/src/main/java/org/apache/activemq/broker/region/TopicSubscription.java,295,incrementPrefetchExtension(ack.getMessageCount());
+activemq-broker/src/main/java/org/apache/activemq/broker/region/TopicSubscription.java,299,if (getPrefetchSize() != 0) {
+activemq-broker/src/main/java/org/apache/activemq/broker/region/TopicSubscription.java,300,incrementPrefetchExtension(ack.getMessageCount());
+activemq-broker/src/main/java/org/apache/activemq/broker/region/TopicSubscription.java,317,public void beforeEnd() {
+activemq-broker/src/main/java/org/apache/activemq/broker/region/TopicSubscription.java,318,if (getPrefetchSize() != 0) {
+activemq-broker/src/main/java/org/apache/activemq/broker/region/TopicSubscription.java,319,decrementPrefetchExtension(ack.getMessageCount());
+activemq-broker/src/main/java/org/apache/activemq/broker/region/TopicSubscription.java,424,private void incrementPrefetchExtension(int amount) {
+activemq-broker/src/main/java/org/apache/activemq/broker/region/TopicSubscription.java,425,if (!isUsePrefetchExtension()) {
+activemq-broker/src/main/java/org/apache/activemq/broker/region/TopicSubscription.java,426,return;
+activemq-broker/src/main/java/org/apache/activemq/broker/region/TopicSubscription.java,428,while (true) {
+activemq-broker/src/main/java/org/apache/activemq/broker/region/TopicSubscription.java,429,int currentExtension = prefetchExtension.get();
+activemq-broker/src/main/java/org/apache/activemq/broker/region/TopicSubscription.java,430,int newExtension = Math.max(0, currentExtension + amount);
+activemq-broker/src/main/java/org/apache/activemq/broker/region/TopicSubscription.java,431,if (prefetchExtension.compareAndSet(currentExtension, newExtension)) {
+activemq-broker/src/main/java/org/apache/activemq/broker/region/TopicSubscription.java,432,break;
+activemq-broker/src/main/java/org/apache/activemq/broker/region/TopicSubscription.java,437,private void decrementPrefetchExtension(int amount) {
+activemq-broker/src/main/java/org/apache/activemq/broker/region/TopicSubscription.java,438,while (true) {
+activemq-broker/src/main/java/org/apache/activemq/broker/region/TopicSubscription.java,439,int currentExtension = prefetchExtension.get();
+activemq-broker/src/main/java/org/apache/activemq/broker/region/TopicSubscription.java,440,int newExtension = Math.max(0, currentExtension - amount);
+activemq-broker/src/main/java/org/apache/activemq/broker/region/TopicSubscription.java,441,if (prefetchExtension.compareAndSet(currentExtension, newExtension)) {
+activemq-broker/src/main/java/org/apache/activemq/broker/region/TopicSubscription.java,442,break;
+activemq-client/src/main/java/org/apache/activemq/command/MessagePull.java,28,public class MessagePull extends BaseCommand {
+activemq-client/src/main/java/org/apache/activemq/transport/nio/SelectorSelection.java,47,e.printStackTrace();
+activemq-client/src/main/java/org/apache/activemq/command/ActiveMQStreamMessage.java,746,return rc;
+activemq-kahadb-store/src/main/java/org/apache/activemq/store/kahadb/MessageDatabase.java,3146,private Journal createJournal() throws IOException {
+activemq-kahadb-store/src/main/java/org/apache/activemq/store/kahadb/disk/journal/DataFileAppender.java,130,location.setLatch(batch.latch);
+activemq-kahadb-store/src/main/java/org/apache/activemq/store/kahadb/disk/journal/DataFileAppender.java,157,WriteBatch batch = enqueue(write);
+activemq-kahadb-store/src/main/java/org/apache/activemq/store/kahadb/disk/journal/DataFileAppender.java,159,location.setLatch(batch.latch);
+activemq-kahadb-store/src/main/java/org/apache/activemq/store/kahadb/disk/journal/Location.java,39,private CountDownLatch latch;
+activemq-kahadb-store/src/main/java/org/apache/activemq/store/kahadb/disk/journal/Location.java,117,return latch;
+activemq-kahadb-store/src/main/java/org/apache/activemq/store/kahadb/disk/journal/Location.java,120,public void setLatch(CountDownLatch latch) {
+activemq-kahadb-store/src/main/java/org/apache/activemq/store/kahadb/disk/journal/Location.java,121,this.latch = latch;
+activemq-amqp/src/main/java/org/apache/activemq/transport/amqp/protocol/AmqpConnection.java,254,rescheduleAt = protonTransport.tick(now) - now;
+activemq-amqp/src/main/java/org/apache/activemq/transport/amqp/protocol/AmqpConnection.java,257,rescheduleAt = 0;
+activemq-amqp/src/main/java/org/apache/activemq/transport/amqp/protocol/AmqpConnection.java,259,throw new InactivityIOException("Channel was inactive for to long");
+activemq-amqp/src/main/java/org/apache/activemq/transport/amqp/protocol/AmqpConnection.java,838,if (nextIdleCheck > 0) {
+activemq-amqp/src/main/java/org/apache/activemq/transport/amqp/protocol/AmqpConnection.java,839,long delay = nextIdleCheck - now;
+activemq-client/src/main/java/org/apache/activemq/command/Message.java,127,return content != null && (marshalledProperties != null || properties == null);
+activemq-broker/src/main/java/org/apache/activemq/broker/jmx/ManagementContext.java,90,private final AtomicBoolean connectorStarting = new AtomicBoolean(false);
+activemq-broker/src/main/java/org/apache/activemq/broker/jmx/ManagementContext.java,144,connectorStarting.set(true);
+activemq-broker/src/main/java/org/apache/activemq/broker/jmx/ManagementContext.java,153,connectorStarting.set(false);
+activemq-broker/src/main/java/org/apache/activemq/broker/jmx/ManagementContext.java,201,if (!connectorStarting.get()) {
+activemq-broker/src/main/java/org/apache/activemq/broker/jmx/ManagementContext.java,329,return connectorStarting.get() || (connectorServer != null && connectorServer.isActive());
+activemq-broker/src/main/java/org/apache/activemq/util/DefaultIOExceptionHandler.java,54,if (ignoreAllErrors) {
+activemq-broker/src/main/java/org/apache/activemq/util/DefaultIOExceptionHandler.java,170,broker.getPersistenceAdapter().allowIOResumption();
+activemq-jdbc-store/src/main/java/org/apache/activemq/store/jdbc/LeaseDatabaseLocker.java,94,lockable.getBrokerService().handleIOException(IOExceptionSupport.create(e));
+activemq-broker/src/main/java/org/apache/activemq/broker/region/virtual/MappedQueueFilter.java,52,if (sub.getActiveMQDestination().compareTo(next.getActiveMQDestination()) == 0) {
+activemq-broker/src/main/java/org/apache/activemq/security/JaasAuthenticationBroker.java,68,SecurityContext s = authenticate(info.getUserName(), info.getPassword(), null);
+activemq-broker/src/main/java/org/apache/activemq/security/JaasAuthenticationBroker.java,69,context.setSecurityContext(s);
+activemq-broker/src/main/java/org/apache/activemq/security/JaasAuthenticationBroker.java,70,securityContexts.add(s);
+activemq-broker/src/main/java/org/apache/activemq/security/JaasAuthenticationBroker.java,75,super.addConnection(context, info);
+activemq-broker/src/main/java/org/apache/activemq/advisory/AdvisoryBroker.java,835,if (getBrokerService().isStarted()) {
+activemq-broker/src/main/java/org/apache/activemq/advisory/AdvisoryBroker.java,837,advisoryMessage.setStringProperty(AdvisorySupport.MSG_PROPERTY_ORIGIN_BROKER_NAME, getBrokerName());
+activemq-broker/src/main/java/org/apache/activemq/advisory/AdvisoryBroker.java,838,String id = getBrokerId() != null ? getBrokerId().getValue() : "NOT_SET";
+activemq-broker/src/main/java/org/apache/activemq/advisory/AdvisoryBroker.java,839,advisoryMessage.setStringProperty(AdvisorySupport.MSG_PROPERTY_ORIGIN_BROKER_ID, id);
+activemq-broker/src/main/java/org/apache/activemq/advisory/AdvisoryBroker.java,841,String url = getBrokerService().getVmConnectorURI().toString();
+activemq-broker/src/main/java/org/apache/activemq/advisory/AdvisoryBroker.java,844,if (context.getConnector() instanceof TransportConnector
+activemq-broker/src/main/java/org/apache/activemq/advisory/AdvisoryBroker.java,845,&& ((TransportConnector) context.getConnector()).getPublishableConnectString() != null) {
+activemq-broker/src/main/java/org/apache/activemq/advisory/AdvisoryBroker.java,846,url = ((TransportConnector) context.getConnector()).getPublishableConnectString();
+activemq-broker/src/main/java/org/apache/activemq/advisory/AdvisoryBroker.java,848,url = getBrokerService().getDefaultSocketURIString();
+activemq-broker/src/main/java/org/apache/activemq/advisory/AdvisoryBroker.java,850,advisoryMessage.setStringProperty(AdvisorySupport.MSG_PROPERTY_ORIGIN_BROKER_URL, url);
+activemq-broker/src/main/java/org/apache/activemq/advisory/AdvisoryBroker.java,853,advisoryMessage.setDataStructure(command);
+activemq-broker/src/main/java/org/apache/activemq/advisory/AdvisoryBroker.java,854,advisoryMessage.setPersistent(false);
+activemq-broker/src/main/java/org/apache/activemq/advisory/AdvisoryBroker.java,855,advisoryMessage.setType(AdvisorySupport.ADIVSORY_MESSAGE_TYPE);
+activemq-broker/src/main/java/org/apache/activemq/advisory/AdvisoryBroker.java,856,advisoryMessage.setMessageId(new MessageId(advisoryProducerId, messageIdGenerator.getNextSequenceId()));
+activemq-broker/src/main/java/org/apache/activemq/advisory/AdvisoryBroker.java,857,advisoryMessage.setTargetConsumerId(targetConsumerId);
+activemq-broker/src/main/java/org/apache/activemq/advisory/AdvisoryBroker.java,858,advisoryMessage.setDestination(topic);
+activemq-broker/src/main/java/org/apache/activemq/advisory/AdvisoryBroker.java,859,advisoryMessage.setResponseRequired(false);
+activemq-broker/src/main/java/org/apache/activemq/advisory/AdvisoryBroker.java,860,advisoryMessage.setProducerId(advisoryProducerId);
+activemq-broker/src/main/java/org/apache/activemq/advisory/AdvisoryBroker.java,861,boolean originalFlowControl = context.isProducerFlowControl();
+activemq-broker/src/main/java/org/apache/activemq/advisory/AdvisoryBroker.java,862,final ProducerBrokerExchange producerExchange = new ProducerBrokerExchange();
+activemq-broker/src/main/java/org/apache/activemq/advisory/AdvisoryBroker.java,863,producerExchange.setConnectionContext(context);
+activemq-broker/src/main/java/org/apache/activemq/advisory/AdvisoryBroker.java,864,producerExchange.setMutable(true);
+activemq-broker/src/main/java/org/apache/activemq/advisory/AdvisoryBroker.java,865,producerExchange.setProducerState(new ProducerState(new ProducerInfo()));
+activemq-broker/src/main/java/org/apache/activemq/advisory/AdvisoryBroker.java,866,try {
+activemq-broker/src/main/java/org/apache/activemq/advisory/AdvisoryBroker.java,867,context.setProducerFlowControl(false);
+activemq-broker/src/main/java/org/apache/activemq/advisory/AdvisoryBroker.java,868,next.send(producerExchange, advisoryMessage);
+activemq-broker/src/main/java/org/apache/activemq/advisory/AdvisoryBroker.java,870,context.setProducerFlowControl(originalFlowControl);
+activemq-http/src/main/java/org/apache/activemq/transport/ws/WSTransportProxy.java,154,transport.setTransportListener(getTransportListener());
+activemq-stomp/src/main/java/org/apache/activemq/transport/stomp/StompSubscription.java,118,if (!unconsumedMessage.isEmpty()) {
+activemq-camel/src/main/java/org/apache/activemq/camel/component/ActiveMQComponent.java,297,public boolean isAllowAutoWiredConnectionFactory() {
+activemq-camel/src/main/java/org/apache/activemq/camel/component/ActiveMQComponent.java,298,return false;
+activemq-jms-pool/src/main/java/org/apache/activemq/jms/pool/IntrospectionSupport.java,97,if (boolean.class.isAssignableFrom(to) && value instanceof String) {
+activemq-broker/src/main/java/org/apache/activemq/plugin/SubQueueSelectorCacheBroker.java,69,private ConcurrentMap<String, Set<String>> subSelectorCache = new ConcurrentHashMap<String, Set<String>>();
+activemq-broker/src/main/java/org/apache/activemq/plugin/SubQueueSelectorCacheBroker.java,267,if (subSelectorCache.containsKey(destinationName)) {
+activemq-broker/src/main/java/org/apache/activemq/plugin/SubQueueSelectorCacheBroker.java,268,return new HashSet<String>(subSelectorCache.get(destinationName));
+activemq-broker/src/main/java/org/apache/activemq/plugin/SubQueueSelectorCacheBroker.java,283,if (subSelectorCache.containsKey(destinationName)) {
+activemq-broker/src/main/java/org/apache/activemq/plugin/SubQueueSelectorCacheBroker.java,284,Set<String> cachedSelectors = subSelectorCache.get(destinationName);
+activemq-broker/src/main/java/org/apache/activemq/plugin/SubQueueSelectorCacheBroker.java,285,return cachedSelectors.remove(selector);
+activemq-broker/src/main/java/org/apache/activemq/plugin/SubQueueSelectorCacheBroker.java,288,return false;
+activemq-broker/src/main/java/org/apache/activemq/plugin/SubQueueSelectorCacheBroker.java,292,if (subSelectorCache.containsKey(destinationName)) {
+activemq-broker/src/main/java/org/apache/activemq/plugin/SubQueueSelectorCacheBroker.java,293,Set<String> cachedSelectors = subSelectorCache.get(destinationName);
+activemq-broker/src/main/java/org/apache/activemq/broker/region/virtual/SelectorAwareVirtualTopicInterceptor.java,80,final Set<String> selectors = selectorCachePlugin.getSelector(dest.getActiveMQDestination().getQualifiedName());
+activemq-broker/src/main/java/org/apache/activemq/plugin/SubQueueSelectorCacheBroker.java,236,public Set<String> getSelector(final String destination) {
+activemq-broker/src/main/java/org/apache/activemq/plugin/SubQueueSelectorCacheBroker.java,237,return subSelectorCache.get(destination);
+activemq-ra/src/main/java/org/apache/activemq/ra/ServerSessionImpl.java,59,private int serverSessionId = getNextLogId();
+activemq-ra/src/main/java/org/apache/activemq/ra/ServerSessionImpl.java,60,private final Logger log = LoggerFactory.getLogger(ServerSessionImpl.class.getName() + ":" + serverSessionId);
+activemq-ra/src/main/java/org/apache/activemq/ra/ServerSessionImpl.java,259,return "ServerSessionImpl:" + serverSessionId + "{" + session +"}";
+activemq-client/src/main/java/org/apache/activemq/TransactionContext.java,790,private XAException toXAException(JMSException e) {
+activemq-client/src/main/java/org/apache/activemq/TransactionContext.java,809,private int parseFromMessageOr(String message, int fallbackCode) {
+activemq-client/src/main/java/org/apache/activemq/command/ActiveMQMessage.java,738,private void checkReadOnlyProperties() throws MessageNotWriteableException {
+activemq-kahadb-store/src/main/java/org/apache/activemq/store/kahadb/MultiKahaDBTransactionStore.java,314,store(new KahaTraceCommand().setMessage("LOADED " + new Date()));
+activemq-kahadb-store/src/main/java/org/apache/activemq/store/kahadb/MultiKahaDBTransactionStore.java,343,Location location = journal.getNextLocation(null);
+activemq-kahadb-store/src/main/java/org/apache/activemq/store/kahadb/MultiKahaDBTransactionStore.java,344,while (location != null) {
+activemq-kahadb-store/src/main/java/org/apache/activemq/store/kahadb/MultiKahaDBTransactionStore.java,346,location = journal.getNextLocation(location);
+activemq-kahadb-store/src/main/java/org/apache/activemq/store/kahadb/MultiKahaDBTransactionStore.java,404,try {
+activemq-kahadb-store/src/main/java/org/apache/activemq/store/kahadb/MultiKahaDBTransactionStore.java,406,LOG.info("delivering pending commit outcome for tid: " + txid);
+activemq-kahadb-store/src/main/java/org/apache/activemq/store/kahadb/MultiKahaDBTransactionStore.java,407,broker.commitTransaction(null, txid, false);
+activemq-kahadb-store/src/main/java/org/apache/activemq/store/kahadb/MultiKahaDBTransactionStore.java,410,LOG.info("delivering rollback outcome to store for tid: " + txid);
+activemq-kahadb-store/src/main/java/org/apache/activemq/store/kahadb/MultiKahaDBTransactionStore.java,411,broker.forgetTransaction(null, txid);
+activemq-kahadb-store/src/main/java/org/apache/activemq/store/kahadb/MultiKahaDBTransactionStore.java,413,persistCompletion(txid);
+activemq-kahadb-store/src/main/java/org/apache/activemq/store/kahadb/MultiKahaDBTransactionStore.java,415,LOG.error("failed to deliver pending outcome for tid: " + txid, ex);
+activemq-kahadb-store/src/main/java/org/apache/activemq/store/kahadb/disk/journal/Journal.java,493,if (size == 0) {
+activemq-kahadb-store/src/main/java/org/apache/activemq/store/kahadb/disk/journal/Journal.java,495,break;
+activemq-kahadb-store/src/main/java/org/apache/activemq/store/kahadb/disk/journal/Journal.java,505,Sequence sequence = new Sequence(location.getOffset(), nextOffset - 1);
+activemq-kahadb-store/src/main/java/org/apache/activemq/store/kahadb/disk/journal/Journal.java,506,LOG.warn("Corrupt journal records found in '{}' between offsets: {}", dataFile.getFile(), sequence);
+activemq-kahadb-store/src/main/java/org/apache/activemq/store/kahadb/disk/journal/Journal.java,526,if (!dataFile.corruptedBlocks.isEmpty()) {
+activemq-kahadb-store/src/main/java/org/apache/activemq/store/kahadb/disk/journal/Journal.java,528,if (dataFile.corruptedBlocks.getTail().getLast() + 1 == location.getOffset()) {
+activemq-kahadb-store/src/main/java/org/apache/activemq/store/kahadb/disk/journal/Journal.java,529,dataFile.setLength((int) dataFile.corruptedBlocks.removeLastSequence().getFirst());
+activemq-kahadb-store/src/main/java/org/apache/activemq/store/kahadb/disk/journal/Journal.java,615,private void rotateWriteFile() throws IOException {
+activemq-client/src/main/java/org/apache/activemq/ActiveMQSession.java,885,final ActiveMQMessage message = (ActiveMQMessage)md.getMessage();
+activemq-client/src/main/java/org/apache/activemq/ActiveMQSession.java,749,this.transactionContext = null;
+activemq-client/src/main/java/org/apache/activemq/command/Message.java,82,protected ByteSequence marshalledProperties;
+activemq-broker/src/main/java/org/apache/activemq/transport/vm/VMTransportServer.java,38,private boolean disposed;
+activemq-broker/src/main/java/org/apache/activemq/transport/vm/VMTransportServer.java,67,if (disposed) {
+activemq-broker/src/main/java/org/apache/activemq/transport/vm/VMTransportServer.java,120,VMTransportFactory.stopped(this);
+activemq-jdbc-store/src/main/java/org/apache/activemq/store/jdbc/JdbcMemoryTransactionStore.java,276,((JDBCPersistenceAdapter)persistenceAdapter).rollbackLastAck(context, priority, jdbcTopicMessageStore.getDestination(), subName, clientId);
+activemq-jdbc-store/src/main/java/org/apache/activemq/store/jdbc/adapter/DefaultJDBCAdapter.java,1011,String subName = rs.getString(3);
+activemq-jdbc-store/src/main/java/org/apache/activemq/store/jdbc/adapter/DefaultJDBCAdapter.java,1012,String subId = rs.getString(4);
+activemq-kahadb-store/src/main/java/org/apache/activemq/store/kahadb/KahaDBStore.java,561,recoverRolledBackAcks(sd, tx, Integer.MAX_VALUE, listener);
+activemq-kahadb-store/src/main/java/org/apache/activemq/store/kahadb/KahaDBStore.java,566,if (ackedAndPrepared.contains(entry.getValue().messageId)) {
+activemq-kahadb-store/src/main/java/org/apache/activemq/store/kahadb/KahaDBStore.java,588,int counter = recoverRolledBackAcks(sd, tx, maxReturned, listener);
+activemq-kahadb-store/src/main/java/org/apache/activemq/store/kahadb/KahaDBStore.java,591,if (ackedAndPrepared.contains(entry.getValue().messageId)) {
+activemq-kahadb-store/src/main/java/org/apache/activemq/store/kahadb/KahaDBStore.java,610,protected int recoverRolledBackAcks(StoredDestination sd, Transaction tx, int maxReturned, MessageRecoveryListener listener) throws Exception {
+activemq-kahadb-store/src/main/java/org/apache/activemq/store/kahadb/KahaDBStore.java,625,LOG.info("rolledback ack message {} with seq {} will be picked up in future batch {}", id, sequence, sd.orderIndex.cursor);
+activemq-kahadb-store/src/main/java/org/apache/activemq/store/kahadb/KahaDBStore.java,1005,recoverRolledBackAcks(sd, tx, Integer.MAX_VALUE, listener);
+activemq-kahadb-store/src/main/java/org/apache/activemq/store/kahadb/KahaDBStore.java,1009,if (ackedAndPrepared.contains(entry.getValue().messageId)) {
+activemq-kahadb-store/src/main/java/org/apache/activemq/store/kahadb/KahaDBStore.java,1049,int counter = recoverRolledBackAcks(sd, tx, maxReturned, listener);
+activemq-kahadb-store/src/main/java/org/apache/activemq/store/kahadb/KahaDBStore.java,1053,if (ackedAndPrepared.contains(entry.getValue().messageId)) {
+activemq-kahadb-store/src/main/java/org/apache/activemq/store/kahadb/MessageDatabase.java,1446,StoredDestination sd = getStoredDestination(command.getDestination(), tx);
+activemq-broker/src/main/java/org/apache/activemq/broker/jmx/QueueView.java,67,public boolean removeMessage(String messageId) throws Exception {
+activemq-broker/src/main/java/org/apache/activemq/broker/jmx/QueueView.java,79,public boolean copyMessageTo(String messageId, String destinationName) throws Exception {
+activemq-broker/src/main/java/org/apache/activemq/broker/jmx/QueueView.java,85,public int copyMatchingMessagesTo(String selector, String destinationName) throws Exception {
+activemq-broker/src/main/java/org/apache/activemq/broker/jmx/QueueView.java,91,public int copyMatchingMessagesTo(String selector, String destinationName, int maximumMessages) throws Exception {
+activemq-broker/src/main/java/org/apache/activemq/broker/jmx/QueueView.java,97,public boolean moveMessageTo(String messageId, String destinationName) throws Exception {
+activemq-broker/src/main/java/org/apache/activemq/broker/region/Queue.java,1352,set.addAll(pagedInMessages.values());
+activemq-broker/src/main/java/org/apache/activemq/broker/region/Queue.java,1424,set.addAll(pagedInMessages.values());
+activemq-broker/src/main/java/org/apache/activemq/broker/region/Queue.java,1521,set.addAll(pagedInMessages.values());
+activemq-broker/src/main/java/org/apache/activemq/broker/region/Queue.java,1550,set.addAll(pagedInMessages.values());
+activemq-client/src/main/java/org/apache/activemq/ActiveMQMessageConsumer.java,127,private PreviouslyDeliveredMap<MessageId, Boolean> previouslyDeliveredMessages;
+activemq-client/src/main/java/org/apache/activemq/ActiveMQMessageConsumer.java,147,private boolean clearDeliveredList;
+activemq-client/src/main/java/org/apache/activemq/ActiveMQMessageConsumer.java,769,inProgressClearRequiredFlag.decrementAndGet();
+activemq-client/src/main/java/org/apache/activemq/ActiveMQMessageConsumer.java,776,clearDeliveredList();
+activemq-client/src/main/java/org/apache/activemq/ActiveMQMessageConsumer.java,1144,for (Entry<MessageId, Boolean> entry: previouslyDeliveredMessages.entrySet()) {
+activemq-client/src/main/java/org/apache/activemq/ActiveMQMessageConsumer.java,1145,if (!entry.getValue()) {
+activemq-client/src/main/java/org/apache/activemq/ActiveMQMessageConsumer.java,1172,for (Entry<MessageId, Boolean> entry: previouslyDeliveredMessages.entrySet()) {
+activemq-client/src/main/java/org/apache/activemq/ActiveMQMessageConsumer.java,1173,if (!entry.getValue()) {
+activemq-client/src/main/java/org/apache/activemq/ActiveMQMessageConsumer.java,1176,previouslyDeliveredMessages.transactionId, entry.getKey());
+activemq-client/src/main/java/org/apache/activemq/ActiveMQMessageConsumer.java,1248,session.connection.rollbackDuplicate(this, md.getMessage());
+activemq-client/src/main/java/org/apache/activemq/ActiveMQMessageConsumer.java,1279,if (nonBlockingRedelivery) {
+activemq-client/src/main/java/org/apache/activemq/ActiveMQMessageConsumer.java,1280,if (!unconsumedMessages.isClosed()) {
+activemq-client/src/main/java/org/apache/activemq/ActiveMQMessageConsumer.java,1282,final LinkedList<MessageDispatch> pendingRedeliveries =
+activemq-client/src/main/java/org/apache/activemq/ActiveMQMessageConsumer.java,1283,new LinkedList<MessageDispatch>(deliveredMessages);
+activemq-client/src/main/java/org/apache/activemq/ActiveMQMessageConsumer.java,1285,Collections.reverse(pendingRedeliveries);
+activemq-client/src/main/java/org/apache/activemq/ActiveMQMessageConsumer.java,1287,deliveredCounter -= deliveredMessages.size();
+activemq-client/src/main/java/org/apache/activemq/ActiveMQMessageConsumer.java,1288,deliveredMessages.clear();
+activemq-client/src/main/java/org/apache/activemq/ActiveMQMessageConsumer.java,1296,for(MessageDispatch dispatch : pendingRedeliveries) {
+activemq-client/src/main/java/org/apache/activemq/ActiveMQMessageConsumer.java,1308,unconsumedMessages.stop();
+activemq-client/src/main/java/org/apache/activemq/ActiveMQMessageConsumer.java,1310,for (MessageDispatch md : deliveredMessages) {
+activemq-client/src/main/java/org/apache/activemq/ActiveMQMessageConsumer.java,1311,unconsumedMessages.enqueueFirst(md);
+activemq-client/src/main/java/org/apache/activemq/ActiveMQMessageConsumer.java,1314,deliveredCounter -= deliveredMessages.size();
+activemq-client/src/main/java/org/apache/activemq/ActiveMQMessageConsumer.java,1315,deliveredMessages.clear();
+activemq-client/src/main/java/org/apache/activemq/ActiveMQMessageConsumer.java,1317,if (redeliveryDelay > 0 && !unconsumedMessages.isClosed()) {
+activemq-client/src/main/java/org/apache/activemq/ActiveMQMessageConsumer.java,1319,session.getScheduler().executeAfterDelay(new Runnable() {
+activemq-client/src/main/java/org/apache/activemq/ActiveMQMessageConsumer.java,1323,if (started.get()) {
+activemq-client/src/main/java/org/apache/activemq/ActiveMQMessageConsumer.java,1324,start();
+activemq-client/src/main/java/org/apache/activemq/ActiveMQMessageConsumer.java,1332,start();
+activemq-client/src/main/java/org/apache/activemq/ActiveMQMessageConsumer.java,1338,if (messageListener.get() != null) {
+activemq-client/src/main/java/org/apache/activemq/ActiveMQMessageConsumer.java,1339,session.redispatch(this, unconsumedMessages);
+activemq-client/src/main/java/org/apache/activemq/ActiveMQMessageConsumer.java,1350,for (Entry<MessageId, Boolean> entry: previouslyDeliveredMessages.entrySet()) {
+activemq-client/src/main/java/org/apache/activemq/ActiveMQMessageConsumer.java,1351,if (!entry.getValue()) {
+activemq-client/src/main/java/org/apache/activemq/ActiveMQMessageConsumer.java,1352,LOG.trace("rollback non redelivered: {}" + entry.getKey());
+activemq-client/src/main/java/org/apache/activemq/ActiveMQMessageConsumer.java,1353,removeFromDeliveredMessages(entry.getKey());
+activemq-client/src/main/java/org/apache/activemq/ActiveMQMessageConsumer.java,1393,if (this.info.isBrowser() || !session.connection.isDuplicate(this, md.getMessage())) {
+activemq-client/src/main/java/org/apache/activemq/ActiveMQMessageConsumer.java,1419,if (!unconsumedMessages.isRunning()) {
+activemq-client/src/main/java/org/apache/activemq/ActiveMQMessageConsumer.java,1421,session.connection.rollbackDuplicate(this, md.getMessage());
+activemq-client/src/main/java/org/apache/activemq/ActiveMQMessageConsumer.java,1479,if (previouslyDeliveredMessages.containsKey(md.getMessage().getMessageId())) {
+activemq-client/src/main/java/org/apache/activemq/ActiveMQMessageConsumer.java,1481,previouslyDeliveredMessages.put(md.getMessage().getMessageId(), true);
+activemq-client/src/main/java/org/apache/activemq/ActiveMQMessageConsumer.java,1510,if (previouslyDeliveredMessages == null) {
+activemq-client/src/main/java/org/apache/activemq/ActiveMQMessageConsumer.java,1511,previouslyDeliveredMessages = new PreviouslyDeliveredMap<MessageId, Boolean>(session.getTransactionContext().getTransactionId());
+activemq-client/src/main/java/org/apache/activemq/ActiveMQMessageConsumer.java,1513,for (MessageDispatch delivered : deliveredMessages) {
+activemq-client/src/main/java/org/apache/activemq/ActiveMQMessageConsumer.java,1514,previouslyDeliveredMessages.put(delivered.getMessage().getMessageId(), false);
+activemq-client/src/main/java/org/apache/activemq/ActiveMQMessageConsumer.java,1516,LOG.debug("{} tracking existing transacted {} delivered list ({}) on transport interrupt",
+activemq-client/src/main/java/org/apache/activemq/ActiveMQMessageConsumer.java,1517,getConsumerId(), previouslyDeliveredMessages.transactionId, deliveredMessages.size());
+activemq-client/src/main/java/org/apache/activemq/ActiveMQSession.java,2096,for (MessageDispatch md : c) {
+activemq-client/src/main/java/org/apache/activemq/ActiveMQSession.java,2097,this.connection.rollbackDuplicate(dispatcher, md.getMessage());
+activemq-broker/src/main/java/org/apache/activemq/broker/region/Queue.java,1418,int oldMaxSize = getMaxPageSize();
+activemq-broker/src/main/java/org/apache/activemq/broker/region/Queue.java,1419,setMaxPageSize((int) this.destinationStatistics.getMessages().getCount());
+activemq-broker/src/main/java/org/apache/activemq/broker/region/Queue.java,1420,doPageIn(true);
+activemq-broker/src/main/java/org/apache/activemq/broker/region/Queue.java,1421,setMaxPageSize(oldMaxSize);
+activemq-jms-pool/src/main/java/org/apache/activemq/jms/pool/PooledConnection.java,84,this.cleanupConnectionTemporaryDestinations();
+activemq-stomp/src/main/java/org/apache/activemq/transport/stomp/ProtocolConverter.java,299,exception.printStackTrace(stream);
+activemq-broker/src/main/java/org/apache/activemq/broker/region/DurableTopicSubscription.java,324,protected void acknowledge(ConnectionContext context, MessageAck ack, MessageReference node) throws IOException {
+activemq-client/src/main/java/org/apache/activemq/TransactionContext.java,548,ctx.afterRollback();
+activemq-broker/src/main/java/org/apache/activemq/broker/TransportConnector.java,223,String remoteHost = transport.getRemoteAddress();
+activemq-broker/src/main/java/org/apache/activemq/broker/TransportConnector.java,230,String remoteHost = transport.getRemoteAddress();
+activemq-client/src/main/java/org/apache/activemq/transport/failover/FailoverTransport.java,280,LOG.warn("Transport ({}) failed {} attempting to automatically reconnect: {}",
+activemq-client/src/main/java/org/apache/activemq/transport/failover/FailoverTransport.java,293,updated.remove(failedConnectTransportURI);
+activemq-client/src/main/java/org/apache/activemq/transport/failover/FailoverTransport.java,794,if (!updated.isEmpty()) {
+activemq-client/src/main/java/org/apache/activemq/transport/failover/FailoverTransport.java,795,return updated;
+activemq-client/src/main/java/org/apache/activemq/transport/failover/FailoverTransport.java,797,ArrayList<URI> l = new ArrayList<URI>(uris);
+activemq-client/src/main/java/org/apache/activemq/transport/failover/FailoverTransport.java,800,removed = l.remove(failedConnectTransportURI);
+activemq-client/src/main/java/org/apache/activemq/transport/failover/FailoverTransport.java,816,LOG.debug("urlList connectionList:{}, from: {}", l, uris);
+activemq-client/src/main/java/org/apache/activemq/transport/failover/FailoverTransport.java,939,List<URI> connectList = getConnectList();
+activemq-client/src/main/java/org/apache/activemq/transport/failover/FailoverTransport.java,1080,LOG.error("Failed to connect to {} after: {} attempt(s)", uris, connectFailures);
+activemq-ra/src/main/java/org/apache/activemq/ra/ActiveMQResourceAdapter.java,253,return new XAResource[]{
+activemq-ra/src/main/java/org/apache/activemq/ra/ActiveMQResourceAdapter.java,254,new TransactionContext() {
+activemq-ra/src/main/java/org/apache/activemq/ra/ActiveMQResourceAdapter.java,257,public boolean isSameRM(XAResource xaresource) throws XAException {
+activemq-ra/src/main/java/org/apache/activemq/ra/ActiveMQResourceAdapter.java,258,ActiveMQConnection original = null;
+activemq-ra/src/main/java/org/apache/activemq/ra/ActiveMQResourceAdapter.java,259,try {
+activemq-ra/src/main/java/org/apache/activemq/ra/ActiveMQResourceAdapter.java,260,original = setConnection(newConnection());
+activemq-ra/src/main/java/org/apache/activemq/ra/ActiveMQResourceAdapter.java,261,boolean result = super.isSameRM(xaresource);
+activemq-ra/src/main/java/org/apache/activemq/ra/ActiveMQResourceAdapter.java,262,LOG.trace("{}.recover({})={}", getConnection(), xaresource, result);
+activemq-ra/src/main/java/org/apache/activemq/ra/ActiveMQResourceAdapter.java,263,return result;
+activemq-ra/src/main/java/org/apache/activemq/ra/ActiveMQResourceAdapter.java,266,LOG.trace("isSameRM({}) failed", xaresource, e);
+activemq-ra/src/main/java/org/apache/activemq/ra/ActiveMQResourceAdapter.java,267,XAException xaException = new XAException(e.getMessage());
+activemq-ra/src/main/java/org/apache/activemq/ra/ActiveMQResourceAdapter.java,268,throw xaException;
+activemq-ra/src/main/java/org/apache/activemq/ra/ActiveMQResourceAdapter.java,270,closeConnection(original);
+activemq-ra/src/main/java/org/apache/activemq/ra/ActiveMQResourceAdapter.java,275,protected String getResourceManagerId() throws JMSException {
+activemq-ra/src/main/java/org/apache/activemq/ra/ActiveMQResourceAdapter.java,276,ActiveMQConnection original = null;
+activemq-ra/src/main/java/org/apache/activemq/ra/ActiveMQResourceAdapter.java,277,try {
+activemq-ra/src/main/java/org/apache/activemq/ra/ActiveMQResourceAdapter.java,278,original = setConnection(newConnection());
+activemq-ra/src/main/java/org/apache/activemq/ra/ActiveMQResourceAdapter.java,279,return super.getResourceManagerId();
+activemq-ra/src/main/java/org/apache/activemq/ra/ActiveMQResourceAdapter.java,281,closeConnection(original);
+activemq-ra/src/main/java/org/apache/activemq/ra/ActiveMQResourceAdapter.java,286,public void commit(Xid xid, boolean onePhase) throws XAException {
+activemq-ra/src/main/java/org/apache/activemq/ra/ActiveMQResourceAdapter.java,287,ActiveMQConnection original = null;
+activemq-ra/src/main/java/org/apache/activemq/ra/ActiveMQResourceAdapter.java,288,try {
+activemq-ra/src/main/java/org/apache/activemq/ra/ActiveMQResourceAdapter.java,289,setConnection(newConnection());
+activemq-ra/src/main/java/org/apache/activemq/ra/ActiveMQResourceAdapter.java,290,super.commit(xid, onePhase);
+activemq-ra/src/main/java/org/apache/activemq/ra/ActiveMQResourceAdapter.java,291,LOG.trace("{}.commit({},{})", getConnection(), xid);
+activemq-ra/src/main/java/org/apache/activemq/ra/ActiveMQResourceAdapter.java,294,LOG.trace("{}.commit({},{}) failed", getConnection(), xid, onePhase, e);
+activemq-ra/src/main/java/org/apache/activemq/ra/ActiveMQResourceAdapter.java,295,throwXAException(e);
+activemq-ra/src/main/java/org/apache/activemq/ra/ActiveMQResourceAdapter.java,297,closeConnection(original);
+activemq-ra/src/main/java/org/apache/activemq/ra/ActiveMQResourceAdapter.java,302,public void rollback(Xid xid) throws XAException {
+activemq-ra/src/main/java/org/apache/activemq/ra/ActiveMQResourceAdapter.java,303,ActiveMQConnection original = null;
+activemq-ra/src/main/java/org/apache/activemq/ra/ActiveMQResourceAdapter.java,304,try {
+activemq-ra/src/main/java/org/apache/activemq/ra/ActiveMQResourceAdapter.java,305,original = setConnection(newConnection());
+activemq-ra/src/main/java/org/apache/activemq/ra/ActiveMQResourceAdapter.java,306,super.rollback(xid);
+activemq-ra/src/main/java/org/apache/activemq/ra/ActiveMQResourceAdapter.java,307,LOG.trace("{}.rollback({})", getConnection(), xid);
+activemq-ra/src/main/java/org/apache/activemq/ra/ActiveMQResourceAdapter.java,310,LOG.trace("{}.rollback({}) failed", getConnection(), xid, e);
+activemq-ra/src/main/java/org/apache/activemq/ra/ActiveMQResourceAdapter.java,311,throwXAException(e);
+activemq-ra/src/main/java/org/apache/activemq/ra/ActiveMQResourceAdapter.java,313,closeConnection(original);
+activemq-ra/src/main/java/org/apache/activemq/ra/ActiveMQResourceAdapter.java,318,public Xid[] recover(int flags) throws XAException {
+activemq-ra/src/main/java/org/apache/activemq/ra/ActiveMQResourceAdapter.java,319,Xid[] result = new Xid[]{};
+activemq-ra/src/main/java/org/apache/activemq/ra/ActiveMQResourceAdapter.java,320,ActiveMQConnection original = null;
+activemq-ra/src/main/java/org/apache/activemq/ra/ActiveMQResourceAdapter.java,321,try {
+activemq-ra/src/main/java/org/apache/activemq/ra/ActiveMQResourceAdapter.java,322,original = setConnection(newConnection());
+activemq-ra/src/main/java/org/apache/activemq/ra/ActiveMQResourceAdapter.java,323,result = super.recover(flags);
+activemq-ra/src/main/java/org/apache/activemq/ra/ActiveMQResourceAdapter.java,324,LOG.trace("{}.recover({})={}", getConnection(), flags, result);
+activemq-ra/src/main/java/org/apache/activemq/ra/ActiveMQResourceAdapter.java,327,LOG.trace("{}.recover({}) failed", getConnection(), flags, e);
+activemq-ra/src/main/java/org/apache/activemq/ra/ActiveMQResourceAdapter.java,328,throwXAException(e);
+activemq-ra/src/main/java/org/apache/activemq/ra/ActiveMQResourceAdapter.java,330,closeConnection(original);
+activemq-ra/src/main/java/org/apache/activemq/ra/ActiveMQResourceAdapter.java,332,return result;
+activemq-ra/src/main/java/org/apache/activemq/ra/ActiveMQResourceAdapter.java,336,public void forget(Xid xid) throws XAException {
+activemq-ra/src/main/java/org/apache/activemq/ra/ActiveMQResourceAdapter.java,337,ActiveMQConnection original = null;
+activemq-ra/src/main/java/org/apache/activemq/ra/ActiveMQResourceAdapter.java,338,try {
+activemq-ra/src/main/java/org/apache/activemq/ra/ActiveMQResourceAdapter.java,339,original = setConnection(newConnection());
+activemq-ra/src/main/java/org/apache/activemq/ra/ActiveMQResourceAdapter.java,340,super.forget(xid);
+activemq-ra/src/main/java/org/apache/activemq/ra/ActiveMQResourceAdapter.java,341,LOG.trace("{}.forget({})", getConnection(), xid);
+activemq-ra/src/main/java/org/apache/activemq/ra/ActiveMQResourceAdapter.java,344,LOG.trace("{}.forget({}) failed", getConnection(), xid, e);
+activemq-ra/src/main/java/org/apache/activemq/ra/ActiveMQResourceAdapter.java,345,throwXAException(e);
+activemq-ra/src/main/java/org/apache/activemq/ra/ActiveMQResourceAdapter.java,347,closeConnection(original);
+activemq-ra/src/main/java/org/apache/activemq/ra/ActiveMQResourceAdapter.java,351,private void throwXAException(JMSException e) throws XAException {
+activemq-ra/src/main/java/org/apache/activemq/ra/ActiveMQResourceAdapter.java,352,XAException xaException = new XAException(e.getMessage());
+activemq-ra/src/main/java/org/apache/activemq/ra/ActiveMQResourceAdapter.java,353,xaException.errorCode = XAException.XAER_RMFAIL;
+activemq-ra/src/main/java/org/apache/activemq/ra/ActiveMQResourceAdapter.java,354,throw xaException;
+activemq-ra/src/main/java/org/apache/activemq/ra/ActiveMQResourceAdapter.java,357,private ActiveMQConnection newConnection() throws JMSException {
+activemq-ra/src/main/java/org/apache/activemq/ra/ActiveMQResourceAdapter.java,358,ActiveMQConnection connection = null;
+activemq-ra/src/main/java/org/apache/activemq/ra/ActiveMQResourceAdapter.java,359,try {
+activemq-ra/src/main/java/org/apache/activemq/ra/ActiveMQResourceAdapter.java,360,connection = makeConnection();
+activemq-ra/src/main/java/org/apache/activemq/ra/ActiveMQResourceAdapter.java,361,connection.start();
+activemq-ra/src/main/java/org/apache/activemq/ra/ActiveMQResourceAdapter.java,363,if (connection != null) {
+activemq-ra/src/main/java/org/apache/activemq/ra/ActiveMQResourceAdapter.java,364,try {
+activemq-ra/src/main/java/org/apache/activemq/ra/ActiveMQResourceAdapter.java,365,connection.close();
+activemq-ra/src/main/java/org/apache/activemq/ra/ActiveMQResourceAdapter.java,368,throw ex;
+activemq-ra/src/main/java/org/apache/activemq/ra/ActiveMQResourceAdapter.java,370,return connection;
+activemq-ra/src/main/java/org/apache/activemq/ra/ActiveMQResourceAdapter.java,373,private void closeConnection(ActiveMQConnection original) {
+activemq-ra/src/main/java/org/apache/activemq/ra/ActiveMQResourceAdapter.java,374,ActiveMQConnection connection = getConnection();
+activemq-ra/src/main/java/org/apache/activemq/ra/ActiveMQResourceAdapter.java,375,if (connection != null) {
+activemq-ra/src/main/java/org/apache/activemq/ra/ActiveMQResourceAdapter.java,376,try {
+activemq-ra/src/main/java/org/apache/activemq/ra/ActiveMQResourceAdapter.java,377,connection.close();
+activemq-ra/src/main/java/org/apache/activemq/ra/ActiveMQResourceAdapter.java,380,setConnection(original);
+activemq-mqtt/src/main/java/org/apache/activemq/transport/mqtt/MQTTProtocolConverter.java,653,boolean willSent = false;
+activemq-mqtt/src/main/java/org/apache/activemq/transport/mqtt/MQTTProtocolConverter.java,655,if (connect != null) {
+activemq-mqtt/src/main/java/org/apache/activemq/transport/mqtt/MQTTProtocolConverter.java,656,if (connected.get()) {
+activemq-mqtt/src/main/java/org/apache/activemq/transport/mqtt/MQTTProtocolConverter.java,657,if (connect.willTopic() != null && connect.willMessage() != null && !willSent) {
+activemq-mqtt/src/main/java/org/apache/activemq/transport/mqtt/MQTTProtocolConverter.java,658,willSent = true;
+activemq-mqtt/src/main/java/org/apache/activemq/transport/mqtt/MQTTProtocolConverter.java,659,try {
+activemq-mqtt/src/main/java/org/apache/activemq/transport/mqtt/MQTTProtocolConverter.java,660,PUBLISH publish = new PUBLISH();
+activemq-mqtt/src/main/java/org/apache/activemq/transport/mqtt/MQTTProtocolConverter.java,661,publish.topicName(connect.willTopic());
+activemq-mqtt/src/main/java/org/apache/activemq/transport/mqtt/MQTTProtocolConverter.java,662,publish.qos(connect.willQos());
+activemq-mqtt/src/main/java/org/apache/activemq/transport/mqtt/MQTTProtocolConverter.java,663,publish.messageId(packetIdGenerator.getNextSequenceId(getClientId()));
+activemq-mqtt/src/main/java/org/apache/activemq/transport/mqtt/MQTTProtocolConverter.java,664,publish.payload(connect.willMessage());
+activemq-mqtt/src/main/java/org/apache/activemq/transport/mqtt/MQTTProtocolConverter.java,665,publish.retain(connect.willRetain());
+activemq-mqtt/src/main/java/org/apache/activemq/transport/mqtt/MQTTProtocolConverter.java,666,ActiveMQMessage message = convertMessage(publish);
+activemq-mqtt/src/main/java/org/apache/activemq/transport/mqtt/MQTTProtocolConverter.java,667,message.setProducerId(producerId);
+activemq-mqtt/src/main/java/org/apache/activemq/transport/mqtt/MQTTProtocolConverter.java,668,message.onSend();
+activemq-mqtt/src/main/java/org/apache/activemq/transport/mqtt/MQTTProtocolConverter.java,670,sendToActiveMQ(message, null);
+activemq-mqtt/src/main/java/org/apache/activemq/transport/mqtt/MQTTProtocolConverter.java,672,LOG.warn("Failed to publish Will Message " + connect.willMessage());
+activemq-mqtt/src/main/java/org/apache/activemq/transport/mqtt/MQTTProtocolConverter.java,676,sendToActiveMQ(connectionInfo.createRemoveCommand(), null);
+activemq-broker/src/main/java/org/apache/activemq/store/memory/MemoryMessageStore.java,140,lastBatchId = messageId;
+activemq-broker/src/main/java/org/apache/activemq/broker/region/virtual/VirtualDestinationInterceptor.java,81,public synchronized void create(Broker broker, ConnectionContext context, ActiveMQDestination destination) throws Exception {
+activemq-broker/src/main/java/org/apache/activemq/broker/region/virtual/VirtualDestinationInterceptor.java,88,public synchronized void remove(Destination destination) {
+activemq-broker/src/main/java/org/apache/activemq/store/PersistenceAdapter.java,190,void checkpoint(boolean sync) throws IOException;
+activemq-kahadb-store/src/main/java/org/apache/activemq/store/kahadb/AbstractKahaDBStore.java,669,LOG.info("periodic checkpoint/cleanup disabled, will ocurr on clean shutdown/restart");
+activemq-kahadb-store/src/main/java/org/apache/activemq/store/kahadb/KahaDBPersistenceAdapter.java,87,public void checkpoint(boolean sync) throws IOException {
+activemq-kahadb-store/src/main/java/org/apache/activemq/store/kahadb/KahaDBPersistenceAdapter.java,88,this.letter.checkpoint(sync);
+activemq-kahadb-store/src/main/java/org/apache/activemq/store/kahadb/MessageDatabase.java,372,LOG.info("periodic checkpoint/cleanup disabled, will ocurr on clean shutdown/restart");
+activemq-kahadb-store/src/main/java/org/apache/activemq/store/kahadb/MessageDatabase.java,504,checkpointUpdate(true);
+activemq-kahadb-store/src/main/java/org/apache/activemq/store/kahadb/MessageDatabase.java,1139,if (scheduler == null && opened.get()) {
+activemq-kahadb-store/src/main/java/org/apache/activemq/store/kahadb/MessageDatabase.java,1140,startCheckpoint();
+activemq-kahadb-store/src/main/java/org/apache/activemq/store/kahadb/MultiKahaDBPersistenceAdapter.java,176,public void checkpoint(final boolean sync) throws IOException {
+activemq-kahadb-store/src/main/java/org/apache/activemq/store/kahadb/MultiKahaDBPersistenceAdapter.java,178,persistenceAdapter.checkpoint(sync);
+activemq-kahadb-store/src/main/java/org/apache/activemq/store/kahadb/scheduler/JobSchedulerStoreImpl.java,233,checkpointUpdate(true);
+activemq-broker/src/main/java/org/apache/activemq/broker/region/policy/AbortSlowAckConsumerStrategy.java,19,import java.util.ArrayList;
+activemq-broker/src/main/java/org/apache/activemq/broker/region/policy/AbortSlowAckConsumerStrategy.java,20,import java.util.HashMap;
+activemq-broker/src/main/java/org/apache/activemq/broker/region/policy/AbortSlowAckConsumerStrategy.java,21,import java.util.List;
+activemq-broker/src/main/java/org/apache/activemq/broker/region/policy/AbortSlowAckConsumerStrategy.java,22,import java.util.Map;
+activemq-broker/src/main/java/org/apache/activemq/broker/region/policy/AbortSlowAckConsumerStrategy.java,76,if (getMaxSlowDuration() > 0) {
+activemq-broker/src/main/java/org/apache/activemq/broker/region/policy/AbortSlowAckConsumerStrategy.java,79,for (SlowConsumerEntry entry : slowConsumers.values()) {
+activemq-broker/src/main/java/org/apache/activemq/broker/region/policy/AbortSlowAckConsumerStrategy.java,80,entry.mark();
+activemq-kahadb-store/src/main/java/org/apache/activemq/store/kahadb/MessageDatabase.java,68,import org.apache.activemq.command.MessageAck;
+activemq-kahadb-store/src/main/java/org/apache/activemq/store/kahadb/MessageDatabase.java,2006,if (journalToAdvance == -1 || journalToAdvance == journal.getCurrentDataFileId()) {
+activemq-kahadb-store/src/main/java/org/apache/activemq/store/kahadb/MessageDatabase.java,2047,LOG.trace("Attempting to move all acks in journal:{} to the front.", journalToRead);
+activemq-broker/src/main/java/org/apache/activemq/broker/region/BaseDestination.java,874,public void duplicateFromStore(Message message, Subscription durableSub) {
+activemq-broker/src/main/java/org/apache/activemq/broker/region/BaseDestination.java,876,getLog().warn("duplicate message from store {}, redirecting for dlq processing", message.getMessageId());
+activemq-broker/src/main/java/org/apache/activemq/broker/region/BaseDestination.java,877,Throwable cause = new Throwable("duplicate from store for " + destination);
+activemq-broker/src/main/java/org/apache/activemq/broker/region/BaseDestination.java,883,acknowledge(connectionContext, durableSub, messageAck, message);
+activemq-broker/src/main/java/org/apache/activemq/broker/util/RedeliveryPlugin.java,131,if (messageReference.isExpired()) {
+activemq-broker/src/main/java/org/apache/activemq/broker/BrokerService.java,1771,if (tempDataStore == null) {
+activemq-broker/src/main/java/org/apache/activemq/broker/BrokerService.java,1932,if (jobSchedulerStore == null) {
+activemq-client/src/main/java/org/apache/activemq/broker/SslContext.java,120,if( sslContext == null ) {
+activemq-client/src/main/java/org/apache/activemq/broker/SslContext.java,121,if( provider == null ) {
+activemq-client/src/main/java/org/apache/activemq/broker/SslContext.java,122,sslContext = SSLContext.getInstance(protocol);
+activemq-client/src/main/java/org/apache/activemq/broker/SslContext.java,124,sslContext = SSLContext.getInstance(protocol, provider);
+activemq-client/src/main/java/org/apache/activemq/broker/SslContext.java,126,sslContext.init(getKeyManagersAsArray(), getTrustManagersAsArray(), getSecureRandom());
+activemq-client/src/main/java/org/apache/activemq/broker/SslContext.java,130,public void setSSLContext(SSLContext sslContext) {
+activemq-broker/src/main/java/org/apache/activemq/broker/region/cursors/AbstractStoreCursor.java,142,((Future) possibleFuture).get();
+activemq-broker/src/main/java/org/apache/activemq/broker/region/cursors/AbstractStoreCursor.java,345,if (future.isCancelled()) {
+activemq-broker/src/main/java/org/apache/activemq/broker/region/cursors/AbstractStoreCursor.java,346,it.remove();
+activemq-client/src/main/java/org/apache/activemq/ActiveMQSession.java,1044,LOG.error("error dispatching message: ", e);
+activemq-client/src/main/java/org/apache/activemq/ActiveMQSession.java,1046,if (getTransactionContext().isInXATransaction()) {
+activemq-client/src/main/java/org/apache/activemq/ActiveMQSession.java,2169,return "ActiveMQSession {id=" + info.getSessionId() + ",started=" + started.get() + "} " + sendMutex;
+activemq-ra/src/main/java/org/apache/activemq/ra/ActiveMQEndpointWorker.java,286,serverSessionPool.close();
+activemq-ra/src/main/java/org/apache/activemq/ra/ServerSessionImpl.java,108,return stale || !session.isRunning();
+activemq-ra/src/main/java/org/apache/activemq/ra/ServerSessionImpl.java,162,log.debug("Running");
+activemq-ra/src/main/java/org/apache/activemq/ra/ServerSessionImpl.java,165,log.debug("run loop start");
+activemq-ra/src/main/java/org/apache/activemq/ra/ServerSessionImpl.java,168,if ( session.isRunning() ) {
+activemq-ra/src/main/java/org/apache/activemq/ra/ServerSessionImpl.java,177,log.debug("Endpoint {} failed to process message.", session, e);
+activemq-ra/src/main/java/org/apache/activemq/ra/ServerSessionImpl.java,179,log.info("Endpoint {} failed to process message. Reason: " + e.getMessage(), session);
+activemq-ra/src/main/java/org/apache/activemq/ra/ServerSessionImpl.java,193,log.debug("Session has no unconsumed message, returning to pool");
+activemq-ra/src/main/java/org/apache/activemq/ra/ServerSessionImpl.java,200,log.debug("Run finished");
+activemq-ra/src/main/java/org/apache/activemq/ra/ServerSessionPoolImpl.java,197,activeSessions.remove(ss);
+activemq-ra/src/main/java/org/apache/activemq/ra/ServerSessionPoolImpl.java,229,if (!l.isEmpty()) {
+activemq-client/src/main/java/org/apache/activemq/ActiveMQXASession.java,71,public boolean getTransacted() throws JMSException {
+activemq-client/src/main/java/org/apache/activemq/ActiveMQXASession.java,72,checkClosed();
+activemq-client/src/main/java/org/apache/activemq/ActiveMQXASession.java,73,return getTransactionContext().isInXATransaction();
+activemq-client/src/main/java/org/apache/activemq/ActiveMQXASession.java,105,public boolean isAutoAcknowledge() {
+activemq-client/src/main/java/org/apache/activemq/ActiveMQXASession.java,106,return true;
+activemq-broker/src/main/java/org/apache/activemq/broker/region/Queue.java,146,private final Runnable expireMessagesTask = new Runnable() {
+activemq-broker/src/main/java/org/apache/activemq/broker/region/RegionBroker.java,118,purgeInactiveDestinations();
+activemq-broker/src/main/java/org/apache/activemq/broker/region/Topic.java,787,private final Runnable expireMessagesTask = new Runnable() {
+activemq-broker/src/main/java/org/apache/activemq/broker/region/Queue.java,1283,if (getMessages().getMessageAudit() != null) {
+activemq-broker/src/main/java/org/apache/activemq/broker/region/Queue.java,1284,getMessages().getMessageAudit().clear();
+activemq-broker/src/main/java/org/apache/activemq/broker/region/cursors/AbstractPendingMessageCursor.java,49,private boolean started=false;
+activemq-broker/src/main/java/org/apache/activemq/broker/region/cursors/StoreQueueCursor.java,38,private boolean started;
+activemq-broker/src/main/java/org/apache/activemq/broker/region/cursors/AbstractPendingMessageCursor.java,48,private boolean cacheEnabled=true;
+activemq-jdbc-store/src/main/java/org/apache/activemq/store/jdbc/JDBCPersistenceAdapter.java,779,public void commitAdd(ConnectionContext context, MessageId messageId, long preparedSequenceId) throws IOException {
+activemq-jdbc-store/src/main/java/org/apache/activemq/store/jdbc/JDBCPersistenceAdapter.java,782,long sequence = (Long)messageId.getEntryLocator();
+activemq-jdbc-store/src/main/java/org/apache/activemq/store/jdbc/JDBCPersistenceAdapter.java,783,getAdapter().doCommitAddOp(c, preparedSequenceId, sequence);
+activemq-jdbc-store/src/main/java/org/apache/activemq/store/jdbc/JdbcMemoryTransactionStore.java,87,persistenceAdapter.commitTransaction(ctx);
+activemq-jdbc-store/src/main/java/org/apache/activemq/store/jdbc/JdbcMemoryTransactionStore.java,132,message.getMessageId().setEntryLocator(jdbcPersistenceAdapter.getNextSequenceId());
+activemq-jdbc-store/src/main/java/org/apache/activemq/store/jdbc/JdbcMemoryTransactionStore.java,137,message.getMessageId().setFutureOrSequenceLong(message.getMessageId().getEntryLocator());
+activemq-jdbc-store/src/main/java/org/apache/activemq/store/jdbc/JdbcMemoryTransactionStore.java,146,jdbcPersistenceAdapter.commitAdd(context, message.getMessageId(), preparedEntrySequence);
+activemq-jdbc-store/src/main/java/org/apache/activemq/store/jdbc/JdbcMemoryTransactionStore.java,181,((JDBCPersistenceAdapter) persistenceAdapter).commitAdd(ctx, messageId, (Long)messageId.getEntryLocator());
+activemq-jdbc-store/src/main/java/org/apache/activemq/store/jdbc/TransactionContext.java,87,close();
+activemq-jdbc-store/src/main/java/org/apache/activemq/store/jdbc/TransactionContext.java,155,try {
+activemq-jdbc-store/src/main/java/org/apache/activemq/store/jdbc/TransactionContext.java,158,if (connection != null && !connection.getAutoCommit()) {
+activemq-jdbc-store/src/main/java/org/apache/activemq/store/jdbc/TransactionContext.java,169,try {
+activemq-jdbc-store/src/main/java/org/apache/activemq/store/jdbc/TransactionContext.java,170,if (connection != null) {
+activemq-jdbc-store/src/main/java/org/apache/activemq/store/jdbc/TransactionContext.java,171,connection.close();
+activemq-jdbc-store/src/main/java/org/apache/activemq/store/jdbc/TransactionContext.java,175,LOG.trace("Closing connection failed due: " + e.getMessage() + ". This exception is ignored.", e);
+activemq-jdbc-store/src/main/java/org/apache/activemq/store/jdbc/TransactionContext.java,177,connection = null;
+activemq-jdbc-store/src/main/java/org/apache/activemq/store/jdbc/TransactionContext.java,201,if (!connection.getAutoCommit()) {
+activemq-jdbc-store/src/main/java/org/apache/activemq/store/jdbc/TransactionContext.java,233,private void doRollback() throws SQLException {
+activemq-jdbc-store/src/main/java/org/apache/activemq/store/jdbc/TransactionContext.java,234,if (addMessageStatement != null) {
+activemq-jdbc-store/src/main/java/org/apache/activemq/store/jdbc/TransactionContext.java,235,addMessageStatement.close();
+activemq-jdbc-store/src/main/java/org/apache/activemq/store/jdbc/TransactionContext.java,236,addMessageStatement = null;
+activemq-jdbc-store/src/main/java/org/apache/activemq/store/jdbc/TransactionContext.java,238,if (removedMessageStatement != null) {
+activemq-jdbc-store/src/main/java/org/apache/activemq/store/jdbc/TransactionContext.java,239,removedMessageStatement.close();
+activemq-jdbc-store/src/main/java/org/apache/activemq/store/jdbc/TransactionContext.java,240,removedMessageStatement = null;
+activemq-jdbc-store/src/main/java/org/apache/activemq/store/jdbc/TransactionContext.java,242,if (updateLastAckStatement != null) {
+activemq-jdbc-store/src/main/java/org/apache/activemq/store/jdbc/TransactionContext.java,243,updateLastAckStatement.close();
+activemq-jdbc-store/src/main/java/org/apache/activemq/store/jdbc/TransactionContext.java,244,updateLastAckStatement = null;
+activemq-kahadb-store/src/main/java/org/apache/activemq/store/kahadb/MultiKahaDBTransactionStore.java,192,private final Set<TransactionStore> stores = new HashSet<TransactionStore>();
+activemq-kahadb-store/src/main/java/org/apache/activemq/store/kahadb/MultiKahaDBTransactionStore.java,196,stores.add(store);
+activemq-kahadb-store/src/main/java/org/apache/activemq/store/kahadb/MultiKahaDBTransactionStore.java,199,public Set<TransactionStore> getStores() {
+activemq-kahadb-store/src/main/java/org/apache/activemq/store/kahadb/MultiKahaDBTransactionStore.java,243,for (TransactionStore store : tx.getStores()) {
+activemq-kahadb-store/src/main/java/org/apache/activemq/store/kahadb/MultiKahaDBTransactionStore.java,244,store.commit(txid, true, null, null);
+activemq-kahadb-store/src/main/java/org/apache/activemq/store/kahadb/MultiKahaDBTransactionStore.java,292,for (TransactionStore store : tx.getStores()) {
+activemq-kahadb-store/src/main/java/org/apache/activemq/store/kahadb/MultiKahaDBTransactionStore.java,293,store.rollback(txid);
+activemq-kahadb-store/src/main/java/org/apache/activemq/store/kahadb/MultiKahaDBTransactionStore.java,390,getTx(xid).trackStore(adapter.createTransactionStore());
+activemq-broker/src/main/java/org/apache/activemq/broker/TransactionBroker.java,30,import org.apache.activemq.ActiveMQMessageAudit;
+activemq-broker/src/main/java/org/apache/activemq/broker/TransactionBroker.java,85,final ConnectionContext context = new ConnectionContext();
+activemq-broker/src/main/java/org/apache/activemq/broker/TransactionBroker.java,131,Destination destination =  addDestination(context, amqDestination, false);
+activemq-broker/src/main/java/org/apache/activemq/broker/TransactionBroker.java,132,registerSync(destination, transaction, ack);
+activemq-broker/src/main/java/org/apache/activemq/broker/TransactionBroker.java,135,private void registerSync(Destination destination, Transaction transaction, BaseCommand command) {
+activemq-broker/src/main/java/org/apache/activemq/broker/TransactionBroker.java,136,Synchronization sync = new PreparedDestinationCompletion(destination, command.isMessage());
+activemq-broker/src/main/java/org/apache/activemq/broker/TransactionBroker.java,147,final Destination destination;
+activemq-broker/src/main/java/org/apache/activemq/broker/TransactionBroker.java,150,public PreparedDestinationCompletion(final Destination destination, boolean messageSend) {
+activemq-broker/src/main/java/org/apache/activemq/broker/TransactionBroker.java,176,destination.clearPendingMessages();
+activemq-broker/src/main/java/org/apache/activemq/broker/TransactionBroker.java,184,destination.clearPendingMessages();
+activemq-broker/src/main/java/org/apache/activemq/broker/TransactionBroker.java,185,destination.getDestinationStatistics().getEnqueues().add(opCount);
+activemq-broker/src/main/java/org/apache/activemq/broker/TransactionBroker.java,186,destination.getDestinationStatistics().getMessages().add(opCount);
+activemq-broker/src/main/java/org/apache/activemq/broker/TransactionBroker.java,189,destination.getDestinationStatistics().getDequeues().add(opCount);
+activemq-broker/src/main/java/org/apache/activemq/broker/TransactionBroker.java,190,destination.getDestinationStatistics().getMessages().subtract(opCount);
+activemq-broker/src/main/java/org/apache/activemq/broker/region/Destination.java,242,public void clearPendingMessages();
+activemq-broker/src/main/java/org/apache/activemq/broker/region/DestinationFilter.java,382,public void clearPendingMessages() {
+activemq-broker/src/main/java/org/apache/activemq/broker/region/DestinationFilter.java,383,next.clearPendingMessages();
+activemq-broker/src/main/java/org/apache/activemq/broker/region/PrefetchSubscription.java,463,dispatched.remove(node);
+activemq-broker/src/main/java/org/apache/activemq/broker/region/PrefetchSubscription.java,464,getSubscriptionStatistics().getInflightMessageSize().addSize(-node.getSize());
+activemq-broker/src/main/java/org/apache/activemq/broker/region/PrefetchSubscription.java,465,nodeDest.getDestinationStatistics().getInflight().decrement();
+activemq-broker/src/main/java/org/apache/activemq/broker/region/Queue.java,1296,public void clearPendingMessages() {
+activemq-broker/src/main/java/org/apache/activemq/broker/region/Topic.java,852,public void clearPendingMessages() {
+activemq-broker/src/main/java/org/apache/activemq/broker/region/cursors/AbstractStoreCursor.java,82,resetSize();
+activemq-broker/src/main/java/org/apache/activemq/broker/region/cursors/AbstractStoreCursor.java,391,setCacheEnabled(false);
+activemq-broker/src/main/java/org/apache/activemq/store/ProxyTopicMessageStore.java,32,public class ProxyTopicMessageStore implements TopicMessageStore {
+activemq-broker/src/main/java/org/apache/activemq/store/ProxyTopicMessageStore.java,34,final TopicMessageStore delegate;
+activemq-broker/src/main/java/org/apache/activemq/store/ProxyTopicMessageStore.java,37,this.delegate = delegate;
+activemq-broker/src/main/java/org/apache/activemq/store/ProxyTopicMessageStore.java,86,return delegate.lookupSubscription(clientId, subscriptionName);
+activemq-broker/src/main/java/org/apache/activemq/store/ProxyTopicMessageStore.java,92,delegate.acknowledge(context, clientId, subscriptionName, messageId, ack);
+activemq-broker/src/main/java/org/apache/activemq/store/ProxyTopicMessageStore.java,97,delegate.addSubscription(subscriptionInfo, retroactive);
+activemq-broker/src/main/java/org/apache/activemq/store/ProxyTopicMessageStore.java,102,delegate.deleteSubscription(clientId, subscriptionName);
+activemq-broker/src/main/java/org/apache/activemq/store/ProxyTopicMessageStore.java,108,delegate.recoverSubscription(clientId, subscriptionName, listener);
+activemq-broker/src/main/java/org/apache/activemq/store/ProxyTopicMessageStore.java,114,delegate.recoverNextMessages(clientId, subscriptionName, maxReturned, listener);
+activemq-broker/src/main/java/org/apache/activemq/store/ProxyTopicMessageStore.java,119,delegate.resetBatching(clientId, subscriptionName);
+activemq-broker/src/main/java/org/apache/activemq/store/ProxyTopicMessageStore.java,129,return delegate.getAllSubscriptions();
+activemq-broker/src/main/java/org/apache/activemq/store/ProxyTopicMessageStore.java,139,return delegate.getMessageCount(clientId, subscriberName);
+activemq-broker/src/main/java/org/apache/activemq/store/ProxyTopicMessageStore.java,233,return delegate.getMessageSize(clientId, subscriberName);
+activemq-broker/src/main/java/org/apache/activemq/store/ProxyTopicMessageStore.java,238,return delegate.getMessageStoreSubStatistics();
+activemq-broker/src/main/java/org/apache/activemq/store/memory/MemoryTransactionStore.java,113,persistenceAdapter.commitTransaction(ctx);
+activemq-broker/src/main/java/org/apache/activemq/store/memory/MemoryTransactionStore.java,264,tx = preparedTransactions.remove(txid);
+activemq-broker/src/main/java/org/apache/activemq/transaction/XATransaction.java,75,setStateFinished();
+activemq-broker/src/main/java/org/apache/activemq/transaction/XATransaction.java,91,LOG.warn("Store COMMIT FAILED: ", t);
+activemq-broker/src/main/java/org/apache/activemq/transaction/XATransaction.java,92,rollback();
+activemq-broker/src/main/java/org/apache/activemq/transaction/XATransaction.java,93,XAException xae = newXAException("STORE COMMIT FAILED: Transaction rolled back", XAException.XA_RBOTHER);
+activemq-broker/src/main/java/org/apache/activemq/util/DefaultIOExceptionHandler.java,123,queue.clearPendingMessages();
+activemq-jdbc-store/src/main/java/org/apache/activemq/store/jdbc/JDBCPersistenceAdapter.java,87,private MemoryTransactionStore transactionStore;
+activemq-jdbc-store/src/main/java/org/apache/activemq/store/jdbc/JDBCPersistenceAdapter.java,194,MessageStore rc = new JDBCMessageStore(this, getAdapter(), wireFormat, destination, audit);
+activemq-jdbc-store/src/main/java/org/apache/activemq/store/jdbc/JDBCPersistenceAdapter.java,195,if (transactionStore != null) {
+activemq-jdbc-store/src/main/java/org/apache/activemq/store/jdbc/JDBCPersistenceAdapter.java,196,rc = transactionStore.proxy(rc);
+activemq-jdbc-store/src/main/java/org/apache/activemq/store/jdbc/JDBCPersistenceAdapter.java,203,TopicMessageStore rc = new JDBCTopicMessageStore(this, getAdapter(), wireFormat, destination, audit);
+activemq-jdbc-store/src/main/java/org/apache/activemq/store/jdbc/JDBCPersistenceAdapter.java,204,if (transactionStore != null) {
+activemq-jdbc-store/src/main/java/org/apache/activemq/store/jdbc/JDBCPersistenceAdapter.java,205,rc = transactionStore.proxy(rc);
+activemq-jdbc-store/src/main/java/org/apache/activemq/store/jdbc/JDBCPersistenceAdapter.java,250,if (transactionStore == null) {
+activemq-jdbc-store/src/main/java/org/apache/activemq/store/jdbc/JDBCPersistenceAdapter.java,251,transactionStore = new JdbcMemoryTransactionStore(this);
+activemq-jdbc-store/src/main/java/org/apache/activemq/store/jdbc/JDBCTopicMessageStore.java,155,return perPriority[javax.jms.Message.DEFAULT_PRIORITY];
+activemq-jdbc-store/src/main/java/org/apache/activemq/store/jdbc/JDBCTopicMessageStore.java,324,recovered.perPriority[isPrioritizedMessages() ? priority : javax.jms.Message.DEFAULT_PRIORITY].recovered = sequenceId;
+activemq-jdbc-store/src/main/java/org/apache/activemq/store/jdbc/JdbcMemoryTransactionStore.java,21,import java.util.HashMap;
+activemq-jdbc-store/src/main/java/org/apache/activemq/store/jdbc/JdbcMemoryTransactionStore.java,33,import org.apache.activemq.store.ProxyTopicMessageStore;
+activemq-jdbc-store/src/main/java/org/apache/activemq/store/jdbc/JdbcMemoryTransactionStore.java,52,private HashMap<ActiveMQDestination, MessageStore> topicStores = new HashMap<ActiveMQDestination, MessageStore>();
+activemq-jdbc-store/src/main/java/org/apache/activemq/store/jdbc/JdbcMemoryTransactionStore.java,53,private HashMap<ActiveMQDestination, MessageStore> queueStores = new HashMap<ActiveMQDestination, MessageStore>();
+activemq-jdbc-store/src/main/java/org/apache/activemq/store/jdbc/JdbcMemoryTransactionStore.java,309,protected void onProxyTopicStore(ProxyTopicMessageStore proxyTopicMessageStore) {
+activemq-jdbc-store/src/main/java/org/apache/activemq/store/jdbc/JdbcMemoryTransactionStore.java,310,topicStores.put(proxyTopicMessageStore.getDestination(), proxyTopicMessageStore.getDelegate());
+activemq-jdbc-store/src/main/java/org/apache/activemq/store/jdbc/JdbcMemoryTransactionStore.java,314,protected void onProxyQueueStore(ProxyMessageStore proxyQueueMessageStore) {
+activemq-jdbc-store/src/main/java/org/apache/activemq/store/jdbc/JdbcMemoryTransactionStore.java,315,queueStores.put(proxyQueueMessageStore.getDestination(), proxyQueueMessageStore.getDelegate());
+activemq-jdbc-store/src/main/java/org/apache/activemq/store/jdbc/JdbcMemoryTransactionStore.java,323,JDBCTopicMessageStore jdbcTopicMessageStore = (JDBCTopicMessageStore) topicStores.get(lastAckCommand.getMessageAck().getDestination());
+activemq-jdbc-store/src/main/java/org/apache/activemq/store/jdbc/JdbcMemoryTransactionStore.java,330,((JDBCPersistenceAdapter)persistenceAdapter).getBrokerService().getRegionBroker().getDestinationMap().get(removeMessageCommand.getMessageAck().getDestination()).getDestinationStatistics().getMessages().increment();
+activemq-jdbc-store/src/main/java/org/apache/activemq/store/jdbc/JdbcMemoryTransactionStore.java,334,ActiveMQDestination destination = addMessageCommand.getMessage().getDestination();
+activemq-jdbc-store/src/main/java/org/apache/activemq/store/jdbc/JdbcMemoryTransactionStore.java,335,addMessageCommand.setMessageStore(destination.isQueue() ? queueStores.get(destination) : topicStores.get(destination));
+activemq-kahadb-store/src/main/java/org/apache/activemq/store/kahadb/MessageDatabase.java,3024,protected final Set<String> ackedAndPrepared = new HashSet<>();
+activemq-kahadb-store/src/main/java/org/apache/activemq/store/kahadb/MessageDatabase.java,3025,protected final Set<String> rolledBackAcks = new HashSet<>();
+activemq-kahadb-store/src/main/java/org/apache/activemq/store/kahadb/MessageDatabase.java,3030,public void trackRecoveredAcks(ArrayList<MessageAck> acks) {
+activemq-kahadb-store/src/main/java/org/apache/activemq/store/kahadb/MessageDatabase.java,3031,this.indexLock.writeLock().lock();
+activemq-kahadb-store/src/main/java/org/apache/activemq/store/kahadb/MessageDatabase.java,3032,try {
+activemq-kahadb-store/src/main/java/org/apache/activemq/store/kahadb/MessageDatabase.java,3033,for (MessageAck ack : acks) {
+activemq-kahadb-store/src/main/java/org/apache/activemq/store/kahadb/MessageDatabase.java,3034,ackedAndPrepared.add(ack.getLastMessageId().toProducerKey());
+activemq-kahadb-store/src/main/java/org/apache/activemq/store/kahadb/MessageDatabase.java,3037,this.indexLock.writeLock().unlock();
+activemq-kahadb-store/src/main/java/org/apache/activemq/store/kahadb/MessageDatabase.java,3041,public void forgetRecoveredAcks(ArrayList<MessageAck> acks, boolean rollback) throws IOException {
+activemq-kahadb-store/src/main/java/org/apache/activemq/store/kahadb/MessageDatabase.java,3042,if (acks != null) {
+activemq-kahadb-store/src/main/java/org/apache/activemq/store/kahadb/MessageDatabase.java,3043,this.indexLock.writeLock().lock();
+activemq-kahadb-store/src/main/java/org/apache/activemq/store/kahadb/MessageDatabase.java,3044,try {
+activemq-kahadb-store/src/main/java/org/apache/activemq/store/kahadb/MessageDatabase.java,3045,for (MessageAck ack : acks) {
+activemq-kahadb-store/src/main/java/org/apache/activemq/store/kahadb/MessageDatabase.java,3046,final String id = ack.getLastMessageId().toProducerKey();
+activemq-kahadb-store/src/main/java/org/apache/activemq/store/kahadb/MessageDatabase.java,3047,ackedAndPrepared.remove(id);
+activemq-kahadb-store/src/main/java/org/apache/activemq/store/kahadb/MessageDatabase.java,3048,if (rollback) {
+activemq-kahadb-store/src/main/java/org/apache/activemq/store/kahadb/MessageDatabase.java,3049,rolledBackAcks.add(id);
+activemq-kahadb-store/src/main/java/org/apache/activemq/store/kahadb/MessageDatabase.java,3053,this.indexLock.writeLock().unlock();
+activemq-jdbc-store/src/main/java/org/apache/activemq/store/jdbc/JdbcMemoryTransactionStore.java,208,Message msg = (Message) ((JDBCPersistenceAdapter)persistenceAdapter).getWireFormat().unmarshal(new ByteSequence(message));
+activemq-jdbc-store/src/main/java/org/apache/activemq/store/jdbc/JdbcMemoryTransactionStore.java,213,tx.add(new RemoveMessageCommand() {
+activemq-jdbc-store/src/main/java/org/apache/activemq/store/jdbc/JdbcMemoryTransactionStore.java,226,return null;
+activemq-broker/src/main/java/org/apache/activemq/broker/TransportConnector.java,459,while (result && tokenizer.hasMoreTokens()) {
+activemq-broker/src/main/java/org/apache/activemq/broker/TransportConnector.java,470,boolean result = true;
+activemq-mqtt/src/main/java/org/apache/activemq/transport/mqtt/MQTTProtocolConverter.java,109,private final Map<Destination, String> mqttTopicMap = new LRUCache<Destination, String>(DEFAULT_CACHE_SIZE);
+activemq-mqtt/src/main/java/org/apache/activemq/transport/mqtt/MQTTProtocolConverter.java,597,topicName = mqttTopicMap.get(message.getJMSDestination());
+activemq-mqtt/src/main/java/org/apache/activemq/transport/mqtt/MQTTProtocolConverter.java,599,String amqTopicName = findSubscriptionStrategy().onSend(message.getDestination());
+activemq-mqtt/src/main/java/org/apache/activemq/transport/mqtt/MQTTProtocolConverter.java,601,mqttTopicMap.put(message.getJMSDestination(), topicName);
+activemq-kahadb-store/src/main/java/org/apache/activemq/store/kahadb/disk/page/PageFile.java,176,diskBoundLocation = -1;
+activemq-broker/src/main/java/org/apache/activemq/network/DemandForwardingBridgeSupport.java,921,serialExecutor.execute(new Runnable() {
+activemq-broker/src/main/java/org/apache/activemq/network/DemandForwardingBridgeSupport.java,923,public void run() {
+activemq-broker/src/main/java/org/apache/activemq/network/DemandForwardingBridgeSupport.java,924,try {
+activemq-broker/src/main/java/org/apache/activemq/network/DemandForwardingBridgeSupport.java,925,localBroker.oneway(destInfo);
+activemq-broker/src/main/java/org/apache/activemq/network/DemandForwardingBridgeSupport.java,927,LOG.warn("failed to deliver remove command for destination: {}", destInfo.getDestination(), e);
+activemq-broker/src/main/java/org/apache/activemq/network/DemandForwardingBridgeSupport.java,932,localBroker.oneway(destInfo);
+activemq-broker/src/main/java/org/apache/activemq/broker/region/AbstractRegion.java,270,throw new JMSException("Destination still has an active subscription: " + destination);
+activemq-broker/src/main/java/org/apache/activemq/network/DemandForwardingBridgeSupport.java,1049,protected void addSubscription(DemandSubscription sub) throws IOException {
+activemq-broker/src/main/java/org/apache/activemq/network/DemandForwardingBridgeSupport.java,1051,localBroker.oneway(sub.getLocalInfo());
