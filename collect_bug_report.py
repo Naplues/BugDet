@@ -10,7 +10,7 @@ def collect_bugs(proj):
     """
     Collect Bug reports data from JIRA ITS
     """
-    jira = JIRA(server="https://issues.apache.org/jira/", auth=('naplues', '211314Ting'))
+    jira = JIRA(server="https://issues.apache.org/jira/", auth=('user', 'password'))
 
     statistics_path = root_path + '/BugReport/'
     reports_path = root_path + '/BugReport/reports/' + proj + '/'

@@ -45,6 +45,9 @@ def load_selected_branches(project: str):
     :param project:
     :return:
     """
+
+    checkout_all_remote_branches(project)
+
     make_path(analysis_file_paths[project])
     branch_file = f'{analysis_file_paths[project]}/branch.txt'
 

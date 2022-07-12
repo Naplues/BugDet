@@ -48,16 +48,16 @@ def collect_dataset():
         # Change current directory to Root/Repository/ambari/
         os.chdir(code_repos_paths[proj])
         # 2. branch information
-        checkout_all_remote_branches(proj)
         branches = load_selected_branches(proj)
         # prepare steps before extracting info
         preprocessing_step(proj, branches)
         # main steps to extract bug info
-        # main_steps_for_each_branch(proj, branches)
+        main_steps_for_each_branch(proj, branches)
         # combine bug info from all branches
-        combine_bug_info_from_all_branch(proj)
+        # combine_bug_info_from_all_branch(proj)
+        # combine_tmp_bug_info_from_all_branch(proj)
         # Link bug id and buggy files and buggy lines
-        link_bug_with_files_and_lines(proj)
+        # link_bug_with_files_and_lines(proj)
 
 
 if __name__ == '__main__':
