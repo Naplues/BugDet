@@ -4,17 +4,17 @@ from helper.config import *
 
 
 def fun(proj):
+    rt_path = f'D:/CLDP_data/DataCollection/'
     # The number of refactoring lines
-    path = f'D:/CLDP_data/DataCollection/Refactor/{proj}/refactor-{proj}.txt'
     refactor_lines = []
-    lines = read_data_from_file(path)
+    lines = read_data_from_file(f'{rt_path}Refactor/{proj}/refactor-{proj}.txt')
     for line in lines:
         if line.strip().endswith(')'):
             s = line.strip().split('\t')[1].split(' at ')[-1][:-1]
             refactor_lines.append(s) if s not in refactor_lines else None
 
     # The number of BFC lines
-    path = f'D:/CLDP_data/DataCollection/Analysis/{proj}/'
+    path = f'{rt_path}/Analysis/{proj}/'
     BFC_lines_number = 0
     for branch in os.listdir(path):
         if os.path.exists(f'{path}{branch}/bug_commits_lines_info.csv'):
@@ -30,25 +30,8 @@ def fun(proj):
 
 if __name__ == '__main__':
     projects = [
-        'ambari',  # ok
-        'amq',  # ok activemq
-        'bookkeeper',
-        'calcite',  # ok
-        'cassandra',  # ok
-        'flink',
-        'groovy',  # ok
-        'hbase',
-        'hive',  # ok
-        'ignite',  # ok
-        'log4j2',  # logging-log4j2
-        'mahout',  # ok
-        'mng',  # maven
-        'nifi',
-        'nutch',
-        'storm',
-        'tika',
-        'ww',  # struts
-        'zookeeper',  # ok
+        'ambari', 'amq', 'bookkeeper', 'calcite', 'cassandra', 'flink', 'groovy', 'hbase', 'hive', 'ignite',
+        'log4j2', 'mahout', 'mng', 'nifi', 'nutch', 'storm', 'tika', 'ww', 'zookeeper',
     ]
     for project in projects:
         fun(project)
