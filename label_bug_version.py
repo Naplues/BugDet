@@ -7,6 +7,14 @@ tmp_dict = {}
 
 
 class Version(object):
+    """
+    Version information dict. OK.
+    commit id: commit id of the version
+    commit_version_name: version name of the version
+    commit_version_date: version date of the version
+    commit_version_next: next version date of the version
+    commit_version_branch: branch the version belongs to
+    """
 
     def __init__(self, project):
         self.commit_version_name = {}
@@ -22,22 +30,12 @@ class Version(object):
             self.commit_version_next[commit_id] = spices[3]
             self.commit_version_branch[commit_id] = spices[4]
 
-
-def get_version_info(project):
-    """
-    Get version information. commit id, version name, version date, next date, branch. OK.
-    :return:
-    """
-    commit_version_name, commit_version_date, commit_version_next, commit_version_branch = {}, {}, {}, {}
-    for line in read_data_from_file(version_file_paths[project])[1:]:
-        spices = line.strip().split(",")
-        commit_id = spices[0]
-        commit_version_name[commit_id] = spices[1]
-        commit_version_date[commit_id] = spices[2]
-        commit_version_next[commit_id] = spices[3]
-        commit_version_branch[commit_id] = spices[4]
-
-    return commit_version_name, commit_version_date, commit_version_next, commit_version_branch
+    def get_version_info(self):
+        """
+        Get version information. OK.
+        :return:
+        """
+        return self.commit_version_name, self.commit_version_date, self.commit_version_next, self.commit_version_branch
 
 
 def exclude_bugs_fixed_after_next_version(result, next_version_date):
@@ -75,7 +73,8 @@ def main_step_assign_bugs_for_each_version(project, branch_name, analysis_file_p
     last_cmd, diff = '', ''
     # 待测版本的commit id and version name
     lines = read_data_from_file(f'{analysis_file_path}/bug_commits_lines_info.csv')[1:]
-    version_name, v_date, v_next_date, version_to_branch = get_version_info(project)
+    version_info = Version(project)
+    version_name, v_date, v_next_date, version_to_branch = version_info.get_version_info()
     # 处理每个版本的数据
     for version_id, v_name in version_name.items():
         result = ["buggy_file,buggy_line_in_the_version,bug_inducing_commit,bug_fixing_commit"]
