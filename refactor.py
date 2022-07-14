@@ -19,7 +19,7 @@ def generate_refactor_info(proj):
             refactor_dict[cur_commit] = [] if line not in refactor_dict else refactor_dict[cur_commit]
         else:
             # Current line is a refactor line information
-            s = line.split('\t')[1].split(' at ')[-1][:-1]
+            s = line.split('\t')[1].split(' at ')[-1][:-1].replace(':', ',')
             refactor_list.append(s) if s not in refactor_list else None
             refactor_dict[cur_commit].append(s) if s not in refactor_dict[cur_commit] else None
 
