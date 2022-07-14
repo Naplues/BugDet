@@ -30,6 +30,12 @@ class Version(object):
             self.commit_version_next[commit_id] = spices[3]
             self.commit_version_branch[commit_id] = spices[4]
 
+    def get_version_name(self):
+        return self.commit_version_name
+
+    def get_version_branch(self):
+        return self.commit_version_branch
+
     def get_version_info(self):
         """
         Get version information. OK.
@@ -146,7 +152,7 @@ def main_step_assign_bugs_for_each_version(project, branch_name, analysis_file_p
 
 def combine_bug_info_from_all_branch(project):
     version_info = Version(project)
-    for commit_id, version_name in version_info.commit_version_name.items():
+    for commit_id, version_name in version_info.get_version_name().items():
         buggy_files, buggy_lines = [], []
         for branch in os.listdir(f'{dataset_paths[project]}'):
             # 查看csv结尾的文件
@@ -164,7 +170,7 @@ def combine_bug_info_from_all_branch(project):
         # There is no buggy files in this branch.
         if len(buggy_files) == 0:
             continue
-        branch_name = version_info.commit_version_branch[commit_id]
+        branch_name = version_info.get_version_branch()[commit_id]
         os.system(rf'git checkout -f {branch_name}')
         os.system(rf'git reset --hard {commit_id}')
         all_file_list = export_all_files_in_project(code_repos_paths[project] + '/')
@@ -210,7 +216,7 @@ def combine_bug_info_from_all_branch(project):
 
 def combine_tmp_bug_info_from_all_branch(project):
     version_info = Version(project)
-    for commit_id, version_name in version_info.commit_version_name.items():
+    for commit_id, version_name in version_info.get_version_name().items():
         buggy_files, buggy_lines = [], []
         for branch in os.listdir(f'{dataset_paths[project]}'):
             # 查看csv结尾的文件
@@ -228,7 +234,7 @@ def combine_tmp_bug_info_from_all_branch(project):
         # There is no buggy files in this branch.
         if len(buggy_files) == 0:
             continue
-        branch_name = version_info.commit_version_branch[commit_id]
+        branch_name = version_info.get_version_branch()[commit_id]
         os.system(rf'git checkout -f {branch_name}')
         os.system(rf'git reset --hard {commit_id}')
         all_file_list = export_all_files_in_project(code_repos_paths[project] + '/')
@@ -274,7 +280,7 @@ def combine_tmp_bug_info_from_all_branch(project):
 
 def link_bug_with_files_and_lines(project):
     version_info = Version(project)
-    for version_commit_id, version_name in version_info.commit_version_name.items():
+    for version_commit_id, version_name in version_info.get_version_name().items():
         commit_bug_dict = {}
         commit_bug_files_dict = {}
         commit_bug_lines_dict = {}
