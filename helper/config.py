@@ -24,7 +24,7 @@ projects = [
     'zookeeper',  # ok
 ]
 # 所有文件的根目录
-root_path = r'D:/CLDP_data_2022'
+root_path = r'D:/CLDP_data'
 # D:/CLDP_data
 code_repos_paths = dict(zip(projects, [f'D:/CLDP_data/Repository/{proj}' for proj in projects]))
 
