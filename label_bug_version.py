@@ -233,7 +233,7 @@ def combine_bug_info_from_all_branch(project, enable_filter_cm=True, enable_filt
         for file_name in all_file_list:
             file_label = 'true' if file_name in buggy_files else 'false'
             file_content = read_data_from_file(f'{code_repos_paths[project]}/{file_name}')
-            file_dataset_text += file_name + ',' + file_label + ',"' + ''.join(file_content) + '"'
+            file_dataset_text += file_name + ',' + file_label + ',"' + ''.join(file_content) + '"\n'
         save_data_to_file(file_dataset_path, file_dataset_text)
 
     print(f'{project} combined finish!')
@@ -318,7 +318,7 @@ def combine_tmp_bug_info_from_all_branch(project, enable_filter_cm=True, enable_
         for file_name in all_file_list:
             file_label = 'true' if file_name in buggy_files else 'false'
             file_content = read_data_from_file(f'{code_repos_paths[project]}/{file_name}')
-            file_dataset_text += file_name + ',' + file_label + ',"' + ''.join(file_content) + '"'
+            file_dataset_text += file_name + ',' + file_label + ',"' + ''.join(file_content) + '"\n'
         save_data_to_file(file_dataset_path, file_dataset_text)
 
     print(f'{project} combined finish!')
