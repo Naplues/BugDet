@@ -41,6 +41,9 @@ def main_steps_for_each_branch(project, branch_names):
 
 
 def collect_dataset():
+    ENABLE_FILTER_TMP = False
+    ENABLE_FILTER_RF = True
+
     # Processing each project
     for proj in projects:
         # 1. Collecting the bug information from JIRA
@@ -54,10 +57,9 @@ def collect_dataset():
         # main steps to extract bug info
         # main_steps_for_each_branch(proj, branches)
         # combine bug info from all branches
-        # combine_bug_info_from_all_branch(proj, enable_filter_rf=True)
-        combine_tmp_bug_info_from_all_branch(proj, enable_filter_rf=False)
+        combine_bug_info_from_all_branch(proj, enable_filter_tmp=ENABLE_FILTER_TMP, enable_filter_rf=ENABLE_FILTER_RF)
         # Link bug id and buggy files and buggy lines
-        link_bug_with_files_and_lines(proj, enable_filter_tmp=True, enable_filter_rf=False)
+        link_bug_with_files_and_lines(proj, enable_filter_tmp=ENABLE_FILTER_TMP, enable_filter_rf=ENABLE_FILTER_RF)
 
 
 if __name__ == '__main__':

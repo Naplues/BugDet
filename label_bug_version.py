@@ -3,8 +3,6 @@
 from helper.git_helper import *
 from helper.diff_helper import *
 
-tmp_dict = {}
-
 
 class Version(object):
     """
@@ -44,13 +42,7 @@ class Version(object):
         return self.commit_version_name, self.commit_version_date, self.commit_version_next, self.commit_version_branch
 
 
-def exclude_bugs_fixed_after_next_version(result, next_version_date):
-    """
-    Filter the bugs that fixed before next version. OK
-    """
-    next_version_time = datetime.datetime.strptime(next_version_date, '%a %b %d %H:%M:%S %Y %z')
-    exclude_result = [result[0]] + [r for r in result[1:] if c_to_time[r.split(',')[3]] < next_version_time]
-    return exclude_result
+tmp_dict = {}
 
 
 def transform(commit):
@@ -64,6 +56,15 @@ def transform(commit):
                 return x
     else:
         return commit
+
+
+def exclude_bugs_fixed_after_next_version(result, next_version_date):
+    """
+    Filter the bugs that fixed before next version. OK
+    """
+    next_version_time = datetime.datetime.strptime(next_version_date, '%a %b %d %H:%M:%S %Y %z')
+    exclude_result = [result[0]] + [r for r in result[1:] if c_to_time[r.split(',')[3]] < next_version_time]
+    return exclude_result
 
 
 def main_step_assign_bugs_for_each_version(project, branch_name, analysis_file_path):
@@ -154,10 +155,11 @@ def is_refactor_line(rf_dict, commit, line):
     return commit in rf_dict and line in rf_dict[commit]
 
 
-def combine_bug_info_from_all_branch(project, enable_filter_cm=True, enable_filter_rf=False):
+def combine_bug_info_from_all_branch(project, enable_filter_cm=True, enable_filter_tmp=False, enable_filter_rf=False):
     """
     :param project:
     :param enable_filter_cm: Whether enable comment filter
+    :param enable_filter_tmp: Whether enable temporary
     :param enable_filter_rf: Whether enable refactoring filter
     :return:
     """
@@ -173,7 +175,9 @@ def combine_bug_info_from_all_branch(project, enable_filter_cm=True, enable_filt
             # 查看csv结尾的文件
             if str(branch).endswith('.csv'):
                 continue
-            data_path = f'{dataset_paths[project]}/{branch}/{version_name}_defective_lines_dataset.csv'
+
+            tmp_string = 'tmp_' if enable_filter_tmp else ''
+            data_path = f'{dataset_paths[project]}/{branch}/{version_name}_{tmp_string}defective_lines_dataset.csv'
 
             for line in read_data_from_file(data_path)[1:]:
                 buggy_file = line.split(',')[0]
@@ -195,97 +199,12 @@ def combine_bug_info_from_all_branch(project, enable_filter_cm=True, enable_filt
         os.system(rf'git reset --hard {commit_id}')
         all_file_list = export_all_files_in_project(code_repos_paths[project] + '/')
 
-        if enable_filter_rf:
-            folder_line_level = f'{root_path}/Dataset-R/Line-level/'
-            folder_file_level = f'{root_path}/Dataset-R/File-level/'
-        else:
-            folder_line_level = f'{root_path}/Dataset/Line-level/'
-            folder_file_level = f'{root_path}/Dataset/File-level/'
+        dataset_string = 'Dataset'
+        dataset_string += '-TMP' if enable_filter_tmp else ''  # Dataset-TMP, Dataset
+        dataset_string += '-R' if enable_filter_rf else ''  # Dataset-TMP-R, Dataset-R, Dataset-TMP, Dataset
 
-        make_path(folder_line_level)
-        make_path(folder_file_level)
-
-        # line level dataset
-        buggy_files = []
-        line_dataset_path = f'{folder_line_level}{version_name.replace("/", "-")}_defective_lines_dataset.csv'
-        if os.path.exists(line_dataset_path):
-            continue
-
-        line_dataset_text = 'File,Line_number,SRC\n'
-        for buggy_line in buggy_lines:
-            file_name, line_number = buggy_line.split(',')[0], int(buggy_line.split(',')[1])
-            if file_name not in all_file_list:
-                continue
-            file_content = read_data_from_file(f'{code_repos_paths[project]}/{file_name}')
-            if line_number > len(file_content):
-                continue
-            line_content = file_content[line_number - 1]
-            if enable_filter_cm and is_comment_line2(line_content):
-                continue
-            if buggy_line.strip().split(',')[0] not in buggy_files:
-                buggy_files.append(buggy_line.strip().split(',')[0])
-            line_dataset_text += buggy_line.strip() + ',' + line_content.strip() + '\n'
-        save_data_to_file(line_dataset_path, line_dataset_text)
-
-        # file level dataset
-        file_dataset_path = f'{folder_file_level}/{version_name.replace("/", "-")}_ground-truth-files_dataset.csv'
-        file_dataset_text = 'File,Bug,SRC\n'
-        for file_name in all_file_list:
-            file_label = 'true' if file_name in buggy_files else 'false'
-            file_content = read_data_from_file(f'{code_repos_paths[project]}/{file_name}')
-            file_dataset_text += file_name + ',' + file_label + ',"' + ''.join(file_content) + '"\n'
-        save_data_to_file(file_dataset_path, file_dataset_text)
-
-    print(f'{project} combined finish!')
-
-
-def combine_tmp_bug_info_from_all_branch(project, enable_filter_cm=True, enable_filter_rf=False):
-    """
-    :param project:
-    :param enable_filter_cm: Whether enable comment filter
-    :param enable_filter_rf: Whether enable refactoring filter
-    :return:
-    """
-    # load refactor lines info
-    rf_data = load_pk_result(f'{data_collection_path}/Refactor/{project}.pk')
-
-    # Iterating each version
-    version_info = Version(project)
-    for commit_id, version_name in version_info.get_version_name().items():
-        # Iterating each branch
-        buggy_files, buggy_lines = [], []
-        for branch in os.listdir(f'{dataset_paths[project]}'):
-            # 查看csv结尾的文件
-            if str(branch).endswith('.csv'):
-                continue
-            data_path = f'{dataset_paths[project]}/{branch}/{version_name}_tmp_defective_lines_dataset.csv'
-
-            for line in read_data_from_file(data_path)[1:]:
-                buggy_file = line.split(',')[0]
-                buggy_line = buggy_file + ',' + line.split(',')[1]
-                buggy_bfc_commit = line.split(',')[3].strip()
-
-                if enable_filter_rf and is_refactor_line(rf_data[1], buggy_bfc_commit, buggy_line):
-                    # Skip refactoring line
-                    continue
-                # buggy_line = line
-                buggy_files.append(buggy_file) if buggy_file not in buggy_files else None
-                buggy_lines.append(buggy_line) if buggy_line not in buggy_lines else None
-
-        # There is no buggy files in this branch.
-        if len(buggy_files) == 0:
-            continue
-        branch_name = version_info.get_version_branch()[commit_id]
-        os.system(rf'git checkout -f {branch_name}')
-        os.system(rf'git reset --hard {commit_id}')
-        all_file_list = export_all_files_in_project(code_repos_paths[project] + '/')
-
-        if enable_filter_rf:
-            folder_line_level = f'{root_path}/Dataset-TMP-R/Line-level/'
-            folder_file_level = f'{root_path}/Dataset-TMP-R/File-level/'
-        else:
-            folder_line_level = f'{root_path}/Dataset-TMP/Line-level/'
-            folder_file_level = f'{root_path}/Dataset-TMP/File-level/'
+        folder_line_level = f'{root_path}/{dataset_string}/Line-level/'
+        folder_file_level = f'{root_path}/{dataset_string}/File-level/'
 
         make_path(folder_line_level)
         make_path(folder_file_level)
@@ -344,11 +263,10 @@ def link_bug_with_files_and_lines(project, enable_filter_tmp=False, enable_filte
                     commit_bug_dict[ss[0]] = ss[1] if ss[0] not in commit_bug_dict else None
 
             # The maps between commit and buggy files and lines.
-            dataset_path = f'{dataset_paths[project]}/{branch}/{version_name}_defective_lines_dataset.csv'
-            if enable_filter_tmp:
-                dataset_path = f'{dataset_paths[project]}/{branch}/{version_name}_tmp_defective_lines_dataset.csv'
+            tmp_string = 'tmp_' if enable_filter_tmp else ''
+            data_path = f'{dataset_paths[project]}/{branch}/{version_name}_{tmp_string}defective_lines_dataset.csv'
 
-            for line in read_data_from_file(dataset_path)[1:]:
+            for line in read_data_from_file(data_path)[1:]:
                 ss = line.strip().split(',')
                 commit_id, buggy_file, buggy_line = ss[3], ss[0], f'{ss[0]}:{ss[1]}'
 
