@@ -55,9 +55,9 @@ def collect_dataset():
         # main_steps_for_each_branch(proj, branches)
         # combine bug info from all branches
         # combine_bug_info_from_all_branch(proj, enable_filter_rf=True)
-        combine_tmp_bug_info_from_all_branch(proj, enable_filter_rf=True)
+        combine_tmp_bug_info_from_all_branch(proj, enable_filter_rf=False)
         # Link bug id and buggy files and buggy lines
-        # link_bug_with_files_and_lines(proj)
+        link_bug_with_files_and_lines(proj, enable_filter_tmp=True, enable_filter_rf=False)
 
 
 if __name__ == '__main__':

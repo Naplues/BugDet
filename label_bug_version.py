@@ -324,7 +324,10 @@ def combine_tmp_bug_info_from_all_branch(project, enable_filter_cm=True, enable_
     print(f'{project} combined finish!')
 
 
-def link_bug_with_files_and_lines(project):
+def link_bug_with_files_and_lines(project, enable_filter_tmp=False, enable_filter_rf=False):
+    # load refactor lines info
+    rf_data = load_pk_result(f'{data_collection_path}/Refactor/{project}.pk')
+
     version_info = Version(project)
     for version_commit_id, version_name in version_info.get_version_name().items():
         commit_bug_dict = {}
@@ -342,9 +345,16 @@ def link_bug_with_files_and_lines(project):
 
             # The maps between commit and buggy files and lines.
             dataset_path = f'{dataset_paths[project]}/{branch}/{version_name}_defective_lines_dataset.csv'
+            if enable_filter_tmp:
+                dataset_path = f'{dataset_paths[project]}/{branch}/{version_name}_tmp_defective_lines_dataset.csv'
+
             for line in read_data_from_file(dataset_path)[1:]:
                 ss = line.strip().split(',')
                 commit_id, buggy_file, buggy_line = ss[3], ss[0], f'{ss[0]}:{ss[1]}'
+
+                if enable_filter_rf and is_refactor_line(rf_data[1], commit_id.strip(), buggy_line):
+                    # Skip refactoring line
+                    continue
 
                 existing_files = commit_bug_files_dict[commit_id] if commit_id in commit_bug_files_dict else []
                 existing_files.append(buggy_file) if buggy_file not in existing_files else None
@@ -354,7 +364,11 @@ def link_bug_with_files_and_lines(project):
                 existing_lines.append(buggy_line) if buggy_line not in existing_lines else None
                 commit_bug_lines_dict[commit_id] = existing_lines
 
-        folder_file_level = f'{root_path}/Dataset/Bug-Info/{version_name.split("-")[0]}/'
+        dataset_string = 'Dataset'
+        dataset_string += '-TMP' if enable_filter_tmp else ''  # Dataset-TMP, Dataset
+        dataset_string += '-R' if enable_filter_rf else ''  # Dataset-TMP-R, Dataset-R, Dataset-TMP, Dataset
+
+        folder_file_level = f'{root_path}/{dataset_string}/Bug-Info/{version_name.split("-")[0]}/'
         make_path(folder_file_level)
         prefix = f'{folder_file_level}/{version_name.replace("/", "-")}'
         save_dict_to_file(f'{prefix}_commit_bug.csv', commit_bug_dict)
