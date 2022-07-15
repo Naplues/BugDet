@@ -239,19 +239,35 @@ def combine_bug_info_from_all_branch(project, enable_filter_cm=True, enable_filt
     print(f'{project} combined finish!')
 
 
-def combine_tmp_bug_info_from_all_branch(project):
+def combine_tmp_bug_info_from_all_branch(project, enable_filter_cm=True, enable_filter_rf=False):
+    """
+    :param project:
+    :param enable_filter_cm: Whether enable comment filter
+    :param enable_filter_rf: Whether enable refactoring filter
+    :return:
+    """
+    # load refactor lines info
+    rf_data = load_pk_result(f'{data_collection_path}/Refactor/{project}.pk')
+
+    # Iterating each version
     version_info = Version(project)
     for commit_id, version_name in version_info.get_version_name().items():
+        # Iterating each branch
         buggy_files, buggy_lines = [], []
         for branch in os.listdir(f'{dataset_paths[project]}'):
             # 查看csv结尾的文件
             if str(branch).endswith('.csv'):
                 continue
-            dataset_path = f'{dataset_paths[project]}/{branch}/{version_name}_tmp_defective_lines_dataset.csv'
+            data_path = f'{dataset_paths[project]}/{branch}/{version_name}_tmp_defective_lines_dataset.csv'
 
-            for line in read_data_from_file(dataset_path)[1:]:
+            for line in read_data_from_file(data_path)[1:]:
                 buggy_file = line.split(',')[0]
                 buggy_line = buggy_file + ',' + line.split(',')[1]
+                buggy_bfc_commit = line.split(',')[3].strip()
+
+                if enable_filter_rf and is_refactor_line(rf_data[1], buggy_bfc_commit, buggy_line):
+                    # Skip refactoring line
+                    continue
                 # buggy_line = line
                 buggy_files.append(buggy_file) if buggy_file not in buggy_files else None
                 buggy_lines.append(buggy_line) if buggy_line not in buggy_lines else None
@@ -264,8 +280,13 @@ def combine_tmp_bug_info_from_all_branch(project):
         os.system(rf'git reset --hard {commit_id}')
         all_file_list = export_all_files_in_project(code_repos_paths[project] + '/')
 
-        folder_line_level = f'{root_path}/Dataset-TMP/Line-level/'
-        folder_file_level = f'{root_path}/Dataset-TMP/File-level/'
+        if enable_filter_rf:
+            folder_line_level = f'{root_path}/Dataset-TMP-R/Line-level/'
+            folder_file_level = f'{root_path}/Dataset-TMP-R/File-level/'
+        else:
+            folder_line_level = f'{root_path}/Dataset-TMP/Line-level/'
+            folder_file_level = f'{root_path}/Dataset-TMP/File-level/'
+
         make_path(folder_line_level)
         make_path(folder_file_level)
 
@@ -284,7 +305,7 @@ def combine_tmp_bug_info_from_all_branch(project):
             if line_number > len(file_content):
                 continue
             line_content = file_content[line_number - 1]
-            if is_comment_line2(line_content):
+            if enable_filter_cm and is_comment_line2(line_content):
                 continue
             if buggy_line.strip().split(',')[0] not in buggy_files:
                 buggy_files.append(buggy_line.strip().split(',')[0])
