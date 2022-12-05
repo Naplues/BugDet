@@ -3,54 +3,51 @@ from helper.file_helper import *
 from helper.config import *
 
 
-def fun(proj):
-    # The number of refactoring lines
-    path = f'D:/CLDP_data/DataCollection/Refactor/{proj}/refactor-{proj}.txt'
-    refactor_lines = []
-    lines = read_data_from_file(path)
-    for line in lines:
-        if line.strip().endswith(')'):
-            s = line.strip().split('\t')[1].split(' at ')[-1][:-1]
-            refactor_lines.append(s) if s not in refactor_lines else None
+def generate_refactor_info(proj):
+    ##### Refactoring line info
+    refactor_list = []  # The list of refactor lines
+    refactor_dict = {}  # The dict of [BFC commit -> refactor lines]
 
+    lines = read_data_from_file(f'{data_collection_path}/Refactor/{proj}/refactor-{proj}.txt')
+    cur_commit = ''
+    # Iterating each lines in the file
+    for line in lines:
+        line = line.strip()
+        if not line.endswith(')'):
+            # Current line is a commit ID
+            cur_commit = line
+            refactor_dict[cur_commit] = [] if line not in refactor_dict else refactor_dict[cur_commit]
+        else:
+            # Current line is a refactor line information
+            s = line.split('\t')[1].split(' at ')[-1][:-1].replace(':', ',')
+            refactor_list.append(s) if s not in refactor_list else None
+            refactor_dict[cur_commit].append(s) if s not in refactor_dict[cur_commit] else None
+
+    # Save to file
+    dump_pk_result(f'{data_collection_path}/Refactor/{proj}.pk', [refactor_list, refactor_dict])
+
+    ##### Bug commits line info
     # The number of BFC lines
-    path = f'D:/CLDP_data/DataCollection/Analysis/{proj}/'
-    BFC_lines_number = 0
+    bug_commits_line = set()
+    path = f'{data_collection_path}/Analysis/{proj}/'
+    a = 0
     for branch in os.listdir(path):
         if os.path.exists(f'{path}{branch}/bug_commits_lines_info.csv'):
             lines = read_data_from_file(f'{path}{branch}/bug_commits_lines_info.csv')[1:]
-            BFC_lines_number += len(lines)
-            # for line in lines:
-            #     BFC_lines.append(line) if line not in BFC_lines else None
+            a += len(lines)
+            for line in lines:
+                bug_commits_line.add(line)
 
-    # print(len(refactor_lines), BFC_lines_number)
-    print(len(refactor_lines) / BFC_lines_number)
+    print(proj, len(refactor_list) / len(bug_commits_line))
     pass
 
 
 if __name__ == '__main__':
     projects = [
-        'ambari',  # ok
-        'amq',  # ok activemq
-        'bookkeeper',
-        'calcite',  # ok
-        'cassandra',  # ok
-        'flink',
-        'groovy',  # ok
-        'hbase',
-        'hive',  # ok
-        'ignite',  # ok
-        'log4j2',  # logging-log4j2
-        'mahout',  # ok
-        'mng',  # maven
-        'nifi',
-        'nutch',
-        'storm',
-        'tika',
-        'ww',  # struts
-        'zookeeper',  # ok
+        'ambari', 'amq', 'bookkeeper', 'calcite', 'cassandra', 'flink', 'groovy', 'hbase', 'hive', 'ignite',
+        'log4j2', 'mahout', 'mng', 'nifi', 'nutch', 'storm', 'tika', 'ww', 'zookeeper',
     ]
     for project in projects:
-        fun(project)
+        generate_refactor_info(project)
         # break
     pass
